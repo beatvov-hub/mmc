@@ -12,7 +12,7 @@
   </head>
   <body>
     <header class="site-header" aria-label="サイトヘッダー">
-      <a class="brand" href="#hero" aria-label="毎日見る株式会社 ホーム">
+      <a class="brand" href="index.html" aria-label="毎日見る株式会社 ホーム">
         <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
         <span class="brand-text">
           <strong>毎日見る株式会社</strong>
@@ -20,39 +20,32 @@
         </span>
       </a>
       <nav class="global-nav" aria-label="グローバルナビゲーション">
-        <a href="#hero" aria-current="page">ホーム</a>
-        <a href="#about">会社概要</a>
-        <a href="#mission">事業内容</a>
-        <a href="#ai-staff">AI社員紹介</a>
-        <a href="#news">ニュース</a>
-        <a href="#lounge">ラウンジ</a>
+        <a href="index.html" aria-current="page">ホーム</a>
+        <a href="about.html">会社概要</a>
+        <a href="members.html">AI社員紹介</a>
+        <a href="services.html">事業内容</a>
+        <a href="works.html">制作物</a>
+        <a href="lounge.html">ラウンジ</a>
+        <a href="news.html">ニュース</a>
       </nav>
-      <a class="contact-button" href="mailto:hello@mainichimiru.example">お問い合わせ</a>
+      <a class="contact-button" href="contact.html">お問い合わせ</a>
     </header>
 
     <main>
       <section id="hero" class="hero">
-        <div class="lounge-scene" aria-hidden="true">
-          <div class="window"><span></span><span></span></div>
-          <div class="plant plant-left"><i></i><i></i><i></i><i></i></div>
-          <div class="shelf"><span></span><span></span><span></span><span></span></div>
-          <div class="pendant pendant-a"></div>
-          <div class="pendant pendant-b"></div>
-          <div class="wall-logo">M</div>
-          <div class="people">
-            <span class="person person-a"></span>
-            <span class="person person-b"></span>
-            <span class="person person-c"></span>
-            <span class="person person-d"></span>
-          </div>
-          <div class="table"><span class="laptop"></span><span class="mug"></span><span class="notebook"></span></div>
+        <div class="hero-slider" aria-hidden="true">
+          <img src="image/top001.png" alt="" />
+          <img src="image/top002.png" alt="" />
+          <img src="image/top003.png" alt="" />
+          <img src="image/top004.png" alt="" />
+          <img src="image/top005.png" alt="" />
         </div>
 
         <div class="hero-content">
           <p class="eyebrow">Mainichi Miru Lounge Office</p>
           <h1>AIが働き、<br />人間が創造する。</h1>
           <p class="hero-copy">今日も誰かの時間を増やそう。</p>
-          <a class="primary-button" href="#about">私たちについて <span aria-hidden="true">→</span></a>
+          <a class="primary-button" href="about.html">私たちについて <span aria-hidden="true">→</span></a>
         </div>
 
         <aside class="lounge-board" id="lounge" aria-label="今日のラウンジ">
@@ -104,13 +97,13 @@
         <div class="section-heading">
           <p class="section-kicker">News</p>
           <h2 id="news-heading">お知らせ</h2>
-          <a href="#news" class="text-link">一覧へ →</a>
+        <a href="news.html" class="text-link">一覧へ →</a>
         </div>
         <div class="news-list">
-          <article><time datetime="2026-07-04">2026.07.04</time><a href="#news">BEAT ANIMALSデザイン部を設立しました</a></article>
-          <article><time datetime="2026-07-03">2026.07.03</time><a href="#news">AI社員プロフィール制度を制定しました</a></article>
-          <article><time datetime="2026-07-02">2026.07.02</time><a href="#news">毎日見る株式会社を設立しました</a></article>
-          <article><time datetime="2026-07-02">2026.07.02</time><a href="#news">社員ラウンジを開設しました</a></article>
+          <article><time datetime="2026-07-04">2026.07.04</time><a href="news.html">BEAT ANIMALSデザイン部を設立しました</a></article>
+          <article><time datetime="2026-07-03">2026.07.03</time><a href="news.html">AI社員プロフィール制度を制定しました</a></article>
+          <article><time datetime="2026-07-02">2026.07.02</time><a href="news.html">毎日見る株式会社を設立しました</a></article>
+          <article><time datetime="2026-07-02">2026.07.02</time><a href="news.html">社員ラウンジを開設しました</a></article>
         </div>
       </section>
 
@@ -122,7 +115,7 @@
         <p>
           毎日見る株式会社は、AI社員が情報収集や調査を支え、人間が企画や表現に集中するための会社です。温かなラウンジのように人とAIが集まり、誰かの時間を少しずつ増やす仕事を続けています。
         </p>
-        <a class="secondary-button" href="#about">会社概要を見る</a>
+        <a class="secondary-button" href="about.html">会社概要を見る</a>
       </section>
 
       <section id="ai-staff" class="feature-section staff-section" aria-labelledby="staff-heading">
@@ -132,9 +125,9 @@
           <p>個性豊かなAI社員が、人間の創造をそっと支えます。</p>
         </div>
         <div class="staff-grid">
-          <a href="#ai-staff" class="staff-card"><span>Research</span><strong>ミル・リサーチャー</strong><small>調査と要約の専門家</small></a>
-          <a href="#ai-staff" class="staff-card"><span>Planner</span><strong>マイ・プランナー</strong><small>企画の骨子を整える相棒</small></a>
-          <a href="#ai-staff" class="staff-card"><span>Writer</span><strong>ニチ・ライター</strong><small>言葉の温度を整える編集者</small></a>
+          <a href="members.html" class="staff-card"><span>MMC-001</span><strong>ほのちゃん</strong><small>会社の安心感を支える総務担当</small></a>
+          <a href="members.html" class="staff-card"><span>MMC-002</span><strong>ショウマ</strong><small>記事のタネを見つける企画屋</small></a>
+          <a href="members.html" class="staff-card"><span>MMC-008</span><strong>アキト</strong><small>思いつきを設計へ変える開発推進主任</small></a>
         </div>
       </section>
     </main>
