@@ -3,22 +3,191 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ニュース | 毎日見る株式会社</title>
-    <meta name="description" content="毎日見る株式会社の更新情報と沿革を掲載します。" />
+    <title>ニュース・更新ログ | 毎日見る株式会社</title>
+    <meta
+      name="description"
+      content="毎日見る株式会社のニュース、会社沿革、日々の更新ログを掲載しています。AI社員制度、部署設立、公式ホームページ運用などの歩みを記録します。"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="subpage">
-    <header class="site-header" aria-label="サイトヘッダー"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span class="brand-text"><strong>毎日見る株式会社</strong><small>Mainichi Miru Inc.</small></span></a><nav class="global-nav" aria-label="グローバルナビゲーション"><a href="index.html">ホーム</a><a href="about.html">会社概要</a><a href="members.html">AI社員紹介</a><a href="services.html">事業内容</a><a href="works.html">制作物</a><a href="lounge.html">ラウンジ</a><a href="news.html" aria-current="page">ニュース</a></nav><a class="contact-button" href="contact.html">お問い合わせ</a></header>
-    <main class="page-main">
-      <section class="page-hero"><div><p class="section-kicker">News</p><h1>ニュース</h1><p class="page-lead">会社の更新情報、沿革、制作物の進捗をここに残していきます。</p></div><div class="page-note">まずは仮置きのお知らせから。育っていく会社のログです。</div></section>
-      <section class="card-section news-timeline" aria-label="ニュース一覧">
-        <article class="news-item"><time datetime="2026-07-02">2026.07.02</time><a href="#">毎日見る株式会社を設立しました</a></article>
-        <article class="news-item"><time datetime="2026-07-03">2026.07.03</time><a href="#">AI社員プロフィール制度を制定しました</a></article>
-        <article class="news-item"><time datetime="2026-07-04">2026.07.04</time><a href="#">BEAT ANIMALSデザイン部を設立しました</a></article>
-        <article class="news-item"><time datetime="2026-07-04">2026.07.04</time><a href="#">開発推進室を設立しました</a></article>
-        <article class="news-item"><time datetime="2026-07">2026.07.xx</time><a href="#">公式ホームページ制作を開始しました</a></article>
+  <body class="subpage news-page">
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <nav class="global-nav" aria-label="グローバルナビゲーション">
+        <a href="index.html">ホーム</a>
+        <a href="about.html">会社概要</a>
+        <a href="members.html">AI社員紹介</a>
+        <a href="services.html">事業内容</a>
+        <a href="works.html">制作物</a>
+        <a href="lounge.html">ラウンジ</a>
+        <a href="news.html" aria-current="page">ニュース</a>
+      </nav>
+      <a class="contact-button" href="contact.html">お問い合わせ</a>
+    </header>
+
+    <main class="page-main news-main">
+      <section class="page-hero news-hero">
+        <div>
+          <p class="section-kicker">News & Daily Log</p>
+          <h1>ニュース・更新ログ</h1>
+          <p class="page-lead">
+            毎日見る株式会社の設立から日々の運用まで、会社の歩みを「毎日更新できるログ」として残していきます。
+          </p>
+        </div>
+        <aside class="page-note news-current">
+          <span class="news-current-label">最新更新</span>
+          <time datetime="2026-07-06">2026.07.06</time>
+          <strong>公式ホームページ公開</strong>
+          <p>公式ホームページの運用を開始し、Netlifyによる公開環境を正式運用しました。</p>
+        </aside>
+      </section>
+
+      <section class="news-dashboard" aria-label="更新サマリー">
+        <article>
+          <span>設立</span>
+          <strong>2026.07.02</strong>
+          <p>毎日見る株式会社が始動しました。</p>
+        </article>
+        <article>
+          <span>制度</span>
+          <strong>AI社員制度</strong>
+          <p>社員番号制度とプロフィール制度を整備。</p>
+        </article>
+        <article>
+          <span>運用</span>
+          <strong>毎日更新前提</strong>
+          <p>ニュースを活動記録として育てます。</p>
+        </article>
+      </section>
+
+      <section class="daily-update-card" aria-labelledby="daily-update-title">
+        <div>
+          <p class="section-kicker">Today</p>
+          <h2 id="daily-update-title">今日の更新</h2>
+          <p>
+            ホームページ公開に合わせて、ニュースページを会社沿革と日々の活動ログを兼ねた形式へ整えました。
+            今後は、小さな変更や部署の動きもここに積み重ねていきます。
+          </p>
+        </div>
+        <ul class="daily-update-list">
+          <li><span>公開</span>公式ホームページ運用開始</li>
+          <li><span>環境</span>Netlify公開環境を正式運用開始</li>
+          <li><span>記録</span>毎日更新用のニュース構成を準備</li>
+        </ul>
+      </section>
+
+      <section class="news-log-section" aria-labelledby="news-log-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Company Timeline</p>
+            <h2 id="news-log-title">会社沿革と更新ログ</h2>
+          </div>
+        </div>
+
+        <div class="news-log">
+          <article class="news-log-day is-latest">
+            <time datetime="2026-07-06">2026.07.06</time>
+            <div class="news-log-body">
+              <div class="news-log-title-row">
+                <h3>公式ホームページ公開</h3>
+                <span class="tag">公開</span>
+              </div>
+              <ul>
+                <li>毎日見る株式会社 公式ホームページ公開</li>
+                <li>公式ホームページ運用開始</li>
+                <li>Netlifyによる公開環境を正式運用開始</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="news-log-day">
+            <time datetime="2026-07-05">2026.07.05</time>
+            <div class="news-log-body">
+              <div class="news-log-title-row">
+                <h3>広報部と社外協力者制度を整備</h3>
+                <span class="tag">組織</span>
+              </div>
+              <ul>
+                <li>広報部 設立</li>
+                <li>広報部長 ケイ 入社</li>
+                <li>社外協力者制度 制定</li>
+                <li>社外協力者第1号「ペチ」と協力関係を開始</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="news-log-day">
+            <time datetime="2026-07-04">2026.07.04</time>
+            <div class="news-log-body">
+              <div class="news-log-title-row">
+                <h3>デザイン部・開発推進室が始動</h3>
+                <span class="tag">採用</span>
+              </div>
+              <ul>
+                <li>BEAT ANIMALSデザイン部 設立</li>
+                <li>ブランドデザイナー レイちゃん 入社</li>
+                <li>開発推進室 設立</li>
+                <li>AI開発推進主任 アキト 入社（中途採用）</li>
+                <li>Codex外部委託体制を正式運用開始</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="news-log-day">
+            <time datetime="2026-07-03">2026.07.03</time>
+            <div class="news-log-body">
+              <div class="news-log-title-row">
+                <h3>AI社員プロフィール制度を制定</h3>
+                <span class="tag">制度</span>
+              </div>
+              <ul>
+                <li>AI社員プロフィール制度 制定</li>
+                <li>社員番号制度（MMC）導入</li>
+                <li>社員名簿運用開始</li>
+                <li>中途キャリア採用制度 導入</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="news-log-day">
+            <time datetime="2026-07-02">2026.07.02</time>
+            <div class="news-log-body">
+              <div class="news-log-title-row">
+                <h3>毎日見る株式会社 設立</h3>
+                <span class="tag">設立</span>
+              </div>
+              <ul>
+                <li>毎日見る株式会社 設立</li>
+                <li>AI社員制度開始</li>
+                <li>総務課 設立</li>
+                <li>人事部 設立</li>
+                <li>社員ラウンジ 開設</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="news-update-format" aria-labelledby="update-format-title">
+        <div>
+          <p class="section-kicker">Update Format</p>
+          <h2 id="update-format-title">今後の更新方針</h2>
+          <p>
+            ニュースは大きな発表だけでなく、日々の改善、社員ラウンジで生まれた企画、制作物の小さな進捗も記録します。
+            毎日見返したときに、会社が少しずつ育っていることがわかるページを目指します。
+          </p>
+        </div>
+        <div class="format-grid">
+          <article><strong>今日やったこと</strong><span>公開・修正・部署の動き</span></article>
+          <article><strong>生まれた企画</strong><span>ラウンジ発のアイデア</span></article>
+          <article><strong>次にやること</strong><span>明日以降の更新メモ</span></article>
+        </div>
       </section>
     </main>
+
     <footer class="site-footer">© 毎日見る株式会社</footer>
   </body>
 </html>
