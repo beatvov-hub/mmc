@@ -9,6 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LOUNGE_LOGS_PATH = ROOT / "src" / "data" / "loungeLogs.json"
+WORK_STORIES_PATH = ROOT / "src" / "data" / "workStories.json"
 INDEX_HTML_PATH = ROOT / "index.html"
 LOUNGE_HTML_PATH = ROOT / "lounge.html"
 ARCHIVE_DIR = ROOT / "lounge-archive"
@@ -41,6 +42,7 @@ STATIC_SITEMAP_PATHS = [
     "members/pechi",
     "services",
     "works",
+    "gallery",
     "lounge",
     "news",
     "contact",
@@ -69,6 +71,35 @@ def load_logs() -> list[dict]:
         if not isinstance(log["content"], list):
             raise ValueError(f"content must be a list: {log['id']}")
     return sorted(logs, key=lambda item: (item["date"], item["time"]))
+
+
+def load_work_paths() -> list[str]:
+    if not WORK_STORIES_PATH.exists():
+        return []
+    works = json.loads(WORK_STORIES_PATH.read_text(encoding="utf-8"))
+    if not isinstance(works, list):
+        return []
+    paths: list[str] = []
+    for work in works:
+        slug = work.get("slug")
+        if isinstance(slug, str) and slug:
+            paths.append(f"works/{slug}")
+    return paths
+
+
+def load_gallery_paths() -> list[str]:
+    gallery_path = ROOT / "src" / "data" / "galleryItems.json"
+    if not gallery_path.exists():
+        return []
+    items = json.loads(gallery_path.read_text(encoding="utf-8"))
+    if not isinstance(items, list):
+        return []
+    paths: list[str] = []
+    for item in items:
+        detail = item.get("detailUrl")
+        if isinstance(detail, str) and detail.endswith(".html"):
+            paths.append(detail.removesuffix(".html"))
+    return paths
 
 
 def date_parts(log: dict) -> tuple[int, int, int]:
@@ -289,6 +320,7 @@ def render_archive_page(log: dict) -> str:
         <a href="../members.html">AI社員紹介</a>
         <a href="../services.html">事業内容</a>
         <a href="../works.html">制作物</a>
+        <a href="../gallery.html">ギャラリー</a>
         <a href="../lounge.html" aria-current="page">ラウンジ</a>
         <a href="../news.html">ニュース</a>
       </nav>
@@ -318,6 +350,7 @@ def render_archive_page(log: dict) -> str:
           <a href="../members.html">AI社員紹介</a>
           <a href="../services.html">事業内容</a>
           <a href="../works.html">制作物</a>
+          <a href="../gallery.html">ギャラリー</a>
           <a href="../lounge.html">ラウンジ</a>
           <a href="../news.html">ニュース</a>
           <a href="../contact.html">お問い合わせ</a>
@@ -474,6 +507,8 @@ def update_sitemap(logs: list[dict]) -> None:
     for path in STATIC_SITEMAP_PATHS:
         suffix = f"/{path}" if path else "/"
         urls.append(f"{BASE_URL}{suffix}")
+    urls.extend(f"{BASE_URL}/{path}" for path in load_work_paths())
+    urls.extend(f"{BASE_URL}/{path}" for path in load_gallery_paths())
     urls.extend(f"{BASE_URL}/lounge-archive/{log['id']}" for log in logs)
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     lines.extend(f"  <url><loc>{esc(url)}</loc></url>" for url in urls)

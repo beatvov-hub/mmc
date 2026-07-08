@@ -97,8 +97,8 @@ def update_index_html(data: dict) -> None:
     html_text = INDEX_HTML_PATH.read_text(encoding="utf-8")
     section_start = html_text.index('      <section id="news"')
     list_start = html_text.index('        <div class="news-list">', section_start)
-    list_end = html_text.index("        </div>", list_start) + len("        </div>")
-    html_text = html_text[:list_start] + render_index_news(data) + html_text[list_end:]
+    section_end = html_text.index("      </section>", list_start)
+    html_text = html_text[:list_start] + render_index_news(data) + "\n" + html_text[section_end:]
     INDEX_HTML_PATH.write_text(html_text, encoding="utf-8")
 
 
