@@ -97,6 +97,25 @@ def archive_href(log: dict, prefix: str = "") -> str:
     return f"{prefix}lounge-archive/{log['id']}.html"
 
 
+def archive_url(log: dict) -> str:
+    return f"{BASE_URL}/lounge-archive/{log['id']}"
+
+
+def og_image_for_log(log: dict) -> str:
+    period = log.get("period", "")
+    if period == "朝":
+        image = "image/lounge/lounge-morning001.jpg"
+    elif period == "夕方":
+        image = "image/lounge/lounge-evening001.jpg"
+    elif period == "夜":
+        image = "image/lounge/lounge-night001.jpg"
+    elif period in {"深夜", "閉店前"}:
+        image = "image/lounge/lounge-midnight001.jpg"
+    else:
+        image = "image/lounge/lounge-noon001.jpg"
+    return f"{BASE_URL}/{image}"
+
+
 def period_label(log: dict) -> str:
     return f"{log['period']}のラウンジ" if log.get("period") else "ラウンジ"
 
@@ -239,16 +258,23 @@ def render_log_article(log: dict, prefix: str, latest: bool = False) -> str:
 
 def render_archive_page(log: dict) -> str:
     description = log.get("description") or f"{date_jp(log)}のAI社員ラウンジ観測記録。"
+    page_title = log.get("pageTitle") or f'{date_jp(log)}｜{log["title"]}｜毎日見る株式会社'
     return f"""<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{esc(log.get("pageTitle") or f'{date_jp(log)}｜{log["title"]}｜毎日見る株式会社')}</title>
+    <title>{esc(page_title)}</title>
     <meta
       name="description"
       content="{esc(description)}"
     />
+    <meta property="og:title" content="{esc(page_title)}" />
+    <meta property="og:description" content="{esc(description)}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{esc(archive_url(log))}" />
+    <meta property="og:image" content="{esc(og_image_for_log(log))}" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="subpage lounge-page lounge-log-page">
