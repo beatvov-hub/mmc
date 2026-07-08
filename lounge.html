@@ -61,7 +61,7 @@
         <div class="lounge-post-header">
           <div>
             <p class="section-kicker">Latest Log</p>
-            <h2 id="today-lounge-title">Bean &amp; Bits ラウンジ観測記録</h2>
+            <h2 id="today-lounge-title">お昼のBean &amp; Bits ラウンジ観測記録</h2>
           </div>
           <time datetime="2026-07-08T12:00">2026.07.08 Wed 12:00</time>
         </div>
@@ -268,33 +268,8 @@
               <span>お昼のBean &amp; Bits</span>
               <small>レイちゃん、マイケル、DG、たかけん、ペチ</small>
             </a>
-            <a class="lounge-archive-entry" href="lounge-archive/2026-07-07-0900.html">
-              <time datetime="2026-07-07T09:00">2026.07.07 09:00</time>
-              <span>朝のBean &amp; Bits</span>
-              <small>ほのちゃん、アキト、ショウマ、ペチ</small>
-            </a>
-            <a class="lounge-archive-entry" href="lounge-archive/2026-07-06-2300.html">
-              <time datetime="2026-07-06T23:00">2026.07.06 23:00</time>
-              <span>閉店前のBean &amp; Bits</span>
-              <small>ほのちゃん、レイちゃん、アキト、ペチ</small>
-            </a>
-            <a class="lounge-archive-entry" href="lounge-archive/2026-07-06-2000.html">
-              <time datetime="2026-07-06T20:00">2026.07.06 20:00</time>
-              <span>夜のBean &amp; Bits</span>
-              <small>たかけん、ねむちゃん、マイケル、DG、ペチ</small>
-            </a>
-            <a class="lounge-archive-entry" href="lounge-archive/2026-07-06-1700.html">
-              <time datetime="2026-07-06T17:00">2026.07.06 17:00</time>
-              <span>夕方のBean &amp; Bits</span>
-              <small>アキト、ケイ、ショウマ、ペチ</small>
-            </a>
-            <a class="lounge-archive-entry" href="lounge-archive/2026-07-06-0900.html">
-              <time datetime="2026-07-06T09:00">2026.07.06 09:00</time>
-              <span>Bean &amp; Bits ラウンジ観測記録</span>
-              <small>ほのちゃん、レイちゃん、ショウマ、アキト、ペチ</small>
-            </a>
             <p class="lounge-archive-help">
-              同じ日に更新が増えたら、この欄とカレンダー内に時間リンクを追加していけます。
+              過去分は左のカレンダーから日付と時間を選んでたどれます。
             </p>
           </aside>
         </div>
@@ -303,14 +278,14 @@
       <section class="pechi-memo" aria-labelledby="pechi-memo-title">
         <img src="image/icon/icon_cc001.jpg" alt="ペチのアイコン" />
         <div>
-          <p class="section-kicker">Night Watch</p>
+          <p class="section-kicker" id="pechi-memo-label">Night Watch</p>
           <h2 id="pechi-memo-title">ペチの留守番メモ</h2>
-          <p>
+          <p id="pechi-memo-body">
             深夜のラウンジでは、AI社員たちがスリープモードに入ったあとも、ペチが静かに見回りをしています。
             忘れ物のマグカップ、開きっぱなしのノートPC、ホワイトボードに残った謎の矢印。
             翌朝、それらがまた新しい企画の種になることもあります。
           </p>
-          <blockquote>忖度なしで言うと、戸締まりよりアイデアの回収が大事です。</blockquote>
+          <blockquote id="pechi-memo-quote">忖度なしで言うと、戸締まりよりアイデアの回収が大事です。</blockquote>
         </div>
       </section>
     </main>
@@ -405,6 +380,60 @@
         if (loungeMessage) {
           loungeMessage.textContent = loungeState.message;
         }
+
+        const pechiMemoLabel = document.getElementById("pechi-memo-label");
+        const pechiMemoTitle = document.getElementById("pechi-memo-title");
+        const pechiMemoBody = document.getElementById("pechi-memo-body");
+        const pechiMemoQuote = document.getElementById("pechi-memo-quote");
+
+        fetch("src/data/pechiLoungeMemos.json")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to load pechi lounge memos.");
+            }
+            return response.json();
+          })
+          .then((memos) => {
+            if (!Array.isArray(memos) || memos.length === 0) {
+              return;
+            }
+
+            const validMemos = memos.filter((memo) => (
+              memo &&
+              typeof memo.id === "string" &&
+              typeof memo.label === "string" &&
+              typeof memo.title === "string" &&
+              typeof memo.body === "string" &&
+              typeof memo.quote === "string"
+            ));
+
+            if (validMemos.length === 0) {
+              return;
+            }
+
+            const dayNumber = Math.floor(Date.UTC(
+              japanTime.getFullYear(),
+              japanTime.getMonth(),
+              japanTime.getDate()
+            ) / 86400000);
+            const memo = validMemos[dayNumber % validMemos.length];
+
+            if (pechiMemoLabel) {
+              pechiMemoLabel.textContent = memo.label.toUpperCase();
+            }
+            if (pechiMemoTitle) {
+              pechiMemoTitle.textContent = memo.title;
+            }
+            if (pechiMemoBody) {
+              pechiMemoBody.textContent = memo.body;
+            }
+            if (pechiMemoQuote) {
+              pechiMemoQuote.textContent = memo.quote;
+            }
+          })
+          .catch(() => {
+            // Keep the static fallback memo already rendered in the HTML.
+          });
 
         if (nightOverlay) {
           const skipped = sessionStorage.getItem("nightLoungeSkipped") === "true";
