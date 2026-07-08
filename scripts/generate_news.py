@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 NEWS_DATA_PATH = ROOT / "src" / "data" / "newsItems.json"
 INDEX_HTML_PATH = ROOT / "index.html"
 NEWS_HTML_PATH = ROOT / "news.html"
+ABOUT_HTML_PATH = ROOT / "about.html"
 
 
 def esc(value: object) -> str:
@@ -20,6 +21,11 @@ def date_dot(date: str) -> str:
     return f"{year}.{month}.{day}"
 
 
+def date_jp(date: str) -> str:
+    year, month, day = date.split("-")
+    return f"{year}年{int(month)}月{int(day)}日"
+
+
 def load_news() -> dict:
     data = json.loads(NEWS_DATA_PATH.read_text(encoding="utf-8"))
     if not isinstance(data, dict):
@@ -29,8 +35,16 @@ def load_news() -> dict:
     return data
 
 
+def sort_key(item: dict) -> tuple[str, int]:
+    return (item.get("date", ""), int(item.get("priority", 0)))
+
+
 def sorted_items(data: dict) -> list[dict]:
-    return sorted(data["items"], key=lambda item: item["date"], reverse=True)
+    return sorted(data["items"], key=sort_key, reverse=True)
+
+
+def timeline_sorted_items(data: dict) -> list[dict]:
+    return sorted(timeline_items(data), key=lambda item: (item.get("date", ""), -int(item.get("priority", 0))))
 
 
 def timeline_items(data: dict) -> list[dict]:
@@ -41,14 +55,39 @@ def top_items(data: dict) -> list[dict]:
     return [item for item in sorted_items(data) if item.get("topVisible", True)]
 
 
+def item_href(item: dict) -> str:
+    if item.get("url"):
+        return item["url"]
+    related = item.get("relatedPage", "")
+    if related and not related.endswith(".xml"):
+        return related
+    return "news.html"
+
+
+def render_tag(item: dict) -> str:
+    tag = item.get("tag")
+    if not tag:
+        return ""
+    return f'<span class="tag">{esc(tag)}</span>'
+
+
 def render_index_news(data: dict) -> str:
     lines = [
         '        <div class="news-list">',
     ]
     for item in top_items(data)[:4]:
         title = item.get("topTitle") or item.get("title", "")
-        lines.append(
-            f'          <article><time datetime="{esc(item["date"])}">{esc(date_dot(item["date"]))}</time><a href="news.html">{esc(title)}</a></article>'
+        summary = item.get("topSummary") or item.get("summary", "")
+        lines.extend(
+            [
+                "          <article>",
+                '            <div class="news-list-meta">',
+                f'              <time datetime="{esc(item["date"])}">{esc(date_dot(item["date"]))}</time>{render_tag(item)}',
+                "            </div>",
+                f'            <a href="{esc(item_href(item))}">{esc(title)}</a>',
+                f"            <p>{esc(summary)}</p>",
+                "          </article>",
+            ]
         )
     lines.append("        </div>")
     return "\n".join(lines)
@@ -107,6 +146,40 @@ def render_daily_update(data: dict) -> str:
     for item in today.get("items", []):
         lines.append(f'          <li><span>{esc(item.get("label", ""))}</span>{esc(item.get("text", ""))}</li>')
     lines.extend(["        </ul>", "      </section>"])
+    return "\n".join(lines)
+
+
+def render_news_items(data: dict) -> str:
+    lines = [
+        '      <section class="news-list-section" aria-labelledby="news-list-title">',
+        '        <div class="section-heading">',
+        "          <div>",
+        '            <p class="section-kicker">News List</p>',
+        '            <h2 id="news-list-title">ニュース一覧</h2>',
+        "          </div>",
+        "        </div>",
+        "",
+        '        <div class="news-card-list">',
+    ]
+    for item in sorted_items(data):
+        lines.extend(
+            [
+                '          <article class="news-card">',
+                '            <div class="news-card-header">',
+                f'              <time datetime="{esc(item["date"])}">{esc(date_dot(item["date"]))}</time>{render_tag(item)}',
+                "            </div>",
+                f'            <h3><a href="{esc(item_href(item))}">{esc(item.get("title", ""))}</a></h3>',
+                f'            <p>{esc(item.get("summary", ""))}</p>',
+            ]
+        )
+        bullets = item.get("bullets", [])
+        if bullets:
+            lines.append("            <ul>")
+            for bullet in bullets:
+                lines.append(f"              <li>{esc(bullet)}</li>")
+            lines.append("            </ul>")
+        lines.append("          </article>")
+    lines.extend(["        </div>", "      </section>"])
     return "\n".join(lines)
 
 
@@ -180,6 +253,7 @@ def render_news_main(data: dict) -> str:
             hero,
             render_dashboard(data),
             render_daily_update(data),
+            render_news_items(data),
             render_timeline(data),
             render_update_format(data),
             "    </main>",
@@ -195,11 +269,47 @@ def update_news_html(data: dict) -> None:
     NEWS_HTML_PATH.write_text(html_text, encoding="utf-8")
 
 
+def render_about_timeline(data: dict) -> str:
+    grouped: dict[str, list[dict]] = {}
+    for item in timeline_sorted_items(data):
+        grouped.setdefault(item["date"], []).append(item)
+
+    lines = ['        <ol class="about-timeline">']
+    for date, items in grouped.items():
+        lines.extend(
+            [
+                f'          <li><time datetime="{esc(date)}">{esc(date_jp(date))}</time><div>',
+            ]
+        )
+        for item in items:
+            lines.extend(
+                [
+                    "            <article>",
+                    f"              <h3>{esc(item.get('title', ''))}</h3>",
+                    f"              <p>{esc(item.get('summary', ''))}</p>",
+                    "            </article>",
+                ]
+            )
+        lines.append("          </div></li>")
+    lines.append("        </ol>")
+    return "\n".join(lines)
+
+
+def update_about_html(data: dict) -> None:
+    html_text = ABOUT_HTML_PATH.read_text(encoding="utf-8")
+    section_start = html_text.index('<section class="about-rich-section" aria-labelledby="history-title">')
+    list_start = html_text.index('        <ol class="about-timeline">', section_start)
+    list_end = html_text.index("        </ol>", list_start) + len("        </ol>")
+    html_text = html_text[:list_start] + render_about_timeline(data) + html_text[list_end:]
+    ABOUT_HTML_PATH.write_text(html_text, encoding="utf-8")
+
+
 def main() -> None:
     data = load_news()
     update_index_html(data)
     update_news_html(data)
-    print(f"Generated top news list and news.html from {len(data['items'])} news items.")
+    update_about_html(data)
+    print(f"Generated top news list, news.html, and about timeline from {len(data['items'])} news items.")
 
 
 if __name__ == "__main__":
