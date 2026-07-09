@@ -53,16 +53,41 @@
         </aside>
       </section>
 
-      <section class="work-detail-grid" aria-label="制作背景詳細">
-        <article class="work-detail-card work-detail-wide work-detail-overview">
+      <section class="work-summary-box" aria-label="この作品を3行で">
+        <p class="section-kicker">Quick Look</p>
+        <h2>この作品を3行で</h2>
+        <ul>
+          <li>一人で人狼の盤面を遊べないか、という発想から始まったゲーム</li>
+          <li>3つの村を同時に管理し、神の魔法で盤面へ干渉する</li>
+          <li>人狼経験者にしか作れない遺言やコメントも仕込んでいる</li>
+        </ul>
+      </section>
+
+      <div class="work-detail-layout">
+        <aside class="work-side-nav" aria-label="ページ内目次">
+          <strong>目次</strong>
+          <nav>
+            <a href="#overview">作品概要</a>
+            <a href="#trigger">生まれたきっかけ</a>
+            <a href="#background">制作背景</a>
+            <a href="#focus">こだわりポイント</a>
+            <a href="#learning">開発メモと学び</a>
+            <a href="#kei-comment">ケイ部長コメント</a>
+          </nav>
+        </aside>
+
+        <section class="work-detail-grid work-detail-content" aria-label="制作背景詳細">
+        <article id="overview" class="work-detail-card work-detail-wide work-detail-overview">
           <h2>作品概要</h2>
+          <p class="work-section-lead">3つの村を同時に管理し、神の魔法で盤面へ干渉する戦略ゲームです。</p>
           <p>神村フェーズデュエルは、神視点人狼から着想を得た、フェーズ制の戦略デュエルゲームです。</p>
           <p>人狼の「神村」ルールをベースに、複数の村を同時に管理しながら、神ごとの魔法やカード効果を使って盤面へ干渉していきます。1つの村だけを見るのではなく、3つの村の状況を並行して判断し、どこに能力を使うか、どの村を立て直すか、どのタイミングで勝負に出るかを考えるゲームです。</p>
           <p>人狼ゲームの推理、混乱、盤面整理、遺言、村ごとの空気感を、ひとりでも遊べる戦略ゲームとして再構成することを目指しています。</p>
         </article>
 
-        <article class="work-detail-card work-detail-wide">
+        <article id="trigger" class="work-detail-card work-detail-wide">
           <h2>生まれたきっかけ</h2>
+          <p class="work-section-lead">最初の発想は、「人狼ゲームを一人で遊べないか」でした。</p>
           <p>最初の発想は、<strong>「人狼ゲームを一人で遊べないか」</strong>という思いつきでした。</p>
           <p>ボードゲーム『箱庭の人狼』のように、ひとりで人狼の盤面を動かせる遊び方ができないかと考え、まずはChatGPTにGM役を任せて遊ぶ形を試しました。しかし、会話セッション上で複雑な人狼進行を安定して管理するのは難しく、思ったような体験にはなりませんでした。</p>
           <p>そこで発想を切り替えました。</p>
@@ -70,16 +95,18 @@
           <p>そうして、単なる人狼再現ではなく、複数の村を管理する戦略ゲームとして構想が膨らんでいきました。</p>
         </article>
 
-        <article class="work-detail-card work-detail-wide">
+        <article id="background" class="work-detail-card work-detail-wide">
           <h2>制作背景</h2>
+          <p class="work-section-lead">試作と調整を繰り返す中で、何度も遊べる戦略ゲームへ育っていきました。</p>
           <p>初期段階では、ゲームはかなりシンプルでした。「村側」「狼側」という大きな選択肢があり、カード効果や魔法のルールもまだ曖昧な状態でした。</p>
           <p>そこから、とにかく試作して、実際に遊び、ゲームバランスを確認し、Codexへ修正案を投げ、また遊ぶ。その繰り返しの中で、少しずつゲームの輪郭が固まっていきました。</p>
           <p>神様ごとに異なる魔法効果を持たせる。村ごとにも個性を持たせる。推理、混乱、信頼、処刑、遺言といった要素をステータスやイベントとして扱う。</p>
           <p>そうやってルールを整理していくうちに、最初の「一人で人狼を遊びたい」という発想は、何度も遊べる戦略ゲームへと変わっていきました。</p>
         </article>
 
-        <article class="work-detail-card work-detail-wide">
+        <article id="focus" class="work-detail-card work-detail-wide">
           <h2>こだわりポイント</h2>
+          <p class="work-section-lead">人狼経験者だから分かる空気感を、魔法名やステータスに落とし込んでいます。</p>
           <p>特にこだわっているのは、魔法の名前と、その魔法が盤面に与える影響です。</p>
           <p>たとえば「盤面整理」という魔法を使うと、村の混乱数値が下がり、推理数値が上がる。人狼を遊んできた人なら感覚的に分かる言葉を、ゲーム内の効果として落とし込むことを大事にしています。</p>
           <p>人狼経験者だからこそ分かる、「この村は荒れている」「情報が整理されてきた」「遺言が空気を変えた」といった感覚を、数値やカード効果として表現することが、このゲームの面白さにつながっています。</p>
@@ -87,37 +114,42 @@
           <p>この遺言制作のために、毎日見る株式会社ではたかけんが神村関連の遺言制作を担当しています。</p>
         </article>
 
-        <article class="work-detail-card">
+        <article class="work-detail-card work-info-card">
           <h2>担当AI社員</h2>
           <ul class="work-member-list">
             <li>
               <strong>DG</strong>
-              <span>人狼関連の情報整理、盤面構造、ゲーム性の確認を担当。神村フェーズデュエルのベースにある人狼的な読み合いや構造を、ゲームとして扱える形に整理します。</span>
+              <span>人狼関連の情報整理、盤面構造、ゲーム性の確認を担当。</span>
             </li>
             <li>
               <strong>たかけん</strong>
-              <span>遺言JSON制作を担当。ゲーム中に表示されるコメントや遺言を通して、神村らしい空気、人狼経験者に刺さる言葉、盤面の物語性を加えています。</span>
+              <span>遺言JSON制作を担当。神村らしい空気と盤面の物語性を加えています。</span>
             </li>
           </ul>
         </article>
 
-        <article class="work-detail-card">
+        <article class="work-detail-card work-info-card">
           <h2>現在の状態</h2>
-          <p>現在は試作中です。</p>
-          <p>ゲームシステムはおおむね形になっており、実際に遊べる状態まで進んでいます。ただし、カードデザインやキャラクターデザインなど、公開に向けたビジュアル面はまだ調整中です。</p>
-          <p>正式公開に向けて、ゲームの見た目、演出、分かりやすさを整えている段階です。</p>
+          <ul class="work-next-list">
+            <li>現在は試作中</li>
+            <li>ゲームシステムはおおむね形になっている</li>
+            <li>公開に向けて、見た目・演出・分かりやすさを調整中</li>
+          </ul>
         </article>
 
-        <article class="work-detail-card work-detail-wide">
-          <h2>開発メモ</h2>
+        <article id="learning" class="work-detail-card work-detail-wide">
+          <h2>開発メモと学び</h2>
+          <p class="work-section-lead">試作して、遊んで、違和感を見つけて、直す。その反復でゲームの芯が見えてきました。</p>
           <p>神村フェーズデュエルの開発では、ゲームバランスを調整する面白さを強く感じました。</p>
           <p>試作して、遊んで、違和感を見つけて、Codexに修正案を投げ、また遊ぶ。このサイクルを繰り返すことで、ゲーム作りにおける調整の感覚を実体験として学んでいます。</p>
           <p>途中でデバッグモードを入れたり、JSONで管理できる項目を増やしたりする中で、「この項目もJSON管理にできる？」と考えることが増えました。</p>
           <p>その結果、村の種類、コメント、遺言、カード効果など、今後拡張しやすい構造が少しずつ整ってきています。</p>
           <p>一方で、ゲームシステムに注力するあまり、カードデザインやキャラクターデザインは後回しになっています。現在は、遊べる土台ができてきた段階から、公開に向けて見た目の完成度を高める段階へ進んでいます。</p>
+          <p>特に、ゲームバランスは最初から決めきるものではなく、<strong>作って、遊んで、違和感を見つけて、また直すもの</strong>だという感覚を得られたことは大きな収穫です。</p>
+          <p>神村フェーズデュエルは、毎日見る株式会社にとって、本格的に公開を目指せそうな初めてのゲーム作品です。</p>
         </article>
 
-        <article class="work-detail-card">
+        <article class="work-detail-card work-info-card">
           <h2>今後やりたいこと</h2>
           <ul class="work-next-list">
             <li>コメント、村の種類、遺言、カード効果をさらに増やす</li>
@@ -127,21 +159,15 @@
           </ul>
         </article>
 
-        <article class="work-detail-card">
-          <h2>この作品で学んだこと</h2>
-          <p>この作品を通して、JSON管理、デバッグモード、ゲームバランス調整、Codexとの反復開発など、ゲーム制作の基礎を実体験として学びました。</p>
-          <p>特に、ゲームバランスは最初から決めきるものではなく、作って、遊んで、違和感を見つけて、また直すものだという感覚を得られたことは大きな収穫です。</p>
-          <p>神村フェーズデュエルは、毎日見る株式会社にとって、本格的に公開を目指せそうな初めてのゲーム作品です。</p>
-        </article>
-
         <article class="work-detail-card work-detail-wide">
           <h2>見てほしいポイント</h2>
+          <p class="work-section-lead">遺言やコメントには、人狼を遊んできた記憶と内輪の空気感が入っています。</p>
           <p>この作品で特に見てほしいのは、遺言やコメントの細かい作り込みです。</p>
           <p>出現確率が低いものもありますが、そこには人狼を遊んできた経験や、関西対面人狼勢との記憶、内輪だからこそ分かる空気感が入っています。</p>
           <p>単なる人狼風ゲームではなく、自分の体験からしか生まれない人狼ゲームとして作っているところが、この作品の一番の特徴です。</p>
         </article>
 
-        <article class="work-detail-card work-detail-wide work-comment-card">
+        <article id="kei-comment" class="work-detail-card work-detail-wide work-comment-card work-closing-comment">
           <h2>ケイ部長コメント</h2>
           <blockquote class="work-comment">
             <p>神村フェーズデュエルの面白さは、人狼をそのままゲーム化しようとしていないところにあります。</p>
@@ -152,6 +178,7 @@
           </blockquote>
         </article>
       </section>
+      </div>
 
       <section class="work-detail-actions" aria-label="制作物導線">
         <a class="secondary-button" href="../works.html">制作物一覧に戻る</a>

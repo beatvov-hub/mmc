@@ -439,18 +439,103 @@ body.subpage .contact-button { border-color: #d8c5aa; background: var(--green); 
   margin: 0;
   color: var(--muted);
 }
+.work-summary-box {
+  margin-top: 20px;
+  padding: 24px;
+  border: 1px solid rgba(122,79,43,.18);
+  border-radius: 8px;
+  background: rgba(255,247,235,.82);
+  box-shadow: 0 14px 36px rgba(54,35,20,.07);
+}
+.work-summary-box h2 {
+  margin: 0 0 14px;
+  color: var(--green);
+  font-size: 1.32rem;
+}
+.work-summary-box ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.work-summary-box li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.65;
+}
+.work-summary-box li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .72em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mustard);
+}
+.work-detail-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+  margin-top: 24px;
+}
+.work-side-nav {
+  position: sticky;
+  top: 92px;
+  padding: 18px;
+  border: 1px solid rgba(122,79,43,.16);
+  border-radius: 8px;
+  background: rgba(255,252,246,.9);
+  box-shadow: 0 12px 30px rgba(54,35,20,.06);
+}
+.work-side-nav strong {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--green);
+  font-size: .92rem;
+}
+.work-side-nav nav {
+  display: grid;
+  gap: 8px;
+}
+.work-side-nav a {
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: .9rem;
+  text-decoration: none;
+}
+.work-side-nav a:hover {
+  background: rgba(214,163,61,.14);
+  color: var(--ink);
+}
 .work-detail-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
-  margin-top: 22px;
+  margin-top: 0;
 }
 .work-detail-card {
-  padding: 24px;
+  padding: 28px;
+  scroll-margin-top: 96px;
 }
 .work-detail-card h2 {
   margin: 0 0 12px;
   font-size: 1.24rem;
+}
+.work-section-lead {
+  margin: 0 0 16px !important;
+  padding: 12px 14px;
+  border-left: 4px solid rgba(214,163,61,.7);
+  border-radius: 8px;
+  background: rgba(255,247,235,.76);
+  color: var(--ink) !important;
+  font-weight: 700;
+  line-height: 1.7 !important;
 }
 .work-detail-card p {
   margin: 0;
@@ -462,6 +547,20 @@ body.subpage .contact-button { border-color: #d8c5aa; background: var(--green); 
 }
 .work-detail-card strong {
   color: var(--ink);
+}
+.work-info-card {
+  align-self: start;
+}
+.work-info-card h2 {
+  font-size: 1.12rem;
+}
+.work-info-card .work-member-list,
+.work-info-card .work-next-list {
+  gap: 8px;
+}
+.work-info-card .work-member-list li,
+.work-info-card .work-next-list li {
+  padding: 11px 12px;
 }
 .work-detail-wide {
   grid-column: 1 / -1;
@@ -506,14 +605,27 @@ body.subpage .contact-button { border-color: #d8c5aa; background: var(--green); 
     linear-gradient(135deg, rgba(255,247,235,.92), rgba(235,215,187,.72)),
     rgba(255,255,255,.76);
 }
+.work-closing-comment {
+  padding: 32px;
+  border-color: rgba(122,79,43,.26);
+  background:
+    linear-gradient(135deg, rgba(255,250,242,.96), rgba(235,215,187,.82)),
+    rgba(255,255,255,.8);
+}
+.work-closing-comment h2 {
+  font-size: 1.42rem;
+}
 .work-comment {
   margin: 0;
-  padding: 16px 18px;
-  border-left: 3px solid rgba(122,79,43,.34);
+  padding: 18px 20px;
+  border-left: 5px solid rgba(122,79,43,.44);
   border-radius: 8px;
   background: rgba(255,255,255,.55);
   color: #4d4036;
   line-height: 1.9;
+}
+.work-comment p {
+  color: #4d4036;
 }
 .work-detail-actions {
   display: flex;
@@ -1514,6 +1626,26 @@ img { max-width: 100%; }
   .work-detail-main {
     width: calc(100% - 24px);
     padding: 22px 0 62px;
+  }
+  .work-summary-box {
+    padding: 18px;
+  }
+  .work-detail-layout {
+    display: block;
+  }
+  .work-side-nav {
+    position: static;
+    margin: 18px 0;
+    padding: 14px;
+    overflow-x: auto;
+  }
+  .work-side-nav nav {
+    display: flex;
+    gap: 8px;
+    min-width: max-content;
+  }
+  .work-side-nav a {
+    white-space: nowrap;
   }
   .work-detail-card,
   .works-story-intro article,
