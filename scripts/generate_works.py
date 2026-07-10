@@ -181,6 +181,7 @@ def render_detail_page(work: dict) -> str:
         f'    <meta property="og:url" content="{esc(work_url(work))}" />',
         '    <meta property="og:image" content="https://mainichi-miru.netlify.app/image/top004.jpg" />',
         '    <meta name="twitter:card" content="summary_large_image" />',
+        '    <link rel="icon" href="../favicon.ico" />',
         '    <link rel="stylesheet" href="../styles.css" />',
         "  </head>",
         '  <body class="subpage works-page work-detail-page">',

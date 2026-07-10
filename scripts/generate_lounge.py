@@ -306,6 +306,7 @@ def render_archive_page(log: dict) -> str:
     <meta property="og:url" content="{esc(archive_url(log))}" />
     <meta property="og:image" content="{esc(og_image_for_log(log))}" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="subpage lounge-page lounge-log-page">
