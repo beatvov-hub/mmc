@@ -136,6 +136,9 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - `src/data/loungeLogs.json` に 2026-07-10 23:00 の閉店前ラウンジ記録を追加しました。
 - `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-10-2300.html`、`mainichi-miru-sitemap.xml` を更新しました。
 - 23:00更新にも `todayWords` は追加していません。今日のひとことは朝のラウンジ会話のみで管理します。
+- `src/data/newsItems.json` に 2026-07-10 の「社内CMS運用環境を整備」を追加しました。
+- `scripts/generate_news.py` を実行し、`index.html`、`news.html`、`about.html` を更新しました。
+- トップのお知らせ、ニュース一覧、会社沿革、会社沿革と更新ログにCMS運用環境の整備内容を反映しました。
 - ルート直下の `favicon.ico` を全HTMLへ反映しました。
 - ルート直下のHTMLには `favicon.ico`、`members/`、`works/`、`lounge-archive/` 配下のHTMLには `../favicon.ico` を指定しています。
 - `scripts/generate_lounge.py`、`scripts/generate_gallery.py`、`scripts/generate_works.py` にもファビコン指定を追加し、再生成時に消えないようにしました。
