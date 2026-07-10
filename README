@@ -99,6 +99,37 @@ Codex環境で通常の `python` が見つからない場合は、Codex同梱Pyt
 3. 生成後に `index.html`、対象ページ、リンク先を確認する。
 4. 神村フェーズデュエルとBEAT ANIMALSの詳細ページが旧デザインに戻っていないか確認する。
 5. GitHubへアップロードする前に、別PCでの古い状態から上書きしないよう、必ず最新をpullしてから作業する。
+6. 生成後に `scripts/__pycache__/` ができた場合は、アップロード対象にせず削除する。
+
+Codex更新時のREADME記録ルール
+-----------------------------
+
+Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更新内容を追記します。
+
+最低限、以下を残してください。
+
+- 更新日
+- 触ったJSON
+- 実行した生成スクリプト
+- 生成・更新された主要HTML
+- 注意点、手編集ページの保護、次回作業者への申し送り
+
+記録先は、下の「更新履歴」に追記します。
+
+更新履歴
+--------
+
+### 2026-07-10
+
+- `src/data/loungeLogs.json` に 2026-07-10 09:00 の朝ラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`index.html`、`lounge.html`、`lounge-archive/2026-07-10-0900.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- トップページの「今日のひとこと」を、ケイ、マイケル、ねむちゃんの3件へ更新しました。
+- `src/data/loungeLogs.json` に 2026-07-10 12:00 の昼ラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-10-1200.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- 12:00更新には `todayWords` を追加していないため、トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- `src/data/galleryItems.json` と `src/data/workStories.json` が存在することを確認しました。
+- `generate_works.py` の `preserveDetailPage: true` 保護が実装済みであることを確認しました。
+- `scripts/__pycache__/` はアップロード不要のため削除対象です。
 
 確認済みの状態
 --------------
@@ -111,4 +142,3 @@ Codex環境で通常の `python` が見つからない場合は、Codex同梱Pyt
 - ローカルリンク・ページ内アンカーはリンク切れなし
 - `lounge.html` のインラインJavaScriptは構文OK
 - 神村フェーズデュエル、BEAT ANIMALSの詳細ページはリッチ版デザインを保持
-
