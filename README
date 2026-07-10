@@ -127,6 +127,9 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - `src/data/loungeLogs.json` に 2026-07-10 12:00 の昼ラウンジ記録を追加しました。
 - `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-10-1200.html`、`mainichi-miru-sitemap.xml` を更新しました。
 - 12:00更新には `todayWords` を追加していないため、トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- `src/data/loungeLogs.json` に 2026-07-10 17:00 の夕方ラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-10-1700.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- 17:00更新にも `todayWords` は追加していません。今日のひとことは朝のラウンジ会話のみで管理します。
 - ルート直下の `favicon.ico` を全HTMLへ反映しました。
 - ルート直下のHTMLには `favicon.ico`、`members/`、`works/`、`lounge-archive/` 配下のHTMLには `../favicon.ico` を指定しています。
 - `scripts/generate_lounge.py`、`scripts/generate_gallery.py`、`scripts/generate_works.py` にもファビコン指定を追加し、再生成時に消えないようにしました。
