@@ -302,7 +302,10 @@ def main() -> None:
     WORKS_DIR.mkdir(exist_ok=True)
     update_works_html(works)
     for work in works:
-        (WORKS_DIR / f"{work['slug']}.html").write_text(render_detail_page(work), encoding="utf-8")
+        detail_path = WORKS_DIR / f"{work['slug']}.html"
+        if work.get("preserveDetailPage") and detail_path.exists():
+            continue
+        detail_path.write_text(render_detail_page(work), encoding="utf-8")
     print(f"Generated works.html and {len(works)} work detail pages.")
 
 

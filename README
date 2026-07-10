@@ -1,1 +1,114 @@
-毎日見る株式会社のホームページです。
+毎日見る株式会社 公式ホームページ
+================================
+
+静的HTML/CSS/JavaScriptで制作している、毎日見る株式会社の公式ホームページです。
+
+主な管理方針
+------------
+
+- トップページ、ニュース、ラウンジ、制作物、ギャラリーを運用中です。
+- 日々の更新は、可能な限り `src/data/*.json` を元データとして管理します。
+- HTMLを直接編集したあとに生成スクリプトを実行すると、生成対象ページは上書きされます。
+- 生成スクリプト実行後は、リンク切れと主要ページの表示を確認してください。
+
+データファイル
+--------------
+
+- `src/data/loungeLogs.json`
+  - ラウンジ観測記録の元データです。
+  - `scripts/generate_lounge.py` で `lounge.html`、`lounge-archive/*.html`、`index.html`、`mainichi-miru-sitemap.xml` に反映されます。
+
+- `src/data/newsItems.json`
+  - トップのお知らせ、ニュースページ、会社概要の沿革の元データです。
+  - `scripts/generate_news.py` で `index.html`、`news.html`、`about.html` に反映されます。
+  - 2026-07-09 の「制作物『神村フェーズデュエル』を更新しました」はここで管理しています。
+
+- `src/data/workStories.json`
+  - 制作物一覧と制作物詳細ページの元データです。
+  - `scripts/generate_works.py` で `works.html` と `works/*.html` に反映されます。
+  - ただし、`preserveDetailPage: true` が付いている制作物は、既存の詳細HTMLを上書きしません。
+  - 現在は `kamimura-phase-duel` と `beat-animals` が保護対象です。
+
+- `src/data/galleryItems.json`
+  - ギャラリーページの元データです。
+  - `scripts/generate_gallery.py` で `gallery.html` とギャラリー詳細ページに反映されます。
+
+- `src/data/pechiLoungeMemos.json`
+  - ラウンジ内のペチ関連メモ用データです。
+
+今回の重要な変更点
+------------------
+
+### ラウンジ
+
+- ラウンジ観測記録は `loungeLogs.json` で管理します。
+- 1日複数回更新できる前提で、アーカイブページとカレンダー表示を生成します。
+- 2026-07-10 時点で、`loungeLogs.json` は 16 件あります。
+- `lounge.html` には時間帯でラウンジ画像を切り替えるJavaScriptがあります。
+- 23:00〜翌8:00は夜間オーバーレイを出す仕様です。
+
+### 制作物
+
+- `workStories.json` が復活しています。
+- `generate_works.py` をそのまま使うと制作物一覧をJSONから再生成できます。
+- 神村フェーズデュエルとBEAT ANIMALSの詳細ページは、読み物として作り込んだ手編集版です。
+- そのため、以下のフラグで上書きを防いでいます。
+
+```json
+"preserveDetailPage": true
+```
+
+対象:
+
+- `works/kamimura-phase-duel.html`
+- `works/beat-animals.html`
+
+この2ページをJSON生成に完全移行する場合は、先に `generate_works.py` 側の詳細ページテンプレートを、現在のリッチなデザインに対応させてください。
+
+### ニュース
+
+- トップのお知らせは `newsItems.json` の `topVisible: true` の項目から生成されます。
+- 2026-07-09 の「制作物『神村フェーズデュエル』を更新しました」は、同期時に消えていたため復元済みです。
+
+生成コマンド
+------------
+
+Windows PowerShellで、ホームページフォルダを作業場所にして実行します。
+
+```powershell
+python scripts/generate_gallery.py
+python scripts/generate_news.py
+python scripts/generate_lounge.py
+python scripts/generate_works.py
+```
+
+Codex環境で通常の `python` が見つからない場合は、Codex同梱Pythonを使います。
+
+```powershell
+& 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/generate_gallery.py
+& 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/generate_news.py
+& 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/generate_lounge.py
+& 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/generate_works.py
+```
+
+更新時の注意
+------------
+
+1. JSONを編集する。
+2. 対応する生成スクリプトを実行する。
+3. 生成後に `index.html`、対象ページ、リンク先を確認する。
+4. 神村フェーズデュエルとBEAT ANIMALSの詳細ページが旧デザインに戻っていないか確認する。
+5. GitHubへアップロードする前に、別PCでの古い状態から上書きしないよう、必ず最新をpullしてから作業する。
+
+確認済みの状態
+--------------
+
+2026-07-10 時点で確認した内容:
+
+- `src/data/*.json` はすべて読み込みOK
+- 生成スクリプト4本は実行OK
+- HTMLは 45 ファイル
+- ローカルリンク・ページ内アンカーはリンク切れなし
+- `lounge.html` のインラインJavaScriptは構文OK
+- 神村フェーズデュエル、BEAT ANIMALSの詳細ページはリッチ版デザインを保持
+
