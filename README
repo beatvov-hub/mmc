@@ -119,6 +119,15 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 更新履歴
 --------
 
+### 2026-07-11
+
+- `src/data/loungeLogs.json` に 2026-07-11 09:00 の朝ラウンジ記録を追加しました。
+- `lounge-archive/2026-07-11-0900.html` を生成し、`index.html` の「今日のひとこと」と `mainichi-miru-sitemap.xml` を更新しました。
+- 12:00更新が続く予定のため、今回 `lounge.html` は更新していません。
+- `src/data/loungeLogs.json` に 2026-07-11 12:00 の昼ラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-11-1200.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- 12:00更新には `todayWords` を追加していないため、トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+
 ### 2026-07-10
 
 - `src/data/loungeLogs.json` に 2026-07-10 09:00 の朝ラウンジ記録を追加しました。
@@ -149,11 +158,11 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 確認済みの状態
 --------------
 
-2026-07-10 時点で確認した内容:
+2026-07-11 時点で確認した内容:
 
 - `src/data/*.json` はすべて読み込みOK
 - 生成スクリプト4本は実行OK
-- HTMLは 49 ファイル
+- HTMLは 51 ファイル
 - ローカルリンク・ページ内アンカーはリンク切れなし
 - `lounge.html` のインラインJavaScriptは構文OK
 - 神村フェーズデュエル、BEAT ANIMALSの詳細ページはリッチ版デザインを保持
