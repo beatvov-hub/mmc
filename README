@@ -135,6 +135,9 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - `src/partials/header.html` と `src/partials/footer.html` を追加し、ヘッダー/フッターを共通パーツ化しました。
 - `scripts/site_layout.py` と `scripts/apply_layout.py` を追加し、既存HTML 54ファイルへ共通ヘッダー/フッターを反映しました。
 - `scripts/generate_lounge.py`、`scripts/generate_news.py`、`scripts/generate_works.py`、`scripts/generate_gallery.py` に共通パーツの自動反映処理を追加しました。
+- 共通ヘッダーをスクロール時にコンパクト化する固定ヘッダーへ更新しました。
+- スマホ幅ではハンバーガーメニューでグローバルナビを開閉するようにしました。
+- `scripts/site-nav.js` を追加し、ヘッダーのコンパクト化とスマホメニュー開閉を管理します。
 - `src/data/loungeLogs.json` に 2026-07-12 09:00 の朝ラウンジ記録を追加しました。
 - `scripts/generate_lounge.py` を実行し、`index.html`、`lounge.html`、`lounge-archive/2026-07-12-0900.html`、`mainichi-miru-sitemap.xml` を更新しました。
 - トップページの「今日のひとこと」を、ほのちゃん、アキト、ペチの3件へ更新しました。

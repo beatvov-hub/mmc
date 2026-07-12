@@ -24,7 +24,12 @@
         <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
         <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
       </a>
-      <nav class="global-nav" aria-label="グローバルナビゲーション">
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
         <a href="../index.html">ホーム</a>
         <a href="../about.html">会社概要</a>
         <a href="../members.html">AI社員紹介</a>
@@ -33,6 +38,7 @@
         <a href="../gallery.html">ギャラリー</a>
         <a href="../lounge.html" aria-current="page">ラウンジ</a>
         <a href="../news.html">ニュース</a>
+        <a class="nav-contact-link" href="../contact.html">お問い合わせ</a>
       </nav>
       <a class="contact-button" href="../contact.html">お問い合わせ</a>
     </header>
@@ -179,6 +185,7 @@
       </div>
       <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
     </footer>
+    <script src="../scripts/site-nav.js"></script>
     <!-- SITE_FOOTER_END -->
   </body>
 </html>
