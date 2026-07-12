@@ -5,6 +5,8 @@ import html
 import json
 from pathlib import Path
 
+from site_layout import apply_layout_to_file
+
 ROOT = Path(__file__).resolve().parents[1]
 GALLERY_DATA_PATH = ROOT / "src" / "data" / "galleryItems.json"
 GALLERY_HTML_PATH = ROOT / "gallery.html"
@@ -343,8 +345,11 @@ def render_detail_page(item: dict) -> str:
 def main() -> None:
     items = load_items()
     GALLERY_HTML_PATH.write_text(render_gallery_page(items), encoding="utf-8")
+    apply_layout_to_file(GALLERY_HTML_PATH)
     for item in items:
-        (ROOT / item["detailUrl"]).write_text(render_detail_page(item), encoding="utf-8")
+        detail_path = ROOT / item["detailUrl"]
+        detail_path.write_text(render_detail_page(item), encoding="utf-8")
+        apply_layout_to_file(detail_path)
     print(f"Generated gallery.html and {len(items)} gallery detail pages.")
 
 

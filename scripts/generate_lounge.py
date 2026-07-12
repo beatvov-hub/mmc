@@ -7,6 +7,8 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
+from site_layout import apply_layout_to_file
+
 ROOT = Path(__file__).resolve().parents[1]
 LOUNGE_LOGS_PATH = ROOT / "src" / "data" / "loungeLogs.json"
 WORK_STORIES_PATH = ROOT / "src" / "data" / "workStories.json"
@@ -520,11 +522,16 @@ def update_sitemap(logs: list[dict]) -> None:
 def main() -> None:
     logs = load_logs()
     ARCHIVE_DIR.mkdir(exist_ok=True)
+    archive_paths = []
     for log in logs:
-        (ARCHIVE_DIR / f"{log['id']}.html").write_text(render_archive_page(log), encoding="utf-8")
+        archive_path = ARCHIVE_DIR / f"{log['id']}.html"
+        archive_path.write_text(render_archive_page(log), encoding="utf-8")
+        archive_paths.append(archive_path)
     update_lounge_html(logs)
     update_index_html(logs)
     update_sitemap(logs)
+    for path in [LOUNGE_HTML_PATH, INDEX_HTML_PATH, *archive_paths]:
+        apply_layout_to_file(path)
     print(f"Generated {len(logs)} lounge archive pages, lounge.html, index.html, and sitemap.")
 
 

@@ -5,6 +5,8 @@ import html
 import json
 from pathlib import Path
 
+from site_layout import apply_layout_to_file
+
 ROOT = Path(__file__).resolve().parents[1]
 NEWS_DATA_PATH = ROOT / "src" / "data" / "newsItems.json"
 INDEX_HTML_PATH = ROOT / "index.html"
@@ -309,6 +311,8 @@ def main() -> None:
     update_index_html(data)
     update_news_html(data)
     update_about_html(data)
+    for path in [INDEX_HTML_PATH, NEWS_HTML_PATH, ABOUT_HTML_PATH]:
+        apply_layout_to_file(path)
     print(f"Generated top news list, news.html, and about timeline from {len(data['items'])} news items.")
 
 

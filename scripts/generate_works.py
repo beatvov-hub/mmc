@@ -5,6 +5,8 @@ import html
 import json
 from pathlib import Path
 
+from site_layout import apply_layout_to_file
+
 ROOT = Path(__file__).resolve().parents[1]
 WORKS_DATA_PATH = ROOT / "src" / "data" / "workStories.json"
 WORKS_HTML_PATH = ROOT / "works.html"
@@ -302,11 +304,14 @@ def main() -> None:
     works = load_works()
     WORKS_DIR.mkdir(exist_ok=True)
     update_works_html(works)
+    apply_layout_to_file(WORKS_HTML_PATH)
     for work in works:
         detail_path = WORKS_DIR / f"{work['slug']}.html"
         if work.get("preserveDetailPage") and detail_path.exists():
+            apply_layout_to_file(detail_path)
             continue
         detail_path.write_text(render_detail_page(work), encoding="utf-8")
+        apply_layout_to_file(detail_path)
     print(f"Generated works.html and {len(works)} work detail pages.")
 
 
