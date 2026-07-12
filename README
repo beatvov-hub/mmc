@@ -150,6 +150,11 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - `src/data/loungeLogs.json` に 2026-07-12 20:00 の夜ラウンジ記録を追加しました。
 - `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-12-2000.html`、`mainichi-miru-sitemap.xml` を更新しました。
 - 20:00更新にも `todayWords` は追加していません。トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- FC2ホームページのTOPページを現代風に再設計した非公式デザイン案として、`gallery/fc2-homepage-redesign.html` を追加しました。
+- ページ固有スタイル `gallery/fc2-homepage-redesign.css` と、ハンバーガーメニュー・スクロール演出・画像差し替え一覧を管理する `gallery/fc2-homepage-redesign.js` を追加しました。
+- 画像プレースホルダー7件を `IMAGE_REPLACE_POINT` コメント付きで配置し、画像差し替え予定フォルダを `gallery/gallery-image/` として管理します。
+- `mainichi-miru-sitemap.xml` に `gallery/fc2-homepage-redesign` を追加しました。
+- `gallery/gallery-image/` に追加されたWebP画像7件を、`gallery/fc2-homepage-redesign.html` へ反映しました。
 
 ### 2026-07-11
 

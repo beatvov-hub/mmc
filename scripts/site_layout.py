@@ -154,5 +154,7 @@ def iter_site_html_files() -> list[Path]:
             continue
         if rel.parent == Path(".") and rel.name.startswith("google"):
             continue
+        if rel.parts[:1] == ("gallery",):
+            continue
         files.append(path)
     return sorted(files)
