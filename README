@@ -137,6 +137,7 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - `fc2web-original` と `fc2web-ai` の画像参照を `.jpg` から `.webp` に変更し、`gallery.html` と `gallery001-fc2web.html` を再生成しました。
 - `src/data/newsItems.json` に 2026-07-11 の公式サイト保守性改善、2026-07-12 の平成AI化ギャラリー第1弾制作を追加しました。
 - 2026-07-10 のCMS項目を「JSON管理環境を整備」の文言へ調整し、`scripts/generate_news.py` を実行して `index.html`、`news.html`、`about.html` へ反映しました。
+- `newsItems.json` の 2026-07-10〜2026-07-12 項目で発生した文字化けを修正し、`index.html`、`news.html`、`about.html` を再生成しました。
 
 - `src/partials/header.html` と `src/partials/footer.html` を追加し、ヘッダー/フッターを共通パーツ化しました。
 - `scripts/site_layout.py` と `scripts/apply_layout.py` を追加し、既存HTML 54ファイルへ共通ヘッダー/フッターを反映しました。
