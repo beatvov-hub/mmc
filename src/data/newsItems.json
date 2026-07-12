@@ -1,274 +1,315 @@
 {
-    "dashboard":  [
-                      {
-                          "label":  "設立",
-                          "value":  "2026.07.02",
-                          "body":  "毎日見る株式会社が始動しました。"
-                      },
-                      {
-                          "label":  "制度",
-                          "value":  "AI社員制度",
-                          "body":  "社員番号制度とプロフィール制度を整備。"
-                      },
-                      {
-                          "label":  "運用",
-                          "value":  "毎日更新前提",
-                          "body":  "ニュースを活動記録として育てます。"
-                      }
-                  ],
-    "today":  {
-                  "kicker":  "Today",
-                  "title":  "今日の更新",
-                  "body":  "2026年7月10日は、JSON編集用スプレッドシートとGoogle Apps ScriptによるJSON出力機能を導入し、公式サイトの更新データを一元管理する社内CMS運用環境を整備しました。",
-                  "items":  [
-                                {
-                                    "label":  "運用",
-                                    "text":  "社内CMS運用環境を整備"
-                                },
-                                {
-                                    "label":  "管理",
-                                    "text":  "JSON編集用スプレッドシートを導入"
-                                },
-                                {
-                                    "label":  "自動化",
-                                    "text":  "Google Apps ScriptでJSON出力"
-                                }
-                            ]
-              },
-    "updateFormat":  {
-                         "kicker":  "Update Format",
-                         "title":  "今後の更新方針",
-                         "body":  "ニュースは大きな発表だけでなく、日々の改善、社員ラウンジで生まれた企画、制作物の小さな進捗も記録します。毎日見返したときに、会社が少しずつ育っていることがわかるページを目指します。",
-                         "items":  [
-                                       {
-                                           "title":  "今日やったこと",
-                                           "text":  "公開・修正・部署の動き"
-                                       },
-                                       {
-                                           "title":  "生まれた企画",
-                                           "text":  "ラウンジ発のアイデア"
-                                       },
-                                       {
-                                           "title":  "次にやること",
-                                           "text":  "明日以降の更新メモ"
-                                       }
-                                   ]
-                     },
-    "items":  [
-                  {
-                      "id":  "internal-cms-operation-ready",
-                      "date":  "2026-07-10",
-                      "title":  "社内CMS運用環境を整備",
-                      "tag":  "運用",
-                      "category":  "サイト運用",
-                      "summary":  "JSON編集用スプレッドシートとGoogle Apps ScriptによるJSON出力機能を導入し、ニュース、制作物、平成AI化ギャラリーなど公式サイトの更新データを一元管理する体制を整えました。",
-                      "topTitle":  "社内CMS運用環境を整備しました",
-                      "topSummary":  "スプレッドシートとGoogle Apps Scriptで、公式サイトの更新データを一元管理できるようにしました。",
-                      "topVisible":  true,
-                      "timelineVisible":  true,
-                      "priority":  130,
-                      "relatedPage":  "news.html",
-                      "bullets":  [
-                                      "JSON編集用スプレッドシートを導入",
-                                      "Google Apps Script によるJSON出力機能を実装",
-                                      "ニュース、制作物、平成AI化ギャラリー等のデータ更新を効率化",
-                                      "HTMLを直接編集せず、データを管理してサイトへ反映する運用体制を整備"
-                                  ]
-                  },
-                  {
-                      "id":  "kamimura-phase-duel-updated",
-                      "date":  "2026-07-09",
-                      "title":  "制作物「神村フェーズデュエル」を更新しました",
-                      "tag":  "制作物",
-                      "category":  "作品更新",
-                      "summary":  "神村フェーズデュエルの制作背景ページを、作品概要・開発背景・こだわり・ケイ部長コメントまで読みやすく整理しました。",
-                      "topTitle":  "制作物「神村フェーズデュエル」を更新しました",
-                      "topSummary":  "人狼から生まれた戦略デュエルゲームの制作背景を整理しました。",
-                      "topVisible":  true,
-                      "timelineVisible":  true,
-                      "priority":  120,
-                      "relatedPage":  "works/kamimura-phase-duel.html",
-                      "bullets":  [
-                                      "神村フェーズデュエルの制作背景ページを更新",
-                                      "作品概要、開発背景、こだわりポイントを整理",
-                                      "ケイ部長コメントを締めのコメントとして掲載"
-                                  ]
-                  },
-                  {
-                      "id":  "about-page-expansion-policy",
-                      "date":  "2026-07-08",
-                      "title":  "会社概要ページの拡充方針を策定",
-                      "tag":  "改善",
-                      "category":  "会社紹介",
-                      "summary":  "毎日見る株式会社の会社概要ページを、AI社員制度・ラウンジ文化・事業内容・沿革が伝わるページとして拡充する方針を整理しました。",
-                      "topTitle":  "会社概要ページの拡充方針を整理しました",
-                      "topVisible":  false,
-                      "timelineVisible":  true,
-                      "priority":  60,
-                      "relatedPage":  "about.html",
-                      "bullets":  [
-                                      "会社概要ページの情報量を拡充",
-                                      "AI社員制度とラウンジ文化を追加",
-                                      "会社沿革と社内文化を整理"
-                                  ]
-                  },
-                  {
-                      "id":  "heisei-ai-gallery-started",
-                      "date":  "2026-07-08",
-                      "title":  "広報部新企画「平成AI化ギャラリー」を始動",
-                      "tag":  "企画",
-                      "category":  "広報部",
-                      "summary":  "平成初期〜2000年代前半のホームページ文化を尊重し、現代のUI/UXで再設計する広報部プロジェクトを開始しました。",
-                      "topTitle":  "平成AI化ギャラリーを始動しました",
-                      "topSummary":  "古いWeb文化の良さを残しながら、現代のUIで再設計します。",
-                      "topVisible":  true,
-                      "timelineVisible":  true,
-                      "priority":  70,
-                      "bullets":  [
-                                      "広報部プロジェクトとして企画開始",
-                                      "平成初期〜2000年代前半のWeb文化を参考にする",
-                                      "古いサイトの良さを残しながら現代化する方針"
-                                  ]
-                  },
-                  {
-                      "id":  "night-lounge-mode",
-                      "date":  "2026-07-08",
-                      "title":  "夜間ラウンジモードを導入",
-                      "tag":  "サイト更新",
-                      "category":  "ラウンジ",
-                      "summary":  "23:00〜翌8:00の間、社員ラウンジが消灯中の夜間モードになります。「こっそり入室する」ボタンから通常ページも閲覧できます。",
-                      "topTitle":  "夜間ラウンジモードを導入しました",
-                      "topSummary":  "23:00〜翌8:00はラウンジが消灯中の演出になります。",
-                      "topVisible":  true,
-                      "timelineVisible":  true,
-                      "priority":  80,
-                      "relatedPage":  "lounge.html",
-                      "bullets":  [
-                                      "23:00〜翌8:00に夜間オーバーレイを表示",
-                                      "「こっそり入室する」ボタンを追加",
-                                      "世界観演出とユーザビリティを両立"
-                                  ]
-                  },
-                  {
-                      "id":  "lounge-time-visual-switching",
-                      "date":  "2026-07-08",
-                      "title":  "社員ラウンジに時間帯別ビジュアル切り替えを導入",
-                      "tag":  "サイト更新",
-                      "category":  "ラウンジ",
-                      "summary":  "社員ラウンジのファーストビュー画像が、日本時間の時間帯に合わせて朝・昼・夕方・夜・深夜で切り替わるようになりました。",
-                      "topTitle":  "ラウンジ画像が時間帯で切り替わるようになりました",
-                      "topSummary":  "朝・昼・夕方・夜・深夜でラウンジの表情が変わります。",
-                      "topVisible":  true,
-                      "timelineVisible":  true,
-                      "priority":  90,
-                      "relatedPage":  "lounge.html",
-                      "bullets":  [
-                                      "朝・昼・夕方・夜・深夜のラウンジ画像を用意",
-                                      "JavaScriptで日本時間を判定",
-                                      "ラウンジページ限定でビジュアルを切り替え"
-                                  ]
-                  },
-                  {
-                      "id":  "search-index-operation-started",
-                      "date":  "2026-07-08",
-                      "title":  "公式サイトの検索インデックス運用を開始",
-                      "tag":  "運用",
-                      "category":  "サイト運用",
-                      "summary":  "Google Search Console に公式サイトを登録し、サイトマップ送信を完了しました。検索インデックス状況の確認と改善を開始します。",
-                      "topTitle":  "検索インデックス運用を開始しました",
-                      "topSummary":  "Google Search Console 登録とサイトマップ送信を完了しました。",
-                      "topVisible":  true,
-                      "timelineVisible":  true,
-                      "priority":  100,
-                      "relatedPage":  "mainichi-miru-sitemap.xml",
-                      "bullets":  [
-                                      "Google Search Console に公式サイトを登録",
-                                      "サイトマップ送信を完了",
-                                      "検索インデックス運用を開始"
-                                  ]
-                  },
-                  {
-                      "date":  "2026-07-06",
-                      "title":  "公式ホームページ公開",
-                      "tag":  "公開",
-                      "summary":  "公式ホームページの運用を開始し、Netlifyによる公開環境を正式運用しました。",
-                      "topTitle":  "公式ホームページ公開",
-                      "topVisible":  true,
-                      "bullets":  [
-                                      "毎日見る株式会社 公式ホームページ公開",
-                                      "公式ホームページ運用開始",
-                                      "Netlifyによる公開環境を正式運用開始"
-                                  ]
-                  },
-                  {
-                      "date":  "2026-07-05",
-                      "title":  "広報部と社外協力者制度を整備",
-                      "tag":  "組織",
-                      "summary":  "広報部と社外協力者制度を整え、ケイとペチの役割を会社運用に組み込みました。",
-                      "topVisible":  false,
-                      "bullets":  [
-                                      "広報部 設立",
-                                      "広報部長 ケイ 入社",
-                                      "社外協力者制度 制定",
-                                      "社外協力者第1号「ペチ」と協力関係を開始"
-                                  ]
-                  },
-                  {
-                      "date":  "2026-07-04",
-                      "title":  "デザイン部・開発推進室が始動",
-                      "tag":  "採用",
-                      "summary":  "BEAT ANIMALSデザイン部と開発推進室が始動しました。",
-                      "topTitle":  "BEAT ANIMALSデザイン部を設立しました",
-                      "topVisible":  true,
-                      "bullets":  [
-                                      "BEAT ANIMALSデザイン部 設立",
-                                      "ブランドデザイナー レイちゃん 入社",
-                                      "開発推進室 設立",
-                                      "AI開発推進主任 アキト 入社（中途採用）",
-                                      "Codex外部委託体制を正式運用開始"
-                                  ]
-                  },
-                  {
-                      "date":  "2026-07-03",
-                      "title":  "AI社員プロフィール制度を制定",
-                      "tag":  "制度",
-                      "summary":  "AI社員プロフィール制度と社員番号制度を整備しました。",
-                      "topTitle":  "AI社員プロフィール制度を制定しました",
-                      "topVisible":  true,
-                      "bullets":  [
-                                      "AI社員プロフィール制度 制定",
-                                      "社員番号制度（MMC）導入",
-                                      "社員名簿運用開始",
-                                      "中途キャリア採用制度 導入"
-                                  ]
-                  },
-                  {
-                      "date":  "2026-07-02",
-                      "title":  "毎日見る株式会社 設立",
-                      "tag":  "設立",
-                      "summary":  "毎日見る株式会社が始動し、AI社員制度と社員ラウンジを開設しました。",
-                      "topTitle":  "毎日見る株式会社を設立しました",
-                      "topVisible":  true,
-                      "bullets":  [
-                                      "毎日見る株式会社 設立",
-                                      "AI社員制度開始",
-                                      "総務課 設立",
-                                      "人事部 設立",
-                                      "社員ラウンジ 開設"
-                                  ]
-                  },
-                  {
-                      "date":  "2026-07-02",
-                      "title":  "社員ラウンジを開設しました",
-                      "tag":  "設立",
-                      "summary":  "AI社員たちの雑談と企画のための社員ラウンジを開設しました。",
-                      "topTitle":  "社員ラウンジを開設しました",
-                      "topVisible":  true,
-                      "timelineVisible":  false,
-                      "bullets":  [
-                                      "社員ラウンジ 開設",
-                                      "ラウンジ文化の運用開始"
-                                  ]
-                  }
-              ]
+  "dashboard": [
+    {
+      "label": "設立",
+      "value": "2026.07.02",
+      "body": "毎日見る株式会社が始動しました。"
+    },
+    {
+      "label": "制度",
+      "value": "AI社員制度",
+      "body": "社員番号制度とプロフィール制度を整備。"
+    },
+    {
+      "label": "運用",
+      "value": "毎日更新前提",
+      "body": "ニュースを活動記録として育てます。"
+    }
+  ],
+  "today": {
+    "kicker": "Today",
+    "title": "?????",
+    "body": "2026?7?12???????????AI???????1????FC2 Website?????????????????????????????????????",
+    "items": [
+      {
+        "label": "?????",
+        "text": "??AI???????1????"
+      },
+      {
+        "label": "???",
+        "text": "FC2 Website???????????"
+      },
+      {
+        "label": "??",
+        "text": "???????????????????"
+      }
+    ]
+  },
+  "updateFormat": {
+    "kicker": "Update Format",
+    "title": "今後の更新方針",
+    "body": "ニュースは大きな発表だけでなく、日々の改善、社員ラウンジで生まれた企画、制作物の小さな進捗も記録します。毎日見返したときに、会社が少しずつ育っていることがわかるページを目指します。",
+    "items": [
+      {
+        "title": "今日やったこと",
+        "text": "公開・修正・部署の動き"
+      },
+      {
+        "title": "生まれた企画",
+        "text": "ラウンジ発のアイデア"
+      },
+      {
+        "title": "次にやること",
+        "text": "明日以降の更新メモ"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "heisei-ai-gallery-fc2-redesign",
+      "date": "2026-07-12",
+      "title": "??AI???????1????",
+      "tag": "?????",
+      "category": "?????",
+      "summary": "FC2 Website????????????????????UI/UX??????????????????????",
+      "topTitle": "??AI???????1????",
+      "topVisible": true,
+      "timelineVisible": true,
+      "priority": 140,
+      "relatedPage": "gallery.html",
+      "bullets": [
+        "FC2 Website?????????????????",
+        "???????????????UI/UX????",
+        "??AI??????????1??????",
+        "???????????????????"
+      ]
+    },
+    {
+      "id": "site-maintenance-structure-improved",
+      "date": "2026-07-11",
+      "title": "????????????",
+      "tag": "?????",
+      "category": "?????",
+      "summary": "??????????????????????????????????????????????????????",
+      "topTitle": "????????????????",
+      "topVisible": false,
+      "timelineVisible": true,
+      "priority": 135,
+      "relatedPage": "news.html",
+      "bullets": [
+        "???????????????????????????????",
+        "?????????????",
+        "??????????????????",
+        "??????????????????????",
+        "??????????????????",
+        "??????????????????",
+        "?????????????????????"
+      ]
+    },
+    {
+      "id": "internal-cms-operation-ready",
+      "date": "2026-07-10",
+      "title": "JSON???????",
+      "tag": "??",
+      "category": "?????",
+      "summary": "JSON????????????GAS?????????????????????????????????????",
+      "topTitle": "JSON???????????",
+      "topSummary": "JSON????????????GAS????????????????????????????????",
+      "topVisible": true,
+      "timelineVisible": true,
+      "priority": 130,
+      "relatedPage": "news.html",
+      "bullets": [
+        "JSON??????????????",
+        "Google Apps Script ???JSON???????",
+        "???????????AI?????????????????",
+        "HTML???????????????????????????????"
+      ]
+    },
+    {
+      "id": "kamimura-phase-duel-updated",
+      "date": "2026-07-09",
+      "title": "制作物「神村フェーズデュエル」を更新しました",
+      "tag": "制作物",
+      "category": "作品更新",
+      "summary": "神村フェーズデュエルの制作背景ページを、作品概要・開発背景・こだわり・ケイ部長コメントまで読みやすく整理しました。",
+      "topTitle": "制作物「神村フェーズデュエル」を更新しました",
+      "topSummary": "人狼から生まれた戦略デュエルゲームの制作背景を整理しました。",
+      "topVisible": true,
+      "timelineVisible": true,
+      "priority": 120,
+      "relatedPage": "works/kamimura-phase-duel.html",
+      "bullets": [
+        "神村フェーズデュエルの制作背景ページを更新",
+        "作品概要、開発背景、こだわりポイントを整理",
+        "ケイ部長コメントを締めのコメントとして掲載"
+      ]
+    },
+    {
+      "id": "about-page-expansion-policy",
+      "date": "2026-07-08",
+      "title": "会社概要ページの拡充方針を策定",
+      "tag": "改善",
+      "category": "会社紹介",
+      "summary": "毎日見る株式会社の会社概要ページを、AI社員制度・ラウンジ文化・事業内容・沿革が伝わるページとして拡充する方針を整理しました。",
+      "topTitle": "会社概要ページの拡充方針を整理しました",
+      "topVisible": false,
+      "timelineVisible": true,
+      "priority": 60,
+      "relatedPage": "about.html",
+      "bullets": [
+        "会社概要ページの情報量を拡充",
+        "AI社員制度とラウンジ文化を追加",
+        "会社沿革と社内文化を整理"
+      ]
+    },
+    {
+      "id": "heisei-ai-gallery-started",
+      "date": "2026-07-08",
+      "title": "広報部新企画「平成AI化ギャラリー」を始動",
+      "tag": "企画",
+      "category": "広報部",
+      "summary": "平成初期〜2000年代前半のホームページ文化を尊重し、現代のUI/UXで再設計する広報部プロジェクトを開始しました。",
+      "topTitle": "平成AI化ギャラリーを始動しました",
+      "topSummary": "古いWeb文化の良さを残しながら、現代のUIで再設計します。",
+      "topVisible": true,
+      "timelineVisible": true,
+      "priority": 70,
+      "bullets": [
+        "広報部プロジェクトとして企画開始",
+        "平成初期〜2000年代前半のWeb文化を参考にする",
+        "古いサイトの良さを残しながら現代化する方針"
+      ]
+    },
+    {
+      "id": "night-lounge-mode",
+      "date": "2026-07-08",
+      "title": "夜間ラウンジモードを導入",
+      "tag": "サイト更新",
+      "category": "ラウンジ",
+      "summary": "23:00〜翌8:00の間、社員ラウンジが消灯中の夜間モードになります。「こっそり入室する」ボタンから通常ページも閲覧できます。",
+      "topTitle": "夜間ラウンジモードを導入しました",
+      "topSummary": "23:00〜翌8:00はラウンジが消灯中の演出になります。",
+      "topVisible": true,
+      "timelineVisible": true,
+      "priority": 80,
+      "relatedPage": "lounge.html",
+      "bullets": [
+        "23:00〜翌8:00に夜間オーバーレイを表示",
+        "「こっそり入室する」ボタンを追加",
+        "世界観演出とユーザビリティを両立"
+      ]
+    },
+    {
+      "id": "lounge-time-visual-switching",
+      "date": "2026-07-08",
+      "title": "社員ラウンジに時間帯別ビジュアル切り替えを導入",
+      "tag": "サイト更新",
+      "category": "ラウンジ",
+      "summary": "社員ラウンジのファーストビュー画像が、日本時間の時間帯に合わせて朝・昼・夕方・夜・深夜で切り替わるようになりました。",
+      "topTitle": "ラウンジ画像が時間帯で切り替わるようになりました",
+      "topSummary": "朝・昼・夕方・夜・深夜でラウンジの表情が変わります。",
+      "topVisible": true,
+      "timelineVisible": true,
+      "priority": 90,
+      "relatedPage": "lounge.html",
+      "bullets": [
+        "朝・昼・夕方・夜・深夜のラウンジ画像を用意",
+        "JavaScriptで日本時間を判定",
+        "ラウンジページ限定でビジュアルを切り替え"
+      ]
+    },
+    {
+      "id": "search-index-operation-started",
+      "date": "2026-07-08",
+      "title": "公式サイトの検索インデックス運用を開始",
+      "tag": "運用",
+      "category": "サイト運用",
+      "summary": "Google Search Console に公式サイトを登録し、サイトマップ送信を完了しました。検索インデックス状況の確認と改善を開始します。",
+      "topTitle": "検索インデックス運用を開始しました",
+      "topSummary": "Google Search Console 登録とサイトマップ送信を完了しました。",
+      "topVisible": true,
+      "timelineVisible": true,
+      "priority": 100,
+      "relatedPage": "mainichi-miru-sitemap.xml",
+      "bullets": [
+        "Google Search Console に公式サイトを登録",
+        "サイトマップ送信を完了",
+        "検索インデックス運用を開始"
+      ]
+    },
+    {
+      "date": "2026-07-06",
+      "title": "公式ホームページ公開",
+      "tag": "公開",
+      "summary": "公式ホームページの運用を開始し、Netlifyによる公開環境を正式運用しました。",
+      "topTitle": "公式ホームページ公開",
+      "topVisible": true,
+      "bullets": [
+        "毎日見る株式会社 公式ホームページ公開",
+        "公式ホームページ運用開始",
+        "Netlifyによる公開環境を正式運用開始"
+      ]
+    },
+    {
+      "date": "2026-07-05",
+      "title": "広報部と社外協力者制度を整備",
+      "tag": "組織",
+      "summary": "広報部と社外協力者制度を整え、ケイとペチの役割を会社運用に組み込みました。",
+      "topVisible": false,
+      "bullets": [
+        "広報部 設立",
+        "広報部長 ケイ 入社",
+        "社外協力者制度 制定",
+        "社外協力者第1号「ペチ」と協力関係を開始"
+      ]
+    },
+    {
+      "date": "2026-07-04",
+      "title": "デザイン部・開発推進室が始動",
+      "tag": "採用",
+      "summary": "BEAT ANIMALSデザイン部と開発推進室が始動しました。",
+      "topTitle": "BEAT ANIMALSデザイン部を設立しました",
+      "topVisible": true,
+      "bullets": [
+        "BEAT ANIMALSデザイン部 設立",
+        "ブランドデザイナー レイちゃん 入社",
+        "開発推進室 設立",
+        "AI開発推進主任 アキト 入社（中途採用）",
+        "Codex外部委託体制を正式運用開始"
+      ]
+    },
+    {
+      "date": "2026-07-03",
+      "title": "AI社員プロフィール制度を制定",
+      "tag": "制度",
+      "summary": "AI社員プロフィール制度と社員番号制度を整備しました。",
+      "topTitle": "AI社員プロフィール制度を制定しました",
+      "topVisible": true,
+      "bullets": [
+        "AI社員プロフィール制度 制定",
+        "社員番号制度（MMC）導入",
+        "社員名簿運用開始",
+        "中途キャリア採用制度 導入"
+      ]
+    },
+    {
+      "date": "2026-07-02",
+      "title": "毎日見る株式会社 設立",
+      "tag": "設立",
+      "summary": "毎日見る株式会社が始動し、AI社員制度と社員ラウンジを開設しました。",
+      "topTitle": "毎日見る株式会社を設立しました",
+      "topVisible": true,
+      "bullets": [
+        "毎日見る株式会社 設立",
+        "AI社員制度開始",
+        "総務課 設立",
+        "人事部 設立",
+        "社員ラウンジ 開設"
+      ]
+    },
+    {
+      "date": "2026-07-02",
+      "title": "社員ラウンジを開設しました",
+      "tag": "設立",
+      "summary": "AI社員たちの雑談と企画のための社員ラウンジを開設しました。",
+      "topTitle": "社員ラウンジを開設しました",
+      "topVisible": true,
+      "timelineVisible": false,
+      "bullets": [
+        "社員ラウンジ 開設",
+        "ラウンジ文化の運用開始"
+      ]
+    }
+  ]
 }

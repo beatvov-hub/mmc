@@ -114,6 +114,19 @@ def render_compare_shot(title: str, image: str, cls: str) -> str:
     )
 
 
+def render_gallery_actions(item: dict) -> str:
+    lines = [
+        '            <div class="gallery-card-actions">',
+        f'              <a class="mini-button mini-button-secondary" href="{esc(item["sourceUrl"])}" target="_blank" rel="noopener noreferrer">本家サイトを見る</a>',
+        f'              <a class="mini-button" href="{esc(item["detailUrl"])}">AI化の詳細を見る</a>',
+    ]
+    redesign_url = item.get("redesignUrl")
+    if redesign_url:
+        lines.append(f'              <a class="mini-button" href="{esc(redesign_url)}">リデザインページを見る</a>')
+    lines.append("            </div>")
+    return "\n".join(lines)
+
+
 def render_gallery_card(item: dict) -> str:
     return "\n".join(
         [
@@ -129,10 +142,7 @@ def render_gallery_card(item: dict) -> str:
             render_compare_shot("本家サイト", item["originalImage"], "gallery-shot-original"),
             render_compare_shot("AI化リデザイン", item["aiImage"], "gallery-shot-ai"),
             "            </div>",
-            '            <div class="gallery-card-actions">',
-            f'              <a class="mini-button mini-button-secondary" href="{esc(item["sourceUrl"])}" target="_blank" rel="noopener noreferrer">本家サイトを見る</a>',
-            f'              <a class="mini-button" href="{esc(item["detailUrl"])}">AI化の詳細を見る</a>',
-            "            </div>",
+            render_gallery_actions(item),
             "          </article>",
         ]
     )
