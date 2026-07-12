@@ -130,7 +130,19 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 更新履歴
 --------
 
+### 2026-07-13
+
+- `src/data/newsItems.json` に「Word Link Rushを制作」のニュースを追加しました。
+- 2026-07-12の沿革に、平成AI化ギャラリー第1弾と Word Link Rush の制作内容を統合して追記しました。
+- `scripts/generate_news.py` に会社概要用の `aboutTitle` / `aboutSummary` / `aboutVisible` 対応を追加しました。
+- `scripts/generate_news.py` を実行し、`index.html`、`news.html`、`about.html` を再生成しました。
+
 ### 2026-07-12
+
+- `src/data/workStories.json` に公開ゲーム「Word Link Rush」を追加し、制作物一覧へ掲載しました。
+- `scripts/generate_works.py` を実行し、`works.html` と仮の制作背景ページ `works/word-link-rush.html` を生成しました。
+- `works.html` と `works/word-link-rush.html` に公開先 `https://word-link-rush-game-beryl.vercel.app/` への「ゲームを遊ぶ」リンクを追加しました。
+- `mainichi-miru-sitemap.xml` に `works/word-link-rush` を追加しました。
 
 - `src/data/galleryItems.json` の FC2 Website 項目に `redesignUrl` を追加し、`gallery.html` から `gallery/fc2-homepage-redesign.html` へ移動できる導線を追加しました。
 - `scripts/generate_gallery.py` に `redesignUrl` がある場合だけ「リデザインページを見る」ボタンを出す処理を追加しました。

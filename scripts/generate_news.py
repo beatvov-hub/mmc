@@ -274,6 +274,8 @@ def update_news_html(data: dict) -> None:
 def render_about_timeline(data: dict) -> str:
     grouped: dict[str, list[dict]] = {}
     for item in timeline_sorted_items(data):
+        if item.get("aboutVisible") is False:
+            continue
         grouped.setdefault(item["date"], []).append(item)
 
     lines = ['        <ol class="about-timeline">']
@@ -287,8 +289,8 @@ def render_about_timeline(data: dict) -> str:
             lines.extend(
                 [
                     "            <article>",
-                    f"              <h3>{esc(item.get('title', ''))}</h3>",
-                    f"              <p>{esc(item.get('summary', ''))}</p>",
+                    f"              <h3>{esc(item.get('aboutTitle') or item.get('title', ''))}</h3>",
+                    f"              <p>{esc(item.get('aboutSummary') or item.get('summary', ''))}</p>",
                     "            </article>",
                 ]
             )
