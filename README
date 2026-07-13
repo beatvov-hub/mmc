@@ -52,7 +52,7 @@
 
 - ラウンジ観測記録は `loungeLogs.json` で管理します。
 - 1日複数回更新できる前提で、アーカイブページとカレンダー表示を生成します。
-- 2026-07-10 時点で、`loungeLogs.json` は 16 件あります。
+- 2026-07-13 時点で、`loungeLogs.json` は 29 件あります。
 - `lounge.html` には時間帯でラウンジ画像を切り替えるJavaScriptがあります。
 - 23:00〜翌8:00は夜間オーバーレイを出す仕様です。
 
@@ -136,6 +136,9 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - 2026-07-12の沿革に、平成AI化ギャラリー第1弾と Word Link Rush の制作内容を統合して追記しました。
 - `scripts/generate_news.py` に会社概要用の `aboutTitle` / `aboutSummary` / `aboutVisible` 対応を追加しました。
 - `scripts/generate_news.py` を実行し、`index.html`、`news.html`、`about.html` を再生成しました。
+- `src/data/loungeLogs.json` に 2026-07-13 09:00 の朝ラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`index.html`、`lounge.html`、`lounge-archive/2026-07-13-0900.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- トップページの「今日のひとこと」を、ほのちゃん、アキト、ショウマの3件へ更新しました。
 
 ### 2026-07-12
 
@@ -220,11 +223,12 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 確認済みの状態
 --------------
 
-2026-07-11 時点で確認した内容:
+2026-07-13 時点で確認した内容:
 
 - `src/data/*.json` はすべて読み込みOK
-- 生成スクリプト4本は実行OK
-- HTMLは 55 ファイル
+- 生成スクリプトのPython構文チェックOK
+- `generate_lounge.py`、`generate_works.py`、`generate_gallery.py` のデータ読み込みOK
+- サイトHTMLは 59 ファイル（`src/partials/` の共通パーツを除く）
 - ローカルリンク・ページ内アンカーはリンク切れなし
 - `lounge.html` のインラインJavaScriptは構文OK
 - 神村フェーズデュエル、BEAT ANIMALSの詳細ページはリッチ版デザインを保持
