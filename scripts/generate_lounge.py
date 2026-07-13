@@ -491,17 +491,79 @@ def render_today_words(log: dict) -> str:
     return "\n".join(lines)
 
 
+def first_speaker(log: dict) -> dict | None:
+    for block in log.get("content", []):
+        if block.get("type") != "talks":
+            continue
+        for item in block.get("items", []):
+            if item.get("speaker"):
+                return item
+    return None
+
+
+def latest_topic_text(log: dict) -> str:
+    description = str(log.get("description", ""))
+    if "が、" in description and "について話します" in description:
+        topic = description.split("が、", 1)[1].split("について話します", 1)[0]
+        return f"{topic}について相談中。"
+    return "制作物、ニュース、ゲーム開発、ちょっとした思いつきまで。"
+
+
+def render_lounge_board(log: dict | None) -> str:
+    fallback = [
+        '        <aside class="lounge-board" id="lounge" aria-label="今日のラウンジ">',
+        '          <p class="lounge-board__label">Today at Bean &amp; Bits</p>',
+        "          <h2>今日のラウンジ</h2>",
+        '          <p class="lounge-board__lead">AI社員たちは、今日も雑談中。</p>',
+        '          <p class="lounge-board__summary">制作物、ニュース、ゲーム開発、ちょっとした思いつきまで。</p>',
+        '          <p class="lounge-board__note">毎日の会話から、次の企画が生まれています。</p>',
+        '          <a class="lounge-board__button" href="lounge.html">社内ラウンジを覗く</a>',
+        "        </aside>",
+    ]
+    if not log:
+        return "\n".join(fallback)
+
+    speaker = first_speaker(log)
+    if not speaker:
+        return "\n".join(fallback)
+
+    lines = [
+        '        <aside class="lounge-board" id="lounge" aria-label="今日のラウンジ">',
+        '          <p class="lounge-board__label">Today at Bean &amp; Bits</p>',
+        "          <h2>今日のラウンジ</h2>",
+        '          <p class="lounge-board__lead">AI社員たちは、今日も雑談中。</p>',
+        '          <div class="lounge-board__latest">',
+        f'            <time datetime="{esc(log["date"])}T{esc(log["time"])}">{esc(date_dot(log))} {esc(WEEKDAY_EN.get(log.get("weekday", ""), ""))} {esc(log["time"])}</time>',
+        '            <div class="lounge-board__speaker">',
+        f'              <img src="{esc(speaker.get("icon", "image/icon/icon_mmc001.jpg"))}" alt="{esc(speaker.get("alt", speaker.get("speaker", "")))}" />',
+        "              <div>",
+        f'                <strong>{esc(speaker.get("speaker", ""))}</strong>',
+        f'                <span>{esc(speaker.get("role", "AI社員"))}</span>',
+        "              </div>",
+        "            </div>",
+        f'            <p>{esc(latest_topic_text(log))}</p>',
+        "          </div>",
+        '          <p class="lounge-board__note">毎日の会話から、次の企画が生まれています。</p>',
+        '          <a class="lounge-board__button" href="lounge.html">社内ラウンジを覗く</a>',
+        "        </aside>",
+    ]
+    return "\n".join(lines)
+
+
 def update_index_html(logs: list[dict]) -> None:
     today_log = next((log for log in reversed(logs) if log.get("todayWords")), None)
-    if not today_log:
-        return
+    latest_log = logs[-1] if logs else None
 
     html_text = INDEX_HTML_PATH.read_text(encoding="utf-8")
-    section_start = html_text.index('      <section id="today-words"')
-    grid_start = html_text.index('        <div class="today-words-grid">', section_start)
-    section_end = html_text.index("      </section>", grid_start)
-    replacement = render_today_words(today_log)
-    html_text = html_text[:grid_start] + replacement + "\n" + html_text[section_end:]
+    board_start = html_text.index('        <aside class="lounge-board"')
+    board_end = html_text.index("        </aside>", board_start) + len("        </aside>")
+    html_text = html_text[:board_start] + render_lounge_board(latest_log) + html_text[board_end:]
+    if today_log:
+        section_start = html_text.index('      <section id="today-words"')
+        grid_start = html_text.index('        <div class="today-words-grid">', section_start)
+        section_end = html_text.index("      </section>", grid_start)
+        replacement = render_today_words(today_log)
+        html_text = html_text[:grid_start] + replacement + "\n" + html_text[section_end:]
     INDEX_HTML_PATH.write_text(html_text, encoding="utf-8")
 
 
