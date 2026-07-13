@@ -283,16 +283,26 @@ h3 { margin:0 0 8px; font-size:1.05rem; }.mission-grid p{margin:0;font-size:.95r
   .global-nav { order:3; width:100%; overflow:auto; padding-bottom:4px; font-size:.86rem; }
   .nav-contact-link { display: inline; }
   .contact-button { display:none; }
-  .hero { min-height: 900px; }
-  .hero-content { padding:140px 0 350px; }
-  .lounge-board {
-    left:20px;
-    right:20px;
-    top:auto;
-    bottom:34px;
-    width:auto;
-    padding:20px;
+  .hero {
+    display: block;
+    min-height: auto;
+    padding: 150px 20px 48px;
   }
+  .hero-content {
+    max-width: 680px;
+    padding: 0;
+  }
+  .lounge-board {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: min(100%, 620px);
+    margin-top: 30px;
+    padding: 20px;
+  }
+  .hero + .feature-section { margin-top: 30px; }
   .mission-grid, .news-list, .staff-grid, .today-words-grid { grid-template-columns:1fr; }
   .mission-grid article, .news-list article { border-left:0; border-top:1px solid #decfbd; }
   .mission-grid article:first-child, .news-list article:first-child { border-top:0; }
@@ -300,8 +310,17 @@ h3 { margin:0 0 8px; font-size:1.05rem; }.mission-grid p{margin:0;font-size:.95r
 }
 @media (max-width: 620px) {
   .brand-text strong { font-size:.98rem; }
-  .hero { min-height: 900px; background-position:center; }
-  .hero-content { padding:120px 0 365px; }
+  .hero {
+    min-height: auto;
+    padding: 122px 12px 34px;
+    background-position:center;
+  }
+  .hero-content { padding: 0; }
+  .lounge-board {
+    width: 100%;
+    margin-top: 24px;
+    padding: 18px;
+  }
   h1 { font-size: clamp(2.7rem, 14vw, 4.2rem); }
   .mission-card { width:calc(100% - 24px); padding:24px 20px; margin-top:24px; }
   .today-words { width:calc(100% - 24px); padding:24px 20px; border-radius:18px; }
@@ -1613,9 +1632,10 @@ img { max-width: 100%; }
   .contact-button { display: none; }
 
   .hero {
-    min-height: 900px;
-    grid-template-columns: 14px minmax(0, 1fr) 14px;
-    padding-top: 164px;
+    display: block;
+    min-height: auto;
+    grid-template-columns: none;
+    padding: 122px 12px 34px;
   }
   .hero::after {
     background:
@@ -1625,16 +1645,19 @@ img { max-width: 100%; }
   .hero-content {
     width: 100%;
     max-width: none;
-    padding: 54px 0 360px;
+    padding: 0;
   }
   .lounge-board {
-    left: 12px;
-    right: 12px;
+    position: relative;
+    left: auto;
+    right: auto;
     top: auto;
-    bottom: 24px;
-    width: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: 24px;
     padding: 18px;
   }
+  .hero + .feature-section { margin-top: 24px; }
   .lounge-board h2 { font-size: 1.12rem; }
   .lounge-board__lead { font-size: .94rem; }
   .lounge-board__latest { padding: 12px; }
@@ -1885,7 +1908,7 @@ img { max-width: 100%; }
   .global-nav {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .hero { padding-top: 164px; }
+  .hero { padding-top: 122px; }
   .member-card {
     grid-template-columns: 1fr;
   }
