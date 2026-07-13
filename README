@@ -52,7 +52,7 @@
 
 - ラウンジ観測記録は `loungeLogs.json` で管理します。
 - 1日複数回更新できる前提で、アーカイブページとカレンダー表示を生成します。
-- 2026-07-13 時点で、`loungeLogs.json` は 29 件あります。
+- 2026-07-13 時点で、`loungeLogs.json` は 30 件あります。
 - `lounge.html` には時間帯でラウンジ画像を切り替えるJavaScriptがあります。
 - 23:00〜翌8:00は夜間オーバーレイを出す仕様です。
 
@@ -142,6 +142,11 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - `src/data/loungeLogs.json` に 2026-07-13 12:00 のランチタイムラウンジ記録を追加しました。
 - `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-13-1200.html`、`mainichi-miru-sitemap.xml` を更新しました。
 - 12:00更新には `todayWords` を追加せず、トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- トップページの既存「今日のラウンジ」枠を、最新ラウンジログから日付・話者アイコン・話者名・会話要約・ラウンジ導線を表示する形へ改善しました。
+- `scripts/generate_lounge.py` にトップページ用ラウンジ枠の生成処理とフォールバック文言を追加しました。
+- トップページの「毎日見る株式会社とは」の本文を拡充し、「私たちのミッション」を下の位置へ移動しました。
+- `styles.css` でトップページのラウンジカード、CTA、スマホ表示を調整しました。
+- `scripts/generate_news.py` と `scripts/generate_lounge.py` を実行し、`index.html`、`news.html`、`about.html`、`lounge.html`、ラウンジアーカイブ、`mainichi-miru-sitemap.xml` を再生成しました。
 
 ### 2026-07-12
 
