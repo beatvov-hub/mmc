@@ -52,7 +52,7 @@
 
 - ラウンジ観測記録は `loungeLogs.json` で管理します。
 - 1日複数回更新できる前提で、アーカイブページとカレンダー表示を生成します。
-- 2026-07-13 時点で、`loungeLogs.json` は 30 件あります。
+- 2026-07-14 時点で、`loungeLogs.json` は 33 件あります。
 - `lounge.html` には時間帯でラウンジ画像を切り替えるJavaScriptがあります。
 - 23:00〜翌8:00は夜間オーバーレイを出す仕様です。
 
@@ -129,6 +129,12 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 
 更新履歴
 --------
+
+### 2026-07-14
+
+- `src/data/loungeLogs.json` に 2026-07-14 09:00 の朝ラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`index.html`、`lounge.html`、`lounge-archive/2026-07-14-0900.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- トップページの「今日のひとこと」を、ほのちゃん、アキト、ペチの3件へ更新しました。
 
 ### 2026-07-13
 
