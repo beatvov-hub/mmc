@@ -1178,6 +1178,7 @@ body.subpage { padding-top: 88px; }
 .speaker-rei { --speaker: #b7787a; --speaker-bg: #f7ebe2; }
 .speaker-akito { --speaker: #33475b; --speaker-bg: #e7edf0; }
 .speaker-kei { --speaker: #536b45; --speaker-bg: #f0eadb; }
+.speaker-makoto { --speaker: #1d6b67; --speaker-bg: #e4f1ed; }
 .speaker-pechi { --speaker: #1f1a15; --speaker-bg: #fff2d8; }
 .lounge-quote {
   margin: 22px 0 0;
@@ -3295,6 +3296,20 @@ img { max-width: 100%; }
   font-weight: 900;
 }
 
+.forensics-makoto-avatar {
+  margin: 0;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,.78);
+  box-shadow: 0 10px 24px rgba(26, 69, 65, .16);
+}
+
+.forensics-makoto-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .forensics-card h3 {
   margin: 4px 0 0;
   color: var(--forensics-ink);
@@ -3395,6 +3410,11 @@ img { max-width: 100%; }
   padding: clamp(22px, 4vw, 34px);
   background:
     linear-gradient(135deg, rgba(255,250,242,.92), rgba(216,235,230,.78));
+}
+
+.forensics-makoto-card .forensics-makoto-avatar {
+  width: 72px;
+  height: 72px;
 }
 
 .forensics-makoto-card h2 {
@@ -3560,6 +3580,31 @@ img { max-width: 100%; }
 .scenario-note {
   margin-top: 14px;
   border-left: 5px solid var(--mustard);
+}
+
+.scenario-image {
+  margin: 16px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--forensics-line);
+  border-radius: 8px;
+  background: rgba(255,250,242,.86);
+  box-shadow: 0 16px 36px rgba(26, 69, 65, .1);
+}
+
+.scenario-image img {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+.scenario-image figcaption {
+  padding: 12px 16px;
+  color: var(--muted);
+  font-size: .92rem;
+  font-weight: 800;
+  line-height: 1.7;
+  background: rgba(255,255,255,.78);
 }
 
 .scenario-note strong {

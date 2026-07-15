@@ -13,6 +13,7 @@ DATA_DIR = ROOT / "src" / "data" / "ai-forensics"
 OUTPUT_DIR = ROOT / "ai-forensics"
 INDEX_HTML_PATH = OUTPUT_DIR / "index.html"
 BASE_URL = "https://mainichi-miru.netlify.app"
+MAKOTO_ICON = "image/icon/icon_mmc010.jpg"
 
 CATEGORY_LABELS = {
     "deepfake": "ディープフェイク",
@@ -168,6 +169,42 @@ def confidence_label(value: str) -> str:
 
 def source_type_label(value: str) -> str:
     return SOURCE_TYPE_LABELS.get(value, SOURCE_TYPE_LABELS["other"])
+
+
+def asset_src(src: object, prefix: str) -> str:
+    value = str(src)
+    if value.startswith(("http://", "https://", "/", "../")):
+        return value
+    return prefix + value.lstrip("./")
+
+
+def render_makoto_avatar(prefix: str) -> str:
+    icon_src = asset_src(MAKOTO_ICON, prefix)
+    return "\n".join(
+        [
+            '          <figure class="forensics-makoto-avatar">',
+            f'            <img src="{esc(icon_src)}" alt="誠のアイコン" loading="lazy" />',
+            "          </figure>",
+        ]
+    )
+
+
+def render_case_image(article: dict[str, Any], prefix: str = "../") -> str:
+    image = article.get("caseImage")
+    if not isinstance(image, dict) or not image.get("src"):
+        return ""
+    image_src = asset_src(image["src"], prefix)
+    alt = image.get("alt") or article.get("title", "")
+    caption = image.get("caption", "")
+    caption_html = f"            <figcaption>{esc(caption)}</figcaption>" if caption else ""
+    return "\n".join(
+        [
+            '          <figure class="scenario-image">',
+            f'            <img src="{esc(image_src)}" alt="{esc(alt)}" loading="lazy" />',
+            caption_html,
+            "          </figure>",
+        ]
+    )
 
 
 def article_path(article: dict[str, Any]) -> Path:
@@ -364,7 +401,7 @@ def render_index_page(articles: list[dict[str, Any]]) -> str:
             "",
             '      <section class="forensics-makoto card-section" aria-labelledby="forensics-makoto-title">',
             '        <div class="forensics-makoto-card">',
-            '          <div class="forensics-makoto-avatar" aria-hidden="true">誠</div>',
+            render_makoto_avatar("../"),
             "          <div>",
             '            <p class="section-kicker">AIリテラシー推進室 主任</p>',
             '            <h2 id="forensics-makoto-title">誠</h2>',
@@ -568,6 +605,7 @@ def render_article_page(article: dict[str, Any], articles: list[dict[str, Any]])
             "          <div class=\"forensics-step-label\">Step 1</div>",
             "          <h2>身近な事例を知る</h2>",
             f'          <article class="scenario-card"><h3>{esc(scenario.get("headline", ""))}</h3><p>{esc(scenario.get("description", ""))}</p></article>',
+            render_case_image(article),
             f'          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>{esc(scenario.get("whyItMatters", ""))}</p></aside>',
             "        </section>",
             "",
@@ -609,7 +647,7 @@ def render_article_page(article: dict[str, Any], articles: list[dict[str, Any]])
             "        </section>",
             "",
             '        <section class="makoto-comment-section">',
-            '          <div class="forensics-makoto-avatar" aria-hidden="true">誠</div>',
+            render_makoto_avatar("../"),
             "          <div>",
             "            <h2>誠主任からひとこと</h2>",
             f"            <blockquote>{esc(article['makotoComment'])}</blockquote>",

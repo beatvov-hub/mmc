@@ -52,9 +52,106 @@ STATIC_SITEMAP_PATHS = [
     "contact",
 ]
 
+SPEAKER_DEFAULTS = {
+    "ほのちゃん": {
+        "speakerClass": "speaker-hono",
+        "icon": "image/icon/icon_mmc001.jpg",
+        "alt": "ほのちゃんのアイコン",
+        "role": "総務課",
+    },
+    "ショウマ": {
+        "speakerClass": "speaker-shoma",
+        "icon": "image/icon/icon_mmc002.jpg",
+        "alt": "ショウマのアイコン",
+        "role": "企画部",
+    },
+    "たかけん": {
+        "speakerClass": "speaker-takaken",
+        "icon": "image/icon/icon_mmc003.jpg",
+        "alt": "たかけんのアイコン",
+        "role": "神村制作部",
+    },
+    "マイケル": {
+        "speakerClass": "speaker-michael",
+        "icon": "image/icon/icon_mmc004.jpg",
+        "alt": "マイケルのアイコン",
+        "role": "海外情報部",
+    },
+    "DG": {
+        "speakerClass": "speaker-dg",
+        "icon": "image/icon/icon_mmc005.jpg",
+        "alt": "DGのアイコン",
+        "role": "ゲーム研究部",
+    },
+    "ねむちゃん": {
+        "speakerClass": "speaker-nemu",
+        "icon": "image/icon/icon_mmc006.jpg",
+        "alt": "ねむちゃんのアイコン",
+        "role": "人事部",
+    },
+    "レイちゃん": {
+        "speakerClass": "speaker-rei",
+        "icon": "image/icon/icon_mmc007.jpg",
+        "alt": "レイちゃんのアイコン",
+        "role": "デザイン部",
+    },
+    "アキト": {
+        "speakerClass": "speaker-akito",
+        "icon": "image/icon/icon_mmc008.jpg",
+        "alt": "アキトのアイコン",
+        "role": "開発推進室",
+    },
+    "ケイ": {
+        "speakerClass": "speaker-kei",
+        "icon": "image/icon/icon_mmc009.jpg",
+        "alt": "ケイのアイコン",
+        "role": "広報部長",
+    },
+    "誠": {
+        "speakerClass": "speaker-makoto",
+        "icon": "image/icon/icon_mmc010.jpg",
+        "alt": "誠のアイコン",
+        "role": "AIリテラシー推進室 主任",
+    },
+    "誠さん": {
+        "speakerClass": "speaker-makoto",
+        "icon": "image/icon/icon_mmc010.jpg",
+        "alt": "誠のアイコン",
+        "role": "AIリテラシー推進室 主任",
+    },
+    "誠主任": {
+        "speakerClass": "speaker-makoto",
+        "icon": "image/icon/icon_mmc010.jpg",
+        "alt": "誠のアイコン",
+        "role": "AIリテラシー推進室 主任",
+    },
+    "ペチ": {
+        "speakerClass": "speaker-pechi",
+        "icon": "image/icon/icon_cc001.jpg",
+        "alt": "ペチのアイコン",
+        "role": "社外協力者",
+    },
+}
+
 
 def esc(value: object) -> str:
     return html.escape(str(value), quote=True)
+
+
+def apply_speaker_defaults(item: dict) -> None:
+    defaults = SPEAKER_DEFAULTS.get(str(item.get("speaker", "")))
+    if not defaults:
+        return
+    for key, value in defaults.items():
+        item.setdefault(key, value)
+
+
+def normalize_lounge_log(log: dict) -> None:
+    for block in log.get("content", []):
+        if block.get("type") != "talks":
+            continue
+        for item in block.get("items", []):
+            apply_speaker_defaults(item)
 
 
 def text_with_breaks(value: str) -> str:
@@ -74,6 +171,7 @@ def load_logs() -> list[dict]:
             raise ValueError(f"participants must be a list: {log['id']}")
         if not isinstance(log["content"], list):
             raise ValueError(f"content must be a list: {log['id']}")
+        normalize_lounge_log(log)
     return sorted(logs, key=lambda item: (item["date"], item["time"]))
 
 
