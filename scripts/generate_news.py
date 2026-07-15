@@ -5,7 +5,7 @@ import html
 import json
 from pathlib import Path
 
-from site_layout import apply_layout_to_file
+from site_layout import FOOTER_END, FOOTER_START, apply_layout_to_file, marked_block, render_footer
 
 ROOT = Path(__file__).resolve().parents[1]
 NEWS_DATA_PATH = ROOT / "src" / "data" / "newsItems.json"
@@ -266,8 +266,21 @@ def render_news_main(data: dict) -> str:
 def update_news_html(data: dict) -> None:
     html_text = NEWS_HTML_PATH.read_text(encoding="utf-8")
     main_start = html_text.index('    <main class="page-main news-main">')
-    footer_start = html_text.index("    <footer", main_start)
-    html_text = html_text[:main_start] + render_news_main(data) + "\n\n" + html_text[footer_start:]
+    try:
+        footer_start = html_text.index("    <!-- SITE_FOOTER_START", main_start)
+        footer_text = html_text[footer_start:]
+    except ValueError:
+        try:
+            footer_start = html_text.index("    <footer", main_start)
+            footer_text = html_text[footer_start:]
+        except ValueError:
+            footer_start = html_text.index("  </body>", main_start)
+            footer_text = (
+                marked_block(FOOTER_START, render_footer(""), FOOTER_END)
+                + "\n"
+                + html_text[footer_start:]
+            )
+    html_text = html_text[:main_start] + render_news_main(data) + "\n\n" + footer_text
     NEWS_HTML_PATH.write_text(html_text, encoding="utf-8")
 
 

@@ -28,12 +28,16 @@ FOOTER_TAG_RE = re.compile(
     r'^[ \t]*<footer class="site-footer"[\s\S]*?</footer>',
     re.MULTILINE,
 )
+ORPHAN_FOOTER_END_RE = re.compile(
+    r"\n?[ \t]*<script src=\"[^\"]*site-nav\.js\"></script>\s*\n[ \t]*<!-- SITE_FOOTER_END -->"
+)
 
 CURRENT_KEYS = [
     "home",
     "about",
     "members",
     "services",
+    "ai_forensics",
     "works",
     "gallery",
     "lounge",
@@ -79,10 +83,29 @@ def replace_block(
     replacement: str,
     label: str,
 ) -> str:
-    if marked_re.search(html_text):
-        return marked_re.sub(replacement, html_text, count=1)
+    match = marked_re.search(html_text)
+    if match:
+        html_text = html_text[: match.start()] + replacement + html_text[match.end() :]
+        end_marker = FOOTER_END if label == "site footer" else HEADER_END
+        first_marker_end = html_text.find(end_marker)
+        if first_marker_end != -1:
+            split_at = first_marker_end + len(end_marker)
+            html_text = html_text[:split_at] + marked_re.sub("", html_text[split_at:])
+        if label == "site footer":
+            first_footer_end = html_text.find(FOOTER_END)
+            if first_footer_end != -1:
+                split_at = first_footer_end + len(FOOTER_END)
+                html_text = (
+                    html_text[:split_at]
+                    + ORPHAN_FOOTER_END_RE.sub("", html_text[split_at:])
+                )
+        return html_text
     if tag_re.search(html_text):
         return tag_re.sub(replacement, html_text, count=1)
+    if label == "site footer":
+        return ORPHAN_FOOTER_END_RE.sub("", html_text)
+    if label == "site header":
+        return html_text
     raise ValueError(f"Could not find {label} block.")
 
 
@@ -101,6 +124,8 @@ def page_context(path: Path) -> tuple[str, str]:
         current = "members"
     elif name == "services.html":
         current = "services"
+    elif first == "ai-forensics":
+        current = "ai_forensics"
     elif first == "works" or name == "works.html":
         current = "works"
     elif name.startswith("gallery"):

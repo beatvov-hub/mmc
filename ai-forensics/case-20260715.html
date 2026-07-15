@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SNSで見かけたAI画像つき投稿、すぐ共有しても大丈夫？｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="SNSで話題になっている画像つき投稿を見かけたとき、共有する前にどこを確認すればよいかを整理する、実装確認用の架空事例です。" />
+    <link rel="canonical" href="https://mainichi-miru.netlify.app/ai-forensics/case-20260715" />
+    <meta property="og:title" content="SNSで見かけたAI画像つき投稿、すぐ共有しても大丈夫？｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="SNSで話題になっている画像つき投稿を見かけたとき、共有する前にどこを確認すればよいかを整理する、実装確認用の架空事例です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.netlify.app/ai-forensics/case-20260715" />
+    <meta property="og:image" content="https://mainichi-miru.netlify.app/image/top005.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../index.html" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../index.html">ホーム</a>
+        <a href="../about.html">会社概要</a>
+        <a href="../members.html">AI社員紹介</a>
+        <a href="../services.html">事業内容</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works.html">制作物</a>
+        <a href="../gallery.html">ギャラリー</a>
+        <a href="../lounge.html">ラウンジ</a>
+        <a href="../news.html">ニュース</a>
+        <a class="nav-contact-link" href="../contact.html">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact.html">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../index.html">ホーム</a>
+        <a href="index.html">AI鑑識室</a>
+        <strong>AI画像つき投稿の確認</strong>
+        <a class="profile-back" href="index.html">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>SNS</span>
+              <span>はじめて</span>
+              <time datetime="2026-07-15">2026.07.15</time>
+            </div>
+            <h1>SNSで見かけたAI画像つき投稿、すぐ共有しても大丈夫？</h1>
+            <p>SNSで話題になっている画像つき投稿を見かけたとき、共有する前にどこを確認すればよいかを整理する、実装確認用の架空事例です。</p>
+            <ul class="forensics-target-list"><li>SNSでニュースや話題をよく見る人</li><li>AI画像やAI動画を見分けたい人</li><li>家族や友人へ情報を共有する前に確認したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>SNS</li><li>AI画像</li><li>情報確認</li><li>共有前チェック</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>公式情報と照合</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>画像や投稿文だけで判断せず、投稿元と公式情報を照らし合わせたい事例です。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>友人から、災害現場らしいAI画像つき投稿が送られてきた</h3><p>これは実装確認用の架空記事です。SNSで「今すぐ拡散して」と書かれた画像つき投稿を見かけました。画像は本物の写真のように見えますが、投稿者は知らないアカウントで、撮影場所や公式発表へのリンクはありません。友人からも同じ投稿が送られてきて、共有するべきか迷っています。</p></article>
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>画像が本物に見えても、撮影日時や場所、出どころが分からないまま広がると、必要な人へ正しい情報が届きにくくなることがあります。共有する前に少し確認するだけで、不安を広げずに済む場合があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-source,ask-context,save-as-reference">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>あなたなら、まずどの行動を取りますか？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="share-now" data-choice-id="share-now" />
+                <span>
+                  <strong>急いで共有する</strong>
+                  <small>多くの人に知らせるため、内容を確認する前にそのまま共有する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-source" data-choice-id="check-source" />
+                <span>
+                  <strong>投稿元と公式情報を確認する</strong>
+                  <small>投稿者、公開日時、自治体や公式機関の発表があるかを確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ask-context" data-choice-id="ask-context" />
+                <span>
+                  <strong>友人に出どころを聞く</strong>
+                  <small>どこで見た投稿なのか、元のリンクや補足情報があるかを確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="save-as-reference" data-choice-id="save-as-reference" />
+                <span>
+                  <strong>参考情報として保留する</strong>
+                  <small>すぐ拡散せず、事実確認ができるまで自分のメモに留める。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>投稿元と公式情報を確認する</li><li>友人に出どころを聞く</li><li>参考情報として保留する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>急いで共有したくなる場面ほど、投稿元、日時、公式発表の有無を確認すると安心です。分からない場合は、共有を止めることも大切な判断です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>投稿元は確認できるか</h3>
+              <p>知らないアカウントの場合は、プロフィール、過去投稿、元投稿へのリンクを確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>公式発表と一致しているか</h3>
+              <p>自治体、公共機関、サービス運営元など、一次情報に近い発表があるかを見ます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>画像だけで判断していないか</h3>
+              <p>画像の印象だけではなく、撮影日時、場所、説明文、他の情報源を合わせて確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>共有を急がせる言葉が強すぎないか</h3>
+              <p>「今すぐ」「拡散希望」などの言葉が強いほど、一度立ち止まる合図になります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>追加確認の余地あり</span><strong>共有前に追加確認が必要</strong><p>現時点では、投稿元や撮影場所を確認できる材料が足りません。事実として広げる前に、公式発表や元投稿を確認するのが安心です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>元投稿と投稿日時を確認する</strong><span>切り抜きや再投稿だけでは、文脈が抜け落ちていることがあります。</span></li>
+            <li><strong>公式サイトや公式SNSを確認する</strong><span>災害、交通、行政、サービス障害などは、公式発表が判断材料になります。</span></li>
+            <li><strong>分からない場合は共有を保留する</strong><span>確認できない情報を止めることも、周囲を守る行動です。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>画像だけを見て本物だと断定する</strong><span>AI生成画像や古い画像の再利用でも、見た目だけでは判断しにくいことがあります。</span></li>
+            <li><strong>不安をあおる文言を付け足して共有する</strong><span>未確認情報に感情的な説明を足すと、誤解が広がりやすくなります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIを確認作業の相棒にする</h3>
+          <p>AIは投稿の真偽を最終判断する存在ではありませんが、確認すべき観点を整理したり、公式情報を探すための検索キーワードを考えたりする補助には役立ちます。</p>
+          <ul class="positive-example-list"><li>この投稿を確認するために見るべき公式情報をリスト化してもらう</li><li>投稿文から、確認すべき日時・場所・発信者を抜き出してもらう</li><li>感情的な共有文を、落ち着いた確認依頼文へ言い換えてもらう</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <div class="forensics-makoto-avatar" aria-hidden="true">誠</div>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIかどうかを当てることより、出どころを確認することが大切です。分からないときは、分からないまま急いで広げなくて大丈夫です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>本物らしく見える情報ほど、出どころと公式情報を一度確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+<p class="forensics-source-empty">この記事は一般的な架空事例をもとに作成しています。</p>
+        </section>
+
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="index.html">AI鑑識室の記事一覧へ戻る</a>
+
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../index.html">ホーム</a>
+          <a href="../about.html">会社概要</a>
+          <a href="../members.html">AI社員紹介</a>
+          <a href="../services.html">事業内容</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works.html">制作物</a>
+          <a href="../gallery.html">ギャラリー</a>
+          <a href="../lounge.html">ラウンジ</a>
+          <a href="../news.html">ニュース</a>
+          <a href="../contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

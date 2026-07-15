@@ -41,8 +41,10 @@ STATIC_SITEMAP_PATHS = [
     "members/rei",
     "members/akito",
     "members/kei",
+    "members/makoto",
     "members/pechi",
     "services",
+    "ai-forensics",
     "works",
     "gallery",
     "lounge",
@@ -102,6 +104,13 @@ def load_gallery_paths() -> list[str]:
         if isinstance(detail, str) and detail.endswith(".html"):
             paths.append(detail.removesuffix(".html"))
     return paths
+
+
+def load_ai_forensics_paths() -> list[str]:
+    data_dir = ROOT / "src" / "data" / "ai-forensics"
+    if not data_dir.exists():
+        return []
+    return [f"ai-forensics/{path.stem}" for path in sorted(data_dir.glob("*.json"))]
 
 
 def date_parts(log: dict) -> tuple[int, int, int]:
@@ -574,6 +583,7 @@ def update_sitemap(logs: list[dict]) -> None:
         urls.append(f"{BASE_URL}{suffix}")
     urls.extend(f"{BASE_URL}/{path}" for path in load_work_paths())
     urls.extend(f"{BASE_URL}/{path}" for path in load_gallery_paths())
+    urls.extend(f"{BASE_URL}/{path}" for path in load_ai_forensics_paths())
     urls.extend(f"{BASE_URL}/lounge-archive/{log['id']}" for log in logs)
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     lines.extend(f"  <url><loc>{esc(url)}</loc></url>" for url in urls)

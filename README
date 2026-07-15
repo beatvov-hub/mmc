@@ -33,6 +33,10 @@
   - ギャラリーページの元データです。
   - `scripts/generate_gallery.py` で `gallery.html` とギャラリー詳細ページに反映されます。
 
+- `src/data/ai-forensics/*.json`
+  - AI鑑識室の記事データです。
+  - 1記事1JSONで管理し、`scripts/generate_ai_forensics.py` で `ai-forensics/index.html` と `ai-forensics/*.html` に反映されます。
+
 - `src/data/pechiLoungeMemos.json`
   - ラウンジ内のペチ関連メモ用データです。
 
@@ -42,7 +46,7 @@
 - ヘッダーは `src/partials/header.html` で管理します。
 - フッターは `src/partials/footer.html` で管理します。
 - `scripts/apply_layout.py` を実行すると、既存HTMLの `SITE_HEADER_START` / `SITE_FOOTER_START` で囲まれた範囲へ共通パーツを反映します。
-- `scripts/generate_lounge.py`、`scripts/generate_news.py`、`scripts/generate_works.py`、`scripts/generate_gallery.py` は、生成後に共通パーツを自動反映します。
+- `scripts/generate_lounge.py`、`scripts/generate_news.py`、`scripts/generate_works.py`、`scripts/generate_gallery.py`、`scripts/generate_ai_forensics.py` は、生成後に共通パーツを自動反映します。
 - ルート直下のページはそのまま、`members/`、`works/`、`lounge-archive/` 配下のページは `../` 付きのリンクへ自動調整されます。
 
 今回の重要な変更点
@@ -89,6 +93,7 @@ python scripts/generate_gallery.py
 python scripts/generate_news.py
 python scripts/generate_lounge.py
 python scripts/generate_works.py
+python scripts/generate_ai_forensics.py
 python scripts/apply_layout.py
 ```
 
@@ -99,6 +104,7 @@ Codex環境で通常の `python` が見つからない場合は、Codex同梱Pyt
 & 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/generate_news.py
 & 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/generate_lounge.py
 & 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/generate_works.py
+& 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/generate_ai_forensics.py
 & 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/apply_layout.py
 ```
 
@@ -130,6 +136,17 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 更新履歴
 --------
 
+### 2026-07-16
+
+- 新規コンテンツ「AI鑑識室」を追加しました。
+- `src/data/ai-forensics/case-20260715.json` を実装確認用の架空記事として追加しました。
+- `scripts/generate_ai_forensics.py` を追加し、`ai-forensics/index.html` と `ai-forensics/case-20260715.html` をJSONから生成できるようにしました。
+- `scripts/ai-forensics.js` を追加し、カテゴリ・確認レベル・難易度・キーワード検索と、記事内の複数選択式チェックUIに対応しました。
+- `styles.css` にAI鑑識室用のティール系デザインとレスポンシブ表示を追加しました。
+- 共通ヘッダー・フッター、`services.html`、`mainichi-miru-sitemap.xml` にAI鑑識室への導線を追加しました。
+- Netlifyで `/ai-forensics/case-20260715` を直接開けるよう、`_redirects` を追加しました。
+- `scripts/generate_lounge.py` のサイトマップ生成対象に `ai-forensics` と記事JSON由来の詳細URLを追加しました。
+
 ### 2026-07-15
 
 - `src/data/loungeLogs.json` に 2026-07-15 09:00 の朝ラウンジ記録を追加しました。
@@ -145,6 +162,14 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - `src/data/loungeLogs.json` に 2026-07-15 20:00 の夜ラウンジ記録を追加しました。
 - `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-15-2000.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
 - 20:00更新にも `todayWords` は追加していません。トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- AIリテラシー推進室 主任「誠」を新入社員として追加しました。
+- `members.html` に誠の社員カードをペチの前へ追加し、`members/makoto.html` を新規作成しました。
+- `styles.css` に誠のプロフィールページ用テーマを追加し、`mainichi-miru-sitemap.xml` と `scripts/generate_lounge.py` のサイトマップ生成対象に `members/makoto` を追加しました。
+- `services.html` のWebサイト・UI/UX設計サービス担当に誠を追加しました。
+- `src/data/workStories.json` の平成AI化ギャラリー担当をマイケルから誠へ変更し、`scripts/generate_works.py` で `works.html` と制作物詳細ページを更新しました。
+- `works.html` 末尾の重複していたフッター読み込みを整理しました。
+- `src/data/newsItems.json` に「AIリテラシー推進室を新設。誠主任が入社」と「社内通貨MMC制度を導入」を追加しました。
+- `scripts/generate_news.py` を実行し、`index.html`、`news.html`、`about.html` のニュース・沿革表示を更新しました。
 
 ### 2026-07-14
 
