@@ -31,6 +31,8 @@ FOOTER_TAG_RE = re.compile(
 ORPHAN_FOOTER_END_RE = re.compile(
     r"\n?[ \t]*<script src=\"[^\"]*site-nav\.js\"></script>\s*\n[ \t]*<!-- SITE_FOOTER_END -->"
 )
+BODY_OPEN_RE = re.compile(r"(<body\b[^>]*>)", re.IGNORECASE)
+BODY_CLOSE_RE = re.compile(r"^[ \t]*</body>", re.IGNORECASE | re.MULTILINE)
 
 CURRENT_KEYS = [
     "home",
@@ -75,6 +77,21 @@ def marked_block(start: str, body: str, end: str) -> str:
     return f"    {start}\n{indent_block(body)}\n    {end}"
 
 
+def insert_after_body_open(html_text: str, block: str) -> str:
+    match = BODY_OPEN_RE.search(html_text)
+    if not match:
+        raise ValueError("Could not find body start.")
+    insert_at = match.end()
+    return html_text[:insert_at] + "\n" + block + html_text[insert_at:]
+
+
+def insert_before_body_close(html_text: str, block: str) -> str:
+    match = BODY_CLOSE_RE.search(html_text)
+    if not match:
+        raise ValueError("Could not find body end.")
+    return html_text[: match.start()] + block + "\n" + html_text[match.start() :]
+
+
 def replace_block(
     html_text: str,
     *,
@@ -103,9 +120,10 @@ def replace_block(
     if tag_re.search(html_text):
         return tag_re.sub(replacement, html_text, count=1)
     if label == "site footer":
-        return ORPHAN_FOOTER_END_RE.sub("", html_text)
+        html_text = ORPHAN_FOOTER_END_RE.sub("", html_text)
+        return insert_before_body_close(html_text, replacement)
     if label == "site header":
-        return html_text
+        return insert_after_body_open(html_text, replacement)
     raise ValueError(f"Could not find {label} block.")
 
 
