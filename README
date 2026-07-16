@@ -56,7 +56,7 @@
 
 - ラウンジ観測記録は `loungeLogs.json` で管理します。
 - 1日複数回更新できる前提で、アーカイブページとカレンダー表示を生成します。
-- 2026-07-16 時点で、`loungeLogs.json` は 42 件あります。
+- 2026-07-16 時点で、`loungeLogs.json` は 44 件あります。
 - `lounge.html` には時間帯でラウンジ画像を切り替えるJavaScriptがあります。
 - 23:00〜翌8:00は夜間オーバーレイを出す仕様です。
 
@@ -153,6 +153,13 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - `src/data/loungeLogs.json` に 2026-07-16 12:00 のお昼ラウンジ記録を追加しました。
 - `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-16-1200.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
 - 12:00更新には `todayWords` を追加せず、トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- `src/data/loungeLogs.json` に 2026-07-16 20:00 の夜ラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-16-2000.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- 誠がラウンジ会話に初登場し、既存の話者補完設定で誠アイコンを表示しています。
+- 20:00更新にも `todayWords` は追加していません。トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- `src/data/loungeLogs.json` に 2026-07-16 23:00 の閉店前ラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-16-2300.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- 23:00更新にも `todayWords` は追加していません。トップページの「今日のひとこと」は 09:00 更新分を維持しています。
 
 ### 2026-07-15
 
