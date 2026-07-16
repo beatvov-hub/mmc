@@ -165,8 +165,8 @@ def update_works_html(works: list[dict]) -> None:
 
 
 def render_detail_page(work: dict) -> str:
-    title = f'{work["title"]}｜制作背景と企画記録｜毎日見る株式会社'
-    description = work.get("storySummary") or work.get("summary", "")
+    title = work.get("metaTitle") or f'{work["title"]}｜制作背景と企画記録｜毎日見る株式会社'
+    description = work.get("metaDescription") or work.get("storySummary") or work.get("summary", "")
     public_url = work.get("publicUrl")
     public_label = work.get("publicLabel", "公開ページを見る")
     lines = [
