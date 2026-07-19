@@ -1,0 +1,148 @@
+{
+  "id": "case-20260720",
+  "publishedAt": "2026-07-20",
+  "title": "AIに「このメールを要約して」は便利。でも、見えない命令が混ざっていることも",
+  "shortTitle": "メール要約と隠れた命令",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": [
+    "Gmailや生成AIでメールを要約している人",
+    "AIアシスタントを仕事で活用している人",
+    "AIを安全に使いたい一般ユーザー"
+  ],
+  "summary": "AIにメールや文書を要約してもらう機能は便利ですが、悪意のある「隠れた命令」が埋め込まれている場合があります。AIを怖がる必要はありませんが、重要な判断ではAIの警告や元メールも確認しましょう。",
+  "scenario": {
+    "headline": "AIにメールを要約してもらったら「今すぐこのリンクで認証してください」と表示された",
+    "description": "普段どおりAIに受信メールの要約をお願いしたところ、「アカウント保護のため今すぐ認証してください」という内容が要約内に表示されました。しかし、元のメール本文にはその文章は見当たりません。",
+    "whyItMatters": "近年は「プロンプトインジェクション」と呼ばれる攻撃が注目されています。これはメールやWebページの見えない部分にAI向けの命令を埋め込み、AIの要約や回答を誤った方向へ誘導しようとするものです。GoogleはGeminiで悪意あるコンテンツを検知・除外する仕組みを導入しており、危険を検知した場合は警告や要約の停止を行うことがあります。ただし、利用者自身も「AIの要約は参考情報」という意識を持つことが重要です。"
+  },
+  "question": {
+    "text": "AIの要約に「至急こちらで認証してください」と表示されたら、最初に取る行動は？",
+    "choices": [
+      {
+        "id": "click",
+        "label": "AIが表示したリンクをそのまま開く",
+        "description": "AIが出した内容なので信用する。"
+      },
+      {
+        "id": "check-original",
+        "label": "元のメール本文を確認する",
+        "description": "AIの要約と元の内容が一致しているか確認する。"
+      },
+      {
+        "id": "forward",
+        "label": "同僚へ転送して判断してもらう",
+        "description": "自分では確認せず他人へ任せる。"
+      },
+      {
+        "id": "ignore-ai",
+        "label": "AIは危険なので今後使わない",
+        "description": "便利な機能をすべて避ける。"
+      }
+    ],
+    "recommendedAnswers": [
+      "check-original"
+    ],
+    "explanation": "AIの要約は便利ですが、重要な操作を求められた場合は元のメール本文や公式サイトで確認しましょう。AIを使わないのではなく、「確認を一歩加える」ことが安全な活用につながります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "AIから警告が表示されていないか",
+      "description": "危険なコンテンツが検知されると、AIが警告や要約停止を行う場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "元メールに同じ内容が書かれているか",
+      "description": "AI要約だけでなく、原文との違いを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "リンク先は公式ドメインか",
+      "description": "認証やログインを求められた場合は公式サイトからアクセスします。",
+      "priority": "medium"
+    },
+    {
+      "title": "急かされていないか",
+      "description": "「今すぐ」「すぐ認証」などの表現は冷静に確認するサインです。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "元の内容を確認",
+  "verificationMessage": "AIの要約は便利な補助です。重要な操作では元の情報も確認しましょう。",
+  "verdict": {
+    "label": "AIを信頼しつつ、最終確認は人が行う",
+    "description": "AIは作業時間を大きく短縮できますが、ログインや送金など重要な判断では元データや公式情報を確認する習慣が安心につながります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "元メールを開いて確認する",
+      "reason": "AI要約だけでは省略や誤解が含まれる可能性があります。"
+    },
+    {
+      "action": "公式サイトからログインする",
+      "reason": "メール内リンクではなく、自分で公式サイトを開くと安全です。"
+    },
+    {
+      "action": "AIの警告を無視しない",
+      "reason": "危険なコンテンツを検知している可能性があります。"
+    },
+    {
+      "action": "AIを「下書き・要約担当」として活用する",
+      "reason": "最終判断を人が行えば、便利さと安全性を両立できます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "AI要約だけを根拠に認証や送金する",
+      "reason": "重要な操作は元情報の確認が必要です。"
+    },
+    {
+      "action": "AIが表示したリンクを無条件で開く",
+      "reason": "リンク先の安全性は自分でも確認しましょう。"
+    },
+    {
+      "action": "AIは危険だから一切使わないと考える",
+      "reason": "適切な確認を組み合わせれば、安全に便利な機能として活用できます。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIは情報整理の強い味方",
+    "description": "メール要約や長文整理はAIが得意な分野です。元データの確認を組み合わせるだけで、業務効率を高めながら安全性も維持できます。",
+    "examples": [
+      "長いメールを先に要約して読む",
+      "会議資料のポイント整理に使う",
+      "複数メールの共通点をまとめてもらう"
+    ]
+  },
+  "makotoComment": "AIは「秘書」としてとても優秀です。でも、契約や認証、送金のような大事な判断だけは、一度だけ原文を見返してください。そのひと手間で、安全性は大きく高まります。",
+  "oneLineLesson": "AIの要約は入口、最後の確認は人が行う。",
+  "tags": [
+    "プロンプトインジェクション",
+    "メール",
+    "生成AI",
+    "セキュリティ"
+  ],
+  "sources": [
+    {
+      "title": "How Google Workspace with Gemini helps protect users from malicious content and prompt injection",
+      "publisher": "Google Workspace Help",
+      "sourceType": "official",
+      "publishedAt": "2026-07",
+      "url": "https://support.google.com/mail/answer/16204578"
+    },
+    {
+      "title": "AI threats in the wild: The current state of prompt injections on the web",
+      "publisher": "Google Security Blog",
+      "sourceType": "official",
+      "publishedAt": "2026-04-23",
+      "url": "https://blog.google/security/prompt-injections-web/"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "明るいオフィスでノートPCのAIメール要約を見ながら、隣に元メール本文も開いて内容を照らし合わせている人物。画面の文字は読めず、落ち着いて確認している実写風の雰囲気。AIを怖がる印象ではなく、安全に活用している様子。",
+    "cardIcon": "メール",
+    "accentTone": "calm"
+  }
+}

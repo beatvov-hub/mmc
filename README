@@ -140,6 +140,10 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 
 ### 2026-07-20
 
+- `src/data/ai-forensics/case-20260720.json` に、AIメール要約とプロンプトインジェクション確認を扱うAI鑑識室の記事を追加しました。
+- `scripts/generate_ai_forensics.py` を実行し、`ai-forensics/index.html` と `ai-forensics/case-20260720.html` を更新しました。
+- `scripts/generate_lounge.py` を実行し、`mainichi-miru-sitemap.xml` に `ai-forensics/case-20260720` を追加しました。
+- 壊れていたMarkdownリンク混在の出典情報は、Google Workspace Help と Google Security Blog の公式URLへ整理しました。
 - `scripts/generate_lounge.py` を改修し、ラウンジアーカイブを時間別ファイルから日付別ファイルへ変更しました。
 - `lounge-archive/YYYY-MM-DD-HHMM.html` の生成を廃止し、`lounge-archive/YYYY-MM-DD.html#YYYY-MM-DD-HHMM` へリンクする仕様にしました。
 - 既存52件のラウンジログを、13個の日付別アーカイブHTMLへ再生成しました。

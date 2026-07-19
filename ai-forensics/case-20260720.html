@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIに「このメールを要約して」は便利。でも、見えない命令が混ざっていることも｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="AIにメールや文書を要約してもらう機能は便利ですが、悪意のある「隠れた命令」が埋め込まれている場合があります。AIを怖がる必要はありませんが、重要な判断ではAIの警告や元メールも確認しましょう。" />
+    <link rel="canonical" href="https://mainichi-miru.netlify.app/ai-forensics/case-20260720" />
+    <meta property="og:title" content="AIに「このメールを要約して」は便利。でも、見えない命令が混ざっていることも｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="AIにメールや文書を要約してもらう機能は便利ですが、悪意のある「隠れた命令」が埋め込まれている場合があります。AIを怖がる必要はありませんが、重要な判断ではAIの警告や元メールも確認しましょう。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.netlify.app/ai-forensics/case-20260720" />
+    <meta property="og:image" content="https://mainichi-miru.netlify.app/image/top005.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../index.html" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../index.html">ホーム</a>
+        <a href="../about.html">会社概要</a>
+        <a href="../members.html">AI社員紹介</a>
+        <a href="../services.html">事業内容</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works.html">制作物</a>
+        <a href="../gallery.html">ギャラリー</a>
+        <a href="../lounge.html">ラウンジ</a>
+        <a href="../news.html">ニュース</a>
+        <a class="nav-contact-link" href="../contact.html">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact.html">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../index.html">ホーム</a>
+        <a href="index.html">AI鑑識室</a>
+        <strong>メール要約と隠れた命令</strong>
+        <a class="profile-back" href="index.html">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ</span>
+              <span>標準</span>
+              <time datetime="2026-07-20">2026.07.20</time>
+            </div>
+            <h1>AIに「このメールを要約して」は便利。でも、見えない命令が混ざっていることも</h1>
+            <p>AIにメールや文書を要約してもらう機能は便利ですが、悪意のある「隠れた命令」が埋め込まれている場合があります。AIを怖がる必要はありませんが、重要な判断ではAIの警告や元メールも確認しましょう。</p>
+            <ul class="forensics-target-list"><li>Gmailや生成AIでメールを要約している人</li><li>AIアシスタントを仕事で活用している人</li><li>AIを安全に使いたい一般ユーザー</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>プロンプトインジェクション</li><li>メール</li><li>生成AI</li><li>セキュリティ</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>元の内容を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AIの要約は便利な補助です。重要な操作では元の情報も確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>AIにメールを要約してもらったら「今すぐこのリンクで認証してください」と表示された</h3><p>普段どおりAIに受信メールの要約をお願いしたところ、「アカウント保護のため今すぐ認証してください」という内容が要約内に表示されました。しかし、元のメール本文にはその文章は見当たりません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>近年は「プロンプトインジェクション」と呼ばれる攻撃が注目されています。これはメールやWebページの見えない部分にAI向けの命令を埋め込み、AIの要約や回答を誤った方向へ誘導しようとするものです。GoogleはGeminiで悪意あるコンテンツを検知・除外する仕組みを導入しており、危険を検知した場合は警告や要約の停止を行うことがあります。ただし、利用者自身も「AIの要約は参考情報」という意識を持つことが重要です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-original">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>AIの要約に「至急こちらで認証してください」と表示されたら、最初に取る行動は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="click" data-choice-id="click" />
+                <span>
+                  <strong>AIが表示したリンクをそのまま開く</strong>
+                  <small>AIが出した内容なので信用する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-original" data-choice-id="check-original" />
+                <span>
+                  <strong>元のメール本文を確認する</strong>
+                  <small>AIの要約と元の内容が一致しているか確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="forward" data-choice-id="forward" />
+                <span>
+                  <strong>同僚へ転送して判断してもらう</strong>
+                  <small>自分では確認せず他人へ任せる。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ignore-ai" data-choice-id="ignore-ai" />
+                <span>
+                  <strong>AIは危険なので今後使わない</strong>
+                  <small>便利な機能をすべて避ける。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>元のメール本文を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>AIの要約は便利ですが、重要な操作を求められた場合は元のメール本文や公式サイトで確認しましょう。AIを使わないのではなく、「確認を一歩加える」ことが安全な活用につながります。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AIから警告が表示されていないか</h3>
+              <p>危険なコンテンツが検知されると、AIが警告や要約停止を行う場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>元メールに同じ内容が書かれているか</h3>
+              <p>AI要約だけでなく、原文との違いを確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>リンク先は公式ドメインか</h3>
+              <p>認証やログインを求められた場合は公式サイトからアクセスします。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>急かされていないか</h3>
+              <p>「今すぐ」「すぐ認証」などの表現は冷静に確認するサインです。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AIを信頼しつつ、最終確認は人が行う</strong><p>AIは作業時間を大きく短縮できますが、ログインや送金など重要な判断では元データや公式情報を確認する習慣が安心につながります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>元メールを開いて確認する</strong><span>AI要約だけでは省略や誤解が含まれる可能性があります。</span></li>
+            <li><strong>公式サイトからログインする</strong><span>メール内リンクではなく、自分で公式サイトを開くと安全です。</span></li>
+            <li><strong>AIの警告を無視しない</strong><span>危険なコンテンツを検知している可能性があります。</span></li>
+            <li><strong>AIを「下書き・要約担当」として活用する</strong><span>最終判断を人が行えば、便利さと安全性を両立できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AI要約だけを根拠に認証や送金する</strong><span>重要な操作は元情報の確認が必要です。</span></li>
+            <li><strong>AIが表示したリンクを無条件で開く</strong><span>リンク先の安全性は自分でも確認しましょう。</span></li>
+            <li><strong>AIは危険だから一切使わないと考える</strong><span>適切な確認を組み合わせれば、安全に便利な機能として活用できます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIは情報整理の強い味方</h3>
+          <p>メール要約や長文整理はAIが得意な分野です。元データの確認を組み合わせるだけで、業務効率を高めながら安全性も維持できます。</p>
+          <ul class="positive-example-list"><li>長いメールを先に要約して読む</li><li>会議資料のポイント整理に使う</li><li>複数メールの共通点をまとめてもらう</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIは「秘書」としてとても優秀です。でも、契約や認証、送金のような大事な判断だけは、一度だけ原文を見返してください。そのひと手間で、安全性は大きく高まります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>AIの要約は入口、最後の確認は人が行う。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/mail/answer/16204578" target="_blank" rel="noopener noreferrer">How Google Workspace with Gemini helps protect users from malicious content and prompt injection<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Workspace Help</span>
+              <span>公式発表</span>
+              <time datetime="2026-07">2026-07</time>
+            </li>
+            <li>
+              <strong><a href="https://blog.google/security/prompt-injections-web/" target="_blank" rel="noopener noreferrer">AI threats in the wild: The current state of prompt injections on the web<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Security Blog</span>
+              <span>公式発表</span>
+              <time datetime="2026-04-23">2026-04-23</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260717.html" data-forensics-card data-category="privacy" data-level="3" data-difficulty="beginner" data-search-text="AIブラウザー拡張機能なら安心？インストール前に確認したい3つのポイント AI拡張機能の確認ポイント AIサービスを便利にするブラウザー拡張機能が増える一方で、有名AIサービスを装った偽拡張機能や、過剰な権限を持つ拡張機能も確認されています。便利さと安全性を両立するための確認ポイントを紹介します。 個人情報 はじめて ブラウザー拡張機能 生成AI セキュリティ プライバシー ChatGPTやClaudeなどをブラウザー拡張機能で利用している人 生成AIをもっと便利に使いたい人 パソコン初心者から一般ユーザー">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">拡張</span>
+              <div>
+                <p>AI拡張機能の確認ポイント</p>
+                <h3>AIブラウザー拡張機能なら安心？インストール前に確認したい3つのポイント</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-07-17">2026.07.17</time>
+              <span>個人情報</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">AIサービスを便利にするブラウザー拡張機能が増える一方で、有名AIサービスを装った偽拡張機能や、過剰な権限を持つ拡張機能も確認されています。便利さと安全性を両立するための確認ポイントを紹介します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>インストール前に確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTやClaudeなどをブラウザー拡張機能で利用している人</li><li>生成AIをもっと便利に使いたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ブラウザー拡張機能</li><li>生成AI</li><li>セキュリティ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="index.html">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260719.html">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../index.html">ホーム</a>
+          <a href="../about.html">会社概要</a>
+          <a href="../members.html">AI社員紹介</a>
+          <a href="../services.html">事業内容</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works.html">制作物</a>
+          <a href="../gallery.html">ギャラリー</a>
+          <a href="../lounge.html">ラウンジ</a>
+          <a href="../news.html">ニュース</a>
+          <a href="../contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
