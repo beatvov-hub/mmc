@@ -23,7 +23,9 @@ CATEGORY_LABELS = {
     "copyright": "著作権",
     "security": "セキュリティ",
     "scam": "詐欺",
+    "search": "AI検索",
     "social-media": "SNS",
+    "verification": "情報確認",
     "work-use": "仕事でのAI活用",
     "other": "その他",
 }

@@ -1,0 +1,155 @@
+{
+  "id": "case-20260718",
+  "publishedAt": "2026-07-18",
+  "title": "「この画像はAI？」そんなときは見た目より“情報の履歴”を確認してみよう",
+  "shortTitle": "画像の履歴を確認する",
+  "category": "verification",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "SNSで画像をよく見る人",
+    "AI画像かどうか気になる人",
+    "情報を正しく見極めたい人"
+  ],
+  "summary": "AI画像かどうかを見た目だけで判断するのは難しい時代です。画像そのものではなく、「どこから来た画像なのか」という情報の履歴を確認する考え方を紹介します。",
+  "scenario": {
+    "headline": "SNSで「本物の写真」として拡散されている画像を見つけた",
+    "description": "SNSで災害や事件を伝える写真が拡散されています。コメント欄では「AI画像だ」「本物だ」と意見が分かれていますが、見た目だけでは判断できません。",
+    "whyItMatters": "最近の生成AIでは本物そっくりの画像が作れるため、人の目だけで見分けることはますます難しくなっています。そのため、画像がどのようなツールで作成・編集されたかを示すContent Credentials（C2PA）のような仕組みや、生成元を確認する技術の普及が進んでいます。ただし、SNSへの投稿やスクリーンショットで情報が失われることもあるため、「履歴がある＝本物」「履歴がない＝AI」とは判断できません。"
+  },
+  "question": {
+    "text": "AI画像かどうか迷ったとき、最初に意識したいことは？",
+    "choices": [
+      {
+        "id": "looks",
+        "label": "細かい違和感だけを探す",
+        "description": "指や文字など不自然な部分を探して判断する。"
+      },
+      {
+        "id": "history",
+        "label": "画像の出どころや情報源を確認する",
+        "description": "誰が公開した画像なのか、信頼できる情報源かを確認する。"
+      },
+      {
+        "id": "comments",
+        "label": "コメント欄の多数決で判断する",
+        "description": "AIだという意見が多ければAIだと考える。"
+      },
+      {
+        "id": "share",
+        "label": "判断できないけど話題なので共有する",
+        "description": "後で間違っていたら削除すればよいと考える。"
+      }
+    ],
+    "recommendedAnswers": [
+      "history"
+    ],
+    "explanation": "AI画像かどうかを見抜こうとするより、「誰が公開した画像なのか」「公式発表と一致するか」を確認する方が現実的で信頼性の高い方法です。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "投稿元は信頼できるか",
+      "description": "行政、報道機関、本人など、情報源を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "公式発表と一致しているか",
+      "description": "災害や事件なら自治体や報道機関の情報と照らし合わせます。",
+      "priority": "high"
+    },
+    {
+      "title": "画像の履歴を確認できるか",
+      "description": "対応サービスではContent Credentialsなどの情報を確認できる場合があります。",
+      "priority": "medium"
+    },
+    {
+      "title": "画像だけで結論を出していないか",
+      "description": "画像だけでなく、本文や日時、場所なども合わせて確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "情報源を確認",
+  "verificationMessage": "AI画像を見破ることより、「どこから来た情報なのか」を確認する習慣が重要です。",
+  "verdict": {
+    "label": "画像より情報源を見る",
+    "description": "見た目だけでAIか本物かを断定せず、信頼できる情報源や画像の来歴を確認してから判断しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "公式発表を確認する",
+      "reason": "災害や事件では一次情報が最も信頼できます。"
+    },
+    {
+      "action": "画像検索を試す",
+      "reason": "過去の画像が別の出来事として再利用されていないか確認できます。"
+    },
+    {
+      "action": "Content Credentialsが確認できる場合は参考にする",
+      "reason": "対応する画像では生成・編集履歴の参考になります。ただし万能ではありません。"
+    },
+    {
+      "action": "判断できない場合は共有を急がない",
+      "reason": "誤情報の拡散を防げます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "指の本数だけでAI画像と決めつける",
+      "reason": "最近の生成AIでは以前より自然な画像が増えています。"
+    },
+    {
+      "action": "履歴がないから本物だと思い込む",
+      "reason": "履歴情報はSNSやスクリーンショットで失われることがあります。"
+    },
+    {
+      "action": "話題だからと確認せず共有する",
+      "reason": "誤情報の拡散につながる可能性があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIは画像を疑うためだけでなく確認作業にも役立つ",
+    "description": "生成AIは画像の内容整理や確認項目の洗い出し、複数情報の比較など、情報を落ち着いて確認する補助として活用できます。",
+    "examples": [
+      "画像について確認すべきポイントをAIに整理してもらう",
+      "公式発表との違いをまとめてもらう",
+      "複数の記事の共通点を要約してもらう"
+    ]
+  },
+  "makotoComment": "「AIっぽい」という印象だけで判断しなくても大丈夫です。今は人の目で見分けるより、「どこから来た情報か」「信頼できる発信元か」を見る方が、ずっと安心できる確認方法ですよ。",
+  "oneLineLesson": "画像を見るより、情報の履歴を見る。",
+  "tags": [
+    "AI画像",
+    "ファクトチェック",
+    "Content Credentials",
+    "SNS"
+  ],
+  "sources": [
+    {
+      "title": "Advancing content provenance for a safer, more transparent AI ecosystem",
+      "publisher": "OpenAI",
+      "sourceType": "official",
+      "publishedAt": "2026-05-19",
+      "url": "https://openai.com/index/advancing-content-provenance/"
+    },
+    {
+      "title": "C2PA and SynthID in OpenAI-generated images",
+      "publisher": "OpenAI Help Center",
+      "sourceType": "official",
+      "publishedAt": "2026-07",
+      "url": "https://help.openai.com/en/articles/8912793-c2pa-and-synthid-in-openai-generated-images"
+    },
+    {
+      "title": "It’s make or break time for AI labeling systems",
+      "publisher": "The Verge",
+      "sourceType": "news",
+      "publishedAt": "2026-05-20",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/934521/google-synthid-c2pa-content-credentials-ai-labelling-efforts"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "落ち着いた室内で、ノートPCとスマートフォンを見ながらSNS画像の出どころを確認している人物。画面には画像の情報や公式サイトを比較している様子が映るが文字は読めない。安心感のある実写風で、「AIを見破る」より「情報を確認する」雰囲気を表現する。",
+    "cardIcon": "履歴",
+    "accentTone": "calm"
+  }
+}

@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>「この画像はAI？」そんなときは見た目より“情報の履歴”を確認してみよう｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="AI画像かどうかを見た目だけで判断するのは難しい時代です。画像そのものではなく、「どこから来た画像なのか」という情報の履歴を確認する考え方を紹介します。" />
+    <link rel="canonical" href="https://mainichi-miru.netlify.app/ai-forensics/case-20260718" />
+    <meta property="og:title" content="「この画像はAI？」そんなときは見た目より“情報の履歴”を確認してみよう｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="AI画像かどうかを見た目だけで判断するのは難しい時代です。画像そのものではなく、「どこから来た画像なのか」という情報の履歴を確認する考え方を紹介します。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.netlify.app/ai-forensics/case-20260718" />
+    <meta property="og:image" content="https://mainichi-miru.netlify.app/image/top005.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../index.html" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../index.html">ホーム</a>
+        <a href="../about.html">会社概要</a>
+        <a href="../members.html">AI社員紹介</a>
+        <a href="../services.html">事業内容</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works.html">制作物</a>
+        <a href="../gallery.html">ギャラリー</a>
+        <a href="../lounge.html">ラウンジ</a>
+        <a href="../news.html">ニュース</a>
+        <a class="nav-contact-link" href="../contact.html">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact.html">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../index.html">ホーム</a>
+        <a href="index.html">AI鑑識室</a>
+        <strong>画像の履歴を確認する</strong>
+        <a class="profile-back" href="index.html">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報確認</span>
+              <span>はじめて</span>
+              <time datetime="2026-07-18">2026.07.18</time>
+            </div>
+            <h1>「この画像はAI？」そんなときは見た目より“情報の履歴”を確認してみよう</h1>
+            <p>AI画像かどうかを見た目だけで判断するのは難しい時代です。画像そのものではなく、「どこから来た画像なのか」という情報の履歴を確認する考え方を紹介します。</p>
+            <ul class="forensics-target-list"><li>SNSで画像をよく見る人</li><li>AI画像かどうか気になる人</li><li>情報を正しく見極めたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AI画像</li><li>ファクトチェック</li><li>Content Credentials</li><li>SNS</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>情報源を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AI画像を見破ることより、「どこから来た情報なのか」を確認する習慣が重要です。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>SNSで「本物の写真」として拡散されている画像を見つけた</h3><p>SNSで災害や事件を伝える写真が拡散されています。コメント欄では「AI画像だ」「本物だ」と意見が分かれていますが、見た目だけでは判断できません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>最近の生成AIでは本物そっくりの画像が作れるため、人の目だけで見分けることはますます難しくなっています。そのため、画像がどのようなツールで作成・編集されたかを示すContent Credentials（C2PA）のような仕組みや、生成元を確認する技術の普及が進んでいます。ただし、SNSへの投稿やスクリーンショットで情報が失われることもあるため、「履歴がある＝本物」「履歴がない＝AI」とは判断できません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="history">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>AI画像かどうか迷ったとき、最初に意識したいことは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="looks" data-choice-id="looks" />
+                <span>
+                  <strong>細かい違和感だけを探す</strong>
+                  <small>指や文字など不自然な部分を探して判断する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="history" data-choice-id="history" />
+                <span>
+                  <strong>画像の出どころや情報源を確認する</strong>
+                  <small>誰が公開した画像なのか、信頼できる情報源かを確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="comments" data-choice-id="comments" />
+                <span>
+                  <strong>コメント欄の多数決で判断する</strong>
+                  <small>AIだという意見が多ければAIだと考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="share" data-choice-id="share" />
+                <span>
+                  <strong>判断できないけど話題なので共有する</strong>
+                  <small>後で間違っていたら削除すればよいと考える。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>画像の出どころや情報源を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>AI画像かどうかを見抜こうとするより、「誰が公開した画像なのか」「公式発表と一致するか」を確認する方が現実的で信頼性の高い方法です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>投稿元は信頼できるか</h3>
+              <p>行政、報道機関、本人など、情報源を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>公式発表と一致しているか</h3>
+              <p>災害や事件なら自治体や報道機関の情報と照らし合わせます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>画像の履歴を確認できるか</h3>
+              <p>対応サービスではContent Credentialsなどの情報を確認できる場合があります。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>画像だけで結論を出していないか</h3>
+              <p>画像だけでなく、本文や日時、場所なども合わせて確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>画像より情報源を見る</strong><p>見た目だけでAIか本物かを断定せず、信頼できる情報源や画像の来歴を確認してから判断しましょう。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>公式発表を確認する</strong><span>災害や事件では一次情報が最も信頼できます。</span></li>
+            <li><strong>画像検索を試す</strong><span>過去の画像が別の出来事として再利用されていないか確認できます。</span></li>
+            <li><strong>Content Credentialsが確認できる場合は参考にする</strong><span>対応する画像では生成・編集履歴の参考になります。ただし万能ではありません。</span></li>
+            <li><strong>判断できない場合は共有を急がない</strong><span>誤情報の拡散を防げます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>指の本数だけでAI画像と決めつける</strong><span>最近の生成AIでは以前より自然な画像が増えています。</span></li>
+            <li><strong>履歴がないから本物だと思い込む</strong><span>履歴情報はSNSやスクリーンショットで失われることがあります。</span></li>
+            <li><strong>話題だからと確認せず共有する</strong><span>誤情報の拡散につながる可能性があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIは画像を疑うためだけでなく確認作業にも役立つ</h3>
+          <p>生成AIは画像の内容整理や確認項目の洗い出し、複数情報の比較など、情報を落ち着いて確認する補助として活用できます。</p>
+          <ul class="positive-example-list"><li>画像について確認すべきポイントをAIに整理してもらう</li><li>公式発表との違いをまとめてもらう</li><li>複数の記事の共通点を要約してもらう</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>「AIっぽい」という印象だけで判断しなくても大丈夫です。今は人の目で見分けるより、「どこから来た情報か」「信頼できる発信元か」を見る方が、ずっと安心できる確認方法ですよ。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>画像を見るより、情報の履歴を見る。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://openai.com/index/advancing-content-provenance/" target="_blank" rel="noopener noreferrer">Advancing content provenance for a safer, more transparent AI ecosystem<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI</span>
+              <span>公式発表</span>
+              <time datetime="2026-05-19">2026-05-19</time>
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/8912793-c2pa-and-synthid-in-openai-generated-images" target="_blank" rel="noopener noreferrer">C2PA and SynthID in OpenAI-generated images<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>公式発表</span>
+              <time datetime="2026-07">2026-07</time>
+            </li>
+            <li>
+              <strong><a href="https://www.theverge.com/ai-artificial-intelligence/934521/google-synthid-c2pa-content-credentials-ai-labelling-efforts" target="_blank" rel="noopener noreferrer">It’s make or break time for AI labeling systems<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>The Verge</span>
+              <span>報道機関</span>
+              <time datetime="2026-05-20">2026-05-20</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260715.html" data-forensics-card data-category="social-media" data-level="3" data-difficulty="beginner" data-search-text="SNSで見かけたAI画像つき投稿、すぐ共有しても大丈夫？ AI画像つき投稿の確認 SNSで話題になっている画像つき投稿を見かけたとき、共有する前にどこを確認すればよいかを整理する、実装確認用の架空事例です。 SNS はじめて SNS AI画像 情報確認 共有前チェック SNSでニュースや話題をよく見る人 AI画像やAI動画を見分けたい人 家族や友人へ情報を共有する前に確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">確認</span>
+              <div>
+                <p>AI画像つき投稿の確認</p>
+                <h3>SNSで見かけたAI画像つき投稿、すぐ共有しても大丈夫？</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-07-15">2026.07.15</time>
+              <span>SNS</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">SNSで話題になっている画像つき投稿を見かけたとき、共有する前にどこを確認すればよいかを整理する、実装確認用の架空事例です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式情報と照合</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSでニュースや話題をよく見る人</li><li>AI画像やAI動画を見分けたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>SNS</li><li>AI画像</li><li>情報確認</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="index.html">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260717.html">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260719.html">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../index.html">ホーム</a>
+          <a href="../about.html">会社概要</a>
+          <a href="../members.html">AI社員紹介</a>
+          <a href="../services.html">事業内容</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works.html">制作物</a>
+          <a href="../gallery.html">ギャラリー</a>
+          <a href="../lounge.html">ラウンジ</a>
+          <a href="../news.html">ニュース</a>
+          <a href="../contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
