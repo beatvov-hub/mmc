@@ -16,7 +16,7 @@
 
 - `src/data/loungeLogs.json`
   - ラウンジ観測記録の元データです。
-  - `scripts/generate_lounge.py` で `lounge.html`、`lounge-archive/*.html`、`index.html`、`mainichi-miru-sitemap.xml` に反映されます。
+  - `scripts/generate_lounge.py` で `lounge.html`、日付別の `lounge-archive/YYYY-MM-DD.html`、`index.html`、`mainichi-miru-sitemap.xml` に反映されます。
 
 - `src/data/newsItems.json`
   - トップのお知らせ、ニュースページ、会社概要の沿革の元データです。
@@ -55,8 +55,10 @@
 ### ラウンジ
 
 - ラウンジ観測記録は `loungeLogs.json` で管理します。
-- 1日複数回更新できる前提で、アーカイブページとカレンダー表示を生成します。
-- 2026-07-17 時点で、`loungeLogs.json` は 48 件あります。
+- 1日複数回更新できる前提で、日付別アーカイブページとカレンダー表示を生成します。
+- 2026-07-19 時点で、`loungeLogs.json` は 52 件あります。
+- `lounge-archive/` は時間別ではなく、1日1ページの `YYYY-MM-DD.html` にまとめます。
+- 時間別の導線は `lounge-archive/YYYY-MM-DD.html#YYYY-MM-DD-HHMM` のアンカーで管理します。
 - `lounge.html` には時間帯でラウンジ画像を切り替えるJavaScriptがあります。
 - 23:00〜翌8:00は夜間オーバーレイを出す仕様です。
 
@@ -136,6 +138,14 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 更新履歴
 --------
 
+### 2026-07-20
+
+- `scripts/generate_lounge.py` を改修し、ラウンジアーカイブを時間別ファイルから日付別ファイルへ変更しました。
+- `lounge-archive/YYYY-MM-DD-HHMM.html` の生成を廃止し、`lounge-archive/YYYY-MM-DD.html#YYYY-MM-DD-HHMM` へリンクする仕様にしました。
+- 既存52件のラウンジログを、13個の日付別アーカイブHTMLへ再生成しました。
+- `lounge.html` のカレンダー、最新アーカイブ、`index.html` の今日のひとことリンク、`mainichi-miru-sitemap.xml` を日付別URLへ更新しました。
+- `styles.css` に日付別アーカイブ用の時間ナビゲーションスタイルを追加しました。
+
 ### 2026-07-19
 
 - `src/data/ai-forensics/case-20260718.json` に、画像の見た目ではなく情報の履歴を確認するAI鑑識室の記事を追加しました。
@@ -152,6 +162,20 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - `scripts/generate_ai_forensics.py` を実行し、`ai-forensics/index.html` と `ai-forensics/case-20260717.html` を更新しました。
 - `scripts/generate_lounge.py` を実行し、`mainichi-miru-sitemap.xml` に `ai-forensics/case-20260717` を追加しました。
 - 壊れていたMarkdownリンク混在の出典情報は、Malwarebytes、Microsoft Security、TechRadarの記事URLへ整理しました。
+- `src/data/loungeLogs.json` に 2026-07-19 09:00 の朝ラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`index.html`、`lounge.html`、`lounge-archive/2026-07-19-0900.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- トップページの「今日のひとこと」を、ねむちゃん、アキト、ペチの3件へ更新しました。
+- 2026-07-19分はこのあと追加する23:00更新を `lounge.html` のメイン表示にする予定です。
+- `src/data/loungeLogs.json` に 2026-07-19 12:00 のランチタイムラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-19-1200.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- 12:00更新には `todayWords` を追加せず、トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- `src/data/loungeLogs.json` に 2026-07-19 20:00 の酒場タイムラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-19-2000.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- 20:00更新にも `todayWords` は追加していません。トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- `src/data/loungeLogs.json` に 2026-07-19 23:00 の閉店前ラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-19-2300.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- 23:00更新にも `todayWords` は追加していません。トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- 2026-07-19分の最終更新として、`lounge.html` のメイン表示を23:00更新へ切り替えました。
 
 ### 2026-07-17
 

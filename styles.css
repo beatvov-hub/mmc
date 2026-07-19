@@ -1387,6 +1387,43 @@ a.lounge-calendar__day {
   margin: 16px 0 0;
   font-size: .92rem;
 }
+.lounge-day-archive {
+  max-width: 1100px;
+  margin: 0 auto 24px;
+  padding: 28px;
+  border: 1px solid rgba(192, 141, 86, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 252, 247, 0.92);
+  box-shadow: var(--shadow-soft);
+}
+.lounge-day-archive__lead {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.lounge-day-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.lounge-day-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid rgba(192, 141, 86, 0.24);
+  border-radius: 999px;
+  background: #fff8ef;
+  color: var(--green);
+  font-size: .9rem;
+  font-weight: 800;
+}
+.lounge-day-nav a span {
+  color: var(--brown);
+  font-variant-numeric: tabular-nums;
+}
 .pechi-memo {
   display: grid;
   grid-template-columns: 86px 1fr;

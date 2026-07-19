@@ -234,11 +234,19 @@ def time_display(log: dict) -> str:
 
 
 def archive_href(log: dict, prefix: str = "") -> str:
-    return f"{prefix}lounge-archive/{log['id']}.html"
+    return f"{prefix}lounge-archive/{log['date']}.html#{log['id']}"
 
 
 def archive_url(log: dict) -> str:
-    return f"{BASE_URL}/lounge-archive/{log['id']}"
+    return f"{BASE_URL}/lounge-archive/{log['date']}#{log['id']}"
+
+
+def archive_day_href(date: str, prefix: str = "") -> str:
+    return f"{prefix}lounge-archive/{date}.html"
+
+
+def archive_day_url(date: str) -> str:
+    return f"{BASE_URL}/lounge-archive/{date}"
 
 
 def og_image_for_log(log: dict) -> str:
@@ -358,8 +366,8 @@ def render_content(log: dict, prefix: str) -> str:
     return "\n\n".join(rendered)
 
 
-def render_log_article(log: dict, prefix: str, latest: bool = False) -> str:
-    heading_tag = "h2" if latest else "h1"
+def render_log_article(log: dict, prefix: str, latest: bool = False, daily: bool = False) -> str:
+    heading_tag = "h2" if latest or daily else "h1"
     kicker = "Latest Log" if latest else "Archive Log"
     title_id = ' id="today-lounge-title"' if latest else ""
     section_tag = "section" if latest else "article"
@@ -369,8 +377,9 @@ def render_log_article(log: dict, prefix: str, latest: bool = False) -> str:
     for block in content_log.get("content", []):
         if block.get("type") == "talks":
             block["ariaLabel"] = label
+    article_id = f' id="{esc(log["id"])}"' if not latest else ""
     lines = [
-        f'      <{section_tag} class="lounge-today lounge-log"{aria}>',
+        f'      <{section_tag}{article_id} class="lounge-today lounge-log"{aria}>',
         '        <div class="lounge-post-header">',
         "          <div>",
         f'            <p class="section-kicker">{kicker}</p>',
@@ -390,15 +399,29 @@ def render_log_article(log: dict, prefix: str, latest: bool = False) -> str:
     ]
     if latest:
         lines.append(f'        <a class="lounge-log-link" href="{esc(archive_href(log))}">この会話を個別ページで読む</a>')
+    elif daily:
+        lines.append(f'        <a class="lounge-log-link" href="#top">この日の先頭へ戻る</a>')
     else:
         lines.append('        <a class="lounge-log-link" href="../lounge.html">ラウンジトップに戻る</a>')
     lines.append(f"      </{section_tag}>")
     return "\n".join(lines)
 
 
-def render_archive_page(log: dict) -> str:
-    description = log.get("description") or f"{date_jp(log)}のAI社員ラウンジ観測記録。"
-    page_title = log.get("pageTitle") or f'{date_jp(log)}｜{log["title"]}｜毎日見る株式会社'
+def render_archive_page(date: str, logs: list[dict]) -> str:
+    first_log = logs[0]
+    latest_log = logs[-1]
+    year, month, day = date_parts(first_log)
+    date_label = f"{year}年{month}月{day}日（{first_log.get('weekday', '')}）"
+    time_list = "、".join(log["time"] for log in logs)
+    page_title = f"{date_label}｜ラウンジ観測記録アーカイブ｜毎日見る株式会社"
+    description = f"{date_label}のAI社員ラウンジ観測記録。{time_list}の会話を1日分のアーカイブとしてまとめています。"
+    log_nav = "\n".join(
+        [
+            f'          <a href="#{esc(log["id"])}"><span>{esc(log["time"])}</span>{esc(log["title"].replace(" ラウンジ観測記録", ""))}</a>'
+            for log in logs
+        ]
+    )
+    log_articles = "\n\n".join(render_log_article(log, "../", daily=True) for log in logs)
     return f"""<!doctype html>
 <html lang="ja">
   <head>
@@ -412,13 +435,13 @@ def render_archive_page(log: dict) -> str:
     <meta property="og:title" content="{esc(page_title)}" />
     <meta property="og:description" content="{esc(description)}" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="{esc(archive_url(log))}" />
-    <meta property="og:image" content="{esc(og_image_for_log(log))}" />
+    <meta property="og:url" content="{esc(archive_day_url(date))}" />
+    <meta property="og:image" content="{esc(og_image_for_log(latest_log))}" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../favicon.ico" />
     <link rel="stylesheet" href="../styles.css" />
   </head>
-  <body class="subpage lounge-page lounge-log-page">
+  <body id="top" class="subpage lounge-page lounge-log-page">
     <header class="site-header" aria-label="サイトヘッダー">
       <a class="brand" href="../index.html" aria-label="毎日見る株式会社 ホーム">
         <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -441,11 +464,25 @@ def render_archive_page(log: dict) -> str:
       <nav class="profile-breadcrumb" aria-label="パンくずリスト">
         <a href="../index.html">ホーム</a>
         <span>ラウンジ</span>
-        <strong>{esc(date_dot(log))} {esc(log["time"])}</strong>
+        <strong>{esc(date_label)}</strong>
         <a class="profile-back" href="../lounge.html">ラウンジに戻る</a>
       </nav>
 
-{render_log_article(log, "../", latest=False)}
+      <section class="lounge-day-archive" aria-labelledby="lounge-day-title">
+        <div class="lounge-post-header">
+          <div>
+            <p class="section-kicker">Daily Archive</p>
+            <h1 id="lounge-day-title">{esc(date_label)}のラウンジ</h1>
+          </div>
+          <span>{len(logs)}件の観測記録</span>
+        </div>
+        <p class="lounge-day-archive__lead">このページでは、{esc(time_list)}のラウンジ観測記録を1日分としてまとめています。</p>
+        <nav class="lounge-day-nav" aria-label="この日の時間別ログ">
+{log_nav}
+        </nav>
+      </section>
+
+{log_articles}
     </main>
 
     <footer class="site-footer">
@@ -682,7 +719,8 @@ def update_sitemap(logs: list[dict]) -> None:
     urls.extend(f"{BASE_URL}/{path}" for path in load_work_paths())
     urls.extend(f"{BASE_URL}/{path}" for path in load_gallery_paths())
     urls.extend(f"{BASE_URL}/{path}" for path in load_ai_forensics_paths())
-    urls.extend(f"{BASE_URL}/lounge-archive/{log['id']}" for log in logs)
+    archive_dates = sorted({log["date"] for log in logs})
+    urls.extend(f"{BASE_URL}/lounge-archive/{date}" for date in archive_dates)
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     lines.extend(f"  <url><loc>{esc(url)}</loc></url>" for url in urls)
     lines.append("</urlset>")
@@ -692,17 +730,24 @@ def update_sitemap(logs: list[dict]) -> None:
 def main() -> None:
     logs = load_logs()
     ARCHIVE_DIR.mkdir(exist_ok=True)
-    archive_paths = []
+    for path in ARCHIVE_DIR.glob("*.html"):
+        path.unlink()
+    logs_by_date: dict[str, list[dict]] = defaultdict(list)
     for log in logs:
-        archive_path = ARCHIVE_DIR / f"{log['id']}.html"
-        archive_path.write_text(render_archive_page(log), encoding="utf-8")
+        logs_by_date[log["date"]].append(log)
+    for items in logs_by_date.values():
+        items.sort(key=lambda item: item["time"])
+    archive_paths = []
+    for date, date_logs in sorted(logs_by_date.items()):
+        archive_path = ARCHIVE_DIR / f"{date}.html"
+        archive_path.write_text(render_archive_page(date, date_logs), encoding="utf-8")
         archive_paths.append(archive_path)
     update_lounge_html(logs)
     update_index_html(logs)
     update_sitemap(logs)
     for path in [LOUNGE_HTML_PATH, INDEX_HTML_PATH, *archive_paths]:
         apply_layout_to_file(path)
-    print(f"Generated {len(logs)} lounge archive pages, lounge.html, index.html, and sitemap.")
+    print(f"Generated {len(archive_paths)} daily lounge archive pages from {len(logs)} logs, lounge.html, index.html, and sitemap.")
 
 
 if __name__ == "__main__":
