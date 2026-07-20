@@ -57,6 +57,7 @@ SOURCE_TYPE_LABELS = {
     "research": "研究・論文",
     "news": "報道機関",
     "security": "セキュリティ機関",
+    "fact-check": "ファクトチェック",
     "other": "その他",
 }
 ACCENT_TONES = {"calm", "caution", "serious", "friendly"}

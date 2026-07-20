@@ -1,0 +1,155 @@
+{
+  "id": "case-20260721",
+  "publishedAt": "2026-07-21",
+  "title": "「AIが全部のLINEやWhatsAppを読んでいる」その拡散メッセージ、本当？",
+  "shortTitle": "AIが勝手に読む？",
+  "category": "misinformation",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "家族や友人からチェーンメッセージが届く人",
+    "SNSやメッセージアプリを利用している人",
+    "AIのプライバシーが気になる人"
+  ],
+  "summary": "「AIがすべてのチャットを読めるようになる」という警告メッセージが海外で拡散されました。しかし、多くは実際の機能を誤解した内容やデマでした。AIを怖がる前に、公式情報を確認する習慣が大切です。",
+  "scenario": {
+    "headline": "「今すぐ設定しないとAIが全チャットを読む」というメッセージが届いた",
+    "description": "家族から「土曜日からAIがすべてのグループチャットを読めるようになる。管理者は今すぐ設定を変更して他の人にも知らせて」というメッセージが転送されてきました。本当に急いで設定を変える必要があるのでしょうか。",
+    "whyItMatters": "2026年には、WhatsAppの「Advanced Chat Privacy」という実在する機能を利用した誤解を招くチェーンメッセージが複数の国で拡散されました。Metaは、AIと個別にやり取りするためのプライバシー重視の機能を説明していますが、通常のエンドツーエンド暗号化されたチャットをMeta AIが勝手に読む、という意味ではありません。ファクトチェック機関も「AIがすべてのチャットへアクセスする」という主張は誤りとしています。公式情報と第三者のファクトチェックを確認することで、不安だけが先行する情報に振り回されにくくなります。"
+  },
+  "question": {
+    "text": "このような「今すぐ拡散してください」というメッセージを受け取ったら、最初にすることは？",
+    "choices": [
+      {
+        "id": "forward",
+        "label": "家族や友人へすぐ転送する",
+        "description": "念のため多くの人へ知らせる。"
+      },
+      {
+        "id": "official",
+        "label": "公式発表や信頼できる情報源を確認する",
+        "description": "サービス提供元やファクトチェック記事を確認する。"
+      },
+      {
+        "id": "delete",
+        "label": "何も確認せず削除する",
+        "description": "真偽を調べず無視する。"
+      },
+      {
+        "id": "change",
+        "label": "内容を信じて設定だけ変更する",
+        "description": "確認せず案内どおり設定を変更する。"
+      }
+    ],
+    "recommendedAnswers": [
+      "official"
+    ],
+    "explanation": "「至急」「必ず転送」という表現はチェーンメッセージによく見られます。まずは公式サイトや信頼できる報道・ファクトチェックを確認しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "「至急」「全員に転送」と書かれていないか",
+      "description": "不安をあおって拡散を促す表現は要注意です。",
+      "priority": "high"
+    },
+    {
+      "title": "公式発表があるか",
+      "description": "サービス提供元のヘルプやニュースを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "情報源が明記されているか",
+      "description": "「友人から聞いた」だけの情報は慎重に扱います。",
+      "priority": "medium"
+    },
+    {
+      "title": "複数の信頼できる情報で一致しているか",
+      "description": "報道やファクトチェック機関も確認すると安心です。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "まず公式確認",
+  "verificationMessage": "AIやプライバシーに関する情報ほど、チェーンメッセージではなく公式情報を確認しましょう。",
+  "verdict": {
+    "label": "「拡散前に確認」が一番の対策",
+    "description": "AIに関する不安をあおる情報は少なくありません。公式情報を確認してから行動すれば、安全にサービスを利用できます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "公式ヘルプやニュースを確認する",
+      "reason": "仕様変更は提供元が最も正確に案内しています。"
+    },
+    {
+      "action": "ファクトチェック記事を探す",
+      "reason": "既に検証されている場合があります。"
+    },
+    {
+      "action": "転送前に一度立ち止まる",
+      "reason": "誤情報の拡散防止につながります。"
+    },
+    {
+      "action": "AI機能の説明を読む",
+      "reason": "実際に何ができて何ができないか理解できます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "「念のため」で転送する",
+      "reason": "善意でも誤情報を広げる可能性があります。"
+    },
+    {
+      "action": "AIという言葉だけで危険だと決めつける",
+      "reason": "実際の機能と噂は異なる場合があります。"
+    },
+    {
+      "action": "出典不明の画像だけで信じる",
+      "reason": "画像やスクリーンショットだけでは真偽を判断できません。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIに「この情報は本当？」と確認項目を作ってもらう",
+    "description": "生成AIは情報の真偽を最終判断する存在ではありませんが、「どこを確認すればよいか」というチェックリスト作りには役立ちます。",
+    "examples": [
+      "公式情報を探すための検索キーワードを考えてもらう",
+      "確認すべきポイントを箇条書きにしてもらう",
+      "複数の記事の共通点を整理してもらう"
+    ]
+  },
+  "makotoComment": "「AIが全部見ているらしいよ」という話ほど、一度立ち止まってください。AIを怖がる必要はありません。大切なのは、誰が言っているのか、公式はどう説明しているのかを確認することです。",
+  "oneLineLesson": "「AIが危ない」より先に、「情報源は確か？」を確認しよう。",
+  "tags": [
+    "デマ",
+    "チェーンメッセージ",
+    "WhatsApp",
+    "AIリテラシー"
+  ],
+  "sources": [
+    {
+      "title": "Introducing a Completely Private Way to Chat With AI",
+      "publisher": "Meta Newsroom",
+      "sourceType": "official",
+      "publishedAt": "2026-05-13",
+      "url": "https://about.fb.com/news/2026/05/incognito-chat-whatsapp-meta-ai/"
+    },
+    {
+      "title": "WhatsApp, il falso avviso sulla “Privacy avanzata” che spaventa i gruppi",
+      "publisher": "Open",
+      "sourceType": "fact-check",
+      "publishedAt": "2026-06-07",
+      "url": "https://www.open.online/2026/06/07/whatsapp-privacy-avanzata-meta-ai-fact-check/"
+    },
+    {
+      "title": "Debunked: Circulating Text Claiming That AI Will Have Access to Groups, Chats, and Personal Data on WhatsApp Is False",
+      "publisher": "Indy Press",
+      "sourceType": "fact-check",
+      "publishedAt": "2026-07-15",
+      "url": "https://indypressui.org/2026/07/15/debunked-circulating-text-claiming-that-ai-will-have-access-to-groups-chats-and-personal-data-on-whatsapp-is-false/"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "スマートフォンに「今すぐ全員へ転送してください」というチェーンメッセージが表示され、隣で公式ヘルプページを確認している人物。明るく落ち着いた実写風で、恐怖ではなく冷静な情報確認をイメージさせる構図。",
+    "cardIcon": "確認",
+    "accentTone": "calm"
+  }
+}
