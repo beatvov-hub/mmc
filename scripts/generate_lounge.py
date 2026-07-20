@@ -453,7 +453,6 @@ def render_archive_page(date: str, logs: list[dict]) -> str:
         <a href="../members.html">AI社員紹介</a>
         <a href="../services.html">事業内容</a>
         <a href="../works.html">制作物</a>
-        <a href="../gallery.html">ギャラリー</a>
         <a href="../lounge.html" aria-current="page">ラウンジ</a>
         <a href="../news.html">ニュース</a>
       </nav>
@@ -497,7 +496,6 @@ def render_archive_page(date: str, logs: list[dict]) -> str:
           <a href="../members.html">AI社員紹介</a>
           <a href="../services.html">事業内容</a>
           <a href="../works.html">制作物</a>
-          <a href="../gallery.html">ギャラリー</a>
           <a href="../lounge.html">ラウンジ</a>
           <a href="../news.html">ニュース</a>
           <a href="../contact.html">お問い合わせ</a>

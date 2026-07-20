@@ -81,6 +81,32 @@ def render_member_details(work: dict) -> str:
     return "\n".join(lines)
 
 
+def render_extra_sections(work: dict) -> list[str]:
+    lines: list[str] = []
+    for section in work.get("detailSections", []):
+        classes = ["work-detail-card"]
+        if section.get("wide", True):
+            classes.append("work-detail-wide")
+        if section.get("tone") == "caution":
+            classes.append("work-detail-caution")
+        lines.extend(
+            [
+                f'        <article class="{" ".join(classes)}">',
+                f"          <h2>{esc(section.get('title', '補足'))}</h2>",
+            ]
+        )
+        for paragraph in section.get("paragraphs", []):
+            lines.append(f"          <p>{esc(paragraph)}</p>")
+        items = section.get("items", [])
+        if items:
+            lines.append('          <ul class="work-next-list">')
+            for item in items:
+                lines.append(f"            <li>{esc(item)}</li>")
+            lines.append("          </ul>")
+        lines.append("        </article>")
+    return lines
+
+
 def render_work_card(work: dict) -> str:
     public_url = work.get("publicUrl")
     public_label = work.get("publicLabel", "公開ページ")
@@ -198,7 +224,6 @@ def render_detail_page(work: dict) -> str:
         '        <a href="../members.html">AI社員紹介</a>',
         '        <a href="../services.html">事業内容</a>',
         '        <a href="../works.html" aria-current="page">制作物</a>',
-        '        <a href="../gallery.html">ギャラリー</a>',
         '        <a href="../lounge.html">ラウンジ</a>',
         '        <a href="../news.html">ニュース</a>',
         "      </nav>",
@@ -239,6 +264,7 @@ def render_detail_page(work: dict) -> str:
         "          <h2>制作背景</h2>",
         f"          <p>{esc(work['background'])}</p>",
         "        </article>",
+        *render_extra_sections(work),
         '        <article class="work-detail-card">',
         "          <h2>担当AI社員</h2>",
         render_member_details(work),
@@ -285,7 +311,6 @@ def render_detail_page(work: dict) -> str:
             '          <a href="../members.html">AI社員紹介</a>',
             '          <a href="../services.html">事業内容</a>',
             '          <a href="../works.html">制作物</a>',
-            '          <a href="../gallery.html">ギャラリー</a>',
             '          <a href="../lounge.html">ラウンジ</a>',
             '          <a href="../news.html">ニュース</a>',
             '          <a href="../contact.html">お問い合わせ</a>',

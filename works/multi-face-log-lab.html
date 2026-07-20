@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multi Face Log Lab｜制作背景と表情ログ研究ツール開発記録｜毎日見る株式会社</title>
+    <meta name="description" content="Multi Face Log Labは、ZOOM人狼や配信映像に解析枠を置き、笑顔、口の開き、瞬き、顔ロストなどの表情っぽい数値変化をイベントログとして保存する研究用MVPです。嘘や怪しさを判定するものではなく、表情精査を補助する観察ログツールとして制作しました。" />
+    <meta property="og:title" content="Multi Face Log Lab｜制作背景と表情ログ研究ツール開発記録｜毎日見る株式会社" />
+    <meta property="og:description" content="Multi Face Log Labは、ZOOM人狼や配信映像に解析枠を置き、笑顔、口の開き、瞬き、顔ロストなどの表情っぽい数値変化をイベントログとして保存する研究用MVPです。嘘や怪しさを判定するものではなく、表情精査を補助する観察ログツールとして制作しました。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.netlify.app/works/multi-face-log-lab" />
+    <meta property="og:image" content="https://mainichi-miru.netlify.app/image/top004.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="subpage works-page work-detail-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../index.html" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../index.html">ホーム</a>
+        <a href="../about.html">会社概要</a>
+        <a href="../members.html">AI社員紹介</a>
+        <a href="../services.html">事業内容</a>
+        <a href="../ai-forensics/">AI鑑識室</a>
+        <a href="../works.html" aria-current="page">制作物</a>
+        <a href="../lounge.html">ラウンジ</a>
+        <a href="../news.html">ニュース</a>
+        <a class="nav-contact-link" href="../contact.html">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact.html">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="work-detail-main">
+      <nav class="profile-breadcrumb" aria-label="パンくずリスト">
+        <a href="../index.html">ホーム</a>
+        <span>制作物</span>
+        <strong>Multi Face Log Lab</strong>
+        <a class="profile-back" href="../works.html">制作物一覧に戻る</a>
+      </nav>
+
+      <section class="page-hero work-detail-hero">
+        <div>
+          <p class="section-kicker">研究ツール</p>
+          <h1>Multi Face Log Lab</h1>
+          <p class="page-lead">複数人映像に解析枠を置き、表情っぽい数値変化をイベントログとして保存する研究用MVP。</p>
+          <p class="work-story-summary work-story-summary-large">ZOOM人狼や配信映像の表情精査を補助するため、笑顔、口の開き、瞬き、顔ロストなどを記録します。</p>
+        </div>
+        <aside class="page-note work-detail-note">
+          <span class="work-status-chip">MVP制作済み / 改修中</span>
+          <p>画面・ウィンドウキャプチャや動画ファイルを読み込み、複数人の顔検出と表情変化ログを保存できる段階です。枠数が多い場面では負荷が高くなるため、現在は解析処理の軽量化と安定化を進めています。</p>
+        </aside>
+      </section>
+
+      <section class="work-detail-grid" aria-label="制作背景詳細">
+        <article class="work-detail-card work-detail-overview">
+          <h2>作品概要</h2>
+          <p>Multi Face Log Labは、ZOOM人狼やYouTube配信など、複数人が同時に映る映像を対象に、参加者ごとの表情変化を記録する研究用ツールです。映像上に手動で解析枠を配置し、枠ごとに顔検出を行います。記録するのは、笑顔、口の開き、目の開き、瞬き、顔向き、顔の移動量、顔ロストなどの数値変化やイベントログです。このツールは、誰が嘘をついているか、誰が怪しいかを判定するものではありません。あくまで、複数人映像の中で見逃しやすい表情変化を記録し、あとから振り返るための補助ツールです。</p>
+        </article>
+        <article class="work-detail-card">
+          <h2>生まれたきっかけ</h2>
+          <p>きっかけは、ZOOM人狼やYouTube配信の人狼を見ている時に、画面に映っている全員の表情を一人ずつ追いかけるのが難しいと感じたことでした。人狼では、発言内容だけでなく、表情、反応、沈黙、笑い方、視線の動きなども大事な情報になります。しかし、参加者が多い配信やZOOM画面では、全員の細かい変化を同時に見ることはかなり大変です。そこで、参加者ごとに解析枠を置き、表情っぽい変化をログとして残せるツールがあれば、あとから精査しやすくなるのではないかと考えました。</p>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>制作背景</h2>
+          <p>将来的には、オンライン人狼をより対面に近い感覚で遊べるようにしたいという考えもあります。対面人狼では、発言だけでなく、表情や間の取り方、誰を見たか、どんな反応をしたかといった情報が自然に入ってきます。一方で、オンライン人狼では、画面上の情報が多く、参加者の表情を細かく拾うのが難しくなります。すでに世の中には議事録ツールや文字起こしツールがあり、発言を記録する仕組みは整いつつあります。そこに、声と顔の情報を紐づけることができれば、人狼中の反応や表情をより立体的に振り返れるのではないか。Multi Face Log Labは、その第一歩として作った研究用MVPです。YouTube配信の映像でテストしたところ、画面映りの角度や明るさ、顔のサイズによって、表情の拾いやすさに差が出ることが分かりました。枠が多い場面では負荷も高くなるため、細かい瞬間変化より長時間安定して記録できることを優先し、解析頻度の調整やローテーション解析を進めています。</p>
+        </article>
+        <article class="work-detail-card work-detail-wide work-detail-caution">
+          <h2>注意書き</h2>
+          <p>このツールは、嘘、人狼、怪しさ、感情を自動判定するものではありません。</p>
+          <p>記録するのは、顔検出や表情っぽい数値変化、イベントログのみです。ログの解釈は利用者が行うものであり、特定の人物の心理状態や役職を断定するものではありません。</p>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>現在できること</h2>
+          <ul class="work-next-list">
+            <li>画面やウィンドウをキャプチャして解析できる</li>
+            <li>動画ファイルを読み込める</li>
+            <li>映像上に参加者ごとの解析枠を追加できる</li>
+            <li>解析枠の移動、リサイズ、名前編集ができる</li>
+            <li>枠レイアウトをJSONで保存・読み込みできる</li>
+            <li>MediaPipe Face Landmarkerで枠ごとの顔検出ができる</li>
+            <li>mouthOpenScore、smileScore、eyeOpenScore、顔向き、顔移動量、瞬き回数などを記録できる</li>
+            <li>笑顔、口の開き、瞬き、顔ロストなどをイベントログ化できる</li>
+            <li>顔が見失われた時に候補を表示し、手動で再割り当てできる</li>
+            <li>表情ログをJSONとして保存できる</li>
+            <li>イベントログの最新500件を表示できる</li>
+            <li>1000件ごとに過去ログを自動保存できる</li>
+            <li>10秒ごとのイベント集中タイミングを確認できる</li>
+            <li>枠数に応じて解析間隔やスキップを調整できる</li>
+          </ul>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>実際に試して分かったこと</h2>
+          <p>YouTube配信の映像でテストしたところ、画面映りの角度や明るさ、顔のサイズによって、表情の拾いやすさに差が出ることが分かりました。</p>
+          <p>笑顔が検出されやすい人もいれば、角度や画質の影響で反応しにくい人もいます。また、ZOOM人狼中に試した際には、解析枠が多くなるほどメモリ負荷が高くなり、安定性に課題があることも見えてきました。</p>
+          <p>現在は、解析枠が増えるほどMediaPipeの実行頻度を自動で下げ、15枠前後では全枠を毎回読むのではなく数枠ずつローテーションして解析する方向で、長時間安定して記録できることを優先しています。</p>
+        </article>
+        <article class="work-detail-card">
+          <h2>担当AI社員</h2>
+          <ul class="work-member-list">
+            <li>
+              <strong>DG</strong>
+              <span>ゲーム文化研究室 / 人狼観戦、人狼配信、表情精査との相性確認</span>
+            </li>
+            <li>
+              <strong>アキト</strong>
+              <span>開発推進室 / Electron、画面キャプチャ、MediaPipe、イベントログ、JSON保存、負荷対策</span>
+            </li>
+            <li>
+              <strong>誠</strong>
+              <span>AIリテラシー推進室 / 表情ログの扱い方、断定しない設計、利用時の注意点</span>
+            </li>
+            <li>
+              <strong>ケイ</strong>
+              <span>広報部長 / 人狼界隈の面白さと誤解を招かない説明の整理</span>
+            </li>
+          </ul>
+        </article>
+        <article class="work-detail-card">
+          <h2>現在の状態</h2>
+          <p>画面・ウィンドウキャプチャや動画ファイルを読み込み、複数人の顔検出と表情変化ログを保存できる段階です。枠数が多い場面では負荷が高くなるため、現在は解析処理の軽量化と安定化を進めています。</p>
+        </article>
+        <article class="work-detail-card">
+          <h2>今後やりたいこと</h2>
+          <ul class="work-next-list">
+            <li>声の情報と表情ログを統合する</li>
+            <li>発言内容、声、顔の情報を紐づける</li>
+            <li>検出精度と負荷対策を改善する</li>
+            <li>解析枠が多い場面での安定性を高める</li>
+            <li>UIを分かりやすくする</li>
+            <li>GitHub公開の準備を進める</li>
+            <li>利用時の注意点をさらに明確にする</li>
+          </ul>
+        </article>
+        <article class="work-detail-card work-detail-wide work-comment-card">
+          <h2>ケイ部長コメント</h2>
+          <blockquote class="work-comment">Multi Face Log Labの面白さは、「人狼をAIに当てさせたい」という方向ではなく、人間が見逃しやすい情報を、あとから振り返れる形で残そうとしているところにあります。ZOOM人狼や配信人狼では、画面にたくさんの参加者が並びます。その全員の表情や反応を、リアルタイムで細かく見るのはかなり難しいです。でも、人狼の面白さは発言だけではありません。誰かが話した瞬間の笑い方。沈黙している時の顔。少しだけ口が開いたタイミング。目線や顔向きの変化。そういう小さな反応が、あとから見ると大事な材料になることがあります。このツールは、そこを補助するための研究です。嘘を判定するものでも、怪しい人を決めるものでもなく、「この場面で何が起きていたか」を残すためのログツールです。試してみると、検出しやすい人としにくい人がいたり、枠が増えるとメモリが苦しくなったり、まだまだ課題はあります。でも、その課題も含めてかなり面白い。人狼の表情精査を、勘や記憶だけでなく、あとから見返せる観察ログにする。これは人狼界隈にとって、かなり新しい遊び方の入口になるかもしれません。毎日見る株式会社としては、Multi Face Log Labを、人狼をズルして勝つためのツールではなく、人狼を見る力を育てるための研究作品として育てていきたいです。</blockquote>
+        </article>
+      </section>
+
+      <section class="work-detail-actions" aria-label="制作物導線">
+        <a class="secondary-button" href="../works.html">制作物一覧に戻る</a>
+      </section>
+    </main>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../index.html">ホーム</a>
+          <a href="../about.html">会社概要</a>
+          <a href="../members.html">AI社員紹介</a>
+          <a href="../services.html">事業内容</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works.html">制作物</a>
+          <a href="../lounge.html">ラウンジ</a>
+          <a href="../news.html">ニュース</a>
+          <a href="../contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

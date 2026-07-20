@@ -56,7 +56,7 @@
 
 - ラウンジ観測記録は `loungeLogs.json` で管理します。
 - 1日複数回更新できる前提で、日付別アーカイブページとカレンダー表示を生成します。
-- 2026-07-20 時点で、`loungeLogs.json` は 56 件あります。
+- 2026-07-21 時点で、`loungeLogs.json` は 57 件あります。
 - `lounge-archive/` は時間別ではなく、1日1ページの `YYYY-MM-DD.html` にまとめます。
 - 時間別の導線は `lounge-archive/YYYY-MM-DD.html#YYYY-MM-DD-HHMM` のアンカーで管理します。
 - `lounge.html` には時間帯でラウンジ画像を切り替えるJavaScriptがあります。
@@ -138,8 +138,40 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 更新履歴
 --------
 
+### 2026-07-21
+
+- `src/data/workStories.json` の `ai1-launcher` を「AI1ランチャー」の業務効率化ツール開発記録として更新しました。
+- `works/ai1-launcher.html` に、実際に便利になったところ、こだわりポイント、主な機能、mytools、この作品の位置づけを掲載しました。
+- `scripts/generate_works.py` を実行し、`works.html` と `works/ai1-launcher.html` を更新しました。
+- `scripts/generate_lounge.py` を実行し、制作物URLを含む `mainichi-miru-sitemap.xml` を再生成しました。
+
 ### 2026-07-20
 
+- `src/data/workStories.json` の `hits-and-outs` を「HITS & OUTS」の野球心理戦ゲーム開発記録として更新しました。
+- `works/hits-and-outs.html` に、ゲームルール、こだわりポイント、AI相手ならではの面白さ、現在できること、今後やりたいことを掲載しました。
+- `scripts/generate_works.py` を実行し、`works.html` と `works/hits-and-outs.html` を更新しました。
+- `scripts/generate_lounge.py` を実行し、制作物URLを含む `mainichi-miru-sitemap.xml` を再生成しました。
+- `src/data/workStories.json` の `jinro-memo-tool` を「ZOOM人狼メモツール」として更新しました。
+- `works/jinro-memo-tool.html` に、一番便利になったところ、こだわりポイント、現在できること、Codexとの関係、注意書きを掲載しました。
+- `scripts/generate_works.py` を実行し、`works.html` と `works/jinro-memo-tool.html` を更新しました。
+- `scripts/generate_lounge.py` を実行し、制作物URLを含む `mainichi-miru-sitemap.xml` を再生成しました。
+- `src/data/workStories.json` に、表情ログ研究ツール「Multi Face Log Lab」を制作物として追加しました。
+- `scripts/generate_works.py` を拡張し、制作物詳細ページに任意の追加セクションを表示できるようにしました。
+- `works/multi-face-log-lab.html` に注意書き、現在できること、実際に試して分かったことを掲載しました。
+- `styles.css` に制作物詳細の注意書きカード用スタイルを追加しました。
+- `scripts/generate_works.py` を実行し、`works.html` と `works/multi-face-log-lab.html` を更新・生成しました。
+- `scripts/generate_lounge.py` を実行し、`mainichi-miru-sitemap.xml` に `works/multi-face-log-lab` を追加しました。
+- `src/data/workStories.json` に、ターン制ローグライト「賽能エデン」を制作物として追加しました。
+- `scripts/generate_works.py` を実行し、`works.html` と `works/saino-eden.html` を更新・生成しました。
+- `scripts/generate_lounge.py` を実行し、`mainichi-miru-sitemap.xml` に `works/saino-eden` を追加しました。
+- 共通ヘッダー・共通フッターから「ギャラリー」導線を削除しました。
+- `src/partials/header.html`、`src/partials/footer.html` と、ラウンジ・制作物・ギャラリー生成スクリプト内の直書きナビからもギャラリー項目を外しました。
+- 既存HTMLへ共通レイアウトを再適用し、公開ページのヘッダー・フッターからギャラリーリンクを削除しました。
+- ギャラリーへの導線は、制作物ページの「平成AI化ギャラリー」カードからアクセスする運用にしました。
+- `contact.html` を外部リンク集ページから、AI活用相談・お問い合わせ募集ページへ再構成しました。
+- ChatGPT、画像生成AI、AI社員運用、Codex開発、業務効率化、GAS、ホームページ制作、企画整理の相談内容を掲載しました。
+- GitHub、SUZURI、Instagram の外部リンクカードを削除し、note導線のみ「活動内容を先に見てみる」補助導線として配置しました。
+- `styles.css` にお問い合わせページ用の相談内容カード、相談スタイル、フォーム準備中カード、noteカードのスタイルを追加しました。
 - `src/data/loungeLogs.json` に 2026-07-20 09:00 の朝ラウンジ記録を追加しました。
 - `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-20.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
 - トップページの「今日のひとこと」を、ほのちゃん、誠、ペチの3件へ更新しました。
@@ -152,6 +184,10 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - `src/data/loungeLogs.json` に 2026-07-20 20:00 の酒場タイムラウンジ記録を追加しました。
 - `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-20.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
 - 20:00更新にも `todayWords` は追加していません。トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- `src/data/loungeLogs.json` に 2026-07-20 23:00 の閉店前・残業組ラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-20.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- 23:00更新にも `todayWords` は追加していません。トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- 2026-07-20分の最終更新として、`lounge.html` のメイン表示を23:00更新へ切り替えました。
 - `src/data/ai-forensics/case-20260720.json` に、AIメール要約とプロンプトインジェクション確認を扱うAI鑑識室の記事を追加しました。
 - `scripts/generate_ai_forensics.py` を実行し、`ai-forensics/index.html` と `ai-forensics/case-20260720.html` を更新しました。
 - `scripts/generate_lounge.py` を実行し、`mainichi-miru-sitemap.xml` に `ai-forensics/case-20260720` を追加しました。

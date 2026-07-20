@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HITS &amp; OUTS｜制作背景と企画記録｜毎日見る株式会社</title>
-    <meta name="description" content="短時間で遊べて、見るだけでも盛り上がるゲームが欲しいという雑談から育った作品です。" />
-    <meta property="og:title" content="HITS &amp; OUTS｜制作背景と企画記録｜毎日見る株式会社" />
-    <meta property="og:description" content="短時間で遊べて、見るだけでも盛り上がるゲームが欲しいという雑談から育った作品です。" />
+    <title>HITS &amp; OUTS｜制作背景と野球心理戦ゲーム開発記録｜毎日見る株式会社</title>
+    <meta name="description" content="HITS &amp; OUTSは、野球をテーマにした読み合い型ゲームをAI相手に一人で遊べる形へ落とし込んだ心理戦ゲームです。CPUの状況別傾向やプレイヤー守備傾向データを使い、シンプルながら奥行きのあるMVPとして制作しました。" />
+    <meta property="og:title" content="HITS &amp; OUTS｜制作背景と野球心理戦ゲーム開発記録｜毎日見る株式会社" />
+    <meta property="og:description" content="HITS &amp; OUTSは、野球をテーマにした読み合い型ゲームをAI相手に一人で遊べる形へ落とし込んだ心理戦ゲームです。CPUの状況別傾向やプレイヤー守備傾向データを使い、シンプルながら奥行きのあるMVPとして制作しました。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.netlify.app/works/hits-and-outs" />
     <meta property="og:image" content="https://mainichi-miru.netlify.app/image/top004.jpg" />
@@ -33,7 +33,6 @@
         <a href="../services.html">事業内容</a>
         <a href="../ai-forensics/">AI鑑識室</a>
         <a href="../works.html" aria-current="page">制作物</a>
-        <a href="../gallery.html">ギャラリー</a>
         <a href="../lounge.html">ラウンジ</a>
         <a href="../news.html">ニュース</a>
         <a class="nav-contact-link" href="../contact.html">お問い合わせ</a>
@@ -52,62 +51,114 @@
 
       <section class="page-hero work-detail-hero">
         <div>
-          <p class="section-kicker">ゲーム</p>
+          <p class="section-kicker">ゲーム / 野球心理戦 / 一人用ボードゲーム実験</p>
           <h1>HITS &amp; OUTS</h1>
-          <p class="page-lead">読み合いと運が交差する野球風ミニゲーム。</p>
-          <p class="work-story-summary work-story-summary-large">短時間で遊べて、見るだけでも盛り上がるゲームが欲しいという雑談から育った作品です。</p>
+          <p class="page-lead">野球をテーマにした読み合い型ボードゲームを、AI相手に一人で遊べる形へ落とし込んだ心理戦ゲーム。</p>
+          <p class="work-story-summary work-story-summary-large">1塁・2塁・3塁・ホームの4択で読み合う、シンプルな野球心理戦ゲーム。CPUはプレイヤーの守備傾向を少しずつ参照します。</p>
         </div>
         <aside class="page-note work-detail-note">
-          <span class="work-status-chip">試作中</span>
-          <p>ルールの往復テンポとUI導線を調整している段階です。短時間でも盛り上がるかを重点的に見ています。</p>
+          <span class="work-status-chip">MVP制作済み / 改修中</span>
+          <p>プレイヤー vs CPU の3イニング制ゲームとして遊べる段階です。守備側が4か所のうち1か所にヒットを隠し、攻撃側がそれを読み合う、シンプルながら心理戦のあるゲームとして制作しています。</p>
         </aside>
       </section>
 
       <section class="work-detail-grid" aria-label="制作背景詳細">
         <article class="work-detail-card work-detail-overview">
           <h2>作品概要</h2>
-          <p>HITS &amp; OUTS は、野球の駆け引きを軽やかなテンポへ落とし込み、配信や小さな集まりでも扱いやすい形にしたミニゲームです。</p>
+          <p>HITS &amp; OUTSは、野球をテーマにした心理戦ゲームです。守備側は、1塁・2塁・3塁・ホームの4か所のうち1か所に「ヒット」を隠します。攻撃側は、その配置を見ないまま、どこを狙うかを選択します。選んだ場所がヒットなら出塁。外れればアウト。3アウトで攻守交代し、3イニング終了時点の得点で勝敗が決まります。ルールはとてもシンプルですが、「相手はここに置きそう」「さっき外したから次はここかもしれない」「CPUに自分の守備傾向を読まれているかもしれない」という読み合いが生まれるゲームです。</p>
         </article>
         <article class="work-detail-card">
           <h2>生まれたきっかけ</h2>
-          <p>ラウンジで「ちょっと試せるゲームがあると、会話の温度が上がる」という話が続き、短い時間で読み合いの気持ちよさを出せる題材として野球が候補に上がりました。</p>
+          <p>きっかけは、こたけ正義感さんと陣内智則さんが「HITS &amp; OUTS」で遊んでいる動画を観て、「これ、めっちゃ面白そうやな」と思ったことでした。もともと野球が好きだったこともあり、1塁・2塁・3塁・ホームというシンプルな選択肢だけで、野球らしい展開と心理戦が生まれるところに惹かれました。ただ、そのまま誰かと対戦するのではなく、「AI相手に一人で遊べる形にできないか」「心理戦だけど、攻略法のようなものが見つかるのではないか」という方向でルールやロジックを組み直し、ゲームとして落とし込んだのがこの作品です。</p>
         </article>
         <article class="work-detail-card work-detail-wide">
           <h2>制作背景</h2>
-          <p>運だけでも実力だけでも決まりきらない設計を目指し、選択の意味が残る手触りを先に作っています。会話のきっかけになるテンポや観戦時のわかりやすさを優先しています。</p>
+          <p>実際にAI相手に遊べるようにしてみると、人間同士で遊ぶ時とはまた違う難しさが見えてきました。心理戦のゲームは、人間相手なら表情や間、性格、過去の傾向を読みながら遊ぶことになります。一方でAI相手の場合は、相手の考えが見えないぶん、逆に「読めているのか、ただランダムに振り回されているのか」が分かりにくくなります。その結果、AI相手の方が難しいのではないかと思える場面もありました。まだ実際に人間同士で遊んだことはありませんが、一人用ゲームとして成立させることで、ボードゲーム的な読み合いをAI相手に楽しめる形にできるのではないかと考えています。</p>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>ゲームルール</h2>
+          <p>試合はプレイヤー vs CPU の3イニング制です。表はプレイヤーの攻撃、裏はCPUの攻撃。3アウトで攻守交代し、3回裏終了時点で得点が高い側の勝利です。</p>
+          <p>守備側は、1塁・2塁・3塁・ホームの4か所のうち1か所にヒットを配置します。攻撃側は、その配置を見ないまま1か所を選びます。</p>
+          <p>選んだ場所が外れならアウト。当たりなら、置かれていた場所に応じてシングルヒット、ツーベース、スリーベース、ホームランになります。守備側は4か所のうち1か所に○を置き、攻撃側が選んだ場所が×ならアウト、○ならヒットになるルールとして整理しています。</p>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>こだわりポイント</h2>
+          <p>HITS &amp; OUTSでこだわったのは、シンプルなルールの中に「読まれている感」を入れることです。</p>
+          <p>CPU守備は完全ランダムではなく、状況に応じて少し傾向を持たせています。ノーアウトなら単打寄り。2アウトなら長打寄りも増える。CPUが勝っている時は堅め。負けている時は長打狙いも増える。</p>
+          <p>一方で、確定パターンにはしていません。あくまで「癖がある」程度にとどめ、プレイヤーが読もうとしても読み切れない余地を残しています。CPU守備は、アウトカウントや点差状況によって重み付き配置を行う設計です。</p>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>AI相手ならではの面白さ</h2>
+          <p>このゲームは、単にCPUがランダムに選ぶだけだと面白さが薄くなります。</p>
+          <p>そこで、プレイヤーが守備でどこにヒットを置きやすいかを記録し、CPU攻撃時にその傾向を少しだけ参照するようにしています。つまり、プレイヤーが同じような配置を繰り返していると、CPUに少しずつ読まれていく可能性があります。</p>
+          <p>ただし、完全に読ませるわけではなく、ランダム性も残しています。「もしかして読まれてる？」「いや、たまたまか？」という感覚が出るくらいのバランスを目指しています。プレイヤーの守備傾向データはlocalStorageに保存し、CPU攻撃時にその傾向を参考にする仕様です。</p>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>この作品の位置づけ</h2>
+          <p>HITS &amp; OUTSは、ボードゲームを自分なりにルール改変し、オンライン用や一人用に落とし込めるのではないかと考えた実験の第一弾です。</p>
+          <p>実際に誰かと遊ぶボードゲームを、一人でも遊べる形にするには何が必要なのか。CPUはどこまで賢くするべきなのか。ランダムと読み合いのバランスはどうするべきなのか。演出や音がどこまであると、ゲームとして気持ちよくなるのか。</p>
+          <p>そういった問いを試すための最初の作品でもあります。</p>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>現在できること</h2>
+          <ul class="work-next-list">
+            <li>プレイヤー vs CPU の3イニング制ゲーム</li>
+            <li>名前とチーム名の入力</li>
+            <li>黒板風スコアボード表示</li>
+            <li>攻守交代時の Change! 演出</li>
+            <li>CPU守備の状況別傾向</li>
+            <li>プレイヤー守備傾向データの記録</li>
+            <li>CPU攻撃時のプレイヤー守備傾向読み</li>
+            <li>Electronでのダブルクリック起動</li>
+            <li>640×640に収まるコンパクトUI</li>
+          </ul>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>今後やりたいこと</h2>
+          <p>今後は、ゲームとしての気持ちよさをさらに高めていきたいと考えています。</p>
+          <p>デザイン面をもっと整える。打撃音や歓声、アウト演出などのSEを入れる。試合後のリザルト画面を作る。CPUの強さ設定を追加する。プレイヤー守備傾向データを可視化する。リプレイ機能やオンライン対戦も検討する。</p>
+          <p>また、実況テキストをJSONで管理し、状況に応じて表示できるようにすると、このゲームならではのオリジナル感が出せそうです。ホームラン時、三者凡退時、読み勝った時、CPUに読まれた時などに実況コメントが出るようにすると、シンプルなゲーム性にかなり表情が出ると思います。</p>
         </article>
         <article class="work-detail-card">
           <h2>担当AI社員</h2>
           <ul class="work-member-list">
             <li>
-              <strong>ショウマ</strong>
-              <span>note企画部 企画課課長</span>
-            </li>
-            <li>
               <strong>アキト</strong>
-              <span>AI開発推進主任</span>
+              <span>開発推進室 / React・TypeScript・Electron構成、ゲームロジック、CPUロジック、拡張設計</span>
             </li>
             <li>
-              <strong>ほのちゃん</strong>
-              <span>総務課長</span>
+              <strong>DG</strong>
+              <span>ゲーム文化研究室 / 心理戦ゲームとしての面白さ、読み合いのバランス、CPUの癖や難易度確認</span>
+            </li>
+            <li>
+              <strong>たかけん</strong>
+              <span>世界観研究室 / 実況、演出、試合中の空気感づくり</span>
+            </li>
+            <li>
+              <strong>ケイ</strong>
+              <span>広報部 / 野球心理戦をAI相手に遊ぶ一人用ゲームとしての見せ方整理</span>
             </li>
           </ul>
         </article>
         <article class="work-detail-card">
           <h2>現在の状態</h2>
-          <p>ルールの往復テンポとUI導線を調整している段階です。短時間でも盛り上がるかを重点的に見ています。</p>
+          <p>プレイヤー vs CPU の3イニング制ゲームとして遊べる段階です。守備側が4か所のうち1か所にヒットを隠し、攻撃側がそれを読み合う、シンプルながら心理戦のあるゲームとして制作しています。</p>
         </article>
         <article class="work-detail-card">
           <h2>今後やりたいこと</h2>
           <ul class="work-next-list">
-            <li>1ゲームあたりの所要時間を固定する</li>
-            <li>配信画面でも見やすい表示案の作成</li>
-            <li>試遊ログを元に判断材料を整理する</li>
+            <li>デザイン面をさらに整える</li>
+            <li>打撃音、歓声、アウト演出などのSEを追加する</li>
+            <li>試合後のリザルト画面を作る</li>
+            <li>CPUの強さ設定を追加する</li>
+            <li>プレイヤー守備傾向データを可視化する</li>
+            <li>リプレイ機能やオンライン対戦を検討する</li>
+            <li>実況テキストをJSONで管理し、状況に応じて表示できるようにする</li>
           </ul>
         </article>
         <article class="work-detail-card work-detail-wide work-comment-card">
           <h2>ケイ部長コメント</h2>
-          <blockquote class="work-comment">こういう作品は、完成度だけじゃなくて『人がすぐ混ざれるか』が大事です。毎日見る株式会社らしい遊びの入口に育てたいです。</blockquote>
+          <blockquote class="work-comment">HITS &amp; OUTSの面白さは、ゲーム性がとてもシンプルなのに、ちゃんと読み合いが発生するところにあります。1塁、2塁、3塁、ホーム。選択肢はたった4つです。でも、その4つの中に、単打で堅くいくのか、長打を狙うのか、相手の裏をかくのか、それとも読まれているのか、という心理戦が詰まっています。所長がこのゲームに惹かれたのは、もともと野球が好きだったことも大きいと思います。野球のルールを知らなくても遊べるくらいシンプルで、それでいてホームランやタイムリーヒットの気持ちよさがある。さらに面白いのは、これをAI相手の一人用ゲームに落とし込もうとしているところです。人間同士の心理戦を、そのままCPUに置き換えるだけではうまくいきません。CPUにどのくらい癖を持たせるのか。プレイヤーの傾向をどこまで読ませるのか。ランダム性をどれだけ残すのか。その調整こそが、この作品の核になっています。毎日見る株式会社としては、HITS &amp; OUTSを、ボードゲーム的な遊びをAI相手に再設計する実験第一弾として残しておきたいです。ここから、実況、SE、リプレイ、オンライン対戦まで育てられたら、かなりちゃんと遊べる小さな野球心理戦ゲームになっていくと思います。</blockquote>
         </article>
       </section>
 
@@ -129,7 +180,6 @@
           <a href="../services.html">事業内容</a>
           <a href="../ai-forensics/">AI鑑識室</a>
           <a href="../works.html">制作物</a>
-          <a href="../gallery.html">ギャラリー</a>
           <a href="../lounge.html">ラウンジ</a>
           <a href="../news.html">ニュース</a>
           <a href="../contact.html">お問い合わせ</a>

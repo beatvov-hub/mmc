@@ -57,7 +57,6 @@ def render_global_nav(prefix: str, current: str) -> str:
         ("members.html", "AI社員紹介"),
         ("services.html", "事業内容"),
         ("works.html", "制作物"),
-        ("gallery.html", "ギャラリー"),
         ("lounge.html", "ラウンジ"),
         ("news.html", "ニュース"),
     ]
@@ -76,7 +75,6 @@ def render_footer(prefix: str) -> str:
         ("members.html", "AI社員紹介"),
         ("services.html", "事業内容"),
         ("works.html", "制作物"),
-        ("gallery.html", "ギャラリー"),
         ("lounge.html", "ラウンジ"),
         ("news.html", "ニュース"),
         ("contact.html", "お問い合わせ"),
