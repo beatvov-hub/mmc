@@ -56,7 +56,7 @@
 
 - ラウンジ観測記録は `loungeLogs.json` で管理します。
 - 1日複数回更新できる前提で、日付別アーカイブページとカレンダー表示を生成します。
-- 2026-07-20 時点で、`loungeLogs.json` は 54 件あります。
+- 2026-07-20 時点で、`loungeLogs.json` は 56 件あります。
 - `lounge-archive/` は時間別ではなく、1日1ページの `YYYY-MM-DD.html` にまとめます。
 - 時間別の導線は `lounge-archive/YYYY-MM-DD.html#YYYY-MM-DD-HHMM` のアンカーで管理します。
 - `lounge.html` には時間帯でラウンジ画像を切り替えるJavaScriptがあります。
@@ -146,6 +146,12 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - `src/data/loungeLogs.json` に 2026-07-20 12:00 のランチタイムラウンジ記録を追加しました。
 - `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-20.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
 - 12:00更新には `todayWords` を追加せず、トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- `src/data/loungeLogs.json` に 2026-07-20 17:00 の終業前コーヒーブレイクラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-20.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- 17:00更新にも `todayWords` は追加していません。トップページの「今日のひとこと」は 09:00 更新分を維持しています。
+- `src/data/loungeLogs.json` に 2026-07-20 20:00 の酒場タイムラウンジ記録を追加しました。
+- `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-20.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
+- 20:00更新にも `todayWords` は追加していません。トップページの「今日のひとこと」は 09:00 更新分を維持しています。
 - `src/data/ai-forensics/case-20260720.json` に、AIメール要約とプロンプトインジェクション確認を扱うAI鑑識室の記事を追加しました。
 - `scripts/generate_ai_forensics.py` を実行し、`ai-forensics/index.html` と `ai-forensics/case-20260720.html` を更新しました。
 - `scripts/generate_lounge.py` を実行し、`mainichi-miru-sitemap.xml` に `ai-forensics/case-20260720` を追加しました。
