@@ -158,9 +158,17 @@
         </div>
         <div class="contact-action-grid">
           <article class="contact-form-card">
-            <p class="contact-card-label">相談フォーム</p>
-            <h3>AI活用相談の受付窓口</h3>
-            <p>相談したい内容を、分かる範囲で送ってください。AIの使い始め、制作や業務への取り入れ方など、小さな相談から受け付けています。</p>
+            <p class="contact-card-label">お問い合わせ・相談受付</p>
+            <h3>小さな相談や実験参加の入口</h3>
+            <p>AIの使い方相談、制作物に関するお問い合わせ、Webツールやブラウザゲームの実験参加などを受け付けています。</p>
+            <p>まずはフォームから、相談したいこと・試してみたいことを簡単にお送りください。内容を確認したうえで、メール、Zoomなどのオンライン通話、Discordなど、話しやすい方法を一緒に決めていきます。</p>
+            <p>まだ内容がまとまっていない段階でも大丈夫です。「AIを使ってみたいけれど何から聞けばいいか分からない」「作りかけのアイデアを触ってみたい」「試作品に感想を言うくらいならできる」くらいの気軽さでご連絡ください。</p>
+            <div class="contact-experiment-note">
+              <h4>オンライン実験に付き合ってくれる方も募集しています</h4>
+              <p>毎日見る株式会社では、AI社員運用、AI活用の試行錯誤、ブラウザゲーム、Webツール、企画壁打ちなどを日々少しずつ試しています。</p>
+              <p>完成したサービスを一方的に案内するだけでなく、まだ名前がつく前のアイデアや、作りかけの試作品に触れてもらいながら、一緒に「これは面白いかも」「ここは分かりにくいかも」を考えてくれる方も歓迎しています。</p>
+              <p>オンラインで少し話す、Discordで感想を送る、試作品を触ってみるなど、参加の形はゆるめで大丈夫です。</p>
+            </div>
             <form class="contact-netlify-form" name="contact" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="bot-field">
               <input type="hidden" name="form-name" value="contact" />
               <p class="contact-honeypot">
@@ -175,22 +183,33 @@
                 <input type="email" name="email" autocomplete="email" required />
               </label>
               <label class="contact-field">
-                <span>相談カテゴリ</span>
-                <select name="category" required>
+                <span>問い合わせ種別</span>
+                <select name="inquiry-type" required>
                   <option value="">選択してください</option>
-                  <option value="ChatGPTの使い方相談">ChatGPTの使い方相談</option>
-                  <option value="画像生成AIの活用相談">画像生成AIの活用相談</option>
-                  <option value="AI社員・AIチーム運用相談">AI社員・AIチーム運用相談</option>
-                  <option value="Codex・AI開発相談">Codex・AI開発相談</option>
-                  <option value="業務効率化・GAS相談">業務効率化・GAS相談</option>
-                  <option value="ホームページ制作・改善相談">ホームページ制作・改善相談</option>
-                  <option value="企画整理・壁打ち相談">企画整理・壁打ち相談</option>
+                  <option value="AI活用について相談したい">AI活用について相談したい</option>
+                  <option value="Webサイト・制作物について相談したい">Webサイト・制作物について相談したい</option>
+                  <option value="ゲーム・ツールの実験に参加したい">ゲーム・ツールの実験に参加したい</option>
+                  <option value="AI社員・AIチーム運用について話したい">AI社員・AIチーム運用について話したい</option>
                   <option value="その他">その他</option>
                 </select>
               </label>
               <label class="contact-field">
-                <span>お問い合わせ内容</span>
+                <span>希望する相談方法</span>
+                <select name="preferred-contact-method" required>
+                  <option value="">選択してください</option>
+                  <option value="メールで相談">メールで相談</option>
+                  <option value="Zoomなどのオンライン通話で相談">Zoomなどのオンライン通話で相談</option>
+                  <option value="Discordで相談">Discordで相談</option>
+                  <option value="まだ決めていない・相談内容に合わせて決めたい">まだ決めていない・相談内容に合わせて決めたい</option>
+                </select>
+              </label>
+              <label class="contact-field">
+                <span>相談・参加してみたい内容</span>
                 <textarea name="message" rows="7" required></textarea>
+              </label>
+              <label class="contact-field">
+                <span>返信希望・連絡可能な時間帯など</span>
+                <textarea name="availability" rows="4"></textarea>
               </label>
               <p class="contact-muted">メールアドレスはページ上に掲載せず、Netlify Formsで送信内容を受け取ります。</p>
               <button class="mini-button contact-submit-button" type="submit">送信する</button>

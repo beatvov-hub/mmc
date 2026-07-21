@@ -569,6 +569,26 @@ body.subpage { padding-top: 88px; }
   margin-top: 12px !important;
   font-size: .92rem;
 }
+.contact-experiment-note {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid rgba(216, 197, 170, .82);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 242, .9), rgba(239, 226, 207, .62)),
+    rgba(255,255,255,.6);
+}
+.contact-experiment-note h4 {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: 1.05rem;
+}
+.contact-experiment-note p {
+  margin: 0;
+}
+.contact-experiment-note p + p {
+  margin-top: 10px;
+}
 .contact-netlify-form {
   display: grid;
   gap: 16px;
