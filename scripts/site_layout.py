@@ -11,6 +11,9 @@ HEADER_START = "<!-- SITE_HEADER_START -->"
 HEADER_END = "<!-- SITE_HEADER_END -->"
 FOOTER_START = "<!-- SITE_FOOTER_START -->"
 FOOTER_END = "<!-- SITE_FOOTER_END -->"
+GOOGLE_TAG_START = "<!-- GOOGLE_TAG_START -->"
+GOOGLE_TAG_END = "<!-- GOOGLE_TAG_END -->"
+GOOGLE_TAG_ID = "G-35Q8QP7V1W"
 
 HEADER_BLOCK_RE = re.compile(
     r"^[ \t]*<!-- SITE_HEADER_START -->[\s\S]*?^[ \t]*<!-- SITE_HEADER_END -->",
@@ -31,6 +34,17 @@ FOOTER_TAG_RE = re.compile(
 ORPHAN_FOOTER_END_RE = re.compile(
     r"\n?[ \t]*<script src=\"[^\"]*site-nav\.js\"></script>\s*\n[ \t]*<!-- SITE_FOOTER_END -->"
 )
+GOOGLE_TAG_BLOCK_RE = re.compile(
+    r"^[ \t]*<!-- GOOGLE_TAG_START -->[\s\S]*?^[ \t]*<!-- GOOGLE_TAG_END -->\s*",
+    re.MULTILINE,
+)
+GOOGLE_TAG_UNMARKED_RE = re.compile(
+    r"^[ \t]*<!-- Google tag \(gtag\.js\) -->\s*\n"
+    r"[ \t]*<script async src=\"https://www\.googletagmanager\.com/gtag/js\?id=G-35Q8QP7V1W\"></script>\s*\n"
+    r"[ \t]*<script>[\s\S]*?gtag\('config', 'G-35Q8QP7V1W'\);[\s\S]*?</script>\s*",
+    re.MULTILINE,
+)
+HEAD_CLOSE_RE = re.compile(r"^[ \t]*</head>", re.IGNORECASE | re.MULTILINE)
 BODY_OPEN_RE = re.compile(r"(<body\b[^>]*>)", re.IGNORECASE)
 BODY_CLOSE_RE = re.compile(r"^[ \t]*</body>", re.IGNORECASE | re.MULTILINE)
 
@@ -73,8 +87,34 @@ def render_footer(prefix: str) -> str:
     return render_partial("footer.html", prefix=prefix, current="")
 
 
+def render_google_tag() -> str:
+    return "\n".join(
+        [
+            "<!-- Google tag (gtag.js) -->",
+            f'<script async src="https://www.googletagmanager.com/gtag/js?id={GOOGLE_TAG_ID}"></script>',
+            "<script>",
+            "  window.dataLayer = window.dataLayer || [];",
+            "  function gtag(){dataLayer.push(arguments);}",
+            "  gtag('js', new Date());",
+            "",
+            f"  gtag('config', '{GOOGLE_TAG_ID}');",
+            "</script>",
+        ]
+    )
+
+
 def marked_block(start: str, body: str, end: str) -> str:
     return f"    {start}\n{indent_block(body)}\n    {end}"
+
+
+def apply_google_tag(html_text: str) -> str:
+    block = marked_block(GOOGLE_TAG_START, render_google_tag(), GOOGLE_TAG_END) + "\n"
+    html_text = GOOGLE_TAG_BLOCK_RE.sub("", html_text)
+    html_text = GOOGLE_TAG_UNMARKED_RE.sub("", html_text)
+    match = HEAD_CLOSE_RE.search(html_text)
+    if not match:
+        raise ValueError("Could not find head end.")
+    return html_text[: match.start()] + block + html_text[match.start() :]
 
 
 def insert_after_body_open(html_text: str, block: str) -> str:
@@ -161,6 +201,7 @@ def page_context(path: Path) -> tuple[str, str]:
 
 
 def apply_layout_to_html(html_text: str, *, prefix: str, current: str) -> str:
+    html_text = apply_google_tag(html_text)
     html_text = replace_block(
         html_text,
         marked_re=HEADER_BLOCK_RE,
