@@ -184,6 +184,10 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - `works/ai1-launcher.html` に、実際に便利になったところ、こだわりポイント、主な機能、mytools、この作品の位置づけを掲載しました。
 - `scripts/generate_works.py` を実行し、`works.html` と `works/ai1-launcher.html` を更新しました。
 - `scripts/generate_lounge.py` を実行し、制作物URLを含む `mainichi-miru-sitemap.xml` を再生成しました。
+- `scripts/site-effects.js` を追加し、社員個別プロフィールページと `lounge.html` の軽量エフェクトを共通管理にしました。
+- 社員個別プロフィールページに、ヒーロー表示、短い一言のタイプライター、カードのスクロール表示、社員別テーマカラー、PC向けの淡いマウスライトを追加しました。
+- `lounge.html` に、時間帯画像のフェード表示、ラウンジ状態テキストの更新演出、会話カードの順番表示、ペチ関連カードの軽いポップ、夜間オーバーレイのフェードを追加しました。
+- エフェクトは CSS transition、IntersectionObserver、軽量JavaScriptで実装し、`prefers-reduced-motion: reduce` と JavaScript無効時の本文表示に配慮しました。
 
 ### 2026-07-20
 
