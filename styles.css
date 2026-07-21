@@ -569,6 +569,65 @@ body.subpage { padding-top: 88px; }
   margin-top: 12px !important;
   font-size: .92rem;
 }
+.contact-netlify-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+.contact-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.contact-field {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-weight: 800;
+}
+.contact-field span {
+  font-size: .92rem;
+}
+.contact-field input,
+.contact-field select,
+.contact-field textarea {
+  width: 100%;
+  border: 1px solid #dcc8ae;
+  border-radius: 8px;
+  background: rgba(255, 250, 242, .94);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.6;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.contact-field textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+.contact-field input:focus,
+.contact-field select:focus,
+.contact-field textarea:focus {
+  border-color: var(--green);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(48, 82, 63, .12);
+}
+.contact-submit-button {
+  justify-self: start;
+  margin-top: 4px;
+  border: 0;
+  background: var(--green);
+  color: var(--white);
+  cursor: pointer;
+}
+.contact-submit-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(48, 82, 63, .18);
+}
 .contact-disabled-button {
   margin-top: 18px;
   border-color: #d8c5aa;

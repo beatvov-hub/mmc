@@ -140,6 +140,11 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 
 ### 2026-07-21
 
+- `contact.html` のお問い合わせ導線を Netlify Forms 対応フォームへ変更しました。
+- フォームには `name="contact"`、`method="POST"`、`data-netlify="true"`、`form-name="contact"`、honeypot項目を設定しました。
+- お名前、メールアドレス、相談カテゴリ、お問い合わせ内容を送信項目として追加しました。
+- 送信後の遷移先として `thanks.html` を追加し、共通ヘッダー・フッターと Google tag を反映しました。
+- `scripts/generate_lounge.py` のサイトマップ静的パスに `thanks` を追加しました。
 - `src/data/loungeLogs.json` に 2026-07-21 09:00 の朝ラウンジ記録を追加しました。
 - `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-07-21.html`、`index.html`、`mainichi-miru-sitemap.xml` を更新しました。
 - トップページの「今日のひとこと」を、ほのちゃん、誠、DGの3件へ更新しました。

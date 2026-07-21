@@ -50,6 +50,7 @@ STATIC_SITEMAP_PATHS = [
     "lounge",
     "news",
     "contact",
+    "thanks",
 ]
 
 SPEAKER_DEFAULTS = {

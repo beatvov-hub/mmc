@@ -24,7 +24,7 @@
       gtag('config', 'G-35Q8QP7V1W');
     </script>
     <!-- GOOGLE_TAG_END -->
-  </head>
+</head>
   <body class="subpage">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
@@ -160,9 +160,41 @@
           <article class="contact-form-card">
             <p class="contact-card-label">相談フォーム</p>
             <h3>AI活用相談の受付窓口</h3>
-            <p>正式な受付窓口は準備中です。公開後は、こちらから相談内容を送れるようにします。</p>
-            <p class="contact-muted">相談したい内容だけ先に整理しておくと、初回のやりとりがスムーズです。</p>
-            <span class="mini-button contact-disabled-button" aria-disabled="true">フォーム準備中</span>
+            <p>相談したい内容を、分かる範囲で送ってください。AIの使い始め、制作や業務への取り入れ方など、小さな相談から受け付けています。</p>
+            <form class="contact-netlify-form" name="contact" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="contact-honeypot">
+                <label>この欄は入力しないでください <input name="bot-field" autocomplete="off" /></label>
+              </p>
+              <label class="contact-field">
+                <span>お名前</span>
+                <input type="text" name="name" autocomplete="name" required />
+              </label>
+              <label class="contact-field">
+                <span>メールアドレス</span>
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+              <label class="contact-field">
+                <span>相談カテゴリ</span>
+                <select name="category" required>
+                  <option value="">選択してください</option>
+                  <option value="ChatGPTの使い方相談">ChatGPTの使い方相談</option>
+                  <option value="画像生成AIの活用相談">画像生成AIの活用相談</option>
+                  <option value="AI社員・AIチーム運用相談">AI社員・AIチーム運用相談</option>
+                  <option value="Codex・AI開発相談">Codex・AI開発相談</option>
+                  <option value="業務効率化・GAS相談">業務効率化・GAS相談</option>
+                  <option value="ホームページ制作・改善相談">ホームページ制作・改善相談</option>
+                  <option value="企画整理・壁打ち相談">企画整理・壁打ち相談</option>
+                  <option value="その他">その他</option>
+                </select>
+              </label>
+              <label class="contact-field">
+                <span>お問い合わせ内容</span>
+                <textarea name="message" rows="7" required></textarea>
+              </label>
+              <p class="contact-muted">メールアドレスはページ上に掲載せず、Netlify Formsで送信内容を受け取ります。</p>
+              <button class="mini-button contact-submit-button" type="submit">送信する</button>
+            </form>
           </article>
           <article class="contact-note-card">
             <p class="contact-card-label">活動内容を先に見てみる</p>
