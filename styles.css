@@ -255,11 +255,39 @@ h1 { margin: 0 0 20px; font-size: clamp(3.1rem, 7vw, 6.7rem); line-height: 1.18;
 .section-heading { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:24px; }
 .section-heading h2, .feature-section h2 { margin:0; font-size:clamp(1.7rem,3vw,2.5rem); }
 .section-kicker { margin:0 0 4px; font-size:.78rem; }
-.mission-grid { display:grid; grid-template-columns: repeat(5, 1fr); }
-.mission-grid article { padding:20px 26px; border-left:1px solid #ded1c1; }
+.mission-heading-wrap {
+  align-items: end;
+  gap: 20px;
+}
+.mission-lead {
+  max-width: 660px;
+  margin: 0;
+  color: var(--muted);
+  font-size: .98rem;
+  line-height: 1.85;
+}
+.mission-grid { display:grid; grid-template-columns: repeat(4, 1fr); }
+.mission-grid article { display:flex; flex-direction:column; gap:10px; padding:20px 26px; border-left:1px solid #ded1c1; }
 .mission-grid article:first-child { border-left:0; }
 .icon { display:block; color:var(--coffee); font-size:2.4rem; line-height:1; margin-bottom:12px; }
-h3 { margin:0 0 8px; font-size:1.05rem; }.mission-grid p{margin:0;font-size:.95rem}
+h3 { margin:0 0 8px; font-size:1.05rem; }.mission-grid p{margin:0;font-size:.95rem;line-height:1.75;color:var(--muted)}
+.mission-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin-top: auto;
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: var(--green);
+  color: var(--white);
+  font-size: .82rem;
+  font-weight: 900;
+}
+.mission-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(48,82,63,.16);
+}
 .news-section { padding:70px 0 56px; }
 .text-link { font-weight:800; color:var(--coffee); }
 .news-list { display:grid; grid-template-columns: repeat(4,1fr); border-top:1px solid #decfbd; border-bottom:1px solid #decfbd; }
@@ -303,6 +331,8 @@ h3 { margin:0 0 8px; font-size:1.05rem; }.mission-grid p{margin:0;font-size:.95r
     padding: 20px;
   }
   .hero + .feature-section { margin-top: 30px; }
+  .mission-heading-wrap { display: block; }
+  .mission-lead { margin-top: 12px; }
   .mission-grid, .news-list, .staff-grid, .today-words-grid { grid-template-columns:1fr; }
   .mission-grid article, .news-list article { border-left:0; border-top:1px solid #decfbd; }
   .mission-grid article:first-child, .news-list article:first-child { border-top:0; }
@@ -421,8 +451,11 @@ body.subpage { padding-top: 88px; }
 .contact-hero-note p,
 .contact-position-body p,
 .contact-message p,
+.contact-examples-section .section-heading p,
+.contact-example-list li,
 .contact-style-copy p,
 .contact-style-note p,
+.contact-faq-item p,
 .contact-form-card p,
 .contact-note-card p {
   margin: 0;
@@ -462,7 +495,9 @@ body.subpage { padding-top: 88px; }
 }
 .contact-intro,
 .contact-consult-section,
+.contact-examples-section,
 .contact-style-section,
+.contact-faq-section,
 .contact-action-section {
   margin-top: 24px;
 }
@@ -517,6 +552,33 @@ body.subpage { padding-top: 88px; }
   color: var(--muted);
   line-height: 1.78;
 }
+.contact-example-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.contact-example-list li {
+  position: relative;
+  padding: 16px 18px 16px 44px;
+  border: 1px solid #e2d1bb;
+  border-radius: 8px;
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 10px 28px rgba(54,35,20,.05);
+}
+.contact-example-list li::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--coffee);
+  box-shadow: 0 0 0 5px rgba(216, 197, 170, .42);
+}
 .contact-style-section {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
@@ -548,6 +610,23 @@ body.subpage { padding-top: 88px; }
 .contact-style-note strong {
   color: var(--green);
   font-size: 1.25rem;
+}
+.contact-faq-list {
+  display: grid;
+  gap: 14px;
+}
+.contact-faq-item {
+  padding: 22px;
+  border: 1px solid #e2d1bb;
+  border-radius: 8px;
+  background: rgba(255,255,255,.76);
+  box-shadow: 0 12px 32px rgba(54,35,20,.05);
+}
+.contact-faq-item h3 {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: 1.08rem;
+  line-height: 1.55;
 }
 .contact-action-grid {
   display: grid;
@@ -582,6 +661,12 @@ body.subpage { padding-top: 88px; }
   margin: 0 0 10px;
   color: var(--green);
   font-size: 1.05rem;
+}
+.contact-experiment-note h3 {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: 1.08rem;
+  line-height: 1.5;
 }
 .contact-experiment-note p {
   margin: 0;
@@ -657,6 +742,12 @@ body.subpage { padding-top: 88px; }
 }
 .contact-note-card .mini-button {
   margin-top: 18px;
+}
+.contact-note-section {
+  margin-top: 24px;
+}
+.contact-note-card-compact {
+  max-width: 620px;
 }
 .service-owner { display: inline-block; margin-top: 18px; color: var(--coffee); font-size: .85rem; font-weight: 900; }
 .service-comment {
@@ -890,6 +981,15 @@ body.subpage { padding-top: 88px; }
 .work-side-nav a:hover {
   background: rgba(214,163,61,.14);
   color: var(--ink);
+}
+.work-side-nav a.is-active,
+.work-side-nav a[aria-current="true"] {
+  background:
+    linear-gradient(135deg, rgba(48,82,63,.16), rgba(214,163,61,.16)),
+    rgba(255,247,235,.95);
+  color: var(--green);
+  box-shadow: inset 0 0 0 1px rgba(48,82,63,.22);
+  font-weight: 900;
 }
 .work-detail-grid {
   display: grid;
@@ -1251,6 +1351,7 @@ body.subpage { padding-top: 88px; }
     grid-template-columns: 1fr;
   }
   .contact-consult-grid,
+  .contact-example-list,
   .contact-style-section,
   .contact-action-grid {
     grid-template-columns: 1fr;
@@ -1261,7 +1362,7 @@ body.subpage { padding-top: 88px; }
 @media (max-width: 620px) {
   .page-main { padding-top: 28px; }
   .page-hero, .content-section, .card-section, .contact-position-card { width: calc(100% - 24px); }
-  .page-note, .section-copy, .info-card, .service-card, .work-card, .link-card, .contact-position-card, .contact-message, .contact-consult-card, .contact-form-card, .contact-note-card, .contact-style-copy, .contact-style-note { padding: 22px; }
+  .page-note, .section-copy, .info-card, .service-card, .work-card, .link-card, .contact-position-card, .contact-message, .contact-consult-card, .contact-form-card, .contact-note-card, .contact-style-copy, .contact-style-note, .contact-faq-item { padding: 22px; }
   .news-item { grid-template-columns: 1fr; gap: 4px; }
 }
 

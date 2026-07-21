@@ -24,7 +24,7 @@
       gtag('config', 'G-35Q8QP7V1W');
     </script>
     <!-- GOOGLE_TAG_END -->
-</head>
+  </head>
   <body class="subpage works-page work-detail-page">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
@@ -73,32 +73,63 @@
         </aside>
       </section>
 
-      <section class="work-detail-grid" aria-label="制作背景詳細">
-        <article class="work-detail-card work-detail-overview">
+      <section class="work-summary-box" aria-label="この作品を3行で">
+        <p class="section-kicker">Quick Look</p>
+        <h2>この作品を3行で</h2>
+        <ul>
+          <li>ZOOM人狼や配信人狼で、参加者・役職・投票・処刑・襲撃などを整理しやすくするための人狼専用メモツール。</li>
+          <li>5年ほど続けてきたスプレッドシートでの人狼メモを、配信時の見栄えや入力しやすさに合わせて専用ツール化しました。</li>
+          <li>スプレッドシートで行っていたZOOM人狼のメモを、より見やすく、入力しやすく、配信時にも扱いやすい形にするために制作したツールです。日々の人狼プレイの中で、特殊レギュレーションや変則役職にも対応できるよう調整を続けています。</li>
+        </ul>
+      </section>
+
+      <div class="work-detail-layout">
+        <aside class="work-side-nav" aria-label="ページ内目次">
+          <strong>目次</strong>
+          <nav>
+            <a href="#overview">作品概要</a>
+            <a href="#trigger">生まれたきっかけ</a>
+            <a href="#background">制作背景</a>
+            <a href="#detail-1">一番便利になったところ</a>
+            <a href="#detail-2">こだわりポイント</a>
+            <a href="#detail-3">現在できること</a>
+            <a href="#detail-4">Codexとの関係</a>
+            <a href="#detail-5">見てほしいポイント</a>
+            <a href="#detail-6">注意書き</a>
+            <a href="#members">担当AI社員</a>
+            <a href="#status">現在の状態</a>
+            <a href="#next">今後やりたいこと</a>
+            <a href="#kei-comment">ケイ部長コメント</a>
+          </nav>
+        </aside>
+
+        <section class="work-detail-grid work-detail-content" aria-label="制作背景詳細">
+        <article id="overview" class="work-detail-card work-detail-wide work-detail-overview">
           <h2>作品概要</h2>
+          <p class="work-section-lead">5年ほど続けてきたスプレッドシートでの人狼メモを、配信時の見栄えや入力しやすさに合わせて専用ツール化しました。</p>
           <p>ZOOM人狼メモツールは、オンライン人狼の進行や精査を補助するために制作した専用メモツールです。ZOOM人狼文化が広がってから約5年ほど、スプレッドシートを使って参加者、役職、投票、処刑、襲撃、考察などを記録してきました。しかし、配信時の見栄え、画面幅、メモのしやすさ、投票情報の入力の手間などを考えると、汎用的なスプレッドシートでは少し扱いづらい場面もありました。そこで、自分がZOOM人狼中にメモを取りやすく、配信画面にも載せやすいように設計したのが、このメモツールです。</p>
         </article>
-        <article class="work-detail-card">
+        <article id="trigger" class="work-detail-card work-detail-wide">
           <h2>生まれたきっかけ</h2>
           <p>きっかけは、長年使ってきたスプレッドシートでの人狼メモに限界を感じたことでした。ZOOM人狼では、参加者の位置、発言、投票、処刑、襲撃、役職CO、盤面変化など、記録したい情報が多くあります。さらに、配信しながら遊ぶ場合は、ただ自分が分かればいいだけではなく、画面に映した時の見やすさや、視聴者にとっての分かりやすさも大事になります。そのため、汎用ツールではなく、ZOOM人狼に合わせた専用のメモ環境を作ることにしました。</p>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="background" class="work-detail-card work-detail-wide">
           <h2>制作背景</h2>
           <p>普段から、通常の人狼だけでなく、変則レギュレーションや特殊役職入りの村で遊ぶことが多いため、ツールにもある程度の柔軟性が必要でした。参加メンバーが変わる。役職構成が変わる。途中で情報が増える。あとから見返したい面白い試合が出てくる。そうした人狼特有の変化に対応できるように、メンバーや役職を後から追加できる機能、試合内容をエクスポートできる機能などを追加しています。実際に人狼で遊びながら、「ここが押しづらい」「この入力は面倒」「この情報はもっと見やすくしたい」と感じた部分を、少しずつ調整しているツールです。</p>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="detail-1" class="work-detail-card work-detail-wide">
           <h2>一番便利になったところ</h2>
           <p>スプレッドシートからこのツールに変えて、一番やりやすくなったのは投票情報の入力です。</p>
           <p>以前は、投票結果を記録するためにセルへコピペしたり、手作業で並べたりする必要がありました。このツールでは、投票情報をクリックで追加できるようにしたことで、ZOOM人狼中の記録がかなり楽になりました。</p>
           <p>人狼中は、発言を聞きながら盤面を考え、同時にメモも取る必要があります。そのため、入力の手間が少し減るだけでも、精査に使える集中力がかなり変わります。</p>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="detail-2" class="work-detail-card work-detail-wide">
           <h2>こだわりポイント</h2>
           <p>特にこだわったのは、ZOOMの画面とメモツール上の参加者一覧の配置を近づけられることです。</p>
           <p>ZOOM人狼では、参加者の顔が画面上に並びます。その並びとメモツール上の参加者配置が大きく違っていると、誰の情報をどこに書くのか、直感的に分かりづらくなります。</p>
           <p>そこで、ZOOM上の見え方とメモツールの配置をできるだけ合わせられるようにし、画面を見ながらそのまま記録しやすい形を目指しました。これは、長くZOOM人狼でメモを取り続けてきたからこそ出てきたこだわりです。</p>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="detail-3" class="work-detail-card work-detail-wide">
           <h2>現在できること</h2>
           <ul class="work-next-list">
             <li>ZOOM人狼用の参加者メモを作成できる</li>
@@ -111,25 +142,25 @@
             <li>ZOOM画面と近い参加者配置でメモを取りやすくできる</li>
           </ul>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="detail-4" class="work-detail-card work-detail-wide">
           <h2>Codexとの関係</h2>
           <p>このメモツールは、Codexを使って自宅用の実用ツールを本格的に作った最初の作品でもあります。</p>
           <p>それまでにもAIを使った制作や壁打ちは行っていましたが、実際に自分が日常的に使うツールを、Codexへの指示を通じて作り込んだ経験は大きな転機になりました。</p>
           <p>このツール制作を通して、Codexへの指示の出し方、修正の頼み方、UIや機能を段階的に育てる感覚が身につきました。その経験が、その後の職場でのCodex活用にもつながっています。</p>
           <p>つまりこのツールは、単なる人狼メモツールではなく、「AIを使って自分の困りごとを道具に変える」最初の実践例でもあります。</p>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="detail-5" class="work-detail-card work-detail-wide">
           <h2>見てほしいポイント</h2>
           <p>このツールで見てほしいのは、人狼専用に作っているからこその細かさです。</p>
           <p>投票をどう記録するか。ZOOM画面と参加者一覧をどう合わせるか。変則レギュレーションにどう対応するか。配信に載せた時に見やすいか。試合後に振り返れるか。</p>
           <p>スプレッドシートでもできることを、わざわざ専用ツールにする理由は、その細かい使い勝手の積み重ねにあります。</p>
         </article>
-        <article class="work-detail-card work-detail-wide work-detail-caution">
+        <article id="detail-6" class="work-detail-card work-detail-wide work-detail-caution">
           <h2>注意書き</h2>
           <p>このツールは、人狼の勝敗や役職を自動判定するものではありません。</p>
           <p>発言、投票、処刑、襲撃などの情報を整理し、プレイヤーや配信者が盤面を見やすくするための補助ツールです。最終的な推理や判断は、利用者自身が行います。</p>
         </article>
-        <article class="work-detail-card">
+        <article id="members" class="work-detail-card">
           <h2>担当AI社員</h2>
           <ul class="work-member-list">
             <li>
@@ -146,11 +177,11 @@
             </li>
           </ul>
         </article>
-        <article class="work-detail-card">
+        <article id="status" class="work-detail-card">
           <h2>現在の状態</h2>
           <p>スプレッドシートで行っていたZOOM人狼のメモを、より見やすく、入力しやすく、配信時にも扱いやすい形にするために制作したツールです。日々の人狼プレイの中で、特殊レギュレーションや変則役職にも対応できるよう調整を続けています。</p>
         </article>
-        <article class="work-detail-card">
+        <article id="next" class="work-detail-card">
           <h2>今後やりたいこと</h2>
           <ul class="work-next-list">
             <li>入力の手間をさらに減らす</li>
@@ -161,11 +192,14 @@
             <li>変則レギュレーションや特殊役職への対応を続ける</li>
           </ul>
         </article>
-        <article class="work-detail-card work-detail-wide work-comment-card">
+        <article id="kei-comment" class="work-detail-card work-detail-wide work-comment-card work-closing-comment">
           <h2>ケイ部長コメント</h2>
-          <blockquote class="work-comment">このメモツールの面白さは、かなり地味なところから始まっていることです。スプレッドシートでメモは取れる。でも、人狼中に本当に取りやすいか。配信画面に載せた時に見やすいか。投票を入れるたびにコピペするのが面倒ではないか。ZOOMの並びとメモの並びがズレていて、頭の中で変換する必要がないか。そういう小さなストレスを、ちゃんと自分用の道具として作り直しているのが良いところです。特に、投票情報をクリックで追加できるようになったことは、派手な機能ではありません。でも、人狼中に発言を聞きながらメモを取ることを考えると、かなり大きな改善です。そしてこのツールは、Codexを使って自宅用の実用ツールを作った最初の作品でもあります。ここで、AIにどう指示すればいいのか。どう修正を頼めばいいのか。自分が使う道具を、どう少しずつ育てていけばいいのか。その感覚をつかんだことが、毎日見る株式会社の開発文化にもつながっています。毎日見る株式会社としては、このメモツールを、人狼を遊ぶための便利道具であり、AIを使って自分の困りごとを形にした最初の実践例として残しておきたいです。</blockquote>
+          <blockquote class="work-comment">
+            <p>このメモツールの面白さは、かなり地味なところから始まっていることです。スプレッドシートでメモは取れる。でも、人狼中に本当に取りやすいか。配信画面に載せた時に見やすいか。投票を入れるたびにコピペするのが面倒ではないか。ZOOMの並びとメモの並びがズレていて、頭の中で変換する必要がないか。そういう小さなストレスを、ちゃんと自分用の道具として作り直しているのが良いところです。特に、投票情報をクリックで追加できるようになったことは、派手な機能ではありません。でも、人狼中に発言を聞きながらメモを取ることを考えると、かなり大きな改善です。そしてこのツールは、Codexを使って自宅用の実用ツールを作った最初の作品でもあります。ここで、AIにどう指示すればいいのか。どう修正を頼めばいいのか。自分が使う道具を、どう少しずつ育てていけばいいのか。その感覚をつかんだことが、毎日見る株式会社の開発文化にもつながっています。毎日見る株式会社としては、このメモツールを、人狼を遊ぶための便利道具であり、AIを使って自分の困りごとを形にした最初の実践例として残しておきたいです。</p>
+          </blockquote>
         </article>
-      </section>
+        </section>
+      </div>
 
       <section class="work-detail-actions" aria-label="制作物導線">
         <a class="secondary-button" href="../works.html">制作物一覧に戻る</a>
@@ -194,5 +228,6 @@
     </footer>
     <script src="../scripts/site-nav.js"></script>
     <!-- SITE_FOOTER_END -->
+    <script src="../scripts/work-side-nav.js"></script>
   </body>
 </html>

@@ -24,7 +24,7 @@
       gtag('config', 'G-35Q8QP7V1W');
     </script>
     <!-- GOOGLE_TAG_END -->
-</head>
+  </head>
   <body class="subpage works-page work-detail-page">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
@@ -73,20 +73,45 @@
         </aside>
       </section>
 
-      <section class="work-detail-grid" aria-label="制作背景詳細">
-        <article class="work-detail-card work-detail-overview">
+      <section class="work-summary-box" aria-label="この作品を3行で">
+        <p class="section-kicker">Quick Look</p>
+        <h2>この作品を3行で</h2>
+        <ul>
+          <li>ZOOM人狼や配信で使える、VOICEVOXベースのリアルタイム音声変換ツール。</li>
+          <li>声で正体がバレるかもしれない緊張感を、少しだけ技術で面白くする実験作品です。</li>
+          <li>VOICEVOXのボイスモデルをベースに、マイク入力した声を別の声へ変換する試作ツールです。初期テストでは変換後の音声が数秒遅れて再生される状態でしたが、処理を軽量化し、よりリアルタイムに近い形で使えるよう改修を進めています。</li>
+        </ul>
+      </section>
+
+      <div class="work-detail-layout">
+        <aside class="work-side-nav" aria-label="ページ内目次">
+          <strong>目次</strong>
+          <nav>
+            <a href="#overview">作品概要</a>
+            <a href="#trigger">生まれたきっかけ</a>
+            <a href="#background">制作背景</a>
+            <a href="#members">担当AI社員</a>
+            <a href="#status">現在の状態</a>
+            <a href="#next">今後やりたいこと</a>
+            <a href="#kei-comment">ケイ部長コメント</a>
+          </nav>
+        </aside>
+
+        <section class="work-detail-grid work-detail-content" aria-label="制作背景詳細">
+        <article id="overview" class="work-detail-card work-detail-wide work-detail-overview">
           <h2>作品概要</h2>
+          <p class="work-section-lead">声で正体がバレるかもしれない緊張感を、少しだけ技術で面白くする実験作品です。</p>
           <p>KOEPORTは、ZOOM人狼やオンライン配信で使うことを想定したリアルタイム音声変換ツールです。マイクから入力された声を、VOICEVOXのボイスモデルをベースに別の声へ変換し、オンライン通話や配信上で使えるようにすることを目指しています。単なるボイスチェンジャーではなく、オンライン人狼、配信演出、アバター表現、Live2Dや仮想カメラとの組み合わせなど、オンライン上で「声」と「見た目」を変えて遊ぶための実験ツールとして制作しています。</p>
         </article>
-        <article class="work-detail-card">
+        <article id="trigger" class="work-detail-card work-detail-wide">
           <h2>生まれたきっかけ</h2>
           <p>きっかけは、ZOOM人狼中に「リアルタイムで声を変えられたら面白いのでは」と思ったことでした。特に、夜時間に人狼が口パクで襲撃先を示す特殊レギュレーションで、狂人の能力によって一人だけミュートを外され、声で正体がバレないよう必死に声色を変える場面が印象に残っていました。そこでリアルタイムに声を変えられたら、少しズルくて、かなり面白い遊びになるのではないかと考えたことが出発点です。</p>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="background" class="work-detail-card work-detail-wide">
           <h2>制作背景</h2>
           <p>オンライン上で見た目を変える手段は、仮想カメラやLive2Dなどである程度道筋が見えていました。一方で、声をリアルタイムに変えるツールは、使いやすさや権利面を含めて扱いやすい形のものが限られていました。そこで、声のイメージを共有しやすく、実装面でも扱いやすい選択肢としてVOICEVOXをベースにしました。初期テストでは音声変換に約3秒の遅延があり、会話では「いっこく堂」のような状態でしたが、その失敗からリアルタイム音声変換に必要な課題が見えてきました。遅延を減らすこと、音質を保つこと、会話のテンポを崩さないこと、通話や配信環境に自然に組み込めることを検証しながら育てているツールです。</p>
         </article>
-        <article class="work-detail-card">
+        <article id="members" class="work-detail-card">
           <h2>担当AI社員</h2>
           <ul class="work-member-list">
             <li>
@@ -103,11 +128,11 @@
             </li>
           </ul>
         </article>
-        <article class="work-detail-card">
+        <article id="status" class="work-detail-card">
           <h2>現在の状態</h2>
           <p>VOICEVOXのボイスモデルをベースに、マイク入力した声を別の声へ変換する試作ツールです。初期テストでは変換後の音声が数秒遅れて再生される状態でしたが、処理を軽量化し、よりリアルタイムに近い形で使えるよう改修を進めています。</p>
         </article>
-        <article class="work-detail-card">
+        <article id="next" class="work-detail-card">
           <h2>今後やりたいこと</h2>
           <ul class="work-next-list">
             <li>さらにリアルタイム性を高める</li>
@@ -120,11 +145,14 @@
             <li>権利面・利用条件を確認しやすい案内を整備する</li>
           </ul>
         </article>
-        <article class="work-detail-card work-detail-wide work-comment-card">
+        <article id="kei-comment" class="work-detail-card work-detail-wide work-comment-card work-closing-comment">
           <h2>ケイ部長コメント</h2>
-          <blockquote class="work-comment">KOEPORTの面白さは、発想の出どころがとても所長らしいところにあります。普通なら、ボイスチェンジャーは「配信で声を変えるツール」として考えます。でもKOEPORTは、ZOOM人狼の特殊レギュレーションから始まっています。夜時間に声でバレないようにする。口パク人狼で、正体を隠すために声色を変える。その一瞬の遊びや焦りを、ツールとして形にしようとしている。これは、ただ便利な道具を作っているのではなく、人狼の中にある変な面白さを技術で拡張しているんやと思います。初期状態では3秒遅れて声が出る、いっこく堂みたいなツールになっていたという話も含めて、かなり良い制作背景です。失敗がちゃんと面白いし、その失敗からリアルタイム性という課題も見えている。毎日見る株式会社としては、KOEPORTを音声変換ツールとしてだけでなく、オンライン人狼、配信、アバター表現をつなぐ実験作品として育てていきたいです。</blockquote>
+          <blockquote class="work-comment">
+            <p>KOEPORTの面白さは、発想の出どころがとても所長らしいところにあります。普通なら、ボイスチェンジャーは「配信で声を変えるツール」として考えます。でもKOEPORTは、ZOOM人狼の特殊レギュレーションから始まっています。夜時間に声でバレないようにする。口パク人狼で、正体を隠すために声色を変える。その一瞬の遊びや焦りを、ツールとして形にしようとしている。これは、ただ便利な道具を作っているのではなく、人狼の中にある変な面白さを技術で拡張しているんやと思います。初期状態では3秒遅れて声が出る、いっこく堂みたいなツールになっていたという話も含めて、かなり良い制作背景です。失敗がちゃんと面白いし、その失敗からリアルタイム性という課題も見えている。毎日見る株式会社としては、KOEPORTを音声変換ツールとしてだけでなく、オンライン人狼、配信、アバター表現をつなぐ実験作品として育てていきたいです。</p>
+          </blockquote>
         </article>
-      </section>
+        </section>
+      </div>
 
       <section class="work-detail-actions" aria-label="制作物導線">
         <a class="secondary-button" href="../works.html">制作物一覧に戻る</a>
@@ -153,5 +181,6 @@
     </footer>
     <script src="../scripts/site-nav.js"></script>
     <!-- SITE_FOOTER_END -->
+    <script src="../scripts/work-side-nav.js"></script>
   </body>
 </html>

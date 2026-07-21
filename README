@@ -159,6 +159,19 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - `scripts/generate_news.py` を実行し、トップページのお知らせ、`news.html`、`about.html` を更新しました。
 - `contact.html` のヒーロー直下に「毎日見る株式会社について」の案内ブロックを追加しました。
 - `styles.css` に、お問い合わせページ用のやわらかい案内カードとスマホ表示の調整を追加しました。
+- `contact.html` を「AI活用相談・制作相談」ページとして、AI検索・生成AIにも読み取りやすい見出し構造へ再整理しました。
+- 相談できること、よくある相談例、AI活用の相談スタイル、FAQをHTML本文として追加しました。
+- `contact.html` にFAQPage JSON-LDを追加し、FAQ本文と構造化データの内容を一致させました。
+- `styles.css` に、お問い合わせページの相談例リスト、FAQカード、note補助導線用スタイルを追加しました。
+- `index.html` の「私たちのミッション」セクションを「このサイトの楽しみ方」へ変更しました。
+- トップページから、社員ラウンジ、制作物、AI鑑識室、お問い合わせ相談へ移動できる4カード導線を追加しました。
+- `styles.css` のミッションカード系スタイルを、4カード構成とスマホ表示に合わせて調整しました。
+- `works/kamimura-phase-duel.html` の目次に、現在読んでいる項目が分かるアクティブ表示を追加しました。
+- `scripts/work-side-nav.js` を追加し、スクロール位置に合わせて目次リンクの背景色と `aria-current` を切り替えるようにしました。
+- `src/data/workStories.json` の HITS & OUTS、ZOOM人狼メモツール、AI1ランチャー、KOEPORT、賽能エデンに `richDetailPage` を設定しました。
+- `scripts/generate_works.py` に、神村フェーズデュエル寄りの詳細ページテンプレートを追加しました。
+- 上記5ページを Quick Look、ページ内目次、制作背景詳細カード、ケイ部長コメントを持つリッチ詳細ページへ再生成しました。
+- リッチ詳細ページでは `scripts/work-side-nav.js` を読み込み、目次の現在位置ハイライトが使えるようにしました。
 - `scripts/site_layout.py` に Google tag（`G-35Q8QP7V1W`）の `<head>` 自動挿入処理を追加しました。
 - `scripts/apply_layout.py` を実行し、既存HTML 55ファイルへ Google tag を反映しました。
 - 共通レイアウト対象外の `gallery/fc2-homepage-redesign.html` にも Google tag を個別反映しました。

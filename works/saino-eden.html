@@ -24,7 +24,7 @@
       gtag('config', 'G-35Q8QP7V1W');
     </script>
     <!-- GOOGLE_TAG_END -->
-</head>
+  </head>
   <body class="subpage works-page work-detail-page">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
@@ -73,20 +73,45 @@
         </aside>
       </section>
 
-      <section class="work-detail-grid" aria-label="制作背景詳細">
-        <article class="work-detail-card work-detail-overview">
+      <section class="work-summary-box" aria-label="この作品を3行で">
+        <p class="section-kicker">Quick Look</p>
+        <h2>この作品を3行で</h2>
+        <ul>
+          <li>能力を装着した6面サイコロを構築し、研究施設へ挑むターン制ローグライト。</li>
+          <li>サイコロを振る前に、サイコロそのものを作る。雑魚戦、報酬選択、ボス戦、恒久成長まで遊べるブラウザMVPです。</li>
+          <li>ブラウザで遊べる縦切り版として、雑魚3戦、各戦闘後の3択報酬、専用ダイスを持つボス、敗北後の恒久成長と再挑戦まで実装済みです。</li>
+        </ul>
+      </section>
+
+      <div class="work-detail-layout">
+        <aside class="work-side-nav" aria-label="ページ内目次">
+          <strong>目次</strong>
+          <nav>
+            <a href="#overview">作品概要</a>
+            <a href="#trigger">生まれたきっかけ</a>
+            <a href="#background">制作背景</a>
+            <a href="#members">担当AI社員</a>
+            <a href="#status">現在の状態</a>
+            <a href="#next">今後やりたいこと</a>
+            <a href="#kei-comment">ケイ部長コメント</a>
+          </nav>
+        </aside>
+
+        <section class="work-detail-grid work-detail-content" aria-label="制作背景詳細">
+        <article id="overview" class="work-detail-card work-detail-wide work-detail-overview">
           <h2>作品概要</h2>
+          <p class="work-section-lead">サイコロを振る前に、サイコロそのものを作る。雑魚戦、報酬選択、ボス戦、恒久成長まで遊べるブラウザMVPです。</p>
           <p>賽能エデンは、能力を装着した6面サイコロを出撃前に構築し、研究施設へ挑むターン制ローグライトです。プレイヤーは作戦室で出撃先と構成を確認し、賽能構築でサイコロの6面を編集します。戦闘では、予告された敵行動を見ながらサイコロを振り、出た面の能力を使って敵を倒していきます。雑魚戦を進めるたびに、恒久資源、一時強化、消耗品などの報酬を選び、最後には専用ダイスを持つボスへ挑みます。敗北しても研究データを持ち帰り、恒久成長によって次の挑戦へつなげることができます。</p>
         </article>
-        <article class="work-detail-card">
+        <article id="trigger" class="work-detail-card work-detail-wide">
           <h2>生まれたきっかけ</h2>
           <p>賽能エデンは、「サイコロを振るゲーム」ではなく、「振る前にサイコロそのものを作るゲーム」として制作した作品です。ランダム性のあるゲームでは出目によって結果が変わりますが、この作品ではプレイヤーが事前に6面の能力を編集することで、運だけではなく、どんな出目が出ても戦える構成を考える楽しさを重視しています。ローグライトの再挑戦性と、デッキ構築ならぬダイス構築を組み合わせることで、短いプレイの中でも「次はこう組んでみたい」と思えるゲームを目指しています。</p>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="background" class="work-detail-card work-detail-wide">
           <h2>制作背景</h2>
           <p>賽能エデンで重視しているのは、ランダム性をただの運にしないことです。サイコロを振る以上、出目には予測できない要素があります。しかし、どの面にどの能力を装着するかはプレイヤーが決められます。攻撃を厚くするのか、防御や回復を入れるのか、ボス戦を見据えて構成するのか、雑魚戦を安定させるのか。出撃前のサイコロ構築が、そのまま戦闘中の判断につながる設計になっています。ゲーム結果は先にロジック側で決定し、3Dのサイコロ描画はその結果を表す演出に限定しています。これにより、見た目の物理挙動にゲーム結果が左右されるのではなく、ゲームとしての判定を安定させたうえで、サイコロを振る気持ちよさを演出として見せる構成になっています。能力、敵、報酬、装備、成長ノード、ステージ定義はデータ駆動で管理されており、将来的にJSONへ切り出せる形を意識して設計されています。</p>
         </article>
-        <article class="work-detail-card">
+        <article id="members" class="work-detail-card">
           <h2>担当AI社員</h2>
           <ul class="work-member-list">
             <li>
@@ -107,11 +132,11 @@
             </li>
           </ul>
         </article>
-        <article class="work-detail-card">
+        <article id="status" class="work-detail-card">
           <h2>現在の状態</h2>
           <p>ブラウザで遊べる縦切り版として、雑魚3戦、各戦闘後の3択報酬、専用ダイスを持つボス、敗北後の恒久成長と再挑戦まで実装済みです。</p>
         </article>
-        <article class="work-detail-card">
+        <article id="next" class="work-detail-card">
           <h2>今後やりたいこと</h2>
           <ul class="work-next-list">
             <li>複数サイコロを導入する</li>
@@ -123,11 +148,14 @@
             <li>能力やステージ定義をJSON管理へ切り出す</li>
           </ul>
         </article>
-        <article class="work-detail-card work-detail-wide work-comment-card">
+        <article id="kei-comment" class="work-detail-card work-detail-wide work-comment-card work-closing-comment">
           <h2>ケイ部長コメント</h2>
-          <blockquote class="work-comment">賽能エデンの面白さは、サイコロをただのランダム装置として扱っていないところにあります。普通、サイコロゲームというと「何が出るか分からない」ことが中心になります。でもこの作品では、プレイヤーが出撃前にサイコロの6面を構築します。つまり、運を完全に避けるのではなく、運が来た時にどう受け止めるかを、事前の構成で考えるゲームになっています。これはかなり良い設計です。ローグライトらしい再挑戦性もあり、敗北しても研究データを持ち帰って次に進める。雑魚戦、報酬選択、ボス戦、恒久成長という流れも、MVPとして必要な遊びの芯がしっかり入っています。毎日見る株式会社としては、神村フェーズデュエルやWord Link Rushとはまた違う、「ゲームシステムそのものを組み立てる楽しさ」を持った作品として育てていきたいです。サイコロを振る前に、サイコロを作る。この一言だけで、すでにちょっと遊んでみたくなる作品です。</blockquote>
+          <blockquote class="work-comment">
+            <p>賽能エデンの面白さは、サイコロをただのランダム装置として扱っていないところにあります。普通、サイコロゲームというと「何が出るか分からない」ことが中心になります。でもこの作品では、プレイヤーが出撃前にサイコロの6面を構築します。つまり、運を完全に避けるのではなく、運が来た時にどう受け止めるかを、事前の構成で考えるゲームになっています。これはかなり良い設計です。ローグライトらしい再挑戦性もあり、敗北しても研究データを持ち帰って次に進める。雑魚戦、報酬選択、ボス戦、恒久成長という流れも、MVPとして必要な遊びの芯がしっかり入っています。毎日見る株式会社としては、神村フェーズデュエルやWord Link Rushとはまた違う、「ゲームシステムそのものを組み立てる楽しさ」を持った作品として育てていきたいです。サイコロを振る前に、サイコロを作る。この一言だけで、すでにちょっと遊んでみたくなる作品です。</p>
+          </blockquote>
         </article>
-      </section>
+        </section>
+      </div>
 
       <section class="work-detail-actions" aria-label="制作物導線">
         <a class="secondary-button" href="../works.html">制作物一覧に戻る</a>
@@ -156,5 +184,6 @@
     </footer>
     <script src="../scripts/site-nav.js"></script>
     <!-- SITE_FOOTER_END -->
+    <script src="../scripts/work-side-nav.js"></script>
   </body>
 </html>

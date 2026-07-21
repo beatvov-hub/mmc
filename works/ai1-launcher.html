@@ -24,7 +24,7 @@
       gtag('config', 'G-35Q8QP7V1W');
     </script>
     <!-- GOOGLE_TAG_END -->
-</head>
+  </head>
   <body class="subpage works-page work-detail-page">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
@@ -73,32 +73,62 @@
         </aside>
       </section>
 
-      <section class="work-detail-grid" aria-label="制作背景詳細">
-        <article class="work-detail-card work-detail-overview">
+      <section class="work-summary-box" aria-label="この作品を3行で">
+        <p class="section-kicker">Quick Look</p>
+        <h2>この作品を3行で</h2>
+        <ul>
+          <li>定型文コピー、Clip履歴、タスク管理、便利ツール、URL・フォルダ・自作ツール起動をまとめた、常駐型の小型ランチャー。</li>
+          <li>プロンプト用定型文からタスク管理、自作ツール起動まで、AI活用を日常作業に馴染ませるためのデスクトップ常駐ツールです。</li>
+          <li>職場や自宅で使う作業導線を、コンパクトなElectronアプリにまとめたランチャーツールです。定型文コピーから始まり、タスク管理、電卓、文字数チェック、Webリンク、自作ツール起動まで、日常作業の入口として育てています。</li>
+        </ul>
+      </section>
+
+      <div class="work-detail-layout">
+        <aside class="work-side-nav" aria-label="ページ内目次">
+          <strong>目次</strong>
+          <nav>
+            <a href="#overview">作品概要</a>
+            <a href="#trigger">生まれたきっかけ</a>
+            <a href="#background">制作背景</a>
+            <a href="#detail-1">実際に便利になったところ</a>
+            <a href="#detail-2">こだわりポイント</a>
+            <a href="#detail-3">主な機能</a>
+            <a href="#detail-4">mytoolsについて</a>
+            <a href="#detail-5">この作品の位置づけ</a>
+            <a href="#members">担当AI社員</a>
+            <a href="#status">現在の状態</a>
+            <a href="#next">今後やりたいこと</a>
+            <a href="#kei-comment">ケイ部長コメント</a>
+          </nav>
+        </aside>
+
+        <section class="work-detail-grid work-detail-content" aria-label="制作背景詳細">
+        <article id="overview" class="work-detail-card work-detail-wide work-detail-overview">
           <h2>作品概要</h2>
+          <p class="work-section-lead">プロンプト用定型文からタスク管理、自作ツール起動まで、AI活用を日常作業に馴染ませるためのデスクトップ常駐ツールです。</p>
           <p>AI1ランチャーは、仕事中や制作中に使う小さな作業導線を、ひとつの画面にまとめた常駐型ランチャーです。定型文コピー、クリップボード履歴、タスク管理、クイックメモ、文字数チェック、パスワード生成、電卓、URL起動、フォルダ起動、自作ツールの起動などを、コンパクトな画面からすぐに呼び出せるようにしています。もともとは、会社で使っているコピペツールの呼び出しに少し時間がかかることや、常時表示しておけないことが気になったところから始まりました。必要な時にすぐ使えて、デスクトップに置いておいても邪魔にならない。そんな「自分用の仕事道具」として作ったツールです。</p>
         </article>
-        <article class="work-detail-card">
+        <article id="trigger" class="work-detail-card work-detail-wide">
           <h2>生まれたきっかけ</h2>
           <p>最初のきっかけは、プロンプトをXML風に書くと良いという記事を見たことでした。プロンプトの一部を&lt;tag&gt;のように囲って整理すると使いやすい一方で、毎回その記号を打つのは地味に面倒です。そこで、よく使うタグや定型文をたくさん登録して、すぐコピーできる小さなツールが欲しいと思ったことが、AI1ランチャー制作の出発点でした。また、15年以上前に勤めていた会社で、非常に使いやすいコピペツールがあったことも印象に残っていました。そのツールのサイズ感や、デスクトップに置いておける気軽さを思い出しながら、自分の作業環境に合わせたランチャーとして作り始めました。</p>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="background" class="work-detail-card work-detail-wide">
           <h2>制作背景</h2>
           <p>最初は、テキストを登録してコピーするだけの小さなツールにするつもりでした。しかし、作っているうちに、「クリップボード履歴も入れられるのでは」「タスク管理もここでできるのでは」「電卓や文字数チェックもあったら便利では」「自作ツールの起動リンクもまとめられるのでは」と、日々の作業で欲しい機能が次々に浮かびました。その結果、単なるコピペツールではなく、作業に必要な小道具をまとめたAll in oneランチャーになっていきました。そのため名前も、AIまわりの作業入口をひとつにまとめる意味を込めて「AI1ランチャー」としています。</p>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="detail-1" class="work-detail-card work-detail-wide">
           <h2>実際に便利になったところ</h2>
           <p>AI1ランチャーで地味に便利なのは、作業中に必要な小さな機能を、画面を切り替えずに呼び出せるところです。</p>
           <p>たとえば、電卓。わざわざ別アプリを探さなくても、ランチャー内ですぐ計算できます。タスク管理も、職場ではこのツール上で行うようになりました。今日やること、あとで確認すること、細かい作業メモを、普段使う定型文やURLと同じ場所に置いておけるのが便利です。</p>
           <p>また、自宅用と職場用で中身が違うのも、自分専用ツールならではです。自宅用には、自分で作ったツール群の起動リンクをまとめ、職場用には、業務で使う定型文やタスク、URL、フォルダを中心に置いています。同じアプリでも、使う場所に合わせて中身を変えられるのが、このツールの強みです。</p>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="detail-2" class="work-detail-card work-detail-wide">
           <h2>こだわりポイント</h2>
           <p>AI1ランチャーで特にこだわったのは、サイズ感と左メニューのアイコンです。</p>
           <p>デスクトップに常駐させるツールなので、大きすぎると邪魔になります。一方で、小さすぎると何がどこにあるか分かりにくくなります。そのため、デスクトップに置いておいても邪魔にならず、必要な時にはすぐ操作できるコンパクトさを意識しました。</p>
           <p>左メニューには、機能ごとに分かりやすいアイコンを並べています。ホーム、Clip履歴、クイックメモ、タスク、電卓、Web、フォルダなどを直感的に切り替えられるようにすることで、文字を読まなくても「どこに何があるか」が分かるようにしています。コンパクトだけど、迷わず使える。そこが一番大事なポイントです。</p>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="detail-3" class="work-detail-card work-detail-wide">
           <h2>主な機能</h2>
           <p>テンプレート機能では、テキスト・アプリ・ファイルをカテゴリごとに登録でき、テキストはコピーやコピー後貼り付け、アプリやファイルは登録パスから起動できます。Clip履歴は最大50件保存でき、クリックで再コピー、右クリックでテンプレート化もできます。</p>
           <ul class="work-next-list">
@@ -120,19 +150,19 @@
             <li>移動モード</li>
           </ul>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="detail-4" class="work-detail-card work-detail-wide">
           <h2>mytoolsについて</h2>
           <p>AI1ランチャーには、自宅で作ったツール群を起動するためのmytools機能もあります。</p>
           <p>自宅用のランチャーには、人狼メモツール、神村フェーズデュエル、Video Face Logger、GoTrend、AI Effects Studioなど、自作ツールへの起動リンクをまとめています。</p>
           <p>これにより、作ったツールを毎回フォルダから探すのではなく、AI1ランチャーからすぐに開けるようになっています。制作物が増えるほど、このランチャーは「自作ツール群の入口」としての役割も大きくなっていきます。</p>
         </article>
-        <article class="work-detail-card work-detail-wide">
+        <article id="detail-5" class="work-detail-card work-detail-wide">
           <h2>この作品の位置づけ</h2>
           <p>AI1ランチャーは、毎日見る株式会社の制作物の中でも、かなり実用寄りの作品です。ゲームでも、ギャラリーでも、見せるためのページでもありません。日々の作業を少し楽にするための、かなり地味な道具です。</p>
           <p>しかし、こういう道具があることで、AI活用やCodex開発は続けやすくなります。よく使うプロンプト。定型文。タスク。URL。フォルダ。自作ツール。それらをすぐ呼び出せる場所に置いておくことは、AIを毎日使うための環境づくりでもあります。</p>
           <p>AI1ランチャーは、AI活用を特別な作業ではなく、日常のデスクトップ作業に馴染ませるためのツールです。</p>
         </article>
-        <article class="work-detail-card">
+        <article id="members" class="work-detail-card">
           <h2>担当AI社員</h2>
           <ul class="work-member-list">
             <li>
@@ -149,11 +179,11 @@
             </li>
           </ul>
         </article>
-        <article class="work-detail-card">
+        <article id="status" class="work-detail-card">
           <h2>現在の状態</h2>
           <p>職場や自宅で使う作業導線を、コンパクトなElectronアプリにまとめたランチャーツールです。定型文コピーから始まり、タスク管理、電卓、文字数チェック、Webリンク、自作ツール起動まで、日常作業の入口として育てています。</p>
         </article>
-        <article class="work-detail-card">
+        <article id="next" class="work-detail-card">
           <h2>今後やりたいこと</h2>
           <ul class="work-next-list">
             <li>登録情報の管理画面を整える</li>
@@ -164,11 +194,14 @@
             <li>GitHub公開に向けて参考にしやすい形へ整える</li>
           </ul>
         </article>
-        <article class="work-detail-card work-detail-wide work-comment-card">
+        <article id="kei-comment" class="work-detail-card work-detail-wide work-comment-card work-closing-comment">
           <h2>ケイ部長コメント</h2>
-          <blockquote class="work-comment">AI1ランチャーの良さは、派手なAIツールではないところです。生成AIで何かを作る。Codexでコードを書く。ChatGPTで文章を整理する。そういう作業は目立ちますが、実際に毎日AIを使うとなると、もっと地味なところが効いてきます。よく使う定型文をすぐ呼び出せること。プロンプト用のタグをすぐコピーできること。タスクを見失わないこと。必要なURLやフォルダをすぐ開けること。自作ツールを迷わず起動できること。AI1ランチャーは、その地味だけど大事な部分をまとめた道具です。最初は、XML風のプロンプトを書くためのコピペ補助から始まりました。でも作っていくうちに、Clip履歴、電卓、タスク、Web、フォルダ、自作ツール起動まで入り、いつの間にかAll in oneの作業ランチャーになっていった。この「必要だから足していったら、自分専用の仕事道具になった」という流れが、とても良いです。毎日見る株式会社としては、AI1ランチャーを、AI活用を日常の作業に馴染ませるための机の上の道具箱として残しておきたいです。</blockquote>
+          <blockquote class="work-comment">
+            <p>AI1ランチャーの良さは、派手なAIツールではないところです。生成AIで何かを作る。Codexでコードを書く。ChatGPTで文章を整理する。そういう作業は目立ちますが、実際に毎日AIを使うとなると、もっと地味なところが効いてきます。よく使う定型文をすぐ呼び出せること。プロンプト用のタグをすぐコピーできること。タスクを見失わないこと。必要なURLやフォルダをすぐ開けること。自作ツールを迷わず起動できること。AI1ランチャーは、その地味だけど大事な部分をまとめた道具です。最初は、XML風のプロンプトを書くためのコピペ補助から始まりました。でも作っていくうちに、Clip履歴、電卓、タスク、Web、フォルダ、自作ツール起動まで入り、いつの間にかAll in oneの作業ランチャーになっていった。この「必要だから足していったら、自分専用の仕事道具になった」という流れが、とても良いです。毎日見る株式会社としては、AI1ランチャーを、AI活用を日常の作業に馴染ませるための机の上の道具箱として残しておきたいです。</p>
+          </blockquote>
         </article>
-      </section>
+        </section>
+      </div>
 
       <section class="work-detail-actions" aria-label="制作物導線">
         <a class="secondary-button" href="../works.html">制作物一覧に戻る</a>
@@ -197,5 +230,6 @@
     </footer>
     <script src="../scripts/site-nav.js"></script>
     <!-- SITE_FOOTER_END -->
+    <script src="../scripts/work-side-nav.js"></script>
   </body>
 </html>
