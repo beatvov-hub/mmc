@@ -28,6 +28,14 @@ WEEKDAY_EN = {
     "日": "Sun",
 }
 
+TIME_SLOT_CLASSES = {
+    "09": "time-slot-0900",
+    "12": "time-slot-1200",
+    "17": "time-slot-1700",
+    "20": "time-slot-2000",
+    "23": "time-slot-2300",
+}
+
 STATIC_SITEMAP_PATHS = [
     "",
     "about",
@@ -234,6 +242,11 @@ def time_display(log: dict) -> str:
     return f"{date_dot(log)}{suffix} {log['time']}"
 
 
+def time_slot_class(log: dict) -> str:
+    hour = str(log.get("time", "")).split(":", 1)[0].zfill(2)
+    return TIME_SLOT_CLASSES.get(hour, "")
+
+
 def archive_href(log: dict, prefix: str = "") -> str:
     return f"{prefix}lounge-archive/{log['date']}.html#{log['id']}"
 
@@ -379,8 +392,10 @@ def render_log_article(log: dict, prefix: str, latest: bool = False, daily: bool
         if block.get("type") == "talks":
             block["ariaLabel"] = label
     article_id = f' id="{esc(log["id"])}"' if not latest else ""
+    slot = time_slot_class(log)
+    slot_class = f" {slot}" if daily and slot else ""
     lines = [
-        f'      <{section_tag}{article_id} class="lounge-today lounge-log"{aria}>',
+        f'      <{section_tag}{article_id} class="lounge-today lounge-log{slot_class}"{aria}>',
         '        <div class="lounge-post-header">',
         "          <div>",
         f'            <p class="section-kicker">{kicker}</p>',
@@ -418,7 +433,7 @@ def render_archive_page(date: str, logs: list[dict]) -> str:
     description = f"{date_label}のAI社員ラウンジ観測記録。{time_list}の会話を1日分のアーカイブとしてまとめています。"
     log_nav = "\n".join(
         [
-            f'          <a href="#{esc(log["id"])}"><span>{esc(log["time"])}</span>{esc(log["title"].replace(" ラウンジ観測記録", ""))}</a>'
+            f'          <a class="{esc(time_slot_class(log))}" href="#{esc(log["id"])}"><span>{esc(log["time"])}</span>{esc(log["title"].replace(" ラウンジ観測記録", ""))}</a>'
             for log in logs
         ]
     )
@@ -557,7 +572,7 @@ def render_calendar(logs: list[dict]) -> str:
             lines.append(f'                <span class="lounge-calendar__date">{day}</span>')
             lines.append(f'                <span class="lounge-calendar__count">{len(items)}件</span>')
             for item in items:
-                lines.append(f'                <a class="lounge-calendar__time" href="{esc(archive_href(item))}">{esc(item["time"])}</a>')
+                lines.append(f'                <a class="lounge-calendar__time {esc(time_slot_class(item))}" href="{esc(archive_href(item))}">{esc(item["time"])}</a>')
             lines.append("              </div>")
         else:
             lines.append(f'              <span class="lounge-calendar__day">{day}</span>')
@@ -573,7 +588,7 @@ def render_calendar(logs: list[dict]) -> str:
     for item in reversed(logs[-5:]):
         lines.extend(
             [
-                f'            <a class="lounge-archive-entry" href="{esc(archive_href(item))}">',
+                f'            <a class="lounge-archive-entry {esc(time_slot_class(item))}" href="{esc(archive_href(item))}">',
                 f'              <time datetime="{esc(item["date"])}T{esc(item["time"])}">{esc(date_dot(item))} {esc(item["time"])}</time>',
                 f"              <span>{esc(item['title'].replace(' ラウンジ観測記録', ''))}</span>",
                 f"              <small>{esc(participants_text(item))}</small>",
