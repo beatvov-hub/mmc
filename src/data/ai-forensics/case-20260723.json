@@ -1,0 +1,160 @@
+{
+  "id": "case-20260723",
+  "publishedAt": "2026-07-23",
+  "title": "AIに『このサイトを調べて』と頼んだら、偽サイトを信じることも？検索結果を狙う新しい攻撃に注意",
+  "shortTitle": "AI検索と偽サイト",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": [
+    "AIエージェントやAIブラウザーを利用している人",
+    "生成AIでWeb検索をする人",
+    "インターネットで調べ物をする機会が多い人"
+  ],
+  "summary": "AIがWeb検索を行うサービスを狙い、検索結果に表示されやすい偽サイトへAIを誘導する攻撃が報告されています。AIは便利な調査役ですが、重要な判断では公式サイトも確認しましょう。",
+  "scenario": {
+    "headline": "AIに『公式サイトを探して』と頼んだ結果をそのまま信用した",
+    "description": "生成AIに『○○サービスの公式サイトを探して概要を教えて』と依頼したところ、もっともらしい説明とリンクが返ってきました。しかし、そのサイトは検索結果を狙って作られた偽サイトで、AIがその内容を信じて要約してしまっていました。",
+    "whyItMatters": "2026年には、AIエージェントを標的にした『間接プロンプトインジェクション』とSEOポイズニングを組み合わせた攻撃が実際に確認されました。攻撃者は検索で見つけやすい偽サイトへAIを誘導し、人には見えにくい命令を埋め込むことで、AIに誤った判断や不正な案内をさせようとします。AI各社は対策を進めていますが、重要な場面では公式サイトや信頼できる情報源で確認することが推奨されています。"
+  },
+  "question": {
+    "text": "AIが見つけたWebサイトを利用する前に、最も安心できる確認方法は？",
+    "choices": [
+      {
+        "id": "trust-ai",
+        "label": "AIが紹介したのでそのまま開く",
+        "description": "AIが選んだサイトなら安全だと考える。"
+      },
+      {
+        "id": "check-domain",
+        "label": "公式ドメインか確認する",
+        "description": "企業やサービスの公式サイトかどうかを確認する。"
+      },
+      {
+        "id": "check-comments",
+        "label": "SNSの口コミだけを見る",
+        "description": "利用者の感想だけで判断する。"
+      },
+      {
+        "id": "retry",
+        "label": "AIに同じ質問を何度もする",
+        "description": "同じ回答なら正しいと考える。"
+      }
+    ],
+    "recommendedAnswers": [
+      "check-domain"
+    ],
+    "explanation": "AIは便利な検索補助ですが、紹介されたサイトが本当に公式かどうかは人が確認することが大切です。URLやドメイン名を一度確認するだけでも、多くの偽サイトを避けられます。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "公式ドメインか確認する",
+      "description": "企業名だけでなく、URLが公式のものか確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "AIの説明と公式サイトが一致しているか",
+      "description": "重要な情報は公式ページでも確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "検索上位だから安心と思い込まない",
+      "description": "検索順位が高くても偽サイトの場合があります。",
+      "priority": "medium"
+    },
+    {
+      "title": "AIが外部サイトを引用しているか確認する",
+      "description": "引用元が分かる場合は、信頼できる情報源か確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式サイト確認",
+  "verificationMessage": "AI検索は便利ですが、重要な情報は公式サイトで最終確認すると安心です。",
+  "verdict": {
+    "label": "AIは案内役、公式サイトが最終確認",
+    "description": "AIの検索結果を入口として活用し、契約・支払い・ダウンロードなど重要な操作は公式サイトから行いましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "公式URLを確認する",
+      "reason": "企業名が似ていても、ドメインが異なる場合があります。"
+    },
+    {
+      "action": "AIの引用元を開く",
+      "reason": "元の記事や公式情報を確認できます。"
+    },
+    {
+      "action": "ソフトウェアは公式サイトから入手する",
+      "reason": "偽サイト経由のマルウェア感染を防ぎやすくなります。"
+    },
+    {
+      "action": "AIブラウザーやAI検索を最新状態に保つ",
+      "reason": "新しい攻撃への対策が継続的に追加されています。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "AIが紹介したリンクだけを信じる",
+      "reason": "AIも悪意あるサイトを参照してしまう可能性があります。"
+    },
+    {
+      "action": "検索順位だけで公式だと判断する",
+      "reason": "SEO対策や不正な手法で上位表示されることがあります。"
+    },
+    {
+      "action": "重要な情報を一つの情報源だけで判断する",
+      "reason": "複数の信頼できる情報源で確認すると安心です。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIは情報収集の時間を大幅に短縮できる",
+    "description": "AI検索は概要把握や候補探しに非常に便利です。最後に公式サイトを確認する運用を組み合わせれば、効率と安全性を両立できます。",
+    "examples": [
+      "製品概要をAIで把握してから公式仕様を見る",
+      "旅行先をAIで比較して公式サイトで営業時間を確認する",
+      "制度の概要をAIで理解して官公庁サイトで詳細を確認する"
+    ]
+  },
+  "makotoComment": "AIは調べ物のスタート役として本当に優秀です。でも、『どのサイトを信じるか』までは人の役目です。最後に公式サイトを一度見る。そのひと手間が、安心してAIを使い続けるコツですよ。",
+  "oneLineLesson": "AIが探し、人が公式サイトで確認する。",
+  "tags": [
+    "AI検索",
+    "SEOポイズニング",
+    "AIエージェント",
+    "情報リテラシー"
+  ],
+  "sources": [
+    {
+      "title": "Indirect Prompt Injection in Web Content Targets AI Agents",
+      "publisher": "Zscaler ThreatLabz",
+      "sourceType": "security",
+      "publishedAt": "2026-07-02",
+      "url": "https://www.zscaler.com/blogs/security-research/indirect-prompt-injection-web-content-targets-ai-agents"
+    },
+    {
+      "title": "Indirect Prompt Injection in Web Content Targets AI Agents",
+      "publisher": "Infosecurity Magazine",
+      "sourceType": "news",
+      "publishedAt": "2026-07-06",
+      "url": "https://www.infosecurity-magazine.com/news/indirect-prompt-injection-web/"
+    },
+    {
+      "title": "AI threats in the wild: The current state of prompt injections on the web",
+      "publisher": "Google Online Security Blog",
+      "sourceType": "official",
+      "publishedAt": "2026-04-23",
+      "url": "https://blog.google/security/prompt-injections-web/"
+    }
+  ],
+  "caseImage": {
+    "src": "image/ai-forensics/case-20260723-001.jpg",
+    "alt": "AI検索で表示された公式を装うサイトと正規URLを見比べる場面",
+    "caption": "AIが見つけた検索結果を入口にし、重要な操作の前に公式ドメインと情報源を確認する流れを示したイメージです。"
+  },
+  "visualSuggestion": {
+    "mainVisual": "ノートPCでAI検索結果を見ながら、別タブで企業の公式サイトを確認している人物。AIが紹介したサイトと公式サイトを落ち着いて見比べている実写風のシーン。画面の文字は判読できず、『AIを信じ切る』のではなく『確認しながら活用する』安心感のある雰囲気。",
+    "cardIcon": "公式確認",
+    "accentTone": "calm"
+  }
+}

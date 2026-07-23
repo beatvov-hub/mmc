@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIに『このサイトを調べて』と頼んだら、偽サイトを信じることも？検索結果を狙う新しい攻撃に注意｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="AIがWeb検索を行うサービスを狙い、検索結果に表示されやすい偽サイトへAIを誘導する攻撃が報告されています。AIは便利な調査役ですが、重要な判断では公式サイトも確認しましょう。" />
+    <link rel="canonical" href="https://mainichi-miru.netlify.app/ai-forensics/case-20260723" />
+    <meta property="og:title" content="AIに『このサイトを調べて』と頼んだら、偽サイトを信じることも？検索結果を狙う新しい攻撃に注意｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="AIがWeb検索を行うサービスを狙い、検索結果に表示されやすい偽サイトへAIを誘導する攻撃が報告されています。AIは便利な調査役ですが、重要な判断では公式サイトも確認しましょう。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.netlify.app/ai-forensics/case-20260723" />
+    <meta property="og:image" content="https://mainichi-miru.netlify.app/image/top005.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../index.html" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../index.html">ホーム</a>
+        <a href="../about.html">会社概要</a>
+        <a href="../members.html">AI社員紹介</a>
+        <a href="../services.html">事業内容</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works.html">制作物</a>
+        <a href="../lounge.html">ラウンジ</a>
+        <a href="../news.html">ニュース</a>
+        <a class="nav-contact-link" href="../contact.html">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact.html">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../index.html">ホーム</a>
+        <a href="index.html">AI鑑識室</a>
+        <strong>AI検索と偽サイト</strong>
+        <a class="profile-back" href="index.html">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ</span>
+              <span>標準</span>
+              <time datetime="2026-07-23">2026.07.23</time>
+            </div>
+            <h1>AIに『このサイトを調べて』と頼んだら、偽サイトを信じることも？検索結果を狙う新しい攻撃に注意</h1>
+            <p>AIがWeb検索を行うサービスを狙い、検索結果に表示されやすい偽サイトへAIを誘導する攻撃が報告されています。AIは便利な調査役ですが、重要な判断では公式サイトも確認しましょう。</p>
+            <ul class="forensics-target-list"><li>AIエージェントやAIブラウザーを利用している人</li><li>生成AIでWeb検索をする人</li><li>インターネットで調べ物をする機会が多い人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AI検索</li><li>SEOポイズニング</li><li>AIエージェント</li><li>情報リテラシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>公式サイト確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AI検索は便利ですが、重要な情報は公式サイトで最終確認すると安心です。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>AIに『公式サイトを探して』と頼んだ結果をそのまま信用した</h3><p>生成AIに『○○サービスの公式サイトを探して概要を教えて』と依頼したところ、もっともらしい説明とリンクが返ってきました。しかし、そのサイトは検索結果を狙って作られた偽サイトで、AIがその内容を信じて要約してしまっていました。</p></article>
+          <figure class="scenario-image">
+            <img src="../image/ai-forensics/case-20260723-001.jpg" alt="AI検索で表示された公式を装うサイトと正規URLを見比べる場面" loading="lazy" />
+            <figcaption>AIが見つけた検索結果を入口にし、重要な操作の前に公式ドメインと情報源を確認する流れを示したイメージです。</figcaption>
+          </figure>
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>2026年には、AIエージェントを標的にした『間接プロンプトインジェクション』とSEOポイズニングを組み合わせた攻撃が実際に確認されました。攻撃者は検索で見つけやすい偽サイトへAIを誘導し、人には見えにくい命令を埋め込むことで、AIに誤った判断や不正な案内をさせようとします。AI各社は対策を進めていますが、重要な場面では公式サイトや信頼できる情報源で確認することが推奨されています。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-domain">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>AIが見つけたWebサイトを利用する前に、最も安心できる確認方法は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="trust-ai" data-choice-id="trust-ai" />
+                <span>
+                  <strong>AIが紹介したのでそのまま開く</strong>
+                  <small>AIが選んだサイトなら安全だと考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-domain" data-choice-id="check-domain" />
+                <span>
+                  <strong>公式ドメインか確認する</strong>
+                  <small>企業やサービスの公式サイトかどうかを確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-comments" data-choice-id="check-comments" />
+                <span>
+                  <strong>SNSの口コミだけを見る</strong>
+                  <small>利用者の感想だけで判断する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="retry" data-choice-id="retry" />
+                <span>
+                  <strong>AIに同じ質問を何度もする</strong>
+                  <small>同じ回答なら正しいと考える。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>公式ドメインか確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>AIは便利な検索補助ですが、紹介されたサイトが本当に公式かどうかは人が確認することが大切です。URLやドメイン名を一度確認するだけでも、多くの偽サイトを避けられます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>公式ドメインか確認する</h3>
+              <p>企業名だけでなく、URLが公式のものか確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AIの説明と公式サイトが一致しているか</h3>
+              <p>重要な情報は公式ページでも確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>検索上位だから安心と思い込まない</h3>
+              <p>検索順位が高くても偽サイトの場合があります。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>AIが外部サイトを引用しているか確認する</h3>
+              <p>引用元が分かる場合は、信頼できる情報源か確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AIは案内役、公式サイトが最終確認</strong><p>AIの検索結果を入口として活用し、契約・支払い・ダウンロードなど重要な操作は公式サイトから行いましょう。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>公式URLを確認する</strong><span>企業名が似ていても、ドメインが異なる場合があります。</span></li>
+            <li><strong>AIの引用元を開く</strong><span>元の記事や公式情報を確認できます。</span></li>
+            <li><strong>ソフトウェアは公式サイトから入手する</strong><span>偽サイト経由のマルウェア感染を防ぎやすくなります。</span></li>
+            <li><strong>AIブラウザーやAI検索を最新状態に保つ</strong><span>新しい攻撃への対策が継続的に追加されています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AIが紹介したリンクだけを信じる</strong><span>AIも悪意あるサイトを参照してしまう可能性があります。</span></li>
+            <li><strong>検索順位だけで公式だと判断する</strong><span>SEO対策や不正な手法で上位表示されることがあります。</span></li>
+            <li><strong>重要な情報を一つの情報源だけで判断する</strong><span>複数の信頼できる情報源で確認すると安心です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIは情報収集の時間を大幅に短縮できる</h3>
+          <p>AI検索は概要把握や候補探しに非常に便利です。最後に公式サイトを確認する運用を組み合わせれば、効率と安全性を両立できます。</p>
+          <ul class="positive-example-list"><li>製品概要をAIで把握してから公式仕様を見る</li><li>旅行先をAIで比較して公式サイトで営業時間を確認する</li><li>制度の概要をAIで理解して官公庁サイトで詳細を確認する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIは調べ物のスタート役として本当に優秀です。でも、『どのサイトを信じるか』までは人の役目です。最後に公式サイトを一度見る。そのひと手間が、安心してAIを使い続けるコツですよ。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>AIが探し、人が公式サイトで確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.zscaler.com/blogs/security-research/indirect-prompt-injection-web-content-targets-ai-agents" target="_blank" rel="noopener noreferrer">Indirect Prompt Injection in Web Content Targets AI Agents<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Zscaler ThreatLabz</span>
+              <span>セキュリティ機関</span>
+              <time datetime="2026-07-02">2026-07-02</time>
+            </li>
+            <li>
+              <strong><a href="https://www.infosecurity-magazine.com/news/indirect-prompt-injection-web/" target="_blank" rel="noopener noreferrer">Indirect Prompt Injection in Web Content Targets AI Agents<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Infosecurity Magazine</span>
+              <span>報道機関</span>
+              <time datetime="2026-07-06">2026-07-06</time>
+            </li>
+            <li>
+              <strong><a href="https://blog.google/security/prompt-injections-web/" target="_blank" rel="noopener noreferrer">AI threats in the wild: The current state of prompt injections on the web<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Online Security Blog</span>
+              <span>公式発表</span>
+              <time datetime="2026-04-23">2026-04-23</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260722.html" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="AIにWebページを要約してもらったら「偽の警告」が出ることも？新しい攻撃手法に注意 AI要約の偽警告 AIがWebページを要約する機能は便利ですが、ページ内に隠された命令によって、AIが本来存在しない警告やフィッシング案内を表示してしまう攻撃手法が報告されています。 セキュリティ 標準 AIブラウザー プロンプトインジェクション フィッシング AIセキュリティ AIでWebページを要約する人 AIブラウザーやAIエージェントを使っている人 生成AIを仕事や学習で活用している人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">原文確認</span>
+              <div>
+                <p>AI要約の偽警告</p>
+                <h3>AIにWebページを要約してもらったら「偽の警告」が出ることも？新しい攻撃手法に注意</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-07-22">2026.07.22</time>
+              <span>セキュリティ</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">AIがWebページを要約する機能は便利ですが、ページ内に隠された命令によって、AIが本来存在しない警告やフィッシング案内を表示してしまう攻撃手法が報告されています。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>重要操作は原文確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIでWebページを要約する人</li><li>AIブラウザーやAIエージェントを使っている人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIブラウザー</li><li>プロンプトインジェクション</li><li>フィッシング</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260720.html" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="AIに「このメールを要約して」は便利。でも、見えない命令が混ざっていることも メール要約と隠れた命令 AIにメールや文書を要約してもらう機能は便利ですが、悪意のある「隠れた命令」が埋め込まれている場合があります。AIを怖がる必要はありませんが、重要な判断ではAIの警告や元メールも確認しましょう。 セキュリティ 標準 プロンプトインジェクション メール 生成AI セキュリティ Gmailや生成AIでメールを要約している人 AIアシスタントを仕事で活用している人 AIを安全に使いたい一般ユーザー">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">メール</span>
+              <div>
+                <p>メール要約と隠れた命令</p>
+                <h3>AIに「このメールを要約して」は便利。でも、見えない命令が混ざっていることも</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-07-20">2026.07.20</time>
+              <span>セキュリティ</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">AIにメールや文書を要約してもらう機能は便利ですが、悪意のある「隠れた命令」が埋め込まれている場合があります。AIを怖がる必要はありませんが、重要な判断ではAIの警告や元メールも確認しましょう。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>元の内容を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Gmailや生成AIでメールを要約している人</li><li>AIアシスタントを仕事で活用している人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>プロンプトインジェクション</li><li>メール</li><li>生成AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260719.html" data-forensics-card data-category="search" data-level="2" data-difficulty="beginner" data-search-text="AI検索の答えはそのまま信じて大丈夫？引用元を1つ見るだけで変わること AI検索は引用元も確認 AI検索は素早く情報をまとめてくれますが、要約が必ず正しいとは限りません。回答だけで終わらず、引用元を1つ確認する習慣を身につけましょう。 AI検索 はじめて AI検索 AI Overviews 情報リテラシー 検索 AI検索を使い始めた人 GoogleなどのAI検索を利用している人 ネットで調べ物をする機会が多い人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">検索</span>
+              <div>
+                <p>AI検索は引用元も確認</p>
+                <h3>AI検索の答えはそのまま信じて大丈夫？引用元を1つ見るだけで変わること</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-07-19">2026.07.19</time>
+              <span>AI検索</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">AI検索は素早く情報をまとめてくれますが、要約が必ず正しいとは限りません。回答だけで終わらず、引用元を1つ確認する習慣を身につけましょう。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>引用元を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AI検索を使い始めた人</li><li>GoogleなどのAI検索を利用している人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI検索</li><li>AI Overviews</li><li>情報リテラシー</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="index.html">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260722.html">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../index.html">ホーム</a>
+          <a href="../about.html">会社概要</a>
+          <a href="../members.html">AI社員紹介</a>
+          <a href="../services.html">事業内容</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works.html">制作物</a>
+          <a href="../lounge.html">ラウンジ</a>
+          <a href="../news.html">ニュース</a>
+          <a href="../contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
