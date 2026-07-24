@@ -1,0 +1,160 @@
+{
+  "id": "case-20260723-02",
+  "publishedAt": "2026-07-23",
+  "title": "同じAIプロジェクトを共有したのに、答えが違う？共通資料だけでは揃わない理由",
+  "shortTitle": "同じAIでも答えが違う理由",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "職場やチームで生成AIを共有している人",
+    "AIの回答品質を社内で揃えたい人",
+    "プロンプトの作り方に悩んでいる人"
+  ],
+  "summary": "同じプロジェクト、資料、AIを使っても、質問の仕方や会話の流れが違えば回答は変わります。AIの使い方を個人の感覚だけに任せず、目的・判断基準・確認方法を共有する考え方を紹介します。",
+  "scenario": {
+    "headline": "会社で同じAIプロジェクトを共有したのに、担当者によって回答の質が違った",
+    "description": "会社の商品資料や文章ルールを同じAIプロジェクトへ登録し、複数の担当者で使い始めました。しかし、ある人には実用的な提案が返り、別の人には一般的で使いにくい回答が返ってきます。共有資料が同じなら、回答も同じになるはずではないのでしょうか。",
+    "whyItMatters": "ChatGPTの共有プロジェクトでは、参加者が共通のファイル、指示、会話履歴を利用できます。一方で、AIは現在の質問内容や会話の文脈も使って回答するため、目的や対象、判断基準が伝わっていなければ、同じ資料があっても回答の方向は変わります。OpenAIも、明確で具体的な指示、必要な背景情報、回答を見ながら指示を調整する反復的な使い方を推奨しています。2026年に公開された研究でも、利用者がAIの失敗を修正しながら使う経験そのものが、AIを活用する力の形成につながると報告されています。"
+  },
+  "question": {
+    "text": "チーム内でAIの回答品質を揃えたい場合、最も効果的なのはどれですか？",
+    "choices": [
+      {
+        "id": "same-project",
+        "label": "全員が同じプロジェクトを使うだけにする",
+        "description": "共通資料があれば、使い方は各自に任せる。"
+      },
+      {
+        "id": "long-prompt",
+        "label": "できるだけ長い共通プロンプトを作る",
+        "description": "想定される指示をすべて一つの文章へ入れる。"
+      },
+      {
+        "id": "shared-criteria",
+        "label": "目的と判断基準、確認方法を共有する",
+        "description": "誰向けの成果物か、何を重視し、どこを人が確認するかを決める。"
+      },
+      {
+        "id": "copy-answer",
+        "label": "一番上手な人の回答を毎回コピーする",
+        "description": "AIとのやり取りは共有せず、完成した文章だけを再利用する。"
+      }
+    ],
+    "recommendedAnswers": [
+      "shared-criteria"
+    ],
+    "explanation": "共通資料は回答の土台になりますが、それだけで利用目的までは揃いません。依頼する目的、対象者、重視する点、避ける点、確認項目をチームで共有すると、担当者が変わっても回答の方向を揃えやすくなります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "何を作るのか伝えているか",
+      "description": "文章、企画案、調査結果など、必要な成果物を具体的に伝えます。",
+      "priority": "high"
+    },
+    {
+      "title": "誰が使うものか伝えているか",
+      "description": "社内向け、顧客向け、初心者向けなど、読み手や利用者を示します。",
+      "priority": "high"
+    },
+    {
+      "title": "判断基準を共有しているか",
+      "description": "正確さ、分かりやすさ、売上、ブランドらしさなど、何を優先するかを決めます。",
+      "priority": "high"
+    },
+    {
+      "title": "良かった点と直す点を返しているか",
+      "description": "回答全体をやり直させるのではなく、残す部分と修正する部分を具体的に伝えます。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 1,
+  "verificationLabel": "目的と基準を共有",
+  "verificationMessage": "同じAIを使うことより、AIへ何を基準に判断してもらうかを揃えることが重要です。",
+  "verdict": {
+    "label": "共有プロジェクトは共通マニュアル、会話は個別の仕事依頼",
+    "description": "同じ資料を持たせても、利用者ごとの質問や修正内容によって回答は変わります。完全に同じ答えを求めるより、目的、判断基準、確認方法を共有し、成果物の方向を揃えましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "依頼時の4項目を共通化する",
+      "reason": "「何を作るか」「誰向けか」「何を重視するか」「何を避けるか」を伝えるだけでも回答が安定しやすくなります。"
+    },
+    {
+      "action": "良い依頼と修正例を残す",
+      "reason": "完成品だけでなく、どのような指示と修正で完成したかを共有すると、他の担当者も再現しやすくなります。"
+    },
+    {
+      "action": "重要な確認項目を決める",
+      "reason": "数字、固有名詞、社内ルールなど、人が確認する部分を先に決めておくと安全です。"
+    },
+    {
+      "action": "一度で完成させようとしない",
+      "reason": "回答を見て具体的な修正を返すことで、目的に合った成果物へ近づけられます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "上手な人のプロンプトをそのままコピーすれば同じ結果になると思う",
+      "reason": "前後の会話、利用目的、参照資料が違えば、同じ文章でも回答が変わることがあります。"
+    },
+    {
+      "action": "「いい感じに」「もっと良くして」だけで修正する",
+      "reason": "何を残し、何を変更すべきかAIが判断しにくくなります。"
+    },
+    {
+      "action": "担当者ごとの差を能力不足だけで片付ける",
+      "reason": "AI利用では、個人の知識だけでなく、共通ルールや事例を共有する仕組みも重要です。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AI活用を個人技からチームの知識へ変える",
+    "description": "生成AIは、特別なプロンプトを暗記した人だけが使える道具ではありません。良い質問、修正、確認方法をチームで残せば、使いながら全員のAI活用力を高められます。",
+    "examples": [
+      "よく使う業務ごとに依頼テンプレートを作る",
+      "良かった回答と修正の過程を社内事例として保存する",
+      "AIへ任せる部分と人が判断する部分を業務ごとに決める"
+    ]
+  },
+  "makotoComment": "AIの使い方が上手な人は、秘密の言葉を知っているわけではありません。回答を見て、自分の意図との違いを具体的に返すことが上手なのです。共通資料を用意したら、次は『何を基準に答えてほしいか』もチームで共有してみましょう。",
+  "oneLineLesson": "同じAIを使うより、同じ判断基準を共有する。",
+  "tags": [
+    "AI活用",
+    "プロンプト",
+    "共有プロジェクト",
+    "社内教育"
+  ],
+  "sources": [
+    {
+      "title": "Projects in ChatGPT",
+      "publisher": "OpenAI Help Center",
+      "sourceType": "official",
+      "publishedAt": "2026-07-15",
+      "url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt"
+    },
+    {
+      "title": "Prompt engineering best practices for ChatGPT",
+      "publisher": "OpenAI Help Center",
+      "sourceType": "official",
+      "publishedAt": "2026-07-15",
+      "url": "https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt"
+    },
+    {
+      "title": "Learning to Live with AI: How Students Develop AI Literacy Through Naturalistic ChatGPT Interaction",
+      "publisher": "arXiv",
+      "sourceType": "research",
+      "publishedAt": "2026-01-28",
+      "url": "https://arxiv.org/abs/2601.20749"
+    }
+  ],
+  "caseImage": {
+    "src": "image/ai-forensics/case-20260723-002.jpg",
+    "alt": "同じAIプロジェクトから異なる回答へ分かれる様子を示した図",
+    "caption": "共通資料を使っていても、質問の目的や判断基準、会話の流れによって回答が変わることを示したイメージです。"
+  },
+  "visualSuggestion": {
+    "mainVisual": "明るいオフィスで、二人の担当者が同じAIプロジェクトを使いながら、それぞれ異なる回答画面を見比べている場面。中央のホワイトボードには、アイコンと図形で『目的』『対象』『重視』『避ける』の4項目が整理されている。困惑を強調せず、会話しながら使い方を揃えている安心感のある実写風。",
+    "cardIcon": "基準共有",
+    "accentTone": "friendly"
+  }
+}
