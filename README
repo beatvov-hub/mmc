@@ -56,7 +56,7 @@
 
 - ラウンジ観測記録は `loungeLogs.json` で管理します。
 - 1日複数回更新できる前提で、日付別アーカイブページとカレンダー表示を生成します。
-- 2026-07-25 時点で、`loungeLogs.json` は 77 件あります。
+- 2026-07-25 時点で、`loungeLogs.json` は 78 件あります。
 - `lounge-archive/` は時間別ではなく、1日1ページの `YYYY-MM-DD.html` にまとめます。
 - 時間別の導線は `lounge-archive/YYYY-MM-DD.html#YYYY-MM-DD-HHMM` のアンカーで管理します。
 - `lounge.html` には時間帯でラウンジ画像を切り替えるJavaScriptがあります。
@@ -140,6 +140,7 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 
 ### 2026-07-25
 
+- `src/data/loungeLogs.json` に 2026-07-25 20:00 の酒場タイム観測記録を追加し、淡い青色の時間帯デザインで反映しました。
 - `src/data/ai-forensics/case-20260725.json` に、AI動画と偽IC3サイトを使った被害回復詐欺・二次被害への対処を扱うAI鑑識室の記事を追加しました。
 - `src/data/ai-forensics/case-20260724.json` に、AIブラウザー拡張機能の提供元・権限・重要操作の確認を扱うAI鑑識室の記事を追加しました。
 - `src/data/loungeLogs.json` に 2026-07-25 17:00 の終業前コーヒーブレイク観測記録を追加し、淡いオレンジの時間帯デザインで反映しました。
