@@ -1,0 +1,155 @@
+{
+  "id": "case-20260724",
+  "publishedAt": "2026-07-24",
+  "title": "AIブラウザーが勝手にメールを送る？AI拡張機能を入れる前に知っておきたいこと",
+  "shortTitle": "AI拡張機能の権限確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "AIブラウザーやAI拡張機能を使い始めた人",
+    "生成AIを仕事で活用している人",
+    "ブラウザー拡張機能をよく利用する人"
+  ],
+  "summary": "AIブラウザー拡張機能は作業を大きく効率化できますが、強い権限を持つものもあります。便利さを活かしながら、安全に利用するための確認ポイントを紹介します。",
+  "scenario": {
+    "headline": "『メールの返信もAIがやります』という拡張機能を見つけた",
+    "description": "Chrome用のAI拡張機能を導入すると、メールの要約や返信、カレンダー操作まで自動化できると紹介されていました。便利そうですが、そのままインストールしても大丈夫でしょうか。",
+    "whyItMatters": "2026年7月、AIブラウザー拡張機能に関するセキュリティ研究では、他の悪意ある拡張機能からAIへ操作を実行させられる可能性や、本来表示されるはずの確認画面を回避できる問題が報告されました。AI機能そのものが危険という意味ではありませんが、メール送信や予定変更などの権限を持つAIでは、『どんな権限を与えるか』がこれまで以上に重要になります。利用前には提供元や権限内容を確認し、不要な拡張機能は入れないことが推奨されています。"
+  },
+  "question": {
+    "text": "AI拡張機能を導入する前に、最初に確認したいことは？",
+    "choices": [
+      {
+        "id": "reviews",
+        "label": "レビュー評価だけを見る",
+        "description": "星の数が多ければ安心だと考える。"
+      },
+      {
+        "id": "permissions",
+        "label": "提供元と権限を確認する",
+        "description": "公式が提供しているか、何にアクセスできるか確認する。"
+      },
+      {
+        "id": "install",
+        "label": "便利そうなので先に使ってみる",
+        "description": "問題があれば後で削除すればよいと考える。"
+      },
+      {
+        "id": "friends",
+        "label": "友人が使っているかだけ聞く",
+        "description": "知人が使っていれば安全だと判断する。"
+      }
+    ],
+    "recommendedAnswers": [
+      "permissions"
+    ],
+    "explanation": "AI拡張機能はメールやカレンダーなどへアクセスする場合があります。便利さだけで判断せず、『誰が作ったか』『どんな権限を求めているか』を確認することが大切です。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "提供元は公式か",
+      "description": "公式サイトや公式ストアから案内されている拡張機能か確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "権限は機能に見合っているか",
+      "description": "メール、カレンダー、閲覧中サイトなど、必要以上の権限を要求していないか確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "重要な操作には確認画面があるか",
+      "description": "送信や削除などは、人が最終確認できる設計か確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "使わなくなった拡張機能を残していないか",
+      "description": "不要な拡張機能は削除し、権限を減らしましょう。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "権限を確認",
+  "verificationMessage": "AIを怖がる必要はありません。便利な機能ほど、権限を確認して使いましょう。",
+  "verdict": {
+    "label": "便利さと権限はセットで確認",
+    "description": "AIブラウザーやAI拡張機能は強力なツールです。提供元と権限を確認し、重要な操作は人が最終確認することで、安全性と利便性を両立できます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "公式提供の拡張機能を選ぶ",
+      "reason": "提供元が明確なものを利用すると安心です。"
+    },
+    {
+      "action": "要求される権限を確認する",
+      "reason": "機能に対して過剰な権限がないか確認できます。"
+    },
+    {
+      "action": "送信や削除は自分で最終確認する",
+      "reason": "誤操作や悪用のリスクを減らせます。"
+    },
+    {
+      "action": "不要な拡張機能は削除する",
+      "reason": "攻撃対象を減らすことにつながります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "レビューだけで安全だと判断する",
+      "reason": "評価が高くても問題が見つかる場合があります。"
+    },
+    {
+      "action": "権限を読まずに許可する",
+      "reason": "メールや予定表などへ広いアクセス権を与える可能性があります。"
+    },
+    {
+      "action": "AIだから危険だと思い込む",
+      "reason": "重要なのはAIかどうかではなく、どのような権限を持つソフトかです。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AI拡張機能は日常業務の強い味方",
+    "description": "メール要約や文章作成、予定整理などはAIが得意な分野です。権限を理解したうえで利用すれば、安心して業務効率を高められます。",
+    "examples": [
+      "受信メールの要点をまとめてもらう",
+      "返信文の下書きを作ってもらう",
+      "会議予定を整理してもらう"
+    ]
+  },
+  "makotoComment": "AIだから危険なのではありません。『どこまで任せるか』を自分で決められることが、安全にAIを使いこなすコツです。新しい機能を使う前には、権限を30秒だけ確認してみてください。",
+  "oneLineLesson": "AIを見るより、AIに与える権限を見る。",
+  "tags": [
+    "AIブラウザー",
+    "ブラウザー拡張機能",
+    "権限管理",
+    "AIセキュリティ"
+  ],
+  "sources": [
+    {
+      "title": "Security experts warn Claude for Chrome browser extension could be hijacked",
+      "publisher": "TechRadar",
+      "sourceType": "news",
+      "publishedAt": "2026-07-19",
+      "url": "https://www.techradar.com/pro/the-bypass-is-still-six-lines-of-javascript-security-experts-warn-that-claude-for-chrome-browser-extension-could-be-hijacked-despite-it-alerting-anthropic-several-times-that-something-was-wrong"
+    },
+    {
+      "title": "Unpatched Claude for Chrome Flaw Lets Extensions Read Gmail, Calendar",
+      "publisher": "SecurityWeek",
+      "sourceType": "news",
+      "publishedAt": "2026-07-14",
+      "url": "https://www.securityweek.com/unpatched-claude-for-chrome-flaw-lets-extensions-read-gmail-calendar/"
+    },
+    {
+      "title": "AI threats in the wild: The current state of prompt injections on the web",
+      "publisher": "Google Online Security Blog",
+      "sourceType": "official",
+      "publishedAt": "2026-04-23",
+      "url": "https://blog.google/security/prompt-injections-web/"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "自宅やオフィスでノートPCのAIブラウザー拡張機能のインストール画面を開き、『権限』の内容を落ち着いて確認している人物。メールやカレンダーのアイコンが表示されているが文字は読めない。明るく安心感のある実写風で、『AIを怖がる』のではなく『確認して使う』様子を表現する。",
+    "cardIcon": "権限確認",
+    "accentTone": "calm"
+  }
+}

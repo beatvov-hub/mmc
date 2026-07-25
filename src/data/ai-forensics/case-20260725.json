@@ -1,0 +1,166 @@
+{
+  "id": "case-20260725",
+  "publishedAt": "2026-07-25",
+  "title": "詐欺被害のあとに『お金を取り戻します』と連絡が来たら？AI動画を使った二次被害に注意",
+  "shortTitle": "被害回復を装う二次詐欺",
+  "category": "scam",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "ネット詐欺や投資詐欺の被害を相談したことがある人",
+    "SNSで被害回復サービスの広告を見る人",
+    "家族の詐欺被害をサポートしている人"
+  ],
+  "summary": "詐欺被害に遭った人へ、捜査機関や専門業者を装って『お金を取り戻せる』と近づく二次詐欺があります。AIで作られた動画や偽サイトに惑わされず、相談先を自分で確認する方法を紹介します。",
+  "scenario": {
+    "headline": "SNSに『FBIや捜査機関が被害金を回収します』という動画が表示された",
+    "description": "以前、投資詐欺でお金を失ったことがあります。SNSを見ていると、捜査機関の幹部らしい人物が『被害金を回収できます。こちらのサイトから申請してください』と話す動画が表示されました。リンク先には公的機関によく似たロゴや入力フォームがあり、氏名、電話番号、被害額、銀行口座などを入力するよう求められています。",
+    "whyItMatters": "2026年7月には、AIで生成・加工した捜査機関関係者の動画と、米国のInternet Crime Complaint Centerを装った偽サイトを組み合わせ、過去の詐欺被害者へ再び接触する手口が報告されました。FBIとIC3は以前から、職員を装って被害回復を持ちかける詐欺や、公式サイトを模倣した偽サイトについて注意を呼びかけています。IC3は被害金の回収費用を請求せず、SNS上で被害者へ直接連絡する公式アカウントも運営していません。"
+  },
+  "question": {
+    "text": "『被害金を取り戻せます』という連絡が来たとき、最初に取る行動は？",
+    "choices": [
+      {
+        "id": "submit-form",
+        "label": "早く回収してもらうため、フォームへ入力する",
+        "description": "氏名、口座、被害額などを入力して申請する。"
+      },
+      {
+        "id": "pay-fee",
+        "label": "手続きに必要と言われた費用を支払う",
+        "description": "返金されるなら、先に手数料を払ってもよいと考える。"
+      },
+      {
+        "id": "independent-check",
+        "label": "リンクを使わず、公式窓口を自分で探して確認する",
+        "description": "検索広告やメッセージ内のリンクではなく、確認済みの公式サイトや警察へ相談する。"
+      },
+      {
+        "id": "reply-question",
+        "label": "相手へ本物かどうか質問する",
+        "description": "身分証や証明書を送ってもらえば判断できると考える。"
+      }
+    ],
+    "recommendedAnswers": [
+      "independent-check"
+    ],
+    "explanation": "詐欺師へ本物かどうか尋ねても、偽の証明書やAI動画を追加で送られる可能性があります。受け取ったリンクや電話番号を使わず、自分で確認した警察、金融機関、消費生活相談窓口などへ連絡してください。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "被害回復のための先払いを求められていないか",
+      "description": "手数料、保証金、税金、調査費などの名目で先払いを求めるのは、回復詐欺の代表的な特徴です。",
+      "priority": "high"
+    },
+    {
+      "title": "過去の被害情報を詳しく知っていないか",
+      "description": "氏名や被害額を知っていても本物とは限りません。被害者名簿や以前入力した情報が悪用される場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "リンク先のドメインは本当に公式か",
+      "description": "ロゴや画面が似ていても、文字が一つ違う偽ドメインや広告経由の偽サイトがあります。",
+      "priority": "high"
+    },
+    {
+      "title": "動画の人物だけで信用していないか",
+      "description": "現在は実在する人物の顔や声を使ったAI動画も作れるため、見た目より連絡方法と公式情報を確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 5,
+  "verificationLabel": "入力と支払いを止めて相談",
+  "verificationMessage": "過去の被害情報や金融情報が狙われている可能性があります。相手とのやり取りを止め、独立した公式窓口へ確認しましょう。",
+  "verdict": {
+    "label": "『取り戻せる』という連絡ほど、別経路で確認する",
+    "description": "公的機関らしい動画やサイトであっても、その連絡自体が正規のものとは限りません。個人情報の入力や費用の支払いをせず、自分で確認した相談窓口へ連絡してください。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "広告やメッセージ内のリンクを閉じる",
+      "reason": "偽サイトへ誘導され、個人情報や金融情報を盗まれる可能性があります。"
+    },
+    {
+      "action": "公式サイトのアドレスを自分で確認する",
+      "reason": "検索広告ではなく、政府機関や警察などの案内から正規の窓口を探します。"
+    },
+    {
+      "action": "銀行や決済事業者へ早めに相談する",
+      "reason": "支払い方法によっては、送金停止やアカウント保護が間に合う場合があります。"
+    },
+    {
+      "action": "連絡内容や送金記録を保存する",
+      "reason": "メッセージ、URL、振込先、日時などは、相談や被害申告の資料になります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "回収費用や保証金を先に支払う",
+      "reason": "FTCは、被害回復のための先払いを求める連絡を信用しないよう注意しています。"
+    },
+    {
+      "action": "口座番号や本人確認書類を送る",
+      "reason": "別の詐欺やなりすましに情報が使われる可能性があります。"
+    },
+    {
+      "action": "動画に有名人や捜査関係者が映っていることだけで信用する",
+      "reason": "顔、声、話し方をAIで再現した動画である可能性があります。"
+    },
+    {
+      "action": "被害に遭ったことを恥ずかしがって一人で対応する",
+      "reason": "二次被害は、被害を誰にも相談しにくい心理につけ込むことがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを相談前の情報整理に活用する",
+    "description": "AIに相手が本物かを最終判定させることはできませんが、相談に必要な記録を整理したり、確認項目を作ったりする用途には役立ちます。個人情報や口座情報は伏せて利用しましょう。",
+    "examples": [
+      "届いたメッセージから、確認すべき点だけを抽出してもらう",
+      "警察や金融機関へ伝える経緯を時系列で整理してもらう",
+      "個人情報を伏せた状態で、回復詐欺によくある特徴と比較してもらう"
+    ]
+  },
+  "makotoComment": "一度被害に遭った人が、もう一度狙われることがあります。それは注意力が足りないからではなく、『取り戻したい』という自然な気持ちが利用されるからです。公的機関らしい映像を見ても、その場で入力せず、普段使う公式窓口から確認しましょう。",
+  "oneLineLesson": "被害回復を持ちかけられたら、相手のリンクではなく自分で探した公式窓口へ確認する。",
+  "tags": [
+    "回復詐欺",
+    "AIディープフェイク",
+    "偽サイト",
+    "公的機関なりすまし"
+  ],
+  "sources": [
+    {
+      "title": "FBI Warns of Scammers Impersonating the IC3",
+      "publisher": "Federal Bureau of Investigation",
+      "sourceType": "government",
+      "publishedAt": "2025-04-18",
+      "url": "https://www.fbi.gov/investigate/cyber/alerts/2025/fbi-warns-of-scammers-impersonating-the-ic3"
+    },
+    {
+      "title": "Threat Actors Spoofing the FBI IC3 Website for Possible Malicious Activity",
+      "publisher": "Federal Bureau of Investigation / IC3",
+      "sourceType": "government",
+      "publishedAt": "2025-09-19",
+      "url": "https://www.ic3.gov/PSA/2025/PSA250919"
+    },
+    {
+      "title": "Refund and Recovery Scams",
+      "publisher": "Federal Trade Commission",
+      "sourceType": "government",
+      "publishedAt": "2025-11",
+      "url": "https://consumer.ftc.gov/articles/refund-and-recovery-scams"
+    },
+    {
+      "title": "FBI Warns Scammers Use AI Deepfakes and Fake IC3 Sites to Re-Victimize Fraud Victims",
+      "publisher": "Cyber Security News",
+      "sourceType": "security",
+      "publishedAt": "2026-07-22",
+      "url": "https://cybersecuritynews.com/fbi-warns-ai-deepfakes-using-fake-ic3-sites/"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "明るい自宅で、スマートフォンに公的機関の人物らしい動画と被害回復申請ボタンが表示されているが、利用者は入力せず画面を閉じ、別の端末で公式相談窓口を確認している場面。動画やサイトの文字、ロゴ、個人情報は判読できない。恐怖を強調せず、二次被害を落ち着いて防ぐ様子を描いた実写風。",
+    "cardIcon": "回復詐欺確認",
+    "accentTone": "serious"
+  }
+}
