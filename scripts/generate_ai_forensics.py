@@ -27,6 +27,7 @@ CATEGORY_LABELS = {
     "social-media": "SNS",
     "verification": "情報確認",
     "work-use": "仕事でのAI活用",
+    "health-ai": "健康・医療AI",
     "other": "その他",
 }
 DIFFICULTY_LABELS = {
@@ -58,6 +59,7 @@ SOURCE_TYPE_LABELS = {
     "news": "報道機関",
     "security": "セキュリティ機関",
     "fact-check": "ファクトチェック",
+    "international-organization": "国際機関",
     "other": "その他",
 }
 ACCENT_TONES = {"calm", "caution", "serious", "friendly"}
