@@ -163,7 +163,6 @@ function parseLoungeDraft(draft, now = new Date()) {
     if (consumed.has(index)) return;
     const trimmed = original.trim();
     if (!trimmed || /^[-=]{3,}$/.test(trimmed)) {
-      if (sceneParagraphs.length) flushScene();
       return;
     }
     if (/^#{1,6}\s*(今日の一言|本日の一言)/.test(trimmed) || /^(今日の一言|本日の一言)\s*[：:]?$/.test(trimmed)) {

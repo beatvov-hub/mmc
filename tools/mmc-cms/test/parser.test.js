@@ -49,3 +49,29 @@ test("時間帯と曜日を算出する", () => {
   assert.equal(periodForTime("12:00"), "昼");
   assert.equal(weekdayForDate("2026-07-27"), "月");
 });
+
+test("空行を挟んで続く情景文を一つのブロックへまとめる", () => {
+  const draft = `# 2026年7月28日（火） 09:00
+# 朝のラウンジ観測記録
+
+火曜日の朝。
+
+窓からやわらかな光が差し込む。
+
+カウンターにはコーヒーが並んでいる。
+
+**誠**
+「今日も確認します。」`;
+
+  const result = parseLoungeDraft(draft);
+  assert.equal(result.entry.content.length, 2);
+  assert.deepEqual(result.entry.content[0], {
+    type: "scene",
+    paragraphs: [
+      "火曜日の朝。",
+      "窓からやわらかな光が差し込む。",
+      "カウンターにはコーヒーが並んでいる。"
+    ]
+  });
+  assert.equal(result.entry.content[1].type, "talks");
+});
