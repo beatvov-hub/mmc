@@ -360,22 +360,59 @@ function createServer() {
   });
 }
 
+function openLocalBrowser(localUrl) {
+  const opener = spawn("cmd.exe", ["/c", "start", "", localUrl], {
+    detached: true,
+    stdio: "ignore",
+    windowsHide: true
+  });
+  opener.unref();
+}
+
+function existingCmsIsHealthy(localUrl) {
+  return new Promise((resolve) => {
+    const request = http.get(`${localUrl}api/status`, { timeout: 2000 }, (response) => {
+      let body = "";
+      response.setEncoding("utf8");
+      response.on("data", (chunk) => { body += chunk; });
+      response.on("end", () => {
+        try {
+          const status = JSON.parse(body);
+          resolve(response.statusCode === 200 && status.ok === true);
+        } catch {
+          resolve(false);
+        }
+      });
+    });
+    request.on("timeout", () => { request.destroy(); resolve(false); });
+    request.on("error", () => resolve(false));
+  });
+}
+
 if (require.main === module) {
   const port = Number(process.env.MMC_CMS_PORT || 4310);
+  const localUrl = `http://127.0.0.1:${port}/`;
   const server = createServer();
-  server.on("error", (error) => {
+  server.on("error", async (error) => {
     if (error.code === "EADDRINUSE") {
-      console.error(`ポート ${port} は既に使用中です。CMSが開いていないか確認してください。`);
-    } else console.error(error);
-    process.exitCode = 1;
+      if (await existingCmsIsHealthy(localUrl)) {
+        console.log("MMCローカルCMSは既に起動しています。ブラウザーで開きます。");
+        openLocalBrowser(localUrl);
+        process.exitCode = 0;
+      } else {
+        console.error(`ポート ${port} は別のアプリで使用中です。`);
+        process.exitCode = 1;
+      }
+    } else {
+      console.error(error);
+      process.exitCode = 1;
+    }
   });
   server.listen(port, "127.0.0.1", () => {
-    const localUrl = `http://127.0.0.1:${port}/`;
     console.log(`MMCローカルCMS: ${localUrl}`);
     console.log("終了するには、この画面で Ctrl+C を押してください。");
     if (!process.argv.includes("--no-open") && process.env.MMC_CMS_NO_OPEN !== "1") {
-      const opener = spawn("cmd.exe", ["/c", "start", "", localUrl], { detached: true, stdio: "ignore", windowsHide: true });
-      opener.unref();
+      openLocalBrowser(localUrl);
     }
   });
 }
