@@ -141,6 +141,12 @@ SPEAKER_DEFAULTS = {
         "alt": "ペチのアイコン",
         "role": "社外協力者",
     },
+    "所長": {
+        "speakerClass": "speaker-director",
+        "icon": "",
+        "alt": "",
+        "role": "毎日見る株式会社 所長",
+    },
 }
 
 
@@ -304,10 +310,11 @@ def render_talks(block: dict, prefix: str) -> str:
         speaker_class = esc(item.get("speakerClass", ""))
         icon = esc(prefix + item.get("icon", ""))
         alt = esc(item.get("alt", ""))
+        lines.append(f'          <article class="talk-bubble {speaker_class}">')
+        if item.get("icon"):
+            lines.append(f'            <img src="{icon}" alt="{alt}" />')
         lines.extend(
             [
-                f'          <article class="talk-bubble {speaker_class}">',
-                f'            <img src="{icon}" alt="{alt}" />',
                 "            <div>",
                 f'              <p class="talk-name">{esc(item.get("speaker", ""))}</p>',
                 f'              <p class="talk-role">{esc(item.get("role", ""))}</p>',
