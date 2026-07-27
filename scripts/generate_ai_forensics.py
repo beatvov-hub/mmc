@@ -28,6 +28,7 @@ CATEGORY_LABELS = {
     "verification": "情報確認",
     "work-use": "仕事でのAI活用",
     "health-ai": "健康・医療AI",
+    "media-literacy": "メディアリテラシー",
     "other": "その他",
 }
 DIFFICULTY_LABELS = {
