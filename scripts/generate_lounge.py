@@ -56,6 +56,7 @@ STATIC_SITEMAP_PATHS = [
     "works",
     "gallery",
     "lounge",
+    "lounge-dictionary",
     "news",
     "contact",
     "thanks",
@@ -612,7 +613,9 @@ def update_lounge_html(logs: list[dict]) -> None:
     html_text = LOUNGE_HTML_PATH.read_text(encoding="utf-8")
     latest_start = html_text.index('      <section class="lounge-today lounge-log"')
     archive_start = html_text.index('      <section class="lounge-archive"', latest_start)
-    pechi_start = html_text.index('      <section class="pechi-memo"', archive_start)
+    dictionary_start = html_text.index(
+        '      <section class="lounge-dictionary-promo"', archive_start
+    )
     latest_html = render_log_article(logs[-1], "", latest=True)
     archive_html = render_calendar(logs)
     html_text = (
@@ -621,7 +624,7 @@ def update_lounge_html(logs: list[dict]) -> None:
         + "\n\n"
         + archive_html
         + "\n\n"
-        + html_text[pechi_start:]
+        + html_text[dictionary_start:]
     )
     LOUNGE_HTML_PATH.write_text(html_text, encoding="utf-8")
 
