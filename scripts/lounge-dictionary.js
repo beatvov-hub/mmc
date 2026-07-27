@@ -4,6 +4,7 @@
   const DATA_URL = "src/data/loungeDictionary.json";
   const SAMPLE_COUNT = 3;
   const SAMPLE_STORAGE_KEY = "loungeDictionary:lastSamples";
+  const HERO_STORAGE_KEY = "loungeDictionary:lastHero";
 
   const isString = (value) => typeof value === "string" && value.trim() !== "";
 
@@ -113,6 +114,38 @@
     container.replaceChildren(fragment);
   };
 
+  const renderHeroQuote = (entries) => {
+    const quote = document.getElementById("dictionaryHeroQuote");
+    const meta = document.getElementById("dictionaryHeroMeta");
+    const featuredEntries = entries.filter((entry) => entry.featured === true);
+    if (!quote || !meta || featuredEntries.length === 0) {
+      return;
+    }
+
+    let previousId = "";
+    try {
+      previousId = sessionStorage.getItem(HERO_STORAGE_KEY) || "";
+    } catch {
+      // Random selection still works when session storage is unavailable.
+    }
+
+    const selectableEntries = featuredEntries.length > 1
+      ? featuredEntries.filter((entry) => entry.id !== previousId)
+      : featuredEntries;
+    const selected = selectableEntries[
+      Math.floor(Math.random() * selectableEntries.length)
+    ];
+
+    quote.textContent = `「${selected.quote}」`;
+    meta.textContent = `${selected.speaker}・${formatDateTime(selected)}`;
+
+    try {
+      sessionStorage.setItem(HERO_STORAGE_KEY, selected.id);
+    } catch {
+      // The selected quote does not depend on storage being available.
+    }
+  };
+
   const createDictionaryEntry = (entry) => {
     const article = document.createElement("article");
     const quote = document.createElement("blockquote");
@@ -195,6 +228,7 @@
           throw new Error("Invalid lounge dictionary data.");
         }
         renderSamples(data);
+        renderHeroQuote(data.entries);
         renderDictionary(data);
       })
       .catch(() => {
