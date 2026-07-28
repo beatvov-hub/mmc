@@ -390,7 +390,7 @@
 
 .director-favorite-groups {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -400,6 +400,28 @@
 
 .director-quote-chips {
   margin: 20px 0;
+}
+
+.director-check-list-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 36px;
+}
+
+.director-project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 26px;
+}
+
+.director-project-list span {
+  padding: 9px 12px;
+  border: 1px solid #cdbda7;
+  border-radius: 4px;
+  background: #fffaf1;
+  color: #584a3d;
+  font-size: 0.84rem;
+  font-weight: 700;
 }
 
 .director-small-note {
@@ -655,6 +677,10 @@
 
   .director-value-layout,
   .director-favorite-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .director-check-list-columns {
     grid-template-columns: 1fr;
   }
 
@@ -1190,6 +1216,7 @@ body.subpage { padding-top: 88px; }
 .contact-examples-section,
 .contact-style-section,
 .contact-faq-section,
+.contact-director-section,
 .contact-action-section {
   margin-top: 24px;
 }
@@ -1319,6 +1346,76 @@ body.subpage { padding-top: 88px; }
   color: var(--green);
   font-size: 1.08rem;
   line-height: 1.55;
+}
+.contact-director-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(320px, .82fr);
+  gap: clamp(24px, 4vw, 42px);
+  align-items: center;
+  padding: clamp(26px, 4vw, 42px);
+  border: 1px solid rgba(216, 197, 170, .9);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 242, .94), rgba(239, 226, 207, .68)),
+    rgba(255, 255, 255, .7);
+  box-shadow: 0 16px 42px rgba(54,35,20,.07);
+}
+.contact-director-intro h2 {
+  margin: 0 0 16px;
+  color: var(--green);
+  font-size: clamp(1.45rem, 2.7vw, 2rem);
+}
+.contact-director-intro > p:not(.section-kicker),
+.contact-director-profile p,
+.contact-director-strengths {
+  color: var(--muted);
+  line-height: 1.85;
+}
+.contact-director-intro > p:not(.section-kicker) {
+  margin: 0;
+}
+.contact-director-intro > p:not(.section-kicker) + p {
+  margin-top: 11px;
+}
+.contact-director-profile {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  padding-left: clamp(22px, 3vw, 34px);
+  border-left: 1px solid rgba(216, 197, 170, .95);
+}
+.contact-director-profile img {
+  display: block;
+  width: 112px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 1px solid rgba(216, 197, 170, .9);
+  border-radius: 8px;
+}
+.contact-director-profile .contact-card-label {
+  margin-bottom: 6px;
+}
+.contact-director-profile h3 {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: 1.28rem;
+}
+.contact-director-profile p {
+  margin: 0;
+}
+.contact-director-strengths {
+  margin: 14px 0 18px;
+}
+.contact-director-strengths dt {
+  margin-bottom: 3px;
+  color: var(--coffee);
+  font-size: .82rem;
+  font-weight: 900;
+}
+.contact-director-strengths dd {
+  margin: 0;
+  font-size: .92rem;
 }
 .contact-action-grid {
   display: grid;
@@ -2045,8 +2142,15 @@ body.subpage { padding-top: 88px; }
   .contact-consult-grid,
   .contact-example-list,
   .contact-style-section,
+  .contact-director-panel,
   .contact-action-grid {
     grid-template-columns: 1fr;
+  }
+  .contact-director-profile {
+    padding-top: 24px;
+    padding-left: 0;
+    border-top: 1px solid rgba(216, 197, 170, .95);
+    border-left: 0;
   }
   .split-section:nth-child(even) .section-media { order: 0; }
   .section-media { min-height: 260px; }
@@ -2055,6 +2159,16 @@ body.subpage { padding-top: 88px; }
   .page-main { padding-top: 28px; }
   .page-hero, .content-section, .card-section, .contact-position-card { width: calc(100% - 24px); }
   .page-note, .section-copy, .info-card, .service-card, .work-card, .link-card, .contact-position-card, .contact-message, .contact-consult-card, .contact-form-card, .contact-note-card, .contact-style-copy, .contact-style-note, .contact-faq-item { padding: 22px; }
+  .contact-director-panel {
+    padding: 22px;
+  }
+  .contact-director-profile {
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 16px;
+  }
+  .contact-director-profile img {
+    width: 84px;
+  }
   .news-item { grid-template-columns: 1fr; gap: 4px; }
 }
 
