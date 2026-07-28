@@ -1,0 +1,178 @@
+{
+  "id": "case-20260728",
+  "publishedAt": "2026-07-28",
+  "title": "検索結果の一番上に出るAI要約、そのまま信じていい？「答え」より引用元を確認しよう",
+  "shortTitle": "AI検索要約の確認方法",
+  "category": "media-literacy",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Google検索やAI検索を日常的に使う人",
+    "検索結果の要約だけを読んで判断することが多い人",
+    "AIを便利に使いながら誤情報も避けたい人"
+  ],
+  "summary": "検索結果の上部に表示されるAI要約は、短時間で概要を知るのに便利です。ただし、文章が自然でも引用元の内容と完全には一致しない場合があります。重要な情報は、要約の下にある出典を開いて確認しましょう。",
+  "scenario": {
+    "headline": "検索結果の一番上に答えが出たので、リンク先を開かずに判断した",
+    "description": "商品の安全性や制度の条件について検索すると、検索結果の上部にAIが作成した要約が表示されました。文章は分かりやすく、複数のサイトも引用されているため、その内容だけを読んで手続きや購入を進めようとしています。",
+    "whyItMatters": "2026年7月27日に報じられたSimilarwebの分析では、GoogleのAI Overviewsが表示される検索の割合は、前年の15％から43％へ増加したとされています。AIによる検索要約は、多くの人にとって特別な機能ではなく、通常の検索体験の一部になりつつあります。一方、2026年に公開された大規模調査では、AI Overview内の主張の約11％が、表示された引用元から十分に裏付けられていなかったと報告されています。GoogleもAI Overviewsを、主要な情報と関連リンクを示し、さらに詳しく調べるための機能として案内しています。AI要約は便利な入口ですが、重要な判断を要約だけで完結させないことが大切です。"
+  },
+  "question": {
+    "text": "検索結果にAI要約が表示された時、最も適切な使い方は？",
+    "choices": [
+      {
+        "id": "trust-summary",
+        "label": "検索結果の一番上なので、そのまま正しいと判断する",
+        "description": "検索サービスが表示しているため、内容は確認済みだと考える。"
+      },
+      {
+        "id": "check-source",
+        "label": "概要をつかんだ後、重要な部分の引用元を開く",
+        "description": "要約を入口として使い、元の記事や公式情報を確認する。"
+      },
+      {
+        "id": "avoid-ai",
+        "label": "AI要約が出る検索はすべて使わない",
+        "description": "誤りの可能性があるため、AI検索自体を避ける。"
+      },
+      {
+        "id": "repeat-search",
+        "label": "同じ質問を何度も検索し、多数派の回答を採用する",
+        "description": "同じ内容が多く表示されれば正しいと判断する。"
+      }
+    ],
+    "recommendedAnswers": [
+      "check-source"
+    ],
+    "explanation": "AI要約は、複数の情報を短時間で整理する用途には便利です。ただし、引用元の内容を省略したり、複数の説明を組み合わせる過程で意味が変わったりする場合があります。金銭、健康、法律、契約、商品の安全性などに関わる情報は、引用元や公式ページまで確認しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "引用元は公式情報や一次資料か",
+      "description": "行政機関、メーカー、研究機関、原文資料など、内容を直接確認できる情報源かを見ます。",
+      "priority": "high"
+    },
+    {
+      "title": "要約と引用元で条件が変わっていないか",
+      "description": "対象者、期間、例外、地域、金額などが要約で省略されていないか確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "情報の日付は新しいか",
+      "description": "制度、価格、サービス内容、法律、製品仕様などは変更されるため、公開日や更新日を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "質問の言い方を変えた時に回答が変わらないか",
+      "description": "AI検索は質問文の小さな違いで、参照する情報や回答が変化する場合があります。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "引用元を開いて確認",
+  "verificationMessage": "AI要約は概要を知るために使い、重要な判断では元の情報まで確認しましょう。",
+  "verdict": {
+    "label": "AI検索要約は便利な案内板であって、最終資料ではない",
+    "description": "検索結果のAI要約を避ける必要はありません。情報を素早く整理する入口として活用し、判断に使う箇所だけ引用元や公式情報へ戻る使い方が現実的です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "AI要約で全体像をつかむ",
+      "reason": "複数のページを読む前に、調べるべき用語や論点を短時間で整理できます。"
+    },
+    {
+      "action": "判断に使う文章の引用元を開く",
+      "reason": "元の記事に書かれた条件、例外、対象範囲を直接確認できます。"
+    },
+    {
+      "action": "公式ページを一つ探す",
+      "reason": "制度、製品、サービスに関する情報は、運営元や行政機関の説明が最も直接的な資料になります。"
+    },
+    {
+      "action": "検索日や更新日をメモする",
+      "reason": "後から情報が変わった時に、いつの情報を基に判断したか確認できます。"
+    },
+    {
+      "action": "AIへ確認項目を作らせる",
+      "reason": "『この回答で省略されている可能性のある条件を挙げて』と依頼すると、確認漏れを減らせます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "引用リンクが付いているだけで正確だと思う",
+      "reason": "引用元が存在しても、要約中のすべての主張を裏付けているとは限りません。"
+    },
+    {
+      "action": "要約だけをコピーして他人へ共有する",
+      "reason": "条件や例外が抜けたまま情報が広がる可能性があります。"
+    },
+    {
+      "action": "AI検索は間違えるから使わないと決める",
+      "reason": "概要整理や調査の入口としては便利であり、確認方法を加えることで安全に活用できます。"
+    },
+    {
+      "action": "複数のAIが同じ回答をしたので正しいと判断する",
+      "reason": "複数のAIが同じウェブ上の情報や誤情報を参照している可能性があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AI検索を「調査を終わらせる道具」ではなく「調査を始める道具」にする",
+    "description": "AI検索は、知らない分野の全体像をつかみ、専門用語や確認すべき論点を見つける作業に向いています。最終的な根拠を引用元へ戻す習慣を加えれば、従来の検索より効率よく情報を整理できます。",
+    "examples": [
+      "難しい制度について、最初に仕組みと確認項目を整理してもらう",
+      "複数の製品を比較する前に、比較基準を抽出してもらう",
+      "長い公式資料を読む前に、関連する章や用語を特定してもらう",
+      "引用元を開いた後、要約と原文の違いをAIに比較してもらう"
+    ]
+  },
+  "makotoComment": "検索結果の上に表示されると、すでに確認された正解のように感じやすくなります。しかし、AI要約は複数の資料を読みやすく並べ替えたものです。利用をやめる必要はありません。『概要はAI、根拠は引用元』と役割を分けるだけで、便利さを残しながら判断の精度を上げられます。",
+  "oneLineLesson": "AI検索では、答えを読むだけでなく、根拠を一つ開く。",
+  "tags": [
+    "AI検索",
+    "Google AI Overviews",
+    "情報源確認",
+    "検索リテラシー"
+  ],
+  "sources": [
+    {
+      "title": "Google’s AI search is rapidly becoming the default, new data shows",
+      "publisher": "TechCrunch",
+      "sourceType": "news",
+      "publishedAt": "2026-07-27",
+      "url": "https://techcrunch.com/2026/07/27/googles-ai-search-is-rapidly-becoming-the-default-new-data-shows/"
+    },
+    {
+      "title": "Find information in faster & easier ways with AI Overviews in Google Search",
+      "publisher": "Google Search Help",
+      "sourceType": "official",
+      "publishedAt": "2026-07",
+      "url": "https://support.google.com/websearch/answer/14901683?hl=en"
+    },
+    {
+      "title": "Measuring Google AI Overviews: Activation, Source Quality, Claim Fidelity, and Publisher Impact",
+      "publisher": "arXiv",
+      "sourceType": "research",
+      "publishedAt": "2026-05-13",
+      "url": "https://arxiv.org/abs/2605.14021"
+    },
+    {
+      "title": "Searching for answers: How AI is changing online discovery in 2026",
+      "publisher": "YouGov",
+      "sourceType": "research",
+      "publishedAt": "2026-07-09",
+      "url": "https://yougov.com/en-us/reports/55071-us-websearch-ai-report-2026"
+    },
+    {
+      "title": "Full Fact Report 2026",
+      "publisher": "Full Fact",
+      "sourceType": "fact-check",
+      "publishedAt": "2026-07",
+      "url": "https://fullfact.org/policy/reports/full-fact-report-2026/"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "明るい部屋で、ノートPCの検索結果上部にAI要約が表示されており、利用者が要約だけで終わらず、その横にある引用元リンクを開いて内容を確認している場面。画面には要約、複数の出典カード、公開日を確認する様子が見えるが、具体的な文章やロゴは判読できない。AIを疑って遠ざけるのではなく、便利に使いながら根拠を確認している安心感のある実写風。",
+    "cardIcon": "search-source",
+    "accentTone": "calm"
+  }
+}
