@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "src" / "data" / "ai-forensics"
 OUTPUT_DIR = ROOT / "ai-forensics"
 INDEX_HTML_PATH = OUTPUT_DIR / "index.html"
-BASE_URL = "https://mainichi-miru.netlify.app"
+BASE_URL = "https://mainichi-miru.com"
 MAKOTO_ICON = "image/icon/icon_mmc010.jpg"
 
 CATEGORY_LABELS = {

@@ -10,7 +10,7 @@ from site_layout import apply_layout_to_file
 ROOT = Path(__file__).resolve().parents[1]
 GALLERY_DATA_PATH = ROOT / "src" / "data" / "galleryItems.json"
 GALLERY_HTML_PATH = ROOT / "gallery.html"
-BASE_URL = "https://mainichi-miru.netlify.app"
+BASE_URL = "https://mainichi-miru.com"
 
 
 def esc(value: object) -> str:
@@ -223,8 +223,8 @@ def render_gallery_page(items: list[dict]) -> str:
             '    <meta property="og:title" content="平成AI化ギャラリー｜懐かしいホームページを現代UIで再構成｜毎日見る株式会社" />',
             '    <meta property="og:description" content="平成AI化ギャラリーは、平成初期〜2000年代前半のホームページ文化を尊重しながら、現代のUI/UXで再設計する毎日見る株式会社 広報部の実験企画です。" />',
             '    <meta property="og:type" content="website" />',
-            '    <meta property="og:url" content="https://mainichi-miru.netlify.app/gallery" />',
-            '    <meta property="og:image" content="https://mainichi-miru.netlify.app/image/about003.jpg" />',
+            '    <meta property="og:url" content="https://mainichi-miru.com/gallery" />',
+            '    <meta property="og:image" content="https://mainichi-miru.com/image/about003.jpg" />',
             '    <meta name="twitter:card" content="summary_large_image" />',
             '    <link rel="icon" href="favicon.ico" />',
             '    <link rel="stylesheet" href="styles.css" />',
@@ -270,7 +270,7 @@ def render_detail_page(item: dict) -> str:
             f'    <meta property="og:description" content="{esc(item["summary"])}" />',
             '    <meta property="og:type" content="article" />',
             f'    <meta property="og:url" content="{esc(gallery_url(item))}" />',
-            '    <meta property="og:image" content="https://mainichi-miru.netlify.app/image/about003.jpg" />',
+            '    <meta property="og:image" content="https://mainichi-miru.com/image/about003.jpg" />',
             '    <meta name="twitter:card" content="summary_large_image" />',
             '    <link rel="icon" href="favicon.ico" />',
             '    <link rel="stylesheet" href="styles.css" />',

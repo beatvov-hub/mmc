@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKS_DATA_PATH = ROOT / "src" / "data" / "workStories.json"
 WORKS_HTML_PATH = ROOT / "works.html"
 WORKS_DIR = ROOT / "works"
-BASE_URL = "https://mainichi-miru.netlify.app"
+BASE_URL = "https://mainichi-miru.com"
 
 
 def esc(value: object) -> str:
@@ -363,7 +363,7 @@ def render_rich_detail_page(work: dict) -> str:
         f'    <meta property="og:description" content="{esc(description)}" />',
         '    <meta property="og:type" content="article" />',
         f'    <meta property="og:url" content="{esc(work_url(work))}" />',
-        '    <meta property="og:image" content="https://mainichi-miru.netlify.app/image/top004.jpg" />',
+        '    <meta property="og:image" content="https://mainichi-miru.com/image/top004.jpg" />',
         '    <meta name="twitter:card" content="summary_large_image" />',
         '    <link rel="icon" href="../favicon.ico" />',
         '    <link rel="stylesheet" href="../styles.css" />',
@@ -480,7 +480,7 @@ def render_detail_page(work: dict) -> str:
         f'    <meta property="og:description" content="{esc(description)}" />',
         '    <meta property="og:type" content="article" />',
         f'    <meta property="og:url" content="{esc(work_url(work))}" />',
-        '    <meta property="og:image" content="https://mainichi-miru.netlify.app/image/top004.jpg" />',
+        '    <meta property="og:image" content="https://mainichi-miru.com/image/top004.jpg" />',
         '    <meta name="twitter:card" content="summary_large_image" />',
         '    <link rel="icon" href="../favicon.ico" />',
         '    <link rel="stylesheet" href="../styles.css" />',
