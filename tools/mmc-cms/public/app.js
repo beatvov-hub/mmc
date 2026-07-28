@@ -178,7 +178,12 @@ function loungeForSave() {
   const dailyItems = entry.content
     .filter((block) => block.type === "dailyWords")
     .flatMap((block) => block.items || [])
-    .filter((item) => item.speaker || item.text);
+    .filter((item) => item.speaker || item.text)
+    .map((item) => ({
+      speaker: String(item.speaker || "").trim(),
+      text: String(item.text || "").trim().replace(/^「([\s\S]*)」$/, "$1")
+    }));
+  entry.content = entry.content.filter((block) => block.type !== "dailyWords");
   if (dailyItems.length) entry.todayWords = dailyItems;
   else delete entry.todayWords;
   return entry;

@@ -15,7 +15,7 @@ const {
   SPEAKERS,
   WEEKDAYS
 } = require("./lib/constants");
-const { parseLoungeDraft } = require("./lib/parser");
+const { normalizeLoungeEntry, parseLoungeDraft } = require("./lib/parser");
 const { validateForensics, validateLounge } = require("./lib/validator");
 const {
   FileTransaction,
@@ -161,7 +161,7 @@ async function apiStatus() {
 }
 
 async function generateLounge(payload) {
-  const entry = payload.entry;
+  const entry = normalizeLoungeEntry(payload.entry);
   const validation = validateLounge(entry);
   if (validation.errors.length) return { status: 422, body: { ok: false, ...validation } };
   const logs = await readLoungeLogs();

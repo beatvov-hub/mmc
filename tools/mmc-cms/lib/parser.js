@@ -63,6 +63,36 @@ function noteText(line) {
   return stripMarkdown(line).replace(/^[（(_*]\s*/, "").replace(/\s*[）)_*]$/, "");
 }
 
+function stripDialogueMarks(text) {
+  const value = String(text || "").trim();
+  const pairs = [["「", "」"], ["『", "』"], ["“", "”"], ['"', '"']];
+  const pair = pairs.find(([open, close]) => value.startsWith(open) && value.endsWith(close));
+  return pair ? value.slice(pair[0].length, -pair[1].length).trim() : value;
+}
+
+function normalizeLoungeEntry(entry) {
+  const normalized = JSON.parse(JSON.stringify(entry || {}));
+  const content = Array.isArray(normalized.content) ? normalized.content : [];
+  const dailyItems = content
+    .filter((block) => block.type === "dailyWords")
+    .flatMap((block) => block.items || [])
+    .filter((item) => item.speaker || item.text)
+    .map((item) => ({
+      speaker: String(item.speaker || "").trim(),
+      text: stripDialogueMarks(item.text)
+    }));
+
+  normalized.content = content.filter((block) => block.type !== "dailyWords");
+  if (dailyItems.length) normalized.todayWords = dailyItems;
+  else if (Array.isArray(normalized.todayWords)) {
+    normalized.todayWords = normalized.todayWords.map((item) => ({
+      ...item,
+      text: stripDialogueMarks(item.text)
+    }));
+  }
+  return normalized;
+}
+
 function parseLoungeDraft(draft, now = new Date()) {
   const raw = String(draft || "").replace(/\r\n?/g, "\n").trim();
   const lines = raw.split("\n");
@@ -268,6 +298,7 @@ function parseLoungeDraft(draft, now = new Date()) {
 
 module.exports = {
   normalizeDate,
+  normalizeLoungeEntry,
   parseLoungeDraft,
   periodForTime,
   speakerFromLine,

@@ -2,7 +2,12 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { parseLoungeDraft, periodForTime, weekdayForDate } = require("../lib/parser");
+const {
+  normalizeLoungeEntry,
+  parseLoungeDraft,
+  periodForTime,
+  weekdayForDate
+} = require("../lib/parser");
 
 test("ラウンジ原稿から基本情報と主要ブロックを抽出する", () => {
   const draft = `# 2026年7月27日（月） 17:00
@@ -74,4 +79,20 @@ test("空行を挟んで続く情景文を一つのブロックへまとめる",
     ]
   });
   assert.equal(result.entry.content[1].type, "talks");
+});
+
+test("今日の一言はTOP用データへ移し、ラウンジ本文から外す", () => {
+  const parsed = parseLoungeDraft(`## 2026年7月28日 09:00
+
+朝のラウンジ。
+
+## 今日の一言
+**ほのちゃん**
+「今日もゆっくり始めましょう。」`);
+  const normalized = normalizeLoungeEntry(parsed.entry);
+
+  assert.equal(normalized.content.some((block) => block.type === "dailyWords"), false);
+  assert.deepEqual(normalized.todayWords, [
+    { speaker: "ほのちゃん", text: "今日もゆっくり始めましょう。" }
+  ]);
 });
