@@ -498,6 +498,39 @@
   font-size: 0.86rem;
 }
 
+.director-origin-list {
+  display: grid;
+  gap: 0;
+  margin: 4px 0 0;
+}
+
+.director-origin-list div {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 18px;
+  padding: 17px 0;
+  border-top: 1px dashed #dfd4c6;
+}
+
+.director-origin-list div:first-child {
+  padding-top: 8px;
+  border-top: 0;
+}
+
+.director-origin-list dt {
+  color: #765241;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.7;
+}
+
+.director-origin-list dd {
+  margin: 0;
+  color: #554b42;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
 .director-team-card > section p {
   margin: 0;
   line-height: 1.85;
@@ -612,6 +645,10 @@
     grid-template-columns: 1fr;
   }
 
+  .director-origin-list div {
+    grid-template-columns: 118px minmax(0, 1fr);
+  }
+
   .director-info-card-wide {
     grid-column: auto;
   }
@@ -646,6 +683,11 @@
 
   .director-data-list div {
     grid-template-columns: 90px 1fr;
+  }
+
+  .director-origin-list div {
+    grid-template-columns: 1fr;
+    gap: 5px;
   }
 
   .director-story > section {
