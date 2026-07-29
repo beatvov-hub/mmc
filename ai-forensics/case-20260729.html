@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AIにWebページを要約してもらったら「偽の警告」が出ることも？新しい攻撃手法に注意｜AI鑑識室｜毎日見る株式会社</title>
-    <meta name="description" content="AIがWebページを要約する機能は便利ですが、ページ内に隠された命令によって、AIが本来存在しない警告やフィッシング案内を表示してしまう攻撃手法が報告されています。" />
-    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260722" />
-    <meta property="og:title" content="AIにWebページを要約してもらったら「偽の警告」が出ることも？新しい攻撃手法に注意｜AI鑑識室｜毎日見る株式会社" />
-    <meta property="og:description" content="AIがWebページを要約する機能は便利ですが、ページ内に隠された命令によって、AIが本来存在しない警告やフィッシング案内を表示してしまう攻撃手法が報告されています。" />
+    <title>AIブラウザーは便利だけど、メインブラウザーにする前に考えたいこと｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="AIブラウザーは、検索や要約、フォーム入力などを自動化できる便利なツールです。一方で、複数のサイトをまたいで情報を扱うため、従来のブラウザーとは異なる考え方で使う必要があります。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260729" />
+    <meta property="og:title" content="AIブラウザーは便利だけど、メインブラウザーにする前に考えたいこと｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="AIブラウザーは、検索や要約、フォーム入力などを自動化できる便利なツールです。一方で、複数のサイトをまたいで情報を扱うため、従来のブラウザーとは異なる考え方で使う必要があります。" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260722" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260729" />
     <meta property="og:image" content="https://mainichi-miru.com/image/top005.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../favicon.ico" />
@@ -57,7 +57,7 @@
       <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
         <a href="../index.html">ホーム</a>
         <a href="index.html">AI鑑識室</a>
-        <strong>AI要約の偽警告</strong>
+        <strong>AIブラウザーとの付き合い方</strong>
         <a class="profile-back" href="index.html">記事一覧へ戻る</a>
       </nav>
 
@@ -65,75 +65,72 @@
         <header class="forensics-article-hero">
           <div>
             <div class="forensics-article-meta">
-              <span>セキュリティ</span>
-              <span>標準</span>
-              <time datetime="2026-07-22">2026.07.22</time>
+              <span>ブラウザーセキュリティ</span>
+              <span>はじめて</span>
+              <time datetime="2026-07-29">2026.07.29</time>
             </div>
-            <h1>AIにWebページを要約してもらったら「偽の警告」が出ることも？新しい攻撃手法に注意</h1>
-            <p>AIがWebページを要約する機能は便利ですが、ページ内に隠された命令によって、AIが本来存在しない警告やフィッシング案内を表示してしまう攻撃手法が報告されています。</p>
-            <ul class="forensics-target-list"><li>AIでWebページを要約する人</li><li>AIブラウザーやAIエージェントを使っている人</li><li>生成AIを仕事や学習で活用している人</li></ul>
-            <ul class="pill-list forensics-article-tags"><li>AIブラウザー</li><li>プロンプトインジェクション</li><li>フィッシング</li><li>AIセキュリティ</li></ul>
+            <h1>AIブラウザーは便利だけど、メインブラウザーにする前に考えたいこと</h1>
+            <p>AIブラウザーは、検索や要約、フォーム入力などを自動化できる便利なツールです。一方で、複数のサイトをまたいで情報を扱うため、従来のブラウザーとは異なる考え方で使う必要があります。</p>
+            <ul class="forensics-target-list"><li>AIブラウザーやAIエージェント機能に興味がある人</li><li>ブラウザーでAIを活用し始めた人</li><li>仕事でも生成AIを使っている人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AIブラウザー</li><li>ブラウザーセキュリティ</li><li>AIエージェント</li><li>情報リテラシー</li></ul>
           </div>
           <div class="forensics-level" aria-label="確認レベル">
             <div class="forensics-level-head">
-              <strong>確認レベル 4</strong>
-              <span>重要操作は原文確認</span>
+              <strong>確認レベル 3</strong>
+              <span>役割を分けて使う</span>
             </div>
             <div class="forensics-level-meter" aria-hidden="true">
               <span class="forensics-level-dot is-active">1</span>
               <span class="forensics-level-dot is-active">2</span>
               <span class="forensics-level-dot is-active">3</span>
-              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">4</span>
               <span class="forensics-level-dot">5</span>
             </div>
             <small>危険度ではなく、必要な確認の程度を表しています。</small>
-            <p>AIの要約は便利な補助です。重要な操作は元ページや公式サイトで確認しましょう。</p>
+            <p>AIブラウザーは便利ですが、「全部任せる」より「得意な仕事だけ任せる」方が安心です。</p>
           </div>
         </header>
 
         <section class="forensics-article-section">
           <div class="forensics-step-label">Step 1</div>
           <h2>身近な事例を知る</h2>
-          <article class="scenario-card"><h3>AIに記事を要約してもらったら「ウイルス感染のためこちらで認証してください」と表示された</h3><p>AIブラウザーでWeb記事を要約したところ、ページには書かれていない「セキュリティ確認のためこちらへログインしてください」という案内がAIの回答に含まれていました。元の記事を開いても、その文章は見当たりません。</p></article>
-          <figure class="scenario-image">
-            <img src="../image/ai-forensics/case-20260722-001.jpg" alt="AIによるWebページ要約に偽の警告が混ざる仕組みと確認方法を示すイメージ" loading="lazy" />
-            <figcaption>AIの要約に不自然な警告やリンクが現れたとき、元のWebページと公式情報を確認する流れを示したイメージです。</figcaption>
-          </figure>
-          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>2026年には、Webページ内に人には見えない命令を埋め込み、AIの要約やブラウジング機能を誤誘導する「間接プロンプトインジェクション」の実例が相次いで報告されました。攻撃者は検索順位を操作したページや隠しテキストを利用し、AIに偽の警告やフィッシング案内を表示させようとします。現在、多くのAIサービスが対策を進めていますが、重要な操作ではAIの回答だけでなく元ページや公式サイトも確認することが推奨されています。</p></aside>
+          <article class="scenario-card"><h3>『全部AIに任せられるブラウザー』という紹介を見つけた</h3><p>新しいAIブラウザーでは、検索、予約、メール確認、フォーム入力などをAIがまとめて手伝ってくれると紹介されていました。便利そうなので、普段使いのブラウザーをすべて置き換えようと考えています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>2026年に公表された大学研究チームの調査では、複数のAIブラウザーにおいて、従来のブラウザーが重視してきたサイト間の情報分離（Same-Origin Policy）との両立が難しくなり、プロンプトインジェクションや「メモリ汚染」など新しい攻撃手法への課題が指摘されました。研究者は、現時点では慎重にAIブラウザー機能を選ぶよう推奨しています。一方で、機能を限定したAIブラウザーや、セキュリティ機能を強化する取り組みも進められています。重要なのは「AIブラウザーは危険だから使わない」ではなく、「任せる仕事を選ぶ」ことです。</p></aside>
         </section>
 
-        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="original">
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="separate-use">
           <div class="forensics-step-label">Step 2</div>
           <h2>あなたならどうする？</h2>
           <fieldset>
-            <legend>AIが「今すぐログインしてください」と案内してきたら、最初に何をしますか？</legend>
+            <legend>AIブラウザーを使い始める時、最も現実的な使い方は？</legend>
             <div class="forensics-choice-grid">
               <label class="forensics-choice-card" data-choice-card>
-                <input type="checkbox" value="follow" data-choice-id="follow" />
+                <input type="checkbox" value="replace-all" data-choice-id="replace-all" />
                 <span>
-                  <strong>AIの案内どおりリンクを開く</strong>
-                  <small>AIが表示した内容なので信用する。</small>
+                  <strong>今までのブラウザーを完全に置き換える</strong>
+                  <small>ネットバンキングや仕事も含め、すべてAIブラウザーで行う。</small>
                 </span>
               </label>
               <label class="forensics-choice-card" data-choice-card>
-                <input type="checkbox" value="original" data-choice-id="original" />
+                <input type="checkbox" value="separate-use" data-choice-id="separate-use" />
                 <span>
-                  <strong>元のWebページを確認する</strong>
-                  <small>AIの要約と実際の記事内容が一致しているか確認する。</small>
+                  <strong>調査や要約などから試し、重要な操作は従来どおり行う</strong>
+                  <small>AIが得意な作業だけを任せ、重要な手続きは人が確認する。</small>
                 </span>
               </label>
               <label class="forensics-choice-card" data-choice-card>
-                <input type="checkbox" value="retry" data-choice-id="retry" />
+                <input type="checkbox" value="never-use" data-choice-id="never-use" />
                 <span>
-                  <strong>もう一度同じ質問をする</strong>
-                  <small>回答が変わらなければ安心だと考える。</small>
+                  <strong>危険そうなのでAIブラウザーは一切使わない</strong>
+                  <small>便利な機能も含めて利用を避ける。</small>
                 </span>
               </label>
               <label class="forensics-choice-card" data-choice-card>
-                <input type="checkbox" value="quit" data-choice-id="quit" />
+                <input type="checkbox" value="full-access" data-choice-id="full-access" />
                 <span>
-                  <strong>AIは危険なので使うのをやめる</strong>
-                  <small>便利な機能をすべて避ける。</small>
+                  <strong>求められる権限はすべて許可する</strong>
+                  <small>便利になるなら細かい設定は気にしない。</small>
                 </span>
               </label>
             </div>
@@ -142,9 +139,9 @@
           <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
             <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
             <strong>推奨される行動</strong>
-<ul><li>元のWebページを確認する</li></ul>
+<ul><li>調査や要約などから試し、重要な操作は従来どおり行う</li></ul>
             <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
-            <p>AIの要約は便利ですが、ログイン・支払い・ファイルの実行など重要な操作を促された場合は、元ページや公式サイトを確認することが安全です。</p>
+            <p>AIブラウザーは、検索や要約、情報整理などでは大きな力を発揮します。一方、金融取引や重要な契約、機密情報を扱う場面では、人による確認を残す運用が現実的です。</p>
           </div>
         </section>
 
@@ -154,23 +151,23 @@
           <div class="inspection-grid">
             <article class="inspection-card priority-high">
               <span>優先して確認</span>
-              <h3>元ページに同じ内容があるか</h3>
-              <p>AIだけが表示している文章ではないか確認します。</p>
+              <h3>AIへ任せる作業を決めているか</h3>
+              <p>要約や情報収集など、得意な作業から使い始めます。</p>
             </article>
             <article class="inspection-card priority-high">
               <span>優先して確認</span>
-              <h3>リンク先は公式サイトか</h3>
-              <p>ログインや支払いは公式サイトからアクセスします。</p>
+              <h3>重要なサービスは従来どおり確認するか</h3>
+              <p>銀行、行政、契約などは最終確認を自分で行います。</p>
             </article>
             <article class="inspection-card priority-medium">
               <span>できれば確認</span>
-              <h3>AIに急かされていないか</h3>
-              <p>「今すぐ」「緊急」などの表現があれば一度立ち止まります。</p>
+              <h3>AIブラウザーの権限を確認したか</h3>
+              <p>閲覧履歴やログイン情報など、何へアクセスできるか確認します。</p>
             </article>
             <article class="inspection-card priority-medium">
               <span>できれば確認</span>
-              <h3>ブラウザーやAIを最新状態にしているか</h3>
-              <p>セキュリティ対策は継続的に更新されています。</p>
+              <h3>ブラウザーを最新の状態へ更新しているか</h3>
+              <p>セキュリティ修正を受けるため、アップデートを適用します。</p>
             </article>
           </div>
         </section>
@@ -178,7 +175,7 @@
         <section class="forensics-article-section verdict-section">
           <div class="forensics-step-label">Step 4</div>
           <h2>現時点での見立て</h2>
-          <div class="verdict-card"><span>確度は高め</span><strong>AIは要約担当、最終確認は人が担当</strong><p>AIの回答だけでログインや送金を行わず、元の情報源を確認することで多くのリスクを避けられます。</p></div>
+          <div class="verdict-card"><span>確度は高め</span><strong>AIブラウザーは「第2のブラウザー」から始める</strong><p>AIブラウザーは新しい可能性を持つ一方、まだ発展途上の技術でもあります。まずは情報収集や要約などの用途から活用し、重要な操作は従来の方法と組み合わせる使い方がおすすめです。</p></div>
         </section>
 
         <section class="forensics-article-section action-section">
@@ -186,15 +183,15 @@
           <h2>安全な対処方法</h2>
           <div class="action-grid">
             <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
-            <li><strong>元の記事を開いて内容を確認する</strong><span>AIだけが追加した内容ではないか確認できます。</span></li>
-            <li><strong>公式サイトから操作する</strong><span>AIが示したリンクではなく、自分で公式サイトを開く方が安全です。</span></li>
-            <li><strong>AIブラウザーや拡張機能を更新する</strong><span>新しい攻撃への対策が含まれることがあります。</span></li>
-            <li><strong>重要な操作ではAIを補助として使う</strong><span>最終判断を人が行うことで、安全性と利便性を両立できます。</span></li>
+            <li><strong>調査や要約から使い始める</strong><span>AIの便利さを安全に体験しやすくなります。</span></li>
+            <li><strong>重要な操作は人が最終確認する</strong><span>誤操作や意図しない処理を防げます。</span></li>
+            <li><strong>ブラウザーを最新バージョンへ更新する</strong><span>公開された脆弱性への対策を受けられます。</span></li>
+            <li><strong>用途ごとにブラウザーを使い分ける</strong><span>重要な情報を扱う環境を分離できます。</span></li>
             </ul></div>
             <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
-            <li><strong>AIの指示だけで認証や支払いを行う</strong><span>攻撃によってAIが誤誘導される可能性があります。</span></li>
-            <li><strong>見慣れないリンクをそのまま開く</strong><span>フィッシングサイトへ誘導される恐れがあります。</span></li>
-            <li><strong>AIは全部危険だと思い込む</strong><span>適切に確認しながら使えば、AIは非常に便利な補助ツールです。</span></li>
+            <li><strong>AIブラウザーだけで金融・契約手続きを完結させる</strong><span>AIの判断や外部サイトの影響を受ける可能性があります。</span></li>
+            <li><strong>必要以上の権限を許可する</strong><span>便利さ以上にリスクが増える場合があります。</span></li>
+            <li><strong>研究段階の課題を「AIは危険」と一般化する</strong><span>課題は改善が進んでおり、用途を選べば十分役立つ場面もあります。</span></li>
             </ul></div>
           </div>
         </section>
@@ -202,9 +199,9 @@
         <section class="forensics-article-section positive-use-section">
           <div class="forensics-step-label">Step 6</div>
           <h2>AIの前向きな活用</h2>
-          <h3>AIは情報整理に活用し、重要判断だけ人が確認する</h3>
-          <p>長文要約や情報整理はAIの得意分野です。重要な操作だけ原文や公式情報を確認する運用なら、安全性を保ちながら効率化できます。</p>
-          <ul class="positive-example-list"><li>長い記事の概要を把握する</li><li>複数の記事の共通点を整理する</li><li>専門用語を分かりやすく説明してもらう</li></ul>
+          <h3>AIブラウザーは「調べる時間」を減らしてくれる</h3>
+          <p>複数ページの比較、長文要約、旅行や買い物の候補整理など、人が判断する前の情報整理では大きな効果があります。AIの得意分野と人の判断を組み合わせることで、安全性と利便性を両立できます。</p>
+          <ul class="positive-example-list"><li>複数サイトの商品比較を要約する</li><li>旅行プランの候補を整理する</li><li>長い記事の概要を把握する</li><li>複数ページの共通点をまとめる</li></ul>
         </section>
 
         <section class="makoto-comment-section">
@@ -213,61 +210,67 @@
           </figure>
           <div>
             <h2>誠主任からひとこと</h2>
-            <blockquote>AIはとても便利ですが、「AIが言ったから」ではなく「元の情報にもそう書いてあるか」を確認するだけで、安全性はぐっと高まります。AIを疑うのではなく、AIと一緒に確認する意識が大切ですね。</blockquote>
+            <blockquote>新しい技術は、「使う」「使わない」の二択ではありません。「どこまで任せるか」を決めることが、安心して使い続けるコツです。AIブラウザーも、人の判断を支える道具として付き合えば、とても便利な存在になってくれます。</blockquote>
           </div>
         </section>
 
         <section class="one-line-lesson">
           <h2>今回、覚えておきたいこと</h2>
-          <p>AIの要約は便利。でも、重要な操作は元の情報で確認しよう。</p>
+          <p>AIブラウザーには、全部ではなく「得意な仕事」を任せよう。</p>
         </section>
 
         <section class="forensics-article-section sources-section">
           <h2>情報源</h2>
           <ul class="forensics-source-list">
             <li>
-              <strong><a href="https://blog.google/security/prompt-injections-web/" target="_blank" rel="noopener noreferrer">AI threats in the wild: The current state of prompt injections on the web<span class="visually-hidden">（外部リンク）</span></a></strong>
-              <span>Google Online Security Blog</span>
+              <strong><a href="https://agent-security.cs.washington.edu/agentic_browsers_sop.html" target="_blank" rel="noopener noreferrer">Agentic Browsers and the Same-Origin Policy<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>University of Washington</span>
+              <span>研究・論文</span>
+              <time datetime="2026-04-15">2026-04-15</time>
+            </li>
+            <li>
+              <strong><a href="https://www.livescience.com/technology/computing/ai-web-browsers-arent-ready-for-the-public-scientists-warn-as-they-highlight-massive-security-red-flags" target="_blank" rel="noopener noreferrer">AI web browsers aren&#x27;t ready for the public, scientists warn<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Live Science</span>
+              <span>報道機関</span>
+              <time datetime="2026-07-24">2026-07-24</time>
+            </li>
+            <li>
+              <strong><a href="https://www.techtarget.com/searchcio/feature/Evaluating-browser-security-in-the-AI-search-era" target="_blank" rel="noopener noreferrer">Evaluating browser security in the AI search era<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>TechTarget</span>
+              <span>その他</span>
+              <time datetime="2026-07-07">2026-07-07</time>
+            </li>
+            <li>
+              <strong><a href="https://chromereleases.googleblog.com/2026/07/stable-channel-update-for-desktop_049796704.html" target="_blank" rel="noopener noreferrer">Stable Channel Update for Desktop<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Chrome Releases</span>
               <span>公式発表</span>
-              <time datetime="2026-04-23">2026-04-23</time>
-            </li>
-            <li>
-              <strong><a href="https://www.infosecurity-magazine.com/news/indirect-prompt-injection-web/" target="_blank" rel="noopener noreferrer">Indirect Prompt Injection in Web Content Targets AI Agents<span class="visually-hidden">（外部リンク）</span></a></strong>
-              <span>Infosecurity Magazine</span>
-              <span>報道機関</span>
-              <time datetime="2026-07-06">2026-07-06</time>
-            </li>
-            <li>
-              <strong><a href="https://www.theregister.com/research/2026/05/29/chatgpt-prompt-injection-turns-web-pages-into-phishing-lures/5248137" target="_blank" rel="noopener noreferrer">ChatGPT prompt injection turns web pages into phishing lures<span class="visually-hidden">（外部リンク）</span></a></strong>
-              <span>The Register</span>
-              <span>報道機関</span>
-              <time datetime="2026-05-29">2026-05-29</time>
+              <time datetime="2026-07-16">2026-07-16</time>
             </li>
           </ul>
         </section>
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-calm" href="case-20260729.html" data-forensics-card data-category="browser-security" data-level="3" data-difficulty="beginner" data-search-text="AIブラウザーは便利だけど、メインブラウザーにする前に考えたいこと AIブラウザーとの付き合い方 AIブラウザーは、検索や要約、フォーム入力などを自動化できる便利なツールです。一方で、複数のサイトをまたいで情報を扱うため、従来のブラウザーとは異なる考え方で使う必要があります。 ブラウザーセキュリティ はじめて AIブラウザー ブラウザーセキュリティ AIエージェント 情報リテラシー AIブラウザーやAIエージェント機能に興味がある人 ブラウザーでAIを活用し始めた人 仕事でも生成AIを使っている人">
+          <a class="forensics-card tone-calm" href="case-20260726.html" data-forensics-card data-category="media-literacy" data-level="2" data-difficulty="beginner" data-search-text="『AIが書いた記事だから信用できない』は本当？大切なのは“誰が確認したか” AI記事の見極め方 AIで文章を書くこと自体は珍しくなくなりました。重要なのは「AIが書いたか」ではなく、「誰が内容を確認し、責任を持って公開しているか」です。 メディアリテラシー はじめて AI活用 情報リテラシー ニュース 生成AI ニュースやブログを毎日読む人 SNSで情報収集をする人 生成AIで文章を作る・読む機会がある人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">browser-check</span>
+              <span class="forensics-card-icon" aria-hidden="true">情報源確認</span>
               <div>
-                <p>AIブラウザーとの付き合い方</p>
-                <h3>AIブラウザーは便利だけど、メインブラウザーにする前に考えたいこと</h3>
+                <p>AI記事の見極め方</p>
+                <h3>『AIが書いた記事だから信用できない』は本当？大切なのは“誰が確認したか”</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-07-29">2026.07.29</time>
-              <span>ブラウザーセキュリティ</span>
+              <time datetime="2026-07-26">2026.07.26</time>
+              <span>メディアリテラシー</span>
               <span>はじめて</span>
             </div>
-            <p class="forensics-card-summary">AIブラウザーは、検索や要約、フォーム入力などを自動化できる便利なツールです。一方で、複数のサイトをまたいで情報を扱うため、従来のブラウザーとは異なる考え方で使う必要があります。</p>
+            <p class="forensics-card-summary">AIで文章を書くこと自体は珍しくなくなりました。重要なのは「AIが書いたか」ではなく、「誰が内容を確認し、責任を持って公開しているか」です。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 3</strong>
-              <span>役割を分けて使う</span>
+              <strong>確認レベル 2</strong>
+              <span>情報源を確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>AIブラウザーやAIエージェント機能に興味がある人</li><li>ブラウザーでAIを活用し始めた人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AIブラウザー</li><li>ブラウザーセキュリティ</li><li>AIエージェント</li></ul>
+            <ul class="forensics-card-audience"><li>ニュースやブログを毎日読む人</li><li>SNSで情報収集をする人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI活用</li><li>情報リテラシー</li><li>ニュース</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           <a class="forensics-card tone-calm" href="case-20260724.html" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="AIブラウザーが勝手にメールを送る？AI拡張機能を入れる前に知っておきたいこと AI拡張機能の権限確認 AIブラウザー拡張機能は作業を大きく効率化できますが、強い権限を持つものもあります。便利さを活かしながら、安全に利用するための確認ポイントを紹介します。 セキュリティ はじめて AIブラウザー ブラウザー拡張機能 権限管理 AIセキュリティ AIブラウザーやAI拡張機能を使い始めた人 生成AIを仕事で活用している人 ブラウザー拡張機能をよく利用する人">
@@ -318,8 +321,8 @@
         </section>
         <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
           <a class="mini-button" href="index.html">AI鑑識室の記事一覧へ戻る</a>
-<a class="mini-button mini-button-secondary" href="case-20260721.html">前の記事</a>
-<a class="mini-button mini-button-secondary" href="case-20260723.html">次の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260728.html">前の記事</a>
+
         </nav>
       </article>
     </main>

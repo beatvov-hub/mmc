@@ -1,0 +1,163 @@
+{
+  "id": "case-20260729",
+  "publishedAt": "2026-07-29",
+  "title": "AIブラウザーは便利だけど、メインブラウザーにする前に考えたいこと",
+  "shortTitle": "AIブラウザーとの付き合い方",
+  "category": "browser-security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "AIブラウザーやAIエージェント機能に興味がある人",
+    "ブラウザーでAIを活用し始めた人",
+    "仕事でも生成AIを使っている人"
+  ],
+  "summary": "AIブラウザーは、検索や要約、フォーム入力などを自動化できる便利なツールです。一方で、複数のサイトをまたいで情報を扱うため、従来のブラウザーとは異なる考え方で使う必要があります。",
+  "scenario": {
+    "headline": "『全部AIに任せられるブラウザー』という紹介を見つけた",
+    "description": "新しいAIブラウザーでは、検索、予約、メール確認、フォーム入力などをAIがまとめて手伝ってくれると紹介されていました。便利そうなので、普段使いのブラウザーをすべて置き換えようと考えています。",
+    "whyItMatters": "2026年に公表された大学研究チームの調査では、複数のAIブラウザーにおいて、従来のブラウザーが重視してきたサイト間の情報分離（Same-Origin Policy）との両立が難しくなり、プロンプトインジェクションや「メモリ汚染」など新しい攻撃手法への課題が指摘されました。研究者は、現時点では慎重にAIブラウザー機能を選ぶよう推奨しています。一方で、機能を限定したAIブラウザーや、セキュリティ機能を強化する取り組みも進められています。重要なのは「AIブラウザーは危険だから使わない」ではなく、「任せる仕事を選ぶ」ことです。"
+  },
+  "question": {
+    "text": "AIブラウザーを使い始める時、最も現実的な使い方は？",
+    "choices": [
+      {
+        "id": "replace-all",
+        "label": "今までのブラウザーを完全に置き換える",
+        "description": "ネットバンキングや仕事も含め、すべてAIブラウザーで行う。"
+      },
+      {
+        "id": "separate-use",
+        "label": "調査や要約などから試し、重要な操作は従来どおり行う",
+        "description": "AIが得意な作業だけを任せ、重要な手続きは人が確認する。"
+      },
+      {
+        "id": "never-use",
+        "label": "危険そうなのでAIブラウザーは一切使わない",
+        "description": "便利な機能も含めて利用を避ける。"
+      },
+      {
+        "id": "full-access",
+        "label": "求められる権限はすべて許可する",
+        "description": "便利になるなら細かい設定は気にしない。"
+      }
+    ],
+    "recommendedAnswers": [
+      "separate-use"
+    ],
+    "explanation": "AIブラウザーは、検索や要約、情報整理などでは大きな力を発揮します。一方、金融取引や重要な契約、機密情報を扱う場面では、人による確認を残す運用が現実的です。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "AIへ任せる作業を決めているか",
+      "description": "要約や情報収集など、得意な作業から使い始めます。",
+      "priority": "high"
+    },
+    {
+      "title": "重要なサービスは従来どおり確認するか",
+      "description": "銀行、行政、契約などは最終確認を自分で行います。",
+      "priority": "high"
+    },
+    {
+      "title": "AIブラウザーの権限を確認したか",
+      "description": "閲覧履歴やログイン情報など、何へアクセスできるか確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "ブラウザーを最新の状態へ更新しているか",
+      "description": "セキュリティ修正を受けるため、アップデートを適用します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "役割を分けて使う",
+  "verificationMessage": "AIブラウザーは便利ですが、「全部任せる」より「得意な仕事だけ任せる」方が安心です。",
+  "verdict": {
+    "label": "AIブラウザーは「第2のブラウザー」から始める",
+    "description": "AIブラウザーは新しい可能性を持つ一方、まだ発展途上の技術でもあります。まずは情報収集や要約などの用途から活用し、重要な操作は従来の方法と組み合わせる使い方がおすすめです。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "調査や要約から使い始める",
+      "reason": "AIの便利さを安全に体験しやすくなります。"
+    },
+    {
+      "action": "重要な操作は人が最終確認する",
+      "reason": "誤操作や意図しない処理を防げます。"
+    },
+    {
+      "action": "ブラウザーを最新バージョンへ更新する",
+      "reason": "公開された脆弱性への対策を受けられます。"
+    },
+    {
+      "action": "用途ごとにブラウザーを使い分ける",
+      "reason": "重要な情報を扱う環境を分離できます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "AIブラウザーだけで金融・契約手続きを完結させる",
+      "reason": "AIの判断や外部サイトの影響を受ける可能性があります。"
+    },
+    {
+      "action": "必要以上の権限を許可する",
+      "reason": "便利さ以上にリスクが増える場合があります。"
+    },
+    {
+      "action": "研究段階の課題を「AIは危険」と一般化する",
+      "reason": "課題は改善が進んでおり、用途を選べば十分役立つ場面もあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIブラウザーは「調べる時間」を減らしてくれる",
+    "description": "複数ページの比較、長文要約、旅行や買い物の候補整理など、人が判断する前の情報整理では大きな効果があります。AIの得意分野と人の判断を組み合わせることで、安全性と利便性を両立できます。",
+    "examples": [
+      "複数サイトの商品比較を要約する",
+      "旅行プランの候補を整理する",
+      "長い記事の概要を把握する",
+      "複数ページの共通点をまとめる"
+    ]
+  },
+  "makotoComment": "新しい技術は、「使う」「使わない」の二択ではありません。「どこまで任せるか」を決めることが、安心して使い続けるコツです。AIブラウザーも、人の判断を支える道具として付き合えば、とても便利な存在になってくれます。",
+  "oneLineLesson": "AIブラウザーには、全部ではなく「得意な仕事」を任せよう。",
+  "tags": [
+    "AIブラウザー",
+    "ブラウザーセキュリティ",
+    "AIエージェント",
+    "情報リテラシー"
+  ],
+  "sources": [
+    {
+      "title": "Agentic Browsers and the Same-Origin Policy",
+      "publisher": "University of Washington",
+      "sourceType": "research",
+      "publishedAt": "2026-04-15",
+      "url": "https://agent-security.cs.washington.edu/agentic_browsers_sop.html"
+    },
+    {
+      "title": "AI web browsers aren't ready for the public, scientists warn",
+      "publisher": "Live Science",
+      "sourceType": "news",
+      "publishedAt": "2026-07-24",
+      "url": "https://www.livescience.com/technology/computing/ai-web-browsers-arent-ready-for-the-public-scientists-warn-as-they-highlight-massive-security-red-flags"
+    },
+    {
+      "title": "Evaluating browser security in the AI search era",
+      "publisher": "TechTarget",
+      "sourceType": "other",
+      "publishedAt": "2026-07-07",
+      "url": "https://www.techtarget.com/searchcio/feature/Evaluating-browser-security-in-the-AI-search-era"
+    },
+    {
+      "title": "Stable Channel Update for Desktop",
+      "publisher": "Chrome Releases",
+      "sourceType": "official",
+      "publishedAt": "2026-07-16",
+      "url": "https://chromereleases.googleblog.com/2026/07/stable-channel-update-for-desktop_049796704.html"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "明るいホームオフィスで、通常のブラウザーとAIブラウザーを用途に応じて使い分けている人物。片方では記事の要約や情報整理、もう片方では重要な契約内容を自分で確認している様子。安心感のある実写風で、「AIと人が役割分担している」ことが伝わるデザイン。",
+    "cardIcon": "browser-check",
+    "accentTone": "calm"
+  }
+}

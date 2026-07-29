@@ -22,6 +22,7 @@ CATEGORY_LABELS = {
     "privacy": "個人情報",
     "copyright": "著作権",
     "security": "セキュリティ",
+    "browser-security": "ブラウザーセキュリティ",
     "scam": "詐欺",
     "search": "AI検索",
     "social-media": "SNS",
