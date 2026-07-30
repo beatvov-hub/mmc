@@ -1,0 +1,11 @@
+# Public pages and rendering assets are available to search engines.
+User-agent: *
+Allow: /
+
+# Local source data and update tools are not public content.
+Disallow: /src/
+Disallow: /tools/
+Disallow: /start-cms.cmd
+Disallow: /README
+
+Sitemap: https://mainichi-miru.com/mainichi-miru-sitemap.xml
