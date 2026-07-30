@@ -5179,7 +5179,7 @@ img { max-width: 100%; }
   margin-top: 22px;
 }
 .profile-image-item {
-  grid-column: 1 / -1;
+  grid-column: auto;
   padding: clamp(18px, 2.5vw, 26px);
 }
 .profile-image-item-header {
@@ -5203,7 +5203,8 @@ img { max-width: 100%; }
 .profile-image-item figure {
   display: grid;
   place-items: center;
-  min-height: 280px;
+  height: clamp(210px, 32vw, 420px);
+  min-height: 0;
   margin: 0;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--member-accent, #d87583) 18%, #ead8c0);
@@ -5214,7 +5215,7 @@ img { max-width: 100%; }
 .profile-image-item img {
   display: block;
   width: 100%;
-  max-height: 620px;
+  height: 100%;
   object-fit: contain;
 }
 .profile-panel {
