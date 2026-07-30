@@ -12,7 +12,7 @@
     <meta property="og:image" content="https://mainichi-miru.com/image/lounge/lounge-noon001.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260731" />
     <!-- GOOGLE_TAG_START -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
@@ -412,230 +412,293 @@
         </div>
 
         <div class="lounge-archive-layout">
-          <article class="lounge-calendar" aria-label="2026年7月のラウンジ更新カレンダー">
+          <article class="lounge-calendar" data-lounge-calendar aria-label="2026年7月のラウンジ更新カレンダー">
             <div class="lounge-calendar__header">
-              <h3>2026年7月</h3>
-              <span>更新ログ</span>
+              <button class="lounge-calendar__nav" type="button" data-calendar-prev aria-label="前の月を表示" title="前の月" disabled><span aria-hidden="true">‹</span></button>
+              <div class="lounge-calendar__month-title">
+                <span>表示中の月</span>
+                <h3 data-calendar-title>2026年7月</h3>
+              </div>
+              <button class="lounge-calendar__nav" type="button" data-calendar-next aria-label="次の月を表示" title="次の月"><span aria-hidden="true">›</span></button>
             </div>
-            <div class="lounge-calendar__grid">
-              <span class="lounge-calendar__dow">日</span>
-              <span class="lounge-calendar__dow">月</span>
-              <span class="lounge-calendar__dow">火</span>
-              <span class="lounge-calendar__dow">水</span>
-              <span class="lounge-calendar__dow">木</span>
-              <span class="lounge-calendar__dow">金</span>
-              <span class="lounge-calendar__dow">土</span>
+            <label class="lounge-calendar__picker">
+              <span>月を選ぶ</span>
+              <select data-calendar-select aria-label="表示する月">
+                <option value="2026-07" selected>2026年7月</option>
+                <option value="2026-08">2026年8月</option>
+              </select>
+            </label>
+            <div class="lounge-calendar__month" data-calendar-month="2026-07">
+              <div class="lounge-calendar__grid">
+                <span class="lounge-calendar__dow">日</span>
+                <span class="lounge-calendar__dow">月</span>
+                <span class="lounge-calendar__dow">火</span>
+                <span class="lounge-calendar__dow">水</span>
+                <span class="lounge-calendar__dow">木</span>
+                <span class="lounge-calendar__dow">金</span>
+                <span class="lounge-calendar__dow">土</span>
 
-              <span class="lounge-calendar__blank" aria-hidden="true"></span>
-              <span class="lounge-calendar__blank" aria-hidden="true"></span>
-              <span class="lounge-calendar__blank" aria-hidden="true"></span>
-              <span class="lounge-calendar__day">1</span>
-              <span class="lounge-calendar__day">2</span>
-              <span class="lounge-calendar__day">3</span>
-              <span class="lounge-calendar__day">4</span>
-              <span class="lounge-calendar__day">5</span>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">6</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-06.html#2026-07-06-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-06.html#2026-07-06-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-06.html#2026-07-06-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-06.html#2026-07-06-2300">23:00</a>
+                <span class="lounge-calendar__blank" aria-hidden="true"></span>
+                <span class="lounge-calendar__blank" aria-hidden="true"></span>
+                <span class="lounge-calendar__blank" aria-hidden="true"></span>
+                <span class="lounge-calendar__day">1</span>
+                <span class="lounge-calendar__day">2</span>
+                <span class="lounge-calendar__day">3</span>
+                <span class="lounge-calendar__day">4</span>
+                <span class="lounge-calendar__day">5</span>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">6</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-06.html#2026-07-06-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-06.html#2026-07-06-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-06.html#2026-07-06-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-06.html#2026-07-06-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">7</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-07.html#2026-07-07-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-07.html#2026-07-07-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-07.html#2026-07-07-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-07.html#2026-07-07-2000">20:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">8</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-08.html#2026-07-08-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-08.html#2026-07-08-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-08.html#2026-07-08-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-08.html#2026-07-08-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">9</span>
+                  <span class="lounge-calendar__count">3件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-09.html#2026-07-09-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-09.html#2026-07-09-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-09.html#2026-07-09-2000">20:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">10</span>
+                  <span class="lounge-calendar__count">5件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-10.html#2026-07-10-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-10.html#2026-07-10-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-10.html#2026-07-10-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-10.html#2026-07-10-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-10.html#2026-07-10-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">11</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-11.html#2026-07-11-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-11.html#2026-07-11-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-11.html#2026-07-11-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-11.html#2026-07-11-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">12</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-12.html#2026-07-12-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-12.html#2026-07-12-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-12.html#2026-07-12-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-12.html#2026-07-12-2000">20:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">13</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-13.html#2026-07-13-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-13.html#2026-07-13-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-13.html#2026-07-13-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-13.html#2026-07-13-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">14</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-14.html#2026-07-14-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-14.html#2026-07-14-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-14.html#2026-07-14-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-14.html#2026-07-14-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">15</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-15.html#2026-07-15-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-15.html#2026-07-15-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-15.html#2026-07-15-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-15.html#2026-07-15-2000">20:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">16</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-16.html#2026-07-16-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-16.html#2026-07-16-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-16.html#2026-07-16-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-16.html#2026-07-16-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">17</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-17.html#2026-07-17-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-17.html#2026-07-17-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-17.html#2026-07-17-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-17.html#2026-07-17-2300">23:00</a>
+                </div>
+                <span class="lounge-calendar__day">18</span>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">19</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-19.html#2026-07-19-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-19.html#2026-07-19-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-19.html#2026-07-19-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-19.html#2026-07-19-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">20</span>
+                  <span class="lounge-calendar__count">5件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-20.html#2026-07-20-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-20.html#2026-07-20-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-20.html#2026-07-20-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-20.html#2026-07-20-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-20.html#2026-07-20-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">21</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-21.html#2026-07-21-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-21.html#2026-07-21-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-21.html#2026-07-21-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-21.html#2026-07-21-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">22</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-22.html#2026-07-22-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-22.html#2026-07-22-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-22.html#2026-07-22-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-22.html#2026-07-22-2000">20:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">23</span>
+                  <span class="lounge-calendar__count">4件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-23.html#2026-07-23-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-23.html#2026-07-23-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-23.html#2026-07-23-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-23.html#2026-07-23-2000">20:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">24</span>
+                  <span class="lounge-calendar__count">5件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-24.html#2026-07-24-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-24.html#2026-07-24-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-24.html#2026-07-24-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-24.html#2026-07-24-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-24.html#2026-07-24-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">25</span>
+                  <span class="lounge-calendar__count">5件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-25.html#2026-07-25-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-25.html#2026-07-25-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-25.html#2026-07-25-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-25.html#2026-07-25-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-25.html#2026-07-25-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">26</span>
+                  <span class="lounge-calendar__count">5件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-26.html#2026-07-26-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-26.html#2026-07-26-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-26.html#2026-07-26-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-26.html#2026-07-26-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-26.html#2026-07-26-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">27</span>
+                  <span class="lounge-calendar__count">5件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-27.html#2026-07-27-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-27.html#2026-07-27-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-27.html#2026-07-27-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-27.html#2026-07-27-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-27.html#2026-07-27-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">28</span>
+                  <span class="lounge-calendar__count">5件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-28.html#2026-07-28-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-28.html#2026-07-28-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-28.html#2026-07-28-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-28.html#2026-07-28-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-28.html#2026-07-28-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active">
+                  <span class="lounge-calendar__date">29</span>
+                  <span class="lounge-calendar__count">5件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-29.html#2026-07-29-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-29.html#2026-07-29-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-29.html#2026-07-29-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-29.html#2026-07-29-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-29.html#2026-07-29-2300">23:00</a>
+                </div>
+                <div class="lounge-calendar__day is-active is-latest">
+                  <span class="lounge-calendar__date">30</span>
+                  <span class="lounge-calendar__count">5件</span>
+                  <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-30.html#2026-07-30-0900">09:00</a>
+                  <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-30.html#2026-07-30-1200">12:00</a>
+                  <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-30.html#2026-07-30-1700">17:00</a>
+                  <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-30.html#2026-07-30-2000">20:00</a>
+                  <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-30.html#2026-07-30-2300">23:00</a>
+                </div>
+                <span class="lounge-calendar__day">31</span>
               </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">7</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-07.html#2026-07-07-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-07.html#2026-07-07-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-07.html#2026-07-07-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-07.html#2026-07-07-2000">20:00</a>
+            </div>
+            <div class="lounge-calendar__month" data-calendar-month="2026-08" hidden>
+              <div class="lounge-calendar__grid">
+                <span class="lounge-calendar__dow">日</span>
+                <span class="lounge-calendar__dow">月</span>
+                <span class="lounge-calendar__dow">火</span>
+                <span class="lounge-calendar__dow">水</span>
+                <span class="lounge-calendar__dow">木</span>
+                <span class="lounge-calendar__dow">金</span>
+                <span class="lounge-calendar__dow">土</span>
+
+                <span class="lounge-calendar__blank" aria-hidden="true"></span>
+                <span class="lounge-calendar__blank" aria-hidden="true"></span>
+                <span class="lounge-calendar__blank" aria-hidden="true"></span>
+                <span class="lounge-calendar__blank" aria-hidden="true"></span>
+                <span class="lounge-calendar__blank" aria-hidden="true"></span>
+                <span class="lounge-calendar__blank" aria-hidden="true"></span>
+                <span class="lounge-calendar__day">1</span>
+                <span class="lounge-calendar__day">2</span>
+                <span class="lounge-calendar__day">3</span>
+                <span class="lounge-calendar__day">4</span>
+                <span class="lounge-calendar__day">5</span>
+                <span class="lounge-calendar__day">6</span>
+                <span class="lounge-calendar__day">7</span>
+                <span class="lounge-calendar__day">8</span>
+                <span class="lounge-calendar__day">9</span>
+                <span class="lounge-calendar__day">10</span>
+                <span class="lounge-calendar__day">11</span>
+                <span class="lounge-calendar__day">12</span>
+                <span class="lounge-calendar__day">13</span>
+                <span class="lounge-calendar__day">14</span>
+                <span class="lounge-calendar__day">15</span>
+                <span class="lounge-calendar__day">16</span>
+                <span class="lounge-calendar__day">17</span>
+                <span class="lounge-calendar__day">18</span>
+                <span class="lounge-calendar__day">19</span>
+                <span class="lounge-calendar__day">20</span>
+                <span class="lounge-calendar__day">21</span>
+                <span class="lounge-calendar__day">22</span>
+                <span class="lounge-calendar__day">23</span>
+                <span class="lounge-calendar__day">24</span>
+                <span class="lounge-calendar__day">25</span>
+                <span class="lounge-calendar__day">26</span>
+                <span class="lounge-calendar__day">27</span>
+                <span class="lounge-calendar__day">28</span>
+                <span class="lounge-calendar__day">29</span>
+                <span class="lounge-calendar__day">30</span>
+                <span class="lounge-calendar__day">31</span>
               </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">8</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-08.html#2026-07-08-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-08.html#2026-07-08-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-08.html#2026-07-08-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-08.html#2026-07-08-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">9</span>
-                <span class="lounge-calendar__count">3件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-09.html#2026-07-09-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-09.html#2026-07-09-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-09.html#2026-07-09-2000">20:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">10</span>
-                <span class="lounge-calendar__count">5件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-10.html#2026-07-10-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-10.html#2026-07-10-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-10.html#2026-07-10-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-10.html#2026-07-10-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-10.html#2026-07-10-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">11</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-11.html#2026-07-11-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-11.html#2026-07-11-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-11.html#2026-07-11-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-11.html#2026-07-11-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">12</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-12.html#2026-07-12-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-12.html#2026-07-12-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-12.html#2026-07-12-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-12.html#2026-07-12-2000">20:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">13</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-13.html#2026-07-13-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-13.html#2026-07-13-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-13.html#2026-07-13-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-13.html#2026-07-13-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">14</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-14.html#2026-07-14-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-14.html#2026-07-14-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-14.html#2026-07-14-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-14.html#2026-07-14-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">15</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-15.html#2026-07-15-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-15.html#2026-07-15-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-15.html#2026-07-15-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-15.html#2026-07-15-2000">20:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">16</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-16.html#2026-07-16-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-16.html#2026-07-16-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-16.html#2026-07-16-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-16.html#2026-07-16-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">17</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-17.html#2026-07-17-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-17.html#2026-07-17-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-17.html#2026-07-17-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-17.html#2026-07-17-2300">23:00</a>
-              </div>
-              <span class="lounge-calendar__day">18</span>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">19</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-19.html#2026-07-19-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-19.html#2026-07-19-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-19.html#2026-07-19-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-19.html#2026-07-19-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">20</span>
-                <span class="lounge-calendar__count">5件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-20.html#2026-07-20-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-20.html#2026-07-20-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-20.html#2026-07-20-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-20.html#2026-07-20-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-20.html#2026-07-20-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">21</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-21.html#2026-07-21-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-21.html#2026-07-21-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-21.html#2026-07-21-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-21.html#2026-07-21-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">22</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-22.html#2026-07-22-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-22.html#2026-07-22-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-22.html#2026-07-22-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-22.html#2026-07-22-2000">20:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">23</span>
-                <span class="lounge-calendar__count">4件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-23.html#2026-07-23-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-23.html#2026-07-23-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-23.html#2026-07-23-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-23.html#2026-07-23-2000">20:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">24</span>
-                <span class="lounge-calendar__count">5件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-24.html#2026-07-24-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-24.html#2026-07-24-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-24.html#2026-07-24-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-24.html#2026-07-24-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-24.html#2026-07-24-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">25</span>
-                <span class="lounge-calendar__count">5件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-25.html#2026-07-25-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-25.html#2026-07-25-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-25.html#2026-07-25-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-25.html#2026-07-25-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-25.html#2026-07-25-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">26</span>
-                <span class="lounge-calendar__count">5件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-26.html#2026-07-26-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-26.html#2026-07-26-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-26.html#2026-07-26-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-26.html#2026-07-26-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-26.html#2026-07-26-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">27</span>
-                <span class="lounge-calendar__count">5件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-27.html#2026-07-27-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-27.html#2026-07-27-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-27.html#2026-07-27-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-27.html#2026-07-27-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-27.html#2026-07-27-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">28</span>
-                <span class="lounge-calendar__count">5件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-28.html#2026-07-28-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-28.html#2026-07-28-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-28.html#2026-07-28-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-28.html#2026-07-28-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-28.html#2026-07-28-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active">
-                <span class="lounge-calendar__date">29</span>
-                <span class="lounge-calendar__count">5件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-29.html#2026-07-29-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-29.html#2026-07-29-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-29.html#2026-07-29-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-29.html#2026-07-29-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-29.html#2026-07-29-2300">23:00</a>
-              </div>
-              <div class="lounge-calendar__day is-active is-latest">
-                <span class="lounge-calendar__date">30</span>
-                <span class="lounge-calendar__count">5件</span>
-                <a class="lounge-calendar__time time-slot-0900" href="lounge-archive/2026-07-30.html#2026-07-30-0900">09:00</a>
-                <a class="lounge-calendar__time time-slot-1200" href="lounge-archive/2026-07-30.html#2026-07-30-1200">12:00</a>
-                <a class="lounge-calendar__time time-slot-1700" href="lounge-archive/2026-07-30.html#2026-07-30-1700">17:00</a>
-                <a class="lounge-calendar__time time-slot-2000" href="lounge-archive/2026-07-30.html#2026-07-30-2000">20:00</a>
-                <a class="lounge-calendar__time time-slot-2300" href="lounge-archive/2026-07-30.html#2026-07-30-2300">23:00</a>
-              </div>
-              <span class="lounge-calendar__day">31</span>
+              <p class="lounge-calendar__empty">この月の記録は、これから追加されます。</p>
             </div>
           </article>
 
@@ -667,7 +730,7 @@
               <small>ほのちゃん、ケイ、誠、ねむちゃん、ペチ</small>
             </a>
             <p class="lounge-archive-help">
-              過去分は左のカレンダーから日付と時間を選んでたどれます。
+              左のカレンダーは月を切り替えられます。日付と時間を選ぶと、その時の会話へ移動します。
             </p>
           </aside>
         </div>
@@ -981,6 +1044,7 @@
         }
       });
     </script>
+    <script src="scripts/lounge-calendar.js?v=20260731-2"></script>
     <script src="scripts/lounge-dictionary.js"></script>
     <script src="scripts/site-effects.js"></script>
   </body>

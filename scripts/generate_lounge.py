@@ -533,17 +533,80 @@ def render_archive_page(date: str, logs: list[dict]) -> str:
 """
 
 
+def next_month(year: int, month: int) -> tuple[int, int]:
+    if month == 12:
+        return year + 1, 1
+    return year, month + 1
+
+
+def render_calendar_month(
+    year: int,
+    month: int,
+    by_date: dict[str, list[dict]],
+    latest_date: str,
+    active: bool,
+) -> list[str]:
+    _, days_in_month = calendar.monthrange(year, month)
+    blanks = (calendar.weekday(year, month, 1) + 1) % 7
+    month_key = f"{year:04d}-{month:02d}"
+    hidden = "" if active else " hidden"
+    lines = [
+        f'            <div class="lounge-calendar__month" data-calendar-month="{month_key}"{hidden}>',
+        '              <div class="lounge-calendar__grid">',
+        '                <span class="lounge-calendar__dow">日</span>',
+        '                <span class="lounge-calendar__dow">月</span>',
+        '                <span class="lounge-calendar__dow">火</span>',
+        '                <span class="lounge-calendar__dow">水</span>',
+        '                <span class="lounge-calendar__dow">木</span>',
+        '                <span class="lounge-calendar__dow">金</span>',
+        '                <span class="lounge-calendar__dow">土</span>',
+        "",
+    ]
+    for _ in range(blanks):
+        lines.append('                <span class="lounge-calendar__blank" aria-hidden="true"></span>')
+
+    month_has_logs = False
+    for day in range(1, days_in_month + 1):
+        date = f"{year:04d}-{month:02d}-{day:02d}"
+        items = by_date.get(date, [])
+        if items:
+            month_has_logs = True
+            latest_class = " is-latest" if date == latest_date else ""
+            lines.append(f'                <div class="lounge-calendar__day is-active{latest_class}">')
+            lines.append(f'                  <span class="lounge-calendar__date">{day}</span>')
+            lines.append(f'                  <span class="lounge-calendar__count">{len(items)}件</span>')
+            for item in items:
+                lines.append(f'                  <a class="lounge-calendar__time {esc(time_slot_class(item))}" href="{esc(archive_href(item))}">{esc(item["time"])}</a>')
+            lines.append("                </div>")
+        else:
+            lines.append(f'                <span class="lounge-calendar__day">{day}</span>')
+
+    lines.append("              </div>")
+    if not month_has_logs:
+        lines.append('              <p class="lounge-calendar__empty">この月の記録は、これから追加されます。</p>')
+    lines.append("            </div>")
+    return lines
+
+
 def render_calendar(logs: list[dict]) -> str:
     latest = logs[-1]
-    year, month, _ = date_parts(latest)
+    latest_year, latest_month, _ = date_parts(latest)
     by_date: dict[str, list[dict]] = defaultdict(list)
     for log in logs:
         by_date[log["date"]].append(log)
     for items in by_date.values():
         items.sort(key=lambda item: item["time"])
 
-    _, days_in_month = calendar.monthrange(year, month)
-    blanks = (calendar.weekday(year, month, 1) + 1) % 7
+    months = sorted({
+        (date_parts(log)[0], date_parts(log)[1])
+        for log in logs
+    })
+    preview_month = next_month(latest_year, latest_month)
+    if preview_month not in months:
+        months.append(preview_month)
+    selected_month = (latest_year, latest_month)
+    selected_key = f"{latest_year:04d}-{latest_month:02d}"
+
     lines = [
         '      <section class="lounge-archive" aria-labelledby="archive-title">',
         '        <div class="section-heading">',
@@ -555,39 +618,41 @@ def render_calendar(logs: list[dict]) -> str:
         "        </div>",
         "",
         '        <div class="lounge-archive-layout">',
-        f'          <article class="lounge-calendar" aria-label="{year}年{month}月のラウンジ更新カレンダー">',
+        f'          <article class="lounge-calendar" data-lounge-calendar aria-label="{latest_year}年{latest_month}月のラウンジ更新カレンダー">',
         '            <div class="lounge-calendar__header">',
-        f"              <h3>{year}年{month}月</h3>",
-        "              <span>更新ログ</span>",
+        '              <button class="lounge-calendar__nav" type="button" data-calendar-prev aria-label="前の月を表示" title="前の月" disabled><span aria-hidden="true">‹</span></button>',
+        '              <div class="lounge-calendar__month-title">',
+        '                <span>表示中の月</span>',
+        f"                <h3 data-calendar-title>{latest_year}年{latest_month}月</h3>",
+        "              </div>",
+        '              <button class="lounge-calendar__nav" type="button" data-calendar-next aria-label="次の月を表示" title="次の月"><span aria-hidden="true">›</span></button>',
         "            </div>",
-        '            <div class="lounge-calendar__grid">',
-        '              <span class="lounge-calendar__dow">日</span>',
-        '              <span class="lounge-calendar__dow">月</span>',
-        '              <span class="lounge-calendar__dow">火</span>',
-        '              <span class="lounge-calendar__dow">水</span>',
-        '              <span class="lounge-calendar__dow">木</span>',
-        '              <span class="lounge-calendar__dow">金</span>',
-        '              <span class="lounge-calendar__dow">土</span>',
-        "",
+        '            <label class="lounge-calendar__picker">',
+        '              <span>月を選ぶ</span>',
+        '              <select data-calendar-select aria-label="表示する月">',
     ]
-    for _ in range(blanks):
-        lines.append('              <span class="lounge-calendar__blank" aria-hidden="true"></span>')
-    for day in range(1, days_in_month + 1):
-        date = f"{year:04d}-{month:02d}-{day:02d}"
-        items = by_date.get(date, [])
-        if items:
-            latest_class = " is-latest" if date == latest["date"] else ""
-            lines.append(f'              <div class="lounge-calendar__day is-active{latest_class}">')
-            lines.append(f'                <span class="lounge-calendar__date">{day}</span>')
-            lines.append(f'                <span class="lounge-calendar__count">{len(items)}件</span>')
-            for item in items:
-                lines.append(f'                <a class="lounge-calendar__time {esc(time_slot_class(item))}" href="{esc(archive_href(item))}">{esc(item["time"])}</a>')
-            lines.append("              </div>")
-        else:
-            lines.append(f'              <span class="lounge-calendar__day">{day}</span>')
+    for year, month in months:
+        month_key = f"{year:04d}-{month:02d}"
+        selected = " selected" if month_key == selected_key else ""
+        lines.append(f'                <option value="{month_key}"{selected}>{year}年{month}月</option>')
     lines.extend(
         [
-            "            </div>",
+            "              </select>",
+            "            </label>",
+        ]
+    )
+    for year, month in months:
+        lines.extend(
+            render_calendar_month(
+                year,
+                month,
+                by_date,
+                latest["date"],
+                (year, month) == selected_month,
+            )
+        )
+    lines.extend(
+        [
             "          </article>",
             "",
             '          <aside class="lounge-archive-list" aria-label="最新アーカイブ一覧">',
@@ -607,7 +672,7 @@ def render_calendar(logs: list[dict]) -> str:
     lines.extend(
         [
             '            <p class="lounge-archive-help">',
-            "              過去分は左のカレンダーから日付と時間を選んでたどれます。",
+            "              左のカレンダーは月を切り替えられます。日付と時間を選ぶと、その時の会話へ移動します。",
             "            </p>",
             "          </aside>",
             "        </div>",

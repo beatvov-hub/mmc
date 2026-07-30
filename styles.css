@@ -3080,21 +3080,78 @@ body.subpage { padding-top: 88px; }
   box-shadow: 0 14px 36px rgba(54,35,20,.06);
 }
 .lounge-calendar__header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
   gap: 14px;
   align-items: center;
   margin-bottom: 16px;
+}
+.lounge-calendar__month-title {
+  min-width: 0;
+  text-align: center;
 }
 .lounge-calendar__header h3,
 .lounge-archive-list h3 {
   margin: 0;
   color: var(--green);
 }
-.lounge-calendar__header span {
+.lounge-calendar__month-title span {
   color: var(--coffee);
-  font-size: .9rem;
+  font-size: .76rem;
   font-weight: 900;
+}
+.lounge-calendar__nav {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #d9c3a5;
+  border-radius: 50%;
+  background: #fffaf2;
+  color: var(--green);
+  cursor: pointer;
+}
+.lounge-calendar__nav span {
+  font-size: 1.9rem;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+.lounge-calendar__nav:hover:not(:disabled) {
+  border-color: var(--green);
+  background: #f0eadb;
+}
+.lounge-calendar__nav:focus-visible,
+.lounge-calendar__picker select:focus-visible {
+  outline: 3px solid rgba(83,107,69,.24);
+  outline-offset: 2px;
+}
+.lounge-calendar__nav:disabled {
+  opacity: .32;
+  cursor: default;
+}
+.lounge-calendar__picker {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: -4px 0 16px;
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 900;
+}
+.lounge-calendar__picker select {
+  min-height: 38px;
+  padding: 6px 34px 6px 12px;
+  border: 1px solid #d9c3a5;
+  border-radius: 7px;
+  background: #fffaf2;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.lounge-calendar__month[hidden] {
+  display: none;
 }
 .lounge-calendar__grid {
   display: grid;
@@ -3148,6 +3205,16 @@ a.lounge-calendar__day {
   color: var(--green);
   font-size: .72rem;
   font-weight: 900;
+}
+.lounge-calendar__empty {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border-radius: 7px;
+  background: rgba(83,107,69,.08);
+  color: var(--muted);
+  font-size: .88rem;
+  font-weight: 800;
+  text-align: center;
 }
 .lounge-archive-entry {
   display: grid;
@@ -3628,6 +3695,17 @@ body.has-night-lounge { overflow: hidden; }
   }
   .lounge-calendar__grid {
     gap: 5px;
+  }
+  .lounge-calendar__header {
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+    gap: 9px;
+  }
+  .lounge-calendar__nav {
+    width: 40px;
+    height: 40px;
+  }
+  .lounge-calendar__picker {
+    justify-content: space-between;
   }
   .lounge-calendar__blank,
   .lounge-calendar__day {
@@ -5100,6 +5178,45 @@ img { max-width: 100%; }
   gap: 20px;
   margin-top: 22px;
 }
+.profile-image-item {
+  grid-column: 1 / -1;
+  padding: clamp(18px, 2.5vw, 26px);
+}
+.profile-image-item-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+.profile-image-item-header h2 {
+  margin: 0;
+}
+.profile-image-item-label {
+  margin: 0;
+  color: var(--member-accent, #d87583);
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.profile-image-item figure {
+  display: grid;
+  place-items: center;
+  min-height: 280px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--member-accent, #d87583) 18%, #ead8c0);
+  border-radius: 7px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--member-accent-soft, #f8e6e8) 72%, white), #fffaf3);
+}
+.profile-image-item img {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  object-fit: contain;
+}
 .profile-panel {
   padding: clamp(22px, 3vw, 30px);
   border: 1px solid #ead8c0;
@@ -5272,6 +5389,9 @@ img { max-width: 100%; }
   .member-detail-grid {
     grid-template-columns: 1fr;
   }
+  .profile-image-item {
+    grid-column: auto;
+  }
   .member-detail-photo {
     min-height: 0;
     aspect-ratio: 4 / 3;
@@ -5311,6 +5431,15 @@ img { max-width: 100%; }
   .profile-footer-cta {
     display: grid;
     padding: 20px;
+  }
+  .profile-image-item {
+    padding: 12px;
+  }
+  .profile-image-item-header {
+    margin-bottom: 10px;
+  }
+  .profile-image-item figure {
+    min-height: 0;
   }
 }
 @media (max-width: 430px) {
