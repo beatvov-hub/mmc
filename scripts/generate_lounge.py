@@ -74,13 +74,13 @@ SPEAKER_DEFAULTS = {
         "speakerClass": "speaker-shoma",
         "icon": "image/icon/icon_mmc002.jpg",
         "alt": "ショウマのアイコン",
-        "role": "企画部",
+        "role": "企画営業部長",
     },
     "たかけん": {
         "speakerClass": "speaker-takaken",
         "icon": "image/icon/icon_mmc003.jpg",
         "alt": "たかけんのアイコン",
-        "role": "神村制作部",
+        "role": "ゲーム事業部長",
     },
     "マイケル": {
         "speakerClass": "speaker-michael",
@@ -92,13 +92,13 @@ SPEAKER_DEFAULTS = {
         "speakerClass": "speaker-dg",
         "icon": "image/icon/icon_mmc005.jpg",
         "alt": "DGのアイコン",
-        "role": "ゲーム研究部",
+        "role": "人狼界隈観測課長",
     },
     "ねむちゃん": {
         "speakerClass": "speaker-nemu",
         "icon": "image/icon/icon_mmc006.jpg",
         "alt": "ねむちゃんのアイコン",
-        "role": "人事部",
+        "role": "人事部長",
     },
     "レイちゃん": {
         "speakerClass": "speaker-rei",
