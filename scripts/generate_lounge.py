@@ -80,7 +80,7 @@ SPEAKER_DEFAULTS = {
         "speakerClass": "speaker-takaken",
         "icon": "image/icon/icon_mmc003.jpg",
         "alt": "たかけんのアイコン",
-        "role": "ゲーム事業部長",
+        "role": "ゲーム制作部長",
     },
     "マイケル": {
         "speakerClass": "speaker-michael",
