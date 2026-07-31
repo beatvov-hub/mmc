@@ -5845,6 +5845,60 @@ img { max-width: 100%; }
   font-weight: 800;
 }
 
+.forensics-results-status {
+  margin: -4px 0 14px;
+  color: var(--muted);
+  font-size: .92rem;
+  font-weight: 800;
+}
+
+.forensics-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 22px;
+}
+
+.forensics-pagination[hidden] {
+  display: none !important;
+}
+
+.forensics-page-button {
+  min-width: 42px;
+  min-height: 42px;
+  border: 1px solid var(--forensics-line);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,.92);
+  color: var(--forensics-ink);
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.forensics-page-button:hover,
+.forensics-page-button:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--forensics-teal);
+  outline: 3px solid rgba(29,107,103,.22);
+  outline-offset: 2px;
+}
+
+.forensics-page-button.is-current {
+  border-color: var(--forensics-teal);
+  background: var(--forensics-teal);
+  color: white;
+}
+
+.forensics-page-button:disabled {
+  opacity: .42;
+  cursor: default;
+  transform: none;
+}
+
 .forensics-makoto-card {
   display: grid;
   grid-template-columns: 72px 1fr;

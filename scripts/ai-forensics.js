@@ -5,37 +5,96 @@
   const levelSelect = document.querySelector("[data-forensics-filter='level']");
   const difficultySelect = document.querySelector("[data-forensics-filter='difficulty']");
   const searchInput = document.querySelector("[data-forensics-filter='search']");
+  const resultsStatus = document.querySelector("[data-forensics-results]");
+  const pagination = document.querySelector("[data-forensics-pagination]");
+  const pageSize = Number(pagination && pagination.dataset.pageSize) || 9;
+  let currentPage = 1;
+  let filteredCards = cards.slice();
 
   function normalize(value) {
     return String(value || "").trim().toLowerCase();
   }
 
-  function applyFilters() {
+  function renderPagination(totalPages, visibleCount) {
+    if (!pagination) return;
+    pagination.innerHTML = "";
+    pagination.hidden = totalPages <= 1;
+    if (resultsStatus) {
+      if (visibleCount === 0) {
+        resultsStatus.textContent = "該当する事例はありません。";
+      } else if (totalPages <= 1) {
+        resultsStatus.textContent = `${visibleCount}件の事例を表示しています。`;
+      } else {
+        resultsStatus.textContent = `${visibleCount}件中 ${currentPage}/${totalPages}ページを表示しています。`;
+      }
+    }
+    if (totalPages <= 1) return;
+
+    function addButton(label, page, options) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = label;
+      button.dataset.page = String(page);
+      button.className = "forensics-page-button";
+      if (options && options.current) {
+        button.classList.add("is-current");
+        button.setAttribute("aria-current", "page");
+      }
+      if (options && options.disabled) button.disabled = true;
+      pagination.appendChild(button);
+    }
+
+    addButton("前へ", Math.max(1, currentPage - 1), { disabled: currentPage === 1 });
+    for (let page = 1; page <= totalPages; page += 1) {
+      addButton(String(page), page, { current: page === currentPage });
+    }
+    addButton("次へ", Math.min(totalPages, currentPage + 1), { disabled: currentPage === totalPages });
+  }
+
+  function applyFilters(options) {
     if (!cards.length) return;
+    if (!options || options.resetPage !== false) currentPage = 1;
     const category = categorySelect ? categorySelect.value : "all";
     const level = levelSelect ? levelSelect.value : "all";
     const difficulty = difficultySelect ? difficultySelect.value : "all";
     const keyword = normalize(searchInput ? searchInput.value : "");
-    let visibleCount = 0;
-
-    cards.forEach(function (card) {
+    filteredCards = cards.filter(function (card) {
       const haystack = normalize(card.dataset.searchText);
-      const matchesCategory = category === "all" || card.dataset.category === category;
-      const matchesLevel = level === "all" || card.dataset.level === level;
-      const matchesDifficulty = difficulty === "all" || card.dataset.difficulty === difficulty;
-      const matchesKeyword = !keyword || haystack.includes(keyword);
-      const visible = matchesCategory && matchesLevel && matchesDifficulty && matchesKeyword;
-      card.hidden = !visible;
-      if (visible) visibleCount += 1;
+      return (category === "all" || card.dataset.category === category)
+        && (level === "all" || card.dataset.level === level)
+        && (difficulty === "all" || card.dataset.difficulty === difficulty)
+        && (!keyword || haystack.includes(keyword));
     });
 
+    cards.forEach(function (card) {
+      card.hidden = true;
+    });
+
+    const visibleCount = filteredCards.length;
+    const totalPages = Math.max(1, Math.ceil(visibleCount / pageSize));
+    if (currentPage > totalPages) currentPage = totalPages;
+    const start = (currentPage - 1) * pageSize;
+    filteredCards.slice(start, start + pageSize).forEach(function (card) {
+      card.hidden = false;
+    });
     if (empty) empty.hidden = visibleCount !== 0;
+    renderPagination(totalPages, visibleCount);
   }
 
   [categorySelect, levelSelect, difficultySelect, searchInput].forEach(function (control) {
     if (!control) return;
     control.addEventListener(control.tagName === "INPUT" ? "input" : "change", applyFilters);
   });
+  if (pagination) {
+    pagination.addEventListener("click", function (event) {
+      const button = event.target.closest("[data-page]");
+      if (!button || button.disabled) return;
+      currentPage = Number(button.dataset.page) || 1;
+      applyFilters({ resetPage: false });
+      const searchSection = document.querySelector(".forensics-search-section");
+      if (searchSection) searchSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
   applyFilters();
 
   const questionBlocks = Array.from(document.querySelectorAll("[data-forensics-question]"));
