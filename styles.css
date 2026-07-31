@@ -4544,6 +4544,116 @@ img { max-width: 100%; }
   border-top: 5px solid rgba(214,163,61,.72);
   background: linear-gradient(135deg, rgba(255,247,235,.9), rgba(255,255,255,.76));
 }
+.salary-section {
+  margin-top: 22px;
+  padding: 22px;
+  border: 1px dashed rgba(122,79,43,.34);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255,250,242,.82), rgba(245,234,219,.56)),
+    rgba(255,255,255,.58);
+}
+.salary-section-heading {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.salary-section-heading h2 {
+  margin: 0;
+  color: var(--green);
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+}
+.salary-section-heading p:not(.section-kicker) {
+  margin: 0;
+  color: var(--muted);
+  font-size: .94rem;
+  line-height: 1.85;
+}
+.salary-details {
+  overflow: hidden;
+  border: 1px solid rgba(214,163,61,.38);
+  border-radius: 8px;
+  background: rgba(255,255,255,.72);
+}
+.salary-details summary {
+  cursor: pointer;
+  padding: 16px 18px;
+  color: var(--coffee);
+  font-weight: 900;
+  list-style-position: inside;
+  background:
+    linear-gradient(90deg, rgba(214,163,61,.16), transparent),
+    rgba(255,250,242,.9);
+}
+.salary-details summary:hover {
+  color: var(--green);
+}
+.salary-note {
+  margin: 16px 18px 0;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.75;
+}
+.salary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 18px;
+}
+.salary-card {
+  padding: 16px;
+  border: 1px solid rgba(225,204,176,.9);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255,252,247,.94), rgba(250,240,225,.76));
+  font-size: .88rem;
+}
+.salary-card h3 {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: 1rem;
+}
+.salary-card dl {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+}
+.salary-card dl div {
+  display: grid;
+  grid-template-columns: minmax(5.8em, .72fr) 1fr;
+  gap: 10px;
+  align-items: baseline;
+}
+.salary-card dt {
+  color: var(--muted);
+  font-weight: 800;
+}
+.salary-card dd {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+.salary-total {
+  margin-top: 5px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(122,79,43,.18);
+}
+.salary-total dd {
+  color: var(--coffee);
+  font-size: 1.04rem;
+  font-weight: 900;
+}
+.salary-card-pechi {
+  background:
+    linear-gradient(135deg, rgba(255,250,242,.96), rgba(232,216,196,.72)),
+    rgba(255,255,255,.8);
+}
+.salary-pechi-note {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.65;
+}
 .about-step-list {
   display: grid;
   gap: 10px;
@@ -4674,6 +4784,16 @@ img { max-width: 100%; }
   .about-benefit-grid article,
   .about-timeline div {
     padding: 18px;
+  }
+  .salary-section {
+    padding: 16px;
+  }
+  .salary-grid {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+  .salary-card dl div {
+    grid-template-columns: minmax(4.8em, .62fr) 1fr;
   }
   .about-inline-button {
     width: 100%;
