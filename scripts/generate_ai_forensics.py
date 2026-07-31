@@ -30,6 +30,7 @@ CATEGORY_LABELS = {
     "verification": "情報確認",
     "work-use": "仕事でのAI活用",
     "health-ai": "健康・医療AI",
+    "health-misinformation": "健康情報の誤情報",
     "media-literacy": "メディアリテラシー",
     "other": "その他",
 }

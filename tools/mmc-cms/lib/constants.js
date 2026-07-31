@@ -9,7 +9,7 @@ const SPEAKERS = [
 const CATEGORIES = [
   "deepfake", "misinformation", "hallucination", "privacy", "copyright",
   "security", "scam", "search", "social-media", "verification", "work-use",
-  "health-ai", "media-literacy", "other"
+  "health-ai", "health-misinformation", "media-literacy", "other"
 ];
 const DIFFICULTIES = ["beginner", "standard", "advanced"];
 const SOURCE_TYPES = [
