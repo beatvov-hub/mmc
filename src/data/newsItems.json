@@ -87,6 +87,28 @@
       "aboutSummary": "AI社員の役割が実際の業務に即したものとなるよう、ショウマを企画営業部長、たかけんをゲーム制作部長、DGをゲーム制作部 人狼広報課 人狼界隈観測課長、ねむちゃんを人事部長に任命しました。コンテンツ事業、ゲーム制作、人狼文化の情報発信、人事設計の体制を整理しています。"
     },
     {
+      "id": "mmc-workline-launched",
+      "date": "2026-07-31",
+      "priority": 305,
+      "title": "ローカルCMSを「MMC Workline」へ統合・拡張しました",
+      "summary": "ラウンジログやAI鑑識室を更新してきたローカルCMS「MMC 更新室」を、毎日見る株式会社の業務進行・更新管理ツール「MMC Workline」へ統合・拡張しました。タスク管理、進行ボード、タイムライン、成果物、社員・部署管理を追加し、日々の制作とサイト更新を一つの作業線で扱えるようにしています。",
+      "tag": "運用改善",
+      "relatedPage": "news.html",
+      "topVisible": true,
+      "timelineVisible": true,
+      "details": [
+        "既存のMMCラウンジ更新・AI鑑識室更新機能を「サイト更新室」として継続",
+        "タスク作成・編集・削除、MMC専用ステータス、進行ボードを追加",
+        "ガントチャート風タイムライン、成果物管理、社員・部署管理を追加",
+        "Codex実装指示欄、関連リンク、生成履歴・活動履歴を管理できる構成へ拡張",
+        "従来の start-cms.cmd に加え、start-workline.cmd からも起動できるように整備"
+      ],
+      "topTitle": "MMC Worklineを整備",
+      "topSummary": "ローカルCMSを業務進行・更新管理ツールへ拡張し、制作とサイト更新をまとめて扱えるようにしました。",
+      "aboutTitle": "MMC Worklineを整備",
+      "aboutSummary": "ローカルCMS「MMC 更新室」を、タスク管理・進行ボード・タイムライン・成果物管理まで扱える「MMC Workline」へ拡張しました。"
+    },
+    {
       "id": "director-yossy-profile-launched",
       "date": "2026-07-28",
       "title": "所長プロフィールページを公開しました",
@@ -337,58 +359,22 @@
       ]
     },
     {
-      "id": "about-page-expansion-policy",
+      "id": "search-index-operation-started",
       "date": "2026-07-08",
-      "title": "会社概要ページの拡充方針を策定",
-      "tag": "改善",
-      "category": "会社紹介",
-      "summary": "毎日見る株式会社の会社概要ページを、AI社員制度・ラウンジ文化・事業内容・沿革が伝わるページとして拡充する方針を整理しました。",
-      "topTitle": "会社概要ページの拡充方針を整理しました",
-      "topVisible": false,
-      "timelineVisible": true,
-      "priority": 60,
-      "relatedPage": "about.html",
-      "bullets": [
-        "会社概要ページの情報量を拡充",
-        "AI社員制度とラウンジ文化を追加",
-        "会社沿革と社内文化を整理"
-      ]
-    },
-    {
-      "id": "heisei-ai-gallery-started",
-      "date": "2026-07-08",
-      "title": "広報部新企画「平成AI化ギャラリー」を始動",
-      "tag": "企画",
-      "category": "広報部",
-      "summary": "平成初期〜2000年代前半のホームページ文化を尊重し、現代のUI/UXで再設計する広報部プロジェクトを開始しました。",
-      "topTitle": "平成AI化ギャラリーを始動しました",
-      "topSummary": "古いWeb文化の良さを残しながら、現代のUIで再設計します。",
+      "title": "公式サイトの検索インデックス運用を開始",
+      "tag": "運用",
+      "category": "サイト運用",
+      "summary": "Google Search Console に公式サイトを登録し、サイトマップ送信を完了しました。検索インデックス状況の確認と改善を開始します。",
+      "topTitle": "検索インデックス運用を開始しました",
+      "topSummary": "Google Search Console 登録とサイトマップ送信を完了しました。",
       "topVisible": true,
       "timelineVisible": true,
-      "priority": 70,
+      "priority": 100,
+      "relatedPage": "mainichi-miru-sitemap.xml",
       "bullets": [
-        "広報部プロジェクトとして企画開始",
-        "平成初期〜2000年代前半のWeb文化を参考にする",
-        "古いサイトの良さを残しながら現代化する方針"
-      ]
-    },
-    {
-      "id": "night-lounge-mode",
-      "date": "2026-07-08",
-      "title": "夜間ラウンジモードを導入",
-      "tag": "サイト更新",
-      "category": "ラウンジ",
-      "summary": "23:00〜翌8:00の間、社員ラウンジが消灯中の夜間モードになります。「こっそり入室する」ボタンから通常ページも閲覧できます。",
-      "topTitle": "夜間ラウンジモードを導入しました",
-      "topSummary": "23:00〜翌8:00はラウンジが消灯中の演出になります。",
-      "topVisible": true,
-      "timelineVisible": true,
-      "priority": 80,
-      "relatedPage": "lounge.html",
-      "bullets": [
-        "23:00〜翌8:00に夜間オーバーレイを表示",
-        "「こっそり入室する」ボタンを追加",
-        "世界観演出とユーザビリティを両立"
+        "Google Search Console に公式サイトを登録",
+        "サイトマップ送信を完了",
+        "検索インデックス運用を開始"
       ]
     },
     {
@@ -411,22 +397,58 @@
       ]
     },
     {
-      "id": "search-index-operation-started",
+      "id": "night-lounge-mode",
       "date": "2026-07-08",
-      "title": "公式サイトの検索インデックス運用を開始",
-      "tag": "運用",
-      "category": "サイト運用",
-      "summary": "Google Search Console に公式サイトを登録し、サイトマップ送信を完了しました。検索インデックス状況の確認と改善を開始します。",
-      "topTitle": "検索インデックス運用を開始しました",
-      "topSummary": "Google Search Console 登録とサイトマップ送信を完了しました。",
+      "title": "夜間ラウンジモードを導入",
+      "tag": "サイト更新",
+      "category": "ラウンジ",
+      "summary": "23:00〜翌8:00の間、社員ラウンジが消灯中の夜間モードになります。「こっそり入室する」ボタンから通常ページも閲覧できます。",
+      "topTitle": "夜間ラウンジモードを導入しました",
+      "topSummary": "23:00〜翌8:00はラウンジが消灯中の演出になります。",
       "topVisible": true,
       "timelineVisible": true,
-      "priority": 100,
-      "relatedPage": "mainichi-miru-sitemap.xml",
+      "priority": 80,
+      "relatedPage": "lounge.html",
       "bullets": [
-        "Google Search Console に公式サイトを登録",
-        "サイトマップ送信を完了",
-        "検索インデックス運用を開始"
+        "23:00〜翌8:00に夜間オーバーレイを表示",
+        "「こっそり入室する」ボタンを追加",
+        "世界観演出とユーザビリティを両立"
+      ]
+    },
+    {
+      "id": "heisei-ai-gallery-started",
+      "date": "2026-07-08",
+      "title": "広報部新企画「平成AI化ギャラリー」を始動",
+      "tag": "企画",
+      "category": "広報部",
+      "summary": "平成初期〜2000年代前半のホームページ文化を尊重し、現代のUI/UXで再設計する広報部プロジェクトを開始しました。",
+      "topTitle": "平成AI化ギャラリーを始動しました",
+      "topSummary": "古いWeb文化の良さを残しながら、現代のUIで再設計します。",
+      "topVisible": true,
+      "timelineVisible": true,
+      "priority": 70,
+      "bullets": [
+        "広報部プロジェクトとして企画開始",
+        "平成初期〜2000年代前半のWeb文化を参考にする",
+        "古いサイトの良さを残しながら現代化する方針"
+      ]
+    },
+    {
+      "id": "about-page-expansion-policy",
+      "date": "2026-07-08",
+      "title": "会社概要ページの拡充方針を策定",
+      "tag": "改善",
+      "category": "会社紹介",
+      "summary": "毎日見る株式会社の会社概要ページを、AI社員制度・ラウンジ文化・事業内容・沿革が伝わるページとして拡充する方針を整理しました。",
+      "topTitle": "会社概要ページの拡充方針を整理しました",
+      "topVisible": false,
+      "timelineVisible": true,
+      "priority": 60,
+      "relatedPage": "about.html",
+      "bullets": [
+        "会社概要ページの情報量を拡充",
+        "AI社員制度とラウンジ文化を追加",
+        "会社沿革と社内文化を整理"
       ]
     },
     {
