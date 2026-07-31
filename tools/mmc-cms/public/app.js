@@ -688,6 +688,7 @@ async function initialize() {
     systemInfo = await api("/api/status");
     if (!systemInfo.ok) throw new Error((systemInfo.errors || []).join("\n"));
     sessionToken = systemInfo.token;
+    window.worklineApiToken = sessionToken;
     $("#repo-root").textContent = systemInfo.root;
     $("#lounge-count").textContent = `${systemInfo.counts.lounge} 件登録済み`;
     $("#forensics-count").textContent = `${systemInfo.counts.forensics} 件登録済み`;
@@ -787,7 +788,8 @@ $("#generate-lounge").addEventListener("click", async () => {
   setBusy(button, true, "生成中…");
   const result = await api("/api/lounge/generate", {
     entry: loungeForSave(),
-    confirmOverwrite: $("#lounge-overwrite").checked
+    confirmOverwrite: $("#lounge-overwrite").checked,
+    taskId: $("#lounge-task-link")?.value || null
   });
   showValidation("#lounge-validation", result);
   renderLog("#lounge-log-panel", "#lounge-log", result);
@@ -869,7 +871,8 @@ $("#generate-forensics").addEventListener("click", async () => {
   setBusy(button, true, "生成中…");
   const result = await api("/api/forensics/generate", {
     article: aiForSave(),
-    confirmOverwrite: $("#forensics-overwrite").checked
+    confirmOverwrite: $("#forensics-overwrite").checked,
+    taskId: $("#forensics-task-link")?.value || null
   });
   showValidation("#forensics-validation", result);
   renderLog("#forensics-log-panel", "#forensics-log", result);

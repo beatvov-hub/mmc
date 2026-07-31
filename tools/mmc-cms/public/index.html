@@ -4,27 +4,142 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
-    <title>MMC 更新室｜ローカルCMS</title>
+    <title>MMC Workline｜毎日見る株式会社 業務進行・更新管理ツール</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="app-header">
       <div>
         <p class="eyebrow">MAINICHI MIRU COMPANY</p>
-        <h1>MMC 更新室</h1>
-        <p>原稿を整えて、確認して、既存の生成処理へ渡すローカルCMS</p>
+        <h1>MMC Workline</h1>
+        <p>毎日見る株式会社 業務進行・更新管理ツール</p>
       </div>
       <div class="status-card" id="system-status" aria-live="polite">接続を確認しています…</div>
     </header>
 
-    <nav class="section-tabs" aria-label="更新画面">
-      <button class="is-active" data-tab="lounge" type="button">MMCラウンジ</button>
+    <nav class="section-tabs app-sidebar" aria-label="MMC Workline">
+      <button class="is-active" data-tab="dashboard" type="button">ダッシュボード</button>
+      <button data-tab="board" type="button">進行ボード</button>
+      <button data-tab="timeline" type="button">タイムライン</button>
+      <div class="nav-group-label">サイト更新室</div>
+      <button data-tab="lounge" type="button">MMCラウンジ</button>
       <button data-tab="forensics" type="button">AI鑑識室</button>
+      <button data-tab="artifacts" type="button">成果物</button>
+      <button data-tab="people" type="button">社員・部署</button>
+      <button data-tab="archive" type="button">完了アーカイブ</button>
       <button data-tab="settings" type="button">設定・復元</button>
     </nav>
 
     <main>
-      <section class="workspace is-active" id="panel-lounge" data-panel="lounge">
+      <section class="workspace is-active" id="panel-dashboard" data-panel="dashboard">
+        <div class="workspace-heading">
+          <div>
+            <span class="step-mark">01</span>
+            <h2>ダッシュボード</h2>
+            <p>今日の進行状況、確認待ち、最近の生成物をまとめて見ます。</p>
+          </div>
+          <button class="button secondary" id="refresh-workline" type="button">再読み込み</button>
+        </div>
+        <div class="metric-grid" id="dashboard-metrics"></div>
+        <div class="two-column">
+          <section class="panel">
+            <div class="panel-heading"><div><span class="mini-step">A</span><h3>期限が近いタスク</h3></div></div>
+            <div class="compact-list" id="dashboard-due"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-heading"><div><span class="mini-step">B</span><h3>最近の活動</h3></div></div>
+            <div class="compact-list" id="dashboard-activity"></div>
+          </section>
+        </div>
+        <div class="two-column">
+          <section class="panel">
+            <div class="panel-heading"><div><span class="mini-step">C</span><h3>担当社員ごとの進行件数</h3></div></div>
+            <div class="chip-list" id="dashboard-employees"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-heading"><div><span class="mini-step">D</span><h3>最近生成したサイトコンテンツ</h3></div></div>
+            <div class="compact-list" id="dashboard-artifacts"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="workspace" id="panel-board" data-panel="board">
+        <div class="workspace-heading">
+          <div>
+            <span class="step-mark">02</span>
+            <h2>進行ボード</h2>
+            <p>MMC専用ステータスで、企画から公開準備までを見渡します。</p>
+          </div>
+          <button class="button primary" id="new-task" type="button">タスクを追加</button>
+        </div>
+        <section class="panel workline-filters">
+          <label class="field"><span>担当社員</span><select id="filter-employee"></select></label>
+          <label class="field"><span>部署</span><select id="filter-department"></select></label>
+          <label class="field"><span>状態</span><select id="filter-status"></select></label>
+          <label class="field"><span>タグ</span><input id="filter-tag" placeholder="例：ラウンジ" /></label>
+        </section>
+        <div class="kanban-board" id="kanban-board"></div>
+      </section>
+
+      <section class="workspace" id="panel-timeline" data-panel="timeline">
+        <div class="workspace-heading">
+          <div>
+            <span class="step-mark">03</span>
+            <h2>タイムライン</h2>
+            <p>開始日と終了日があるタスクを、ガントチャート風に確認します。</p>
+          </div>
+          <label class="field compact-field"><span>表示単位</span><select id="timeline-unit"><option value="day">日</option><option value="week">週</option><option value="month">月</option></select></label>
+        </div>
+        <section class="panel">
+          <div class="timeline-wrap" id="timeline-view"></div>
+          <div class="compact-list" id="timeline-unscheduled"></div>
+        </section>
+      </section>
+
+      <section class="workspace" id="panel-artifacts" data-panel="artifacts">
+        <div class="workspace-heading">
+          <div>
+            <span class="step-mark">05</span>
+            <h2>成果物</h2>
+            <p>記事、画像、サイト、データなどをタスクと紐付けて残します。</p>
+          </div>
+          <button class="button primary" id="new-artifact" type="button">成果物を追加</button>
+        </div>
+        <div class="workline-table" id="artifact-table"></div>
+      </section>
+
+      <section class="workspace" id="panel-people" data-panel="people">
+        <div class="workspace-heading">
+          <div>
+            <span class="step-mark">06</span>
+            <h2>社員・部署</h2>
+            <p>Workline内で使う担当社員と部署を管理します。</p>
+          </div>
+        </div>
+        <div class="two-column">
+          <section class="panel">
+            <div class="panel-heading"><div><span class="mini-step">社</span><h3>社員</h3></div><button class="button tiny" id="new-employee" type="button">追加</button></div>
+            <div class="workline-table" id="employee-table"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-heading"><div><span class="mini-step">部</span><h3>部署</h3></div><button class="button tiny" id="new-department" type="button">追加</button></div>
+            <div class="workline-table" id="department-table"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="workspace" id="panel-archive" data-panel="archive">
+        <div class="workspace-heading">
+          <div>
+            <span class="step-mark">07</span>
+            <h2>完了アーカイブ</h2>
+            <p>完了したタスクを、後から振り返れる形で残します。</p>
+          </div>
+        </div>
+        <div class="compact-list archive-list" id="archive-list"></div>
+      </section>
+
+      <section class="workspace" id="panel-lounge" data-panel="lounge">
         <div class="workspace-heading">
           <div>
             <span class="step-mark">01</span>
@@ -90,6 +205,10 @@
             <label class="confirm-row is-hidden" id="lounge-overwrite-row">
               <input type="checkbox" id="lounge-overwrite" />
               <span>同じIDのデータを上書きすることを確認しました</span>
+            </label>
+            <label class="field">
+              <span>関連タスク（任意）</span>
+              <select id="lounge-task-link"></select>
             </label>
             <div class="button-row">
               <button class="button secondary" id="validate-lounge" type="button">入力チェック</button>
@@ -240,6 +359,10 @@
               <input type="checkbox" id="forensics-overwrite" />
               <span>同じIDの記事を上書きすることを確認しました</span>
             </label>
+            <label class="field">
+              <span>関連タスク（任意）</span>
+              <select id="forensics-task-link"></select>
+            </label>
             <div class="button-row">
               <button class="button secondary" id="validate-forensics" type="button">入力チェック</button>
               <button class="button primary" id="generate-forensics" type="button">記事を生成</button>
@@ -290,10 +413,28 @@
     </main>
 
     <datalist id="speaker-list"></datalist>
+    <aside class="workline-drawer is-hidden" id="workline-drawer" aria-live="polite">
+      <div class="drawer-card">
+        <div class="drawer-head">
+          <div>
+            <p class="eyebrow" id="drawer-kind">WORKLINE</p>
+            <h2 id="drawer-title">編集</h2>
+          </div>
+          <button class="icon-button" id="close-drawer" type="button">×</button>
+        </div>
+        <div id="drawer-body"></div>
+        <div id="drawer-message" class="message-slot"></div>
+        <div class="button-row">
+          <button class="button primary" id="save-drawer" type="button">保存</button>
+          <button class="button danger is-hidden" id="delete-drawer" type="button">削除</button>
+        </div>
+      </div>
+    </aside>
     <footer class="app-footer">
       <span>ローカル専用 · 外部AI/API不使用 · Gitコミット/公開は行いません</span>
       <span id="repo-root"></span>
     </footer>
     <script src="app.js"></script>
+    <script src="workline.js"></script>
   </body>
 </html>
