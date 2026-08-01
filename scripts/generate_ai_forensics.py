@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import html
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -154,6 +155,7 @@ def load_articles() -> list[dict[str, Any]]:
         if article is None:
             continue
         if validate_article(article, path):
+            article["_sourcePath"] = str(path)
             articles.append(article)
     return sorted(articles, key=lambda item: item.get("publishedAt", ""), reverse=True)
 
@@ -692,20 +694,42 @@ def render_article_page(article: dict[str, Any], articles: list[dict[str, Any]])
     )
 
 
-def write_pages(articles: list[dict[str, Any]]) -> None:
+def should_write_article(article: dict[str, Any], path: Path, *, force: bool) -> bool:
+    if force or not path.exists():
+        return True
+    source_path = Path(str(article.get("_sourcePath", "")))
+    if source_path.exists() and source_path.stat().st_mtime > path.stat().st_mtime:
+        return True
+    return False
+
+
+def public_article(article: dict[str, Any]) -> dict[str, Any]:
+    return {key: value for key, value in article.items() if not str(key).startswith("_")}
+
+
+def write_pages(articles: list[dict[str, Any]], *, force: bool = False) -> int:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    INDEX_HTML_PATH.write_text(render_index_page(articles), encoding="utf-8")
+    public_articles = [public_article(article) for article in articles]
+    INDEX_HTML_PATH.write_text(render_index_page(public_articles), encoding="utf-8")
     apply_layout_to_file(INDEX_HTML_PATH)
+    written = 0
     for article in articles:
         path = article_path(article)
-        path.write_text(render_article_page(article, articles), encoding="utf-8")
+        if not should_write_article(article, path, force=force):
+            continue
+        public_current = public_article(article)
+        path.write_text(render_article_page(public_current, public_articles), encoding="utf-8")
         apply_layout_to_file(path)
+        written += 1
+    return written
 
 
 def main() -> None:
+    force = "--force" in sys.argv or "--all" in sys.argv
     articles = load_articles()
-    write_pages(articles)
-    print(f"Generated AI鑑識室 pages from {len(articles)} article(s).")
+    written = write_pages(articles, force=force)
+    mode = "all" if force else "changed"
+    print(f"Generated AI鑑識室 index and {written} {mode} article page(s) from {len(articles)} article(s).")
 
 
 if __name__ == "__main__":
