@@ -54,6 +54,7 @@ STATIC_SITEMAP_PATHS = [
     "members/akito",
     "members/kei",
     "members/makoto",
+    "members/koto",
     "members/pechi",
     "services",
     "ai-forensics",
@@ -138,6 +139,12 @@ SPEAKER_DEFAULTS = {
         "icon": "image/icon/icon_mmc010.jpg",
         "alt": "誠のアイコン",
         "role": "AIリテラシー推進室 主任",
+    },
+    "コトちゃん": {
+        "speakerClass": "speaker-koto",
+        "icon": "image/icon/icon_mmc011.jpg",
+        "alt": "コトちゃんのアイコン",
+        "role": "編集主任",
     },
     "ペチ": {
         "speakerClass": "speaker-pechi",

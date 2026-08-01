@@ -61,6 +61,12 @@
       href: "members/makoto.html"
     },
     {
+      number: "MMC-011",
+      name: "コトちゃん",
+      summary: "体験を読者に届く記事へ整える編集主任",
+      href: "members/koto.html"
+    },
+    {
       number: "CC-001",
       name: "ペチ",
       summary: "忖度なしに観測する社外協力者",
