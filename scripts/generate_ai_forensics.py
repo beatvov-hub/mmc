@@ -31,6 +31,7 @@ CATEGORY_LABELS = {
     "work-use": "仕事でのAI活用",
     "health-ai": "健康・医療AI",
     "health-misinformation": "健康情報の誤情報",
+    "ai-content-labels": "AIコンテンツ表示",
     "media-literacy": "メディアリテラシー",
     "other": "その他",
 }

@@ -29,9 +29,12 @@ WEEKDAY_EN = {
 }
 
 TIME_SLOT_CLASSES = {
+    "08": "time-slot-0800",
     "09": "time-slot-0900",
     "12": "time-slot-1200",
+    "13": "time-slot-1300",
     "17": "time-slot-1700",
+    "18": "time-slot-1800",
     "20": "time-slot-2000",
     "23": "time-slot-2300",
 }
