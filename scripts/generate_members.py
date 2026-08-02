@@ -263,21 +263,9 @@ def render_panel(title: str, lines: list[str], extra_class: str = "") -> str:
 
 
 def render_review_panel(sections: dict[str, list[str]], meta: dict[str, str]) -> str:
-    lines = all_values(sections, ["社員からの評価", "他社員からの評価"])
-    if not lines:
-        return ""
-    cards = []
-    for line in [clean_item(v) for v in lines if clean_item(v)][:6]:
-        cards.append(
-            f"""          <div class="profile-review">
-            <img src="../image/icon/{esc(meta['icon'])}" alt="{esc(meta.get('display_name', '社員'))}のアイコン" />
-            <p>{esc(line)}</p>
-          </div>"""
-        )
-    return f"""        <article class="profile-panel">
-          <h2>みんなからの評価</h2>
-{chr(10).join(cards)}
-        </article>"""
+    # Source profile files currently do not identify who made each review.
+    # Hide this panel until attributed comments are available.
+    return ""
 
 
 def render_profile_list(sections: dict[str, list[str]], meta: dict[str, str]) -> str:
