@@ -5343,11 +5343,17 @@ img { max-width: 100%; }
   object-fit: contain;
 }
 .profile-panel {
+  grid-column: 1 / -1;
   padding: clamp(22px, 3vw, 30px);
   border: 1px solid #ead8c0;
   border-radius: 8px;
   background: rgba(255,255,255,.78);
   box-shadow: 0 14px 38px rgba(54,35,20,.06);
+}
+.profile-compact,
+.profile-image-item,
+.profile-list-panel {
+  grid-column: auto;
 }
 .profile-panel h2 {
   margin: 0 0 14px;
@@ -5357,6 +5363,9 @@ img { max-width: 100%; }
 .profile-panel p {
   margin: 0;
   color: var(--muted);
+}
+.profile-panel p + p {
+  margin-top: 10px;
 }
 .profile-panel ul {
   margin: 0;

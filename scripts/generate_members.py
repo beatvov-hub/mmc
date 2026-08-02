@@ -179,14 +179,14 @@ STAFF = {
 
 SECTION_GROUPS = [
     ("担当業務", ["担当業務"], "profile-work"),
-    ("得意なこと", ["得意分野"], ""),
-    ("苦手なこと", ["苦手分野", "苦手なもの"], ""),
-    ("性格", ["性格"], "profile-wide"),
-    ("考え方・価値観", ["考え方・価値観"], ""),
+    ("得意なこと", ["得意分野"], "profile-compact"),
+    ("苦手なこと", ["苦手分野", "苦手なもの"], "profile-compact"),
+    ("性格", ["性格"], "profile-wide profile-prose"),
+    ("考え方・価値観", ["考え方・価値観"], "profile-wide"),
     ("話し方・口癖", ["話し方・口癖", "よく使う言葉"], "profile-wide"),
-    ("日常の癖・好きなこと", ["日常の癖", "趣味・好きなこと"], ""),
+    ("日常の癖・好きなこと", ["日常の癖", "趣味・好きなこと"], "profile-wide"),
     ("所長との関係", ["所長との関係"], "profile-wide"),
-    ("社内での見られ方", ["社員からの評価", "他社員からの評価", "所長からの評価"], ""),
+    ("社内での見られ方", ["社員からの評価", "他社員からの評価", "所長からの評価"], "profile-wide"),
     ("最近の仕事とラウンジ小ネタ", ["最近の主な業務", "ラウンジでの振る舞い", "ラウンジで使いやすい小ネタ"], "profile-wide"),
     ("隠れた設定・モットー", ["隠れた設定", "命名の由来", "モットー"], "profile-wide"),
 ]
@@ -258,10 +258,21 @@ def clean_item(line: str) -> str:
     return line
 
 
-def render_lines(lines: list[str]) -> str:
+def render_lines(lines: list[str], prose: bool = False) -> str:
     cleaned = [clean_item(line) for line in lines if clean_item(line)]
     if not cleaned:
         return ""
+    if prose:
+        paragraphs = []
+        buffer: list[str] = []
+        for line in cleaned:
+            buffer.append(line)
+            if line.endswith(("。", "！", "？")):
+                paragraphs.append("".join(buffer))
+                buffer = []
+        if buffer:
+            paragraphs.append("".join(buffer))
+        return "\n".join(f"          <p>{esc(paragraph)}</p>" for paragraph in paragraphs)
     bulletish = len(cleaned) >= 2 or any(line.startswith("・") for line in lines)
     if bulletish:
         items = "\n".join(f"            <li>{esc(line)}</li>" for line in cleaned)
@@ -270,7 +281,8 @@ def render_lines(lines: list[str]) -> str:
 
 
 def render_panel(title: str, lines: list[str], extra_class: str = "") -> str:
-    body = render_lines(lines)
+    prose = "profile-prose" in extra_class.split()
+    body = render_lines(lines, prose=prose)
     if not body:
         return ""
     cls = f' class="profile-panel {extra_class}"' if extra_class else ' class="profile-panel"'
@@ -337,7 +349,7 @@ def render_profile_list(sections: dict[str, list[str]], meta: dict[str, str]) ->
         for k, v in facts
         if v
     )
-    return f"""        <article class="profile-panel">
+    return f"""        <article class="profile-panel profile-list-panel">
           <h2>プロフィール</h2>
           <dl class="profile-list">
 {rows}
