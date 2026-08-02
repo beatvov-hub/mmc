@@ -54,6 +54,12 @@ def local_href(prefix: str, href: str) -> str:
     return f"{prefix}{href}"
 
 
+def external_link_attrs(href: str) -> str:
+    if href.startswith(("http://", "https://")):
+        return ' target="_blank" rel="noopener noreferrer"'
+    return ""
+
+
 def work_href(work: dict, prefix: str = "") -> str:
     return f"{prefix}works/{work['slug']}.html"
 
@@ -281,7 +287,8 @@ def render_work_card(work: dict) -> str:
         f'              <a class="mini-button" href="{esc(work_href(work))}">制作背景を読む</a>',
     ]
     if public_url:
-        lines.append(f'              <a class="mini-button mini-button-secondary" href="{esc(local_href("", public_url))}">{esc(public_label)}</a>')
+        public_href = local_href("", public_url)
+        lines.append(f'              <a class="mini-button mini-button-secondary" href="{esc(public_href)}"{external_link_attrs(public_href)}>{esc(public_label)}</a>')
     lines.extend(["            </div>", "          </article>"])
     return "\n".join(lines)
 
@@ -427,7 +434,8 @@ def render_rich_detail_page(work: dict) -> str:
         ]
     )
     if public_url:
-        lines.append(f'        <a class="secondary-button work-public-button" href="{esc(local_href("../", public_url))}">{esc(public_label)}</a>')
+        public_href = local_href("../", public_url)
+        lines.append(f'        <a class="secondary-button work-public-button" href="{esc(public_href)}"{external_link_attrs(public_href)}>{esc(public_label)}</a>')
     lines.extend(
         [
             "      </section>",
@@ -567,7 +575,8 @@ def render_detail_page(work: dict) -> str:
         ]
     )
     if public_url:
-        lines.append(f'        <a class="secondary-button work-public-button" href="{esc(local_href("../", public_url))}">{esc(public_label)}</a>')
+        public_href = local_href("../", public_url)
+        lines.append(f'        <a class="secondary-button work-public-button" href="{esc(public_href)}"{external_link_attrs(public_href)}>{esc(public_label)}</a>')
     lines.extend(
         [
             "      </section>",
