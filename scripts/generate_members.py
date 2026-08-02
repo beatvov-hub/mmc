@@ -187,8 +187,8 @@ SECTION_GROUPS = [
     ("日常の癖・好きなこと", ["日常の癖", "趣味・好きなこと"], "profile-wide"),
     ("所長との関係", ["所長との関係"], "profile-wide"),
     ("社内での見られ方", ["社員からの評価", "他社員からの評価", "所長からの評価"], "profile-wide"),
-    ("最近の仕事とラウンジ小ネタ", ["最近の主な業務", "ラウンジでの振る舞い", "ラウンジで使いやすい小ネタ"], "profile-wide"),
-    ("隠れた設定・モットー", ["隠れた設定", "命名の由来", "モットー"], "profile-wide"),
+    ("ラウンジ小ネタ", ["ラウンジでの振る舞い", "ラウンジで使いやすい小ネタ"], "profile-wide"),
+    ("モットー", ["モットー"], "profile-wide profile-prose"),
 ]
 
 RELATION_NAMES = {
@@ -204,6 +204,19 @@ RELATION_NAMES = {
     "誠",
     "コトちゃん",
     "ペチ",
+}
+
+INLINE_SECTION_NAMES = {
+    "一言",
+    "最近の主な業務",
+    "ラウンジでの振る舞い",
+    "ラウンジで使いやすい小ネタ",
+    "隠れた設定",
+    "他社員との関係性",
+    "社員からの評価",
+    "他社員からの評価",
+    "所長からの評価",
+    "モットー",
 }
 
 
@@ -223,8 +236,8 @@ def read_sections(path: Path) -> dict[str, list[str]]:
             current = line[3:].strip()
             sections.setdefault(current, [])
             continue
-        if current == "他社員との関係性" and line == "一言":
-            current = "一言"
+        if line in INLINE_SECTION_NAMES and line != current:
+            current = line
             sections.setdefault(current, [])
             continue
         if line.startswith("#"):
