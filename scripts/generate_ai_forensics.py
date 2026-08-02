@@ -24,6 +24,7 @@ CATEGORY_LABELS = {
     "copyright": "著作権",
     "security": "セキュリティ",
     "browser-security": "ブラウザーセキュリティ",
+    "ai-browser-security": "AIブラウザ安全利用",
     "ai-agents": "AIエージェント",
     "scam": "詐欺",
     "search": "AI検索",
