@@ -309,7 +309,7 @@ def render_lines(lines: list[str], prose: bool = False) -> str:
         return "\n".join(f"          <p>{esc(paragraph)}</p>" for paragraph in paragraphs)
     bulletish = len(cleaned) >= 2 or any(line.startswith("・") for line in lines)
     if bulletish:
-        items = "\n".join(f"            <li>{esc(line)}</li>" for line in cleaned)
+        items = "\n".join(f"            <li>{esc(line)}</li>" for line in cleaned[:10])
         return f"          <ul>\n{items}\n          </ul>"
     return "\n".join(f"          <p>{esc(line)}</p>" for line in cleaned)
 
