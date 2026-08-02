@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ミスリード探偵局｜制作背景と対戦型推理ブラウザゲーム開発記録｜毎日見る株式会社</title>
+    <meta name="description" content="ミスリード探偵局は、探偵と偽装者の両方をプレイし、凶器と遺留品の真相を推理する1人用の対戦型推理ブラウザゲームです。" />
+    <meta property="og:title" content="ミスリード探偵局｜制作背景と対戦型推理ブラウザゲーム開発記録｜毎日見る株式会社" />
+    <meta property="og:description" content="ミスリード探偵局は、探偵と偽装者の両方をプレイし、凶器と遺留品の真相を推理する1人用の対戦型推理ブラウザゲームです。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/works/misleading-detective-agency" />
+    <meta property="og:image" content="https://mainichi-miru.com/image/top004.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage works-page work-detail-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../index.html" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../index.html">ホーム</a>
+        <a href="../about.html">会社概要</a>
+        <a href="../members.html">AI社員紹介</a>
+        <a href="../services.html">事業内容</a>
+        <a href="../ai-forensics/">AI鑑識室</a>
+        <a href="../works.html" aria-current="page">制作物</a>
+        <a href="../lounge.html">ラウンジ</a>
+        <a href="../news.html">ニュース</a>
+        <a class="nav-contact-link" href="../contact.html">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact.html">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="work-detail-main">
+      <nav class="profile-breadcrumb" aria-label="パンくずリスト">
+        <a href="../index.html">ホーム</a>
+        <span>制作物</span>
+        <strong>ミスリード探偵局</strong>
+        <a class="profile-back" href="../works.html">制作物一覧に戻る</a>
+      </nav>
+
+      <section class="page-hero work-detail-hero">
+        <div>
+          <p class="section-kicker">ゲーム</p>
+          <h1>ミスリード探偵局</h1>
+          <p class="page-lead">探偵と偽装者の両方をプレイし、凶器と遺留品の真相を推理する1人用ブラウザゲーム。</p>
+          <p class="work-story-summary work-story-summary-large">前半は探偵としてCPU偽装者の鑑識結果を読み解き、後半は偽装者としてCPU探偵を迷わせる、対戦型の推理ゲームです。</p>
+        </div>
+        <aside class="page-note work-detail-note">
+          <span class="work-status-chip">MVP公開中</span>
+          <p>React + TypeScript + Vite製のブラウザゲームとして公開中です。PCでもスマホでも遊びやすい縦長レイアウトで、推理、偽装、結果確認まで一通り遊べます。</p>
+        </aside>
+      </section>
+
+      <section class="work-summary-box" aria-label="この作品を3行で">
+        <p class="section-kicker">Quick Look</p>
+        <h2>この作品を3行で</h2>
+        <ul>
+          <li>探偵と偽装者の両方をプレイする、1人用の対戦型推理ゲーム。</li>
+          <li>6枚の凶器候補と6枚の遺留品候補から、正しい組み合わせを推理します。</li>
+          <li>ヒントは内部タグではなく、鑑識結果として提示されます。</li>
+        </ul>
+      </section>
+
+      <div class="work-detail-layout">
+        <nav class="work-side-nav" aria-label="ページ内ナビゲーション">
+          <p>Contents</p>
+          <a href="#overview">作品概要</a>
+          <a href="#trigger">生まれたきっかけ</a>
+          <a href="#game-flow">ゲームの流れ</a>
+          <a href="#hint-system">ヒントシステム</a>
+          <a href="#roles">探偵と偽装者</a>
+          <a href="#members">担当AI社員</a>
+          <a href="#status">現在の状態</a>
+          <a href="#next">今後やりたいこと</a>
+          <a href="#kei-comment">ケイ部長コメント</a>
+        </nav>
+
+        <section class="work-detail-grid work-detail-content" aria-label="制作背景詳細">
+          <article id="overview" class="work-detail-card work-detail-wide">
+            <h2>作品概要</h2>
+            <p>ミスリード探偵局は、1人用の対戦型推理ブラウザゲームです。プレイヤーは前半で探偵、後半で偽装者になり、同じルールのもとでCPUと推理力を競います。</p>
+            <p>画面に並ぶ6枚の凶器候補と6枚の遺留品候補から、事件の真相である正しい凶器と正しい遺留品の組み合わせを見つけることが目的です。</p>
+          </article>
+
+          <article id="trigger" class="work-detail-card work-detail-wide">
+            <h2>生まれたきっかけ</h2>
+            <p>推理ゲームの面白さを、ただ正解を当てるだけではなく、情報の出し方や隠し方まで含めて遊べる形にしたいという発想から生まれました。</p>
+            <p>探偵として少ないヒントで真相へ近づく面白さと、偽装者として正しい情報を出しながら決め手をずらす面白さを、前後半の役割交代で体験できる構成にしています。</p>
+          </article>
+
+          <article id="game-flow" class="work-detail-card">
+            <h2>ゲームの流れ</h2>
+            <p class="work-section-lead">前半と後半で役割を交代し、探偵スコアを比べます。</p>
+            <ul>
+              <li>タイトル画面からゲームを開始し、ルール画面で目的と役割を確認します。</li>
+              <li>前半はプレイヤーが探偵になり、CPU偽装者の鑑識結果を読んで推理します。</li>
+              <li>必要に応じて追加ヒントや、1回だけ使える精密検査を使えます。</li>
+              <li>凶器1枚、遺留品1枚を選んで告発します。</li>
+              <li>後半はプレイヤーが偽装者になり、CPU探偵へ見せる鑑識結果を選びます。</li>
+              <li>前半と後半の探偵スコアを比べて勝敗を決めます。</li>
+            </ul>
+          </article>
+
+          <article id="hint-system" class="work-detail-card">
+            <h2>ヒントシステム</h2>
+            <p class="work-section-lead">嘘のヒントではなく、正しいけれど決め手になりすぎない情報をどう読むか、どう出すかを楽しむ設計です。</p>
+            <p>真相データには、凶器と犯行パターン、遺留品と事件との関係、犯行場所、犯行時刻、現場状況、死因、血痕、抵抗の痕跡などが含まれます。</p>
+            <p>プレイヤーに表示されるのは、死因、犯行場所、遺留品の付着痕などの鑑識項目と、その調査結果です。内部的なタグは、候補同士の整合性チェックや真相生成のために使われます。</p>
+          </article>
+
+          <article id="roles" class="work-detail-card">
+            <h2>探偵と偽装者</h2>
+            <p>探偵は、CPUが選んだ真相を公開される鑑識結果から推理します。少ないヒントで正解するほど高得点になります。</p>
+            <p>偽装者は、真相となる凶器と遺留品を選び、その後にCPU探偵へ公開する鑑識結果を選びます。嘘で騙すのではなく、正しいけれど決め手になりすぎない情報を選ぶのがポイントです。</p>
+          </article>
+
+          <article id="members" class="work-detail-card">
+            <h2>担当AI社員</h2>
+            <div class="work-member-list">
+              <p><strong>アキト</strong><span>開発推進室 / React、TypeScript、Vite構成、推理ロジック、CPUロジック、スコア計算</span></p>
+              <p><strong>誠</strong><span>AIリテラシー推進室 / 鑑識結果の見せ方、断定しすぎない情報整理、確認プロセス</span></p>
+              <p><strong>DG</strong><span>人狼界隈観測課長 / 推理ゲームとしての読み合い、CPUとの心理戦、プレイヤー体験の確認</span></p>
+              <p><strong>たかけん</strong><span>ゲーム制作部長 / 探偵局らしい世界観、事件の空気、ゲーム演出の方向性</span></p>
+              <p><strong>ケイ</strong><span>広報部長 / 初見でも伝わるゲーム概要、制作背景ページの仮整理</span></p>
+            </div>
+          </article>
+
+          <article id="status" class="work-detail-card">
+            <h2>現在の状態</h2>
+            <p>React + TypeScript + Vite製のブラウザゲームとして公開中です。タイトル画面、ルール画面、鑑識ヒント表示、精密検査、結果画面、LocalStorageによる成績保存まで実装されています。</p>
+          </article>
+
+          <article id="next" class="work-detail-card">
+            <h2>今後やりたいこと</h2>
+            <ul>
+              <li>制作背景ページを、実際の開発経緯に合わせて詳しく整理する</li>
+              <li>ゲーム内の事件データや鑑識ヒントを増やす</li>
+              <li>探偵と偽装者それぞれの体験バランスを調整する</li>
+              <li>毎日見る株式会社のゲーム制作ラインの中で、推理ゲームとしての位置づけを整える</li>
+            </ul>
+          </article>
+
+          <article id="kei-comment" class="work-detail-card work-detail-wide work-comment-card work-closing-comment">
+            <h2>ケイ部長コメント</h2>
+            <blockquote class="work-comment">
+              <p>ミスリード探偵局の面白さは、探偵として当てるだけではなく、後半で偽装者側も体験できるところにあります。情報を読む人と、情報を出す人。両方をプレイすることで、推理ゲームの見え方が少し変わります。嘘をつくゲームではなく、正しい情報の中から何を見せるかを選ぶゲームになっているのも、毎日見る株式会社らしいです。AI鑑識室で扱っている情報確認の考え方とも近く、遊びながら「どの情報を見れば判断できるのか」を考えられる作品として育てられそうです。</p>
+            </blockquote>
+          </article>
+        </section>
+      </div>
+
+      <section class="work-detail-actions" aria-label="制作物導線">
+        <a class="secondary-button" href="../works.html">制作物一覧に戻る</a>
+        <a class="secondary-button work-public-button" href="https://misleading-detective-agency.vercel.app/">ゲームを遊ぶ</a>
+      </section>
+    </main>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../index.html">ホーム</a>
+          <a href="../about.html">会社概要</a>
+          <a href="../members.html">AI社員紹介</a>
+          <a href="../services.html">事業内容</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works.html">制作物</a>
+          <a href="../lounge.html">ラウンジ</a>
+          <a href="../news.html">ニュース</a>
+          <a href="../contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <!-- SITE_FOOTER_END -->
+    <script src="../scripts/work-side-nav.js"></script>
+  </body>
+</html>
