@@ -188,9 +188,23 @@ SECTION_GROUPS = [
     ("所長との関係", ["所長との関係"], "profile-wide"),
     ("社内での見られ方", ["社員からの評価", "他社員からの評価", "所長からの評価"], ""),
     ("最近の仕事とラウンジ小ネタ", ["最近の主な業務", "ラウンジでの振る舞い", "ラウンジで使いやすい小ネタ"], "profile-wide"),
-    ("他社員との関係性", ["他社員との関係性"], ""),
     ("隠れた設定・モットー", ["隠れた設定", "命名の由来", "モットー"], "profile-wide"),
 ]
+
+RELATION_NAMES = {
+    "ほのちゃん",
+    "ショウマ",
+    "マイケル",
+    "たかけん",
+    "DG",
+    "ねむちゃん",
+    "レイちゃん",
+    "アキト",
+    "ケイ",
+    "誠",
+    "コトちゃん",
+    "ペチ",
+}
 
 
 def esc(value: object) -> str:
@@ -207,6 +221,10 @@ def read_sections(path: Path) -> dict[str, list[str]]:
             continue
         if line.startswith("## "):
             current = line[3:].strip()
+            sections.setdefault(current, [])
+            continue
+        if current == "他社員との関係性" and line == "一言":
+            current = "一言"
             sections.setdefault(current, [])
             continue
         if line.startswith("#"):
@@ -268,6 +286,41 @@ def render_review_panel(sections: dict[str, list[str]], meta: dict[str, str]) ->
     return ""
 
 
+def render_relationship_panel(sections: dict[str, list[str]]) -> str:
+    lines = [clean_item(line) for line in sections.get("他社員との関係性", []) if clean_item(line)]
+    if not lines:
+        return ""
+    groups: list[tuple[str, list[str]]] = []
+    current_name = ""
+    current_lines: list[str] = []
+    for line in lines:
+        if line in RELATION_NAMES:
+            if current_name and current_lines:
+                groups.append((current_name, current_lines))
+            current_name = line
+            current_lines = []
+        elif current_name:
+            current_lines.append(line)
+    if current_name and current_lines:
+        groups.append((current_name, current_lines))
+    if not groups:
+        return render_panel("他社員との関係性", lines)
+
+    cards = []
+    for name, comments in groups:
+        body = "".join(f"<p>{esc(comment)}</p>" for comment in comments)
+        cards.append(
+            f"""          <div class="profile-relationship">
+            <strong>{esc(name)}</strong>
+            {body}
+          </div>"""
+        )
+    return f"""        <article class="profile-panel profile-relationships">
+          <h2>他社員との関係性</h2>
+{chr(10).join(cards)}
+        </article>"""
+
+
 def render_profile_list(sections: dict[str, list[str]], meta: dict[str, str]) -> str:
     facts = [
         ("社員番号", first(sections, "社員番号")),
@@ -327,6 +380,9 @@ def render_main(sections: dict[str, list[str]], meta: dict[str, str]) -> str:
         panel = render_panel(title, all_values(sections, keys), cls)
         if panel:
             panels.append(panel)
+    relationship = render_relationship_panel(sections)
+    if relationship:
+        panels.append(relationship)
     review = render_review_panel(sections, meta)
     if review:
         panels.append(review)

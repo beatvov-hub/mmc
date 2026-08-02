@@ -5403,6 +5403,27 @@ img { max-width: 100%; }
   font-weight: 900;
   line-height: 1.9;
 }
+.profile-relationships {
+  grid-column: 1 / -1;
+}
+.profile-relationship {
+  padding: 16px 18px;
+  border: 1px solid #ead8c0;
+  border-radius: 8px;
+  background: rgba(255,250,242,.82);
+}
+.profile-relationship + .profile-relationship {
+  margin-top: 12px;
+}
+.profile-relationship strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #7a4f2b;
+  font-weight: 900;
+}
+.profile-relationship p + p {
+  margin-top: 6px;
+}
 .profile-illustration-card {
   display: grid;
   place-items: center;
