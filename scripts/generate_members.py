@@ -184,8 +184,9 @@ SECTION_GROUPS = [
     ("性格", ["性格"], "profile-wide profile-prose"),
     ("考え方・価値観", ["考え方・価値観"], "profile-wide"),
     ("話し方・口癖", ["話し方・口癖", "よく使う言葉"], "profile-wide"),
-    ("日常の癖・好きなこと", ["日常の癖", "趣味・好きなこと"], "profile-wide"),
-    ("所長との関係", ["所長との関係"], "profile-wide"),
+    ("趣味・好きなこと", ["趣味・好きなこと"], "profile-wide"),
+    ("日常の癖", ["日常の癖"], "profile-wide"),
+    ("所長との関係", ["所長との関係"], "profile-wide profile-prose"),
     ("社内での見られ方", ["社員からの評価", "他社員からの評価", "所長からの評価"], "profile-wide"),
     ("ラウンジ小ネタ", ["ラウンジでの振る舞い", "ラウンジで使いやすい小ネタ"], "profile-wide"),
     ("モットー", ["モットー"], "profile-wide profile-prose"),
@@ -207,6 +208,17 @@ RELATION_NAMES = {
 }
 
 INLINE_SECTION_NAMES = {
+    "担当業務",
+    "得意分野",
+    "苦手分野",
+    "苦手なもの",
+    "性格",
+    "考え方・価値観",
+    "話し方・口癖",
+    "よく使う言葉",
+    "趣味・好きなこと",
+    "日常の癖",
+    "所長との関係",
     "一言",
     "最近の主な業務",
     "ラウンジでの振る舞い",
@@ -224,6 +236,14 @@ def esc(value: object) -> str:
     return html.escape(str(value), quote=True)
 
 
+def normalize_heading(line: str) -> str:
+    line = line.strip()
+    line = re.sub(r"^#+\s*", "", line)
+    line = line.strip()
+    line = re.sub(r"^\*\*(.+)\*\*$", r"\1", line)
+    return line.strip()
+
+
 def read_sections(path: Path) -> dict[str, list[str]]:
     text = path.read_text(encoding="utf-8-sig", errors="replace")
     sections: dict[str, list[str]] = {}
@@ -233,11 +253,12 @@ def read_sections(path: Path) -> dict[str, list[str]]:
         if not line or line == "---":
             continue
         if line.startswith("## "):
-            current = line[3:].strip()
+            current = normalize_heading(line)
             sections.setdefault(current, [])
             continue
-        if line in INLINE_SECTION_NAMES and line != current:
-            current = line
+        normalized_line = normalize_heading(line)
+        if normalized_line in INLINE_SECTION_NAMES and normalized_line != current:
+            current = normalized_line
             sections.setdefault(current, [])
             continue
         if line.startswith("#"):
