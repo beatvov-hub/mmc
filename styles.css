@@ -5366,9 +5366,7 @@ img { max-width: 100%; }
 }
 .profile-panel li + li { margin-top: 7px; }
 .profile-work {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 190px;
-  gap: 24px;
+  display: block;
 }
 .profile-sticky-note {
   align-self: center;
@@ -5391,10 +5389,7 @@ img { max-width: 100%; }
 }
 .profile-wide {
   grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 170px;
-  gap: 24px;
-  align-items: center;
+  display: block;
 }
 .profile-wide img {
   width: 150px;
