@@ -2979,6 +2979,28 @@ body.subpage { padding-top: 88px; }
 }
 .lounge-quote p { margin: 0 0 8px; font-size: clamp(1.2rem, 2.4vw, 1.6rem); font-weight: 900; }
 .lounge-quote cite { color: #e6c48a; font-style: normal; font-weight: 800; }
+.lounge-log-image {
+  margin: 24px 0;
+  padding: 14px;
+  border: 1px solid rgba(148,112,76,.24);
+  border-radius: 12px;
+  background: rgba(255,250,242,.86);
+  box-shadow: 0 16px 32px rgba(112,72,42,.08);
+}
+.lounge-log-image img {
+  display: block;
+  width: min(100%, 640px);
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #fff;
+}
+.lounge-log-image figcaption {
+  margin: 10px 6px 2px;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.7;
+  text-align: center;
+}
 .lounge-log-meta {
   display: flex;
   flex-wrap: wrap;

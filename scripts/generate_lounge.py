@@ -356,6 +356,23 @@ def render_quote(block: dict) -> str:
     )
 
 
+def render_image(block: dict, prefix: str) -> str:
+    src = str(block.get("src", ""))
+    if src.startswith(("http://", "https://", "/", "../")):
+        image_src = src
+    else:
+        image_src = prefix + src
+    caption = block.get("caption", "")
+    lines = [
+        '        <figure class="lounge-log-image">',
+        f'          <img src="{esc(image_src)}" alt="{esc(block.get("alt", ""))}" loading="lazy" decoding="async" />',
+    ]
+    if caption:
+        lines.append(f"          <figcaption>{text_with_breaks(caption)}</figcaption>")
+    lines.append("        </figure>")
+    return "\n".join(lines)
+
+
 def render_daily_words(block: dict) -> str:
     lines = [
         '        <div class="lounge-daily-words">',
@@ -391,6 +408,8 @@ def render_content(log: dict, prefix: str) -> str:
             rendered.append(render_talks(block, prefix))
         elif block_type == "quote":
             rendered.append(render_quote(block))
+        elif block_type == "image":
+            rendered.append(render_image(block, prefix))
         elif block_type == "dailyWords":
             rendered.append(render_daily_words(block))
         elif block_type == "signature":
