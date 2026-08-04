@@ -411,7 +411,7 @@ def render_content(log: dict, prefix: str) -> str:
         elif block_type == "image":
             rendered.append(render_image(block, prefix))
         elif block_type == "dailyWords":
-            rendered.append(render_daily_words(block))
+            pass
         elif block_type == "signature":
             rendered.append(render_scene([], block.get("text", "")))
         index += 1
