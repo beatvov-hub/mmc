@@ -74,6 +74,16 @@ MMC専用ステータスでタスクを管理します。
 
 記事、画像、ドキュメント、コード、Webサイト、データなどを手動登録できます。サイト更新室で生成した記事も成果物として記録されます。
 
+### 業務振り返り
+
+完了したタスクに対して、AI・ツール活用を含む業務上の学びを記録できます。AI社員の採点やランキングではなく、次回の指示方法、確認方法、成果物の再利用可否を判断するためのメモです。
+
+- タスク本体とは別の `workline-evaluations.json` に保存します。
+- 1つのタスクへ複数回の振り返りを残せます。
+- 「未評価」「後で評価」「評価済み」「評価対象外」を区別します。
+- 実行主体、人間の修正量、採否、再利用性、次回変えることを残せます。
+- 会話全文、プロンプト全文、認証情報、機密資料本文は保存しません。
+
 ### 社員・部署
 
 Workline内で使う担当社員と部署を管理できます。初回起動時には、毎日見る株式会社のAI社員・社外協力者が初期データとして登録されます。
@@ -87,6 +97,7 @@ tools/mmc-cms/data/
 ├─ workline-tasks.json
 ├─ workline-links.json
 ├─ workline-artifacts.json
+├─ workline-evaluations.json
 ├─ workline-employees.json
 ├─ workline-departments.json
 ├─ workline-activity.json

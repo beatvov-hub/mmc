@@ -15,8 +15,17 @@ const WORKLINE_STATUS = [
 const WORKLINE_PRIORITY = [["low", "低"], ["normal", "通常"], ["high", "高"], ["urgent", "至急"]];
 const LINK_TYPES = ["chatgpt", "github", "codex", "web", "file", "folder", "note", "other"];
 const ARTIFACT_TYPES = ["article", "image", "document", "code", "website", "data", "other"];
+const EVALUATION_STATUS = [["not_evaluated", "未評価"], ["deferred", "後で評価"], ["evaluated", "評価済み"], ["not_applicable", "評価対象外"]];
+const EVALUATION_TYPE = [["final", "最終"], ["interim", "途中"], ["post_release", "公開後"]];
+const ACTOR_TYPES = [["human", "人間"], ["ai_employee", "AI社員"], ["chatgpt_task", "ChatGPTタスク"], ["codex", "Codex"], ["internal_app", "自作アプリ"], ["external_contractor", "外部委託"], ["other", "その他"]];
+const ACTOR_ROLES = [["primary", "主担当"], ["support", "補助"], ["review", "確認役"]];
+const AI_WORK_LEVEL = [["", "未設定"], ["L0", "相談・壁打ちのみ"], ["L1", "調査・分類・提案"], ["L2", "下書き・成果物作成"], ["L3", "人間の承認後に実行"], ["L4", "条件内で自動実行"]];
+const COMPLETION_LEVEL = [["completed", "完了"], ["partial", "一部完了"], ["incomplete", "未完了"], ["cancelled", "中止"]];
+const HUMAN_REVISION_LEVEL = [["none", "なし"], ["minor", "軽微"], ["moderate", "中程度"], ["major", "大幅"], ["rebuild", "ほぼ作り直し"]];
+const REUSABILITY = [["direct", "そのまま再利用"], ["with_changes", "一部修正で再利用"], ["one_time", "今回限り"], ["not_reusable", "再利用できない"], ["unknown", "未判断"]];
+const ADOPTION = [["adopted", "採用"], ["partially_adopted", "一部採用"], ["pending", "保留"], ["rejected", "不採用"]];
 
-let workline = { tasks: [], links: [], artifacts: [], employees: [], departments: [], activity: [], settings: {} };
+let workline = { tasks: [], links: [], artifacts: [], evaluations: [], employees: [], departments: [], activity: [], settings: {} };
 let drawer = { type: "", item: null };
 
 const q = (selector, root = document) => root.querySelector(selector);
@@ -42,6 +51,7 @@ async function loadWorkline() {
 function renderAllWorkline() {
   renderTaskSelects();
   renderDashboard();
+  renderEvaluationDashboard();
   renderBoard();
   renderTimeline();
   renderArtifacts();
@@ -60,6 +70,10 @@ function renderTaskSelects() {
   fillFilter("#filter-employee", [["", "すべて"], ...workline.employees.map((item) => [item.id, item.name])]);
   fillFilter("#filter-department", [["", "すべて"], ...workline.departments.map((item) => [item.id, item.name])]);
   fillFilter("#filter-status", [["", "すべて"], ...WORKLINE_STATUS]);
+  fillFilter("#evaluation-filter-status", [["", "すべて"], ...EVALUATION_STATUS]);
+  fillFilter("#evaluation-filter-actor", [["", "すべて"], ...ACTOR_TYPES]);
+  fillFilter("#evaluation-filter-adoption", [["", "すべて"], ...ADOPTION]);
+  fillFilter("#evaluation-filter-reusability", [["", "すべて"], ...REUSABILITY]);
 }
 
 function fillFilter(selector, options) {
@@ -76,6 +90,32 @@ function employeeName(id) {
 
 function departmentName(id) {
   return workline.departments.find((item) => item.id === id)?.name || id || "";
+}
+
+function taskTitle(id) {
+  return workline.tasks.find((item) => item.id === id)?.title || id || "";
+}
+
+function latestEvaluation(taskId) {
+  return [...(workline.evaluations || [])]
+    .filter((item) => item.taskId === taskId)
+    .sort((a, b) => String(b.updatedAt || b.createdAt).localeCompare(String(a.updatedAt || a.createdAt)))[0] || null;
+}
+
+function evaluationStatus(taskId) {
+  return latestEvaluation(taskId)?.status || "not_evaluated";
+}
+
+function isAiEvaluation(evaluation) {
+  return (evaluation?.actors || []).some((actor) => ["ai_employee", "chatgpt_task", "codex", "internal_app"].includes(actor.type));
+}
+
+function needsImprovement(evaluation) {
+  if (!evaluation) return false;
+  return ["major", "rebuild"].includes(evaluation.humanRevisionLevel) ||
+    evaluation.adoption === "rejected" ||
+    Number(evaluation.reworkCount || 0) >= 3 ||
+    ["incomplete", "cancelled"].includes(evaluation.completionLevel);
 }
 
 async function renderDashboard() {
@@ -97,6 +137,61 @@ async function renderDashboard() {
   q("#dashboard-artifacts").innerHTML = data.recentArtifacts?.length
     ? data.recentArtifacts.map((item) => `<article class="mini-card"><strong>${esc(item.title)}</strong><span>${esc(item.type)} / ${esc(item.pathOrUrl)}</span></article>`).join("")
     : `<p class="muted">生成履歴はこれから記録されます。</p>`;
+}
+
+async function renderEvaluationDashboard() {
+  const metrics = q("#evaluation-metrics");
+  const list = q("#evaluation-list");
+  const memos = q("#evaluation-improvements");
+  if (!metrics || !list || !memos) return;
+  const result = await worklineRequest("/api/workline/evaluation-summary");
+  const summary = result.summary || {};
+  metrics.innerHTML = [
+    ["評価済み", summary.evaluatedCount || 0],
+    ["採用・一部採用", summary.adoptionCount || 0],
+    ["大幅修正", summary.majorRevisionCount || 0],
+    ["再利用候補", summary.reusableArtifactCount || 0],
+    ["人間作業", `${summary.humanWorkMinutes || 0}分`],
+    ["推定削減", `${summary.estimatedSavedMinutes || 0}分`]
+  ].map(([label, value]) => `<div class="metric-card compact-metric"><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join("");
+
+  const status = q("#evaluation-filter-status")?.value || "";
+  const actorType = q("#evaluation-filter-actor")?.value || "";
+  const adoption = q("#evaluation-filter-adoption")?.value || "";
+  const reusability = q("#evaluation-filter-reusability")?.value || "";
+  const evaluations = (workline.evaluations || []).filter((item) =>
+    (!status || item.status === status) &&
+    (!actorType || (item.actors || []).some((actor) => actor.type === actorType)) &&
+    (!adoption || item.adoption === adoption) &&
+    (!reusability || item.reusability === reusability)
+  );
+  list.innerHTML = evaluations.length
+    ? evaluations
+      .sort((a, b) => String(b.updatedAt || b.createdAt).localeCompare(String(a.updatedAt || a.createdAt)))
+      .slice(0, 30)
+      .map(evaluationRow)
+      .join("")
+    : `<p class="muted">条件に合う業務振り返りはありません。</p>`;
+  memos.innerHTML = summary.nextImprovements?.length
+    ? summary.nextImprovements.map((item) => `<article class="mini-card" data-open-task="${esc(item.taskId)}"><strong>${esc(item.nextImprovement)}</strong><span>${esc(item.taskTitle)} / ${esc(formatDateTime(item.updatedAt))}</span></article>`).join("")
+    : `<p class="muted">次回変えることは、振り返りから少しずつ集まります。</p>`;
+}
+
+function evaluationRow(item) {
+  const saved = item.humanWorkMinutes !== undefined && item.estimatedManualMinutes !== undefined
+    ? `${Number(item.estimatedManualMinutes) - Number(item.humanWorkMinutes)}分`
+    : "未計算";
+  const badges = [
+    isAiEvaluation(item) ? "AI利用" : "",
+    needsImprovement(item) ? "要改善" : ""
+  ].filter(Boolean).map((label) => `<span class="workline-chip">${esc(label)}</span>`).join("");
+  return `<article class="table-row evaluation-row">
+    <div><strong>${esc(taskTitle(item.taskId))}</strong><span>${esc(labelOf(EVALUATION_STATUS, item.status))} / ${esc(labelOf(EVALUATION_TYPE, item.evaluationType))} #${esc(item.revision)}</span></div>
+    <div>${esc(labelOf(COMPLETION_LEVEL, item.completionLevel))}</div>
+    <div>${esc(labelOf(HUMAN_REVISION_LEVEL, item.humanRevisionLevel))}</div>
+    <div>${esc(labelOf(ADOPTION, item.adoption))} / 推定 ${esc(saved)}<span>${esc(item.nextImprovement || "")}</span></div>
+    <div>${badges}<button class="button tiny" data-open-evaluation="${esc(item.id)}" type="button">編集</button></div>
+  </article>`;
 }
 
 function compactTasks(tasks, emptyText) {
@@ -127,9 +222,19 @@ function renderBoard() {
 
 function taskCard(task) {
   const employees = (task.employeeIds || []).map(employeeName).filter(Boolean).join("、") || "未設定";
+  const evaluation = latestEvaluation(task.id);
+  const status = evaluationStatus(task.id);
+  const badges = [
+    isAiEvaluation(evaluation) ? "AI利用" : "",
+    status === "evaluated" ? "評価済み" : "",
+    status === "deferred" ? "後で評価" : "",
+    status === "not_applicable" ? "対象外" : "",
+    needsImprovement(evaluation) ? "要改善" : ""
+  ].filter(Boolean).map((label) => `<span>${esc(label)}</span>`).join("");
   return `<article class="task-card ${isOverdue(task) ? "is-overdue" : ""}" data-open-task="${esc(task.id)}">
     <strong>${esc(task.title)}</strong>
     <p>${esc(task.description || "説明なし")}</p>
+    ${badges ? `<div class="task-badges">${badges}</div>` : ""}
     <div class="task-meta"><span>${esc(departmentName(task.departmentId) || "部署未設定")}</span><span>${esc(employees)}</span></div>
     <div class="task-meta"><span>期限 ${esc(task.endDate || "なし")}</span><span>優先度 ${esc(labelOf(WORKLINE_PRIORITY, task.priority))}</span></div>
     <div class="progress"><span style="width:${Number(task.progress || 0)}%"></span></div>
@@ -213,20 +318,21 @@ function openDrawer(type, item = null) {
   drawer = { type, item: item ? structuredClone(item) : null };
   q("#drawer-kind").textContent = type.toUpperCase();
   q("#drawer-title").textContent = drawerTitle(type, item);
-  q("#delete-drawer").classList.toggle("is-hidden", !item || ["employee", "department"].includes(type));
+  q("#delete-drawer").classList.toggle("is-hidden", !item?.id || ["employee", "department"].includes(type));
   q("#drawer-message").replaceChildren();
   q("#drawer-body").innerHTML = drawerForm(type, drawer.item || blankItem(type));
   q("#workline-drawer").classList.remove("is-hidden");
 }
 
 function drawerTitle(type, item) {
-  const map = { task: "タスク編集", artifact: "成果物編集", employee: "社員編集", department: "部署編集", link: "リンク編集" };
+  const map = { task: "タスク編集", artifact: "成果物編集", evaluation: "業務振り返り", employee: "社員編集", department: "部署編集", link: "リンク編集" };
   return `${map[type] || "編集"}${item ? "" : "（新規）"}`;
 }
 
 function blankItem(type) {
   if (type === "task") return { title: "", description: "", departmentId: "", employeeIds: [], startDate: "", endDate: "", status: "idea", priority: "normal", progress: 0, parentTaskId: "", tags: [], notes: "", codexInstruction: "" };
   if (type === "artifact") return { title: "", description: "", type: "other", taskId: "", pathOrUrl: "" };
+  if (type === "evaluation") return { taskId: "", evaluationType: "final", revision: 1, status: "evaluated", actors: [], aiWorkLevel: "", completionLevel: "completed", humanRevisionLevel: "none", reworkCount: 0, humanWorkMinutes: "", estimatedManualMinutes: "", reusability: "unknown", adoption: "pending", artifactIds: [], nextImprovement: "", evaluatedBy: "", evaluatedAt: "" };
   if (type === "employee") return { name: "", role: "", departmentId: "", iconPath: "", isActive: true };
   if (type === "department") return { name: "", description: "", sortOrder: 100, isActive: true };
   return { taskId: "", type: "web", label: "", value: "" };
@@ -235,6 +341,7 @@ function blankItem(type) {
 function drawerForm(type, item) {
   if (type === "task") return taskForm(item);
   if (type === "artifact") return artifactForm(item);
+  if (type === "evaluation") return evaluationForm(item);
   if (type === "employee") return employeeForm(item);
   if (type === "department") return departmentForm(item);
   return linkForm(item);
@@ -266,7 +373,29 @@ function taskForm(item) {
     ${textarea("codexInstruction", "Codex実装指示", item.codexInstruction, "full", 8)}
     <div class="button-row full"><button class="button secondary" id="copy-codex-instruction" type="button">Codex指示をコピー</button><button class="button secondary" id="template-codex-instruction" type="button">テンプレートから生成</button><button class="button secondary" id="add-task-link" type="button">リンクを追加</button></div>
     <div class="full drawer-links">${linksForTask(item.id)}</div>
+    <div class="full">${evaluationsForTask(item.id)}</div>
   </div>`;
+}
+
+function evaluationsForTask(taskId) {
+  if (!taskId) return `<details class="evaluation-section full"><summary>業務振り返り</summary><p class="muted">タスク保存後に振り返りを追加できます。</p></details>`;
+  const evaluations = (workline.evaluations || []).filter((item) => item.taskId === taskId);
+  const latest = evaluationStatus(taskId);
+  return `<details class="evaluation-section full">
+    <summary>業務振り返り <span>${esc(labelOf(EVALUATION_STATUS, latest))}</span></summary>
+    <p class="muted">AI・ツール活用を含む、完了後の業務振り返りです。社員の採点ではなく、次回の仕事の進め方を改善するために使用します。</p>
+    <div class="button-row">
+      <button class="button secondary" data-new-evaluation="${esc(taskId)}" type="button">振り返りを追加</button>
+    </div>
+    <div class="compact-list">
+      ${evaluations.length
+        ? evaluations
+          .sort((a, b) => String(b.updatedAt || b.createdAt).localeCompare(String(a.updatedAt || a.createdAt)))
+          .map((item) => `<article class="mini-card"><strong>${esc(labelOf(EVALUATION_STATUS, item.status))} / ${esc(labelOf(COMPLETION_LEVEL, item.completionLevel))}</strong><span>${esc(item.nextImprovement || "次回メモなし")} / ${esc(formatDateTime(item.updatedAt || item.createdAt))}</span><button class="button tiny" data-open-evaluation="${esc(item.id)}" type="button">編集</button></article>`)
+          .join("")
+        : `<p class="muted">まだ振り返りはありません。</p>`}
+    </div>
+  </details>`;
 }
 
 function artifactForm(item) {
@@ -274,6 +403,51 @@ function artifactForm(item) {
     <label class="field"><span>種別</span><select name="type">${options(ARTIFACT_TYPES.map((type) => [type, type]), item.type)}</select></label>
     <label class="field"><span>関連タスク</span><select name="taskId">${options(workline.tasks.map((task) => [task.id, task.title]), item.taskId, "未紐付け")}</select></label>
     ${input("pathOrUrl", "パスまたはURL", item.pathOrUrl, "full")}</div>`;
+}
+
+function evaluationForm(item) {
+  const taskArtifacts = workline.artifacts.filter((artifact) => !item.taskId || !artifact.taskId || artifact.taskId === item.taskId);
+  const actors = [...(item.actors || [])];
+  while (actors.length < 3) actors.push({ type: "", employeeId: "", label: "", role: actors.length === 0 ? "primary" : "support" });
+  const saved = item.humanWorkMinutes !== undefined && item.humanWorkMinutes !== "" && item.estimatedManualMinutes !== undefined && item.estimatedManualMinutes !== ""
+    ? Number(item.estimatedManualMinutes) - Number(item.humanWorkMinutes)
+    : null;
+  return `<div class="form-grid evaluation-form">
+    <label class="field full"><span>タスク</span><select name="taskId">${options(workline.tasks.map((task) => [task.id, task.title]), item.taskId, "選択してください")}</select></label>
+    <label class="field"><span>状態</span><select name="status">${options(EVALUATION_STATUS, item.status || "evaluated")}</select></label>
+    <label class="field"><span>種別</span><select name="evaluationType">${options(EVALUATION_TYPE, item.evaluationType || "final")}</select></label>
+
+    <div class="full actor-box">
+      <h3>実行主体</h3>
+      ${actors.slice(0, 3).map((actor, index) => `<div class="actor-row" data-actor-row>
+        <label class="field"><span>主体</span><select name="actorType${index}">${options(ACTOR_TYPES, actor.type, "未設定")}</select></label>
+        <label class="field"><span>AI社員</span><select name="actorEmployee${index}">${options(workline.employees.map((employee) => [employee.id, employee.name]), actor.employeeId, "なし")}</select></label>
+        <label class="field"><span>表示名</span><input name="actorLabel${index}" value="${esc(actor.label || "")}" placeholder="例：所長、外部制作チーム" /></label>
+        <label class="field"><span>役割</span><select name="actorRole${index}">${options(ACTOR_ROLES, actor.role || "support")}</select></label>
+      </div>`).join("")}
+    </div>
+
+    <label class="field"><span>完了度</span><select name="completionLevel">${options(COMPLETION_LEVEL, item.completionLevel || "completed")}</select></label>
+    <label class="field"><span>人間の修正量</span><select name="humanRevisionLevel">${options(HUMAN_REVISION_LEVEL, item.humanRevisionLevel || "none")}</select></label>
+    <label class="field"><span>採否</span><select name="adoption">${options(ADOPTION, item.adoption || "pending")}</select></label>
+    <label class="field"><span>再利用性</span><select name="reusability">${options(REUSABILITY, item.reusability || "unknown")}</select></label>
+    ${textarea("nextImprovement", "次回変えること（300文字以内）", item.nextImprovement, "full", 3)}
+
+    <details class="full evaluation-detail">
+      <summary>詳細項目を開く</summary>
+      <div class="form-grid">
+        <label class="field"><span>AI業務レベル</span><select name="aiWorkLevel">${options(AI_WORK_LEVEL, item.aiWorkLevel || "")}</select></label>
+        ${input("revision", "版数", item.revision || 1, "", "number")}
+        ${input("reworkCount", "手戻り回数", item.reworkCount ?? 0, "", "number")}
+        ${input("humanWorkMinutes", "人間作業時間（分）", item.humanWorkMinutes ?? "", "", "number")}
+        ${input("estimatedManualMinutes", "手作業想定時間（分）", item.estimatedManualMinutes ?? "", "", "number")}
+        <div class="metric-card compact-metric"><span>推定削減時間</span><strong>${saved === null ? "未計算" : `${esc(saved)}分`}</strong></div>
+        <label class="field wide"><span>関連成果物</span><select name="artifactIds" multiple size="5">${multiOptions(taskArtifacts.map((artifact) => [artifact.id, artifact.title]), item.artifactIds || [])}</select></label>
+        ${input("evaluatedBy", "評価者", item.evaluatedBy || "")}
+        ${input("evaluatedAt", "評価日", item.evaluatedAt || "", "", "date")}
+      </div>
+    </details>
+  </div>`;
 }
 
 function employeeForm(item) {
@@ -321,6 +495,23 @@ function collectDrawer() {
     else item[control.name] = control.value;
   });
   if (drawer.type === "task") item.employeeIds ||= [];
+  if (drawer.type === "evaluation") {
+    item.actors = [0, 1, 2].map((index) => ({
+      type: item[`actorType${index}`],
+      employeeId: item[`actorEmployee${index}`],
+      label: item[`actorLabel${index}`],
+      role: item[`actorRole${index}`] || "support"
+    })).filter((actor) => actor.type || actor.employeeId || actor.label);
+    [0, 1, 2].forEach((index) => {
+      delete item[`actorType${index}`];
+      delete item[`actorEmployee${index}`];
+      delete item[`actorLabel${index}`];
+      delete item[`actorRole${index}`];
+    });
+    if (item.humanWorkMinutes === 0 && q("[name='humanWorkMinutes']", body)?.value === "") delete item.humanWorkMinutes;
+    if (item.estimatedManualMinutes === 0 && q("[name='estimatedManualMinutes']", body)?.value === "") delete item.estimatedManualMinutes;
+    if (!item.aiWorkLevel) delete item.aiWorkLevel;
+  }
   return item;
 }
 
@@ -383,6 +574,23 @@ ${task.codexInstruction || ""}
 - 変更ファイルと確認方法を報告する`;
 }
 
+function newEvaluationForTask(taskId, status = "evaluated") {
+  const revisions = (workline.evaluations || []).filter((item) => item.taskId === taskId).map((item) => Number(item.revision || 0));
+  return { ...blankItem("evaluation"), taskId, status, revision: Math.max(0, ...revisions) + 1, evaluatedAt: today() };
+}
+
+async function createStatusEvaluation(taskId, status) {
+  const item = newEvaluationForTask(taskId, status);
+  item.adoption = status === "not_applicable" ? "pending" : "pending";
+  return worklineRequest("/api/workline/evaluations", { body: item });
+}
+
+async function updateTaskStatus(task, status) {
+  return worklineRequest(`/api/workline/tasks/${encodeURIComponent(task.id)}`, {
+    body: { ...task, status, progress: status === "completed" ? 100 : task.progress }
+  });
+}
+
 document.addEventListener("click", async (event) => {
   const target = event.target.closest("button, article, .timeline-bar, .timeline-task");
   if (!target) return;
@@ -396,10 +604,12 @@ document.addEventListener("click", async (event) => {
   if (target.id === "delete-drawer") await deleteDrawer();
   if (target.dataset.openTask) openDrawer("task", workline.tasks.find((task) => task.id === target.dataset.openTask));
   if (target.dataset.openArtifact) openDrawer("artifact", workline.artifacts.find((item) => item.id === target.dataset.openArtifact));
+  if (target.dataset.openEvaluation) openDrawer("evaluation", workline.evaluations.find((item) => item.id === target.dataset.openEvaluation));
   if (target.dataset.openEmployee) openDrawer("employee", workline.employees.find((item) => item.id === target.dataset.openEmployee));
   if (target.dataset.openDepartment) openDrawer("department", workline.departments.find((item) => item.id === target.dataset.openDepartment));
   if (target.dataset.openLink) openDrawer("link", workline.links.find((item) => item.id === target.dataset.openLink));
   if (target.id === "add-task-link") openDrawer("link", { ...blankItem("link"), taskId: drawer.item?.id || "" });
+  if (target.dataset.newEvaluation) openDrawer("evaluation", newEvaluationForTask(target.dataset.newEvaluation));
   if (target.id === "template-codex-instruction") {
     const task = collectDrawer();
     q("[name='codexInstruction']").value = codexTemplate(task);
@@ -418,7 +628,30 @@ document.addEventListener("change", async (event) => {
   if (event.target.matches("[data-task-status]")) {
     const task = workline.tasks.find((item) => item.id === event.target.dataset.taskStatus);
     if (!task) return;
-    const result = await worklineRequest(`/api/workline/tasks/${encodeURIComponent(task.id)}`, { body: { ...task, status: event.target.value, progress: event.target.value === "completed" ? 100 : task.progress } });
+    const previousValue = task.status;
+    const nextValue = event.target.value;
+    if (nextValue === "completed" && previousValue !== "completed") {
+      const choice = prompt("このタスクの業務振り返りを記録しますか？\n1: 今入力する\n2: 後で入力する\n3: 評価対象外", "2");
+      const result = await updateTaskStatus(task, nextValue);
+      if (!result.ok) {
+        event.target.value = previousValue;
+        return alert((result.errors || ["状態を更新できませんでした。"]).join("\n"));
+      }
+      if (choice === "1") {
+        await loadWorkline();
+        openDrawer("evaluation", newEvaluationForTask(task.id));
+      } else if (choice === "2") {
+        await createStatusEvaluation(task.id, "deferred");
+        await loadWorkline();
+      } else if (choice === "3") {
+        await createStatusEvaluation(task.id, "not_applicable");
+        await loadWorkline();
+      } else {
+        await loadWorkline();
+      }
+      return;
+    }
+    const result = await updateTaskStatus(task, nextValue);
     if (result.ok) await loadWorkline();
     else alert((result.errors || ["状態を更新できませんでした。"]).join("\n"));
   }
@@ -427,6 +660,12 @@ document.addEventListener("change", async (event) => {
 ["#filter-employee", "#filter-department", "#filter-status", "#filter-tag"].forEach((selector) => {
   document.addEventListener(selector === "#filter-tag" ? "input" : "change", (event) => {
     if (event.target.matches(selector)) renderBoard();
+  });
+});
+
+["#evaluation-filter-status", "#evaluation-filter-actor", "#evaluation-filter-adoption", "#evaluation-filter-reusability"].forEach((selector) => {
+  document.addEventListener("change", (event) => {
+    if (event.target.matches(selector)) renderEvaluationDashboard();
   });
 });
 

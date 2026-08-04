@@ -7,9 +7,12 @@ const os = require("node:os");
 const path = require("node:path");
 const {
   addActivity,
+  evaluationSummary,
   loadAll,
+  normalizeEvaluation,
   normalizeLink,
   normalizeTask,
+  validateEvaluation,
   validateLink,
   validateTask,
   writeJson
@@ -101,4 +104,86 @@ test("活動履歴は設定上限で切り詰める", async (context) => {
   const saved = await loadAll(root);
   assert.equal(saved.activity.length, 2);
   assert.equal(saved.activity[0].message, "3");
+});
+
+test("業務振り返りの初期データと保存ができる", async (context) => {
+  const root = await tempRoot(context);
+  const all = await loadAll(root);
+  assert.equal(Array.isArray(all.evaluations), true);
+  const task = normalizeTask({ id: "task-a", title: "テストタスク" });
+  await writeJson(root, "tasks", [task]);
+  const savedAll = await loadAll(root);
+  const evaluation = normalizeEvaluation({
+    taskId: "task-a",
+    actors: [{ type: "codex", role: "primary" }],
+    aiWorkLevel: "L2",
+    completionLevel: "completed",
+    humanRevisionLevel: "minor",
+    reworkCount: 1,
+    humanWorkMinutes: 20,
+    estimatedManualMinutes: 60,
+    reusability: "with_changes",
+    adoption: "adopted",
+    nextImprovement: "最初に完成条件を明記する"
+  }, null, savedAll);
+  assert.deepEqual(validateEvaluation(evaluation, { ...savedAll, evaluations: [] }), []);
+  await writeJson(root, "evaluations", [evaluation]);
+  const reloaded = await loadAll(root);
+  assert.equal(reloaded.evaluations[0].taskId, "task-a");
+  assert.equal(reloaded.evaluations[0].revision, 1);
+});
+
+test("業務振り返りの不正なID・列挙値・数値・長文を拒否する", async (context) => {
+  const root = await tempRoot(context);
+  const all = await loadAll(root);
+  const evaluation = normalizeEvaluation({
+    taskId: "missing-task",
+    status: "scored",
+    evaluationType: "bad",
+    actors: [{ type: "unknown-ai", employeeId: "ghost", role: "lead" }],
+    completionLevel: "done",
+    humanRevisionLevel: "huge",
+    reworkCount: -1,
+    humanWorkMinutes: -5,
+    estimatedManualMinutes: -10,
+    reusability: "forever",
+    adoption: "maybe",
+    artifactIds: ["missing-artifact"],
+    nextImprovement: "あ".repeat(301)
+  }, null, all);
+  const errors = validateEvaluation(evaluation, all);
+  assert.ok(errors.some((message) => message.includes("タスクID")));
+  assert.ok(errors.some((message) => message.includes("振り返り状態")));
+  assert.ok(errors.some((message) => message.includes("社員ID")));
+  assert.ok(errors.some((message) => message.includes("手戻り回数")));
+  assert.ok(errors.some((message) => message.includes("300文字")));
+});
+
+test("業務振り返り集計を作成できる", async (context) => {
+  const root = await tempRoot(context);
+  const task = normalizeTask({ id: "task-summary", title: "集計タスク" });
+  await writeJson(root, "tasks", [task]);
+  const all = await loadAll(root);
+  const evaluation = normalizeEvaluation({
+    taskId: "task-summary",
+    actors: [{ type: "codex", role: "primary" }],
+    status: "evaluated",
+    completionLevel: "completed",
+    humanRevisionLevel: "major",
+    reworkCount: 3,
+    humanWorkMinutes: 30,
+    estimatedManualMinutes: 90,
+    reusability: "direct",
+    adoption: "partially_adopted",
+    nextImprovement: "UIとデータ処理を別タスクにする"
+  }, null, all);
+  await writeJson(root, "evaluations", [evaluation]);
+  const summary = await evaluationSummary(root);
+  assert.equal(summary.evaluatedCount, 1);
+  assert.equal(summary.adoptionCount, 1);
+  assert.equal(summary.majorRevisionCount, 1);
+  assert.equal(summary.reusableArtifactCount, 1);
+  assert.equal(summary.estimatedSavedMinutes, 60);
+  assert.equal(summary.actorTypeCounts.codex, 1);
+  assert.equal(summary.nextImprovements[0].taskId, "task-summary");
 });

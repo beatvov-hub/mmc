@@ -29,12 +29,15 @@ const { detectPython, runGenerators, validatePythonPath } = require("./lib/pytho
 const {
   addActivity,
   dashboard: worklineDashboard,
+  evaluationSummary: worklineEvaluationSummary,
   loadAll: loadWorkline,
   normalizeArtifact,
   normalizeDepartment,
   normalizeEmployee,
+  normalizeEvaluation,
   normalizeLink,
   normalizeTask,
+  validateEvaluation,
   validateLink,
   validateTask,
   writeJson: writeWorklineJson
@@ -350,13 +353,16 @@ async function touchWorklineTask(taskId) {
 }
 
 function worklineCollection(pathname) {
-  const match = pathname.match(/^\/api\/workline\/(tasks|links|artifacts|employees|departments)(?:\/([^/]+))?$/);
+  const match = pathname.match(/^\/api\/workline\/(tasks|links|artifacts|evaluations|employees|departments)(?:\/([^/]+))?$/);
   return match ? { collection: match[1], id: match[2] ? decodeURIComponent(match[2]) : null } : null;
 }
 
 async function handleWorklineApi(request, response, url) {
   if (request.method === "GET" && url.pathname === "/api/workline/dashboard") {
     return sendJson(response, 200, { ok: true, dashboard: await worklineDashboard(ROOT) });
+  }
+  if (request.method === "GET" && url.pathname === "/api/workline/evaluation-summary") {
+    return sendJson(response, 200, { ok: true, summary: await worklineEvaluationSummary(ROOT) });
   }
   if (request.method === "GET" && url.pathname === "/api/workline/all") {
     return sendJson(response, 200, { ok: true, workline: await loadWorkline(ROOT) });
@@ -365,12 +371,23 @@ async function handleWorklineApi(request, response, url) {
     const all = await loadWorkline(ROOT);
     return sendJson(response, 200, { ok: true, activity: all.activity });
   }
+  const taskEvaluationsMatch = url.pathname.match(/^\/api\/workline\/tasks\/([^/]+)\/evaluations$/);
+  if (request.method === "GET" && taskEvaluationsMatch) {
+    const taskId = decodeURIComponent(taskEvaluationsMatch[1]);
+    const all = await loadWorkline(ROOT);
+    return sendJson(response, 200, { ok: true, evaluations: all.evaluations.filter((item) => item.taskId === taskId) });
+  }
 
   const route = worklineCollection(url.pathname);
   if (!route) return sendJson(response, 404, { ok: false, errors: ["Workline APIが見つかりません。"] });
   const all = await loadWorkline(ROOT);
   const collectionKey = route.collection === "departments" ? "departments" : route.collection;
   if (request.method === "GET") {
+    if (route.id) {
+      const item = all[collectionKey].find((entry) => entry.id === route.id);
+      if (!item) return sendJson(response, 404, { ok: false, errors: ["対象が見つかりません。"] });
+      return sendJson(response, 200, { ok: true, item });
+    }
     return sendJson(response, 200, { ok: true, [collectionKey]: all[collectionKey] });
   }
   if (!["POST", "PUT", "DELETE"].includes(request.method)) return sendJson(response, 405, { ok: false, errors: ["未対応の操作です。"] });
@@ -401,6 +418,9 @@ async function handleWorklineApi(request, response, url) {
     item = normalizeArtifact({ ...payload, id: route.id || payload.id }, existing);
     if (!item.title) errors.push("成果物名は必須です。");
     if (!item.pathOrUrl) errors.push("パスまたはURLは必須です。");
+  } else if (collectionKey === "evaluations") {
+    item = normalizeEvaluation({ ...payload, id: route.id || payload.id }, existing, all);
+    errors = validateEvaluation(item, { ...all, evaluations: items.filter((evaluation) => evaluation.id !== item.id) });
   } else if (collectionKey === "departments") {
     item = normalizeDepartment({ ...payload, id: route.id || payload.id }, existing);
     if (!item.name) errors.push("部署名は必須です。");

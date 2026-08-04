@@ -20,6 +20,7 @@
     <nav class="section-tabs app-sidebar" aria-label="MMC Workline">
       <button class="is-active" data-tab="dashboard" type="button">ダッシュボード</button>
       <button data-tab="board" type="button">進行ボード</button>
+      <button data-tab="evaluations" type="button">業務振り返り</button>
       <button data-tab="timeline" type="button">タイムライン</button>
       <div class="nav-group-label">サイト更新室</div>
       <button data-tab="lounge" type="button">MMCラウンジ</button>
@@ -59,6 +60,33 @@
           <section class="panel">
             <div class="panel-heading"><div><span class="mini-step">D</span><h3>最近生成したサイトコンテンツ</h3></div></div>
             <div class="compact-list" id="dashboard-artifacts"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="workspace" id="panel-evaluations" data-panel="evaluations">
+        <div class="workspace-heading">
+          <div>
+            <span class="step-mark">03</span>
+            <h2>業務振り返り</h2>
+            <p>完了後の学びを、次回の進め方へ戻すための記録です。AI社員の採点やランキングには使いません。</p>
+          </div>
+        </div>
+        <div class="metric-grid evaluation-metrics" id="evaluation-metrics"></div>
+        <section class="panel workline-filters">
+          <label class="field"><span>状態</span><select id="evaluation-filter-status"></select></label>
+          <label class="field"><span>実行主体</span><select id="evaluation-filter-actor"></select></label>
+          <label class="field"><span>採否</span><select id="evaluation-filter-adoption"></select></label>
+          <label class="field"><span>再利用性</span><select id="evaluation-filter-reusability"></select></label>
+        </section>
+        <div class="two-column">
+          <section class="panel">
+            <div class="panel-heading"><div><span class="mini-step">A</span><h3>振り返り一覧</h3></div></div>
+            <div class="workline-table" id="evaluation-list"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-heading"><div><span class="mini-step">B</span><h3>次回変えること</h3></div></div>
+            <div class="compact-list" id="evaluation-improvements"></div>
           </section>
         </div>
       </section>

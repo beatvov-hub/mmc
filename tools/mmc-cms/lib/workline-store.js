@@ -23,11 +23,21 @@ const TASK_STATUSES = [
 const PRIORITIES = ["low", "normal", "high", "urgent"];
 const LINK_TYPES = ["chatgpt", "github", "codex", "web", "file", "folder", "note", "other"];
 const ARTIFACT_TYPES = ["article", "image", "document", "code", "website", "data", "other"];
+const EVALUATION_STATUSES = ["not_evaluated", "deferred", "evaluated", "not_applicable"];
+const EVALUATION_TYPES = ["final", "interim", "post_release"];
+const EXECUTION_ACTOR_TYPES = ["human", "ai_employee", "chatgpt_task", "codex", "internal_app", "external_contractor", "other"];
+const EXECUTION_ACTOR_ROLES = ["primary", "support", "review"];
+const AI_WORK_LEVELS = ["L0", "L1", "L2", "L3", "L4"];
+const COMPLETION_LEVELS = ["completed", "partial", "incomplete", "cancelled"];
+const HUMAN_REVISION_LEVELS = ["none", "minor", "moderate", "major", "rebuild"];
+const REUSABILITY_LEVELS = ["direct", "with_changes", "one_time", "not_reusable", "unknown"];
+const ADOPTION_LEVELS = ["adopted", "partially_adopted", "pending", "rejected"];
 
 const FILES = {
   tasks: `${DATA_DIR}/workline-tasks.json`,
   links: `${DATA_DIR}/workline-links.json`,
   artifacts: `${DATA_DIR}/workline-artifacts.json`,
+  evaluations: `${DATA_DIR}/workline-evaluations.json`,
   employees: `${DATA_DIR}/workline-employees.json`,
   departments: `${DATA_DIR}/workline-departments.json`,
   activity: `${DATA_DIR}/workline-activity.json`,
@@ -83,6 +93,7 @@ async function ensureDataFiles(root) {
     tasks: [],
     links: [],
     artifacts: [],
+    evaluations: [],
     employees: DEFAULT_EMPLOYEES,
     departments: DEFAULT_DEPARTMENTS,
     activity: [],
@@ -117,16 +128,17 @@ async function backupWorklineFile(root, key) {
 
 async function loadAll(root) {
   await ensureDataFiles(root);
-  const [tasks, links, artifacts, employees, departments, activity, settings] = await Promise.all([
+  const [tasks, links, artifacts, evaluations, employees, departments, activity, settings] = await Promise.all([
     readJson(root, "tasks"),
     readJson(root, "links"),
     readJson(root, "artifacts"),
+    readJson(root, "evaluations"),
     readJson(root, "employees"),
     readJson(root, "departments"),
     readJson(root, "activity"),
     readJson(root, "settings")
   ]);
-  return { tasks, links, artifacts, employees, departments, activity, settings: { ...DEFAULT_SETTINGS, ...settings } };
+  return { tasks, links, artifacts, evaluations, employees, departments, activity, settings: { ...DEFAULT_SETTINGS, ...settings } };
 }
 
 function normalizeString(value) {
@@ -135,6 +147,24 @@ function normalizeString(value) {
 
 function arrayOfStrings(value) {
   return Array.isArray(value) ? value.map(normalizeString).filter(Boolean) : [];
+}
+
+function optionalNumber(value) {
+  if (value === undefined || value === null || value === "") return undefined;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : NaN;
+}
+
+function nextEvaluationRevision(taskId, evaluations, currentId = "") {
+  return evaluations
+    .filter((item) => item.taskId === taskId && item.id !== currentId)
+    .reduce((max, item) => Math.max(max, Number(item.revision || 0)), 0) + 1;
+}
+
+function enumValue(allowed, payloadValue, existingValue, fallback) {
+  if (payloadValue !== undefined) return payloadValue;
+  if (existingValue !== undefined) return existingValue;
+  return fallback;
 }
 
 function validateTask(task, all) {
@@ -254,6 +284,90 @@ function normalizeEmployee(payload, existing = null) {
   };
 }
 
+function normalizeEvaluation(payload, existing = null, all = null) {
+  const timestamp = nowIso();
+  const taskId = normalizeString(payload.taskId) || existing?.taskId || "";
+  const id = existing?.id || normalizeString(payload.id) || makeId("evaluation");
+  const allEvaluations = all?.evaluations || [];
+  const humanWorkMinutes = optionalNumber(payload.humanWorkMinutes ?? existing?.humanWorkMinutes);
+  const estimatedManualMinutes = optionalNumber(payload.estimatedManualMinutes ?? existing?.estimatedManualMinutes);
+  return {
+    id,
+    taskId,
+    evaluationType: enumValue(EVALUATION_TYPES, payload.evaluationType, existing?.evaluationType, "final"),
+    revision: Number(payload.revision ?? existing?.revision ?? nextEvaluationRevision(taskId, allEvaluations, id)),
+    status: enumValue(EVALUATION_STATUSES, payload.status, existing?.status, "evaluated"),
+    actors: normalizeActors(payload.actors ?? existing?.actors),
+    aiWorkLevel: enumValue(AI_WORK_LEVELS, payload.aiWorkLevel, existing?.aiWorkLevel, undefined),
+    completionLevel: enumValue(COMPLETION_LEVELS, payload.completionLevel, existing?.completionLevel, "completed"),
+    humanRevisionLevel: enumValue(HUMAN_REVISION_LEVELS, payload.humanRevisionLevel, existing?.humanRevisionLevel, "none"),
+    reworkCount: Number(payload.reworkCount ?? existing?.reworkCount ?? 0),
+    humanWorkMinutes,
+    estimatedManualMinutes,
+    reusability: enumValue(REUSABILITY_LEVELS, payload.reusability, existing?.reusability, "unknown"),
+    adoption: enumValue(ADOPTION_LEVELS, payload.adoption, existing?.adoption, "pending"),
+    artifactIds: arrayOfStrings(payload.artifactIds ?? existing?.artifactIds),
+    nextImprovement: normalizeString(payload.nextImprovement ?? existing?.nextImprovement),
+    evaluatedBy: normalizeString(payload.evaluatedBy ?? existing?.evaluatedBy),
+    evaluatedAt: normalizeString(payload.evaluatedAt ?? existing?.evaluatedAt),
+    createdAt: existing?.createdAt || timestamp,
+    updatedAt: timestamp
+  };
+}
+
+function normalizeActors(value) {
+  if (!Array.isArray(value)) return [];
+  return value.map((actor) => ({
+    type: normalizeString(actor?.type),
+    employeeId: normalizeString(actor?.employeeId) || null,
+    label: normalizeString(actor?.label),
+    role: normalizeString(actor?.role) || "support"
+  })).filter((actor) => actor.type || actor.employeeId || actor.label);
+}
+
+function validateEvaluation(evaluation, all) {
+  const errors = [];
+  if (!all.tasks.some((task) => task.id === evaluation.taskId)) errors.push("存在しないタスクIDです。");
+  if (!EVALUATION_STATUSES.includes(evaluation.status)) errors.push("不正な振り返り状態です。");
+  if (!EVALUATION_TYPES.includes(evaluation.evaluationType)) errors.push("不正な振り返り種別です。");
+  if (evaluation.aiWorkLevel && !AI_WORK_LEVELS.includes(evaluation.aiWorkLevel)) errors.push("不正なAI業務レベルです。");
+  if (!Number.isInteger(evaluation.revision) || evaluation.revision < 1) errors.push("版数は1以上の整数で入力してください。");
+  if (!COMPLETION_LEVELS.includes(evaluation.completionLevel)) errors.push("不正な完了度です。");
+  if (!HUMAN_REVISION_LEVELS.includes(evaluation.humanRevisionLevel)) errors.push("不正な人間の修正量です。");
+  if (!REUSABILITY_LEVELS.includes(evaluation.reusability)) errors.push("不正な再利用区分です。");
+  if (!ADOPTION_LEVELS.includes(evaluation.adoption)) errors.push("不正な採否区分です。");
+  if (!Number.isInteger(evaluation.reworkCount) || evaluation.reworkCount < 0) errors.push("手戻り回数は0以上の整数で入力してください。");
+  for (const key of ["humanWorkMinutes", "estimatedManualMinutes"]) {
+    const value = evaluation[key];
+    if (value !== undefined && (!Number.isFinite(value) || value < 0)) errors.push(`${key}は0以上の数値で入力してください。`);
+  }
+  if (normalizeString(evaluation.nextImprovement).length > 300) errors.push("次回変えることは300文字以内で入力してください。");
+  for (const actor of evaluation.actors || []) {
+    if (!EXECUTION_ACTOR_TYPES.includes(actor.type)) errors.push("不正な実行主体です。");
+    if (!EXECUTION_ACTOR_ROLES.includes(actor.role)) errors.push("不正な実行主体の役割です。");
+    if (actor.employeeId && !all.employees.some((employee) => employee.id === actor.employeeId)) errors.push(`存在しない社員IDです: ${actor.employeeId}`);
+  }
+  for (const artifactId of evaluation.artifactIds || []) {
+    const artifact = all.artifacts.find((item) => item.id === artifactId);
+    if (!artifact) {
+      errors.push(`存在しない成果物IDです: ${artifactId}`);
+    } else if (artifact.taskId && artifact.taskId !== evaluation.taskId) {
+      errors.push(`別タスクの成果物は紐付けできません: ${artifactId}`);
+    }
+  }
+  return errors;
+}
+
+function latestEvaluationForTask(taskId, evaluations) {
+  return [...(evaluations || [])]
+    .filter((item) => item.taskId === taskId)
+    .sort((a, b) => String(b.updatedAt || b.createdAt).localeCompare(String(a.updatedAt || a.createdAt)))[0] || null;
+}
+
+function evaluationStatusForTask(taskId, evaluations) {
+  return latestEvaluationForTask(taskId, evaluations)?.status || "not_evaluated";
+}
+
 async function addActivity(root, activity) {
   const all = await loadAll(root);
   const settings = all.settings;
@@ -290,6 +404,12 @@ async function dashboard(root) {
       codexWorking: all.tasks.filter((task) => task.status === "codex_working").length,
       completedThisMonth: all.tasks.filter((task) => task.completedAt?.startsWith(currentMonth)).length
     },
+    evaluationCounts: {
+      notEvaluated: all.tasks.filter((task) => evaluationStatusForTask(task.id, all.evaluations) === "not_evaluated").length,
+      deferred: all.tasks.filter((task) => evaluationStatusForTask(task.id, all.evaluations) === "deferred").length,
+      evaluated: all.tasks.filter((task) => evaluationStatusForTask(task.id, all.evaluations) === "evaluated").length,
+      notApplicable: all.tasks.filter((task) => evaluationStatusForTask(task.id, all.evaluations) === "not_applicable").length
+    },
     dueSoon,
     recentlyUpdated,
     recentArtifacts,
@@ -307,19 +427,80 @@ function countBy(tasks, key, master) {
   })).filter((item) => item.count > 0);
 }
 
+async function evaluationSummary(root) {
+  const all = await loadAll(root);
+  return buildEvaluationSummary(all);
+}
+
+function buildEvaluationSummary(all) {
+  const evaluations = all.evaluations || [];
+  const latestByTask = new Map();
+  for (const evaluation of evaluations) {
+    const current = latestByTask.get(evaluation.taskId);
+    if (!current || String(evaluation.updatedAt || evaluation.createdAt).localeCompare(String(current.updatedAt || current.createdAt)) > 0) {
+      latestByTask.set(evaluation.taskId, evaluation);
+    }
+  }
+  const latest = [...latestByTask.values()];
+  const actorTypeCounts = {};
+  for (const evaluation of latest) {
+    for (const actor of evaluation.actors || []) {
+      actorTypeCounts[actor.type] = (actorTypeCounts[actor.type] || 0) + 1;
+    }
+  }
+  const humanWorkMinutes = latest.reduce((sum, item) => sum + Number(item.humanWorkMinutes || 0), 0);
+  const estimatedSavedMinutes = latest.reduce((sum, item) => {
+    if (item.humanWorkMinutes === undefined || item.estimatedManualMinutes === undefined) return sum;
+    return sum + (Number(item.estimatedManualMinutes) - Number(item.humanWorkMinutes));
+  }, 0);
+  return {
+    evaluatedCount: latest.filter((item) => item.status === "evaluated").length,
+    adoptionCount: latest.filter((item) => ["adopted", "partially_adopted"].includes(item.adoption)).length,
+    majorRevisionCount: latest.filter((item) => ["major", "rebuild"].includes(item.humanRevisionLevel)).length,
+    reusableArtifactCount: latest.filter((item) => ["direct", "with_changes"].includes(item.reusability)).length,
+    humanWorkMinutes,
+    estimatedSavedMinutes,
+    actorTypeCounts,
+    nextImprovements: latest
+      .filter((item) => normalizeString(item.nextImprovement))
+      .sort((a, b) => String(b.updatedAt || b.createdAt).localeCompare(String(a.updatedAt || a.createdAt)))
+      .slice(0, 20)
+      .map((item) => ({
+        id: item.id,
+        taskId: item.taskId,
+        taskTitle: all.tasks.find((task) => task.id === item.taskId)?.title || item.taskId,
+        nextImprovement: item.nextImprovement,
+        updatedAt: item.updatedAt
+      }))
+  };
+}
+
 module.exports = {
+  ADOPTION_LEVELS,
+  AI_WORK_LEVELS,
   ARTIFACT_TYPES,
+  COMPLETION_LEVELS,
+  EVALUATION_STATUSES,
+  EVALUATION_TYPES,
+  EXECUTION_ACTOR_ROLES,
+  EXECUTION_ACTOR_TYPES,
+  HUMAN_REVISION_LEVELS,
   LINK_TYPES,
   PRIORITIES,
+  REUSABILITY_LEVELS,
   TASK_STATUSES,
   addActivity,
   dashboard,
+  evaluationStatusForTask,
+  evaluationSummary,
   loadAll,
   normalizeArtifact,
   normalizeDepartment,
   normalizeEmployee,
+  normalizeEvaluation,
   normalizeLink,
   normalizeTask,
+  validateEvaluation,
   validateLink,
   validateTask,
   writeJson
