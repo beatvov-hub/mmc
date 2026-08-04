@@ -1,0 +1,188 @@
+{
+  "id": "case-20260804-02",
+  "publishedAt": "2026-08-04",
+  "title": "会話が自然でも本人とは限らない　AIで巧妙化する「恋愛から投資」詐欺",
+  "shortTitle": "自然な会話は本人確認にならない",
+  "category": "scam",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "SNSやマッチングアプリを利用する人",
+    "オンラインで知り合った人と交流する人",
+    "暗号資産や投資に興味がある人"
+  ],
+  "summary": "生成AIによって、詐欺グループは自然な会話文の作成、翻訳、架空プロフィールの運用、偽の投資広告や書類の制作を効率化できるようになっています。会話が丁寧で長期間続いていても、それだけでは相手が実在する本人だとは確認できません。オンラインで知り合った相手から投資や送金の話が出たら、関係性とは切り離し、紹介されたリンクを使わずに運営会社や登録情報を独自に確認することが重要です。",
+  "scenario": {
+    "headline": "SNSで知り合った相手と毎日会話していたら、「一緒に投資を始めよう」と誘われた",
+    "description": "相手は趣味や仕事の話を覚えており、文章も自然で、時には写真や投資画面も送ってきます。数週間後、「自分も利益が出ている」「少額から試せる」と専用の投資サイトを紹介されました。しかし、自然な会話や整った画像、画面上の利益表示は、相手や投資先が本物である証明にはなりません。",
+    "whyItMatters": "OpenAIは2026年7月31日、生成AIを使って架空の人物像や会話、投資・恋愛・なりすまし詐欺の素材を作成していた組織的ネットワークを停止したと公表しました。詐欺の仕組み自体は以前からありますが、生成AIによって翻訳や個別対応が効率化され、文章の不自然さだけでは見抜きにくくなっています。"
+  },
+  "question": {
+    "text": "オンラインで知り合った相手から投資を勧められたとき、最も安全な対応は？",
+    "choices": [
+      {
+        "id": "trust-long-chat",
+        "label": "長期間会話しているので信用する",
+        "description": "毎日連絡を取っていることを本人確認の代わりにする。"
+      },
+      {
+        "id": "start-small",
+        "label": "少額だけ入金して様子を見る",
+        "description": "失っても困らない金額なら安全だと考える。"
+      },
+      {
+        "id": "verify-independently",
+        "label": "送金せず、相手と切り離して投資先を独自に確認する",
+        "description": "紹介されたリンクを使わず、登録情報や評判を公的な窓口で確認する。"
+      },
+      {
+        "id": "check-writing-style",
+        "label": "文章に不自然な日本語がないか確認する",
+        "description": "文章が自然なら本物の相手だと判断する。"
+      }
+    ],
+    "recommendedAnswers": [
+      "verify-independently"
+    ],
+    "explanation": "会話の自然さ、連絡期間、写真、動画、利益画面は、相手や投資先の正当性を保証しません。投資話が出た時点で人間関係とは切り離し、送金を止め、紹介されたURL以外から会社名・登録状況・被害報告を確認することが重要です。少額入金で一度利益を引き出せるように見せ、信用させてから入金額を増やさせる手口もあります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "知り合った場所と投資話の流れ",
+      "description": "SNSやマッチングアプリで接触し、親密になった後に投資へ誘導されていないか確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "利益や安全性を断言していないか",
+      "description": "「必ず儲かる」「リスクはない」「自分が教える」といった説明は警戒が必要です。",
+      "priority": "high"
+    },
+    {
+      "title": "紹介されたサイト以外で確認できるか",
+      "description": "会社名、所在地、運営者、金融登録を公的な情報源から独自に調べます。",
+      "priority": "high"
+    },
+    {
+      "title": "送金方法が限定されていないか",
+      "description": "暗号資産、海外送金、個人名義口座など、取り戻しにくい方法を指定された場合は停止します。",
+      "priority": "high"
+    },
+    {
+      "title": "秘密や即決を求められていないか",
+      "description": "家族に相談しないよう求めたり、期限を理由に急がせたりする場合は距離を置きます。",
+      "priority": "high"
+    },
+    {
+      "title": "出金時に追加費用を求められていないか",
+      "description": "税金、保証金、解除料などを払わないと出金できないという説明は典型的な危険信号です。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "送金前に第三者確認が必要",
+  "verificationMessage": "相手との会話ではなく、相手から独立した公的情報で確認してください。",
+  "verdict": {
+    "label": "自然な会話より、お金の動きを見る",
+    "description": "生成AIは会話や画像を本物らしく整えられます。相手をAIか人間か見破ることより、投資勧誘、秘密の要求、急な送金、出金時の追加請求といった行動パターンを見る方が有効です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "投資や送金の話が出たら一度会話を止める",
+      "reason": "感情的な関係と金銭判断を切り離せます。"
+    },
+    {
+      "action": "会社名や金融登録を公的な窓口で確認する",
+      "reason": "相手が用意した偽サイトだけを見て判断することを防げます。"
+    },
+    {
+      "action": "家族や信頼できる人へ相談する",
+      "reason": "第三者は、親密な会話の中では見落としやすい不自然さに気付きやすくなります。"
+    },
+    {
+      "action": "画像やプロフィールを逆画像検索する",
+      "reason": "他人の写真や過去の詐欺プロフィールの使い回しを発見できる場合があります。"
+    },
+    {
+      "action": "送金済みなら金融機関へすぐ連絡する",
+      "reason": "早期であれば、取引停止や被害拡大防止につながる可能性があります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "文章が自然だから本物だと判断する",
+      "reason": "生成AIは自然な文章の作成や翻訳を支援できます。"
+    },
+    {
+      "action": "少額なら安全だと考えて入金する",
+      "reason": "最初の入金や見せかけの利益が、追加送金への入口になることがあります。"
+    },
+    {
+      "action": "相手から送られた確認サイトだけを見る",
+      "reason": "比較サイト、登録画面、取引画面そのものが偽造されている可能性があります。"
+    },
+    {
+      "action": "損失を取り戻すために追加送金する",
+      "reason": "税金や解除料などの名目で被害が拡大することがあります。"
+    },
+    {
+      "action": "恥ずかしさから誰にも相談しない",
+      "reason": "詐欺は信頼や感情を利用するよう設計されており、被害に遭うことは個人の能力不足ではありません。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを「相手を信じる道具」ではなく「確認項目を整理する道具」として使う",
+    "description": "相手のメッセージをAIへ貼り付けて真偽を断定させるのではなく、確認すべき会社情報、投資登録、送金方法、勧誘パターンを整理する補助として利用できます。最終確認は公的機関や金融機関など、相手から独立した情報源で行います。",
+    "examples": [
+      "会社名と投資商品の確認項目をAIに一覧化してもらう",
+      "個人情報を伏せて、勧誘文に含まれる危険信号を整理する",
+      "公的な相談窓口へ伝える経緯を時系列でまとめる",
+      "銀行へ相談するために送金記録や連絡履歴を整理する",
+      "家族へ状況を説明する文章を作成する"
+    ]
+  },
+  "makotoComment": "AIで作られた相手を、見た目や文章だけで見破ろうとすると限界があります。大切なのは、「この人はAIか」ではなく、「なぜ今、お金を動かすよう求めているのか」と考えることです。会話がどれだけ自然でも、投資の安全性とは別問題として確認しましょう。",
+  "oneLineLesson": "自然な会話は、本人確認にも投資の保証にもならない。",
+  "tags": [
+    "AI詐欺",
+    "ロマンス詐欺",
+    "投資詐欺",
+    "SNS",
+    "暗号資産",
+    "なりすまし"
+  ],
+  "sources": [
+    {
+      "title": "Disrupting a Criminal Scam Operation",
+      "publisher": "OpenAI",
+      "sourceType": "official",
+      "publishedAt": "2026-07-31",
+      "url": "https://openai.com/index/disrupting-malicious-uses-of-ai-criminal-scam-operation/"
+    },
+    {
+      "title": "Scammers Use Couriers to Collect Cash in Cryptocurrency Investment Scams",
+      "publisher": "Federal Bureau of Investigation",
+      "sourceType": "government",
+      "publishedAt": "2026-06-15",
+      "url": "https://www.ic3.gov/PSA/2026/PSA260615"
+    },
+    {
+      "title": "With people losing big to investment scams, learn how to spot and avoid them",
+      "publisher": "Federal Trade Commission",
+      "sourceType": "government",
+      "publishedAt": "2026-04-16",
+      "url": "https://consumer.ftc.gov/consumer-alerts/2026/04/people-losing-big-investment-scams-learn-how-spot-and-avoid-them"
+    },
+    {
+      "title": "Romance scams: recognising manipulation before it escalates",
+      "publisher": "Europol",
+      "sourceType": "government",
+      "publishedAt": "2026-02-13",
+      "url": "https://www.europol.europa.eu/operations-services-and-innovation/public-awareness-and-prevention-guides/romance-scams-recognising-manipulation-it-escalates"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "スマートフォンで親しげなメッセージを受け取る人物。画面の会話は自然で優しい一方、その奥に架空プロフィール、偽の投資グラフ、暗号資産送金画面が重なって見える。中央には「会話の自然さ」と「投資の安全性」を分ける境界線を配置した、注意喚起しつつ過度に恐怖をあおらない実写風デザイン。",
+    "cardIcon": "romance-investment-warning",
+    "accentTone": "caution"
+  }
+}

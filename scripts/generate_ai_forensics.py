@@ -17,28 +17,14 @@ BASE_URL = "https://mainichi-miru.com"
 MAKOTO_ICON = "image/icon/icon_mmc010.jpg"
 
 CATEGORY_LABELS = {
-    "deepfake": "ディープフェイク",
-    "misinformation": "誤情報・偽情報",
-    "hallucination": "AIの誤回答",
-    "privacy": "個人情報",
-    "copyright": "著作権",
-    "security": "セキュリティ",
-    "browser-security": "ブラウザーセキュリティ",
-    "ai-browser-security": "AIブラウザ安全利用",
-    "ai-shopping-safety": "AIショッピング安全利用",
-    "ai-agents": "AIエージェント",
-    "scam": "詐欺",
-    "search": "AI検索",
-    "social-media": "SNS",
-    "verification": "情報確認",
-    "work-use": "仕事でのAI活用",
-    "health-ai": "健康・医療AI",
-    "health-misinformation": "健康情報の誤情報",
-    "ai-content-labels": "AIコンテンツ表示",
-    "media-literacy": "メディアリテラシー",
-    "ai-information-security": "AI情報管理",
+    "media-literacy": "情報の見極め",
+    "security": "セキュリティ・権限",
+    "scam": "詐欺・なりすまし",
+    "health-ai": "健康・医療",
+    "work-use": "仕事・AI活用",
     "other": "その他",
 }
+
 DIFFICULTY_LABELS = {
     "beginner": "はじめて",
     "standard": "標準",
@@ -337,8 +323,11 @@ def render_index_page(articles: list[dict[str, Any]]) -> str:
     latest = articles[0] if articles else None
     card_grid = "\n".join(render_card(article) for article in articles)
     featured = render_card(latest, featured=True) if latest else '<div class="forensics-empty-card">AI鑑識室の記事を準備しています。</div>'
+    used_categories = {article.get("category", "") for article in articles}
     category_options = "\n".join(
-        f'              <option value="{esc(key)}">{esc(value)}</option>' for key, value in CATEGORY_LABELS.items()
+        f'              <option value="{esc(key)}">{esc(value)}</option>'
+        for key, value in CATEGORY_LABELS.items()
+        if key in used_categories
     )
     level_options = "\n".join(
         f'              <option value="{level}">確認レベル {level}｜{esc(label)}</option>' for level, label in VERIFICATION_LABELS.items()
