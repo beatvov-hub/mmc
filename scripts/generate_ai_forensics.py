@@ -36,6 +36,7 @@ CATEGORY_LABELS = {
     "health-misinformation": "健康情報の誤情報",
     "ai-content-labels": "AIコンテンツ表示",
     "media-literacy": "メディアリテラシー",
+    "ai-information-security": "AI情報管理",
     "other": "その他",
 }
 DIFFICULTY_LABELS = {
