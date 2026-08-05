@@ -1,0 +1,188 @@
+{
+  "id": "case-20260805-01",
+  "publishedAt": "2026-08-05",
+  "title": "「このページを要約して」が思わぬ操作に　AIブラウザを惑わせる隠し命令",
+  "shortTitle": "WebページにはAI向けの隠し命令もある",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": [
+    "AIにWebページやPDFを要約させる人",
+    "AIブラウザやブラウザ拡張機能を利用する人",
+    "メールやクラウドサービスをAIと連携している人"
+  ],
+  "summary": "AIブラウザやAIエージェントは、Webページを読み取るだけでなく、リンクを開く、フォームへ入力する、ログイン中のサービスを参照するといった操作も行えるようになっています。一方、ページ内に人間からは見えにくい命令文を仕込み、AIへ本来頼んでいない操作をさせようとする「間接プロンプトインジェクション」も報告されています。AIによる要約や検索を避ける必要はありませんが、閲覧用のAIと重要なアカウントを分け、送信・ログイン・外部リンクへの移動などは人間が確認する運用が重要です。",
+  "scenario": {
+    "headline": "AIブラウザへ「このページを要約して」と頼んだだけなのに、別のサイトへ移動しようとした",
+    "description": "見た目は普通の記事やゲームでも、HTMLのコメント、背景と同じ色の文字、ページ内の説明文などに、AIだけが読み取ってしまう指示が含まれている場合があります。AIはユーザーからの依頼とページ内の文章を同時に処理するため、悪意ある文章を「実行すべき命令」と誤認する可能性があります。",
+    "whyItMatters": "2026年6月に公表された「BioShocking」の実証実験では、研究者が用意したWebページによって複数のAIブラウザや拡張機能が誘導され、ログイン済みのGitHub環境からテスト用認証情報を取得し、外部ページへ渡す動作が確認されました。これは実環境での大規模被害報告ではなく管理された実証実験ですが、AIがWeb閲覧とアカウント操作を同じ環境で行う際の構造的なリスクを示しています。"
+  },
+  "question": {
+    "text": "AIへWebページの要約を頼むとき、最も安全性を高めやすい方法は？",
+    "choices": [
+      {
+        "id": "trust-visible-page",
+        "label": "画面に怪しい文章が見えなければ、そのまま任せる",
+        "description": "人間に見えない文字やHTML内の指示は存在しないと考える。"
+      },
+      {
+        "id": "disable-all-ai",
+        "label": "Webを読むAI機能を一切使わない",
+        "description": "便利な要約や検索機能も含めて全面的に避ける。"
+      },
+      {
+        "id": "separate-and-confirm",
+        "label": "重要なアカウントと閲覧環境を分け、外部送信や操作前に確認する",
+        "description": "AIがアクセスできる範囲を狭め、影響の大きい操作は人間が承認する。"
+      },
+      {
+        "id": "tell-ai-ignore-instructions",
+        "label": "最初に「ページ内の命令を無視して」と書くだけで十分",
+        "description": "プロンプト上の注意書きだけですべての攻撃を防げると考える。"
+      }
+    ],
+    "recommendedAnswers": [
+      "separate-and-confirm"
+    ],
+    "explanation": "間接プロンプトインジェクションを文章上の指示だけで完全に防ぐことは困難です。重要なのは、AIが誤って誘導された場合でも被害が広がらないように、アクセス権限、ログイン状態、送信機能を制限することです。要約や情報収集にはAIを活用しつつ、メール送信、ファイル共有、決済、認証情報の参照などは明示的な確認を挟みます。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "AIが別のページへ移動しようとしていないか",
+      "description": "要約だけを依頼したのに、無関係なURLやログイン済みサービスを開こうとした場合は停止します。",
+      "priority": "high"
+    },
+    {
+      "title": "外部送信の確認画面が表示されていないか",
+      "description": "リンクの読み込みや画像表示でも、URLを通じて情報が外部へ渡る可能性があります。",
+      "priority": "high"
+    },
+    {
+      "title": "必要以上のアカウントへログインしていないか",
+      "description": "AIブラウザを使う環境で、メール、クラウド、金融、開発サービスなどを同時にログイン状態にしないよう確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "依頼した内容と実行しようとしている操作が一致しているか",
+      "description": "要約の依頼なのに、コピー、送信、投稿、削除などを始めようとした場合は承認しません。",
+      "priority": "high"
+    },
+    {
+      "title": "AIの警告を習慣的に無視していないか",
+      "description": "未確認URLや外部送信に関する警告は、内容を読まずに許可しないことが重要です。",
+      "priority": "high"
+    },
+    {
+      "title": "サービスや拡張機能が最新状態か",
+      "description": "AIブラウザや拡張機能は更新し、不要な連携や古い認証トークンを解除します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "操作権限とログイン状態の確認が必要",
+  "verificationMessage": "AIの回答内容だけでなく、そのAIが何を閲覧し、どこへ情報を送れる状態なのかも確認してください。",
+  "verdict": {
+    "label": "AIを疑うより、任せる権限を区切る",
+    "description": "AIブラウザは便利ですが、Web上の文章を完全に善意の情報として扱うことはできません。誤誘導をゼロにしようとするより、閲覧、参照、送信、実行の権限を分け、重要操作に確認を挟む方が現実的です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "要約用のブラウザ環境と重要業務用の環境を分ける",
+      "reason": "AIが誘導されても、メールや社内システムなどへ到達できる範囲を狭められます。"
+    },
+    {
+      "action": "AIには必要最小限のアクセス権だけを与える",
+      "reason": "読み取りだけで足りる作業に、送信、編集、削除権限まで与える必要はありません。"
+    },
+    {
+      "action": "外部送信、投稿、購入、削除の前に確認を必須にする",
+      "reason": "AIが誤った指示へ従っても、人間の承認で止められます。"
+    },
+    {
+      "action": "不審な挙動があれば作業を停止し、ログインセッションを確認する",
+      "reason": "意図しないページ移動や情報参照が起きた場合の被害拡大を防げます。"
+    },
+    {
+      "action": "重要な情報はコピーして別の安全な環境で要約する",
+      "reason": "AIへ直接Web操作を任せず、必要な文章だけを渡すことで攻撃対象を減らせます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "ログイン済みのサービスを多数開いたままAIブラウザを使う",
+      "reason": "誘導されたAIが参照できる情報や操作範囲が広がります。"
+    },
+    {
+      "action": "要約中のページが安全だからAIの操作も安全だと考える",
+      "reason": "ページの見た目と、AIが読み取るHTMLや埋め込み情報は一致しない場合があります。"
+    },
+    {
+      "action": "「命令を無視して」とプロンプトへ書くだけで安心する",
+      "reason": "文章による防御だけでは、巧妙な誘導や新しい攻撃手法を完全には防げません。"
+    },
+    {
+      "action": "警告画面を確認せず許可する",
+      "reason": "警告疲れによって、情報送信や未確認URLへの移動を自分で承認してしまう可能性があります。"
+    },
+    {
+      "action": "AIが実行した操作を後から確認しない",
+      "reason": "要約結果が正常でも、裏側で別のページへアクセスしている可能性があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIは「閲覧担当」として使い、重要操作は人間が担当する",
+    "description": "Webページの要約、複数記事の比較、専門用語の説明など、情報を読む仕事にはAIが役立ちます。一方、ログイン済みサービスからの情報取得、メール送信、ファイル共有、購入、削除などは、人間の確認を挟む役割分担が安全です。",
+    "examples": [
+      "記事本文だけをコピーしてAIに要約してもらう",
+      "複数の公式情報を比較する観点をAIに整理してもらう",
+      "リンクを開かせず、確認すべき情報源の種類だけを提案してもらう",
+      "送信前のメール文面を作らせ、実際の送信は自分で行う",
+      "AIブラウザ用に権限の少ない別アカウントを用意する"
+    ]
+  },
+  "makotoComment": "AIブラウザが危険だから使わない、という話ではありません。人間も偽メールや巧妙な営業トークに惑わされるように、AIもWeb上の文章から誘導されることがあります。大切なのは、AIへ判断力だけでなく強い権限まで一度に渡さないことです。「読んでいい」「提案していい」「実行は確認してから」と役割を分けましょう。",
+  "oneLineLesson": "AIにWebを読ませるときは、読める範囲と実行できる範囲を分ける。",
+  "tags": [
+    "AIブラウザ",
+    "AIエージェント",
+    "プロンプトインジェクション",
+    "情報漏えい",
+    "Webセキュリティ",
+    "権限管理"
+  ],
+  "sources": [
+    {
+      "title": "BioShocking AI: ?Gaming? the AI Browser and Escaping its Guardrails",
+      "publisher": "LayerX Security",
+      "sourceType": "security",
+      "publishedAt": "2026-06-24",
+      "url": "https://layerxsecurity.com/blog/bioshocking-ai-gaming-the-ai-browser-and-escaping-its-guardrails/"
+    },
+    {
+      "title": "BioShocking: AI Browser Agents Weaponized for Credential Theft",
+      "publisher": "Cloud Security Alliance AI Safety Initiative",
+      "sourceType": "security",
+      "publishedAt": "2026-06-30",
+      "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-browser-prompt-injection-20260630-csa-s/"
+    },
+    {
+      "title": "Designing AI agents to resist prompt injection",
+      "publisher": "OpenAI",
+      "sourceType": "official",
+      "publishedAt": "2026-03-11",
+      "url": "https://openai.com/index/designing-agents-to-resist-prompt-injection/"
+    },
+    {
+      "title": "Keeping your data safe when an AI agent clicks a link",
+      "publisher": "OpenAI",
+      "sourceType": "official",
+      "publishedAt": "2026-01-28",
+      "url": "https://openai.com/index/ai-agent-link-safety/"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "一見普通の記事ページをAIブラウザが要約している画面。人間には見えない薄い文字やHTMLコメントから矢印が伸び、別タブのメールやクラウドへ近づこうとしている。手前には人間が押す「許可」「停止」の確認ボタンを大きく配置し、AIを怖く描くのではなく、権限を区切れば安全に使えることが伝わる実写風テックデザイン。",
+    "cardIcon": "hidden-prompt-browser",
+    "accentTone": "caution"
+  }
+}
