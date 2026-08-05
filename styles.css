@@ -5715,6 +5715,14 @@ img { max-width: 100%; }
   line-height: 1.04;
 }
 
+.forensics-article-hero h1 {
+  max-width: 13.5em;
+  font-size: clamp(2.35rem, 4vw, 3.5rem);
+  line-height: 1.18;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
 .forensics-hero p,
 .forensics-article-hero p {
   margin: 0;
@@ -6602,6 +6610,11 @@ img { max-width: 100%; }
   .forensics-hero h1,
   .forensics-article-hero h1 {
     font-size: clamp(2.6rem, 15vw, 4.2rem);
+  }
+  .forensics-article-hero h1 {
+    max-width: none;
+    font-size: clamp(1.95rem, 9vw, 2.7rem);
+    line-height: 1.2;
   }
   .forensics-card,
   .forensics-article-section,
