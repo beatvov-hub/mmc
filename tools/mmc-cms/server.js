@@ -45,9 +45,9 @@ const {
   writeJson: writeWorklineJson
 } = require("./lib/workline-store");
 
-const ROOT = path.resolve(__dirname, "..", "..");
+const ROOT = path.resolve(process.env.MMC_REPO_ROOT || path.resolve(__dirname, "..", ".."));
 const PUBLIC_DIR = path.join(__dirname, "public");
-const BACKUP_DIR = path.join(__dirname, "backups");
+const BACKUP_DIR = path.join(ROOT, "tools", "mmc-cms", "backups");
 const SETTINGS_RELATIVE = "tools/mmc-cms/settings.json";
 const SESSION_TOKEN = crypto.randomBytes(24).toString("hex");
 const MAX_BODY_BYTES = 10 * 1024 * 1024;

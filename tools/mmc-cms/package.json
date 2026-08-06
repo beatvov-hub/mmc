@@ -1,14 +1,54 @@
 {
   "name": "mmc-workline",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "毎日見る株式会社の業務進行・更新管理ツール",
+  "author": "毎日見る株式会社",
+  "main": "electron-main.js",
   "scripts": {
-    "start": "node desktop-launcher.js",
+    "start": "electron .",
+    "start:legacy": "node desktop-launcher.js",
     "browser": "node server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win portable"
   },
   "engines": {
     "node": ">=18"
+  },
+  "build": {
+    "appId": "net.mainichi-miru.workline",
+    "productName": "MMC Workline",
+    "artifactName": "MMC Workline.${ext}",
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron-main.js",
+      "server.js",
+      "lib/**/*",
+      "public/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/workline-icon.png",
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "portable": {
+      "artifactName": "MMC Workline.${ext}",
+      "requestExecutionLevel": "user"
+    }
+  },
+  "devDependencies": {
+    "electron": "^43.3.0",
+    "electron-builder": "^26.15.3"
   }
 }
