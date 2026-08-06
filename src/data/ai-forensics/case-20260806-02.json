@@ -1,0 +1,209 @@
+{
+  "id": "case-20260806-02",
+  "publishedAt": "2026-08-06",
+  "title": "話しただけの商品が広告に出た　本当にスマホがAIで盗み聞きしている？",
+  "shortTitle": "広告の一致だけでは盗聴の証拠にならない",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "スマートフォンでSNSやWeb広告を見る人",
+    "会話後に関連広告が表示されて不安になった人",
+    "アプリのプライバシー設定を見直したい人",
+    "Web広告やSNS運用に関わる人"
+  ],
+  "summary": "会話に出た商品が直後に広告へ現れると、スマートフォンが常時盗み聞きしているように感じることがあります。しかし、広告の一致だけではマイクが使われた証拠にはなりません。2026年5月、米国FTCは、スマート機器の会話をAIで解析して広告を配信すると宣伝していた企業3社について、実際には音声データを使わず、データ業者から購入したメールリストを転売していたとして、提案された和解を公表しました。過度に怖がるのではなく、マイク権限と使用中の表示を確認しつつ、閲覧履歴、位置情報、アプリ利用履歴など別の広告データも見直すことが大切です。",
+  "scenario": {
+    "headline": "友人と旅行の話をした直後、SNSに旅行会社の広告が表示された",
+    "description": "自分では検索していないため、スマートフォンが会話を聞いていたように感じました。しかし、過去に見た旅行関連ページ、位置情報、同じアプリ内での行動、メールアドレスにひも付く広告データなどから、旅行に関心があると推測された可能性もあります。また、人は会話した直後ほど関連広告に気付きやすく、以前から表示されていた広告を急に意識することもあります。",
+    "whyItMatters": "FTCが2026年5月21日に公表した行政上の申立てでは、Cox Media Groupなど3社が「Active Listening」というAI広告サービスについて、スマート機器が拾った会話を解析して広告を届けられると顧客へ説明していたとされました。しかしFTCによると、実際のサービスは音声データを利用せず、データ業者から購入したメールリストを大幅に上乗せして再販売するものでした。この事例は、AIによる監視を必要以上に恐れるだけでなく、サービス提供者が語る「AIの仕組み」自体も検証する必要があることを示しています。"
+  },
+  "question": {
+    "text": "会話した内容に関連する広告が表示されたとき、最も適切な対応は？",
+    "choices": [
+      {
+        "id": "assume-listening",
+        "label": "広告が一致したので、スマホが会話を録音したと断定する",
+        "description": "広告の内容だけをマイク使用の証拠として扱う。"
+      },
+      {
+        "id": "ignore-privacy",
+        "label": "盗聴ではない可能性があるので、設定は何も確認しない",
+        "description": "マイク以外の広告データやアプリ権限も気にしない。"
+      },
+      {
+        "id": "check-permissions-and-data",
+        "label": "マイク権限と使用表示を確認し、広告設定や収集データも見直す",
+        "description": "音声利用の有無と、閲覧履歴など別の広告要因を分けて確認する。"
+      },
+      {
+        "id": "delete-all-apps",
+        "label": "広告が表示されるアプリをすべて削除する",
+        "description": "必要なサービスも含め、原因を確認せず全面的に利用をやめる。"
+      }
+    ],
+    "recommendedAnswers": [
+      "check-permissions-and-data"
+    ],
+    "explanation": "関連広告が表示されたことだけでは、マイクが使われたかどうかは判断できません。iPhoneやAndroidでは、アプリがマイクを使用している際に画面上へインジケーターが表示され、設定から権限を確認できます。同時に、Webサイトやアプリは閲覧履歴、位置情報、識別情報などを広告へ利用する場合があるため、マイクだけに注目せず、広告設定とデータ収集全体を確認することが現実的です。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "マイク使用中の表示が出ていないか",
+      "description": "iPhoneではオレンジ色、Androidでは緑色のインジケーターなど、マイク使用を示す表示を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "どのアプリにマイク権限があるか",
+      "description": "通話や録音に不要なアプリへマイク権限が付いている場合は無効にします。",
+      "priority": "high"
+    },
+    {
+      "title": "最近マイクを使用したアプリ",
+      "description": "iPhoneのコントロールセンターやAndroidのプライバシー機能から、使用したアプリを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "広告のカスタマイズ設定",
+      "description": "SNS、検索サービス、スマートフォンの広告設定から、パーソナライズ広告を制限できるか確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "位置情報や閲覧履歴の権限",
+      "description": "マイクを許可していなくても、位置情報、検索、閲覧、購入履歴などから関心が推測される場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "サービス側のAI説明に根拠があるか",
+      "description": "「AIが会話を解析」「独自アルゴリズムで正確に特定」といった宣伝を、技術資料や契約内容で確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "広告を見た時期だけで因果関係を決めていないか",
+      "description": "会話直後に気付いたという時間的な一致だけで、録音が原因だと断定しないようにします。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "端末設定と広告データを分けて確認",
+  "verificationMessage": "広告の一致だけで盗聴と判断せず、マイクの使用履歴、アプリ権限、広告設定を順番に確認してください。",
+  "verdict": {
+    "label": "不安を否定せず、確認できる証拠を見る",
+    "description": "スマートフォンのプライバシーを気にすることは大切ですが、関連広告が出たという印象だけでは原因を特定できません。マイクの使用表示や権限という確認可能な情報を見ながら、閲覧履歴やデータ業者など、音声以外の広告経路も考える必要があります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "マイク権限を必要なアプリだけに限定する",
+      "reason": "録音や通話と関係のないアプリが音声へアクセスする範囲を減らせます。"
+    },
+    {
+      "action": "マイク使用中のインジケーターを確認する",
+      "reason": "どのアプリが現在または直前にマイクを使用したかを把握できます。"
+    },
+    {
+      "action": "SNSや検索サービスの広告設定を見直す",
+      "reason": "行動履歴に基づく広告のカスタマイズを制限できる場合があります。"
+    },
+    {
+      "action": "不要なアプリ権限を定期的に整理する",
+      "reason": "一度だけ使った機能のために許可した権限が、そのまま残ることを防げます。"
+    },
+    {
+      "action": "企業向けAIサービスは成果とデータ取得方法を別々に確認する",
+      "reason": "AIという説明が、実際の技術や提供内容と一致しているとは限りません。"
+    },
+    {
+      "action": "不審なマイク利用が続く場合はアプリを停止または削除する",
+      "reason": "原因となるアプリを切り分け、意図しない音声アクセスを止められます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "関連広告が表示されたことだけで盗聴を断定する",
+      "reason": "広告は閲覧履歴、位置情報、購入傾向、データ業者のリストなど、複数の情報から配信されます。"
+    },
+    {
+      "action": "「AIだから何でも分かる」というサービス説明をそのまま信じる",
+      "reason": "FTCの事例では、AIによる音声解析を宣伝しながら、実際には音声データを使っていなかったとされています。"
+    },
+    {
+      "action": "利用規約への同意を、あらゆる音声利用への明確な同意だと考える",
+      "reason": "FTCは、必須の利用規約をクリックしただけでは、家庭内の音声を広告へ使うような侵襲的サービスへの同意とはいえないと指摘しています。"
+    },
+    {
+      "action": "マイク権限だけ確認して安心する",
+      "reason": "広告には位置情報、識別情報、Web閲覧、アプリ利用など別のデータも使われる可能性があります。"
+    },
+    {
+      "action": "怖くなって便利な音声機能をすべて無効にする",
+      "reason": "必要なアプリだけに権限を限定すれば、音声入力や通話などの便利な機能を安全に使い続けられます。"
+    }
+  ],
+  "positiveUse": {
+    "title": "マイク権限を必要な場面だけ許可して、音声AIを便利に使う",
+    "description": "音声入力、文字起こし、翻訳、会議メモなど、マイクを使うAI機能には実用的な価値があります。すべてを常時許可するのではなく、利用するアプリと時間を限定し、使用中の表示を確認することで、便利さとプライバシーを両立できます。",
+    "examples": [
+      "音声入力を使うアプリだけマイクを許可する",
+      "使用後に一時的なマイク権限を解除する",
+      "会議録音の前に参加者へ利用目的を伝える",
+      "録音データの保存先と削除方法を確認する",
+      "広告のパーソナライズを制限しながら音声アシスタントを利用する"
+    ]
+  },
+  "makotoComment": "「話した直後に広告が出た」という経験は、不気味に感じて当然です。ただし、そこで原因をマイクだけに決めてしまうと、閲覧履歴や位置情報など、実際に使われている可能性が高いデータを見落とします。逆に「絶対に盗み聞きはない」と安心しきるのも危険です。感覚ではなく、権限、使用表示、広告設定という確認できる情報から判断しましょう。",
+  "oneLineLesson": "関連広告は盗聴の証拠ではないが、権限と広告データを見直すきっかけにはなる。",
+  "tags": [
+    "ターゲティング広告",
+    "スマートフォン",
+    "マイク権限",
+    "プライバシー",
+    "AI広告",
+    "データブローカー"
+  ],
+  "sources": [
+    {
+      "title": "FTC to Require Cox Media Group, Two Other Firms to Pay Nearly $1 Million to Settle Charges They Deceived Customers About ?Active Listening? AI-Powered Marketing Service",
+      "publisher": "Federal Trade Commission",
+      "sourceType": "government",
+      "publishedAt": "2026-05-21",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2026/05/ftc-require-cox-media-group-two-other-firms-pay-nearly-1-million-settle-charges-they-deceived"
+    },
+    {
+      "title": "Complaint: In the Matter of CMG Media Corporation",
+      "publisher": "Federal Trade Commission",
+      "sourceType": "government",
+      "publishedAt": "2026-05-21",
+      "url": "https://www.ftc.gov/system/files/ftc_gov/pdf/CMGComplaintwithoutsignatures.pdf"
+    },
+    {
+      "title": "About the orange and green indicators in your iPhone status bar",
+      "publisher": "Apple",
+      "sourceType": "official",
+      "publishedAt": "2026-05-27",
+      "url": "https://support.apple.com/en-ae/108331"
+    },
+    {
+      "title": "Control access to hardware features on iPhone",
+      "publisher": "Apple",
+      "sourceType": "official",
+      "url": "https://support.apple.com/guide/iphone/control-access-to-hardware-features-iph168c4bbd5/ios"
+    },
+    {
+      "title": "Check if your Android camera or microphone is on or off",
+      "publisher": "Google",
+      "sourceType": "official",
+      "url": "https://support.google.com/android/answer/13532937"
+    },
+    {
+      "title": "How Websites and Apps Collect and Use Your Information",
+      "publisher": "Federal Trade Commission",
+      "sourceType": "government",
+      "url": "https://consumer.ftc.gov/articles/how-websites-apps-collect-use-your-information"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????",
+    "cardIcon": "microphone-ad-check",
+    "accentTone": "calm"
+  }
+}
