@@ -2,20 +2,32 @@
 
 const WORKLINE_STATUS = [
   ["idea", "構想中"],
-  ["consulting", "相談中"],
-  ["specification", "仕様整理中"],
-  ["waiting_codex", "Codex依頼待ち"],
-  ["codex_working", "Codex作業中"],
+  ["planned", "実施予定"],
+  ["inProgress", "進行中"],
   ["review", "確認待ち"],
-  ["revision", "修正中"],
-  ["preparing_publish", "公開準備中"],
+  ["publishDecision", "公開判断"],
   ["completed", "完了"],
-  ["on_hold", "保留"]
+  ["canceled", "中止"],
+  ["inquiry", "相談受領"],
+  ["proposal", "提案中"],
+  ["waitingResponse", "返答待ち"],
+  ["accepted", "受注"],
+  ["production", "制作中"],
+  ["clientReview", "先方確認中"],
+  ["delivered", "納品済み"],
+  ["invoiced", "請求済み"],
+  ["paid", "入金済み"],
+  ["declined", "不成立"]
 ];
+const GENERAL_STATUS = WORKLINE_STATUS.filter(([id]) => ["idea", "planned", "inProgress", "review", "publishDecision", "completed", "canceled"].includes(id));
+const EXTERNAL_STATUS = WORKLINE_STATUS.filter(([id]) => ["inquiry", "proposal", "waitingResponse", "accepted", "production", "clientReview", "delivered", "invoiced", "paid", "declined", "canceled"].includes(id));
+const TASK_TYPE = [["project", "親案件"], ["task", "作業"], ["subtask", "小タスク"]];
+const WORKFLOW_TYPE = [["general", "通常企画"], ["external", "外部案件"]];
+const VISIBILITY = [["publicCandidate", "公開候補"], ["internal", "社内のみ"], ["confidential", "社外秘"], ["pending", "公開判断待ち"]];
 const WORKLINE_PRIORITY = [["low", "低"], ["normal", "通常"], ["high", "高"], ["urgent", "至急"]];
 const LINK_TYPES = ["chatgpt", "github", "codex", "web", "file", "folder", "note", "other"];
 const ARTIFACT_TYPES = ["article", "image", "document", "code", "website", "data", "other"];
-const EVALUATION_STATUS = [["not_evaluated", "未評価"], ["deferred", "後で評価"], ["evaluated", "評価済み"], ["not_applicable", "評価対象外"]];
+const EVALUATION_STATUS = [["unevaluated", "未評価"], ["later", "後で評価"], ["evaluated", "評価済み"], ["notApplicable", "評価対象外"]];
 const EVALUATION_TYPE = [["final", "最終"], ["interim", "途中"], ["post_release", "公開後"]];
 const ACTOR_TYPES = [["human", "人間"], ["ai_employee", "AI社員"], ["chatgpt_task", "ChatGPTタスク"], ["codex", "Codex"], ["internal_app", "自作アプリ"], ["external_contractor", "外部委託"], ["other", "その他"]];
 const ACTOR_ROLES = [["primary", "主担当"], ["support", "補助"], ["review", "確認役"]];
@@ -70,6 +82,9 @@ function renderTaskSelects() {
   fillFilter("#filter-employee", [["", "すべて"], ...workline.employees.map((item) => [item.id, item.name])]);
   fillFilter("#filter-department", [["", "すべて"], ...workline.departments.map((item) => [item.id, item.name])]);
   fillFilter("#filter-status", [["", "すべて"], ...WORKLINE_STATUS]);
+  fillFilter("#filter-type", [["", "すべて"], ...TASK_TYPE]);
+  fillFilter("#filter-workflow", [["", "すべて"], ...WORKFLOW_TYPE]);
+  fillFilter("#filter-visibility", [["", "すべて"], ...VISIBILITY]);
   fillFilter("#evaluation-filter-status", [["", "すべて"], ...EVALUATION_STATUS]);
   fillFilter("#evaluation-filter-actor", [["", "すべて"], ...ACTOR_TYPES]);
   fillFilter("#evaluation-filter-adoption", [["", "すべて"], ...ADOPTION]);
@@ -103,7 +118,7 @@ function latestEvaluation(taskId) {
 }
 
 function evaluationStatus(taskId) {
-  return latestEvaluation(taskId)?.status || "not_evaluated";
+  return latestEvaluation(taskId)?.evaluationStatus || latestEvaluation(taskId)?.status || "unevaluated";
 }
 
 function isAiEvaluation(evaluation) {
@@ -112,10 +127,31 @@ function isAiEvaluation(evaluation) {
 
 function needsImprovement(evaluation) {
   if (!evaluation) return false;
+  if (evaluation.needsImprovement) return true;
   return ["major", "rebuild"].includes(evaluation.humanRevisionLevel) ||
     evaluation.adoption === "rejected" ||
     Number(evaluation.reworkCount || 0) >= 3 ||
     ["incomplete", "cancelled"].includes(evaluation.completionLevel);
+}
+
+function statusOptionsForWorkflow(workflowType) {
+  return workflowType === "external" ? EXTERNAL_STATUS : GENERAL_STATUS;
+}
+
+function normalizeTaskForUi(task) {
+  const employeeIds = task.employeeIds || [];
+  const primaryAssigneeId = task.primaryAssigneeId || employeeIds[0] || "";
+  return {
+    type: task.parentTaskId ? "subtask" : "task",
+    workflowType: "general",
+    visibility: "internal",
+    nextAction: "",
+    primaryAssigneeId,
+    supportAssigneeIds: employeeIds.filter((id) => id !== primaryAssigneeId),
+    reviewerIds: [],
+    external: {},
+    ...task
+  };
 }
 
 async function renderDashboard() {
@@ -124,7 +160,7 @@ async function renderDashboard() {
   q("#dashboard-metrics").innerHTML = [
     ["進行中", data.counts.inProgress || 0],
     ["確認待ち", data.counts.review || 0],
-    ["Codex作業中", data.counts.codexWorking || 0],
+    ["外部確認中", data.counts.externalWaiting || 0],
     ["今月完了", data.counts.completedThisMonth || 0]
   ].map(([label, value]) => `<div class="metric-card"><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join("");
   q("#dashboard-due").innerHTML = compactTasks(data.dueSoon, "期限が近いタスクはありません。");
@@ -147,12 +183,13 @@ async function renderEvaluationDashboard() {
   const result = await worklineRequest("/api/workline/evaluation-summary");
   const summary = result.summary || {};
   metrics.innerHTML = [
+    ["AI利用", summary.aiUsedCount || 0],
     ["評価済み", summary.evaluatedCount || 0],
-    ["採用・一部採用", summary.adoptionCount || 0],
-    ["大幅修正", summary.majorRevisionCount || 0],
-    ["再利用候補", summary.reusableArtifactCount || 0],
+    ["評価済み率", `${summary.evaluatedRate || 0}%`],
+    ["要改善", summary.needsImprovementCount || 0],
     ["人間作業", `${summary.humanWorkMinutes || 0}分`],
-    ["推定削減", `${summary.estimatedSavedMinutes || 0}分`]
+    ["推定削減", `${summary.estimatedSavedMinutes || 0}分`],
+    ["手戻り", `${summary.reworkCount || 0}回`]
   ].map(([label, value]) => `<div class="metric-card compact-metric"><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join("");
 
   const status = q("#evaluation-filter-status")?.value || "";
@@ -178,15 +215,17 @@ async function renderEvaluationDashboard() {
 }
 
 function evaluationRow(item) {
-  const saved = item.humanWorkMinutes !== undefined && item.estimatedManualMinutes !== undefined
-    ? `${Number(item.estimatedManualMinutes) - Number(item.humanWorkMinutes)}分`
+  const human = item.humanMinutes ?? item.humanWorkMinutes;
+  const estimated = item.estimatedMinutesWithoutAI ?? item.estimatedManualMinutes;
+  const saved = human !== undefined && estimated !== undefined
+    ? `${Number(estimated) - Number(human)}分`
     : "未計算";
   const badges = [
     isAiEvaluation(item) ? "AI利用" : "",
     needsImprovement(item) ? "要改善" : ""
   ].filter(Boolean).map((label) => `<span class="workline-chip">${esc(label)}</span>`).join("");
   return `<article class="table-row evaluation-row">
-    <div><strong>${esc(taskTitle(item.taskId))}</strong><span>${esc(labelOf(EVALUATION_STATUS, item.status))} / ${esc(labelOf(EVALUATION_TYPE, item.evaluationType))} #${esc(item.revision)}</span></div>
+    <div><strong>${esc(taskTitle(item.taskId))}</strong><span>${esc(labelOf(EVALUATION_STATUS, item.evaluationStatus || item.status))} / ${esc(labelOf(EVALUATION_TYPE, item.evaluationType))} #${esc(item.revision)}</span></div>
     <div>${esc(labelOf(COMPLETION_LEVEL, item.completionLevel))}</div>
     <div>${esc(labelOf(HUMAN_REVISION_LEVEL, item.humanRevisionLevel))}</div>
     <div>${esc(labelOf(ADOPTION, item.adoption))} / 推定 ${esc(saved)}<span>${esc(item.nextImprovement || "")}</span></div>
@@ -204,42 +243,57 @@ function renderBoard() {
   const employee = q("#filter-employee")?.value || "";
   const department = q("#filter-department")?.value || "";
   const status = q("#filter-status")?.value || "";
+  const type = q("#filter-type")?.value || "";
+  const workflow = q("#filter-workflow")?.value || "";
+  const visibility = q("#filter-visibility")?.value || "";
   const tag = (q("#filter-tag")?.value || "").trim();
-  const tasks = workline.tasks.filter((task) =>
-    (!employee || task.employeeIds?.includes(employee)) &&
+  const tasks = workline.tasks.map(normalizeTaskForUi).filter((task) =>
+    (!employee || [task.primaryAssigneeId, ...(task.supportAssigneeIds || []), ...(task.reviewerIds || [])].includes(employee)) &&
     (!department || task.departmentId === department) &&
     (!status || task.status === status) &&
+    (!type || task.type === type) &&
+    (!workflow || task.workflowType === workflow) &&
+    (!visibility || task.visibility === visibility) &&
     (!tag || task.tags?.some((item) => item.includes(tag)))
   );
-  q("#kanban-board").innerHTML = WORKLINE_STATUS.map(([id, label]) => {
-    const cards = tasks.filter((task) => task.status === id);
-    return `<section class="kanban-column">
-      <h3>${esc(label)} <span>${cards.length}</span></h3>
-      <div class="kanban-cards">${cards.map(taskCard).join("") || `<p class="muted">なし</p>`}</div>
-    </section>`;
-  }).join("");
+  q("#kanban-board").innerHTML = `<div class="work-item-list">
+    ${tasks.length ? tasks.map(taskCard).join("") : `<p class="muted">条件に合う項目はありません。</p>`}
+  </div>`;
 }
 
 function taskCard(task) {
-  const employees = (task.employeeIds || []).map(employeeName).filter(Boolean).join("、") || "未設定";
+  const primary = employeeName(task.primaryAssigneeId) || "未設定";
   const evaluation = latestEvaluation(task.id);
   const status = evaluationStatus(task.id);
   const badges = [
     isAiEvaluation(evaluation) ? "AI利用" : "",
     status === "evaluated" ? "評価済み" : "",
-    status === "deferred" ? "後で評価" : "",
-    status === "not_applicable" ? "対象外" : "",
     needsImprovement(evaluation) ? "要改善" : ""
   ].filter(Boolean).map((label) => `<span>${esc(label)}</span>`).join("");
-  return `<article class="task-card ${isOverdue(task) ? "is-overdue" : ""}" data-open-task="${esc(task.id)}">
-    <strong>${esc(task.title)}</strong>
-    <p>${esc(task.description || "説明なし")}</p>
+  const child = childProgress(task.id);
+  const progress = task.type === "project" && child.total ? child.percent : Number(task.progress || 0);
+  return `<article class="task-card work-item-card ${isOverdue(task) ? "is-overdue" : ""}" data-open-task="${esc(task.id)}">
+    <div class="work-item-card__head">
+      <strong>${esc(task.title)}</strong>
+      <span>${esc(labelOf(TASK_TYPE, task.type))} / ${esc(labelOf(WORKFLOW_TYPE, task.workflowType))}</span>
+    </div>
+    <p class="next-action-preview"><b>次にやること</b>${esc(task.nextAction || "未設定")}</p>
     ${badges ? `<div class="task-badges">${badges}</div>` : ""}
-    <div class="task-meta"><span>${esc(departmentName(task.departmentId) || "部署未設定")}</span><span>${esc(employees)}</span></div>
-    <div class="task-meta"><span>期限 ${esc(task.endDate || "なし")}</span><span>優先度 ${esc(labelOf(WORKLINE_PRIORITY, task.priority))}</span></div>
-    <div class="progress"><span style="width:${Number(task.progress || 0)}%"></span></div>
-    <label class="quick-status">状態 <select data-task-status="${esc(task.id)}">${WORKLINE_STATUS.map(([value, label]) => `<option value="${value}" ${task.status === value ? "selected" : ""}>${label}</option>`).join("")}</select></label>
+    <div class="task-meta"><span>${esc(labelOf(WORKLINE_STATUS, task.status))}</span><span>${esc(labelOf(VISIBILITY, task.visibility))}</span><span>主担当 ${esc(primary)}</span><span>期限 ${esc(task.endDate || "なし")}</span></div>
+    ${child.total ? `<div class="task-meta"><span>子タスク ${child.completed}/${child.total} 完了</span></div>` : ""}
+    <div class="progress"><span style="width:${progress}%"></span></div>
+    <div class="quick-edit-row" data-stop-open>
+      <label class="quick-status">状態 <select data-task-status="${esc(task.id)}">${statusOptionsForWorkflow(task.workflowType).map(([value, label]) => `<option value="${value}" ${task.status === value ? "selected" : ""}>${label}</option>`).join("")}</select></label>
+      <label class="quick-status grow">次にやること <input data-next-action-input="${esc(task.id)}" value="${esc(task.nextAction || "")}" /></label>
+      <button class="button tiny" data-save-next-action="${esc(task.id)}" type="button">更新</button>
+    </div>
   </article>`;
+}
+
+function childProgress(taskId) {
+  const children = workline.tasks.filter((item) => item.parentTaskId === taskId);
+  const completed = children.filter((item) => ["completed", "delivered", "paid"].includes(item.status)).length;
+  return { total: children.length, completed, percent: children.length ? Math.round((completed / children.length) * 100) : 0 };
 }
 
 function renderTimeline() {
@@ -330,9 +384,9 @@ function drawerTitle(type, item) {
 }
 
 function blankItem(type) {
-  if (type === "task") return { title: "", description: "", departmentId: "", employeeIds: [], startDate: "", endDate: "", status: "idea", priority: "normal", progress: 0, parentTaskId: "", tags: [], notes: "", codexInstruction: "" };
+  if (type === "task") return { title: "", description: "", type: "task", workflowType: "general", visibility: "internal", nextAction: "", departmentId: "", primaryAssigneeId: "", supportAssigneeIds: [], reviewerIds: [], employeeIds: [], startDate: "", endDate: "", status: "idea", priority: "normal", progress: 0, parentTaskId: "", tags: [], notes: "", codexInstruction: "", external: {} };
   if (type === "artifact") return { title: "", description: "", type: "other", taskId: "", pathOrUrl: "" };
-  if (type === "evaluation") return { taskId: "", evaluationType: "final", revision: 1, status: "evaluated", actors: [], aiWorkLevel: "", completionLevel: "completed", humanRevisionLevel: "none", reworkCount: 0, humanWorkMinutes: "", estimatedManualMinutes: "", reusability: "unknown", adoption: "pending", artifactIds: [], nextImprovement: "", evaluatedBy: "", evaluatedAt: "" };
+  if (type === "evaluation") return { taskId: "", workItemId: "", evaluationType: "final", revision: 1, status: "evaluated", evaluationStatus: "evaluated", reviewMode: "quick", aiUsed: false, aiTools: [], aiTasks: "", humanChecks: "", actors: [], aiWorkLevel: "", completionLevel: "completed", humanRevisionLevel: "none", reworkCount: 0, specificationChangeCount: 0, humanMinutes: "", estimatedMinutesWithoutAI: "", humanWorkMinutes: "", estimatedManualMinutes: "", goodPoints: "", problems: "", reusability: "unknown", adoption: "pending", artifactIds: [], nextImprovement: "", needsImprovement: false, evaluatedBy: "", evaluatedAt: "" };
   if (type === "employee") return { name: "", role: "", departmentId: "", iconPath: "", isActive: true };
   if (type === "department") return { name: "", description: "", sortOrder: 100, isActive: true };
   return { taskId: "", type: "web", label: "", value: "" };
@@ -357,24 +411,94 @@ function multiOptions(items, selectedValues) {
 }
 
 function taskForm(item) {
+  item = normalizeTaskForUi(item);
   return `<div class="form-grid">
     ${input("title", "タイトル", item.title, "full")}
-    ${textarea("description", "背景・説明", item.description, "full", 4)}
+    ${textarea("nextAction", "次にやること", item.nextAction, "full", 3)}
+    <label class="field"><span>種類</span><select name="type">${options(TASK_TYPE, item.type)}</select></label>
+    <label class="field"><span>業務フロー</span><select name="workflowType">${options(WORKFLOW_TYPE, item.workflowType)}</select></label>
+    <label class="field"><span>状態</span><select name="status">${options(statusOptionsForWorkflow(item.workflowType), item.status)}</select></label>
+    <label class="field"><span>公開範囲</span><select name="visibility">${options(VISIBILITY, item.visibility)}</select></label>
+    <label class="field"><span>主担当</span><select name="primaryAssigneeId">${options(workline.employees.map((employee) => [employee.id, employee.name]), item.primaryAssigneeId, "未設定")}</select></label>
+    <label class="field"><span>補助担当</span><select name="supportAssigneeIds" multiple size="5">${multiOptions(workline.employees.map((employee) => [employee.id, employee.name]), item.supportAssigneeIds || [])}</select></label>
+    <label class="field"><span>確認担当</span><select name="reviewerIds" multiple size="5">${multiOptions(workline.employees.map((employee) => [employee.id, employee.name]), item.reviewerIds || [])}</select></label>
     <label class="field"><span>部署</span><select name="departmentId">${options(workline.departments.map((dept) => [dept.id, dept.name]), item.departmentId, "未設定")}</select></label>
-    <label class="field"><span>担当社員</span><select name="employeeIds" multiple size="6">${multiOptions(workline.employees.map((employee) => [employee.id, employee.name]), item.employeeIds || [])}</select></label>
     ${input("startDate", "開始日", item.startDate, "", "date")}
     ${input("endDate", "終了日", item.endDate, "", "date")}
-    <label class="field"><span>状態</span><select name="status">${options(WORKLINE_STATUS, item.status)}</select></label>
     <label class="field"><span>優先度</span><select name="priority">${options(WORKLINE_PRIORITY, item.priority)}</select></label>
     ${input("progress", "進捗率", item.progress, "", "number")}
     <label class="field"><span>親タスク</span><select name="parentTaskId">${options(workline.tasks.filter((task) => task.id !== item.id).map((task) => [task.id, task.title]), item.parentTaskId, "なし")}</select></label>
+    ${textarea("description", "背景・説明", item.description, "full", 4)}
+    ${externalFields(item)}
+    <div class="full">${childrenForTask(item.id)}</div>
     ${input("tags", "タグ（改行区切り）", (item.tags || []).join("\\n"), "full")}
     ${textarea("notes", "メモ", item.notes, "full", 4)}
     ${textarea("codexInstruction", "Codex実装指示", item.codexInstruction, "full", 8)}
-    <div class="button-row full"><button class="button secondary" id="copy-codex-instruction" type="button">Codex指示をコピー</button><button class="button secondary" id="template-codex-instruction" type="button">テンプレートから生成</button><button class="button secondary" id="add-task-link" type="button">リンクを追加</button></div>
+    <div class="button-row full"><button class="button secondary" id="copy-codex-instruction" type="button">Codex指示をコピー</button><button class="button secondary" id="template-codex-instruction" type="button">テンプレートから生成</button><button class="button secondary" id="add-task-link" type="button">リンクを追加</button><button class="button secondary" id="add-task-artifact" type="button">成果物を追加</button></div>
     <div class="full drawer-links">${linksForTask(item.id)}</div>
+    <div class="full drawer-links">${artifactsForTask(item.id)}</div>
+    <div class="full">${decisionLogsForTask(item.id)}</div>
     <div class="full">${evaluationsForTask(item.id)}</div>
   </div>`;
+}
+
+function externalFields(item) {
+  const external = item.external || {};
+  const hidden = item.workflowType === "external" ? "" : " is-hidden";
+  return `<details class="full evaluation-detail${hidden}" ${item.workflowType === "external" ? "open" : ""}>
+    <summary>外部案件情報</summary>
+    <div class="form-grid">
+      ${input("externalClientName", "取引先名", external.clientName || "")}
+      ${input("externalProjectName", "案件名", external.projectName || "")}
+      ${input("externalProposedAmount", "提案金額", external.proposedAmount ?? "", "", "number")}
+      <label class="field"><span>税込／税別</span><select name="externalTaxType">${options([["", "未設定"], ["taxIncluded", "税込"], ["taxExcluded", "税別"]], external.taxType || "")}</select></label>
+      ${input("externalProposedAt", "提案日", external.proposedAt || "", "", "date")}
+      ${input("externalDesiredDueDate", "希望納期", external.desiredDueDate || "", "", "date")}
+      ${textarea("externalDeliverables", "納品物", external.deliverables || "", "full", 3)}
+      ${input("externalInvoiceStatus", "請求状態", external.invoiceStatus || "")}
+      ${input("externalPaymentStatus", "入金状態", external.paymentStatus || "")}
+    </div>
+  </details>`;
+}
+
+function childrenForTask(taskId) {
+  if (!taskId) return `<details class="evaluation-section full"><summary>子タスク</summary><p class="muted">保存後に子タスクを追加できます。</p></details>`;
+  const children = workline.tasks.filter((task) => task.parentTaskId === taskId);
+  const progress = childProgress(taskId);
+  return `<details class="evaluation-section full" open>
+    <summary>子タスク <span>${progress.completed}/${progress.total} 完了 · ${progress.percent}%</span></summary>
+    <div class="progress"><span style="width:${progress.percent}%"></span></div>
+    <div class="compact-list">
+      ${children.length ? children.map((task) => `<article class="mini-card" data-open-task="${esc(task.id)}"><strong>${esc(task.title)}</strong><span>${esc(labelOf(WORKLINE_STATUS, task.status))} / 次: ${esc(task.nextAction || "未設定")}</span></article>`).join("") : `<p class="muted">子タスクはまだありません。</p>`}
+    </div>
+    <button class="button secondary" data-new-child-task="${esc(taskId)}" type="button">子タスクを追加</button>
+  </details>`;
+}
+
+function artifactsForTask(taskId) {
+  if (!taskId) return `<p class="muted">保存後に成果物を追加できます。</p>`;
+  const items = workline.artifacts.filter((artifact) => artifact.taskId === taskId);
+  return `<details class="evaluation-section full">
+    <summary>成果物・関連情報</summary>
+    ${items.length ? items.map((item) => `<article class="mini-card"><strong>${esc(item.title)}</strong><span>${esc(item.type)} / ${esc(item.pathOrUrl)}</span><button class="button tiny" data-open-artifact="${esc(item.id)}" type="button">編集</button></article>`).join("") : `<p class="muted">成果物はまだありません。</p>`}
+  </details>`;
+}
+
+function decisionLogsForTask(taskId) {
+  if (!taskId) return `<details class="evaluation-section full"><summary>決定ログ</summary><p class="muted">保存後に決定ログを追加できます。</p></details>`;
+  const logs = [...(workline.decisionLogs || [])].filter((item) => item.workItemId === taskId || item.taskId === taskId).sort((a, b) => String(b.decidedAt).localeCompare(String(a.decidedAt)));
+  return `<details class="evaluation-section full" open>
+    <summary>決定ログ <span>${logs.length}件</span></summary>
+    <p class="muted">コメントとは別に、「何が決まったか」だけを追記で残します。</p>
+    <div class="compact-list">${logs.length ? logs.map((item) => `<article class="mini-card"><strong>${esc(item.decidedAt)}｜${esc(item.summary)}</strong><span>${esc(item.reason || "理由なし")} / ${esc(item.decidedBy || "決定者未設定")}</span></article>`).join("") : `<p class="muted">まだ決定ログはありません。</p>`}</div>
+    <div class="decision-log-form" data-stop-open>
+      ${input("decisionDecidedAt", "決定日", today(), "", "date")}
+      ${input("decisionDecidedBy", "決定者", "")}
+      ${textarea("decisionSummary", "決定内容", "", "full", 2)}
+      ${textarea("decisionReason", "理由", "", "full", 2)}
+      <button class="button secondary" data-add-decision="${esc(taskId)}" type="button">決定を追記</button>
+    </div>
+  </details>`;
 }
 
 function evaluationsForTask(taskId) {
@@ -391,7 +515,7 @@ function evaluationsForTask(taskId) {
       ${evaluations.length
         ? evaluations
           .sort((a, b) => String(b.updatedAt || b.createdAt).localeCompare(String(a.updatedAt || a.createdAt)))
-          .map((item) => `<article class="mini-card"><strong>${esc(labelOf(EVALUATION_STATUS, item.status))} / ${esc(labelOf(COMPLETION_LEVEL, item.completionLevel))}</strong><span>${esc(item.nextImprovement || "次回メモなし")} / ${esc(formatDateTime(item.updatedAt || item.createdAt))}</span><button class="button tiny" data-open-evaluation="${esc(item.id)}" type="button">編集</button></article>`)
+          .map((item) => `<article class="mini-card"><strong>${esc(labelOf(EVALUATION_STATUS, item.evaluationStatus || item.status))} / ${esc(labelOf(COMPLETION_LEVEL, item.completionLevel))}</strong><span>${esc(item.nextImprovement || "次回メモなし")} / ${esc(formatDateTime(item.updatedAt || item.createdAt))}</span><button class="button tiny" data-open-evaluation="${esc(item.id)}" type="button">編集</button></article>`)
           .join("")
         : `<p class="muted">まだ振り返りはありません。</p>`}
     </div>
@@ -409,12 +533,18 @@ function evaluationForm(item) {
   const taskArtifacts = workline.artifacts.filter((artifact) => !item.taskId || !artifact.taskId || artifact.taskId === item.taskId);
   const actors = [...(item.actors || [])];
   while (actors.length < 3) actors.push({ type: "", employeeId: "", label: "", role: actors.length === 0 ? "primary" : "support" });
-  const saved = item.humanWorkMinutes !== undefined && item.humanWorkMinutes !== "" && item.estimatedManualMinutes !== undefined && item.estimatedManualMinutes !== ""
-    ? Number(item.estimatedManualMinutes) - Number(item.humanWorkMinutes)
+  const human = item.humanMinutes ?? item.humanWorkMinutes;
+  const estimated = item.estimatedMinutesWithoutAI ?? item.estimatedManualMinutes;
+  const saved = human !== undefined && human !== "" && estimated !== undefined && estimated !== ""
+    ? Number(estimated) - Number(human)
     : null;
   return `<div class="form-grid evaluation-form">
     <label class="field full"><span>タスク</span><select name="taskId">${options(workline.tasks.map((task) => [task.id, task.title]), item.taskId, "選択してください")}</select></label>
-    <label class="field"><span>状態</span><select name="status">${options(EVALUATION_STATUS, item.status || "evaluated")}</select></label>
+    <label class="field"><span>評価状態</span><select name="evaluationStatus">${options(EVALUATION_STATUS, item.evaluationStatus || item.status || "evaluated")}</select></label>
+    <label class="confirm-row"><input type="checkbox" name="aiUsed" ${item.aiUsed ? "checked" : ""} /><span>AIを使った</span></label>
+    ${input("humanMinutes", "人間作業時間（分）", human ?? "", "", "number")}
+    <label class="confirm-row"><input type="checkbox" name="needsImprovement" ${item.needsImprovement ? "checked" : ""} /><span>要改善として残す</span></label>
+    ${textarea("nextImprovement", "次回改善メモ", item.nextImprovement, "full", 3)}
     <label class="field"><span>種別</span><select name="evaluationType">${options(EVALUATION_TYPE, item.evaluationType || "final")}</select></label>
 
     <div class="full actor-box">
@@ -427,21 +557,25 @@ function evaluationForm(item) {
       </div>`).join("")}
     </div>
 
-    <label class="field"><span>完了度</span><select name="completionLevel">${options(COMPLETION_LEVEL, item.completionLevel || "completed")}</select></label>
-    <label class="field"><span>人間の修正量</span><select name="humanRevisionLevel">${options(HUMAN_REVISION_LEVEL, item.humanRevisionLevel || "none")}</select></label>
-    <label class="field"><span>採否</span><select name="adoption">${options(ADOPTION, item.adoption || "pending")}</select></label>
-    <label class="field"><span>再利用性</span><select name="reusability">${options(REUSABILITY, item.reusability || "unknown")}</select></label>
-    ${textarea("nextImprovement", "次回変えること（300文字以内）", item.nextImprovement, "full", 3)}
-
     <details class="full evaluation-detail">
-      <summary>詳細項目を開く</summary>
+      <summary>詳細振り返りを開く</summary>
+      <p class="muted">手戻り回数は、誤り・抜け漏れ・品質不足・指示理解不足による再作業だけを数えます。仕様変更や追加要望は、仕様変更回数へ分けて残します。</p>
       <div class="form-grid">
+        <label class="field"><span>完了度</span><select name="completionLevel">${options(COMPLETION_LEVEL, item.completionLevel || "completed")}</select></label>
+        <label class="field"><span>人間の修正量</span><select name="humanRevisionLevel">${options(HUMAN_REVISION_LEVEL, item.humanRevisionLevel || "none")}</select></label>
+        <label class="field"><span>採否</span><select name="adoption">${options(ADOPTION, item.adoption || "pending")}</select></label>
+        <label class="field"><span>再利用性</span><select name="reusability">${options(REUSABILITY, item.reusability || "unknown")}</select></label>
         <label class="field"><span>AI業務レベル</span><select name="aiWorkLevel">${options(AI_WORK_LEVEL, item.aiWorkLevel || "")}</select></label>
         ${input("revision", "版数", item.revision || 1, "", "number")}
         ${input("reworkCount", "手戻り回数", item.reworkCount ?? 0, "", "number")}
-        ${input("humanWorkMinutes", "人間作業時間（分）", item.humanWorkMinutes ?? "", "", "number")}
-        ${input("estimatedManualMinutes", "手作業想定時間（分）", item.estimatedManualMinutes ?? "", "", "number")}
+        ${input("specificationChangeCount", "仕様変更回数", item.specificationChangeCount ?? 0, "", "number")}
+        ${input("estimatedMinutesWithoutAI", "AIなし想定時間（分）", estimated ?? "", "", "number")}
         <div class="metric-card compact-metric"><span>推定削減時間</span><strong>${saved === null ? "未計算" : `${esc(saved)}分`}</strong></div>
+        ${input("aiTools", "使用したAI・サービス（改行区切り）", (item.aiTools || []).join("\\n"), "full")}
+        ${textarea("aiTasks", "AIが担当した作業", item.aiTasks || "", "full", 3)}
+        ${textarea("humanChecks", "人間が確認した作業", item.humanChecks || "", "full", 3)}
+        ${textarea("goodPoints", "良かった点", item.goodPoints || "", "full", 3)}
+        ${textarea("problems", "問題点", item.problems || "", "full", 3)}
         <label class="field wide"><span>関連成果物</span><select name="artifactIds" multiple size="5">${multiOptions(taskArtifacts.map((artifact) => [artifact.id, artifact.title]), item.artifactIds || [])}</select></label>
         ${input("evaluatedBy", "評価者", item.evaluatedBy || "")}
         ${input("evaluatedAt", "評価日", item.evaluatedAt || "", "", "date")}
@@ -476,7 +610,7 @@ function linksForTask(taskId) {
 }
 
 function input(name, label, value, span = "", type = "text") {
-  return `<label class="field ${span}"><span>${esc(label)}</span><input name="${esc(name)}" type="${type}" value="${esc(value || "")}" /></label>`;
+  return `<label class="field ${span}"><span>${esc(label)}</span><input name="${esc(name)}" type="${type}" value="${esc(value ?? "")}" /></label>`;
 }
 
 function textarea(name, label, value, span = "", rows = 3) {
@@ -488,14 +622,34 @@ function collectDrawer() {
   const item = drawer.item || {};
   qa("input, textarea, select", body).forEach((control) => {
     if (!control.name) return;
+    if (control.name.startsWith("decision")) return;
     if (control.multiple) item[control.name] = [...control.selectedOptions].map((option) => option.value);
     else if (control.type === "checkbox") item[control.name] = control.checked;
-    else if (["tags"].includes(control.name)) item[control.name] = control.value.split(/\n|,/).map((value) => value.trim()).filter(Boolean);
+    else if (["tags", "aiTools"].includes(control.name)) item[control.name] = control.value.split(/\n|,/).map((value) => value.trim()).filter(Boolean);
     else if (control.type === "number") item[control.name] = Number(control.value);
     else item[control.name] = control.value;
   });
-  if (drawer.type === "task") item.employeeIds ||= [];
+  if (drawer.type === "task") {
+    item.external = {
+      clientName: item.externalClientName || "",
+      projectName: item.externalProjectName || "",
+      proposedAmount: item.externalProposedAmount,
+      taxType: item.externalTaxType || "",
+      proposedAt: item.externalProposedAt || "",
+      desiredDueDate: item.externalDesiredDueDate || "",
+      deliverables: item.externalDeliverables || "",
+      invoiceStatus: item.externalInvoiceStatus || "",
+      paymentStatus: item.externalPaymentStatus || ""
+    };
+    ["externalClientName", "externalProjectName", "externalProposedAmount", "externalTaxType", "externalProposedAt", "externalDesiredDueDate", "externalDeliverables", "externalInvoiceStatus", "externalPaymentStatus"].forEach((key) => delete item[key]);
+    item.employeeIds = [...new Set([item.primaryAssigneeId, ...(item.supportAssigneeIds || []), ...(item.reviewerIds || [])].filter(Boolean))];
+    if (item.parentTaskId && item.type === "project") item.type = "task";
+  }
   if (drawer.type === "evaluation") {
+    item.status = item.evaluationStatus || item.status;
+    item.workItemId = item.taskId;
+    item.humanWorkMinutes = item.humanMinutes;
+    item.estimatedManualMinutes = item.estimatedMinutesWithoutAI;
     item.actors = [0, 1, 2].map((index) => ({
       type: item[`actorType${index}`],
       employeeId: item[`actorEmployee${index}`],
@@ -508,8 +662,14 @@ function collectDrawer() {
       delete item[`actorLabel${index}`];
       delete item[`actorRole${index}`];
     });
-    if (item.humanWorkMinutes === 0 && q("[name='humanWorkMinutes']", body)?.value === "") delete item.humanWorkMinutes;
-    if (item.estimatedManualMinutes === 0 && q("[name='estimatedManualMinutes']", body)?.value === "") delete item.estimatedManualMinutes;
+    if (item.humanMinutes === 0 && q("[name='humanMinutes']", body)?.value === "") {
+      delete item.humanMinutes;
+      delete item.humanWorkMinutes;
+    }
+    if (item.estimatedMinutesWithoutAI === 0 && q("[name='estimatedMinutesWithoutAI']", body)?.value === "") {
+      delete item.estimatedMinutesWithoutAI;
+      delete item.estimatedManualMinutes;
+    }
     if (!item.aiWorkLevel) delete item.aiWorkLevel;
   }
   return item;
@@ -576,7 +736,7 @@ ${task.codexInstruction || ""}
 
 function newEvaluationForTask(taskId, status = "evaluated") {
   const revisions = (workline.evaluations || []).filter((item) => item.taskId === taskId).map((item) => Number(item.revision || 0));
-  return { ...blankItem("evaluation"), taskId, status, revision: Math.max(0, ...revisions) + 1, evaluatedAt: today() };
+  return { ...blankItem("evaluation"), taskId, workItemId: taskId, status, evaluationStatus: status, revision: Math.max(0, ...revisions) + 1, evaluatedAt: today() };
 }
 
 async function createStatusEvaluation(taskId, status) {
@@ -594,6 +754,7 @@ async function updateTaskStatus(task, status) {
 document.addEventListener("click", async (event) => {
   const target = event.target.closest("button, article, .timeline-bar, .timeline-task");
   if (!target) return;
+  if (!target.matches("button") && event.target.closest("[data-stop-open]")) return;
   if (target.id === "refresh-workline") await loadWorkline();
   if (target.id === "new-task") openDrawer("task");
   if (target.id === "new-artifact") openDrawer("artifact");
@@ -609,7 +770,34 @@ document.addEventListener("click", async (event) => {
   if (target.dataset.openDepartment) openDrawer("department", workline.departments.find((item) => item.id === target.dataset.openDepartment));
   if (target.dataset.openLink) openDrawer("link", workline.links.find((item) => item.id === target.dataset.openLink));
   if (target.id === "add-task-link") openDrawer("link", { ...blankItem("link"), taskId: drawer.item?.id || "" });
+  if (target.id === "add-task-artifact") openDrawer("artifact", { ...blankItem("artifact"), taskId: drawer.item?.id || "" });
+  if (target.dataset.newChildTask) openDrawer("task", { ...blankItem("task"), type: "subtask", parentTaskId: target.dataset.newChildTask });
   if (target.dataset.newEvaluation) openDrawer("evaluation", newEvaluationForTask(target.dataset.newEvaluation));
+  if (target.dataset.saveNextAction) {
+    const task = workline.tasks.find((item) => item.id === target.dataset.saveNextAction);
+    const input = qa("[data-next-action-input]").find((item) => item.dataset.nextActionInput === target.dataset.saveNextAction);
+    if (task && input) {
+      const result = await worklineRequest(`/api/workline/tasks/${encodeURIComponent(task.id)}`, { body: { ...task, nextAction: input.value } });
+      if (result.ok) await loadWorkline();
+      else alert((result.errors || ["次にやることを更新できませんでした。"]).join("\n"));
+    }
+  }
+  if (target.dataset.addDecision) {
+    const body = q("#drawer-body");
+    const payload = {
+      workItemId: target.dataset.addDecision,
+      decidedAt: q("[name='decisionDecidedAt']", body)?.value || today(),
+      decidedBy: q("[name='decisionDecidedBy']", body)?.value || "",
+      summary: q("[name='decisionSummary']", body)?.value || "",
+      reason: q("[name='decisionReason']", body)?.value || ""
+    };
+    const result = await worklineRequest("/api/workline/decisionLogs", { body: payload });
+    if (!result.ok) return drawerMessage(result.errors || ["決定ログを追加できませんでした。"], "error");
+    const task = workline.tasks.find((item) => item.id === target.dataset.addDecision);
+    closeDrawer();
+    await loadWorkline();
+    openDrawer("task", task);
+  }
   if (target.id === "template-codex-instruction") {
     const task = collectDrawer();
     q("[name='codexInstruction']").value = codexTemplate(task);
@@ -625,6 +813,15 @@ document.addEventListener("click", async (event) => {
 });
 
 document.addEventListener("change", async (event) => {
+  if (event.target.matches("#drawer-body [name='workflowType']")) {
+    const item = collectDrawer();
+    if (!statusOptionsForWorkflow(item.workflowType).some(([status]) => status === item.status)) {
+      item.status = item.workflowType === "external" ? "inquiry" : "idea";
+    }
+    drawer.item = item;
+    q("#drawer-body").innerHTML = taskForm(item);
+    return;
+  }
   if (event.target.matches("[data-task-status]")) {
     const task = workline.tasks.find((item) => item.id === event.target.dataset.taskStatus);
     if (!task) return;
@@ -641,10 +838,10 @@ document.addEventListener("change", async (event) => {
         await loadWorkline();
         openDrawer("evaluation", newEvaluationForTask(task.id));
       } else if (choice === "2") {
-        await createStatusEvaluation(task.id, "deferred");
+        await createStatusEvaluation(task.id, "later");
         await loadWorkline();
       } else if (choice === "3") {
-        await createStatusEvaluation(task.id, "not_applicable");
+        await createStatusEvaluation(task.id, "notApplicable");
         await loadWorkline();
       } else {
         await loadWorkline();
@@ -657,7 +854,7 @@ document.addEventListener("change", async (event) => {
   }
 });
 
-["#filter-employee", "#filter-department", "#filter-status", "#filter-tag"].forEach((selector) => {
+["#filter-employee", "#filter-department", "#filter-status", "#filter-type", "#filter-workflow", "#filter-visibility", "#filter-tag"].forEach((selector) => {
   document.addEventListener(selector === "#filter-tag" ? "input" : "change", (event) => {
     if (event.target.matches(selector)) renderBoard();
   });

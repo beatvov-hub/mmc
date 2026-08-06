@@ -9,9 +9,11 @@ const {
   addActivity,
   evaluationSummary,
   loadAll,
+  normalizeDecisionLog,
   normalizeEvaluation,
   normalizeLink,
   normalizeTask,
+  validateDecisionLog,
   validateEvaluation,
   validateLink,
   validateTask,
@@ -76,6 +78,72 @@ test("親子タスクの循環参照を拒否する", async (context) => {
   const editedParent = { ...parent, parentTaskId: "child" };
   const errors = validateTask(editedParent, all);
   assert.ok(errors.some((message) => message.includes("循環")));
+});
+
+test("親案件・子タスクと担当役割を保存できる", async (context) => {
+  const root = await tempRoot(context);
+  const all = await loadAll(root);
+  const parent = normalizeTask({
+    id: "monthly-item",
+    title: "社員紹介コンテンツ「今月の一枚」試作",
+    type: "project",
+    visibility: "pending",
+    workflowType: "general",
+    status: "planned",
+    primaryAssigneeId: "kei",
+    supportAssigneeIds: ["rei", "nemu"],
+    reviewerIds: ["makoto"],
+    nextAction: "試作写真4枚で仮レイアウトを作る"
+  });
+  const child = normalizeTask({
+    id: "monthly-item-layout",
+    title: "仮レイアウトを作成",
+    type: "subtask",
+    parentTaskId: "monthly-item",
+    primaryAssigneeId: "kei",
+    nextAction: "午前中の四枚を並べる"
+  });
+  assert.deepEqual(validateTask(parent, all), []);
+  assert.deepEqual(validateTask(child, { ...all, tasks: [parent] }), []);
+  await writeJson(root, "tasks", [parent, child]);
+  const saved = await loadAll(root);
+  assert.equal(saved.tasks.find((task) => task.id === "monthly-item").type, "project");
+  assert.equal(saved.tasks.find((task) => task.id === "monthly-item").primaryAssigneeId, "kei");
+  assert.equal(saved.tasks.find((task) => task.id === "monthly-item-layout").parentTaskId, "monthly-item");
+});
+
+test("外部案件では外部案件用ステータスを検証する", async (context) => {
+  const root = await tempRoot(context);
+  const all = await loadAll(root);
+  const external = normalizeTask({
+    title: "外部PR案件",
+    workflowType: "external",
+    visibility: "confidential",
+    status: "proposal",
+    primaryAssigneeId: "shoma",
+    external: { projectName: "外部PR案件" }
+  });
+  assert.deepEqual(validateTask(external, all), []);
+  const invalid = normalizeTask({ ...external, status: "publishDecision" });
+  assert.ok(validateTask(invalid, all).some((message) => message.includes("業務フロー")));
+});
+
+test("決定ログを追記型データとして保存できる", async (context) => {
+  const root = await tempRoot(context);
+  const task = normalizeTask({ id: "decision-task", title: "決定テスト" });
+  await writeJson(root, "tasks", [task]);
+  const all = await loadAll(root);
+  const decision = normalizeDecisionLog({
+    workItemId: "decision-task",
+    decidedAt: "2026-08-06",
+    decidedBy: "ケイ",
+    summary: "まず4名で試作する。",
+    reason: "更新負担と見せ方を検証するため。"
+  });
+  assert.deepEqual(validateDecisionLog(decision, all), []);
+  await writeJson(root, "decisionLogs", [decision]);
+  const saved = await loadAll(root);
+  assert.equal(saved.decisionLogs[0].summary, "まず4名で試作する。");
 });
 
 test("URLはhttp/httpsだけ許可する", async (context) => {

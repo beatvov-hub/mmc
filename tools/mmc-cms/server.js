@@ -32,11 +32,13 @@ const {
   evaluationSummary: worklineEvaluationSummary,
   loadAll: loadWorkline,
   normalizeArtifact,
+  normalizeDecisionLog,
   normalizeDepartment,
   normalizeEmployee,
   normalizeEvaluation,
   normalizeLink,
   normalizeTask,
+  validateDecisionLog,
   validateEvaluation,
   validateLink,
   validateTask,
@@ -353,7 +355,7 @@ async function touchWorklineTask(taskId) {
 }
 
 function worklineCollection(pathname) {
-  const match = pathname.match(/^\/api\/workline\/(tasks|links|artifacts|evaluations|employees|departments)(?:\/([^/]+))?$/);
+  const match = pathname.match(/^\/api\/workline\/(tasks|links|artifacts|decisionLogs|evaluations|employees|departments)(?:\/([^/]+))?$/);
   return match ? { collection: match[1], id: match[2] ? decodeURIComponent(match[2]) : null } : null;
 }
 
@@ -418,6 +420,9 @@ async function handleWorklineApi(request, response, url) {
     item = normalizeArtifact({ ...payload, id: route.id || payload.id }, existing);
     if (!item.title) errors.push("成果物名は必須です。");
     if (!item.pathOrUrl) errors.push("パスまたはURLは必須です。");
+  } else if (collectionKey === "decisionLogs") {
+    item = normalizeDecisionLog({ ...payload, id: route.id || payload.id }, existing);
+    errors = validateDecisionLog(item, all);
   } else if (collectionKey === "evaluations") {
     item = normalizeEvaluation({ ...payload, id: route.id || payload.id }, existing, all);
     errors = validateEvaluation(item, { ...all, evaluations: items.filter((evaluation) => evaluation.id !== item.id) });

@@ -9,21 +9,42 @@ const DATA_DIR = "tools/mmc-cms/data";
 
 const TASK_STATUSES = [
   "idea",
-  "consulting",
-  "specification",
-  "waiting_codex",
-  "codex_working",
+  "planned",
+  "inProgress",
   "review",
-  "revision",
-  "preparing_publish",
+  "publishDecision",
   "completed",
-  "on_hold"
+  "canceled",
+  "inquiry",
+  "proposal",
+  "waitingResponse",
+  "accepted",
+  "production",
+  "clientReview",
+  "delivered",
+  "invoiced",
+  "paid",
+  "declined"
 ];
 
+const LEGACY_STATUS_MAP = {
+  consulting: "idea",
+  specification: "planned",
+  waiting_codex: "planned",
+  codex_working: "inProgress",
+  revision: "inProgress",
+  preparing_publish: "publishDecision",
+  on_hold: "planned"
+};
+const TASK_TYPES = ["project", "task", "subtask"];
+const WORKFLOW_TYPES = ["general", "external"];
+const GENERAL_STATUSES = ["idea", "planned", "inProgress", "review", "publishDecision", "completed", "canceled"];
+const EXTERNAL_STATUSES = ["inquiry", "proposal", "waitingResponse", "accepted", "production", "clientReview", "delivered", "invoiced", "paid", "declined", "canceled"];
+const VISIBILITY_TYPES = ["publicCandidate", "internal", "confidential", "pending"];
 const PRIORITIES = ["low", "normal", "high", "urgent"];
-const LINK_TYPES = ["chatgpt", "github", "codex", "web", "file", "folder", "note", "other"];
-const ARTIFACT_TYPES = ["article", "image", "document", "code", "website", "data", "other"];
-const EVALUATION_STATUSES = ["not_evaluated", "deferred", "evaluated", "not_applicable"];
+const LINK_TYPES = ["chatgpt", "github", "issue", "pull_request", "codex", "web", "file", "folder", "note", "homepage", "session", "other"];
+const ARTIFACT_TYPES = ["article", "image", "document", "code", "website", "data", "note", "homepage", "session", "other"];
+const EVALUATION_STATUSES = ["unevaluated", "later", "evaluated", "notApplicable", "not_evaluated", "deferred", "not_applicable"];
 const EVALUATION_TYPES = ["final", "interim", "post_release"];
 const EXECUTION_ACTOR_TYPES = ["human", "ai_employee", "chatgpt_task", "codex", "internal_app", "external_contractor", "other"];
 const EXECUTION_ACTOR_ROLES = ["primary", "support", "review"];
@@ -37,6 +58,7 @@ const FILES = {
   tasks: `${DATA_DIR}/workline-tasks.json`,
   links: `${DATA_DIR}/workline-links.json`,
   artifacts: `${DATA_DIR}/workline-artifacts.json`,
+  decisionLogs: `${DATA_DIR}/workline-decision-logs.json`,
   evaluations: `${DATA_DIR}/workline-evaluations.json`,
   employees: `${DATA_DIR}/workline-employees.json`,
   departments: `${DATA_DIR}/workline-departments.json`,
@@ -93,6 +115,7 @@ async function ensureDataFiles(root) {
     tasks: [],
     links: [],
     artifacts: [],
+    decisionLogs: [],
     evaluations: [],
     employees: DEFAULT_EMPLOYEES,
     departments: DEFAULT_DEPARTMENTS,
@@ -128,17 +151,22 @@ async function backupWorklineFile(root, key) {
 
 async function loadAll(root) {
   await ensureDataFiles(root);
-  const [tasks, links, artifacts, evaluations, employees, departments, activity, settings] = await Promise.all([
+  const [rawTasks, links, artifacts, decisionLogs, rawEvaluations, employees, departments, activity, settings] = await Promise.all([
     readJson(root, "tasks"),
     readJson(root, "links"),
     readJson(root, "artifacts"),
+    readJson(root, "decisionLogs"),
     readJson(root, "evaluations"),
     readJson(root, "employees"),
     readJson(root, "departments"),
     readJson(root, "activity"),
     readJson(root, "settings")
   ]);
-  return { tasks, links, artifacts, evaluations, employees, departments, activity, settings: { ...DEFAULT_SETTINGS, ...settings } };
+  const tasks = rawTasks.map(normalizeStoredTask);
+  const evaluations = rawEvaluations.map(normalizeStoredEvaluation);
+  if (JSON.stringify(rawTasks) !== JSON.stringify(tasks)) await writeJson(root, "tasks", tasks);
+  if (JSON.stringify(rawEvaluations) !== JSON.stringify(evaluations)) await writeJson(root, "evaluations", evaluations);
+  return { tasks, links, artifacts, decisionLogs, evaluations, employees, departments, activity, settings: { ...DEFAULT_SETTINGS, ...settings } };
 }
 
 function normalizeString(value) {
@@ -167,13 +195,100 @@ function enumValue(allowed, payloadValue, existingValue, fallback) {
   return fallback;
 }
 
+function normalizeStatus(value, workflowType = "general") {
+  const mapped = LEGACY_STATUS_MAP[value] || value;
+  const allowed = workflowType === "external" ? EXTERNAL_STATUSES : GENERAL_STATUSES;
+  if (allowed.includes(mapped)) return mapped;
+  if (TASK_STATUSES.includes(mapped)) return mapped;
+  return workflowType === "external" ? "inquiry" : "idea";
+}
+
+function normalizeEvaluationStatus(value) {
+  if (value === "not_evaluated") return "unevaluated";
+  if (value === "deferred") return "later";
+  if (value === "not_applicable") return "notApplicable";
+  return EVALUATION_STATUSES.includes(value) ? value : "unevaluated";
+}
+
+function normalizeTaskType(value, parentTaskId) {
+  if (TASK_TYPES.includes(value)) return value;
+  return parentTaskId ? "subtask" : "task";
+}
+
+function normalizeWorkflowType(value) {
+  return WORKFLOW_TYPES.includes(value) ? value : "general";
+}
+
+function normalizeVisibility(value) {
+  return VISIBILITY_TYPES.includes(value) ? value : "internal";
+}
+
+function normalizeStoredTask(task) {
+  const workflowType = normalizeWorkflowType(task.workflowType);
+  const parentTaskId = normalizeString(task.parentTaskId) || null;
+  const employeeIds = arrayOfStrings(task.employeeIds);
+  const primaryAssigneeId = normalizeString(task.primaryAssigneeId) || employeeIds[0] || null;
+  const supportAssigneeIds = arrayOfStrings(task.supportAssigneeIds).length
+    ? arrayOfStrings(task.supportAssigneeIds)
+    : employeeIds.filter((id) => id !== primaryAssigneeId);
+  return {
+    ...task,
+    type: normalizeTaskType(task.type, parentTaskId),
+    workflowType,
+    status: normalizeStatus(task.status, workflowType),
+    visibility: normalizeVisibility(task.visibility),
+    nextAction: normalizeString(task.nextAction),
+    primaryAssigneeId,
+    supportAssigneeIds,
+    reviewerIds: arrayOfStrings(task.reviewerIds),
+    employeeIds: [...new Set([primaryAssigneeId, ...supportAssigneeIds, ...arrayOfStrings(task.reviewerIds)].filter(Boolean))],
+    parentTaskId,
+    decisionLogs: Array.isArray(task.decisionLogs) ? task.decisionLogs : [],
+    external: task.external && typeof task.external === "object" ? task.external : {}
+  };
+}
+
+function normalizeStoredEvaluation(evaluation) {
+  return {
+    ...evaluation,
+    workItemId: normalizeString(evaluation.workItemId || evaluation.taskId),
+    taskId: normalizeString(evaluation.taskId || evaluation.workItemId),
+    evaluationStatus: normalizeEvaluationStatus(evaluation.evaluationStatus || evaluation.status),
+    status: normalizeEvaluationStatus(evaluation.status || evaluation.evaluationStatus),
+    aiUsed: Boolean(evaluation.aiUsed ?? isAiEvaluationLike(evaluation)),
+    humanMinutes: evaluation.humanMinutes ?? evaluation.humanWorkMinutes,
+    estimatedMinutesWithoutAI: evaluation.estimatedMinutesWithoutAI ?? evaluation.estimatedManualMinutes,
+    humanWorkMinutes: evaluation.humanWorkMinutes ?? evaluation.humanMinutes,
+    estimatedManualMinutes: evaluation.estimatedManualMinutes ?? evaluation.estimatedMinutesWithoutAI,
+    specificationChangeCount: Number(evaluation.specificationChangeCount || 0),
+    goodPoints: normalizeString(evaluation.goodPoints),
+    problems: normalizeString(evaluation.problems),
+    needsImprovement: Boolean(evaluation.needsImprovement)
+  };
+}
+
+function isAiEvaluationLike(evaluation) {
+  return (evaluation.actors || []).some((actor) => ["ai_employee", "chatgpt_task", "codex", "internal_app"].includes(actor.type));
+}
+
 function validateTask(task, all) {
   const errors = [];
   if (!normalizeString(task.title)) errors.push("タスク名は必須です。");
-  if (!TASK_STATUSES.includes(task.status)) errors.push("不正なステータスです。");
+  if (!TASK_TYPES.includes(task.type)) errors.push("不正な項目種別です。");
+  if (!WORKFLOW_TYPES.includes(task.workflowType)) errors.push("不正な業務フローです。");
+  const allowedStatuses = task.workflowType === "external" ? EXTERNAL_STATUSES : GENERAL_STATUSES;
+  if (!allowedStatuses.includes(task.status)) errors.push("業務フローに合わないステータスです。");
+  if (!VISIBILITY_TYPES.includes(task.visibility)) errors.push("不正な公開範囲です。");
   if (!PRIORITIES.includes(task.priority)) errors.push("不正な優先度です。");
   if (!Number.isInteger(task.progress) || task.progress < 0 || task.progress > 100) errors.push("進捗率は0から100の整数で入力してください。");
   if (task.departmentId && !all.departments.some((item) => item.id === task.departmentId)) errors.push("存在しない部署IDです。");
+  if (task.primaryAssigneeId && !all.employees.some((item) => item.id === task.primaryAssigneeId)) errors.push(`存在しない主担当IDです: ${task.primaryAssigneeId}`);
+  for (const employeeId of task.supportAssigneeIds || []) {
+    if (!all.employees.some((item) => item.id === employeeId)) errors.push(`存在しない補助担当IDです: ${employeeId}`);
+  }
+  for (const employeeId of task.reviewerIds || []) {
+    if (!all.employees.some((item) => item.id === employeeId)) errors.push(`存在しない確認担当IDです: ${employeeId}`);
+  }
   for (const employeeId of task.employeeIds || []) {
     if (!all.employees.some((item) => item.id === employeeId)) errors.push(`存在しない社員IDです: ${employeeId}`);
   }
@@ -190,28 +305,61 @@ function validateTask(task, all) {
 
 function normalizeTask(payload, existing = null) {
   const timestamp = nowIso();
-  const status = payload.status || existing?.status || "idea";
+  const workflowType = normalizeWorkflowType(payload.workflowType ?? existing?.workflowType);
+  const status = payload.status !== undefined
+    ? (LEGACY_STATUS_MAP[payload.status] || payload.status)
+    : normalizeStatus(existing?.status, workflowType);
   const completedAt = status === "completed"
     ? (existing?.completedAt || timestamp)
     : null;
+  const parentTaskId = normalizeString(payload.parentTaskId ?? existing?.parentTaskId) || null;
+  const fallbackEmployeeIds = arrayOfStrings(payload.employeeIds ?? existing?.employeeIds);
+  const primaryAssigneeId = normalizeString(payload.primaryAssigneeId ?? existing?.primaryAssigneeId) || fallbackEmployeeIds[0] || null;
+  const supportAssigneeIds = arrayOfStrings(payload.supportAssigneeIds ?? existing?.supportAssigneeIds)
+    .filter((id) => id !== primaryAssigneeId);
+  const reviewerIds = arrayOfStrings(payload.reviewerIds ?? existing?.reviewerIds);
+  const employeeIds = [...new Set([primaryAssigneeId, ...supportAssigneeIds, ...reviewerIds, ...fallbackEmployeeIds].filter(Boolean))];
   return {
     id: existing?.id || normalizeString(payload.id) || makeId("task"),
     title: normalizeString(payload.title),
     description: normalizeString(payload.description),
+    type: normalizeTaskType(payload.type ?? existing?.type, parentTaskId),
+    workflowType,
+    visibility: normalizeVisibility(payload.visibility ?? existing?.visibility),
+    nextAction: normalizeString(payload.nextAction ?? existing?.nextAction),
     departmentId: normalizeString(payload.departmentId) || null,
-    employeeIds: arrayOfStrings(payload.employeeIds),
+    primaryAssigneeId,
+    supportAssigneeIds,
+    reviewerIds,
+    employeeIds,
     startDate: normalizeString(payload.startDate) || null,
     endDate: normalizeString(payload.endDate) || null,
     status,
     priority: payload.priority || existing?.priority || "normal",
     progress: Number(payload.progress ?? existing?.progress ?? 0),
-    parentTaskId: normalizeString(payload.parentTaskId) || null,
+    parentTaskId,
     tags: arrayOfStrings(payload.tags),
     notes: normalizeString(payload.notes),
     codexInstruction: normalizeString(payload.codexInstruction),
+    external: normalizeExternalInfo(payload.external ?? existing?.external),
     createdAt: existing?.createdAt || timestamp,
     updatedAt: timestamp,
     completedAt
+  };
+}
+
+function normalizeExternalInfo(value) {
+  const source = value && typeof value === "object" ? value : {};
+  return {
+    clientName: normalizeString(source.clientName),
+    projectName: normalizeString(source.projectName),
+    proposedAmount: optionalNumber(source.proposedAmount),
+    taxType: ["taxIncluded", "taxExcluded", ""].includes(source.taxType) ? source.taxType : "",
+    proposedAt: normalizeString(source.proposedAt) || null,
+    desiredDueDate: normalizeString(source.desiredDueDate) || null,
+    deliverables: normalizeString(source.deliverables),
+    invoiceStatus: normalizeString(source.invoiceStatus),
+    paymentStatus: normalizeString(source.paymentStatus)
   };
 }
 
@@ -220,7 +368,7 @@ function validateLink(link, root, settings) {
   if (!LINK_TYPES.includes(link.type)) errors.push("不正なリンク種別です。");
   if (!normalizeString(link.label)) errors.push("リンク名は必須です。");
   const value = normalizeString(link.value);
-  if (["chatgpt", "github", "codex", "web", "note", "other"].includes(link.type)) {
+  if (["chatgpt", "github", "issue", "pull_request", "codex", "web", "note", "homepage", "session", "other"].includes(link.type)) {
     try {
       const url = new URL(value);
       if (!["http:", "https:"].includes(url.protocol)) errors.push("URLはhttpまたはhttpsのみ利用できます。");
@@ -286,28 +434,47 @@ function normalizeEmployee(payload, existing = null) {
 
 function normalizeEvaluation(payload, existing = null, all = null) {
   const timestamp = nowIso();
-  const taskId = normalizeString(payload.taskId) || existing?.taskId || "";
+  const taskId = normalizeString(payload.taskId || payload.workItemId) || existing?.taskId || existing?.workItemId || "";
   const id = existing?.id || normalizeString(payload.id) || makeId("evaluation");
   const allEvaluations = all?.evaluations || [];
   const humanWorkMinutes = optionalNumber(payload.humanWorkMinutes ?? existing?.humanWorkMinutes);
   const estimatedManualMinutes = optionalNumber(payload.estimatedManualMinutes ?? existing?.estimatedManualMinutes);
+  const humanMinutes = optionalNumber(payload.humanMinutes ?? humanWorkMinutes);
+  const estimatedMinutesWithoutAI = optionalNumber(payload.estimatedMinutesWithoutAI ?? estimatedManualMinutes);
+  const rawEvaluationStatus = payload.evaluationStatus ?? payload.status;
+  const evaluationStatus = rawEvaluationStatus !== undefined
+    ? (rawEvaluationStatus === "not_evaluated" ? "unevaluated" : rawEvaluationStatus === "deferred" ? "later" : rawEvaluationStatus === "not_applicable" ? "notApplicable" : rawEvaluationStatus)
+    : normalizeEvaluationStatus(existing?.evaluationStatus || existing?.status);
   return {
     id,
     taskId,
+    workItemId: taskId,
     evaluationType: enumValue(EVALUATION_TYPES, payload.evaluationType, existing?.evaluationType, "final"),
     revision: Number(payload.revision ?? existing?.revision ?? nextEvaluationRevision(taskId, allEvaluations, id)),
-    status: enumValue(EVALUATION_STATUSES, payload.status, existing?.status, "evaluated"),
+    status: evaluationStatus,
+    evaluationStatus,
+    reviewMode: normalizeString(payload.reviewMode ?? existing?.reviewMode) || "quick",
+    aiUsed: Boolean(payload.aiUsed ?? existing?.aiUsed),
+    aiTools: arrayOfStrings(payload.aiTools ?? existing?.aiTools),
+    aiTasks: normalizeString(payload.aiTasks ?? existing?.aiTasks),
+    humanChecks: normalizeString(payload.humanChecks ?? existing?.humanChecks),
     actors: normalizeActors(payload.actors ?? existing?.actors),
     aiWorkLevel: enumValue(AI_WORK_LEVELS, payload.aiWorkLevel, existing?.aiWorkLevel, undefined),
     completionLevel: enumValue(COMPLETION_LEVELS, payload.completionLevel, existing?.completionLevel, "completed"),
     humanRevisionLevel: enumValue(HUMAN_REVISION_LEVELS, payload.humanRevisionLevel, existing?.humanRevisionLevel, "none"),
     reworkCount: Number(payload.reworkCount ?? existing?.reworkCount ?? 0),
+    specificationChangeCount: Number(payload.specificationChangeCount ?? existing?.specificationChangeCount ?? 0),
+    humanMinutes,
+    estimatedMinutesWithoutAI,
     humanWorkMinutes,
     estimatedManualMinutes,
+    goodPoints: normalizeString(payload.goodPoints ?? existing?.goodPoints),
+    problems: normalizeString(payload.problems ?? existing?.problems),
     reusability: enumValue(REUSABILITY_LEVELS, payload.reusability, existing?.reusability, "unknown"),
     adoption: enumValue(ADOPTION_LEVELS, payload.adoption, existing?.adoption, "pending"),
     artifactIds: arrayOfStrings(payload.artifactIds ?? existing?.artifactIds),
     nextImprovement: normalizeString(payload.nextImprovement ?? existing?.nextImprovement),
+    needsImprovement: Boolean(payload.needsImprovement ?? existing?.needsImprovement),
     evaluatedBy: normalizeString(payload.evaluatedBy ?? existing?.evaluatedBy),
     evaluatedAt: normalizeString(payload.evaluatedAt ?? existing?.evaluatedAt),
     createdAt: existing?.createdAt || timestamp,
@@ -328,7 +495,7 @@ function normalizeActors(value) {
 function validateEvaluation(evaluation, all) {
   const errors = [];
   if (!all.tasks.some((task) => task.id === evaluation.taskId)) errors.push("存在しないタスクIDです。");
-  if (!EVALUATION_STATUSES.includes(evaluation.status)) errors.push("不正な振り返り状態です。");
+  if (!EVALUATION_STATUSES.includes(evaluation.status) || !["unevaluated", "later", "evaluated", "notApplicable"].includes(evaluation.evaluationStatus)) errors.push("不正な振り返り状態です。");
   if (!EVALUATION_TYPES.includes(evaluation.evaluationType)) errors.push("不正な振り返り種別です。");
   if (evaluation.aiWorkLevel && !AI_WORK_LEVELS.includes(evaluation.aiWorkLevel)) errors.push("不正なAI業務レベルです。");
   if (!Number.isInteger(evaluation.revision) || evaluation.revision < 1) errors.push("版数は1以上の整数で入力してください。");
@@ -337,7 +504,8 @@ function validateEvaluation(evaluation, all) {
   if (!REUSABILITY_LEVELS.includes(evaluation.reusability)) errors.push("不正な再利用区分です。");
   if (!ADOPTION_LEVELS.includes(evaluation.adoption)) errors.push("不正な採否区分です。");
   if (!Number.isInteger(evaluation.reworkCount) || evaluation.reworkCount < 0) errors.push("手戻り回数は0以上の整数で入力してください。");
-  for (const key of ["humanWorkMinutes", "estimatedManualMinutes"]) {
+  if (!Number.isInteger(evaluation.specificationChangeCount) || evaluation.specificationChangeCount < 0) errors.push("仕様変更回数は0以上の整数で入力してください。");
+  for (const key of ["humanWorkMinutes", "estimatedManualMinutes", "humanMinutes", "estimatedMinutesWithoutAI"]) {
     const value = evaluation[key];
     if (value !== undefined && (!Number.isFinite(value) || value < 0)) errors.push(`${key}は0以上の数値で入力してください。`);
   }
@@ -358,6 +526,28 @@ function validateEvaluation(evaluation, all) {
   return errors;
 }
 
+function normalizeDecisionLog(payload, existing = null) {
+  const timestamp = nowIso();
+  return {
+    id: existing?.id || normalizeString(payload.id) || makeId("decision"),
+    workItemId: normalizeString(payload.workItemId || payload.taskId || existing?.workItemId || existing?.taskId),
+    taskId: normalizeString(payload.taskId || payload.workItemId || existing?.taskId || existing?.workItemId),
+    decidedAt: normalizeString(payload.decidedAt ?? existing?.decidedAt) || timestamp.slice(0, 10),
+    decidedBy: normalizeString(payload.decidedBy ?? existing?.decidedBy),
+    summary: normalizeString(payload.summary ?? existing?.summary),
+    reason: normalizeString(payload.reason ?? existing?.reason),
+    createdAt: existing?.createdAt || timestamp
+  };
+}
+
+function validateDecisionLog(decisionLog, all) {
+  const errors = [];
+  if (!all.tasks.some((task) => task.id === decisionLog.workItemId)) errors.push("存在しない項目IDです。");
+  if (!decisionLog.summary) errors.push("決定内容は必須です。");
+  if (!decisionLog.decidedAt) errors.push("決定日は必須です。");
+  return errors;
+}
+
 function latestEvaluationForTask(taskId, evaluations) {
   return [...(evaluations || [])]
     .filter((item) => item.taskId === taskId)
@@ -365,7 +555,7 @@ function latestEvaluationForTask(taskId, evaluations) {
 }
 
 function evaluationStatusForTask(taskId, evaluations) {
-  return latestEvaluationForTask(taskId, evaluations)?.status || "not_evaluated";
+  return latestEvaluationForTask(taskId, evaluations)?.evaluationStatus || "unevaluated";
 }
 
 async function addActivity(root, activity) {
@@ -399,16 +589,16 @@ async function dashboard(root) {
   const recentArtifacts = [...all.artifacts].sort((a, b) => String(b.updatedAt).localeCompare(String(a.updatedAt))).slice(0, 8);
   return {
     counts: {
-      inProgress: activeTasks.length,
+      inProgress: activeTasks.filter((task) => ["inProgress", "production"].includes(task.status)).length,
       review: all.tasks.filter((task) => task.status === "review").length,
-      codexWorking: all.tasks.filter((task) => task.status === "codex_working").length,
+      externalWaiting: all.tasks.filter((task) => ["proposal", "waitingResponse", "clientReview"].includes(task.status)).length,
       completedThisMonth: all.tasks.filter((task) => task.completedAt?.startsWith(currentMonth)).length
     },
     evaluationCounts: {
-      notEvaluated: all.tasks.filter((task) => evaluationStatusForTask(task.id, all.evaluations) === "not_evaluated").length,
-      deferred: all.tasks.filter((task) => evaluationStatusForTask(task.id, all.evaluations) === "deferred").length,
+      notEvaluated: all.tasks.filter((task) => evaluationStatusForTask(task.id, all.evaluations) === "unevaluated").length,
+      deferred: all.tasks.filter((task) => evaluationStatusForTask(task.id, all.evaluations) === "later").length,
       evaluated: all.tasks.filter((task) => evaluationStatusForTask(task.id, all.evaluations) === "evaluated").length,
-      notApplicable: all.tasks.filter((task) => evaluationStatusForTask(task.id, all.evaluations) === "not_applicable").length
+      notApplicable: all.tasks.filter((task) => evaluationStatusForTask(task.id, all.evaluations) === "notApplicable").length
     },
     dueSoon,
     recentlyUpdated,
@@ -448,13 +638,19 @@ function buildEvaluationSummary(all) {
       actorTypeCounts[actor.type] = (actorTypeCounts[actor.type] || 0) + 1;
     }
   }
-  const humanWorkMinutes = latest.reduce((sum, item) => sum + Number(item.humanWorkMinutes || 0), 0);
+  const humanWorkMinutes = latest.reduce((sum, item) => sum + Number(item.humanMinutes ?? item.humanWorkMinutes ?? 0), 0);
   const estimatedSavedMinutes = latest.reduce((sum, item) => {
-    if (item.humanWorkMinutes === undefined || item.estimatedManualMinutes === undefined) return sum;
-    return sum + (Number(item.estimatedManualMinutes) - Number(item.humanWorkMinutes));
+    const human = item.humanMinutes ?? item.humanWorkMinutes;
+    const estimated = item.estimatedMinutesWithoutAI ?? item.estimatedManualMinutes;
+    if (human === undefined || estimated === undefined) return sum;
+    return sum + (Number(estimated) - Number(human));
   }, 0);
   return {
-    evaluatedCount: latest.filter((item) => item.status === "evaluated").length,
+    aiUsedCount: latest.filter((item) => item.aiUsed || isAiEvaluationLike(item)).length,
+    evaluatedCount: latest.filter((item) => item.evaluationStatus === "evaluated").length,
+    evaluatedRate: all.tasks.length ? Math.round((latest.filter((item) => item.evaluationStatus === "evaluated").length / all.tasks.length) * 100) : 0,
+    needsImprovementCount: latest.filter(needsImprovementEvaluation).length,
+    reworkCount: latest.reduce((sum, item) => sum + Number(item.reworkCount || 0), 0),
     adoptionCount: latest.filter((item) => ["adopted", "partially_adopted"].includes(item.adoption)).length,
     majorRevisionCount: latest.filter((item) => ["major", "rebuild"].includes(item.humanRevisionLevel)).length,
     reusableArtifactCount: latest.filter((item) => ["direct", "with_changes"].includes(item.reusability)).length,
@@ -475,6 +671,14 @@ function buildEvaluationSummary(all) {
   };
 }
 
+function needsImprovementEvaluation(item) {
+  return Boolean(item.needsImprovement) ||
+    ["major", "rebuild"].includes(item.humanRevisionLevel) ||
+    item.adoption === "rejected" ||
+    Number(item.reworkCount || 0) >= 3 ||
+    ["incomplete", "cancelled"].includes(item.completionLevel);
+}
+
 module.exports = {
   ADOPTION_LEVELS,
   AI_WORK_LEVELS,
@@ -482,13 +686,18 @@ module.exports = {
   COMPLETION_LEVELS,
   EVALUATION_STATUSES,
   EVALUATION_TYPES,
+  EXTERNAL_STATUSES,
   EXECUTION_ACTOR_ROLES,
   EXECUTION_ACTOR_TYPES,
+  GENERAL_STATUSES,
   HUMAN_REVISION_LEVELS,
   LINK_TYPES,
   PRIORITIES,
   REUSABILITY_LEVELS,
+  TASK_TYPES,
   TASK_STATUSES,
+  VISIBILITY_TYPES,
+  WORKFLOW_TYPES,
   addActivity,
   dashboard,
   evaluationStatusForTask,
@@ -498,8 +707,10 @@ module.exports = {
   normalizeDepartment,
   normalizeEmployee,
   normalizeEvaluation,
+  normalizeDecisionLog,
   normalizeLink,
   normalizeTask,
+  validateDecisionLog,
   validateEvaluation,
   validateLink,
   validateTask,
