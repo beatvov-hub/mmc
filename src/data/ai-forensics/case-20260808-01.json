@@ -1,0 +1,232 @@
+{
+  "id": "case-20260808-01",
+  "publishedAt": "2026-08-08",
+  "title": "有名企業の求人だから安心？　AIで精巧になる「偽採用担当」と求人詐欺",
+  "shortTitle": "求人は応募前に会社側から逆確認",
+  "category": "scam",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "LinkedInや求人サイトで仕事を探す人",
+    "転職活動や副業探しをしている人",
+    "SNSでスカウトを受け取る人",
+    "リモートワークの求人へ応募する人"
+  ],
+  "summary": "2026年6月、FBIとLinkedInはオンライン求人詐欺への注意を共同で呼びかけました。偽プロフィール、仕事内容が曖昧なのに高額な報酬、早い段階でWhatsAppやTelegramなど外部サービスへ移動させる行為などが代表的な兆候です。FBIの記事では、AIによって他人を装うコンテンツを低コストかつ大量に作れるようになり、詐欺の見分けが難しくなっていることも指摘されています。プロフィールや文章の自然さだけで判断せず、企業の公式採用ページ、求人投稿者の認証情報、連絡先ドメインを確認することが重要です。",
+  "scenario": {
+    "headline": "LinkedInで有名企業の採用担当者から「完全リモート・未経験可・高待遇」のスカウトが届いた",
+    "description": "担当者のプロフィールには顔写真、職歴、会社名があり、求人説明も自然で丁寧です。質問するとすぐに詳しい返答があり、一見すると普通の採用担当者と変わりません。しかし数回やり取りすると、「選考を早く進めるため」とWhatsAppへ移動するよう求められ、その後、給与振込用として銀行情報や本人確認書類を送るよう指示されました。AIを利用すればプロフィール文、求人票、返信文などを自然に大量作成できるため、「文章がちゃんとしている」という感覚だけでは本人確認になりません。",
+    "whyItMatters": "FBIが2026年6月26日に公表したLinkedInとの共同啓発記事によると、2025年にFBIのInternet Crime Complaint Centerへ寄せられた雇用詐欺の申告は24,688件、報告された被害額は約3億6300万ドルでした。FBIは、求人詐欺の目的として金銭を奪うだけでなく、被害者を資金移動役にする、本人確認情報を集めさせる、強制労働へ誘導するといったケースも挙げています。またLinkedIn側は、AIなどの技術により他人を装う行為を安価かつ高速、大規模に行いやすくなっていると説明しています。2026年7月8日にはFBIが改めてLinkedIn上の求人詐欺の兆候を紹介しました。"
+  },
+  "question": {
+    "text": "LinkedInで有名企業の採用担当者から魅力的な求人が届いたとき、最も安全な確認方法は？",
+    "choices": [
+      {
+        "id": "trust-professional-profile",
+        "label": "顔写真や職歴が詳しいプロフィールなら本物と判断する",
+        "description": "文章やプロフィールの完成度を本人確認として扱う。"
+      },
+      {
+        "id": "trust-fast-replies",
+        "label": "質問へすぐ具体的に答えてくれるので本物と判断する",
+        "description": "自然な会話が続くことを信頼材料にする。"
+      },
+      {
+        "id": "verify-through-company",
+        "label": "企業の公式採用ページと求人投稿者の情報を別経路で確認する",
+        "description": "同じ求人が公式サイトにあるか、会社との所属関係や連絡先ドメインを確認する。"
+      },
+      {
+        "id": "avoid-online-jobs",
+        "label": "ネット求人は危険なので、すべて応募しない",
+        "description": "正規企業のオンライン採用やリモート求人も利用しない。"
+      }
+    ],
+    "recommendedAnswers": [
+      "verify-through-company"
+    ],
+    "explanation": "AIによって自然なプロフィール、求人票、メール、チャットを作ることが容易になったため、「文章がおかしくない」「会話が自然」という従来の感覚だけでは確認しにくくなっています。企業の公式採用ページに同じ求人が掲載されているか、求人投稿者が実際にその会社へ所属していることを示す認証があるか、メールが企業の正式ドメインから届いているかなど、相手が提示した情報とは別の経路で確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "企業公式サイトに同じ求人があるか",
+      "description": "求人サイトだけで判断せず、企業の公式採用ページや採用窓口から募集の存在を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "求人投稿者の認証情報",
+      "description": "LinkedInでは一部の求人について、会社や投稿者の確認済み情報を示す認証バッジがあります。ただしバッジがない求人がすべて偽物という意味ではありません。",
+      "priority": "medium"
+    },
+    {
+      "title": "早い段階で外部アプリへ移動させようとしていないか",
+      "description": "FBIとLinkedInは、WhatsAppやTelegramなどへすぐ移動させる行為を重要な警戒ポイントとして挙げています。",
+      "priority": "high"
+    },
+    {
+      "title": "仕事内容に対して報酬が不自然に高くないか",
+      "description": "経験不要、簡単な作業、高額報酬という条件が重なっている場合は、仕事内容と報酬の根拠を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "仕事内容が具体的に説明されているか",
+      "description": "職種名はそれらしくても、実際に何を成果物として納品する仕事なのか説明できない求人は注意します。",
+      "priority": "high"
+    },
+    {
+      "title": "個人の銀行口座で会社のお金を動かすよう求められていないか",
+      "description": "FBIは、個人口座を使って資金を受け取り、現金、暗号資産、ギフトカードなどへ変えて送る仕事を資金洗浄型の求人詐欺として警告しています。",
+      "priority": "high"
+    },
+    {
+      "title": "採用前に本人確認書類や銀行情報を要求されていないか",
+      "description": "正式な採用手続きへ進む前から免許証、口座番号、社会保障番号などを求める場合は慎重に確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "メールアドレスのドメイン",
+      "description": "会社名を名乗っていても、個人用メールや会社名に似せた別ドメインが使われていないか確認します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "求人と採用担当者を別経路で確認",
+  "verificationMessage": "プロフィールや文章の自然さではなく、企業公式サイト、認証情報、正式な連絡先から求人の存在を確認してください。",
+  "verdict": {
+    "label": "AI時代の求人確認は「文章を見る」から「所属を確認する」へ",
+    "description": "生成AIは、求人票や採用メッセージを読みやすくする正当な用途にも広く使えます。そのため「AIっぽい文章だから詐欺」「自然な文章だから本物」という判断はどちらも適切ではありません。重要なのは文章の作り方ではなく、その求人と採用担当者が実在する企業へつながっているかを確認することです。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "求人を見つけたら企業の公式採用ページでも検索する",
+      "reason": "求人サイト上の情報とは独立した経路から、募集の存在を確認できます。"
+    },
+    {
+      "action": "採用担当者名と会社名を別々に検索する",
+      "reason": "実際の社員情報や過去のなりすまし報告が見つかる場合があります。"
+    },
+    {
+      "action": "求人サイト内の認証情報を確認する",
+      "reason": "本人、勤務先、企業ページなどについて確認済み情報が表示される場合があります。"
+    },
+    {
+      "action": "やり取りを可能な限り求人プラットフォーム内に残す",
+      "reason": "プラットフォームの不正検知、通報、記録機能を利用しやすくなります。"
+    },
+    {
+      "action": "個人情報は正式な採用確認後に必要最小限だけ渡す",
+      "reason": "偽求人の目的が履歴書や本人確認情報の収集である場合もあります。"
+    },
+    {
+      "action": "不審な求人はプラットフォームへ報告する",
+      "reason": "同じ求人による他の利用者への被害を減らせる可能性があります。"
+    },
+    {
+      "action": "AIを求人企業の調査補助に使う",
+      "reason": "会社名、公式URL、採用ページ、報道、評判などの確認項目を整理する用途にはAIを便利に活用できます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "文章が丁寧だから本物だと判断する",
+      "reason": "生成AIを使えば、自然な求人票やビジネスメールを短時間で大量に作成できます。"
+    },
+    {
+      "action": "プロフィール写真だけで実在人物だと判断する",
+      "reason": "盗用画像、編集画像、AI生成画像などを利用した偽プロフィールが作られる可能性があります。"
+    },
+    {
+      "action": "応募直後にWhatsAppやTelegramへ移動する",
+      "reason": "求人プラットフォームの安全機能や通報機能を避けるために外部へ誘導するケースがあります。"
+    },
+    {
+      "action": "仕事を始めるための費用を支払う",
+      "reason": "FTCは、仕事を得るために費用を要求することを典型的な求人詐欺の兆候として案内しています。"
+    },
+    {
+      "action": "会社の資金を自分の口座で受け取り、別の場所へ送る",
+      "reason": "犯罪で得られた資金の移動役にされる可能性があり、本人にも重大な問題が生じる場合があります。"
+    },
+    {
+      "action": "認証バッジがない求人をすべて詐欺と決めつける",
+      "reason": "LinkedInではすべての求人が認証対象になっているわけではなく、認証の有無は複数ある判断材料の一つです。"
+    },
+    {
+      "action": "AIを使った求人だから危険だと考える",
+      "reason": "企業が求人文章の作成や翻訳などへAIを利用すること自体は問題ではありません。確認すべきなのは求人と企業の実在性です。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを「求人を信じる理由」ではなく「企業を調べる助手」にする",
+    "description": "生成AIは求人内容の要約、確認したい質問の整理、企業研究など、転職活動を効率化する用途に向いています。届いた求人をAIへそのまま信用させるのではなく、「この求人を確認するために公式サイトで見るべき項目を整理して」と依頼し、人間が一次情報へアクセスする使い方なら安全性と便利さを両立できます。",
+    "examples": [
+      "求人票から仕事内容と必要スキルを整理してもらう",
+      "企業公式サイトで確認すべき項目をリスト化する",
+      "採用担当者へ質問したい内容を整理する",
+      "不自然に曖昧な仕事内容や条件を洗い出してもらう",
+      "会社名と求人名を使って一次情報を探すための検索語を作る",
+      "雇用契約書を読む前に確認ポイントを整理してもらう"
+    ]
+  },
+  "makotoComment": "AIが求人詐欺を生み出したというより、昔からあるなりすましを、より速く自然に作れるようになったと考える方が正確です。だから対策も「AI文章を見破る技術」を身につけることではありません。気になる求人があれば、その場のプロフィールから一度離れて、企業公式サイト側から同じ求人へたどれるか確認する。入口を反対側から確認するだけで、かなり強いチェックになります。オンライン求人そのものを怖がる必要はありません。",
+  "oneLineLesson": "求人は「自然な文章か」ではなく、「企業公式側から同じ募集へたどれるか」で確認する。",
+  "tags": [
+    "求人詐欺",
+    "LinkedIn",
+    "生成AI",
+    "偽プロフィール",
+    "転職",
+    "リモートワーク",
+    "個人情報",
+    "SNS詐欺"
+  ],
+  "sources": [
+    {
+      "title": "Scammers Target Job Seekers",
+      "publisher": "Federal Bureau of Investigation",
+      "sourceType": "government",
+      "publishedAt": "2026-06-26",
+      "url": "https://www.fbi.gov/news/stories/scammers-target-job-seekers"
+    },
+    {
+      "title": "The LinkedIn Job Search Safety Pulse: 2026",
+      "publisher": "LinkedIn",
+      "sourceType": "official",
+      "publishedAt": "2026-05-06",
+      "url": "https://news.linkedin.com/2026/LinkedIn-Job-Search-Safety-Pulse"
+    },
+    {
+      "title": "Verification badge on job posts",
+      "publisher": "LinkedIn Help",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1497886"
+    },
+    {
+      "title": "That job offer text is probably a scam",
+      "publisher": "Federal Trade Commission",
+      "sourceType": "official-consumer-guidance",
+      "publishedAt": "2026-04-30",
+      "url": "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam"
+    },
+    {
+      "title": "Job Scams",
+      "publisher": "Federal Trade Commission",
+      "sourceType": "official-consumer-guidance",
+      "publishedAt": null,
+      "url": "https://consumer.ftc.gov/all-scams/job-scams"
+    },
+    {
+      "title": "Scammers impersonate well-known companies, recruit for fake jobs on LinkedIn and other job platforms",
+      "publisher": "Federal Trade Commission",
+      "sourceType": "official-consumer-guidance",
+      "publishedAt": "2023-08-21",
+      "url": "https://consumer.ftc.gov/consumer-alerts/2023/08/scammers-impersonate-well-known-companies-recruit-fake-jobs-linkedin-other-job-platforms"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "ビジネスSNS風の画面に、有名企業のロゴ、自然な顔写真、整った求人文章を持つ採用担当者プロフィールが表示されている。利用者はそのプロフィールだけを信用せず、別ウィンドウで企業公式サイトの採用ページを開き、「求人名」「担当者」「公式ドメイン」の三項目を照合している。背後には生成AIが求人文やプロフィールを高速生成しているイメージを薄く配置し、「AIを見破る」より「会社側から逆確認する」ことを伝える、明るく実務的な鑑識室風デザイン。",
+    "cardIcon": "job-offer-verification",
+    "accentTone": "caution"
+  }
+}
