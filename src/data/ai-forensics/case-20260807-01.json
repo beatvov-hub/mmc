@@ -1,0 +1,227 @@
+{
+    "id":  "case-20260807-01",
+    "publishedAt":  "2026-08-07",
+    "title":  "AIに悩みを話して少し楽になった　そのまま「診断」まで任せていい？",
+    "shortTitle":  "AI相談は整理役、診断役ではない",
+    "category":  "health-ai",
+    "difficulty":  "beginner",
+    "targetAudience":  [
+                           "AIチャットへ悩みを相談する人",
+                           "気分や体調についてAIで調べる人",
+                           "家族や子どものAI利用を見守る人",
+                           "医療機関へ相談する前に情報を整理したい人"
+                       ],
+    "summary":  "生成AIは、気持ちを言葉にする、出来事を時系列に整理する、専門家へ尋ねたいことをまとめる用途で役立ちます。一方、一般向けAIは診察を行う医療専門職ではなく、利用者の表情、生活環境、既往歴などを十分に把握できません。共感的な返答が得られても、診断や治療方針が正しいことの証明にはなりません。AIを相談の入口や整理役として活用し、診断、薬の変更、緊急性の判断は資格を持つ専門家や公的な相談窓口へつなぐことが重要です。",
+    "scenario":  {
+                     "headline":  "夜中に不安になりAIへ相談すると、「その症状なら○○かもしれません」と答えられた",
+                     "description":  "AIは優しく話を聞き、考えられる状態や対処法をすぐに示してくれました。利用者は安心する一方で、AIが挙げた病名を自分の診断だと思い込み、医療機関へ相談せずに生活や服薬を変えようとしました。しかし、AIの文章は会話内容から可能性を生成したものであり、診察や検査を経た診断ではありません。",
+                     "whyItMatters":  "米国心理学会が2026年6月に1,242人の心理士を対象として実施した調査では、77％が患者との間でAI利用について話題になったと回答し、39％は患者がAIを自己診断に利用した事例を経験し、35％は追加のメンタルヘルス専門家のように利用した事例を経験したと答えました。これは全患者の利用率を示す調査ではなく、心理士が診療中に把握した経験の集計です。英国政府も2026年7月、AIは安全に使えば支援を補完できる一方、訓練を受けた専門家の代わりにすべきではないとして、無認可のチャットサービスによる有害な助言から子どもを守る方法を検討していると公表しました。"
+                 },
+    "question":  {
+                     "text":  "気分の落ち込みや強い不安についてAIへ相談するとき、最も適切な使い方は？",
+                     "choices":  [
+                                     {
+                                         "id":  "accept-diagnosis",
+                                         "label":  "AIが示した病名を自分の診断として受け入れる",
+                                         "description":  "文章が具体的であれば、診察を受けずに治療方針を決める。"
+                                     },
+                                     {
+                                         "id":  "avoid-all-ai",
+                                         "label":  "健康の話にはAIを一切使わない",
+                                         "description":  "気持ちや質問の整理にも利用しない。"
+                                     },
+                                     {
+                                         "id":  "organize-and-connect",
+                                         "label":  "気持ちや経緯を整理し、診断や重要な判断は専門家へ相談する",
+                                         "description":  "AIを相談準備の補助として使い、人間の支援へつなげる。"
+                                     },
+                                     {
+                                         "id":  "share-everything",
+                                         "label":  "氏名や診療記録をすべて入力して詳しく判断させる",
+                                         "description":  "情報量が多いほど正確な診断ができると考える。"
+                                     }
+                                 ],
+                     "recommendedAnswers":  [
+                                                "organize-and-connect"
+                                            ],
+                     "explanation":  "AIは、言葉にしにくい感情の整理や相談内容の下書きには利用できますが、診察、検査、継続的な経過観察を行えません。病名の断定、薬の開始や中止、緊急性の判断をAIだけに任せず、医師、心理職、学校や職場の相談窓口などへ確認します。自分や他人を傷つける恐れがあるなど、差し迫った危険を感じる場合は、AIとの会話を続けるより先に、地域の緊急サービス、公的な危機相談窓口、近くの信頼できる人へ連絡します。"
+                 },
+    "inspectionPoints":  [
+                             {
+                                 "title":  "利用しているサービスの目的",
+                                 "description":  "一般向けチャット、ウェルネスアプリ、医療機器として審査されたサービスを区別し、名称に「セラピー」や「カウンセラー」があっても資格や認可を確認します。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "診断を断定していないか",
+                                 "description":  "限られた会話だけから病名や人格を決めつける回答は、そのまま受け入れません。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "薬や治療の変更を勧めていないか",
+                                 "description":  "処方薬の中止、量の変更、受診の延期などは、担当の医療専門職へ確認します。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "共感と正確性を混同していないか",
+                                 "description":  "優しく肯定されたことと、医学的に正しい助言であることは別に判断します。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "一つの見方だけを強めていないか",
+                                 "description":  "AIに反対の可能性、情報不足の点、専門家へ確認すべき点も示すよう求めます。",
+                                 "priority":  "medium"
+                             },
+                             {
+                                 "title":  "個人情報を入力しすぎていないか",
+                                 "description":  "氏名、住所、勤務先、診察券、詳細な診療記録など、相談に不要な情報は入力しません。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "AIだけが相談相手になっていないか",
+                                 "description":  "睡眠、仕事、学校、人間関係を避けて長時間利用している場合は、利用時間を区切り、人間の支援へつなげます。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "差し迫った危険がないか",
+                                 "description":  "自分や他人の安全に関わる状態では、AIの返答を待たず緊急サービスや信頼できる人へ連絡します。",
+                                 "priority":  "high"
+                             }
+                         ],
+    "verificationLevel":  5,
+    "verificationLabel":  "専門家による確認が必要",
+    "verificationMessage":  "AIの返答は相談準備の参考にとどめ、診断、治療、服薬、緊急性の判断は資格を持つ専門家へ確認してください。",
+    "verdict":  {
+                    "label":  "AIは心の代役ではなく、人へつながるための補助線",
+                    "description":  "AIへ話すことで気持ちが整理される人はいます。その効果を否定する必要はありません。ただし、安心できる返答と安全な医療判断は同じではありません。AIには整理や相談準備を任せ、責任を伴う判断と継続的な支援は人間へつなぐ使い分けが現実的です。",
+                    "confidence":  "high"
+                },
+    "safeActions":  [
+                        {
+                            "action":  "出来事、気分、睡眠、食事などを時系列で整理してもらう",
+                            "reason":  "医師や相談員へ状況を説明しやすくなります。"
+                        },
+                        {
+                            "action":  "専門家へ聞きたい質問を一覧にする",
+                            "reason":  "限られた相談時間で、確認したい内容を伝えやすくなります。"
+                        },
+                        {
+                            "action":  "AIへ不確かな点と別の可能性を示すよう求める",
+                            "reason":  "一つの解釈だけを正解と思い込むことを防ぎやすくなります。"
+                        },
+                        {
+                            "action":  "健康情報は公的機関や専門家の情報と照合する",
+                            "reason":  "AIが古い情報や一般化しすぎた説明を返す可能性があるためです。"
+                        },
+                        {
+                            "action":  "相談内容から氏名や所属などを削除する",
+                            "reason":  "必要以上の個人情報や健康情報がサービスへ残ることを避けられます。"
+                        },
+                        {
+                            "action":  "生成された助言を医師や心理職へ見せる",
+                            "reason":  "誤解や危険な提案がないかを専門的な視点で確認できます。"
+                        },
+                        {
+                            "action":  "利用時間を決め、人との会話や睡眠を優先する",
+                            "reason":  "AIとの会話が生活や現実の人間関係を置き換えることを防ぎます。"
+                        },
+                        {
+                            "action":  "緊急時は人間の支援へ直接連絡する",
+                            "reason":  "AIは現在地の把握、救急対応、継続的な安全確認を確実には行えません。"
+                        }
+                    ],
+    "avoidActions":  [
+                         {
+                             "action":  "AIが挙げた病名をプロフィールや診断として固定する",
+                             "reason":  "似た症状を持つ複数の状態を、会話だけで区別することはできません。"
+                         },
+                         {
+                             "action":  "処方薬を自己判断で増減または中止する",
+                             "reason":  "副作用や症状悪化につながる可能性があり、医療専門職の判断が必要です。"
+                         },
+                         {
+                             "action":  "自分の考えを肯定するまで同じ質問を繰り返す",
+                             "reason":  "会話の流れに合わせた回答が、誤った確信を強める場合があります。"
+                         },
+                         {
+                             "action":  "医療記録や本人確認書類を無加工で入力する",
+                             "reason":  "健康情報は特に機微性が高く、保存や二次利用の条件を確認する必要があります。"
+                         },
+                         {
+                             "action":  "AIが秘密を必ず守る人間の相談員と同じだと考える",
+                             "reason":  "会話の保存、学習利用、運営者による確認などはサービスごとに異なります。"
+                         },
+                         {
+                             "action":  "人間へ相談する代わりにAIだけで耐え続ける",
+                             "reason":  "状態の変化や危険な兆候を見逃し、必要な支援が遅れる可能性があります。"
+                         },
+                         {
+                             "action":  "緊急時にAIの回答を比較し続ける",
+                             "reason":  "差し迫った危険がある場合は、回答精度を検証するより直接の安全確保が優先されます。"
+                         }
+                     ],
+    "positiveUse":  {
+                        "title":  "AIを「話を聞く診断者」ではなく「相談準備の書記」として使う",
+                        "description":  "AIは、まとまっていない感情や出来事を整理し、専門家や家族へ説明する文章を作る用途に向いています。診断を求めるのではなく、記録、質問作成、選択肢の整理に限定すれば、相談への心理的なハードルを下げながら、人間による支援を受けやすくできます。",
+                        "examples":  [
+                                         "最近つらかった出来事を日付順に整理する",
+                                         "睡眠や気分の変化を短い記録表にまとめる",
+                                         "医療機関で伝えたい内容を一分程度の説明文にする",
+                                         "家族へ助けを求めるメッセージの下書きを作る",
+                                         "公的な相談先へ伝えるべき情報を一覧にする",
+                                         "一般的なセルフケア案を挙げてもらい、安全性を専門家へ確認する"
+                                     ]
+                    },
+    "makotoComment":  "AIに話したことで気持ちが軽くなったなら、その体験まで否定する必要はありません。ただ、AIは優しい文章を作ることと、あなたの状態を診断することを同じ仕組みで行っているわけではありません。「話して整理するところまでAI、診断と責任ある判断は人間」と境界線を決めておくと、便利さを残したまま安全に使えます。",
+    "oneLineLesson":  "AIには気持ちを整理してもらい、診断と緊急判断は人間へつなぐ。",
+    "tags":  [
+                 "AI相談",
+                 "メンタルヘルス",
+                 "自己診断",
+                 "AIチャットボット",
+                 "個人情報",
+                 "医療リテラシー"
+             ],
+    "sources":  [
+                    {
+                        "title":  "Growing up in the online world: progress statement",
+                        "publisher":  "UK Department for Science, Innovation and Technology",
+                        "sourceType":  "government",
+                        "publishedAt":  "2026-07-15",
+                        "url":  "https://www.gov.uk/government/consultations/growing-up-in-the-online-world-a-national-consultation/outcome/growing-up-in-the-online-world-progress-statement"
+                    },
+                    {
+                        "title":  "Your patients are using AI: how to talk with them about it",
+                        "publisher":  "American Psychological Association",
+                        "sourceType":  "research",
+                        "publishedAt":  "2026-06-16",
+                        "url":  "https://www.apa.org/topics/artificial-intelligence-machine-learning/practitioners-talk-ai-patients.html"
+                    },
+                    {
+                        "title":  "Patients are bringing AI to therapy: Highlights from the 2026 Chatbots and Mental Health Survey",
+                        "publisher":  "American Psychological Association",
+                        "sourceType":  "research",
+                        "publishedAt":  "2026-06-16",
+                        "url":  "https://www.apa.org/pubs/reports/chatbots-mental-health-2026"
+                    },
+                    {
+                        "title":  "Towards responsible AI for mental health and well-being: experts chart a way forward",
+                        "publisher":  "World Health Organization",
+                        "sourceType":  "international-organization",
+                        "publishedAt":  "2026-03-20",
+                        "url":  "https://www.who.int/news/item/20-03-2026-towards-responsible-ai-for-mental-health-and-well-being--experts-chart-a-way-forward"
+                    },
+                    {
+                        "title":  "FTC Launches Inquiry into AI Chatbots Acting as Companions",
+                        "publisher":  "Federal Trade Commission",
+                        "sourceType":  "government",
+                        "publishedAt":  "2025-09-11",
+                        "url":  "https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions"
+                    }
+                ],
+    "visualSuggestion":  {
+                             "mainVisual":  "夜、自宅でスマートフォンのAIチャットへ気持ちを書き込む人物。AI画面からは「気持ちの整理」「相談内容のメモ」「専門家へ聞く質問」という三つのカードが伸び、その先で医療専門職や信頼できる人へつながる橋を描く。「診断」や「薬の変更」はAI側で停止表示にし、恐怖ではなく安全な役割分担を伝える温かい実写風デザイン。",
+                             "cardIcon":  "ai-mental-health-bridge",
+                             "accentTone":  "serious"
+                         }
+}
