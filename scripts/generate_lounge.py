@@ -15,7 +15,7 @@ WORK_STORIES_PATH = ROOT / "src" / "data" / "workStories.json"
 INDEX_HTML_PATH = ROOT / "index.html"
 LOUNGE_HTML_PATH = ROOT / "lounge.html"
 ARCHIVE_DIR = ROOT / "lounge-archive"
-SITEMAP_PATH = ROOT / "mainichi-miru-sitemap.xml"
+SITEMAP_PATH = ROOT / "sitemap.xml"
 BASE_URL = "https://mainichi-miru.com"
 
 WEEKDAY_EN = {
