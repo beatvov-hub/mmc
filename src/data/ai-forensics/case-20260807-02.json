@@ -1,0 +1,212 @@
+{
+  "id": "case-20260807-02",
+  "publishedAt": "2026-08-07",
+  "title": "ネットの冗談をAI検索が「事実」にした　引用元があっても安心できない理由",
+  "shortTitle": "AI検索は冗談の文脈を落とすことがある",
+  "category": "media-literacy",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "GoogleなどのAI検索を利用する人",
+    "AIの回答に引用元があれば安心だと思っている人",
+    "ネット掲示板やSNSを情報源として利用する人",
+    "調べ物や商品比較に生成AIを使う人"
+  ],
+  "summary": "2026年8月、GoogleのAI Overviewsが、米国で使われているFlock Safetyの監視カメラについて「1〜5グラムの金」や「2〜23ポンドの銅」が含まれると回答していたことが報じられました。しかし、元になっていたのはネット上で広がっていた冗談や根拠の弱い投稿でした。AI検索は複数サイトを整理するのに便利ですが、引用元が表示されていても、その情報源自体が冗談、推測、AI生成投稿である場合があります。重要な数字や技術情報では、引用の有無だけでなく「その情報源が何を根拠に書いたのか」まで確認することが大切です。",
+  "scenario": {
+    "headline": "AI検索に機械の素材を聞いたら、具体的な数字と引用元まで付いた回答が出てきた",
+    "description": "回答には「金が最大5グラム」「銅が最大23ポンド」など具体的な数字が書かれ、複数のリンクも表示されています。数字が細かく引用元まであるため、信頼できる技術情報のように見えました。しかし引用先を確認すると、匿名投稿の推測や、ネット上のジョークを元にしたAI生成SNS投稿でした。さらに、カメラ本体の重量は約3ポンドとされており、「23ポンドの銅が入っている」という説明は重量だけでも成立しません。",
+    "whyItMatters": "Futurismは2026年8月5日、GoogleのAI OverviewがFlock Safetyのカメラに大量の金や銅が含まれると回答している画面を報じました。引用されていた情報源の一つは匿名Substackの推測、もう一つは同じネットミームを扱ったAI生成Instagram投稿でした。その後、TechSpotやGizmodoはGoogleの回答が修正され、ネット上の噂やAIの誤回答であることを説明する内容に変わったと報じています。Google自身もAI Overviewsについて「間違うことがある」と案内し、重要な情報は複数の場所で確認するよう推奨しています。"
+  },
+  "question": {
+    "text": "AI検索が具体的な数字と複数の引用元を示したとき、最も適切な確認方法は？",
+    "choices": [
+      {
+        "id": "trust-citations",
+        "label": "引用元が複数あるので、そのまま正しいと判断する",
+        "description": "リンクの内容や情報源の質までは確認しない。"
+      },
+      {
+        "id": "trust-specific-number",
+        "label": "数字が具体的なので信頼できると判断する",
+        "description": "「約5グラム」など細かな値なら調査済みだと考える。"
+      },
+      {
+        "id": "trace-and-sanity-check",
+        "label": "元情報までたどり、数字が現実的に成立するかも確認する",
+        "description": "一次情報、測定根拠、製品仕様などと照らし合わせる。"
+      },
+      {
+        "id": "avoid-ai-search",
+        "label": "AI検索は間違うので一切使わない",
+        "description": "情報収集や候補探しにも利用しない。"
+      }
+    ],
+    "recommendedAnswers": [
+      "trace-and-sanity-check"
+    ],
+    "explanation": "AI検索に表示される引用は「この文章の参考になった情報源」を示す手掛かりにはなりますが、その情報源自体が正しいことを保証するものではありません。特に数値は、メーカー仕様、試験結果、論文、公的資料などの一次情報までたどり、単位や重量、価格などの基本的な整合性を確認します。今回のように「約3ポンドの機器に最大23ポンドの銅」という時点で、詳しい専門知識がなくても異常に気付ける場合があります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "引用元は一次情報か",
+      "description": "メーカー仕様、研究論文、公的資料、実際の分解調査など、数字の根拠を直接確認できる情報かを見ます。",
+      "priority": "high"
+    },
+    {
+      "title": "引用元が何を根拠に書いているか",
+      "description": "「ネットで言われている」「推定」「AIによる投稿」など、測定や検証を伴わない情報ではないか確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "数字の単位が現実的か",
+      "description": "重量、長さ、金額、割合などを、製品全体の大きさや既知の数値と比較します。",
+      "priority": "high"
+    },
+    {
+      "title": "複数サイトが同じ元ネタをコピーしていないか",
+      "description": "リンクが3件あっても、すべて同じ誤情報を引用していれば独立した3つの証拠にはなりません。",
+      "priority": "high"
+    },
+    {
+      "title": "冗談や皮肉の文脈ではないか",
+      "description": "SNSや掲示板では、真顔で読むと事実に見えるジョークや誇張表現があります。",
+      "priority": "high"
+    },
+    {
+      "title": "AI生成コンテンツが根拠になっていないか",
+      "description": "AIが作った投稿を別のAIが引用すると、根拠のない情報が循環する場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "現在の回答だけを見て過去の問題を否定していないか",
+      "description": "AI検索の回答は更新されるため、現在修正されていても過去に誤回答が表示されていた可能性があります。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "引用元と数字の整合性を確認",
+  "verificationMessage": "AI回答にリンクが付いていても、重要な数字は一次情報と現実的な単位チェックで確認してください。",
+  "verdict": {
+    "label": "「引用がある」と「根拠がある」は別",
+    "description": "AI検索は多くのページを短時間でまとめるのが得意ですが、ネット上で繰り返されている冗談や推測まで「多数の情報」として拾う場合があります。AIを使わないのではなく、候補や概要を集める役割と、根拠を確認する役割を分けることが安全な使い方です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "重要な数字は引用元を実際に開く",
+      "reason": "AIが情報源の注意書きや「推定」という表現を要約時に落としている場合があります。"
+    },
+    {
+      "action": "メーカーや公的資料など一次情報を探す",
+      "reason": "ブログやSNSを経由せず、仕様や測定結果を直接確認できます。"
+    },
+    {
+      "action": "数字を別の既知情報と比較する",
+      "reason": "重量や価格などの基本的な矛盾だけでも誤情報を発見できる場合があります。"
+    },
+    {
+      "action": "AIに「この数字の一次情報は何か」と追加で尋ねる",
+      "reason": "単なる引用ページではなく、測定や公式仕様までたどる意識を持てます。"
+    },
+    {
+      "action": "検索結果のWebリンク表示も確認する",
+      "reason": "AIの要約だけでなく、複数の元ページを自分で比較できます。"
+    },
+    {
+      "action": "怪しい回答はフィードバック機能で報告する",
+      "reason": "検索サービス側の改善につながる可能性があります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "引用リンクの数を信頼度として数える",
+      "reason": "複数サイトが同じ噂や投稿を再利用している場合があります。"
+    },
+    {
+      "action": "具体的な数字だから正しいと思う",
+      "reason": "生成AIは根拠が弱くても、1〜5グラムのような具体的な数値を自然に提示できます。"
+    },
+    {
+      "action": "検索結果の一番上だけで判断する",
+      "reason": "AI要約が元ページより目立つため、根拠の弱さを見落としやすくなります。"
+    },
+    {
+      "action": "SNSの冗談を技術情報として転載する",
+      "reason": "文脈が失われると、次の検索やAI回答で事実のように扱われる可能性があります。"
+    },
+    {
+      "action": "AI検索は危険だから全部避ける",
+      "reason": "概要把握や関連情報の発見には有効で、確認手順を加えることで便利に利用できます。"
+    },
+    {
+      "action": "AI自身に「本当に正しい？」と聞くだけで検証を終える",
+      "reason": "同じ情報源を再度参照して、同じ誤りを別の表現で返す可能性があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AI検索を「答えを決める場所」ではなく「調査ルートを作る場所」にする",
+    "description": "AI検索は、知らないテーマの概要、関連用語、確認すべき資料を短時間で見つける用途に向いています。回答そのものを最終資料にせず、そこで得たキーワードや引用を使って一次情報へ移動すれば、速さと正確性を両立しやすくなります。",
+    "examples": [
+      "専門用語と確認すべき仕様項目をAIに整理してもらう",
+      "回答の各数値について一次情報の候補を挙げてもらう",
+      "複数情報源の一致点と食い違いを表にしてもらう",
+      "重量や割合など、数字同士の矛盾をチェックしてもらう",
+      "元記事が研究、報道、個人投稿、SNSのどれか分類してもらう",
+      "最後は公式仕様や原文を自分で確認する"
+    ]
+  },
+  "makotoComment": "今回面白いのは、AIが完全にゼロから数字を作ったというより、「ネットに書いてあるもの」をうまくまとめた結果、冗談まで立派な技術情報に見えてしまった点です。AI検索では、引用が付いているだけで少し安心してしまいます。でも本当に見るべきなのはリンクの数ではなく、そのリンクの中に検証可能な根拠があるかです。あと今回は「3ポンドの箱に23ポンドの銅」という、電卓すらいらない違和感がかなり強い鑑識ポイントですね。",
+  "oneLineLesson": "AI検索では、引用元の数より「その情報は何を根拠にしているか」を確認する。",
+  "tags": [
+    "AI検索",
+    "AI Overviews",
+    "ハルシネーション",
+    "Google検索",
+    "情報リテラシー",
+    "SNS",
+    "ネットミーム",
+    "ファクトチェック"
+  ],
+  "sources": [
+    {
+      "title": "Google's AI Is Telling Users That Flock Cameras Are Filled With Valuable Gold and Copper",
+      "publisher": "Futurism",
+      "sourceType": "news",
+      "publishedAt": "2026-08-05",
+      "url": "https://futurism.com/artificial-intelligence/google-ai-overview-flock-alpr-surveillance-hallucination-gold-copper"
+    },
+    {
+      "title": "Google's AI Search Reportedly Told Users That Flock Cameras Are a Goldmine",
+      "publisher": "Gizmodo",
+      "sourceType": "news",
+      "publishedAt": "2026-08-05",
+      "url": "https://gizmodo.com/googles-ai-search-reportedly-told-users-that-flock-cameras-are-a-goldmine-2000794890"
+    },
+    {
+      "title": "Google's AI told people Flock cameras were full of gold. They weren't.",
+      "publisher": "TechSpot",
+      "sourceType": "news",
+      "publishedAt": "2026-08-06",
+      "url": "https://www.techspot.com/news/113381-google-ai-told-people-flock-cameras-full-gold.html"
+    },
+    {
+      "title": "Find information in faster & easier ways with AI Overviews in Google Search",
+      "publisher": "Google Search Help",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.google.com/websearch/answer/14901683"
+    },
+    {
+      "title": "Learn about generative AI",
+      "publisher": "Google Search Help",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.google.com/websearch/answer/13954172"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Google風のAI検索画面に「金1〜5g、銅2〜23lb」というもっともらしい回答と複数の引用リンクが表示されている。横には小さな監視カメラと大型の銅の塊を秤に載せ、「本体3lb」「銅23lb？」という明らかな重量矛盾を虫眼鏡で確認する人物を配置する。背景にはSNSのジョーク投稿からAI検索結果へ情報が流れる矢印を描き、AIを怖がるより引用元と数字を確認することを伝える、明るい鑑識室風テックデザイン。",
+    "cardIcon": "ai-search-source-check",
+    "accentTone": "caution"
+  }
+}
