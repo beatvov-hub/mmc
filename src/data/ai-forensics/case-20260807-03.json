@@ -1,0 +1,223 @@
+{
+  "id": "case-20260807-03",
+  "publishedAt": "2026-08-07",
+  "title": "「FBIが失ったお金を取り戻します」　AI動画で被害者をもう一度だます回収詐欺",
+  "shortTitle": "AI動画の捜査官より公式窓口を確認",
+  "category": "scam",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "ネット詐欺や投資詐欺の被害に遭った人",
+    "SNSで公的機関の動画を見る人",
+    "家族の詐欺被害をサポートする人",
+    "AI生成動画の見分け方に関心がある人"
+  ],
+  "summary": "FBIは2026年7月20日、ネット詐欺の被害者を狙い、FBIのInternet Crime Complaint Center（IC3）を装って再び金銭や個人情報を奪う詐欺について警告を更新しました。最近の事例では、FBI幹部を装ったAI生成動画をSNSへ掲載し、本物そっくりの偽IC3サイトへ誘導する手口も確認されています。AI動画そのものを完璧に見破ろうとするより、動画やメッセージ内のリンクを使わず、公的機関の公式サイトへ自分で移動して確認する方が有効です。",
+  "scenario": {
+    "headline": "以前ネット詐欺でお金を失ったところ、SNSに「FBIが被害金を回収します」という動画が表示された",
+    "description": "動画にはFBIの幹部らしい人物が登場し、被害者向けの申請サイトを案内しています。リンク先も政府サイトによく似たデザインで、名前、電話番号、メールアドレス、被害額などを入力すると受付番号まで発行されました。しかし実際には、人物の映像はAIで生成され、サイトもIC3を模倣した偽サイトでした。入力した情報を利用して、さらに金銭を要求されたり、別の詐欺へ利用されたりする可能性があります。",
+    "whyItMatters": "FBIが2026年7月20日に公表した警告では、過去に詐欺被害へ遭った人を狙う「recovery」「double-dip」型の二次被害が続いているとされています。最近確認された手口では、AI生成動画でFBI幹部を装い、SNSから偽IC3サイトへ誘導していました。別の事例では、被害者がFBIへ報告すると詐欺師へ伝えた後、Facebook MessengerやTelegramを通じてFBI職員を名乗る人物から連絡が届き、偽リンクへ誘導されています。FTCも、詐欺被害者へ「お金を取り戻せる」と持ちかけて手数料や個人情報を要求する回収詐欺について注意を呼びかけています。"
+  },
+  "question": {
+    "text": "SNSで「FBIが詐欺被害のお金を取り戻します」という本物らしい動画を見たとき、最も安全な対応は？",
+    "choices": [
+      {
+        "id": "inspect-video-only",
+        "label": "顔や口の動きを見てAI動画かどうか判定する",
+        "description": "映像に不自然な部分がなければ本物として手続きを進める。"
+      },
+      {
+        "id": "click-official-looking-link",
+        "label": "政府らしいロゴがあるので動画内のリンクから申請する",
+        "description": "サイトの見た目と受付番号を信頼材料にする。"
+      },
+      {
+        "id": "navigate-independently",
+        "label": "動画のリンクを使わず、公式サイトを自分で確認する",
+        "description": "公的機関の正式なドメインや公式案内から手続き方法を確認する。"
+      },
+      {
+        "id": "avoid-reporting",
+        "label": "AI詐欺が怖いので被害そのものを公的機関へ報告しない",
+        "description": "偽物と接触しないため、正規の相談窓口も利用しない。"
+      }
+    ],
+    "recommendedAnswers": [
+      "navigate-independently"
+    ],
+    "explanation": "現在のAI生成映像は見た目だけで判別することが難しく、映像が本物かを完璧に見抜くことを安全対策の中心にするのは現実的ではありません。FBIは、IC3へアクセスする場合はブラウザへwww.ic3.govを直接入力し、正しい.govドメインであることを確認するよう案内しています。IC3がSNSで被害金回収サービスを提供したり、回収のために支払いを求めたりすることはないとしています。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "被害後に突然「お金を取り戻せる」と連絡してきていないか",
+      "description": "すでに詐欺被害に遭った人を狙う二次被害では、回収支援を理由に接触してきます。",
+      "priority": "high"
+    },
+    {
+      "title": "SNSやメッセージアプリから公的機関を名乗っていないか",
+      "description": "FBIによると、IC3はFacebook、Telegramなどで被害金の回収や捜査を行いません。",
+      "priority": "high"
+    },
+    {
+      "title": "リンク先のドメイン",
+      "description": "ロゴやデザインではなく、正しい公式ドメインであるかを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "回収のための料金を要求していないか",
+      "description": "IC3は失った資金を取り戻すための料金を要求せず、有料の回収業者を紹介することもないとFBIは説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "動画だけを本人確認の証拠にしていないか",
+      "description": "AI生成映像や音声によって、公的機関の職員や企業幹部を装うことが可能になっています。",
+      "priority": "high"
+    },
+    {
+      "title": "受付番号の発行だけで信用していないか",
+      "description": "FBIが確認した偽サイトでは、フォーム送信後に受付番号を表示して本物らしく見せる仕組みが使われていました。",
+      "priority": "high"
+    },
+    {
+      "title": "送金方法を指定されていないか",
+      "description": "暗号資産、ギフトカード、送金サービスなど、取り戻しにくい方法を指定された場合は特に注意します。",
+      "priority": "high"
+    },
+    {
+      "title": "検索広告だけを公式窓口としていないか",
+      "description": "重要な手続きでは広告リンクではなく、機関名と公式ドメインを自分で確認してアクセスします。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 5,
+  "verificationLabel": "金銭・個人情報を渡す前に公式窓口を独立確認",
+  "verificationMessage": "動画や届いたリンクから手続きせず、公的機関の公式サイトや既知の連絡先を自分で調べて確認してください。",
+  "verdict": {
+    "label": "AI映像を見破るより、連絡経路を確認する",
+    "description": "ディープフェイク対策というと、顔や声の違和感を探すことへ意識が向きがちです。しかしAI生成技術が進歩するほど、人間だけで映像の真偽を判断する方法には限界があります。「本物らしく見えるか」ではなく、「自分で確認した公式窓口から同じ案内を確認できるか」を基準にすると、AIを使った詐欺だけでなく従来型のなりすましにも対応できます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "公的機関のサイトは自分でURLを入力して開く",
+      "reason": "SNS投稿、メール、広告に含まれる偽リンクを経由するリスクを減らせます。"
+    },
+    {
+      "action": "連絡してきた相手とは別の経路で確認する",
+      "reason": "表示された電話番号やリンクそのものが偽装されている可能性があるためです。"
+    },
+    {
+      "action": "詐欺被害後は銀行や決済会社へ早めに連絡する",
+      "reason": "支払い方法によっては、取引停止や返金の可能性を確認できる場合があります。"
+    },
+    {
+      "action": "偽サイトへ情報を入力した場合は何を渡したか記録する",
+      "reason": "メールアドレス、電話番号、口座情報など、今後悪用される可能性のある情報を把握できます。"
+    },
+    {
+      "action": "家族や信頼できる人へ状況を共有する",
+      "reason": "被害直後は「取り戻したい」という気持ちが強くなりやすく、第三者と確認することで判断しやすくなります。"
+    },
+    {
+      "action": "怪しい動画は真偽判定だけで終わらず誘導先を確認する",
+      "reason": "動画自体が本物に見えても、偽サイトへ誘導することが詐欺の目的である場合があります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "AI動画の不自然さが見つからなかったので本物と判断する",
+      "reason": "高度な生成映像では、人間が見ただけでは判別できない場合があります。"
+    },
+    {
+      "action": "「被害金を回収済み」と言われて手数料を払う",
+      "reason": "回収詐欺では、返金、処理、税金、弁護士費用などの名目で追加の支払いを要求します。"
+    },
+    {
+      "action": "送られてきた職員証やバッジの写真を本人確認として信用する",
+      "reason": "画像生成や画像編集で、もっともらしい身分証明画像を作ることができます。"
+    },
+    {
+      "action": "検索結果の広告から重要な申請手続きを始める",
+      "reason": "正規サービスを装った広告や偽サイトが表示される可能性があります。"
+    },
+    {
+      "action": "一度詐欺に遭ったことを恥ずかしく感じて相談を避ける",
+      "reason": "被害者を責める必要はなく、むしろ二次被害を防ぐために早い相談と情報共有が重要です。"
+    },
+    {
+      "action": "AIが使われている可能性を理由に、公的機関のオンライン窓口をすべて避ける",
+      "reason": "正規のオンライン窓口は有用です。重要なのは利用をやめることではなく、公式な入口を自分で確認することです。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AI時代の本人確認は「映像を見る」から「経路を確認する」へ",
+    "description": "AI動画や音声は、説明動画、翻訳、アクセシビリティなど正当な用途でも活用されています。そのため「AI動画だから危険」と判断するのではなく、金銭や個人情報が関わる場面だけ確認手順を強くすることが現実的です。公式サイトをブックマークする、連絡先を自分で調べる、別経路で本人確認するという習慣は、AIを使っていない従来の詐欺にも効果があります。",
+    "examples": [
+      "銀行アプリや公的サービスの公式ページを事前にブックマークする",
+      "動画で紹介された制度名だけをメモし、公式サイトから自分で検索する",
+      "家族間で高額送金時の確認手順を決めておく",
+      "企業から重要な連絡が来たら公式アプリ内のお知らせも確認する",
+      "AI動画の説明内容を調査のきっかけとして使い、最終確認は一次情報で行う"
+    ]
+  },
+  "makotoComment": "今回のポイントは、「AI動画を見抜ける人になりましょう」ではありません。生成映像が上手くなるほど、その勝負は難しくなります。むしろ、お金や個人情報を求められた時だけ、いったん相手との会話を離れて、自分で公式窓口へ行く。この習慣なら、動画が本物でも偽物でも対応できます。特に一度被害に遭った後は、「取り戻せます」という言葉がとても魅力的に聞こえます。そこを狙う詐欺があると知っておくだけでも、大きな防御になります。",
+  "oneLineLesson": "本物らしいAI動画より、自分で確認した公式窓口を信用する。",
+  "tags": [
+    "ディープフェイク",
+    "回収詐欺",
+    "FBI",
+    "IC3",
+    "なりすまし",
+    "二次被害",
+    "SNS詐欺",
+    "AI動画"
+  ],
+  "sources": [
+    {
+      "title": "FBI Warns of Scammers Impersonating the IC3",
+      "publisher": "FBI Internet Crime Complaint Center",
+      "sourceType": "government",
+      "publishedAt": "2026-07-20",
+      "url": "https://www.ic3.gov/PSA/2026/PSA260720"
+    },
+    {
+      "title": "FBI Warns of Scammers Impersonating the IC3",
+      "publisher": "Federal Bureau of Investigation",
+      "sourceType": "government",
+      "publishedAt": "2025-04-18",
+      "url": "https://www.fbi.gov/investigate/cyber/alerts/2025/fbi-warns-of-scammers-impersonating-the-ic3"
+    },
+    {
+      "title": "Internet Crime Complaint Center",
+      "publisher": "FBI Internet Crime Complaint Center",
+      "sourceType": "government",
+      "publishedAt": null,
+      "url": "https://www.ic3.gov/"
+    },
+    {
+      "title": "Refund and Recovery Scams",
+      "publisher": "Federal Trade Commission",
+      "sourceType": "official-consumer-guidance",
+      "publishedAt": null,
+      "url": "https://consumer.ftc.gov/articles/refund-and-recovery-scams"
+    },
+    {
+      "title": "A real FTC employee won't text you their photo ID to verify their identity",
+      "publisher": "Federal Trade Commission",
+      "sourceType": "official-consumer-guidance",
+      "publishedAt": "2026-06-03",
+      "url": "https://consumer.ftc.gov/consumer-alerts/2026/06/real-ftc-employee-wont-text-you-their-photo-id-verify-their-identity"
+    },
+    {
+      "title": "What To Do if You Were Scammed",
+      "publisher": "Federal Trade Commission",
+      "sourceType": "official-consumer-guidance",
+      "publishedAt": null,
+      "url": "https://consumer.ftc.gov/articles/what-do-if-you-were-scammed"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "SNS画面にFBI職員らしい人物が「失った資金を回収します」と説明する動画が表示され、その横に本物そっくりの偽政府サイトが描かれている。利用者は動画の顔を凝視するのではなく、一度スマートフォンを閉じ、別のブラウザで公式サイトのURLを自分で入力して確認している。中央に「映像を見抜く」より「経路を確認する」という対比を置き、詐欺被害者を責めず、安全な確認行動を強調した落ち着いた鑑識室風デザイン。",
+    "cardIcon": "deepfake-official-route-check",
+    "accentTone": "serious"
+  }
+}
