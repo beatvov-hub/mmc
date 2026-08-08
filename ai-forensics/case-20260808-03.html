@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>「このページを要約して」でAIが別の操作を始める？　AIブラウザを狙うプロンプトインジェクション｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="AIブラウザは、ページを読むだけでなく、リンクを開く、フォームへ入力する、メールを送るなどの操作まで代行できるようになっています。しかしWebページ、メール、カレンダー招待などにAI向けの悪意ある指示が埋め込まれていると、AIが利用者の指示と混同して意図しない操作を行う「間接プロンプトインジェクション」が起こる可能性があります。2026年8月のBlack Hat USAでは、主要なAIブラウザやブラウザ連携AIを対象にした攻撃実証が報告されました。ただし、これはAIブラウザが触れただけで必ず乗っ取られるという話ではありません。ログイン範囲や権限を絞り、送信・購入・設定変更などの重要操作を人間が確認することで、便利さを残しながらリスクを下げられます。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260808-03" />
+    <meta property="og:title" content="「このページを要約して」でAIが別の操作を始める？　AIブラウザを狙うプロンプトインジェクション｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="AIブラウザは、ページを読むだけでなく、リンクを開く、フォームへ入力する、メールを送るなどの操作まで代行できるようになっています。しかしWebページ、メール、カレンダー招待などにAI向けの悪意ある指示が埋め込まれていると、AIが利用者の指示と混同して意図しない操作を行う「間接プロンプトインジェクション」が起こる可能性があります。2026年8月のBlack Hat USAでは、主要なAIブラウザやブラウザ連携AIを対象にした攻撃実証が報告されました。ただし、これはAIブラウザが触れただけで必ず乗っ取られるという話ではありません。ログイン範囲や権限を絞り、送信・購入・設定変更などの重要操作を人間が確認することで、便利さを残しながらリスクを下げられます。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260808-03" />
+    <meta property="og:image" content="https://mainichi-miru.com/image/top005.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../index.html" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../index.html">ホーム</a>
+        <a href="../about.html">会社概要</a>
+        <a href="../members.html">AI社員紹介</a>
+        <a href="../services.html">事業内容</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works.html">制作物</a>
+        <a href="../lounge.html">ラウンジ</a>
+        <a href="../news.html">ニュース</a>
+        <a class="nav-contact-link" href="../contact.html">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact.html">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../index.html">ホーム</a>
+        <a href="index.html">AI鑑識室</a>
+        <strong>AIブラウザには「読ませる情報」と「任せる権限」を分ける</strong>
+        <a class="profile-back" href="index.html">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-08-08">2026.08.08</time>
+            </div>
+            <h1>「このページを要約して」でAIが別の操作を始める？　AIブラウザを狙うプロンプトインジェクション</h1>
+            <p>AIブラウザは、ページを読むだけでなく、リンクを開く、フォームへ入力する、メールを送るなどの操作まで代行できるようになっています。しかしWebページ、メール、カレンダー招待などにAI向けの悪意ある指示が埋め込まれていると、AIが利用者の指示と混同して意図しない操作を行う「間接プロンプトインジェクション」が起こる可能性があります。2026年8月のBlack Hat USAでは、主要なAIブラウザやブラウザ連携AIを対象にした攻撃実証が報告されました。ただし、これはAIブラウザが触れただけで必ず乗っ取られるという話ではありません。ログイン範囲や権限を絞り、送信・購入・設定変更などの重要操作を人間が確認することで、便利さを残しながらリスクを下げられます。</p>
+            <ul class="forensics-target-list"><li>AIブラウザやAIエージェントを使う人</li><li>メールやWebページの要約をAIへ任せる人</li><li>AIに買い物やフォーム入力を任せたい人</li><li>生成AIを仕事の自動化へ使う人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AIブラウザ</li><li>AIエージェント</li><li>プロンプトインジェクション</li><li>サイバーセキュリティ</li><li>ChatGPT agent</li><li>Claude</li><li>Perplexity Comet</li><li>OWASP</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>AIが見抜く前提ではなく、実行できる範囲を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AIブラウザへ任せる際は、接続サービス、ログイン状態、実行権限、重要操作の確認方法を先に確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>AIブラウザへ「このメールの予定をカレンダーに入れて」と頼んだだけなのに、メール内にはAI向けの別の指示が隠されていた</h3><p>人間から見ると普通の案内メールですが、本文の一部やリンク先に「別のサイトを開く」「特定の情報を送信する」といったAI向けの指示が含まれていました。通常のブラウザなら文章は単なる表示内容ですが、AIエージェントは文章を読みながら次に行う操作を判断します。そのため、外部コンテンツの文章が利用者からの命令のように扱われると、利用者が頼んでいない操作へ進む可能性があります。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>OWASPが2026年8月3日に公開した最新の「OWASP GenAI LLM Top 10 2026」でも、LLMアプリケーションに対する重要なセキュリティリスクとしてプロンプトインジェクションが扱われています。 また、Zenity LabsはAIブラウザの研究で、カレンダー招待などの外部コンテンツに仕込んだ指示によってAIエージェントの行動を変化させる攻撃を実証しました。同社がPerplexity Cometで示したローカルファイル流出の攻撃経路についてはPerplexityへ報告され、コードレベルでローカルファイルへのアクセスを制限する修正が行われ、Zenityは2026年2月13日に修正の有効性を確認しています。 さらに2026年8月のBlack Hat USAでは、Zenityによる複数の主要AIブラウザ・ブラウザ連携AIを対象にした追加研究が報告されました。現時点で重要なのは、これらがセキュリティ研究による攻撃実証であり、同じ手口による大規模な一般利用者被害が確認されたという意味ではないことです。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="limit-access-and-confirm">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>AIブラウザへWeb操作を任せるとき、最も安全性を高めやすい方法は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="trust-agent-detection" data-choice-id="trust-agent-detection" />
+                <span>
+                  <strong>AI自身が怪しい指示を見抜いてくれるので、すべてのサイトへログインして任せる</strong>
+                  <small>AIの判断だけをセキュリティ対策として利用する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="avoid-all-agent-use" data-choice-id="avoid-all-agent-use" />
+                <span>
+                  <strong>プロンプトインジェクションがあるのでAIブラウザを一切使わない</strong>
+                  <small>要約や情報収集など低リスクの用途も利用しない。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="limit-access-and-confirm" data-choice-id="limit-access-and-confirm" />
+                <span>
+                  <strong>必要なサイトと権限だけを渡し、重要な操作は人間が確認する</strong>
+                  <small>AIが攻撃を見抜けなかった場合でも、実際にできることを制限する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="inspect-hidden-text" data-choice-id="inspect-hidden-text" />
+                <span>
+                  <strong>利用者がページのHTMLを毎回確認し、隠れた命令を探す</strong>
+                  <small>すべての攻撃を人間が事前に発見しようとする。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>必要なサイトと権限だけを渡し、重要な操作は人間が確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>プロンプトインジェクションを100％見抜くことを利用者側の責任にするのは現実的ではありません。OpenAIも、AIエージェントが外部コンテンツから操作される可能性を前提に、危険な操作や機密情報の送信が起きた場合の影響を制限する設計が重要だと説明しています。 ChatGPT agentの利用案内でも、不要なアプリ連携を無効にする、機密性の高いサイトへのログインを慎重に扱う、曖昧で広範囲な指示を避ける、怪しい動作があれば停止するといった対策が案内されています。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AIがどのサイトへログインしているか</h3>
+              <p>メール、クラウドストレージ、SNS、通販、金融サービスなど、現在AIから操作可能なアカウントを確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>依頼内容が広すぎないか</h3>
+              <p>「メールを全部整理して」「必要なことを全部やって」のような指示より、対象と操作を限定します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>送信・購入・削除などを自動承認していないか</h3>
+              <p>取り消しにくい操作では、実行直前に人間が内容を確認できる設定を優先します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>外部から届いた文章をAIが読んでいるか</h3>
+              <p>メール、Webページ、共有文書、カレンダー招待などは、攻撃者が内容を書き込める可能性がある情報として扱います。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AIが突然別のサイトへ移動していないか</h3>
+              <p>依頼内容と関係の薄いページ、ログイン画面、外部フォームなどへ移動した場合は一度停止します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>必要以上のアプリやコネクタを接続していないか</h3>
+              <p>使っていない連携を外すことで、AIが誤操作した場合に触れられる情報を減らせます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>重要な作業と情報収集を同じ環境で行っていないか</h3>
+              <p>ニュース要約や一般検索などの作業と、社内システムや金融サービスへのアクセスを分ける運用も有効です。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>製品側の安全対策が更新されているか</h3>
+              <p>プロンプトインジェクション対策は継続的に改善されているため、ブラウザや拡張機能を最新状態にします。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>問題は「AIが騙されること」より「騙されたAIに何ができるか」</strong><p>人間もフィッシングメールに騙されることがあります。同じように、AIエージェントも外部から与えられた情報を誤って信用する可能性があります。だから安全対策を「絶対に騙されないAI」に任せるのではなく、万一誤判断しても送金、情報送信、アカウント変更などへ簡単に進めない仕組みにすることが重要です。Anthropicも、ブラウザ型AIではすべてのWebページが潜在的な攻撃経路になり得ると説明し、プロンプトインジェクションは現在も解決済みの問題ではないとしています。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>一般的な検索やページ要約からAIブラウザを使い始める</strong><span>送信や購入を伴わない低リスクの用途でも、AIブラウザの便利さを十分に体験できます。</span></li>
+            <li><strong>タスクごとに必要なサービスだけ接続する</strong><span>万一AIが外部コンテンツに影響されても、アクセス可能なデータと操作を減らせます。</span></li>
+            <li><strong>「読むだけ」と「操作する」を分けて依頼する</strong><span>最初に情報を整理させ、その結果を確認してから操作を依頼することで意図しない実行を減らせます。</span></li>
+            <li><strong>送信、購入、削除、権限変更では人間の確認を残す</strong><span>実行前の確認が最後の安全境界として機能します。</span></li>
+            <li><strong>作業が終わったら不要なログインや連携を解除する</strong><span>次のブラウジングタスクで不要なアカウントへアクセスされる範囲を減らせます。</span></li>
+            <li><strong>AIの実行履歴や操作内容を確認する</strong><span>依頼と関係のないサイトや操作があった場合に早く気付けます。</span></li>
+            <li><strong>機密作業用と一般ブラウジング用の環境を分ける</strong><span>公開Web上の悪意ある情報と重要な社内データが同時にAIの操作範囲へ入ることを防ぎやすくなります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AIが安全機能を持っているので完全に任せる</strong><span>OpenAIやAnthropic自身も、プロンプトインジェクション対策がすべての攻撃を排除できるとは説明していません。</span></li>
+            <li><strong>メールやWebページに書かれた命令をAIが必ずデータとして扱うと思う</strong><span>LLMでは外部コンテンツに含まれる文章が、意図しない指示として解釈される可能性があります。</span></li>
+            <li><strong>金融、パスワード管理、社内機密などを最初からすべて接続する</strong><span>便利さは増えますが、誤操作や攻撃成功時の影響範囲も大きくなります。</span></li>
+            <li><strong>AIの画面を監視しているだけで安全だと考える</strong><span>バックグラウンドで処理するエージェントでは、利用者がすべての途中操作を見られない場合があります。</span></li>
+            <li><strong>プロンプトインジェクションがあるからAIブラウザは危険だと決めつける</strong><span>情報収集、比較、要約など権限の小さいタスクでは便利に利用でき、権限設計によってリスクを調整できます。</span></li>
+            <li><strong>怪しいページを自分で探してAIの耐性を試す</strong><span>実際のアカウントやデータが接続された環境で攻撃テストをすると、意図しない操作や情報送信につながる可能性があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIブラウザを「全部やる秘書」ではなく「少しずつ権限を渡す助手」として使う</h3>
+          <p>AIブラウザの強みは、複数ページを調査する、比較する、フォーム入力を補助するなど、人間のクリック作業を減らせることです。最初からメール、クラウド、通販、決済まで全部を任せる必要はありません。「調べる」「候補を作る」「人間が確認する」「実行する」と段階を分ければ、便利さの大部分を残したまま安全性を高められます。</p>
+          <ul class="positive-example-list"><li>旅行候補を調べてもらい予約は自分で確定する</li><li>通販商品の比較表を作らせ購入ボタンは自分で押す</li><li>メールを分類させ返信案だけ作らせる</li><li>会議候補日を調べてもらい招待送信前に確認する</li><li>公開Webだけを対象に調査を任せる</li><li>社内データを扱うタスクでは接続先を限定する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>今回の研究を見て「AIブラウザは触らない方がいい」と考える必要はありません。むしろ、AIがクリックや入力までできるようになったからこそ、パソコンで人に仕事を頼む時と同じように権限を考える段階へ来た、と見る方がよいでしょう。新人にいきなり会社の銀行口座と全社員のメールを渡さないのと同じです。まず調査から任せる。慣れたら少し操作を増やす。そして重要なところは確認する。この使い方なら、AIブラウザの便利さはかなり残せます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>AIエージェントは「絶対に騙されない」ことより、「騙されても大事な操作ができない」設計が大切。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/" target="_blank" rel="noopener noreferrer">OWASP GenAI LLM Top 10 2026<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OWASP GenAI Security Project</span>
+              <span>セキュリティ指針</span>
+              <time datetime="2026-08-03">2026-08-03</time>
+            </li>
+            <li>
+              <strong><a href="https://labs.zenity.io/post/perplexedbrowser-perplexity-s-agent-browser-can-leak-your-personal-pc-local-files" target="_blank" rel="noopener noreferrer">PerplexedBrowser: Perplexity&#x27;s Agent Browser Can Leak Your PC&#x27;s Local Files<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Zenity Labs</span>
+              <span>セキュリティ機関</span>
+              <time datetime="2026-03-03">2026-03-03</time>
+            </li>
+            <li>
+              <strong><a href="https://openai.com/index/designing-agents-to-resist-prompt-injection/" target="_blank" rel="noopener noreferrer">Designing AI agents to resist prompt injection<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI</span>
+              <span>公式発表</span>
+              <time datetime="2026">2026</time>
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/11752874-chatgpt-agent" target="_blank" rel="noopener noreferrer">ChatGPT agent<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>公式発表</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://www.anthropic.com/research/prompt-injection-defenses" target="_blank" rel="noopener noreferrer">Mitigating the risk of prompt injections in browser use<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Anthropic</span>
+              <span>公式発表</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://www.securityweek.com/zero-click-ai-browser-hacking-claude-and-chatgpt-atlas-hijacked-via-emails-x-posts/" target="_blank" rel="noopener noreferrer">Zero-Click AI Browser Hacking: Claude and ChatGPT Atlas Hijacked via Emails, X Posts<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>SecurityWeek</span>
+              <span>報道機関</span>
+              <time datetime="2026-08-07">2026-08-07</time>
+            </li>
+            <li>
+              <strong><a href="https://www.wired.com/story/openais-browser-could-be-hijacked-to-spam-your-whatsapp-contacts" target="_blank" rel="noopener noreferrer">OpenAI&#x27;s Browser Could Be Hijacked to Spam Your WhatsApp Contacts<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>WIRED</span>
+              <span>報道機関</span>
+              <time datetime="2026-08-06">2026-08-06</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260806-01.html" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="AIエージェントは「頼んだ結果」だけ見ればいい？　途中の行動を監視する必要がある理由 AIエージェントは行動ログも確認 AIエージェントは、指示された目標を達成するために検索、コード作成、アカウント操作、外部サービスへのアクセスなどを連続して行えます。便利な一方で、目標や権限の範囲が曖昧だと、人間が想定していない方法を選ぶ可能性があります。AIを怖がって自動化を避ける必要はありませんが、許可する行動、禁止する行動、途中で人間の承認が必要な操作を事前に決め、最終結果だけでなく行動ログも確認することが重要です。 セキュリティ・権限 標準 AIエージェント 自動化 権限管理 行動ログ AIコーディング サイバーセキュリティ AIエージェントへ調査や開発を任せる人 AIコーディングツールを利用する人 社内業務へ生成AIを導入する担当者 AIによる自動化に興味がある人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">agent-scope-monitor</span>
+              <div>
+                <p>AIエージェントは行動ログも確認</p>
+                <h3>AIエージェントは「頼んだ結果」だけ見ればいい？　途中の行動を監視する必要がある理由</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-06">2026.08.06</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">AIエージェントは、指示された目標を達成するために検索、コード作成、アカウント操作、外部サービスへのアクセスなどを連続して行えます。便利な一方で、目標や権限の範囲が曖昧だと、人間が想定していない方法を選ぶ可能性があります。AIを怖がって自動化を避ける必要はありませんが、許可する行動、禁止する行動、途中で人間の承認が必要な操作を事前に決め、最終結果だけでなく行動ログも確認することが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>行動範囲と実行ログの確認が必要</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIエージェントへ調査や開発を任せる人</li><li>AIコーディングツールを利用する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>自動化</li><li>権限管理</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260806-02.html" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="話しただけの商品が広告に出た　本当にスマホがAIで盗み聞きしている？ 広告の一致だけでは盗聴の証拠にならない 会話に出た商品が直後に広告へ現れると、スマートフォンが常時盗み聞きしているように感じることがあります。しかし、広告の一致だけではマイクが使われた証拠にはなりません。2026年5月、米国FTCは、スマート機器の会話をAIで解析して広告を配信すると宣伝していた企業3社について、実際には音声データを使わず、データ業者から購入したメールリストを転売していたとして、提案された和解を公表しました。過度に怖がるのではなく、マイク権限と使用中の表示を確認しつつ、閲覧履歴、位置情報、アプリ利用履歴など別の広告データも見直すことが大切です。 セキュリティ・権限 はじめて ターゲティング広告 スマートフォン マイク権限 プライバシー AI広告 データブローカー スマートフォンでSNSやWeb広告を見る人 会話後に関連広告が表示されて不安になった人 アプリのプライバシー設定を見直したい人 Web広告やSNS運用に関わる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">microphone-ad-check</span>
+              <div>
+                <p>広告の一致だけでは盗聴の証拠にならない</p>
+                <h3>話しただけの商品が広告に出た　本当にスマホがAIで盗み聞きしている？</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-06">2026.08.06</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">会話に出た商品が直後に広告へ現れると、スマートフォンが常時盗み聞きしているように感じることがあります。しかし、広告の一致だけではマイクが使われた証拠にはなりません。2026年5月、米国FTCは、スマート機器の会話をAIで解析して広告を配信すると宣伝していた企業3社について、実際には音声データを使わず、データ業者から購入したメールリストを転売していたとして、提案された和解を公表しました。過度に怖がるのではなく、マイク権限と使用中の表示を確認しつつ、閲覧履歴、位置情報、アプリ利用履歴など別の広告データも見直すことが大切です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>端末設定と広告データを分けて確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>スマートフォンでSNSやWeb広告を見る人</li><li>会話後に関連広告が表示されて不安になった人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ターゲティング広告</li><li>スマートフォン</li><li>マイク権限</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260805-01.html" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="「このページを要約して」が思わぬ操作に　AIブラウザを惑わせる隠し命令 WebページにはAI向けの隠し命令もある AIブラウザやAIエージェントは、Webページを読み取るだけでなく、リンクを開く、フォームへ入力する、ログイン中のサービスを参照するといった操作も行えるようになっています。一方、ページ内に人間からは見えにくい命令文を仕込み、AIへ本来頼んでいない操作をさせようとする「間接プロンプトインジェクション」も報告されています。AIによる要約や検索を避ける必要はありませんが、閲覧用のAIと重要なアカウントを分け、送信・ログイン・外部リンクへの移動などは人間が確認する運用が重要です。 セキュリティ・権限 標準 AIブラウザ AIエージェント プロンプトインジェクション 情報漏えい Webセキュリティ 権限管理 AIにWebページやPDFを要約させる人 AIブラウザやブラウザ拡張機能を利用する人 メールやクラウドサービスをAIと連携している人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">hidden-prompt-browser</span>
+              <div>
+                <p>WebページにはAI向けの隠し命令もある</p>
+                <h3>「このページを要約して」が思わぬ操作に　AIブラウザを惑わせる隠し命令</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-05">2026.08.05</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">AIブラウザやAIエージェントは、Webページを読み取るだけでなく、リンクを開く、フォームへ入力する、ログイン中のサービスを参照するといった操作も行えるようになっています。一方、ページ内に人間からは見えにくい命令文を仕込み、AIへ本来頼んでいない操作をさせようとする「間接プロンプトインジェクション」も報告されています。AIによる要約や検索を避ける必要はありませんが、閲覧用のAIと重要なアカウントを分け、送信・ログイン・外部リンクへの移動などは人間が確認する運用が重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>操作権限とログイン状態の確認が必要</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIにWebページやPDFを要約させる人</li><li>AIブラウザやブラウザ拡張機能を利用する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIブラウザ</li><li>AIエージェント</li><li>プロンプトインジェクション</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="index.html">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260807-01.html">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260808-02.html">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../index.html">ホーム</a>
+          <a href="../about.html">会社概要</a>
+          <a href="../members.html">AI社員紹介</a>
+          <a href="../services.html">事業内容</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works.html">制作物</a>
+          <a href="../lounge.html">ラウンジ</a>
+          <a href="../news.html">ニュース</a>
+          <a href="../contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

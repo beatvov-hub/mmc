@@ -1,0 +1,235 @@
+{
+  "id": "case-20260808-03",
+  "publishedAt": "2026-08-08",
+  "title": "「このページを要約して」でAIが別の操作を始める？　AIブラウザを狙うプロンプトインジェクション",
+  "shortTitle": "AIブラウザには「読ませる情報」と「任せる権限」を分ける",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": [
+    "AIブラウザやAIエージェントを使う人",
+    "メールやWebページの要約をAIへ任せる人",
+    "AIに買い物やフォーム入力を任せたい人",
+    "生成AIを仕事の自動化へ使う人"
+  ],
+  "summary": "AIブラウザは、ページを読むだけでなく、リンクを開く、フォームへ入力する、メールを送るなどの操作まで代行できるようになっています。しかしWebページ、メール、カレンダー招待などにAI向けの悪意ある指示が埋め込まれていると、AIが利用者の指示と混同して意図しない操作を行う「間接プロンプトインジェクション」が起こる可能性があります。2026年8月のBlack Hat USAでは、主要なAIブラウザやブラウザ連携AIを対象にした攻撃実証が報告されました。ただし、これはAIブラウザが触れただけで必ず乗っ取られるという話ではありません。ログイン範囲や権限を絞り、送信・購入・設定変更などの重要操作を人間が確認することで、便利さを残しながらリスクを下げられます。",
+  "scenario": {
+    "headline": "AIブラウザへ「このメールの予定をカレンダーに入れて」と頼んだだけなのに、メール内にはAI向けの別の指示が隠されていた",
+    "description": "人間から見ると普通の案内メールですが、本文の一部やリンク先に「別のサイトを開く」「特定の情報を送信する」といったAI向けの指示が含まれていました。通常のブラウザなら文章は単なる表示内容ですが、AIエージェントは文章を読みながら次に行う操作を判断します。そのため、外部コンテンツの文章が利用者からの命令のように扱われると、利用者が頼んでいない操作へ進む可能性があります。",
+    "whyItMatters": "OWASPが2026年8月3日に公開した最新の「OWASP GenAI LLM Top 10 2026」でも、LLMアプリケーションに対する重要なセキュリティリスクとしてプロンプトインジェクションが扱われています。 また、Zenity LabsはAIブラウザの研究で、カレンダー招待などの外部コンテンツに仕込んだ指示によってAIエージェントの行動を変化させる攻撃を実証しました。同社がPerplexity Cometで示したローカルファイル流出の攻撃経路についてはPerplexityへ報告され、コードレベルでローカルファイルへのアクセスを制限する修正が行われ、Zenityは2026年2月13日に修正の有効性を確認しています。 さらに2026年8月のBlack Hat USAでは、Zenityによる複数の主要AIブラウザ・ブラウザ連携AIを対象にした追加研究が報告されました。現時点で重要なのは、これらがセキュリティ研究による攻撃実証であり、同じ手口による大規模な一般利用者被害が確認されたという意味ではないことです。"
+  },
+  "question": {
+    "text": "AIブラウザへWeb操作を任せるとき、最も安全性を高めやすい方法は？",
+    "choices": [
+      {
+        "id": "trust-agent-detection",
+        "label": "AI自身が怪しい指示を見抜いてくれるので、すべてのサイトへログインして任せる",
+        "description": "AIの判断だけをセキュリティ対策として利用する。"
+      },
+      {
+        "id": "avoid-all-agent-use",
+        "label": "プロンプトインジェクションがあるのでAIブラウザを一切使わない",
+        "description": "要約や情報収集など低リスクの用途も利用しない。"
+      },
+      {
+        "id": "limit-access-and-confirm",
+        "label": "必要なサイトと権限だけを渡し、重要な操作は人間が確認する",
+        "description": "AIが攻撃を見抜けなかった場合でも、実際にできることを制限する。"
+      },
+      {
+        "id": "inspect-hidden-text",
+        "label": "利用者がページのHTMLを毎回確認し、隠れた命令を探す",
+        "description": "すべての攻撃を人間が事前に発見しようとする。"
+      }
+    ],
+    "recommendedAnswers": [
+      "limit-access-and-confirm"
+    ],
+    "explanation": "プロンプトインジェクションを100％見抜くことを利用者側の責任にするのは現実的ではありません。OpenAIも、AIエージェントが外部コンテンツから操作される可能性を前提に、危険な操作や機密情報の送信が起きた場合の影響を制限する設計が重要だと説明しています。 ChatGPT agentの利用案内でも、不要なアプリ連携を無効にする、機密性の高いサイトへのログインを慎重に扱う、曖昧で広範囲な指示を避ける、怪しい動作があれば停止するといった対策が案内されています。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "AIがどのサイトへログインしているか",
+      "description": "メール、クラウドストレージ、SNS、通販、金融サービスなど、現在AIから操作可能なアカウントを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "依頼内容が広すぎないか",
+      "description": "「メールを全部整理して」「必要なことを全部やって」のような指示より、対象と操作を限定します。",
+      "priority": "high"
+    },
+    {
+      "title": "送信・購入・削除などを自動承認していないか",
+      "description": "取り消しにくい操作では、実行直前に人間が内容を確認できる設定を優先します。",
+      "priority": "high"
+    },
+    {
+      "title": "外部から届いた文章をAIが読んでいるか",
+      "description": "メール、Webページ、共有文書、カレンダー招待などは、攻撃者が内容を書き込める可能性がある情報として扱います。",
+      "priority": "high"
+    },
+    {
+      "title": "AIが突然別のサイトへ移動していないか",
+      "description": "依頼内容と関係の薄いページ、ログイン画面、外部フォームなどへ移動した場合は一度停止します。",
+      "priority": "high"
+    },
+    {
+      "title": "必要以上のアプリやコネクタを接続していないか",
+      "description": "使っていない連携を外すことで、AIが誤操作した場合に触れられる情報を減らせます。",
+      "priority": "high"
+    },
+    {
+      "title": "重要な作業と情報収集を同じ環境で行っていないか",
+      "description": "ニュース要約や一般検索などの作業と、社内システムや金融サービスへのアクセスを分ける運用も有効です。",
+      "priority": "medium"
+    },
+    {
+      "title": "製品側の安全対策が更新されているか",
+      "description": "プロンプトインジェクション対策は継続的に改善されているため、ブラウザや拡張機能を最新状態にします。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "AIが見抜く前提ではなく、実行できる範囲を確認",
+  "verificationMessage": "AIブラウザへ任せる際は、接続サービス、ログイン状態、実行権限、重要操作の確認方法を先に確認してください。",
+  "verdict": {
+    "label": "問題は「AIが騙されること」より「騙されたAIに何ができるか」",
+    "description": "人間もフィッシングメールに騙されることがあります。同じように、AIエージェントも外部から与えられた情報を誤って信用する可能性があります。だから安全対策を「絶対に騙されないAI」に任せるのではなく、万一誤判断しても送金、情報送信、アカウント変更などへ簡単に進めない仕組みにすることが重要です。Anthropicも、ブラウザ型AIではすべてのWebページが潜在的な攻撃経路になり得ると説明し、プロンプトインジェクションは現在も解決済みの問題ではないとしています。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "一般的な検索やページ要約からAIブラウザを使い始める",
+      "reason": "送信や購入を伴わない低リスクの用途でも、AIブラウザの便利さを十分に体験できます。"
+    },
+    {
+      "action": "タスクごとに必要なサービスだけ接続する",
+      "reason": "万一AIが外部コンテンツに影響されても、アクセス可能なデータと操作を減らせます。"
+    },
+    {
+      "action": "「読むだけ」と「操作する」を分けて依頼する",
+      "reason": "最初に情報を整理させ、その結果を確認してから操作を依頼することで意図しない実行を減らせます。"
+    },
+    {
+      "action": "送信、購入、削除、権限変更では人間の確認を残す",
+      "reason": "実行前の確認が最後の安全境界として機能します。"
+    },
+    {
+      "action": "作業が終わったら不要なログインや連携を解除する",
+      "reason": "次のブラウジングタスクで不要なアカウントへアクセスされる範囲を減らせます。"
+    },
+    {
+      "action": "AIの実行履歴や操作内容を確認する",
+      "reason": "依頼と関係のないサイトや操作があった場合に早く気付けます。"
+    },
+    {
+      "action": "機密作業用と一般ブラウジング用の環境を分ける",
+      "reason": "公開Web上の悪意ある情報と重要な社内データが同時にAIの操作範囲へ入ることを防ぎやすくなります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "AIが安全機能を持っているので完全に任せる",
+      "reason": "OpenAIやAnthropic自身も、プロンプトインジェクション対策がすべての攻撃を排除できるとは説明していません。"
+    },
+    {
+      "action": "メールやWebページに書かれた命令をAIが必ずデータとして扱うと思う",
+      "reason": "LLMでは外部コンテンツに含まれる文章が、意図しない指示として解釈される可能性があります。"
+    },
+    {
+      "action": "金融、パスワード管理、社内機密などを最初からすべて接続する",
+      "reason": "便利さは増えますが、誤操作や攻撃成功時の影響範囲も大きくなります。"
+    },
+    {
+      "action": "AIの画面を監視しているだけで安全だと考える",
+      "reason": "バックグラウンドで処理するエージェントでは、利用者がすべての途中操作を見られない場合があります。"
+    },
+    {
+      "action": "プロンプトインジェクションがあるからAIブラウザは危険だと決めつける",
+      "reason": "情報収集、比較、要約など権限の小さいタスクでは便利に利用でき、権限設計によってリスクを調整できます。"
+    },
+    {
+      "action": "怪しいページを自分で探してAIの耐性を試す",
+      "reason": "実際のアカウントやデータが接続された環境で攻撃テストをすると、意図しない操作や情報送信につながる可能性があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIブラウザを「全部やる秘書」ではなく「少しずつ権限を渡す助手」として使う",
+    "description": "AIブラウザの強みは、複数ページを調査する、比較する、フォーム入力を補助するなど、人間のクリック作業を減らせることです。最初からメール、クラウド、通販、決済まで全部を任せる必要はありません。「調べる」「候補を作る」「人間が確認する」「実行する」と段階を分ければ、便利さの大部分を残したまま安全性を高められます。",
+    "examples": [
+      "旅行候補を調べてもらい予約は自分で確定する",
+      "通販商品の比較表を作らせ購入ボタンは自分で押す",
+      "メールを分類させ返信案だけ作らせる",
+      "会議候補日を調べてもらい招待送信前に確認する",
+      "公開Webだけを対象に調査を任せる",
+      "社内データを扱うタスクでは接続先を限定する"
+    ]
+  },
+  "makotoComment": "今回の研究を見て「AIブラウザは触らない方がいい」と考える必要はありません。むしろ、AIがクリックや入力までできるようになったからこそ、パソコンで人に仕事を頼む時と同じように権限を考える段階へ来た、と見る方がよいでしょう。新人にいきなり会社の銀行口座と全社員のメールを渡さないのと同じです。まず調査から任せる。慣れたら少し操作を増やす。そして重要なところは確認する。この使い方なら、AIブラウザの便利さはかなり残せます。",
+  "oneLineLesson": "AIエージェントは「絶対に騙されない」ことより、「騙されても大事な操作ができない」設計が大切。",
+  "tags": [
+    "AIブラウザ",
+    "AIエージェント",
+    "プロンプトインジェクション",
+    "サイバーセキュリティ",
+    "ChatGPT agent",
+    "Claude",
+    "Perplexity Comet",
+    "OWASP"
+  ],
+  "sources": [
+    {
+      "title": "OWASP GenAI LLM Top 10 2026",
+      "publisher": "OWASP GenAI Security Project",
+      "sourceType": "security-guidance",
+      "publishedAt": "2026-08-03",
+      "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/"
+    },
+    {
+      "title": "PerplexedBrowser: Perplexity's Agent Browser Can Leak Your PC's Local Files",
+      "publisher": "Zenity Labs",
+      "sourceType": "security",
+      "publishedAt": "2026-03-03",
+      "url": "https://labs.zenity.io/post/perplexedbrowser-perplexity-s-agent-browser-can-leak-your-personal-pc-local-files"
+    },
+    {
+      "title": "Designing AI agents to resist prompt injection",
+      "publisher": "OpenAI",
+      "sourceType": "official",
+      "publishedAt": "2026",
+      "url": "https://openai.com/index/designing-agents-to-resist-prompt-injection/"
+    },
+    {
+      "title": "ChatGPT agent",
+      "publisher": "OpenAI Help Center",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent"
+    },
+    {
+      "title": "Mitigating the risk of prompt injections in browser use",
+      "publisher": "Anthropic",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://www.anthropic.com/research/prompt-injection-defenses"
+    },
+    {
+      "title": "Zero-Click AI Browser Hacking: Claude and ChatGPT Atlas Hijacked via Emails, X Posts",
+      "publisher": "SecurityWeek",
+      "sourceType": "news",
+      "publishedAt": "2026-08-07",
+      "url": "https://www.securityweek.com/zero-click-ai-browser-hacking-claude-and-chatgpt-atlas-hijacked-via-emails-x-posts/"
+    },
+    {
+      "title": "OpenAI's Browser Could Be Hijacked to Spam Your WhatsApp Contacts",
+      "publisher": "WIRED",
+      "sourceType": "news",
+      "publishedAt": "2026-08-06",
+      "url": "https://www.wired.com/story/openais-browser-could-be-hijacked-to-spam-your-whatsapp-contacts"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "画面左に普通のメールやWebページ、中央にそれを読むAIブラウザ、右に「要約」「メール送信」「購入」「ファイルアクセス」などの操作権限を並べる。Webページの中には人間には目立たない小さな悪意ある指示があり、AIへ矢印が伸びている。ただし最終操作の直前には「人間の確認」という大きなゲートを配置する。「AIが怖い」という演出ではなく、「権限を小さくすれば便利に使える」という考え方が一目で分かる、現代的なAI鑑識室風テックデザイン。",
+    "cardIcon": "agent-permission-shield",
+    "accentTone": "caution"
+  }
+}
