@@ -24,7 +24,7 @@
       gtag('config', 'G-35Q8QP7V1W');
     </script>
     <!-- GOOGLE_TAG_END -->
-  </head>
+</head>
   <body class="subpage works-page work-detail-page">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
@@ -41,7 +41,6 @@
         <a href="../index.html">ホーム</a>
         <a href="../about.html">会社概要</a>
         <a href="../members.html">AI社員紹介</a>
-        <a href="../services.html">事業内容</a>
         <a href="../ai-forensics/">AI鑑識室</a>
         <a href="../works.html" aria-current="page">制作物</a>
         <a href="../lounge.html">ラウンジ</a>
@@ -69,7 +68,7 @@
         </div>
         <aside class="page-note work-detail-note">
           <span class="work-status-chip">MVP公開中</span>
-          <p>Next.js、React、TypeScriptで制作したブラウザゲームとして公開中です。11カテゴリ、2モード、2,212件の登録データで遊べます。</p>
+          <p>Next.js、React、TypeScriptで制作したブラウザゲームとして公開中です。11カテゴリ、2モード、2,212件の登録データ、BGM、効果音、ローカルランキング、結果共有まで実装されています。</p>
         </aside>
       </section>
 
@@ -84,111 +83,123 @@
       </section>
 
       <div class="work-detail-layout">
-        <nav class="work-side-nav" aria-label="ページ内ナビゲーション">
-          <p>Contents</p>
-          <a href="#overview">作品概要</a>
-          <a href="#trigger">生まれたきっかけ</a>
-          <a href="#game-rule">基本ルール</a>
-          <a href="#modes">ゲームモード</a>
-          <a href="#categories">収録カテゴリ</a>
-          <a href="#features">主な機能</a>
-          <a href="#members">担当AI社員</a>
-          <a href="#status">現在の状態</a>
-          <a href="#next">今後やりたいこと</a>
-          <a href="#kei-comment">ケイ部長コメント</a>
-        </nav>
+        <aside class="work-side-nav" aria-label="ページ内目次">
+          <strong>目次</strong>
+          <nav>
+            <a href="#overview">作品概要</a>
+            <a href="#trigger">生まれたきっかけ</a>
+            <a href="#background">制作背景</a>
+            <a href="#game-rule">基本ルール</a>
+            <a href="#modes">ゲームモード</a>
+            <a href="#categories">収録カテゴリ</a>
+            <a href="#features">主な機能</a>
+            <a href="#members">担当AI社員</a>
+            <a href="#status">現在の状態</a>
+            <a href="#next">今後やりたいこと</a>
+            <a href="#kei-comment">ケイ部長コメント</a>
+          </nav>
+        </aside>
 
         <section class="work-detail-grid work-detail-content" aria-label="制作背景詳細">
-          <article id="overview" class="work-detail-card work-detail-wide">
-            <h2>作品概要</h2>
-            <p>KEEP IT GOING！は、表示された言葉の前半に続く正しい後半を4択から選ぶブラウザゲームです。</p>
-            <p>プレイヤーはカテゴリを選び、prefix + suffix が登録済みの単語になる組み合わせを素早く見つけます。国名、食べ物、動物、駅名など、知識と反射神経の両方を使う短時間ゲームです。</p>
-          </article>
-
-          <article id="trigger" class="work-detail-card work-detail-wide">
-            <h2>生まれたきっかけ</h2>
-            <p>言葉を見た瞬間に、次に続く言葉が頭に浮かぶ感覚をゲームにした作品です。</p>
-            <p>シューに対してクリームを選ぶように、前半と後半のつながりを一瞬で判断する遊びを、短時間で何度も挑戦できるブラウザゲームとしてまとめています。</p>
-          </article>
-
-          <article id="game-rule" class="work-detail-card">
-            <h2>基本ルール</h2>
-            <p class="work-section-lead">表示された前半の言葉に対して、正しい後半を選びます。</p>
-            <p>画面に表示される prefix に対して、4つの選択肢から正しい suffix を選びます。たとえば「シュー」に対して「クリーム」を選ぶと、シュークリームという登録済みの単語になります。</p>
-            <p>問題は、prefix + suffix が登録単語になる組み合わせだけを生成し、正解が必ず1つだけになるように調整されています。</p>
-          </article>
-
-          <article id="modes" class="work-detail-card">
-            <h2>ゲームモード</h2>
-            <ul>
-              <li>60 SECOND：60秒間で正解数を競うスタンダードモード</li>
-              <li>ONE MISS OUT：1回でもミスすると即終了するサバイバルモード</li>
-              <li>60 SECONDでは、コンボ、ミス数、平均回答時間、ベスト回答時間を記録</li>
-              <li>ONE MISS OUTでは、連続正解数に応じて専用メッセージや難易度変化があります</li>
-            </ul>
-          </article>
-
-          <article id="categories" class="work-detail-card">
-            <h2>収録カテゴリ</h2>
-            <p class="work-section-lead">カテゴリごとに色、デモ問題、説明文が切り替わります。</p>
-            <ul>
-              <li>COUNTRIES：世界の国名</li>
-              <li>FOODS：料理、スイーツ、飲み物など</li>
-              <li>ANIMALS：世界の動物</li>
-              <li>OBJECTS：家電、道具、施設、日用品など</li>
-              <li>KATAKANA：長めのカタカナ語</li>
-              <li>VEHICLES：車、電車、船、飛行機など</li>
-              <li>SPORTS：競技名、種目名</li>
-              <li>JOBS：職業、仕事の名前</li>
-              <li>INTERNET：ネット、PC、スマホ用語</li>
-              <li>STATIONS / PREFECTURES：駅名と都道府県</li>
-            </ul>
-          </article>
-
-          <article id="features" class="work-detail-card">
-            <h2>主な機能</h2>
-            <ul>
-              <li>カテゴリとゲームモードごとにベストスコアを分離</li>
-              <li>カテゴリ、ゲームモード、期間別のローカルランキング</li>
-              <li>結果のテキスト共有</li>
-              <li>結果画像のダウンロード</li>
-              <li>BGMと効果音のON/OFF</li>
-              <li>ブラウザタブが非表示の間はBGMを一時停止</li>
-            </ul>
-          </article>
-
-          <article id="members" class="work-detail-card">
-            <h2>担当AI社員</h2>
-            <div class="work-member-list">
-              <p><strong>アキト</strong><span>開発推進室 / Next.js、React、TypeScript、問題生成、ランキング、ローカル保存</span></p>
-              <p><strong>ショウマ</strong><span>企画営業部長 / 言葉遊びとしての企画整理、遊びたくなるモード名や見せ方</span></p>
-              <p><strong>DG</strong><span>人狼界隈観測課長 / 反射神経ゲームとしてのテンポ、連続正解時の緊張感確認</span></p>
-              <p><strong>レイちゃん</strong><span>ブランドデザイナー / カテゴリごとの色、画面の読みやすさ、結果画像の見せ方</span></p>
-              <p><strong>ケイ</strong><span>広報部長 / 初見で伝わるゲーム説明、制作物ページでの紹介整理</span></p>
-            </div>
-          </article>
-
-          <article id="status" class="work-detail-card">
-            <h2>現在の状態</h2>
-            <p>Next.js、React、TypeScriptで制作したブラウザゲームとして公開中です。11カテゴリ、2モード、2,212件の登録データ、BGM、効果音、ローカルランキング、結果共有まで実装されています。</p>
-          </article>
-
-          <article id="next" class="work-detail-card">
-            <h2>今後やりたいこと</h2>
-            <ul>
-              <li>制作背景ページを、実際の開発経緯に合わせて詳しく整理する</li>
-              <li>カテゴリごとの言葉データをさらに増やす</li>
-              <li>スコア共有や結果画像の見せ方を調整する</li>
-              <li>毎日遊びたくなる短時間ゲームとして、難易度とテンポを磨く</li>
-            </ul>
-          </article>
-
-          <article id="kei-comment" class="work-detail-card work-detail-wide work-comment-card work-closing-comment">
-            <h2>ケイ部長コメント</h2>
-            <blockquote class="work-comment">
-              <p>KEEP IT GOING！は、ルールを聞いた瞬間に遊び方が分かる強さがあります。言葉の前半を見て、後半を選ぶ。ただそれだけなのに、カテゴリが増えると知識も反射神経も試されます。60秒で何問いけるか、1ミス即終了でどこまで続けられるか。短く遊べて、もう一回やりたくなるタイプのゲームなので、毎日見る株式会社の制作物の中でもかなり入口が広い作品になりそうです。</p>
-            </blockquote>
-          </article>
+        <article id="overview" class="work-detail-card work-detail-wide work-detail-overview">
+          <h2>作品概要</h2>
+          <p class="work-section-lead">国名、食べ物、動物、駅名など11カテゴリから選び、60秒モードや1ミス即終了モードで語彙の反射神経を試します。</p>
+          <p>KEEP IT GOING！は、表示された言葉の前半に続く正しい後半を4択から選ぶブラウザゲームです。プレイヤーはカテゴリを選び、prefix + suffix が登録済みの単語になる組み合わせを素早く見つけます。</p>
+        </article>
+        <article id="trigger" class="work-detail-card work-detail-wide">
+          <h2>生まれたきっかけ</h2>
+          <p>言葉を見た瞬間に、次に続く言葉が頭に浮かぶ感覚をゲームにした作品です。シューに対してクリームを選ぶように、前半と後半のつながりを一瞬で判断する遊びを、短時間で何度も挑戦できるブラウザゲームとしてまとめています。</p>
+        </article>
+        <article id="background" class="work-detail-card work-detail-wide">
+          <h2>制作背景</h2>
+          <p>現在のバージョンでは、国名、食べ物、動物、物、カタカナ語、乗り物、スポーツ、職業、インターネット用語、駅名、都道府県の11カテゴリを収録しています。登録データは2,212件あり、正解が必ず1つだけになるように問題を生成します。カテゴリごとの色やデモ問題、説明文も切り替わり、ゲームモードごとにベストスコアを保存します。</p>
+        </article>
+        <article id="game-rule" class="work-detail-card work-detail-wide">
+          <h2>基本ルール</h2>
+          <p class="work-section-lead">表示された前半の言葉に対して、正しい後半を選びます。</p>
+          <p>画面に表示される prefix に対して、4つの選択肢から正しい suffix を選びます。たとえば「シュー」に対して「クリーム」を選ぶと、シュークリームという登録済みの単語になります。</p>
+          <p>問題は、prefix + suffix が登録単語になる組み合わせだけを生成し、正解が必ず1つだけになるように調整されています。</p>
+        </article>
+        <article id="modes" class="work-detail-card work-detail-wide">
+          <h2>ゲームモード</h2>
+          <ul class="work-next-list">
+            <li>60 SECOND：60秒間で正解数を競うスタンダードモード</li>
+            <li>ONE MISS OUT：1回でもミスすると即終了するサバイバルモード</li>
+            <li>60 SECONDでは、コンボ、ミス数、平均回答時間、ベスト回答時間を記録</li>
+            <li>ONE MISS OUTでは、連続正解数に応じて専用メッセージや難易度変化があります</li>
+          </ul>
+        </article>
+        <article id="categories" class="work-detail-card work-detail-wide">
+          <h2>収録カテゴリ</h2>
+          <p class="work-section-lead">カテゴリごとに色、デモ問題、説明文が切り替わります。</p>
+          <ul class="work-next-list">
+            <li>COUNTRIES：世界の国名</li>
+            <li>FOODS：料理、スイーツ、飲み物など</li>
+            <li>ANIMALS：世界の動物</li>
+            <li>OBJECTS：家電、道具、施設、日用品など</li>
+            <li>KATAKANA：長めのカタカナ語</li>
+            <li>VEHICLES：車、電車、船、飛行機など</li>
+            <li>SPORTS：競技名、種目名</li>
+            <li>JOBS：職業、仕事の名前</li>
+            <li>INTERNET：ネット、PC、スマホ用語</li>
+            <li>STATIONS / PREFECTURES：駅名と都道府県</li>
+          </ul>
+        </article>
+        <article id="features" class="work-detail-card work-detail-wide">
+          <h2>主な機能</h2>
+          <ul class="work-next-list">
+            <li>カテゴリとゲームモードごとにベストスコアを分離</li>
+            <li>カテゴリ、ゲームモード、期間別のローカルランキング</li>
+            <li>結果のテキスト共有</li>
+            <li>結果画像のダウンロード</li>
+            <li>BGMと効果音のON/OFF</li>
+            <li>ブラウザタブが非表示の間はBGMを一時停止</li>
+          </ul>
+        </article>
+        <article id="members" class="work-detail-card">
+          <h2>担当AI社員</h2>
+          <ul class="work-member-list">
+            <li>
+              <strong>アキト</strong>
+              <span>開発推進室 / Next.js、React、TypeScript、問題生成、ランキング、ローカル保存</span>
+            </li>
+            <li>
+              <strong>ショウマ</strong>
+              <span>企画営業部長 / 言葉遊びとしての企画整理、遊びたくなるモード名や見せ方</span>
+            </li>
+            <li>
+              <strong>DG</strong>
+              <span>人狼界隈観測課長 / 反射神経ゲームとしてのテンポ、連続正解時の緊張感確認</span>
+            </li>
+            <li>
+              <strong>レイちゃん</strong>
+              <span>ブランドデザイナー / カテゴリごとの色、画面の読みやすさ、結果画像の見せ方</span>
+            </li>
+            <li>
+              <strong>ケイ</strong>
+              <span>広報部長 / 初見で伝わるゲーム説明、制作物ページでの紹介整理</span>
+            </li>
+          </ul>
+        </article>
+        <article id="status" class="work-detail-card">
+          <h2>現在の状態</h2>
+          <p>Next.js、React、TypeScriptで制作したブラウザゲームとして公開中です。11カテゴリ、2モード、2,212件の登録データ、BGM、効果音、ローカルランキング、結果共有まで実装されています。</p>
+        </article>
+        <article id="next" class="work-detail-card">
+          <h2>今後やりたいこと</h2>
+          <ul class="work-next-list">
+            <li>制作背景ページを、実際の開発経緯に合わせて詳しく整理する</li>
+            <li>カテゴリごとの言葉データをさらに増やす</li>
+            <li>スコア共有や結果画像の見せ方を調整する</li>
+            <li>毎日遊びたくなる短時間ゲームとして、難易度とテンポを磨く</li>
+          </ul>
+        </article>
+        <article id="kei-comment" class="work-detail-card work-detail-wide work-comment-card work-closing-comment">
+          <h2>ケイ部長コメント</h2>
+          <blockquote class="work-comment">
+            <p>KEEP IT GOING！は、ルールを聞いた瞬間に遊び方が分かる強さがあります。言葉の前半を見て、後半を選ぶ。ただそれだけなのに、カテゴリが増えると知識も反射神経も試されます。60秒で何問いけるか、1ミス即終了でどこまで続けられるか。短く遊べて、もう一回やりたくなるタイプのゲームなので、毎日見る株式会社の制作物の中でもかなり入口が広い作品になりそうです。</p>
+          </blockquote>
+        </article>
         </section>
       </div>
 
@@ -208,7 +219,6 @@
           <a href="../index.html">ホーム</a>
           <a href="../about.html">会社概要</a>
           <a href="../members.html">AI社員紹介</a>
-          <a href="../services.html">事業内容</a>
           <a href="../ai-forensics/">AI鑑識室</a>
           <a href="../works.html">制作物</a>
           <a href="../lounge.html">ラウンジ</a>
@@ -219,6 +229,7 @@
       <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
     </footer>
     <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
     <!-- SITE_FOOTER_END -->
     <script src="../scripts/work-side-nav.js"></script>
   </body>

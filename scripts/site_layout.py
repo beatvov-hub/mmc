@@ -32,7 +32,9 @@ FOOTER_TAG_RE = re.compile(
     re.MULTILINE,
 )
 ORPHAN_FOOTER_END_RE = re.compile(
-    r"\n?[ \t]*<script src=\"[^\"]*site-nav\.js\"></script>\s*\n[ \t]*<!-- SITE_FOOTER_END -->"
+    r"\n?[ \t]*<script src=\"[^\"]*site-nav\.js\"></script>\s*"
+    r"(?:\n[ \t]*<script src=\"[^\"]*top-random-staff\.js\"></script>\s*)?"
+    r"\n[ \t]*<!-- SITE_FOOTER_END -->"
 )
 GOOGLE_TAG_BLOCK_RE = re.compile(
     r"^[ \t]*<!-- GOOGLE_TAG_START -->[\s\S]*?^[ \t]*<!-- GOOGLE_TAG_END -->\s*",
@@ -52,7 +54,6 @@ CURRENT_KEYS = [
     "home",
     "about",
     "members",
-    "services",
     "ai_forensics",
     "works",
     "gallery",
@@ -180,8 +181,6 @@ def page_context(path: Path) -> tuple[str, str]:
         current = "about"
     elif first == "members" or name == "members.html":
         current = "members"
-    elif name == "services.html":
-        current = "services"
     elif first == "ai-forensics":
         current = "ai_forensics"
     elif first == "works" or name == "works.html":

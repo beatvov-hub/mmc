@@ -2162,6 +2162,49 @@ body.subpage { padding-top: 88px; }
 .works-story-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+.works-type-nav {
+  width: min(1120px, calc(100% - 40px));
+  margin: 18px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.works-type-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 18px;
+  border: 1px solid rgba(38,63,50,.16);
+  border-radius: 999px;
+  background: rgba(255,255,255,.78);
+  color: var(--green);
+  font-weight: 900;
+  box-shadow: 0 10px 24px rgba(54,35,20,.06);
+}
+.works-group-section {
+  margin-top: 22px;
+}
+.works-group-heading {
+  align-items: end;
+}
+.works-group-heading p {
+  max-width: 720px;
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+.work-group-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(122,79,43,.1);
+  color: var(--coffee);
+  font-size: .86rem;
+  font-weight: 900;
+}
 .work-story-card {
   display: grid;
   gap: 14px;

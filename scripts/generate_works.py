@@ -293,8 +293,33 @@ def render_work_card(work: dict) -> str:
     return "\n".join(lines)
 
 
+def is_game_work(work: dict) -> bool:
+    return "ゲーム" in str(work.get("category", ""))
+
+
+def render_work_group(section_id: str, kicker: str, title: str, description: str, works: list[dict]) -> str:
+    lines = [
+        f'      <section id="{esc(section_id)}" class="card-section works-group-section" aria-labelledby="{esc(section_id)}-title">',
+        '        <div class="section-heading works-group-heading">',
+        "          <div>",
+        f'            <p class="section-kicker">{esc(kicker)}</p>',
+        f'            <h2 id="{esc(section_id)}-title">{esc(title)}</h2>',
+        f"            <p>{esc(description)}</p>",
+        "          </div>",
+        f'          <span class="work-group-count">{len(works)}件</span>',
+        "        </div>",
+        '        <div class="works-grid works-story-grid">',
+    ]
+    for work in works:
+        lines.append(render_work_card(work))
+    lines.extend(["        </div>", "      </section>"])
+    return "\n".join(lines)
+
+
 def render_works_main(works: list[dict]) -> str:
     published = sum(1 for work in works if work.get("publicUrl"))
+    game_works = [work for work in works if is_game_work(work)]
+    tool_works = [work for work in works if not is_game_work(work)]
     lines = [
         '    <main class="page-main works-main">',
         '      <section class="page-hero works-hero">',
@@ -305,7 +330,7 @@ def render_works_main(works: list[dict]) -> str:
         "        </div>",
         '        <aside class="page-note works-note">',
         '          <strong>Works Log</strong>',
-        f'          <p>{len(works)}件の制作物を記録中。公開中 {published}件、企画・設計段階も含めて、会社の活動記録として整理しています。</p>',
+        f'          <p>{len(works)}件の制作物を記録中。ゲーム {len(game_works)}件、ツール {len(tool_works)}件、公開中 {published}件。公開しない社内ツールも、制作背景として整理しています。</p>',
         "        </aside>",
         "      </section>",
         "",
@@ -332,11 +357,30 @@ def render_works_main(works: list[dict]) -> str:
         "        </div>",
         "      </section>",
         "",
-        '      <section class="card-section works-grid works-story-grid" aria-label="制作物一覧">',
+        '      <nav class="works-type-nav" aria-label="制作物カテゴリ">',
+        '        <a href="#works-games">ゲーム</a>',
+        '        <a href="#works-tools">ツール</a>',
+        "      </nav>",
     ]
-    for work in works:
-        lines.append(render_work_card(work))
-    lines.extend(["      </section>", "    </main>"])
+    lines.append(
+        render_work_group(
+            "works-games",
+            "Playable Works",
+            "ゲーム",
+            "公開中のブラウザゲームや、ゲームとして遊ぶ体験を中心にした制作物です。遊べるものは外部ページへのリンクを付けています。",
+            game_works,
+        )
+    )
+    lines.append(
+        render_work_group(
+            "works-tools",
+            "Tools / Internal Works",
+            "ツール",
+            "社内運用、制作支援、研究、Web企画などの制作物です。公開しないものも多いため、基本は制作背景ページで記録します。",
+            tool_works,
+        )
+    )
+    lines.append("    </main>")
     return "\n".join(lines)
 
 
@@ -347,7 +391,11 @@ def update_works_html(works: list[dict]) -> None:
         main_start = html_text.index('    <main class="page-main works-main">')
     else:
         main_start = html_text.index('    <main class="page-main">')
-    footer_start = html_text.index("    <footer", main_start)
+    footer_marker = "    <!-- SITE_FOOTER_START -->"
+    if footer_marker in html_text[main_start:]:
+        footer_start = html_text.index(footer_marker, main_start)
+    else:
+        footer_start = html_text.index("    <footer", main_start)
     html_text = html_text[:main_start] + render_works_main(works) + "\n" + html_text[footer_start:]
     WORKS_HTML_PATH.write_text(html_text, encoding="utf-8")
 
@@ -385,7 +433,6 @@ def render_rich_detail_page(work: dict) -> str:
         '        <a href="../index.html">ホーム</a>',
         '        <a href="../about.html">会社概要</a>',
         '        <a href="../members.html">AI社員紹介</a>',
-        '        <a href="../services.html">事業内容</a>',
         '        <a href="../ai-forensics/">AI鑑識室</a>',
         '        <a href="../works.html" aria-current="page">制作物</a>',
         '        <a href="../lounge.html">ラウンジ</a>',
@@ -450,7 +497,6 @@ def render_rich_detail_page(work: dict) -> str:
             '          <a href="../index.html">ホーム</a>',
             '          <a href="../about.html">会社概要</a>',
             '          <a href="../members.html">AI社員紹介</a>',
-            '          <a href="../services.html">事業内容</a>',
             '          <a href="../ai-forensics/">AI鑑識室</a>',
             '          <a href="../works.html">制作物</a>',
             '          <a href="../lounge.html">ラウンジ</a>',
@@ -503,7 +549,6 @@ def render_detail_page(work: dict) -> str:
         '        <a href="../index.html">ホーム</a>',
         '        <a href="../about.html">会社概要</a>',
         '        <a href="../members.html">AI社員紹介</a>',
-        '        <a href="../services.html">事業内容</a>',
         '        <a href="../works.html" aria-current="page">制作物</a>',
         '        <a href="../lounge.html">ラウンジ</a>',
         '        <a href="../news.html">ニュース</a>',
@@ -591,7 +636,6 @@ def render_detail_page(work: dict) -> str:
             '          <a href="../index.html">ホーム</a>',
             '          <a href="../about.html">会社概要</a>',
             '          <a href="../members.html">AI社員紹介</a>',
-            '          <a href="../services.html">事業内容</a>',
             '          <a href="../works.html">制作物</a>',
             '          <a href="../lounge.html">ラウンジ</a>',
             '          <a href="../news.html">ニュース</a>',
