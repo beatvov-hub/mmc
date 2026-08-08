@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FC2ホームページ 現代風リデザイン案｜非公式デザインスタディ</title>
-    <meta
+    <link rel="canonical" href="https://mainichi-miru.com/gallery/fc2-homepage-redesign" />
+<meta
       name="description"
       content="FC2ホームページのTOPページを題材に、自分だけのWebサイトを持つ文化を現代的に再提案する非公式リデザイン案です。"
     />
@@ -15,7 +16,7 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mainichi-miru.com/gallery/fc2-homepage-redesign" />
-    <meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="summary" />
     <link rel="icon" href="../favicon.ico" />
     <link rel="stylesheet" href="fc2-homepage-redesign.css" />
     <!-- GOOGLE_TAG_START -->
@@ -29,8 +30,32 @@
       gtag('config', 'G-35Q8QP7V1W');
     </script>
     <!-- GOOGLE_TAG_END -->
-  </head>
+</head>
   <body class="fc2-concept-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
     <a class="skip-link" href="#main">本文へ移動</a>
     <header class="fc2-header" aria-label="FC2ホームページ リデザイン案ヘッダー">
       <a class="fc2-logo" href="#top" aria-label="FC2ホームページ トップ">
@@ -260,5 +285,28 @@
       <small>このページは毎日見る株式会社による非公式のデザインコンセプトです。FC2公式サイトではありません。</small>
     </footer>
     <script src="fc2-homepage-redesign.js"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
   </body>
 </html>

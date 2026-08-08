@@ -152,6 +152,7 @@ def render_daily_update(data: dict) -> str:
 
 
 def render_news_items(data: dict) -> str:
+    items = sorted_items(data)
     lines = [
         '      <section class="news-list-section" aria-labelledby="news-list-title">',
         '        <div class="section-heading">',
@@ -163,7 +164,7 @@ def render_news_items(data: dict) -> str:
         "",
         '        <div class="news-card-list">',
     ]
-    for item in sorted_items(data):
+    for item in items[:4]:
         lines.extend(
             [
                 '          <article class="news-card">',
@@ -181,11 +182,40 @@ def render_news_items(data: dict) -> str:
                 lines.append(f"              <li>{esc(bullet)}</li>")
             lines.append("            </ul>")
         lines.append("          </article>")
-    lines.extend(["        </div>", "      </section>"])
+    lines.append("        </div>")
+    if len(items) > 4:
+        lines.extend(
+            [
+                '        <details class="content-more news-list-more">',
+                "          <summary>&#32154;&#12365;&#12434;&#35501;&#12416;</summary>",
+                '          <div class="news-card-list news-card-list-more">',
+            ]
+        )
+        for item in items[4:]:
+            lines.extend(
+                [
+                    '            <article class="news-card">',
+                    '              <div class="news-card-header">',
+                    f'                <time datetime="{esc(item["date"])}">{esc(date_dot(item["date"]))}</time>{render_tag(item)}',
+                    "              </div>",
+                    f'              <h3><a href="{esc(item_href(item))}">{esc(item.get("title", ""))}</a></h3>',
+                    f'              <p>{esc(item.get("summary", ""))}</p>',
+                ]
+            )
+            bullets = item.get("bullets", [])
+            if bullets:
+                lines.append("              <ul>")
+                for bullet in bullets:
+                    lines.append(f"                <li>{esc(bullet)}</li>")
+                lines.append("              </ul>")
+            lines.append("            </article>")
+        lines.extend(["          </div>", "        </details>"])
+    lines.append("      </section>")
     return "\n".join(lines)
 
 
 def render_timeline(data: dict) -> str:
+    items = timeline_items(data)
     lines = [
         '      <section class="news-log-section" aria-labelledby="news-log-title">',
         '        <div class="section-heading">',
@@ -197,8 +227,7 @@ def render_timeline(data: dict) -> str:
         "",
         '        <div class="news-log">',
     ]
-    items = timeline_items(data)
-    for index, item in enumerate(items):
+    for index, item in enumerate(items[:4]):
         latest_class = " is-latest" if index == 0 else ""
         lines.extend(
             [
@@ -215,9 +244,37 @@ def render_timeline(data: dict) -> str:
         for bullet in item.get("bullets", []):
             lines.append(f"                <li>{esc(bullet)}</li>")
         lines.extend(["              </ul>", "            </div>", "          </article>"])
-        if index != len(items) - 1:
+        if index != min(len(items), 4) - 1:
             lines.append("")
-    lines.extend(["        </div>", "      </section>"])
+    lines.append("        </div>")
+    if len(items) > 4:
+        lines.extend(
+            [
+                '        <details class="content-more news-log-more">',
+                "          <summary>&#32154;&#12365;&#12434;&#35501;&#12416;</summary>",
+                '          <div class="news-log">',
+            ]
+        )
+        for index, item in enumerate(items[4:]):
+            lines.extend(
+                [
+                    '            <article class="news-log-day">',
+                    f'              <time datetime="{esc(item["date"])}">{esc(date_dot(item["date"]))}</time>',
+                    '              <div class="news-log-body">',
+                    '                <div class="news-log-title-row">',
+                    f'                  <h3>{esc(item.get("title", ""))}</h3>',
+                    f'                  <span class="tag">{esc(item.get("tag", ""))}</span>',
+                    "                </div>",
+                    "                <ul>",
+                ]
+            )
+            for bullet in item.get("bullets", []):
+                lines.append(f"                  <li>{esc(bullet)}</li>")
+            lines.extend(["                </ul>", "              </div>", "            </article>"])
+            if index != len(items[4:]) - 1:
+                lines.append("")
+        lines.extend(["          </div>", "        </details>"])
+    lines.append("      </section>")
     return "\n".join(lines)
 
 
@@ -291,15 +348,14 @@ def render_about_timeline(data: dict) -> str:
             continue
         grouped.setdefault(item["date"], []).append(item)
 
-    lines = ['        <ol class="about-timeline">']
-    for date, items in grouped.items():
-        lines.extend(
-            [
-                f'          <li><time datetime="{esc(date)}">{esc(date_jp(date))}</time><div>',
-            ]
-        )
+    grouped_items = list(grouped.items())
+
+    def render_group(date: str, items: list[dict]) -> list[str]:
+        group_lines = [
+            f'          <li><time datetime="{esc(date)}">{esc(date_jp(date))}</time><div>',
+        ]
         for item in items:
-            lines.extend(
+            group_lines.extend(
                 [
                     "            <article>",
                     f"              <h3>{esc(item.get('aboutTitle') or item.get('title', ''))}</h3>",
@@ -307,8 +363,24 @@ def render_about_timeline(data: dict) -> str:
                     "            </article>",
                 ]
             )
-        lines.append("          </div></li>")
+        group_lines.append("          </div></li>")
+        return group_lines
+
+    lines = ['        <ol class="about-timeline">']
+    for date, items in grouped_items[:4]:
+        lines.extend(render_group(date, items))
     lines.append("        </ol>")
+    if len(grouped_items) > 4:
+        lines.extend(
+            [
+                '        <details class="content-more about-timeline-more">',
+                "          <summary>&#32154;&#12365;&#12434;&#35501;&#12416;</summary>",
+                '          <ol class="about-timeline about-timeline-extra">',
+            ]
+        )
+        for date, items in grouped_items[4:]:
+            lines.extend(render_group(date, items))
+        lines.extend(["          </ol>", "        </details>"])
     return "\n".join(lines)
 
 

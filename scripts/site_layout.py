@@ -49,6 +49,13 @@ GOOGLE_TAG_UNMARKED_RE = re.compile(
 HEAD_CLOSE_RE = re.compile(r"^[ \t]*</head>", re.IGNORECASE | re.MULTILINE)
 BODY_OPEN_RE = re.compile(r"(<body\b[^>]*>)", re.IGNORECASE)
 BODY_CLOSE_RE = re.compile(r"^[ \t]*</body>", re.IGNORECASE | re.MULTILINE)
+CANONICAL_RE = re.compile(r'^[ \t]*<link rel="canonical" href="[^"]*" />\s*', re.MULTILINE)
+OG_URL_RE = re.compile(r'^[ \t]*<meta property="og:url" content="[^"]*" />\s*', re.MULTILINE)
+DESCRIPTION_RE = re.compile(r'^[ \t]*<meta name="description" content="[^"]*" />\s*', re.MULTILINE)
+TITLE_RE = re.compile(r"^[ \t]*<title>[\s\S]*?</title>\s*", re.IGNORECASE | re.MULTILINE)
+INTERNAL_HTML_HREF_RE = re.compile(r'href="([^":?#]+)\.html((?:#[^"]*)?)"')
+
+BASE_URL = "https://mainichi-miru.com"
 
 CURRENT_KEYS = [
     "home",
@@ -106,6 +113,59 @@ def render_google_tag() -> str:
 
 def marked_block(start: str, body: str, end: str) -> str:
     return f"    {start}\n{indent_block(body)}\n    {end}"
+
+
+def canonical_path(path: Path) -> str:
+    rel = path.resolve().relative_to(ROOT).as_posix()
+    if rel == "index.html":
+        return "/"
+    if rel.endswith("/index.html"):
+        rel = rel[: -len("/index.html")]
+    elif rel.endswith(".html"):
+        rel = rel[: -len(".html")]
+    return f"/{rel}"
+
+
+def canonical_url(path: Path) -> str:
+    clean_path = canonical_path(path)
+    if clean_path == "/":
+        return f"{BASE_URL}/"
+    return f"{BASE_URL}{clean_path}"
+
+
+def insert_after_head_marker(html_text: str, block: str) -> str:
+    match = DESCRIPTION_RE.search(html_text) or TITLE_RE.search(html_text)
+    if match:
+        return html_text[: match.end()] + block + html_text[match.end() :]
+    match = HEAD_CLOSE_RE.search(html_text)
+    if not match:
+        raise ValueError("Could not find head end.")
+    return html_text[: match.start()] + block + html_text[match.start() :]
+
+
+def apply_canonical(html_text: str, *, url: str) -> str:
+    canonical_line = f'    <link rel="canonical" href="{url}" />\n'
+    og_url_line = f'    <meta property="og:url" content="{url}" />\n'
+
+    html_text = CANONICAL_RE.sub("", html_text)
+    html_text = insert_after_head_marker(html_text, canonical_line)
+
+    if OG_URL_RE.search(html_text):
+        html_text = OG_URL_RE.sub(og_url_line, html_text, count=1)
+    return html_text
+
+
+def normalize_internal_links(html_text: str) -> str:
+    def replace(match: re.Match[str]) -> str:
+        path = match.group(1)
+        anchor = match.group(2)
+        if path.endswith("/index"):
+            path = path[: -len("index")]
+        elif path == "index":
+            path = "/"
+        return f'href="{path}{anchor}"'
+
+    return INTERNAL_HTML_HREF_RE.sub(replace, html_text)
 
 
 def apply_google_tag(html_text: str) -> str:
@@ -220,7 +280,9 @@ def apply_layout_to_html(html_text: str, *, prefix: str, current: str) -> str:
 def apply_layout_to_file(path: Path) -> bool:
     prefix, current = page_context(path)
     original = path.read_text(encoding="utf-8")
-    updated = apply_layout_to_html(original, prefix=prefix, current=current)
+    updated = apply_canonical(original, url=canonical_url(path))
+    updated = apply_layout_to_html(updated, prefix=prefix, current=current)
+    updated = normalize_internal_links(updated)
     if updated == original:
         return False
     path.write_text(updated, encoding="utf-8")
@@ -232,6 +294,8 @@ def iter_site_html_files() -> list[Path]:
     for path in ROOT.rglob("*.html"):
         rel = path.relative_to(ROOT)
         if rel.parts[0] in {".git", ".codex", ".agents"}:
+            continue
+        if rel.parts[:1] == ("tools",):
             continue
         if len(rel.parts) >= 2 and rel.parts[:2] == ("src", "partials"):
             continue

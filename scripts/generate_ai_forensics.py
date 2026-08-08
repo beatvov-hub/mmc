@@ -240,7 +240,7 @@ def render_head(title: str, description: str, url: str, *, prefix: str, og_type:
             f'    <meta property="og:description" content="{esc(description)}" />',
             f'    <meta property="og:type" content="{esc(og_type)}" />',
             f'    <meta property="og:url" content="{esc(url)}" />',
-            f'    <meta property="og:image" content="{BASE_URL}/image/top005.jpg" />',
+            f'    <meta property="og:image" content="{BASE_URL}/image/top005.webp" />',
             '    <meta name="twitter:card" content="summary_large_image" />',
             f'    <link rel="icon" href="{prefix}favicon.ico" />',
             f'    <link rel="stylesheet" href="{prefix}styles.css" />',
