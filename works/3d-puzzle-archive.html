@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>3Dパズル・アーカイブ｜Puzzle ModuleとStage JSONで育てるゲーム制作背景｜毎日見る株式会社</title>
+    <meta name="description" content="3Dパズル・アーカイブは、Laser Lab、Shadow Match、Mystery Boxなど異なる3Dパズルを共通基盤へ収録し、Stage JSONで増やしていくパズル・オムニバスです。" />
+        <link rel="canonical" href="https://mainichi-miru.com/works/3d-puzzle-archive" />
+<meta property="og:title" content="3Dパズル・アーカイブ｜Puzzle ModuleとStage JSONで育てるゲーム制作背景｜毎日見る株式会社" />
+    <meta property="og:description" content="3Dパズル・アーカイブは、Laser Lab、Shadow Match、Mystery Boxなど異なる3Dパズルを共通基盤へ収録し、Stage JSONで増やしていくパズル・オムニバスです。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/works/3d-puzzle-archive" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top004.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage works-page work-detail-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/">AI鑑識室</a>
+        <a href="../works" aria-current="page">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="work-detail-main">
+      <nav class="profile-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <span>制作物</span>
+        <strong>3Dパズル・アーカイブ</strong>
+        <a class="profile-back" href="../works">制作物一覧に戻る</a>
+      </nav>
+
+      <section class="page-hero work-detail-hero">
+        <div>
+          <p class="section-kicker">ゲーム</p>
+          <h1>3Dパズル・アーカイブ</h1>
+          <p class="page-lead">立体を回し、観察し、光や仕掛けを操って解く、複数形式の3Dパズルを収録したアーカイブ。</p>
+          <p class="work-story-summary work-story-summary-large">Laser Lab、Shadow Match、Mystery Boxなど、異なるルールのパズルを共通の3D基盤上で増やしていく作品です。</p>
+        </div>
+        <aside class="page-note work-detail-note">
+          <span class="work-status-chip">MVP設計中</span>
+          <p>共通3D Puzzle Frameworkと、Laser Lab、Shadow Match、Mystery Boxの初期構成を整理しています。公開プレイページはまだありません。</p>
+        </aside>
+      </section>
+
+      <section class="work-detail-grid" aria-label="制作背景詳細">
+        <article class="work-detail-card work-detail-overview">
+          <h2>作品概要</h2>
+          <p>3D Puzzle Archiveは、複数種類の3Dパズルをひとつのゲーム内に収録するパズル・オムニバスです。レーザーを鏡で反射させるLaser Lab、立体物を回転させて正しい影を探すShadow Match、箱や装置の仕掛けを順番に解除するMystery Boxなど、それぞれ異なる考え方を使うパズルを収録します。</p>
+        </article>
+        <article class="work-detail-card">
+          <h2>生まれたきっかけ</h2>
+          <p>AIを使った個人ゲーム開発なら、ひとつのゲームを完成させるだけではなく、あとからゲームそのものを増やしていける仕組みを作れないか、という発想から始まりました。パズルの構造や正解をJSONとして管理し、ゲームロジックと問題データを分離することで、プログラムやAIと協力しながらバリエーションを増やしていくことを目指しています。</p>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>制作背景</h2>
+          <p>パズルの内容とゲームプログラムをできるだけ分離することを重視しています。3D Puzzle Frameworkの上にPuzzle Moduleを追加し、問題の配置、正解、難易度、仕掛けの状態遷移などはStage JSONとして管理します。同じパズルタイプの2面目、3面目を追加するときに、できるだけプログラムを書き換えず、データを追加するだけで済む構成を目指しています。</p>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>3Dであることが解法になる</h2>
+          <p>単に2Dパズルを立体表示するのではなく、物体の裏側を見る、高さを使って光を通す、見る角度によって影の形が変わるなど、3Dであること自体が解法につながるパズルを作ります。回す、見る、つなぐ、開けるという異なる観察と操作を、ひとつのアーカイブへ集めていきます。</p>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>FrameworkとPuzzle Module</h2>
+          <p>カメラ操作、3Dオブジェクト操作、ステージ読み込み、クリア判定、セーブなどは共通の3D Puzzle Frameworkが担当します。レーザー反射、回転角度の判定、状態グラフの実行といったルールは、それぞれのPuzzle Moduleが担当します。</p>
+          <ul class="work-next-list">
+            <li>3D Puzzle Framework：共通カメラ、操作、読み込み、セーブ</li>
+            <li>Puzzle Module：レーザー、影、仕掛けなど固有ルール</li>
+            <li>Stage JSON：配置、正解、難易度、テーマ、状態遷移</li>
+          </ul>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>生成と検証の分担</h2>
+          <p>問題構造を生成し、プログラムで解けるか検証し、プレイ可能な問題だけを採用する。そのうえでAIがテーマ、名称、外観、ヒント、演出を追加する制作パイプラインを想定しています。AIには面白そうな世界を作ることを任せ、ゲームとして本当に解けるかどうかはプログラム側で保証する方針です。</p>
+        </article>
+        <article class="work-detail-card work-detail-wide">
+          <h2>現在のMVP</h2>
+          <p>現在は、Laser Lab、Shadow Match、Mystery Boxをそれぞれ1ステージずつ実装し、3種類のパズルが同じ3D Puzzle Framework上で動作することを確認する段階です。ステージ固有の配置、正解、難易度、仕掛けはJSONから読み込み、同じパズルタイプの新しいステージを追加しやすい基盤を優先して制作します。</p>
+        </article>
+        <article class="work-detail-card">
+          <h2>担当AI社員</h2>
+          <ul class="work-member-list">
+            <li>
+              <strong>アキト</strong>
+              <span>開発推進室 / 共通3D Puzzle Framework、JSON設計、Puzzle Module構造、実装設計</span>
+            </li>
+            <li>
+              <strong>たかけん</strong>
+              <span>世界観研究室 / 3D Puzzle Archive、異常ステージ、アーカイブ世界観</span>
+            </li>
+            <li>
+              <strong>DG</strong>
+              <span>人狼界隈観測課長 / パズルルール、難易度、ゲームとしての面白さ確認</span>
+            </li>
+            <li>
+              <strong>ケイ</strong>
+              <span>広報部長 / 作品コンセプト、制作背景、見せ方の整理</span>
+            </li>
+          </ul>
+        </article>
+        <article class="work-detail-card">
+          <h2>現在の状態</h2>
+          <p>共通3D Puzzle Frameworkと、Laser Lab、Shadow Match、Mystery Boxの初期構成を整理しています。公開プレイページはまだありません。</p>
+        </article>
+        <article class="work-detail-card">
+          <h2>今後やりたいこと</h2>
+          <ul class="work-next-list">
+            <li>3種類のパズルを1ステージずつ実装する</li>
+            <li>ステージJSONの共通部分とパズル固有部分を整理する</li>
+            <li>JSON Schemaによるステージデータ検証を導入する</li>
+            <li>Laser LabのGeneratorとSolverを作る</li>
+            <li>Mystery Boxの仕掛け部品と状態遷移を増やす</li>
+            <li>Shadow Matchの3Dオブジェクト生成・検証フローを作る</li>
+            <li>Hybrid Puzzleや新しいPuzzle Moduleを追加する</li>
+            <li>AIがテーマ、外観、ヒント、演出を追加する制作パイプラインを構築する</li>
+          </ul>
+        </article>
+        <article class="work-detail-card work-detail-wide work-comment-card">
+          <h2>ケイ部長コメント</h2>
+          <blockquote class="work-comment">3Dパズル・アーカイブで面白いのは、収録されているパズルの数よりも、「パズルを増やしていける仕組みそのもの」をゲームの土台にしているところです。Laser Lab、Shadow Match、Mystery Boxは、それぞれ遊び方がかなり違います。それでも、立体を観察する、回転させる、何かを操作する、その結果を見て次の行動を考えるという基本の体験は共通しています。問題の配置や正解、仕掛けの順番までデータとして切り離せれば、人間が作った問題だけでなく、プログラムが生成した問題、AIが外観を考えた問題、誰かが共有した問題など、いろいろな形でアーカイブを育てていけます。完成したゲームというより、これからパズルが住み着いていく博物館を作る。そんな少し変わった作品です。</blockquote>
+        </article>
+      </section>
+
+      <section class="work-detail-actions" aria-label="制作物導線">
+        <a class="secondary-button" href="../works">制作物一覧に戻る</a>
+      </section>
+    </main>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
