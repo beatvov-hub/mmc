@@ -1,7 +1,9 @@
-# Redirect legacy .html URLs to canonical clean URLs.
-/about.html /about 301
-/about/director.html /about/director 301
+# Generated static redirects for canonical clean URLs.
+# Old .html URLs are permanently redirected before clean URLs are rewritten.
+
 /about/director/culture.html /about/director/culture 301
+/about/director.html /about/director 301
+/about.html /about 301
 /ai-forensics/case-20260715.html /ai-forensics/case-20260715 301
 /ai-forensics/case-20260716.html /ai-forensics/case-20260716 301
 /ai-forensics/case-20260717.html /ai-forensics/case-20260717 301
@@ -37,10 +39,12 @@
 /ai-forensics/case-20260808-01.html /ai-forensics/case-20260808-01 301
 /ai-forensics/case-20260808-02.html /ai-forensics/case-20260808-02 301
 /ai-forensics/case-20260808-03.html /ai-forensics/case-20260808-03 301
-/ai-forensics/index.html /ai-forensics 301
+/ai-forensics/case-20260809-01.html /ai-forensics/case-20260809-01 301
+/ai-forensics/case-20260809-02.html /ai-forensics/case-20260809-02 301
+/ai-forensics/index.html /ai-forensics/ 301
 /contact.html /contact 301
-/gallery.html /gallery 301
 /gallery/fc2-homepage-redesign.html /gallery/fc2-homepage-redesign 301
+/gallery.html /gallery 301
 /gallery001-fc2web.html /gallery001-fc2web 301
 /index.html / 301
 /lounge-archive/2026-07-06.html /lounge-archive/2026-07-06 301
@@ -76,9 +80,9 @@
 /lounge-archive/2026-08-06.html /lounge-archive/2026-08-06 301
 /lounge-archive/2026-08-07.html /lounge-archive/2026-08-07 301
 /lounge-archive/2026-08-08.html /lounge-archive/2026-08-08 301
+/lounge-archive/2026-08-09.html /lounge-archive/2026-08-09 301
 /lounge-dictionary.html /lounge-dictionary 301
 /lounge.html /lounge 301
-/members.html /members 301
 /members/akito.html /members/akito 301
 /members/dg.html /members/dg 301
 /members/hono.html /members/hono 301
@@ -91,9 +95,9 @@
 /members/rei.html /members/rei 301
 /members/shoma.html /members/shoma 301
 /members/takaken.html /members/takaken 301
+/members.html /members 301
 /news.html /news 301
 /thanks.html /thanks 301
-/works.html /works 301
 /works/ai-effects-studio.html /works/ai-effects-studio 301
 /works/ai1-launcher.html /works/ai1-launcher 301
 /works/beat-animals.html /works/beat-animals 301
@@ -109,12 +113,11 @@
 /works/multi-face-log-lab.html /works/multi-face-log-lab 301
 /works/saino-eden.html /works/saino-eden 301
 /works/word-link-rush.html /works/word-link-rush 301
+/works.html /works 301
 
-# Serve canonical clean URLs from their static HTML files.
-/about /about.html 200
-/about/director /about/director.html 200
 /about/director/culture /about/director/culture.html 200
-/ai-forensics /ai-forensics/index.html 200
+/about/director /about/director.html 200
+/about /about.html 200
 /ai-forensics/case-20260715 /ai-forensics/case-20260715.html 200
 /ai-forensics/case-20260716 /ai-forensics/case-20260716.html 200
 /ai-forensics/case-20260717 /ai-forensics/case-20260717.html 200
@@ -123,11 +126,11 @@
 /ai-forensics/case-20260720 /ai-forensics/case-20260720.html 200
 /ai-forensics/case-20260721 /ai-forensics/case-20260721.html 200
 /ai-forensics/case-20260722 /ai-forensics/case-20260722.html 200
-/ai-forensics/case-20260723 /ai-forensics/case-20260723.html 200
 /ai-forensics/case-20260723-02 /ai-forensics/case-20260723-02.html 200
+/ai-forensics/case-20260723 /ai-forensics/case-20260723.html 200
 /ai-forensics/case-20260724 /ai-forensics/case-20260724.html 200
-/ai-forensics/case-20260725 /ai-forensics/case-20260725.html 200
 /ai-forensics/case-20260725-02 /ai-forensics/case-20260725-02.html 200
+/ai-forensics/case-20260725 /ai-forensics/case-20260725.html 200
 /ai-forensics/case-20260726 /ai-forensics/case-20260726.html 200
 /ai-forensics/case-20260728 /ai-forensics/case-20260728.html 200
 /ai-forensics/case-20260729 /ai-forensics/case-20260729.html 200
@@ -150,11 +153,14 @@
 /ai-forensics/case-20260808-01 /ai-forensics/case-20260808-01.html 200
 /ai-forensics/case-20260808-02 /ai-forensics/case-20260808-02.html 200
 /ai-forensics/case-20260808-03 /ai-forensics/case-20260808-03.html 200
+/ai-forensics/case-20260809-01 /ai-forensics/case-20260809-01.html 200
+/ai-forensics/case-20260809-02 /ai-forensics/case-20260809-02.html 200
+/ai-forensics/ /ai-forensics/index.html 200
 /contact /contact.html 200
-/gallery /gallery.html 200
 /gallery/fc2-homepage-redesign /gallery/fc2-homepage-redesign.html 200
+/gallery /gallery.html 200
 /gallery001-fc2web /gallery001-fc2web.html 200
-/lounge /lounge.html 200
+/ /index.html 200
 /lounge-archive/2026-07-06 /lounge-archive/2026-07-06.html 200
 /lounge-archive/2026-07-07 /lounge-archive/2026-07-07.html 200
 /lounge-archive/2026-07-08 /lounge-archive/2026-07-08.html 200
@@ -188,8 +194,9 @@
 /lounge-archive/2026-08-06 /lounge-archive/2026-08-06.html 200
 /lounge-archive/2026-08-07 /lounge-archive/2026-08-07.html 200
 /lounge-archive/2026-08-08 /lounge-archive/2026-08-08.html 200
+/lounge-archive/2026-08-09 /lounge-archive/2026-08-09.html 200
 /lounge-dictionary /lounge-dictionary.html 200
-/members /members.html 200
+/lounge /lounge.html 200
 /members/akito /members/akito.html 200
 /members/dg /members/dg.html 200
 /members/hono /members/hono.html 200
@@ -202,9 +209,9 @@
 /members/rei /members/rei.html 200
 /members/shoma /members/shoma.html 200
 /members/takaken /members/takaken.html 200
+/members /members.html 200
 /news /news.html 200
 /thanks /thanks.html 200
-/works /works.html 200
 /works/ai-effects-studio /works/ai-effects-studio.html 200
 /works/ai1-launcher /works/ai1-launcher.html 200
 /works/beat-animals /works/beat-animals.html 200
@@ -220,3 +227,4 @@
 /works/multi-face-log-lab /works/multi-face-log-lab.html 200
 /works/saino-eden /works/saino-eden.html 200
 /works/word-link-rush /works/word-link-rush.html 200
+/works /works.html 200
