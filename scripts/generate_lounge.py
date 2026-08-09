@@ -11,6 +11,7 @@ from site_layout import apply_layout_to_file
 
 ROOT = Path(__file__).resolve().parents[1]
 LOUNGE_LOGS_PATH = ROOT / "src" / "data" / "loungeLogs.json"
+LOUNGE_TOPICS_PATH = ROOT / "src" / "data" / "loungeCalendarTopics.json"
 WORK_STORIES_PATH = ROOT / "src" / "data" / "workStories.json"
 INDEX_HTML_PATH = ROOT / "index.html"
 LOUNGE_HTML_PATH = ROOT / "lounge.html"
@@ -204,6 +205,30 @@ def load_logs() -> list[dict]:
     return sorted(logs, key=lambda item: (item["date"], item["time"]))
 
 
+def load_calendar_topics() -> dict[str, dict[str, dict]]:
+    if not LOUNGE_TOPICS_PATH.exists():
+        return {}
+    data = json.loads(LOUNGE_TOPICS_PATH.read_text(encoding="utf-8"))
+    if not isinstance(data, list):
+        raise ValueError("loungeCalendarTopics.json must be a list.")
+    topics: dict[str, dict[str, dict]] = {}
+    for day in data:
+        if not isinstance(day, dict):
+            continue
+        date = day.get("date")
+        slots = day.get("slots", [])
+        if not isinstance(date, str) or not isinstance(slots, list):
+            continue
+        topics[date] = {}
+        for slot in slots:
+            if not isinstance(slot, dict):
+                continue
+            time = slot.get("time")
+            if isinstance(time, str):
+                topics[date][time] = slot
+    return topics
+
+
 def load_work_paths() -> list[str]:
     if not WORK_STORIES_PATH.exists():
         return []
@@ -267,8 +292,33 @@ def time_slot_class(log: dict) -> str:
     return TIME_SLOT_CLASSES.get(hour, "")
 
 
+def compact_topic(value: object, fallback: str) -> str:
+    text = str(value or fallback).replace(" ラウンジ観測記録", "").strip()
+    if len(text) > 25:
+        return text[:24] + "…"
+    return text
+
+
+def topic_html(topic: str) -> str:
+    text = str(topic).strip()
+    if text.startswith("**") and text.endswith("**") and len(text) > 4:
+        return f"<strong>{esc(text[2:-2])}</strong>"
+    return esc(text)
+
+
+def calendar_slot(log: dict, topics_by_date: dict[str, dict[str, dict]]) -> tuple[str, str]:
+    slot = topics_by_date.get(log["date"], {}).get(log["time"], {})
+    topic = compact_topic(slot.get("topic"), log.get("title", ""))
+    anchor = str(slot.get("anchor") or log["id"])
+    return topic, anchor
+
+
 def archive_href(log: dict, prefix: str = "") -> str:
     return f"{prefix}lounge-archive/{log['date']}.html#{log['id']}"
+
+
+def archive_href_with_anchor(log: dict, anchor: str, prefix: str = "") -> str:
+    return f"{prefix}lounge-archive/{log['date']}.html#{anchor}"
 
 
 def archive_url(log: dict) -> str:
@@ -572,6 +622,7 @@ def render_calendar_month(
     year: int,
     month: int,
     by_date: dict[str, list[dict]],
+    topics_by_date: dict[str, dict[str, dict]],
     latest_date: str,
     active: bool,
 ) -> list[str]:
@@ -605,7 +656,15 @@ def render_calendar_month(
             lines.append(f'                  <span class="lounge-calendar__date">{day}</span>')
             lines.append(f'                  <span class="lounge-calendar__count">{len(items)}件</span>')
             for item in items:
-                lines.append(f'                  <a class="lounge-calendar__time {esc(time_slot_class(item))}" href="{esc(archive_href(item))}">{esc(item["time"])}</a>')
+                topic, anchor = calendar_slot(item, topics_by_date)
+                lines.extend(
+                    [
+                        f'                  <a class="lounge-calendar__slot {esc(time_slot_class(item))}" href="{esc(archive_href_with_anchor(item, anchor))}" title="{esc(topic)}">',
+                        f'                    <span class="lounge-calendar__slot-time">{esc(item["time"])}</span>',
+                        f'                    <span class="lounge-calendar__slot-topic">{topic_html(topic)}</span>',
+                        "                  </a>",
+                    ]
+                )
             lines.append("                </div>")
         else:
             lines.append(f'                <span class="lounge-calendar__day">{day}</span>')
@@ -620,6 +679,7 @@ def render_calendar_month(
 def render_calendar(logs: list[dict]) -> str:
     latest = logs[-1]
     latest_year, latest_month, _ = date_parts(latest)
+    topics_by_date = load_calendar_topics()
     by_date: dict[str, list[dict]] = defaultdict(list)
     for log in logs:
         by_date[log["date"]].append(log)
@@ -647,6 +707,29 @@ def render_calendar(logs: list[dict]) -> str:
         "        </div>",
         "",
         '        <div class="lounge-archive-layout">',
+        '          <section class="lounge-archive-list" aria-label="最新アーカイブ一覧">',
+        "            <h3>最新アーカイブ</h3>",
+        '            <div class="lounge-archive-list__grid">',
+    ]
+    for item in reversed(logs[-6:]):
+        topic, anchor = calendar_slot(item, topics_by_date)
+        lines.extend(
+            [
+                f'              <a class="lounge-archive-entry {esc(time_slot_class(item))}" href="{esc(archive_href_with_anchor(item, anchor))}">',
+                f'                <time datetime="{esc(item["date"])}T{esc(item["time"])}">{esc(date_dot(item))} {esc(item["time"])}</time>',
+                f"                <span>{topic_html(topic)}</span>",
+                f"                <small>{esc(participants_text(item))}</small>",
+                "              </a>",
+            ]
+        )
+    lines.extend(
+        [
+            "            </div>",
+            '            <p class="lounge-archive-help">',
+            "              最新6件を上に並べています。気になるカードを選ぶと、その時間帯の会話へ移動します。",
+            "            </p>",
+            "          </section>",
+            "",
         f'          <article class="lounge-calendar" data-lounge-calendar aria-label="{latest_year}年{latest_month}月のラウンジ更新カレンダー">',
         '            <div class="lounge-calendar__header">',
         '              <button class="lounge-calendar__nav" type="button" data-calendar-prev aria-label="前の月を表示" title="前の月" disabled><span aria-hidden="true">‹</span></button>',
@@ -660,6 +743,7 @@ def render_calendar(logs: list[dict]) -> str:
         '              <span>月を選ぶ</span>',
         '              <select data-calendar-select aria-label="表示する月">',
     ]
+    )
     for year, month in months:
         month_key = f"{year:04d}-{month:02d}"
         selected = " selected" if month_key == selected_key else ""
@@ -676,6 +760,7 @@ def render_calendar(logs: list[dict]) -> str:
                 year,
                 month,
                 by_date,
+                topics_by_date,
                 latest["date"],
                 (year, month) == selected_month,
             )
@@ -683,27 +768,9 @@ def render_calendar(logs: list[dict]) -> str:
     lines.extend(
         [
             "          </article>",
-            "",
-            '          <aside class="lounge-archive-list" aria-label="最新アーカイブ一覧">',
-            "            <h3>最新アーカイブ</h3>",
-        ]
-    )
-    for item in reversed(logs[-5:]):
-        lines.extend(
-            [
-                f'            <a class="lounge-archive-entry {esc(time_slot_class(item))}" href="{esc(archive_href(item))}">',
-                f'              <time datetime="{esc(item["date"])}T{esc(item["time"])}">{esc(date_dot(item))} {esc(item["time"])}</time>',
-                f"              <span>{esc(item['title'].replace(' ラウンジ観測記録', ''))}</span>",
-                f"              <small>{esc(participants_text(item))}</small>",
-                "            </a>",
-            ]
-        )
-    lines.extend(
-        [
-            '            <p class="lounge-archive-help">',
-            "              左のカレンダーは月を切り替えられます。日付と時間を選ぶと、その時の会話へ移動します。",
-            "            </p>",
-            "          </aside>",
+            '          <p class="lounge-archive-help lounge-calendar-help">',
+            "            カレンダーは月を切り替えられます。各日付の時間帯には、その時に話したテーマを表示しています。",
+            "          </p>",
             "        </div>",
             "      </section>",
         ]

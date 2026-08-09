@@ -3133,7 +3133,6 @@ body.subpage { padding-top: 88px; }
 }
 .lounge-archive-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(280px, .8fr);
   gap: 22px;
   align-items: start;
 }
@@ -3232,7 +3231,7 @@ body.subpage { padding-top: 88px; }
 }
 .lounge-calendar__blank,
 .lounge-calendar__day {
-  min-height: 74px;
+  min-height: 116px;
   padding: 8px;
   border: 1px solid #eadcc9;
   border-radius: 8px;
@@ -3249,7 +3248,7 @@ a.lounge-calendar__day {
 .lounge-calendar__day.is-active {
   display: grid;
   align-content: start;
-  gap: 4px;
+  gap: 6px;
   border-color: rgba(83,107,69,.55);
   background: linear-gradient(135deg, #f0eadb, #fff7eb);
   box-shadow: 0 12px 24px rgba(54,35,20,.1);
@@ -3262,7 +3261,7 @@ a.lounge-calendar__day {
   font-size: 1.06rem;
 }
 .lounge-calendar__count,
-.lounge-calendar__time {
+.lounge-calendar__slot-time {
   display: inline-flex;
   width: fit-content;
   padding: 2px 7px;
@@ -3271,6 +3270,33 @@ a.lounge-calendar__day {
   color: var(--green);
   font-size: .72rem;
   font-weight: 900;
+}
+.lounge-calendar__slot {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  padding: 7px;
+  border: 1px solid rgba(83,107,69,.16);
+  border-radius: 7px;
+  background: rgba(255,255,255,.62);
+  color: var(--ink);
+  line-height: 1.35;
+}
+.lounge-calendar__slot:hover {
+  border-color: var(--green);
+  background: rgba(255,255,255,.86);
+}
+.lounge-calendar__slot-topic {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-size: .72rem;
+  font-weight: 850;
+}
+.lounge-calendar__slot-topic strong {
+  color: var(--green);
+  font-weight: 950;
 }
 .lounge-calendar__empty {
   margin: 14px 0 0;
@@ -3292,6 +3318,16 @@ a.lounge-calendar__day {
   background: #fffaf2;
   color: var(--ink);
 }
+.lounge-archive-list__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.lounge-archive-list__grid .lounge-archive-entry {
+  margin-top: 0;
+  min-width: 0;
+}
 .lounge-archive-entry time {
   color: var(--coffee);
   font-weight: 900;
@@ -3307,6 +3343,9 @@ a.lounge-calendar__day {
 .lounge-archive-help {
   margin: 16px 0 0;
   font-size: .92rem;
+}
+.lounge-calendar-help {
+  margin-top: -6px;
 }
 .lounge-day-archive {
   max-width: 1100px;
@@ -3385,10 +3424,13 @@ a.lounge-calendar__day {
     repeating-linear-gradient(0deg, transparent 0 34px, rgba(71,57,42,.045) 35px 36px);
 }
 .lounge-day-nav a[class*="time-slot-"],
-.lounge-calendar__time[class*="time-slot-"] {
+.lounge-calendar__slot-time[class*="time-slot-"] {
   border-color: var(--lounge-slot-border);
   background: var(--lounge-slot-bg);
   color: var(--lounge-slot-ink);
+}
+.lounge-calendar__slot[class*="time-slot-"] {
+  border-color: var(--lounge-slot-border);
 }
 .lounge-day-nav a[class*="time-slot-"] span {
   color: var(--lounge-slot-ink);
@@ -3747,6 +3789,9 @@ body.has-night-lounge { overflow: hidden; }
   .lounge-hero, .lounge-post-grid, .lounge-note-grid, .archive-grid, .lounge-archive-layout, .lounge-dictionary-samples {
     grid-template-columns: 1fr;
   }
+  .lounge-archive-list__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .dictionary-category-header {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -3783,9 +3828,18 @@ body.has-night-lounge { overflow: hidden; }
   }
   .lounge-calendar__blank,
   .lounge-calendar__day {
-    min-height: 58px;
+    min-height: 104px;
     padding: 6px;
     font-size: .86rem;
+  }
+  .lounge-archive-list__grid {
+    grid-template-columns: 1fr;
+  }
+  .lounge-calendar__slot {
+    padding: 6px;
+  }
+  .lounge-calendar__slot-topic {
+    font-size: .68rem;
   }
   .lounge-post-header { display: block; }
   .talk-bubble {
