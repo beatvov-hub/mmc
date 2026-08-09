@@ -1,0 +1,229 @@
+{
+  "id": "case-20260809-03",
+  "publishedAt": "2026-08-09",
+  "title": "AIが出した「○○大学の研究によると」、その論文は本当にある？　増える“架空の参考文献”",
+  "shortTitle": "AIの出典は「論文名」より実在確認",
+  "category": "media-literacy",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "ChatGPTなどで調べ物をする人",
+    "AIにレポートや企画書の資料を探してもらう人",
+    "AIが紹介した論文や統計をSNSで共有する人",
+    "学校や仕事で参考文献を使う人"
+  ],
+  "summary": "生成AIへ「根拠となる研究も教えて」と頼むと、著者名、論文名、雑誌名、発行年まで整った参考文献を示すことがあります。しかし、その形式が整っていても論文自体が存在するとは限りません。Natureは2026年5月、約250万本の論文・プレプリントを調べた研究について、2025年に公開された資料だけで4つの研究リポジトリから14万件を超える架空の引用が特定されたと報じました。（Nature） AIを資料探しに使うのをやめる必要はありませんが、重要な出典は論文名を眺めるだけでなく、DOIや出版社ページまで実際に開いて確認することが大切です。",
+  "scenario": {
+    "headline": "AIに「SNSが集中力へ与える影響を示す研究を教えて」と頼むと、もっともらしい論文が5本出てきた",
+    "description": "回答には大学名、研究者名、論文タイトル、専門誌名まで書かれていました。引用形式も整っていたため、そのまま企画書へ貼り付けようとしました。しかしタイトルを検索しても同じ論文が見つからず、AIへ尋ね直すと別のURLを提示しました。生成AIは文章だけでなく、参考文献らしい形式も自然に生成できるため、「詳しく書かれている」「学術誌名が付いている」という見た目だけでは出典確認になりません。Natureが報じた大規模調査でも、学術資料中に追跡できない架空の引用が確認されています。（Nature）",
+    "whyItMatters": "2026年5月にNatureが紹介した研究では、約250万本の論文・プレプリントを分析し、2025年公開分だけで14万件を超える架空の引用が4つの研究リポジトリから検出されました。（Nature） 別のNature報道では、約250万本の生物医学系論文を対象に9700万件の参考文献を監査し、既知の出版物へ追跡できない参考文献を含む論文が約3000本確認されています。（Nature） さらにNature Nanotechnologyは、生成AIは査読などの補助に利用できる一方、その出力が事実として正しいと前提にせず、人間の判断・専門知識・批判的思考を置き換えるべきではないとしています。（Nature Nanotechnology）???"
+  },
+  "question": {
+    "text": "AIが「この研究が根拠です」と論文を紹介したとき、最も確実な確認方法は？",
+    "choices": [
+      {
+        "id": "trust-full-citation",
+        "label": "著者名・雑誌名・発行年まで書かれていれば信用する",
+        "description": "参考文献の形式が整っていることを実在性の証明とする。"
+      },
+      {
+        "id": "ask-ai-again",
+        "label": "同じAIへ「本当に存在しますか？」と聞き直す",
+        "description": "AI自身の再回答だけで確認する。"
+      },
+      {
+        "id": "open-original-source",
+        "label": "DOIや出版社・研究データベースから原文の存在を確認する",
+        "description": "論文が実在し、タイトル・著者・内容が一致するか別経路で確かめる。"
+      },
+      {
+        "id": "avoid-ai-research",
+        "label": "AIは出典を間違えるので調査には一切使わない",
+        "description": "論文探索や要約などの補助用途も利用しない。"
+      }
+    ],
+    "recommendedAnswers": [
+      "open-original-source"
+    ],
+    "explanation": "AIへ再確認しても、最初の誤った情報を維持したり、別のもっともらしい情報を生成したりする可能性があります。出典確認ではAIの回答から一度離れ、DOI、出版社ページ、Crossrefなどの書誌情報サービスから論文そのものを確認します。Crossrefは、登録されたDOIをブラウザで開くと対象コンテンツのページへ解決され、未登録のDOIはNOT FOUNDになる仕組みを案内しています。（Crossref）"
+  },
+  "inspectionPoints": [
+    {
+      "title": "論文タイトルをそのまま検索して見つかるか",
+      "description": "タイトルを引用符付きで検索し、出版社、大学、研究データベースなど独立した場所に記録があるか確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "DOIが実際に開くか",
+      "description": "AIがDOIを示した場合は文字列だけを信用せず、実際にdoi.org経由で解決するか確認します。CrossrefもDOIの実在確認方法として実際の解決確認を案内しています。（Crossref）",
+      "priority": "high"
+    },
+    {
+      "title": "著者名と論文タイトルが一致しているか",
+      "description": "実在する研究者名と実在する雑誌名を組み合わせた架空引用もあり得るため、各項目をセットで確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "論文が存在するだけで安心していないか",
+      "description": "実在する論文でも、AIが論文の結論を誤って要約している可能性があります。原文の要旨や結論まで確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "プレプリントと査読済み論文を区別しているか",
+      "description": "研究リポジトリには査読前のプレプリントも含まれるため、公開場所と研究の段階を確認します。Natureが紹介した2026年の調査も論文とプレプリントを含めて分析しています。（Nature）",
+      "priority": "medium"
+    },
+    {
+      "title": "AIが示した引用文を原文で確認したか",
+      "description": "論文自体が存在しても、AIが存在しない文章を引用として生成する可能性があるため、重要な引用は原文を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "数字の出典までたどれるか",
+      "description": "「○％増加した」「○万人を調査した」といった数字は、AI回答ではなく元論文の方法や結果欄で確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "重要度に応じて確認レベルを変えているか",
+      "description": "雑談の参考情報と、公開記事・仕事・健康・研究で使う根拠では必要な確認レベルが異なります。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "出典の実在と内容を一次資料で確認",
+  "verificationMessage": "AIが示した参考文献をそのまま根拠にせず、DOI・出版社ページ・研究データベースから実在性と内容を確認してください。",
+  "verdict": {
+    "label": "「出典が付いている」と「出典を確認できた」は別",
+    "description": "生成AIの便利なところは、知らない分野でも関連研究や検索語の候補を素早く出せることです。一方で、引用形式が非常に自然なため、存在しない参考文献でも本物らしく見えることがあります。2026年の大規模調査では、学術資料の中にまで多数の架空引用が入り込んでいることが報告されています。（Nature） だからAIを検索の入口として使い、最終的な根拠は元論文へ戻る、という役割分担が現実的です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "AIには「関連する研究を探すための検索語」を作ってもらう",
+      "reason": "存在する論文そのものを断定させるより、検索の入口としてAIの強みを活かせます。"
+    },
+    {
+      "action": "論文名を示されたらDOIも確認する",
+      "reason": "書誌情報を別経路で確認しやすくなります。"
+    },
+    {
+      "action": "DOIや出版社ページを実際に開く",
+      "reason": "Crossrefが案内するように、有効なDOIは登録先コンテンツへ解決されます。（Crossref）"
+    },
+    {
+      "action": "重要な主張は元論文のAbstractやConclusionまで読む",
+      "reason": "論文の実在確認だけでなく、AIが研究内容を正しく説明しているか確認できます。"
+    },
+    {
+      "action": "AIへ「確認済み情報」と「未確認候補」を分けて出させる",
+      "reason": "探索段階の候補を確定情報として扱うミスを減らせます。"
+    },
+    {
+      "action": "確認できたURLやDOIをAIへ渡してから要約させる",
+      "reason": "存在が確認済みの資料を対象にすることで、調査をより安定させられます。"
+    },
+    {
+      "action": "公開資料では参照日と原典を残す",
+      "reason": "後から別の人が同じ根拠を確認できる状態にできます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "参考文献の形式が綺麗だから本物と判断する",
+      "reason": "生成AIは著者名、雑誌名、巻号、ページ番号まで含む自然な架空引用を作る可能性があります。"
+    },
+    {
+      "action": "AIへ「嘘じゃないですよね？」と聞くだけで確認を終える",
+      "reason": "独立した情報源を使っていないため、同じ誤りを繰り返す可能性があります。"
+    },
+    {
+      "action": "検索結果に似たタイトルがあったので同じ論文だと思う",
+      "reason": "著者、出版年、雑誌、DOIまで一致するか確認する必要があります。"
+    },
+    {
+      "action": "実在する論文ならAIの要約も正しいと思う",
+      "reason": "論文の存在と、AIによる内容解釈の正確性は別の問題です。"
+    },
+    {
+      "action": "AIが引用を間違えるので文献調査に使わない",
+      "reason": "検索語の作成、要約、関連テーマ整理など、原典確認と組み合わせれば便利な用途があります。"
+    },
+    {
+      "action": "確認していない参考文献をそのままSNSや記事へ転載する",
+      "reason": "架空引用が別の記事や投稿へコピーされることで、誤った出典がさらに広がる可能性があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを「参考文献を決める人」ではなく「図書館の案内係」にする",
+    "description": "生成AIは、専門用語が分からない状態から関連キーワードを整理したり、読んだ論文の内容を分かりやすく説明したりする用途では非常に便利です。Nature Nanotechnologyも、生成AIを慎重かつ透明に利用すれば、増え続ける研究文献を扱うための補助になり得るとしています。（Nature Nanotechnology）??? AIが候補を出し、人間が実在する資料を選び、その資料をAIと一緒に読む。この順番なら便利さと確認可能性を両立できます。",
+    "examples": [
+      "研究テーマからGoogle ScholarやCrossrefで使う検索語を作ってもらう",
+      "確認済みの論文URLを渡して要約してもらう",
+      "複数の論文の共通点と違いを整理してもらう",
+      "専門用語を初心者向けに説明してもらう",
+      "論文を読む前に確認したいポイントを質問リスト化する",
+      "AIが提案した資料を「確認済み」「存在未確認」に分類して管理する"
+    ]
+  },
+  "makotoComment": "AIが論文名まで出してくれると、つい「ちゃんと調べてくれたんだな」と感じます。ここが少し厄介です。人間は『具体的な情報』を見ると信用しやすいんですよね。でも、論文名、著者、雑誌名が並んでいても、確認が終わったわけではありません。私はAIに資料探しを頼むこと自体はおすすめします。ただし最後に一度、その論文へ自分で会いに行ってください。住所だけ教えてもらって、本当にそこに住んでいるか確認する感じです。",
+  "oneLineLesson": "AIが出した参考文献は、名前を見るだけでなく「その論文を実際に開けるか」まで確認する。",
+  "tags": [
+    "生成AI",
+    "ハルシネーション",
+    "参考文献",
+    "架空引用",
+    "論文",
+    "情報源確認",
+    "DOI",
+    "Crossref",
+    "ファクトチェック"
+  ],
+  "sources": [
+    {
+      "title": "Hallucinated citations highest in social sciences preprints site",
+      "publisher": "Nature",
+      "sourceType": "news",
+      "publishedAt": "2026-05-14",
+      "url": "https://www.nature.com/articles/d41586-026-01545-1"
+    },
+    {
+      "title": "Surge in fake citations uncovered by audit of 2.5 million biomedical-science papers",
+      "publisher": "Nature",
+      "sourceType": "news",
+      "publishedAt": "2026-05-08",
+      "url": "https://www.nature.com/articles/d41586-026-00748-w"
+    },
+    {
+      "title": "Hallucinated citations are polluting the scientific literature. What can be done?",
+      "publisher": "Nature",
+      "sourceType": "news",
+      "publishedAt": "2026-04-01",
+      "url": "https://www.nature.com/articles/d41586-026-00969-z"
+    },
+    {
+      "title": "Peer review in the time of artificial intelligence",
+      "publisher": "Nature Nanotechnology",
+      "sourceType": "research",
+      "publishedAt": "2026-04-20",
+      "url": "https://www.nature.com/articles/s41565-026-02177-2"
+    },
+    {
+      "title": "Verify your registration",
+      "publisher": "Crossref",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://www.crossref.org/documentation/register-maintain-records/verify-your-registration/"
+    },
+    {
+      "title": "How Unique Are Hallucinated Citations Offered by Generative Artificial Intelligence Models?",
+      "publisher": "Publications",
+      "sourceType": "research",
+      "publishedAt": "2026-06-29",
+      "url": "https://www.mdpi.com/2304-6775/14/3/38"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "AIチャット画面に、著者名・論文タイトル・専門誌名・発行年まで揃った参考文献が表示されている。利用者は横のブラウザでDOIと出版社ページを開き、実在確認をしている。一つの候補には「未確認」ラベルが付き、「出典あり」と「出典確認済み」は別であることを表す明るいAI鑑識室風デザイン。",
+    "cardIcon": "citation-source-verification",
+    "accentTone": "caution"
+  }
+}
