@@ -1,5 +1,191 @@
 [
   {
+    "id": "task-msnef1t6-ems47u",
+    "title": "3D Puzzle Archive拡張",
+    "description": "ブラウザ向け3Dパズル基盤「3D Puzzle Archive」を継続開発する。Laser Lab・Shadow Match・Mystery Boxを共通フレームワーク上でデータ駆動運用し、まずLaser Labのステージ追加と新ギミック対応を進め、今後ほかのパズルもJSON追加で拡張できる状態を目指す。",
+    "type": "project",
+    "workflowType": "general",
+    "visibility": "internal",
+    "nextAction": "Laser Labのlaser_0002〜laser_0020で使用する追加ギミック仕様を確認し、Codex実装へ渡せる状態に整理する。",
+    "departmentId": "game-production",
+    "primaryAssigneeId": "takaken",
+    "supportAssigneeIds": [
+      "akito"
+    ],
+    "reviewerIds": [
+      "takaken"
+    ],
+    "employeeIds": [
+      "takaken",
+      "akito"
+    ],
+    "startDate": "2026-08-11",
+    "endDate": "2026-08-23",
+    "status": "inProgress",
+    "priority": "normal",
+    "progress": 0,
+    "parentTaskId": null,
+    "tags": [
+      "3Dパズル\\nLaser Lab\\nMystery Box\\nShadow Match\\nJSON\\nブラウザゲーム"
+    ],
+    "notes": "既存MVPはLaser Lab、Shadow Match、Mystery Boxの3種類。Laser Labはlaser_0001を基準にステージを拡張中で、0002〜0010は立体経路の難化、0011以降はBlock、Decoy Mirror、Locked Mirror、Portal、Beam Color、Color Filter、Color Target、複数Target、Prismなどの追加案がある。新ギミックは現行スキーマ未対応のものを含むため、実装前にschema・runtime・validation・testsの拡張が必要。Mystery Boxについても今後サンプルJSONを基準にステージ量産を検討する。",
+    "codexInstruction": "既存3D Puzzle Archiveの設計思想とPuzzleRegistryを維持したまま、Laser Labのlaser_0002〜laser_0020で必要な仕様を実装する。6方向のBeamDirection、Block吸収、Decoy Mirror、Locked Mirror、Portal、Beam Color、Color Filter、Color Target、複数Target、clearMode、PrismによるBeam分岐へ対応し、canonicalSolutionをクリア判定には使用せず実際のbeam simulationを正とする。既存laser_0001、Shadow Match、Mystery Boxを壊さず、Ajv schemaとVitestを更新し、npm testとnpm run buildが成功すること。関係のないリファクタリングは行わない。",
+    "external": {
+      "clientName": "",
+      "projectName": "",
+      "proposedAmount": 0,
+      "taxType": "",
+      "proposedAt": null,
+      "desiredDueDate": null,
+      "deliverables": "",
+      "invoiceStatus": "",
+      "paymentStatus": ""
+    },
+    "createdAt": "2026-08-10T15:40:54.378Z",
+    "updatedAt": "2026-08-10T15:40:54.378Z",
+    "completedAt": null,
+    "decisionLogs": []
+  },
+  {
+    "id": "task-msneamhs-ehjnvm",
+    "title": "Persona Portable全社員登録",
+    "description": "Persona Portableへ毎日見る株式会社のAI社員プロフィールを順次登録し、各社員の役割・人格・判断基準・行動原則・関係性などを構造化された正本として管理できる状態にする。既存プロフィールの内容を基礎にし、推測で設定を補わず、人間確認を経て正式プロフィールを整備する。",
+    "type": "task",
+    "workflowType": "general",
+    "visibility": "internal",
+    "nextAction": "次の社員1名の既存プロフィールをSchema 1.4.0で構造化し、Persona Portableへ登録する。",
+    "departmentId": "hr",
+    "primaryAssigneeId": "nemu",
+    "supportAssigneeIds": [
+      "akito"
+    ],
+    "reviewerIds": [],
+    "employeeIds": [
+      "nemu",
+      "akito"
+    ],
+    "startDate": "2026-08-11",
+    "endDate": null,
+    "status": "inProgress",
+    "priority": "high",
+    "progress": 0,
+    "parentTaskId": null,
+    "tags": [
+      "Persona Portable\\nAI社員\\nプロフィール\\nJSON\\nポータビリティ"
+    ],
+    "notes": "既存プロフィールに明記されていない情報は勝手に補完しない。判断基準・行動原則・承認が必要な範囲など追加設定が必要な項目は、既存情報から抽出できる内容と新規提案を分けて確認する。各プロフィールはPersona Portable上で確認後に正本化する。",
+    "codexInstruction": "",
+    "external": {
+      "clientName": "",
+      "projectName": "",
+      "proposedAmount": 0,
+      "taxType": "",
+      "proposedAt": null,
+      "desiredDueDate": null,
+      "deliverables": "",
+      "invoiceStatus": "",
+      "paymentStatus": ""
+    },
+    "createdAt": "2026-08-10T15:37:27.904Z",
+    "updatedAt": "2026-08-10T15:37:27.904Z",
+    "completedAt": null,
+    "decisionLogs": []
+  },
+  {
+    "id": "task-msne7pl2-tw03y4",
+    "title": "AI社員運営シリーズ 有料記事制作",
+    "description": "AI社員・マルチエージェント運営で蓄積した実践知を、再現可能な有料コンテンツとしてシリーズ化する。単なるプロンプト集ではなく、設計思想・運用方法・失敗・改善・継続運用ノウハウまで含め、『AI社員を作る』ではなく『毎日触って話しかけたくなるAI社員へ育てる方法』を伝える。無料記事ではMMCの世界観や一次体験・実験結果を十分に公開し、有料記事ではその結果を生んだ設計と運用を深掘りする。",
+    "type": "project",
+    "workflowType": "general",
+    "visibility": "internal",
+    "nextAction": "第1回「AI社員ラウンジはどう設計しているのか」の記事構成と、有料部分で公開する設計・運用知見の範囲を整理する。",
+    "departmentId": "planning-sales",
+    "primaryAssigneeId": "shoma",
+    "supportAssigneeIds": [
+      "koto"
+    ],
+    "reviewerIds": [],
+    "employeeIds": [
+      "shoma",
+      "koto"
+    ],
+    "startDate": "2026-08-11",
+    "endDate": "2026-08-30",
+    "status": "planned",
+    "priority": "high",
+    "progress": 0,
+    "parentTaskId": null,
+    "tags": [
+      "AI社員運営シリーズ\\n有料note\\nAI社員\\nマルチエージェント\\nコンテンツ事業"
+    ],
+    "notes": "シリーズ候補は、第1回「AI社員ラウンジはどう設計しているのか」、第2回「AI社員プロフィール設計」、第3回「情報源設計と世界観維持」、第4回「人格形成実験」、第5回「会社設計と部署運営」、特別編「ペチはなぜ社員になれなかったのか（笑）」。無料記事は世界観・一次体験・実験結果を惜しまず見せ、有料記事は再現可能な設計思想、実際の運用方法、情報源設計、人格形成、プロンプト設計、失敗事例、継続運用ノウハウを扱う。『無料記事を有料記事の広告にしない』ことを前提に、無料単体でも満足できる内容とし、その裏側を知りたい読者を有料シリーズへつなぐ。価格案は単体980円、マガジン1980円で順次追加予定。",
+    "codexInstruction": "",
+    "external": {
+      "clientName": "",
+      "projectName": "",
+      "proposedAmount": 0,
+      "taxType": "",
+      "proposedAt": null,
+      "desiredDueDate": null,
+      "deliverables": "",
+      "invoiceStatus": "",
+      "paymentStatus": ""
+    },
+    "createdAt": "2026-08-10T15:35:11.942Z",
+    "updatedAt": "2026-08-10T15:35:11.942Z",
+    "completedAt": null,
+    "decisionLogs": []
+  },
+  {
+    "id": "task-msndskmy-h8i2av",
+    "title": "MMC AI社員イベントログ企画",
+    "description": "Bean & Bitsのラウンジとは別に、AI社員たちが夏祭り・海・花見・クリスマスなどの非日常イベントへ参加した様子を記録するイベントログページを企画する。固定人格を持つAI社員が同じ出来事にどう反応するかを会話や小事件として描き、そのイベント限定の記念写真も生成して残す。単発コンテンツではなく、前年の出来事が翌年の会話へつながるような『共通の思い出』を蓄積し、MMCというIPを育てる状態を目指す。",
+    "type": "task",
+    "workflowType": "general",
+    "visibility": "internal",
+    "nextAction": "夏祭りを初回候補として、イベントログ1回分のMVP構成を整理する。",
+    "departmentId": "public-relations",
+    "primaryAssigneeId": "kei",
+    "supportAssigneeIds": [
+      "shoma",
+      "rei",
+      "koto"
+    ],
+    "reviewerIds": [],
+    "employeeIds": [
+      "kei",
+      "shoma",
+      "rei",
+      "koto"
+    ],
+    "startDate": "2026-08-11",
+    "endDate": "2026-08-31",
+    "status": "planned",
+    "priority": "normal",
+    "progress": 0,
+    "parentTaskId": null,
+    "tags": [
+      "イベントログ\\nAI社員\\nMMC-IP\\n記念写真\\n世界観\\nWebコンテンツ"
+    ],
+    "notes": "ラウンジ＝日常、イベントログ＝非日常として役割を分ける。毎回全社員参加にする必要はなく、季節行事や創立記念など特別回のみ全員集合でもよい。イベントごとに会話、小事件、印象的な一言、結果、記念写真などを残す案。画像だけでなく『写真が撮られるまでに何があったか』も記録するとIPとしての思い出が育つ。将来的に年単位のイベントアーカイブやMMC MEMORIESのような年間アルバムへ展開可能。",
+    "codexInstruction": "",
+    "external": {
+      "clientName": "",
+      "projectName": "",
+      "proposedAmount": 0,
+      "taxType": "",
+      "proposedAt": null,
+      "desiredDueDate": null,
+      "deliverables": "",
+      "invoiceStatus": "",
+      "paymentStatus": ""
+    },
+    "createdAt": "2026-08-10T15:23:25.689Z",
+    "updatedAt": "2026-08-10T15:23:25.689Z",
+    "completedAt": null,
+    "decisionLogs": []
+  },
+  {
     "id": "task-msndciep-44ykwe",
     "title": "248曲選定",
     "description": "まずは曲をタグに合わせて選んでいく",
