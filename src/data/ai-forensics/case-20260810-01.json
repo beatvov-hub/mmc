@@ -1,0 +1,236 @@
+{
+  "id": "case-20260810-01",
+  "publishedAt": "2026-08-10",
+  "title": "「AI検索がもっと便利に」その拡張機能、本物？　偽Perplexity拡張機能が検索内容を中継していた",
+  "shortTitle": "AI拡張機能は名前より権限を見る",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "ChromeやEdgeへAI拡張機能を追加する人",
+    "ChatGPTやPerplexityなどのAIサービスを使う人",
+    "ブラウザの便利機能をよくインストールする人",
+    "会社のパソコンで生成AIを利用する人"
+  ],
+  "summary": "Microsoft Threat Intelligenceは2026年6月29日、Perplexity AIを装った悪意あるChromium拡張機能を確認したと公表しました。この拡張機能はAI検索を便利にするように見せながら、ブラウザの検索設定を変更し、検索語や入力途中の検索候補を正規サービスとは無関係な中継サーバーへ送っていました。Microsoftの報告後、Googleへ通報され、公開時点ではストアから削除されています。(Microsoft) AI拡張機能そのものを避ける必要はありませんが、「有名AIの名前が付いている」「ストアにある」という理由だけで判断せず、提供元と要求権限を確認する習慣が重要です。",
+  "scenario": {
+    "headline": "「Perplexityをブラウザからすぐ使える」という拡張機能を見つけたのでインストールした",
+    "description": "名前やロゴは有名なAIサービスに似ており、インストール後も検索結果自体は普通に表示されました。そのため利用者から見ると問題は分かりにくい状態でした。しかしMicrosoftが分析した「Search for perplexity ai」という拡張機能は、正規のperplexity.aiではなく、よく似た別ドメインを経由させていました。検索結果へ移動する前に検索語や入力途中の文字列が中継インフラへ送られる構成だったことが確認されています。(Microsoft)",
+    "whyItMatters": "Microsoftによると、この拡張機能はPerplexity AIに似たブランド表示とドメインを利用し、ブラウザの標準検索プロバイダーを変更して検索通信を中継していました。検索結果は最終的に正規の検索サービスへリダイレクトされるため、利用者には通常通り検索できているように見える点が特徴です。Microsoftは検索語や閲覧シグナルの収集を確認していますが、資格情報の窃取まで確認したとはしていません。(Microsoft) Chrome公式ヘルプも、拡張機能にはブラウザ設定を変更できるものがあり、インストール前に何を変更する拡張機能なのか確認するよう案内しています。(Google Help)"
+  },
+  "question": {
+    "text": "有名なAIサービス名が付いたブラウザ拡張機能を見つけたとき、インストール前に最も確認したいことは？",
+    "choices": [
+      {
+        "id": "trust-brand-name",
+        "label": "有名AIの名前とロゴが付いているか",
+        "description": "見た目が公式サービスに似ていれば信用する。"
+      },
+      {
+        "id": "trust-store-only",
+        "label": "Chrome Web Storeに掲載されているか",
+        "description": "ストアにあることだけで安全性を判断する。"
+      },
+      {
+        "id": "verify-publisher-permissions",
+        "label": "提供元と要求される権限が、その機能に見合っているか確認する",
+        "description": "公式サイトから配布先を確認し、ブラウザ設定や全サイトへのアクセスなど必要以上の権限がないかを見る。"
+      },
+      {
+        "id": "avoid-all-extensions",
+        "label": "AI拡張機能は危険なので一切利用しない",
+        "description": "便利な正規拡張機能も含めてすべて避ける。"
+      }
+    ],
+    "recommendedAnswers": [
+      "verify-publisher-permissions"
+    ],
+    "explanation": "ブラウザ拡張機能は、通常のWebページより強い権限を持つ場合があります。Chrome公式ヘルプでは、拡張機能が求める権限によっては、閲覧するWebサイトのデータなど広い範囲へアクセスできることが説明されています。(Google Help) AIブランドの名前やロゴではなく、「誰が提供しているか」「何へアクセスするのか」「その権限が機能に必要か」を確認する方が実用的です。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "公式サービスから配布先へたどれるか",
+      "description": "検索結果から直接ストアへ行くだけでなく、AIサービスの公式サイトや公式ヘルプから拡張機能への案内があるか確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "提供者名が公式企業と一致しているか",
+      "description": "拡張機能名に有名AIの名前が入っていても、提供元が同じ企業とは限りません。",
+      "priority": "high"
+    },
+    {
+      "title": "似たドメインに誘導されていないか",
+      "description": "Microsoftが確認した事例では、正規のperplexity.aiに似た別ドメインが利用されていました。(Microsoft)",
+      "priority": "high"
+    },
+    {
+      "title": "検索エンジンの変更を要求していないか",
+      "description": "AI補助機能のはずなのに標準検索プロバイダーまで変更する場合は、なぜ必要なのか確認します。Chromeは拡張機能による設定変更について利用者向けの確認方法を案内しています。(Google Help)",
+      "priority": "high"
+    },
+    {
+      "title": "すべてのWebサイトへのアクセスを要求していないか",
+      "description": "Chromeでは一部の権限によって、訪問するWebサイト上のデータへ広くアクセスできる場合があります。(Google Help)",
+      "priority": "high"
+    },
+    {
+      "title": "便利さと権限の大きさが釣り合っているか",
+      "description": "例えば単純な文章要約機能なのに検索設定変更や広範囲なサイトアクセスを求める場合は慎重に確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "インストール後に検索先や設定が変わっていないか",
+      "description": "Chromeでは拡張機能が設定を変更する場合があり、削除すると変更前の設定へ戻る仕組みも案内されています。(Google Help)",
+      "priority": "medium"
+    },
+    {
+      "title": "使っていない拡張機能が残っていないか",
+      "description": "ChromeとEdgeはいずれもインストール済み拡張機能と権限を管理する方法を提供しています。(Google Help)",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "インストール前に提供元と権限を確認",
+  "verificationMessage": "AI拡張機能では、名前やロゴだけでなく、公式な提供元・アクセス先・要求権限を確認してください。",
+  "verdict": {
+    "label": "ブラウザ拡張機能の権限は「AIに渡す鍵」と考える",
+    "description": "AI拡張機能は、ページ要約、翻訳、文章補助、検索などをブラウザ上で直接使える便利な仕組みです。一方、機能を実現するために閲覧ページやブラウザ設定へアクセスする権限を持つ場合があります。Chrome公式ドキュメントでも、拡張機能は必要な権限を宣言し、強い権限では利用者へ警告を表示する仕組みになっています。(Chrome for Developers) 「AIだから危険」ではなく、「この機能にこの鍵まで必要なのか？」という見方をすると判断しやすくなります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "AIサービスの公式サイトから拡張機能の配布先を確認する",
+      "reason": "似た名前やロゴを使った第三者の拡張機能を誤って選ぶ可能性を下げられます。"
+    },
+    {
+      "action": "インストール画面の権限表示を一度読む",
+      "reason": "Chromeでは強い権限に対して利用者へ警告を表示する仕組みがあります。(Chrome for Developers)"
+    },
+    {
+      "action": "サイトへのアクセス範囲を必要最小限にする",
+      "reason": "ChromeとEdgeでは拡張機能ごとにサイトアクセス権限を管理できます。(Microsoft Support)"
+    },
+    {
+      "action": "不要になったAI拡張機能を削除する",
+      "reason": "使っていない機能へブラウザデータへのアクセス権を残し続ける必要はありません。"
+    },
+    {
+      "action": "検索エンジンが突然変わったら拡張機能一覧を確認する",
+      "reason": "拡張機能によるブラウザ設定変更が原因の場合があります。(Google Help)"
+    },
+    {
+      "action": "怪しい拡張機能を削除した後にブラウザ設定も確認する",
+      "reason": "検索設定やサイトアクセスなど、意図しない変更が残っていないか確認できます。"
+    },
+    {
+      "action": "AI拡張機能は必要なものだけ選ぶ",
+      "reason": "便利な正規ツールまで避けず、利用目的に合わせてアクセス範囲を小さくできます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "ロゴが本物に似ているので公式だと判断する",
+      "reason": "Microsoftが確認した事例でも、正規AIサービスに似たブランド表示が利用されていました。(Microsoft)"
+    },
+    {
+      "action": "ストアに掲載されているから絶対安全だと思う",
+      "reason": "今回の拡張機能もブラウザ拡張機能の流通環境を通じて利用者へ配布され、Microsoftからの報告後に削除されています。(Microsoft)"
+    },
+    {
+      "action": "インストール時の権限警告を毎回そのまま許可する",
+      "reason": "拡張機能によってアクセスできる情報や変更できる設定が異なります。(Google Help)"
+    },
+    {
+      "action": "AI検索の拡張機能だから検索内容へアクセスするのは当然だと考える",
+      "reason": "必要な処理と、第三者サーバーへ検索情報を送ることは別です。Microsoftの事例では正規ベンダーと無関係なインフラへ検索内容が送信されていました。(Microsoft)"
+    },
+    {
+      "action": "怪しい動作がないから安全だと判断する",
+      "reason": "今回の事例では最終的に通常の検索結果が表示されるため、中継処理が利用者から見えにくい構造でした。(Microsoft)"
+    },
+    {
+      "action": "AI拡張機能そのものを危険視する",
+      "reason": "問題はAI機能ではなく、提供元・アクセス権限・データの送り先を確認せず利用することです。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AI拡張機能は「必要なページだけ見せる助手」として使う",
+    "description": "AI拡張機能は、Webページの要約、翻訳、文章作成、検索補助など、ブラウザ作業をかなり楽にできます。ChromeやEdgeには拡張機能ごとにサイトアクセスを管理する仕組みがあるため、最初からすべてのページへの権限を与える必要がない場合もあります。(Microsoft Support) 必要なサービスを公式経路から導入し、必要なサイトだけアクセスを許可する使い方なら、便利さと安全性を両立しやすくなります。",
+    "examples": [
+      "Web記事を読む時だけ要約拡張機能を有効にする",
+      "特定サイトだけアクセスを許可する",
+      "会社PCでは承認済み拡張機能だけ利用する",
+      "月に一度、インストール済み拡張機能を整理する",
+      "AIサービスの公式サイトからブラウザ連携機能を探す",
+      "権限追加の通知が出たら、変更理由を確認してから許可する"
+    ]
+  },
+  "makotoComment": "AIサービスが増えると、「公式っぽい便利ツール」も一気に増えます。ここで覚えておきたいのは、拡張機能は普通のWebサイトよりブラウザの内側へ入り込める場合があるということです。ただ、怖がって全部消す必要はありません。私はインストール画面を、社員証と鍵の受け渡しだと思っています。名前を確認して、所属を確認して、渡す鍵を確認する。それだけでかなり違います。有名AIのロゴが社員証代わりになる時代ではなさそうですね。",
+  "oneLineLesson": "AI拡張機能は「誰のものか」と「どこまで触れるか」を確認してから入れる。",
+  "tags": [
+    "AI拡張機能",
+    "ブラウザ拡張機能",
+    "Perplexity",
+    "Chrome",
+    "Edge",
+    "権限管理",
+    "検索ハイジャック",
+    "偽ブランド",
+    "プライバシー"
+  ],
+  "sources": [
+    {
+      "title": "Chromium extension uses AI-related branding to redirect browser search",
+      "publisher": "Microsoft Security Blog",
+      "sourceType": "security",
+      "publishedAt": "2026-06-29",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/06/29/chromium-extension-uses-airelated-branding-redirect-browser-search/"
+    },
+    {
+      "title": "Permissions requested by apps and extensions",
+      "publisher": "Google Chrome Web Store Help",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.google.com/chrome_webstore/answer/186213"
+    },
+    {
+      "title": "Manage extensions that change your settings",
+      "publisher": "Google Chrome Web Store Help",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.google.com/chrome_webstore/answer/6029416"
+    },
+    {
+      "title": "Install and manage extensions",
+      "publisher": "Google Chrome Help",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.google.com/chrome/answer/2664769"
+    },
+    {
+      "title": "Declare permissions",
+      "publisher": "Chrome for Developers",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions"
+    },
+    {
+      "title": "Change site access permissions for extensions in Microsoft Edge",
+      "publisher": "Microsoft Support",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/en-us/edge/change-site-access-permissions-for-extensions-in-microsoft-edge"
+    },
+    {
+      "title": "Add, turn off, or remove extensions in Microsoft Edge",
+      "publisher": "Microsoft Support",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/en-us/edge/add-turn-off-or-remove-extensions-in-microsoft-edge"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "ブラウザの拡張機能ストア画面に、有名AIサービスによく似た名前とロゴの拡張機能が表示されている。インストールボタンの前に虫眼鏡を持った利用者が「提供元」「公式ドメイン」「検索設定の変更」「サイトへのアクセス権限」の4項目を確認している。右側にはブラウザを家に見立て、AI拡張機能へ「閲覧だけ」「このサイトのみ」「検索設定変更」という異なる鍵を渡すイメージを配置する。赤一色の危険表現ではなく、「必要な鍵だけ渡せば便利に使える」ことを示す明るいAI鑑識室風デザイン。",
+    "cardIcon": "ai-extension-permission-check",
+    "accentTone": "security](https://support.microsoft.com/en-us/edge/add-turn-off-or-remove-extensions-in-microsoft-edge%22}],%22visualSuggestion%22:{%22mainVisual%22:%22ブラウザの拡張機能ストア画面に、有名AIサービスによく似た名前とロゴの拡張機能が表示されている。インストールボタンの前に虫眼鏡を持った利用者が「提供元」「公式ドメイン」「検索設定の変更」「サイトへのアクセス権限」の4項目を確認している。右側にはブラウザを家に見立て、AI拡張機能へ「閲覧だけ」「このサイトのみ」「検索設定変更」という異なる鍵を渡すイメージを配置する。赤一色の危険表現ではなく、「必要な鍵だけ渡せば便利に使える」ことを示す明るいAI鑑識室風デザイン。%22,%22cardIcon%22:%22ai-extension-permission-check%22,%22accentTone%22:%22security)"
+  }
+}

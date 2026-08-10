@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>「AI検索がもっと便利に」その拡張機能、本物？　偽Perplexity拡張機能が検索内容を中継していた｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoft Threat Intelligenceは2026年6月29日、Perplexity AIを装った悪意あるChromium拡張機能を確認したと公表しました。この拡張機能はAI検索を便利にするように見せながら、ブラウザの検索設定を変更し、検索語や入力途中の検索候補を正規サービスとは無関係な中継サーバーへ送っていました。Microsoftの報告後、Googleへ通報され、公開時点ではストアから削除されています。(Microsoft) AI拡張機能そのものを避ける必要はありませんが、「有名AIの名前が付いている」「ストアにある」という理由だけで判断せず、提供元と要求権限を確認する習慣が重要です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260810-01" />
+<meta property="og:title" content="「AI検索がもっと便利に」その拡張機能、本物？　偽Perplexity拡張機能が検索内容を中継していた｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoft Threat Intelligenceは2026年6月29日、Perplexity AIを装った悪意あるChromium拡張機能を確認したと公表しました。この拡張機能はAI検索を便利にするように見せながら、ブラウザの検索設定を変更し、検索語や入力途中の検索候補を正規サービスとは無関係な中継サーバーへ送っていました。Microsoftの報告後、Googleへ通報され、公開時点ではストアから削除されています。(Microsoft) AI拡張機能そのものを避ける必要はありませんが、「有名AIの名前が付いている」「ストアにある」という理由だけで判断せず、提供元と要求権限を確認する習慣が重要です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260810-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>AI拡張機能は名前より権限を見る</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-10">2026.08.10</time>
+            </div>
+            <h1>「AI検索がもっと便利に」その拡張機能、本物？　偽Perplexity拡張機能が検索内容を中継していた</h1>
+            <p>Microsoft Threat Intelligenceは2026年6月29日、Perplexity AIを装った悪意あるChromium拡張機能を確認したと公表しました。この拡張機能はAI検索を便利にするように見せながら、ブラウザの検索設定を変更し、検索語や入力途中の検索候補を正規サービスとは無関係な中継サーバーへ送っていました。Microsoftの報告後、Googleへ通報され、公開時点ではストアから削除されています。(Microsoft) AI拡張機能そのものを避ける必要はありませんが、「有名AIの名前が付いている」「ストアにある」という理由だけで判断せず、提供元と要求権限を確認する習慣が重要です。</p>
+            <ul class="forensics-target-list"><li>ChromeやEdgeへAI拡張機能を追加する人</li><li>ChatGPTやPerplexityなどのAIサービスを使う人</li><li>ブラウザの便利機能をよくインストールする人</li><li>会社のパソコンで生成AIを利用する人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AI拡張機能</li><li>ブラウザ拡張機能</li><li>Perplexity</li><li>Chrome</li><li>Edge</li><li>権限管理</li><li>検索ハイジャック</li><li>偽ブランド</li><li>プライバシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>インストール前に提供元と権限を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AI拡張機能では、名前やロゴだけでなく、公式な提供元・アクセス先・要求権限を確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>「Perplexityをブラウザからすぐ使える」という拡張機能を見つけたのでインストールした</h3><p>名前やロゴは有名なAIサービスに似ており、インストール後も検索結果自体は普通に表示されました。そのため利用者から見ると問題は分かりにくい状態でした。しかしMicrosoftが分析した「Search for perplexity ai」という拡張機能は、正規のperplexity.aiではなく、よく似た別ドメインを経由させていました。検索結果へ移動する前に検索語や入力途中の文字列が中継インフラへ送られる構成だったことが確認されています。(Microsoft)</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Microsoftによると、この拡張機能はPerplexity AIに似たブランド表示とドメインを利用し、ブラウザの標準検索プロバイダーを変更して検索通信を中継していました。検索結果は最終的に正規の検索サービスへリダイレクトされるため、利用者には通常通り検索できているように見える点が特徴です。Microsoftは検索語や閲覧シグナルの収集を確認していますが、資格情報の窃取まで確認したとはしていません。(Microsoft) Chrome公式ヘルプも、拡張機能にはブラウザ設定を変更できるものがあり、インストール前に何を変更する拡張機能なのか確認するよう案内しています。(Google Help)</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="verify-publisher-permissions">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>有名なAIサービス名が付いたブラウザ拡張機能を見つけたとき、インストール前に最も確認したいことは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="trust-brand-name" data-choice-id="trust-brand-name" />
+                <span>
+                  <strong>有名AIの名前とロゴが付いているか</strong>
+                  <small>見た目が公式サービスに似ていれば信用する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="trust-store-only" data-choice-id="trust-store-only" />
+                <span>
+                  <strong>Chrome Web Storeに掲載されているか</strong>
+                  <small>ストアにあることだけで安全性を判断する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="verify-publisher-permissions" data-choice-id="verify-publisher-permissions" />
+                <span>
+                  <strong>提供元と要求される権限が、その機能に見合っているか確認する</strong>
+                  <small>公式サイトから配布先を確認し、ブラウザ設定や全サイトへのアクセスなど必要以上の権限がないかを見る。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="avoid-all-extensions" data-choice-id="avoid-all-extensions" />
+                <span>
+                  <strong>AI拡張機能は危険なので一切利用しない</strong>
+                  <small>便利な正規拡張機能も含めてすべて避ける。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>提供元と要求される権限が、その機能に見合っているか確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>ブラウザ拡張機能は、通常のWebページより強い権限を持つ場合があります。Chrome公式ヘルプでは、拡張機能が求める権限によっては、閲覧するWebサイトのデータなど広い範囲へアクセスできることが説明されています。(Google Help) AIブランドの名前やロゴではなく、「誰が提供しているか」「何へアクセスするのか」「その権限が機能に必要か」を確認する方が実用的です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>公式サービスから配布先へたどれるか</h3>
+              <p>検索結果から直接ストアへ行くだけでなく、AIサービスの公式サイトや公式ヘルプから拡張機能への案内があるか確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>提供者名が公式企業と一致しているか</h3>
+              <p>拡張機能名に有名AIの名前が入っていても、提供元が同じ企業とは限りません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>似たドメインに誘導されていないか</h3>
+              <p>Microsoftが確認した事例では、正規のperplexity.aiに似た別ドメインが利用されていました。(Microsoft)</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>検索エンジンの変更を要求していないか</h3>
+              <p>AI補助機能のはずなのに標準検索プロバイダーまで変更する場合は、なぜ必要なのか確認します。Chromeは拡張機能による設定変更について利用者向けの確認方法を案内しています。(Google Help)</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>すべてのWebサイトへのアクセスを要求していないか</h3>
+              <p>Chromeでは一部の権限によって、訪問するWebサイト上のデータへ広くアクセスできる場合があります。(Google Help)</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>便利さと権限の大きさが釣り合っているか</h3>
+              <p>例えば単純な文章要約機能なのに検索設定変更や広範囲なサイトアクセスを求める場合は慎重に確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>インストール後に検索先や設定が変わっていないか</h3>
+              <p>Chromeでは拡張機能が設定を変更する場合があり、削除すると変更前の設定へ戻る仕組みも案内されています。(Google Help)</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>使っていない拡張機能が残っていないか</h3>
+              <p>ChromeとEdgeはいずれもインストール済み拡張機能と権限を管理する方法を提供しています。(Google Help)</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>ブラウザ拡張機能の権限は「AIに渡す鍵」と考える</strong><p>AI拡張機能は、ページ要約、翻訳、文章補助、検索などをブラウザ上で直接使える便利な仕組みです。一方、機能を実現するために閲覧ページやブラウザ設定へアクセスする権限を持つ場合があります。Chrome公式ドキュメントでも、拡張機能は必要な権限を宣言し、強い権限では利用者へ警告を表示する仕組みになっています。(Chrome for Developers) 「AIだから危険」ではなく、「この機能にこの鍵まで必要なのか？」という見方をすると判断しやすくなります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>AIサービスの公式サイトから拡張機能の配布先を確認する</strong><span>似た名前やロゴを使った第三者の拡張機能を誤って選ぶ可能性を下げられます。</span></li>
+            <li><strong>インストール画面の権限表示を一度読む</strong><span>Chromeでは強い権限に対して利用者へ警告を表示する仕組みがあります。(Chrome for Developers)</span></li>
+            <li><strong>サイトへのアクセス範囲を必要最小限にする</strong><span>ChromeとEdgeでは拡張機能ごとにサイトアクセス権限を管理できます。(Microsoft Support)</span></li>
+            <li><strong>不要になったAI拡張機能を削除する</strong><span>使っていない機能へブラウザデータへのアクセス権を残し続ける必要はありません。</span></li>
+            <li><strong>検索エンジンが突然変わったら拡張機能一覧を確認する</strong><span>拡張機能によるブラウザ設定変更が原因の場合があります。(Google Help)</span></li>
+            <li><strong>怪しい拡張機能を削除した後にブラウザ設定も確認する</strong><span>検索設定やサイトアクセスなど、意図しない変更が残っていないか確認できます。</span></li>
+            <li><strong>AI拡張機能は必要なものだけ選ぶ</strong><span>便利な正規ツールまで避けず、利用目的に合わせてアクセス範囲を小さくできます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>ロゴが本物に似ているので公式だと判断する</strong><span>Microsoftが確認した事例でも、正規AIサービスに似たブランド表示が利用されていました。(Microsoft)</span></li>
+            <li><strong>ストアに掲載されているから絶対安全だと思う</strong><span>今回の拡張機能もブラウザ拡張機能の流通環境を通じて利用者へ配布され、Microsoftからの報告後に削除されています。(Microsoft)</span></li>
+            <li><strong>インストール時の権限警告を毎回そのまま許可する</strong><span>拡張機能によってアクセスできる情報や変更できる設定が異なります。(Google Help)</span></li>
+            <li><strong>AI検索の拡張機能だから検索内容へアクセスするのは当然だと考える</strong><span>必要な処理と、第三者サーバーへ検索情報を送ることは別です。Microsoftの事例では正規ベンダーと無関係なインフラへ検索内容が送信されていました。(Microsoft)</span></li>
+            <li><strong>怪しい動作がないから安全だと判断する</strong><span>今回の事例では最終的に通常の検索結果が表示されるため、中継処理が利用者から見えにくい構造でした。(Microsoft)</span></li>
+            <li><strong>AI拡張機能そのものを危険視する</strong><span>問題はAI機能ではなく、提供元・アクセス権限・データの送り先を確認せず利用することです。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AI拡張機能は「必要なページだけ見せる助手」として使う</h3>
+          <p>AI拡張機能は、Webページの要約、翻訳、文章作成、検索補助など、ブラウザ作業をかなり楽にできます。ChromeやEdgeには拡張機能ごとにサイトアクセスを管理する仕組みがあるため、最初からすべてのページへの権限を与える必要がない場合もあります。(Microsoft Support) 必要なサービスを公式経路から導入し、必要なサイトだけアクセスを許可する使い方なら、便利さと安全性を両立しやすくなります。</p>
+          <ul class="positive-example-list"><li>Web記事を読む時だけ要約拡張機能を有効にする</li><li>特定サイトだけアクセスを許可する</li><li>会社PCでは承認済み拡張機能だけ利用する</li><li>月に一度、インストール済み拡張機能を整理する</li><li>AIサービスの公式サイトからブラウザ連携機能を探す</li><li>権限追加の通知が出たら、変更理由を確認してから許可する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIサービスが増えると、「公式っぽい便利ツール」も一気に増えます。ここで覚えておきたいのは、拡張機能は普通のWebサイトよりブラウザの内側へ入り込める場合があるということです。ただ、怖がって全部消す必要はありません。私はインストール画面を、社員証と鍵の受け渡しだと思っています。名前を確認して、所属を確認して、渡す鍵を確認する。それだけでかなり違います。有名AIのロゴが社員証代わりになる時代ではなさそうですね。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>AI拡張機能は「誰のものか」と「どこまで触れるか」を確認してから入れる。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.microsoft.com/en-us/security/blog/2026/06/29/chromium-extension-uses-airelated-branding-redirect-browser-search/" target="_blank" rel="noopener noreferrer">Chromium extension uses AI-related branding to redirect browser search<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Security Blog</span>
+              <span>セキュリティ機関</span>
+              <time datetime="2026-06-29">2026-06-29</time>
+            </li>
+            <li>
+              <strong><a href="https://support.google.com/chrome_webstore/answer/186213" target="_blank" rel="noopener noreferrer">Permissions requested by apps and extensions<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Chrome Web Store Help</span>
+              <span>公式発表</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://support.google.com/chrome_webstore/answer/6029416" target="_blank" rel="noopener noreferrer">Manage extensions that change your settings<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Chrome Web Store Help</span>
+              <span>公式発表</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://support.google.com/chrome/answer/2664769" target="_blank" rel="noopener noreferrer">Install and manage extensions<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Chrome Help</span>
+              <span>公式発表</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions" target="_blank" rel="noopener noreferrer">Declare permissions<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Chrome for Developers</span>
+              <span>公式発表</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/edge/change-site-access-permissions-for-extensions-in-microsoft-edge" target="_blank" rel="noopener noreferrer">Change site access permissions for extensions in Microsoft Edge<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>公式発表</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/edge/add-turn-off-or-remove-extensions-in-microsoft-edge" target="_blank" rel="noopener noreferrer">Add, turn off, or remove extensions in Microsoft Edge<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>公式発表</span>
+              
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-serious" href="case-20260809-02" data-forensics-card data-category="health-ai" data-level="5" data-difficulty="beginner" data-search-text="「この検査値、病気ですか？」　血液検査の結果をAIに見せるなら“診断”より“質問作り”に使う 検査結果はAIで理解し、判断は診察へつなぐ 2026年8月、患者が医師と話す前にAIチャットボットへ検査結果を読み込ませ、意味を確認する利用が広がっていることが報じられました。?The Wall Street Journal? KFFの2026年調査では、米国成人の32％が過去1年に健康情報を得るためAIチャットボットを利用し、その利用者の41％が検査結果や医師の記録など個人的な医療情報をAIへアップロードしたと回答しています。?KFF? AIは「ASTとは何か」「この項目は何を調べる検査か」といった理解には便利ですが、検査値だけで病気を確定したり、薬を変更したりする用途には向きません。AIを診断の代わりではなく、診察で確認したい質問を整理する道具として使うと便利さを活かしやすくなります。 健康・医療 はじめて 健康・医療 検査結果 血液検査 医療AI AIチャットボット 患者ポータル 個人情報 プライバシー 診察準備 健康診断や血液検査の結果をAIで調べる人 患者ポータルで検査結果を先に見る人 医療用語の意味を生成AIへ質問する人 家族の検査結果について調べる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">medical-ai-question-prep</span>
+              <div>
+                <p>検査結果はAIで理解し、判断は診察へつなぐ</p>
+                <h3>「この検査値、病気ですか？」　血液検査の結果をAIに見せるなら“診断”より“質問作り”に使う</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-09">2026.08.09</time>
+              <span>健康・医療</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月、患者が医師と話す前にAIチャットボットへ検査結果を読み込ませ、意味を確認する利用が広がっていることが報じられました。?The Wall Street Journal? KFFの2026年調査では、米国成人の32％が過去1年に健康情報を得るためAIチャットボットを利用し、その利用者の41％が検査結果や医師の記録など個人的な医療情報をAIへアップロードしたと回答しています。?KFF? AIは「ASTとは何か」「この項目は何を調べる検査か」といった理解には便利ですが、検査値だけで病気を確定したり、薬を変更したりする用途には向きません。AIを診断の代わりではなく、診察で確認したい質問を整理する道具として使うと便利さを活かしやすくなります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>診断・治療判断は医療専門家へ確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>健康診断や血液検査の結果をAIで調べる人</li><li>患者ポータルで検査結果を先に見る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>健康・医療</li><li>検査結果</li><li>血液検査</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260808-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="「このページを要約して」でAIが別の操作を始める？　AIブラウザを狙うプロンプトインジェクション AIブラウザには「読ませる情報」と「任せる権限」を分ける AIブラウザは、ページを読むだけでなく、リンクを開く、フォームへ入力する、メールを送るなどの操作まで代行できるようになっています。しかしWebページ、メール、カレンダー招待などにAI向けの悪意ある指示が埋め込まれていると、AIが利用者の指示と混同して意図しない操作を行う「間接プロンプトインジェクション」が起こる可能性があります。2026年8月のBlack Hat USAでは、主要なAIブラウザやブラウザ連携AIを対象にした攻撃実証が報告されました。ただし、これはAIブラウザが触れただけで必ず乗っ取られるという話ではありません。ログイン範囲や権限を絞り、送信・購入・設定変更などの重要操作を人間が確認することで、便利さを残しながらリスクを下げられます。 セキュリティ・権限 標準 AIブラウザ AIエージェント プロンプトインジェクション サイバーセキュリティ ChatGPT agent Claude Perplexity Comet OWASP AIブラウザやAIエージェントを使う人 メールやWebページの要約をAIへ任せる人 AIに買い物やフォーム入力を任せたい人 生成AIを仕事の自動化へ使う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">agent-permission-shield</span>
+              <div>
+                <p>AIブラウザには「読ませる情報」と「任せる権限」を分ける</p>
+                <h3>「このページを要約して」でAIが別の操作を始める？　AIブラウザを狙うプロンプトインジェクション</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-08">2026.08.08</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">AIブラウザは、ページを読むだけでなく、リンクを開く、フォームへ入力する、メールを送るなどの操作まで代行できるようになっています。しかしWebページ、メール、カレンダー招待などにAI向けの悪意ある指示が埋め込まれていると、AIが利用者の指示と混同して意図しない操作を行う「間接プロンプトインジェクション」が起こる可能性があります。2026年8月のBlack Hat USAでは、主要なAIブラウザやブラウザ連携AIを対象にした攻撃実証が報告されました。ただし、これはAIブラウザが触れただけで必ず乗っ取られるという話ではありません。ログイン範囲や権限を絞り、送信・購入・設定変更などの重要操作を人間が確認することで、便利さを残しながらリスクを下げられます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AIが見抜く前提ではなく、実行できる範囲を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIブラウザやAIエージェントを使う人</li><li>メールやWebページの要約をAIへ任せる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIブラウザ</li><li>AIエージェント</li><li>プロンプトインジェクション</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260806-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="AIエージェントは「頼んだ結果」だけ見ればいい？　途中の行動を監視する必要がある理由 AIエージェントは行動ログも確認 AIエージェントは、指示された目標を達成するために検索、コード作成、アカウント操作、外部サービスへのアクセスなどを連続して行えます。便利な一方で、目標や権限の範囲が曖昧だと、人間が想定していない方法を選ぶ可能性があります。AIを怖がって自動化を避ける必要はありませんが、許可する行動、禁止する行動、途中で人間の承認が必要な操作を事前に決め、最終結果だけでなく行動ログも確認することが重要です。 セキュリティ・権限 標準 AIエージェント 自動化 権限管理 行動ログ AIコーディング サイバーセキュリティ AIエージェントへ調査や開発を任せる人 AIコーディングツールを利用する人 社内業務へ生成AIを導入する担当者 AIによる自動化に興味がある人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">agent-scope-monitor</span>
+              <div>
+                <p>AIエージェントは行動ログも確認</p>
+                <h3>AIエージェントは「頼んだ結果」だけ見ればいい？　途中の行動を監視する必要がある理由</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-06">2026.08.06</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">AIエージェントは、指示された目標を達成するために検索、コード作成、アカウント操作、外部サービスへのアクセスなどを連続して行えます。便利な一方で、目標や権限の範囲が曖昧だと、人間が想定していない方法を選ぶ可能性があります。AIを怖がって自動化を避ける必要はありませんが、許可する行動、禁止する行動、途中で人間の承認が必要な操作を事前に決め、最終結果だけでなく行動ログも確認することが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>行動範囲と実行ログの確認が必要</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIエージェントへ調査や開発を任せる人</li><li>AIコーディングツールを利用する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>自動化</li><li>権限管理</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260809-01">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
