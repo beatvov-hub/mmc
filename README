@@ -16,7 +16,12 @@
 
 - `src/data/loungeLogs.json`
   - ラウンジ観測記録の元データです。
-  - `scripts/generate_lounge.py` で `lounge.html`、日付別の `lounge-archive/YYYY-MM-DD.html`、`index.html`、`mainichi-miru-sitemap.xml` に反映されます。
+  - 「今日の一言」は本文の `content` に混ぜず、必要な場合だけ `todayWords` に分離して管理します。
+  - `scripts/generate_lounge.py` で `lounge.html`、日付別の `lounge-archive/YYYY-MM-DD.html`、`index.html`、`sitemap.xml` に反映されます。
+
+- `src/data/loungeCalendarTopics.json`
+  - ラウンジカレンダーに表示する時間帯別テーマと、日別アーカイブへのアンカーを管理します。
+  - テーマはおおむね25文字以内で、`date`、`time`、`topic`、`anchor` を持たせます。
 
 - `src/data/newsItems.json`
   - トップのお知らせ、ニュースページ、会社概要の沿革の元データです。
@@ -63,7 +68,7 @@
 
 - ラウンジ観測記録は `loungeLogs.json` で管理します。
 - 1日複数回更新できる前提で、日付別アーカイブページとカレンダー表示を生成します。
-- 2026-08-10 時点で、`loungeLogs.json` は 147 件あります。
+- 2026-08-10 時点で、`loungeLogs.json` は 149 件あります。
 - `lounge-archive/` は時間別ではなく、1日1ページの `YYYY-MM-DD.html` にまとめます。
 - 時間別の導線は `lounge-archive/YYYY-MM-DD.html#YYYY-MM-DD-HHMM` のアンカーで管理します。
 - `lounge.html` には時間帯でラウンジ画像を切り替えるJavaScriptがあります。
@@ -168,6 +173,13 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 - 起動・操作・選曲・決定の効果音とON/OFFスイッチを追加し、Web Audio API非対応時に使うWAV音源を `scripts/generate_music_room_sfx.py` で再生成できるようにしました。
 - `docs/music-room-data-guide.md` と `docs/music-room-implementation-report.md` に、データ入力・検証・公開手順とテスト結果を記録しました。
 - 公開承認前のため、`noindex`を設定し、ナビ、トップ、works、サイトマップへは追加していません。
+
+- `src/data/loungeLogs.json` に 2026-08-10 08:00、13:00、18:00 のラウンジ観測記録を追加しました。
+- 08:00更新では「今日の一言」を `todayWords` として本文から分離し、13:00・18:00更新には追加していません。
+- `src/data/loungeCalendarTopics.json` に、夏祭り仕様のBean & Bits、用事がなくても寄れるページとサイト導線のテーマを追加しました。
+- `scripts/generate_lounge.py` を実行し、ラウンジ一覧、2026-08-10の日別アーカイブ、トップページ、`sitemap.xml` を更新しました。
+- `src/data/ai-forensics/case-20260810-03.json` に、AIで担当外の仕事へ進むときの「試す」と「決める」の境界を扱う鑑識室記事を追加しました。
+- 出典URLをOpenAI、Microsoft、NISTの正規ページへ整理し、`scripts/generate_ai_forensics.py` と `scripts/generate_lounge.py` を実行して記事一覧、詳細記事、サイトマップを更新しました。
 
 ### 2026-07-26
 
