@@ -16,7 +16,12 @@
 
 - `src/data/loungeLogs.json`
   - ラウンジ観測記録の元データです。
-  - `scripts/generate_lounge.py` で `lounge.html`、日付別の `lounge-archive/YYYY-MM-DD.html`、`index.html`、`mainichi-miru-sitemap.xml` に反映されます。
+  - 「今日の一言」は本文の `content` に混ぜず、必要な場合だけ `todayWords` に分離して管理します。
+  - `scripts/generate_lounge.py` で `lounge.html`、日付別の `lounge-archive/YYYY-MM-DD.html`、`index.html`、`sitemap.xml` に反映されます。
+
+- `src/data/loungeCalendarTopics.json`
+  - ラウンジカレンダーに表示する時間帯別テーマと、日別アーカイブへのアンカーを管理します。
+  - テーマはおおむね25文字以内で、`date`、`time`、`topic`、`anchor` を持たせます。
 
 - `src/data/newsItems.json`
   - トップのお知らせ、ニュースページ、会社概要の沿革の元データです。
@@ -56,7 +61,7 @@
 
 - ラウンジ観測記録は `loungeLogs.json` で管理します。
 - 1日複数回更新できる前提で、日付別アーカイブページとカレンダー表示を生成します。
-- 2026-07-26 時点で、`loungeLogs.json` は 83 件あります。
+- 2026-08-10 時点で、`loungeLogs.json` は 148 件あります。
 - `lounge-archive/` は時間別ではなく、1日1ページの `YYYY-MM-DD.html` にまとめます。
 - 時間別の導線は `lounge-archive/YYYY-MM-DD.html#YYYY-MM-DD-HHMM` のアンカーで管理します。
 - `lounge.html` には時間帯でラウンジ画像を切り替えるJavaScriptがあります。
@@ -137,6 +142,15 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 
 更新履歴
 --------
+
+### 2026-08-10
+
+- `src/data/loungeLogs.json` に 2026-08-10 08:00 の朝ラウンジ記録を追加しました。社員写真の履歴、机の上のマイアイテム、雑談から生まれる企画の種を記録しています。
+- 同じ朝ログの「今日の一言」は本文から分離し、`todayWords` としてトップの専用欄へ表示する形式にしました。
+- `src/data/loungeLogs.json` に 2026-08-10 13:00 の昼ラウンジ記録を追加しました。夏祭り仕様のBean & Bitsを季節限定で試す案を記録しています。
+- `src/data/loungeCalendarTopics.json` に 2026-08-10 08:00、13:00 のテーマとアーカイブアンカーを追加しました。
+- `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-08-10.html`、`index.html`、`sitemap.xml` を更新しました。
+- 8:00分には「今日の一言」を設定し、13:00分には設定していません。本文と専用欄を混在させない運用を継続します。
 
 ### 2026-07-26
 
