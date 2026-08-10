@@ -165,13 +165,13 @@ async function renderDashboard() {
   ].map(([label, value]) => `<div class="metric-card"><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join("");
   q("#dashboard-due").innerHTML = compactTasks(data.dueSoon, "期限が近いタスクはありません。");
   q("#dashboard-activity").innerHTML = data.recentActivity?.length
-    ? data.recentActivity.map((item) => `<article class="mini-card"><strong>${esc(item.message)}</strong><span>${esc(formatDateTime(item.createdAt))}</span></article>`).join("")
+    ? data.recentActivity.map((item) => `<article class="mini-card" ${item.targetType === "tasks" && item.targetId ? `data-open-task="${esc(item.targetId)}"` : ""}><strong>${esc(item.message)}</strong><span>${esc(formatDateTime(item.createdAt))}</span></article>`).join("")
     : `<p class="muted">まだ活動履歴はありません。</p>`;
   q("#dashboard-employees").innerHTML = data.byEmployee?.length
     ? data.byEmployee.map((item) => `<span class="workline-chip">${esc(item.name)} ${item.count}件</span>`).join("")
     : `<p class="muted">担当タスクはまだありません。</p>`;
   q("#dashboard-artifacts").innerHTML = data.recentArtifacts?.length
-    ? data.recentArtifacts.map((item) => `<article class="mini-card"><strong>${esc(item.title)}</strong><span>${esc(item.type)} / ${esc(item.pathOrUrl)}</span></article>`).join("")
+    ? data.recentArtifacts.map((item) => `<article class="mini-card" ${item.taskId ? `data-open-task="${esc(item.taskId)}"` : ""}><strong>${esc(item.title)}</strong><span>${esc(item.type)} / ${esc(item.pathOrUrl)}</span></article>`).join("")
     : `<p class="muted">生成履歴はこれから記録されます。</p>`;
 }
 
@@ -248,6 +248,7 @@ function renderBoard() {
   const visibility = q("#filter-visibility")?.value || "";
   const tag = (q("#filter-tag")?.value || "").trim();
   const tasks = workline.tasks.map(normalizeTaskForUi).filter((task) =>
+    task.status !== "completed" &&
     (!employee || [task.primaryAssigneeId, ...(task.supportAssigneeIds || []), ...(task.reviewerIds || [])].includes(employee)) &&
     (!department || task.departmentId === department) &&
     (!status || task.status === status) &&
@@ -372,14 +373,15 @@ function openDrawer(type, item = null) {
   drawer = { type, item: item ? structuredClone(item) : null };
   q("#drawer-kind").textContent = type.toUpperCase();
   q("#drawer-title").textContent = drawerTitle(type, item);
-  q("#delete-drawer").classList.toggle("is-hidden", !item?.id || ["employee", "department"].includes(type));
+  q("#save-drawer").classList.toggle("is-hidden", type === "taskImport");
+  q("#delete-drawer").classList.toggle("is-hidden", type === "taskImport" || !item?.id || ["employee", "department"].includes(type));
   q("#drawer-message").replaceChildren();
   q("#drawer-body").innerHTML = drawerForm(type, drawer.item || blankItem(type));
   q("#workline-drawer").classList.remove("is-hidden");
 }
 
 function drawerTitle(type, item) {
-  const map = { task: "タスク編集", artifact: "成果物編集", evaluation: "業務振り返り", employee: "社員編集", department: "部署編集", link: "リンク編集" };
+  const map = { task: "タスク編集", taskImport: "AI回答からタスクを取り込む", artifact: "成果物編集", evaluation: "業務振り返り", employee: "社員編集", department: "部署編集", link: "リンク編集" };
   return `${map[type] || "編集"}${item ? "" : "（新規）"}`;
 }
 
@@ -394,11 +396,116 @@ function blankItem(type) {
 
 function drawerForm(type, item) {
   if (type === "task") return taskForm(item);
+  if (type === "taskImport") return taskImportForm();
   if (type === "artifact") return artifactForm(item);
   if (type === "evaluation") return evaluationForm(item);
   if (type === "employee") return employeeForm(item);
   if (type === "department") return departmentForm(item);
   return linkForm(item);
+}
+
+function taskImportPrompt() {
+  const employees = workline.employees.map((item) => `- ${item.id}: ${item.name}`).join("\n") || "- 未登録";
+  const departments = workline.departments.map((item) => `- ${item.id}: ${item.name}`).join("\n") || "- 未登録";
+  return `# Worklineタスク登録テンプレート
+
+次のJSONを1件だけ返してください。説明文、Markdownのコードフェンス、ID、createdAt、updatedAtは含めません。
+
+## 項目の説明
+- title: 必須。タスク名を短く書く。
+- description: 背景、目的、完了したい状態を書く。
+- nextAction: 次に最初にする行動を一つ書く。
+- type: project（親案件）/ task（作業）/ subtask（小タスク）。通常はtask。
+- workflowType: general（通常企画）/ external（外部案件）。通常はgeneral。
+- status: idea / planned / inProgress / review / publishDecision / completed。通常はidea。
+- priority: low / normal / high / urgent。通常はnormal。
+- primaryAssigneeId: 主担当の社員ID。補助・確認担当は配列で書く。
+- departmentId: 担当部署のID。
+- startDate / endDate: YYYY-MM-DD。未定なら空文字。
+- tags: 検索用の短いタグ配列。
+- notes: 補足、未決定事項、注意点。
+- codexInstruction: Codexへ渡す実装や調査の依頼内容。不要なら空文字。
+
+## 社員ID
+${employees}
+
+## 部署ID
+${departments}
+
+## 出力するJSON
+{
+  "title": "",
+  "description": "",
+  "nextAction": "",
+  "type": "task",
+  "workflowType": "general",
+  "status": "idea",
+  "priority": "normal",
+  "visibility": "internal",
+  "departmentId": "",
+  "primaryAssigneeId": "",
+  "supportAssigneeIds": [],
+  "reviewerIds": [],
+  "startDate": "",
+  "endDate": "",
+  "parentTaskId": "",
+  "tags": [],
+  "notes": "",
+  "codexInstruction": "",
+  "external": {
+    "clientName": "",
+    "projectName": "",
+    "proposedAmount": "",
+    "taxType": "",
+    "proposedAt": "",
+    "desiredDueDate": "",
+    "deliverables": ""
+  }
+}`;
+}
+
+function taskImportForm() {
+  return `<div class="task-import-guide">
+    <p class="muted">AIとの会話で整理した内容を、通常のタスク編集画面へ取り込みます。取り込み後は保存前に内容を確認できます。</p>
+    <ol>
+      <li>下のテンプレートをコピーし、AIセッションへ渡します。</li>
+      <li>AIから返ったJSONだけを下の入力欄へ貼り付けます。</li>
+      <li>取り込んだあと、担当・期限・状態を確認して通常どおり保存します。</li>
+    </ol>
+    <label class="field"><span>AIに渡すテンプレート</span><textarea id="task-import-template" readonly rows="20">${esc(taskImportPrompt())}</textarea></label>
+    <div class="button-row"><button class="button secondary" id="copy-task-import-template" type="button">テンプレートをコピー</button></div>
+    <label class="field"><span>AIから返ってきたJSON</span><textarea id="task-import-input" rows="16" placeholder='{"title":"例：社員紹介ページの確認","nextAction":"対象ページを一つ開いて確認する"}'></textarea></label>
+    <div class="button-row"><button class="button primary" id="apply-task-import" type="button">タスクへ取り込む</button></div>
+  </div>`;
+}
+
+function importedStringList(value) {
+  if (Array.isArray(value)) return value.map((item) => String(item || "").trim()).filter(Boolean);
+  return String(value || "").split(/[、,\n]/).map((item) => item.trim()).filter(Boolean);
+}
+
+function importedId(value, items) {
+  const text = String(value || "").trim();
+  return items.find((item) => item.id === text || item.name === text)?.id || text;
+}
+
+function taskFromImport(rawText) {
+  const source = rawText.trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "");
+  const imported = JSON.parse(source);
+  if (!imported || Array.isArray(imported) || typeof imported !== "object") throw new Error("JSONオブジェクトを1件だけ貼り付けてください。");
+  const task = { ...blankItem("task") };
+  ["title", "description", "nextAction", "type", "workflowType", "status", "priority", "visibility", "startDate", "endDate", "parentTaskId", "notes", "codexInstruction"].forEach((key) => {
+    if (imported[key] !== undefined) task[key] = String(imported[key] ?? "").trim();
+  });
+  task.tags = importedStringList(imported.tags);
+  task.departmentId = importedId(imported.departmentId, workline.departments);
+  task.primaryAssigneeId = importedId(imported.primaryAssigneeId, workline.employees);
+  task.supportAssigneeIds = importedStringList(imported.supportAssigneeIds).map((item) => importedId(item, workline.employees));
+  task.reviewerIds = importedStringList(imported.reviewerIds).map((item) => importedId(item, workline.employees));
+  task.employeeIds = [...new Set([task.primaryAssigneeId, ...task.supportAssigneeIds, ...task.reviewerIds].filter(Boolean))];
+  task.external = { ...task.external, ...(imported.external && typeof imported.external === "object" ? imported.external : {}) };
+  if (!task.title) throw new Error("title は必須です。AIの回答にタスク名を含めてください。");
+  return task;
 }
 
 function options(items, selected, empty = "") {
@@ -757,6 +864,7 @@ document.addEventListener("click", async (event) => {
   if (!target.matches("button") && event.target.closest("[data-stop-open]")) return;
   if (target.id === "refresh-workline") await loadWorkline();
   if (target.id === "new-task") openDrawer("task");
+  if (target.id === "import-task") openDrawer("taskImport");
   if (target.id === "new-artifact") openDrawer("artifact");
   if (target.id === "new-employee") openDrawer("employee");
   if (target.id === "new-department") openDrawer("department");
@@ -807,6 +915,19 @@ document.addEventListener("click", async (event) => {
     await navigator.clipboard.writeText(task.codexInstruction || codexTemplate(task));
     drawerMessage(["Codex指示をコピーしました。"]);
   }
+  if (target.id === "copy-task-import-template") {
+    await navigator.clipboard.writeText(q("#task-import-template")?.value || taskImportPrompt());
+    drawerMessage(["AIセッション用テンプレートをコピーしました。"]);
+  }
+  if (target.id === "apply-task-import") {
+    try {
+      const task = taskFromImport(q("#task-import-input")?.value || "");
+      openDrawer("task", task);
+      drawerMessage(["取り込みました。内容を確認してから保存してください。"]);
+    } catch (error) {
+      drawerMessage([error.message || "JSONを取り込めませんでした。"], "error");
+    }
+  }
   if (target.dataset.copy) {
     await navigator.clipboard.writeText(target.dataset.copy);
   }
@@ -828,24 +949,12 @@ document.addEventListener("change", async (event) => {
     const previousValue = task.status;
     const nextValue = event.target.value;
     if (nextValue === "completed" && previousValue !== "completed") {
-      const choice = prompt("このタスクの業務振り返りを記録しますか？\n1: 今入力する\n2: 後で入力する\n3: 評価対象外", "2");
       const result = await updateTaskStatus(task, nextValue);
       if (!result.ok) {
         event.target.value = previousValue;
         return alert((result.errors || ["状態を更新できませんでした。"]).join("\n"));
       }
-      if (choice === "1") {
-        await loadWorkline();
-        openDrawer("evaluation", newEvaluationForTask(task.id));
-      } else if (choice === "2") {
-        await createStatusEvaluation(task.id, "later");
-        await loadWorkline();
-      } else if (choice === "3") {
-        await createStatusEvaluation(task.id, "notApplicable");
-        await loadWorkline();
-      } else {
-        await loadWorkline();
-      }
+      await loadWorkline();
       return;
     }
     const result = await updateTaskStatus(task, nextValue);

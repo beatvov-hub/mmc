@@ -99,10 +99,10 @@ function startServer(repoRoot) {
 
 function createWindow(repoRoot) {
   mainWindow = new BrowserWindow({
-    width: 1360,
-    height: 900,
-    minWidth: 980,
-    minHeight: 680,
+    width: 1040,
+    height: 760,
+    minWidth: 900,
+    minHeight: 620,
     show: false,
     title: "MMC Workline",
     icon: path.join(repoRoot, "favicon.ico"),

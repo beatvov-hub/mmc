@@ -28,6 +28,7 @@ const {
 const { detectPython, runGenerators, validatePythonPath } = require("./lib/python-runner");
 const {
   addActivity,
+  createUnevaluatedEvaluation,
   dashboard: worklineDashboard,
   evaluationSummary: worklineEvaluationSummary,
   loadAll: loadWorkline,
@@ -435,9 +436,22 @@ async function handleWorklineApi(request, response, url) {
     if (item.departmentId && !all.departments.some((dept) => dept.id === item.departmentId)) errors.push("存在しない部署IDです。");
   }
   if (errors.length) return sendJson(response, 422, { ok: false, errors });
+  const completedNow = collectionKey === "tasks" && item.status === "completed" && existing?.status !== "completed";
   if (index >= 0) items[index] = item;
   else items.unshift(item);
   await writeWorklineJson(ROOT, collectionKey, items);
+  if (completedNow) {
+    const evaluation = createUnevaluatedEvaluation(item, all.evaluations);
+    if (evaluation) {
+      await writeWorklineJson(ROOT, "evaluations", [evaluation, ...all.evaluations]);
+      await addActivity(ROOT, {
+        type: "evaluation_created",
+        targetType: "evaluations",
+        targetId: evaluation.id,
+        message: `${item.title} の業務振り返りを未評価で追加しました。`
+      });
+    }
+  }
   await addActivity(ROOT, {
     type: `${collectionKey}_${index >= 0 ? "updated" : "created"}`,
     targetType: collectionKey,

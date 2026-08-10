@@ -32,15 +32,19 @@ start-workline.cmd
 start-cms.cmd
 ```
 
-`start-cms.cmd` は互換性のため残しています。どちらも同じMMC Worklineを起動します。
+`start-cms.cmd` は互換性のため残しています。どちらも同じ単体アプリを起動します。
 
-ブラウザーでは次のURLを開きます。
+リポジトリ直下の同名ファイルから起動しても同じです。通常利用は `MMC Workline.vbs`、または `start-workline.cmd` を使います。
+
+ブラウザーで起動したい場合だけ、`start-workline-browser.cmd` を使います。次のURLを開きます。
 
 ```text
 http://127.0.0.1:4310/
 ```
 
 ## 方針
+
+- 初期ウィンドウは 1040 × 760px のコンパクトな専用画面です。最小サイズは 900 × 620px です。
 
 - 外部AI API・有料APIは使いません。
 - サーバーは `127.0.0.1` のみで待ち受けます。

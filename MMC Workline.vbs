@@ -1,5 +1,10 @@
 Set shell = CreateObject("WScript.Shell")
 Set fso = CreateObject("Scripting.FileSystemObject")
 base = fso.GetParentFolderName(WScript.ScriptFullName)
-command = "cmd /c cd /d """ & base & "\tools\mmc-cms"" && node desktop-launcher.js"
-shell.Run command, 0, False
+app = base & "\tools\mmc-cms\dist\MMC Workline.exe"
+If fso.FileExists(app) Then
+  shell.Run """" & app & """", 1, False
+Else
+  command = "cmd /c cd /d """ & base & "\tools\mmc-cms"" && npm.cmd start"
+  shell.Run command, 0, False
+End If

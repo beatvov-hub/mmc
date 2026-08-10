@@ -482,6 +482,19 @@ function normalizeEvaluation(payload, existing = null, all = null) {
   };
 }
 
+function createUnevaluatedEvaluation(task, evaluations = []) {
+  if (!task?.id || evaluations.some((item) => item.taskId === task.id || item.workItemId === task.id)) return null;
+  return normalizeEvaluation({
+    taskId: task.id,
+    workItemId: task.id,
+    evaluationType: "final",
+    status: "unevaluated",
+    evaluationStatus: "unevaluated",
+    completionLevel: "completed",
+    evaluatedAt: String(task.completedAt || nowIso()).slice(0, 10)
+  }, null, { evaluations });
+}
+
 function normalizeActors(value) {
   if (!Array.isArray(value)) return [];
   return value.map((actor) => ({
@@ -700,6 +713,7 @@ module.exports = {
   WORKFLOW_TYPES,
   addActivity,
   dashboard,
+  createUnevaluatedEvaluation,
   evaluationStatusForTask,
   evaluationSummary,
   loadAll,

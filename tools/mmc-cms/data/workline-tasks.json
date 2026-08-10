@@ -1,5 +1,146 @@
 [
   {
+    "id": "task-msndciep-44ykwe",
+    "title": "248曲選定",
+    "description": "まずは曲をタグに合わせて選んでいく",
+    "type": "subtask",
+    "workflowType": "general",
+    "visibility": "internal",
+    "nextAction": "248曲の選定",
+    "departmentId": "public-relations",
+    "primaryAssigneeId": "kei",
+    "supportAssigneeIds": [
+      "hono"
+    ],
+    "reviewerIds": [
+      "kei"
+    ],
+    "employeeIds": [
+      "kei",
+      "hono"
+    ],
+    "startDate": "2026-08-11",
+    "endDate": "2026-08-14",
+    "status": "idea",
+    "priority": "high",
+    "progress": 0,
+    "parentTaskId": "task-msnbk94j-r13mzi",
+    "tags": [],
+    "notes": "",
+    "codexInstruction": "",
+    "external": {
+      "clientName": "",
+      "projectName": "",
+      "proposedAmount": 0,
+      "taxType": "",
+      "proposedAt": null,
+      "desiredDueDate": null,
+      "deliverables": "",
+      "invoiceStatus": "",
+      "paymentStatus": ""
+    },
+    "createdAt": "2026-08-10T15:10:56.305Z",
+    "updatedAt": "2026-08-10T15:10:56.305Z",
+    "completedAt": null,
+    "decisionLogs": []
+  },
+  {
+    "id": "task-msnbk94j-r13mzi",
+    "title": "毎日聴く音楽室 公開準備",
+    "description": "毎日同じ3つの質問へのYES／NO回答から8ルートに分岐し、AI社員がその日の気分に合う人間制作の楽曲を1曲案内する体験型ページを制作する。レトロなジュークボックスを軸に、アクセシビリティとユーザビリティを重視したUIを実装し、31日×8ルート＝248曲の選曲データを整備する。UI・データ基盤・選曲原稿を完成させ、公開判断できる状態を目指す。",
+    "type": "project",
+    "workflowType": "general",
+    "visibility": "internal",
+    "nextAction": "進捗スプレッドシートを使って248曲の選曲と所長の選曲理由入力を進める。",
+    "departmentId": "public-relations",
+    "primaryAssigneeId": "kei",
+    "supportAssigneeIds": [
+      "rei",
+      "akito",
+      "makoto",
+      "koto"
+    ],
+    "reviewerIds": [],
+    "employeeIds": [
+      "kei",
+      "rei",
+      "akito",
+      "makoto",
+      "koto"
+    ],
+    "startDate": "2026-08-10",
+    "endDate": "2026-08-16",
+    "status": "inProgress",
+    "priority": "normal",
+    "progress": 0,
+    "parentTaskId": null,
+    "tags": [
+      "毎日聴く音楽室\\n音楽\\nUIUX\\nアクセシビリティ\\nJSON\\n248曲"
+    ],
+    "notes": "3問は固定で、回答パターンYYY・YYN・YNY・YNN・NYY・NYN・NNY・NNNの8ルートを使用する。各ルートに1日〜31日の楽曲を設定し、計248曲を用意する。進捗スプレッドシートにはID、日、ルート、仮の選曲担当、選曲用の気分タグ等を入力済み。楽曲と所長の選曲理由は手作業で入力し、その選曲理由を元に担当AI社員の口調へ40〜120字程度のコメントとして編集する方針。気分タグは31曲を発想しやすいよう、ルートの方向性を保ちながら中毒性、グルーヴ、夜風、失恋、浮遊感などバリエーションを持たせている。音楽室はラウンジと同じ8:00〜23:00営業とする案。公開前は選曲データの充足、公式リンク、文章、スマホ表示、アクセシビリティを確認する。",
+    "codexInstruction": "既存サイトの構成とデザインを維持しながら「毎日聴く音楽室」を実装・調整する。3問のYES／NO回答から8ルートを判定し、日本時間の日付と組み合わせてmusic-room-tracks.jsonから該当曲を表示する。レトロなジュークボックスの世界観を保ちつつ、WCAG 2.2 AAを意識し、キーボード操作、明確なフォーカス、十分なタップ領域、色だけに依存しない表示、prefers-reduced-motion、320px幅・200％拡大への対応を行う。営業時間は8:00〜23:00とし、閉室中は選曲機能を停止しつつページ説明は閲覧可能にする。公開前はnoindex・非導線状態を維持し、既存サイトへの不要な大規模リファクタリングや新規依存追加は避ける。",
+    "external": {
+      "clientName": "",
+      "projectName": "",
+      "proposedAmount": 0,
+      "taxType": "",
+      "proposedAt": null,
+      "desiredDueDate": null,
+      "deliverables": "",
+      "invoiceStatus": "",
+      "paymentStatus": ""
+    },
+    "createdAt": "2026-08-10T14:20:58.291Z",
+    "updatedAt": "2026-08-10T14:20:58.291Z",
+    "completedAt": null,
+    "decisionLogs": []
+  },
+  {
+    "id": "task-msnahos3-2cqlnq",
+    "title": "人狼メモツール 吊りHP調整",
+    "description": "実戦利用を通して吊りHPの重みと表示方法を検証し、必要な調整を行う。",
+    "type": "task",
+    "workflowType": "general",
+    "visibility": "internal",
+    "nextAction": "次回の人狼で吊りHPを実戦使用し、違和感のある計算結果を記録する。",
+    "departmentId": "development",
+    "primaryAssigneeId": "akito",
+    "supportAssigneeIds": [
+      "dg"
+    ],
+    "reviewerIds": [],
+    "employeeIds": [
+      "akito",
+      "dg"
+    ],
+    "startDate": "2026-08-10",
+    "endDate": "2026-08-16",
+    "status": "idea",
+    "priority": "normal",
+    "progress": 0,
+    "parentTaskId": null,
+    "tags": [
+      "人狼メモ\\n吊りHP\\n感情ライン"
+    ],
+    "notes": "重みは実戦結果を見てから変更する。狼判定ではなく吊り圧の観測値として扱う。",
+    "codexInstruction": "",
+    "external": {
+      "clientName": "",
+      "projectName": "",
+      "proposedAmount": 0,
+      "taxType": "",
+      "proposedAt": null,
+      "desiredDueDate": null,
+      "deliverables": "",
+      "invoiceStatus": "",
+      "paymentStatus": ""
+    },
+    "createdAt": "2026-08-10T13:50:58.995Z",
+    "updatedAt": "2026-08-10T13:50:58.995Z",
+    "completedAt": null,
+    "decisionLogs": []
+  },
+  {
     "id": "task-mshoq3u1-ugr023",
     "title": "MMC Workline UI・デザイン微調整",
     "description": "MMC Worklineを日常的に使いやすくするため、画面内の細かなデザインや表示を見直す。\n\n対象画面や具体的な修正内容は、実際にWorklineを操作しながら洗い出し、優先順位を付けて順次調整する。\n\n既存のタスク管理、サイト更新室、成果物、業務振り返りなどの機能は維持し、主に見た目と操作性の改善を行う。\n\nWorklineを日常的に開いた時の見やすさを改善する\n進行ボードや各画面で、情報の優先順位を分かりやすくする\nボタン、余白、文字サイズ、配置などの小さな使いにくさを減らす\n所長が迷わずタスク確認・更新できる画面へ整える\n機能を追加しすぎず、現在のWorklineを使いやすく仕上げる",
@@ -63,7 +204,7 @@
     ],
     "startDate": "2026-08-07",
     "endDate": "2026-08-08",
-    "status": "idea",
+    "status": "completed",
     "priority": "high",
     "progress": 0,
     "parentTaskId": null,
@@ -84,8 +225,8 @@
       "paymentStatus": ""
     },
     "createdAt": "2026-08-06T15:37:23.123Z",
-    "updatedAt": "2026-08-06T15:37:23.123Z",
-    "completedAt": null,
+    "updatedAt": "2026-08-10T13:28:03.383Z",
+    "completedAt": "2026-08-10T13:28:03.383Z",
     "decisionLogs": []
   }
 ]

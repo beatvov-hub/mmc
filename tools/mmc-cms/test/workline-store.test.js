@@ -7,6 +7,7 @@ const os = require("node:os");
 const path = require("node:path");
 const {
   addActivity,
+  createUnevaluatedEvaluation,
   evaluationSummary,
   loadAll,
   normalizeDecisionLog,
@@ -172,6 +173,15 @@ test("活動履歴は設定上限で切り詰める", async (context) => {
   const saved = await loadAll(root);
   assert.equal(saved.activity.length, 2);
   assert.equal(saved.activity[0].message, "3");
+});
+
+test("完了タスクには未評価の業務振り返りを一度だけ作成する", () => {
+  const task = normalizeTask({ id: "completed-task", title: "完了テスト", status: "completed" });
+  const evaluation = createUnevaluatedEvaluation(task, []);
+  assert.equal(evaluation.taskId, task.id);
+  assert.equal(evaluation.evaluationStatus, "unevaluated");
+  assert.equal(evaluation.completionLevel, "completed");
+  assert.equal(createUnevaluatedEvaluation(task, [evaluation]), null);
 });
 
 test("業務振り返りの初期データと保存ができる", async (context) => {
