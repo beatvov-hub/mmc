@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>毎日聴く音楽室｜今日のあなたに、一曲だけ。｜毎日見る株式会社</title>
+    <meta name="description" content="3つの質問へ答えると、AI社員が今日のあなたへ人間の作った一曲を提案します。性格診断ではなく、今日の気分と音楽をつなぐ選曲体験です。" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="styles.css?v=20260810" />
+    <link rel="stylesheet" href="styles/music-room.css?v=20260810" />
+  </head>
+  <body class="subpage music-room-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="index.html" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="index.html">ホーム</a>
+        <a href="about.html">会社概要</a>
+        <a href="members.html">AI社員紹介</a>
+        <a href="ai-forensics/">AI鑑識室</a>
+        <a href="works.html">制作物</a>
+        <a href="lounge.html">ラウンジ</a>
+        <a href="news.html">ニュース</a>
+        <a class="nav-contact-link" href="contact.html">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="contact.html">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main>
+      <section class="music-room-experience" aria-labelledby="music-room-title">
+        <picture class="music-room-backdrop" aria-hidden="true">
+          <source media="(max-width: 640px)" srcset="image/music-room/music-room-mobile.webp" />
+          <img src="image/music-room/music-room-wide.webp" alt="" width="1672" height="941" />
+        </picture>
+        <div class="music-room-shade" aria-hidden="true"></div>
+
+        <div class="music-room-stage-wrap" data-music-room>
+          <div class="music-room-machine" data-machine-state="intro">
+            <label class="music-room-sound-toggle">
+              <input type="checkbox" role="switch" data-sound-toggle checked />
+              <span class="music-room-sound-icon" aria-hidden="true">♪</span>
+              <span class="music-room-sound-label">効果音</span>
+              <b data-sound-state>ON</b>
+            </label>
+            <div class="music-room-lamps" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="music-room-startup-visual" aria-hidden="true">
+              <span class="music-room-startup-record"><i></i></span>
+              <span class="music-room-startup-arm"></span>
+            </div>
+            <div class="music-room-display" aria-hidden="true">
+              <span>MMC MUSIC SELECTOR</span>
+              <b data-display-code>READY</b>
+            </div>
+
+            <section class="music-room-stage is-active" data-stage="intro" aria-labelledby="music-room-title">
+              <p class="music-room-eyebrow" data-copy="heroEyebrow">毎日聴く音楽室</p>
+              <h1 id="music-room-title">
+                <span data-hero-title-line="0">今日のあなたに</span>
+                <span data-hero-title-line="1">一曲だけ。</span>
+              </h1>
+              <p class="music-room-lead" data-copy="heroDescription">3つだけ、いまの気分を教えてください。</p>
+              <button class="music-room-primary" type="button" data-start>
+                <span data-copy="startButtonLabel">今日の一曲を選んでもらう</span>
+                <span aria-hidden="true">→</span>
+              </button>
+              <p class="music-room-note" data-copy="heroNote">質問は毎日同じです。変わるのは、今日のあなた。</p>
+            </section>
+
+            <section class="music-room-stage" data-stage="question" aria-labelledby="music-room-question" hidden>
+              <div class="music-room-progress-copy">
+                <span data-progress-label>質問 1 / 3</span>
+                <span>今日の気分</span>
+              </div>
+              <div class="music-room-progress" role="progressbar" aria-label="質問の進捗" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1">
+                <span data-progress-bar></span>
+              </div>
+              <p class="music-room-question-number" data-question-number>Q1</p>
+              <h2 id="music-room-question" tabindex="-1" data-question-text>今日も、楽しいですか？</h2>
+              <div class="music-room-answers" aria-label="回答を選択">
+                <button type="button" data-answer="yes"><span aria-hidden="true">○</span><span data-copy="yesLabel">YES / はい</span></button>
+                <button type="button" data-answer="no"><span aria-hidden="true">−</span><span data-copy="noLabel">NO / いいえ</span></button>
+              </div>
+              <button class="music-room-back" type="button" data-back>
+                <span aria-hidden="true">←</span>
+                <span data-copy="backLabel">ひとつ戻る</span>
+              </button>
+            </section>
+
+            <section class="music-room-stage" data-stage="selecting" aria-labelledby="music-room-selecting-title" hidden aria-busy="false">
+              <p class="music-room-eyebrow">JUKEBOX SELECTING</p>
+              <h2 id="music-room-selecting-title" tabindex="-1" data-copy="selectingMessage">今日の一曲を探しています。</h2>
+              <div class="music-room-record" aria-hidden="true"><span></span></div>
+              <div class="music-room-slot-numbers" aria-hidden="true"><span>17</span><span>42</span><span>08</span></div>
+              <button class="music-room-skip" type="button" data-skip data-copy="skipLabel">選曲演出をスキップ</button>
+            </section>
+
+            <section class="music-room-stage music-room-result" data-stage="result" aria-labelledby="music-room-result-title" hidden>
+              <p class="music-room-eyebrow">TODAY'S ONE SONG</p>
+              <h2 id="music-room-result-title" tabindex="-1" data-result-heading>AI社員が、今日のあなたへ一曲選びました。</h2>
+
+              <div data-track-result hidden>
+                <p class="music-room-result-label">今日の一曲</p>
+                <p class="music-room-track-title" data-track-title></p>
+                <p class="music-room-track-artist" data-track-artist></p>
+
+                <div class="music-room-staff">
+                  <img data-staff-image src="image/icon/icon_mmc001.jpg" alt="" width="80" height="80" />
+                  <div>
+                    <span>選曲</span>
+                    <strong data-staff-name>AI社員</strong>
+                    <small data-staff-role></small>
+                  </div>
+                </div>
+
+                <blockquote class="music-room-message" data-track-message></blockquote>
+                <div class="music-room-reason">
+                  <h3>なぜこの曲？</h3>
+                  <p data-track-reason></p>
+                </div>
+                <ul class="music-room-tags" data-track-tags aria-label="気分タグ"></ul>
+                <aside class="music-room-director-note" data-director-note-wrap hidden>
+                  <strong>所長の観測メモ</strong>
+                  <p data-director-note></p>
+                </aside>
+                <div class="music-room-external-links" data-external-links></div>
+                <a class="music-room-profile-link" data-staff-profile href="members.html">選曲したAI社員のプロフィールを見る</a>
+              </div>
+
+              <div class="music-room-unavailable" data-track-unavailable hidden>
+                <span class="music-room-unavailable-mark" aria-hidden="true">♪</span>
+                <h3 data-copy="unavailableHeading">今日の選曲棚は、まだ準備中です。</h3>
+                <p data-copy="unavailableMessage">3つの回答は受け取りました。この日の一曲が棚に入るまで、もう少しだけお待ちください。</p>
+              </div>
+
+              <button class="music-room-retry" type="button" data-retry data-copy="retryLabel">もう一度、今日の気分に答える</button>
+            </section>
+
+            <p class="visually-hidden" aria-live="polite" aria-atomic="true" data-live-region></p>
+            <audio data-music-sfx="startup" src="audio/music-room/jukebox-start.wav" preload="auto"></audio>
+            <audio data-music-sfx="tick" src="audio/music-room/jukebox-tick.wav" preload="auto"></audio>
+            <audio data-music-sfx="select" src="audio/music-room/jukebox-select.wav" preload="auto"></audio>
+            <audio data-music-sfx="complete" src="audio/music-room/jukebox-complete.wav" preload="auto"></audio>
+          </div>
+
+          <p class="music-room-status" data-load-status role="status">選曲棚を確認しています。</p>
+          <noscript>
+            <div class="music-room-noscript">
+              <h2>毎日聴く音楽室</h2>
+              <p>3つの質問から、今日の気分に合う一曲をご案内します。この選曲体験にはJavaScriptが必要です。</p>
+              <a href="index.html">ホームへ戻る</a>
+            </div>
+          </noscript>
+        </div>
+      </section>
+
+      <section class="music-room-about" aria-labelledby="music-room-about-title">
+        <div class="music-room-about-intro">
+          <p class="section-kicker">ABOUT THIS ROOM</p>
+          <h2 id="music-room-about-title">この音楽室について</h2>
+          <p>毎日聴く音楽室は、3つの質問から今日の気分を少しだけ見つめ、人間が作った一曲と出会うためのページです。AI社員は音楽を作るのではなく、今日の人間へ一曲を差し出す案内役になります。</p>
+        </div>
+        <div class="music-room-about-grid">
+          <article>
+            <span>01</span>
+            <h3>毎日同じ質問をする理由</h3>
+            <p>質問は毎日変わりません。変わるのは、その日に答える人間の方です。同じ答えでも日付が変われば、別の一曲と出会えます。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>選曲について</h3>
+            <p>これは性格診断ではありません。YESとNOのどちらが良いということもありません。今の気持ちに浸るための曲も、同じように大切な選択肢です。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>音源と外部リンク</h3>
+            <p>このサイトでは音源を配信・自動再生しません。選ばれた曲は、公式YouTubeやSpotifyなどの外部サービスで聴けます。</p>
+          </article>
+        </div>
+        <div class="music-room-faq">
+          <h2>よくある質問</h2>
+          <details><summary>同じ回答なら毎日同じ曲ですか？</summary><p>同じ日本時間の日付で同じ回答なら、何度答えても同じ曲です。日付が変わると別の曲になることがあります。</p></details>
+          <details><summary>回答内容は保存されますか？</summary><p>保存しません。回答はこのページを表示している間だけ、ブラウザ内で選曲に使われます。</p></details>
+          <details><summary>音楽はこのページで自動再生されますか？</summary><p>自動再生しません。曲を聴く場合は、結果画面から外部サービスへ移動してください。</p></details>
+          <details><summary>なぜ暗い曲が出ることがあるのですか？</summary><p>気分を無理に変えず、今の気持ちや音の空気感に浸る時間も正式な選択肢として扱っているためです。</p></details>
+        </div>
+      </section>
+    </main>
+
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand"><strong>毎日見る<br />株式会社</strong><p>AIが働き、人間が考え、創造する。</p></div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="index.html">ホーム</a><a href="about.html">会社概要</a><a href="members.html">AI社員紹介</a><a href="ai-forensics/">AI鑑識室</a><a href="works.html">制作物</a><a href="lounge.html">ラウンジ</a><a href="news.html">ニュース</a><a href="contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="scripts/site-nav.js"></script>
+    <!-- SITE_FOOTER_END -->
+    <script src="scripts/music-room-core.js"></script>
+    <script src="scripts/music-room.js"></script>
+  </body>
+</html>

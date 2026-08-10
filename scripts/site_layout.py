@@ -280,7 +280,8 @@ def apply_layout_to_html(html_text: str, *, prefix: str, current: str) -> str:
 def apply_layout_to_file(path: Path) -> bool:
     prefix, current = page_context(path)
     original = path.read_text(encoding="utf-8")
-    updated = apply_canonical(original, url=canonical_url(path))
+    # The music room remains a noindex preview until its 248-track set is approved.
+    updated = original if path.name == "music-room.html" else apply_canonical(original, url=canonical_url(path))
     updated = apply_layout_to_html(updated, prefix=prefix, current=current)
     updated = normalize_internal_links(updated)
     if updated == original:

@@ -16,12 +16,7 @@
 
 - `src/data/loungeLogs.json`
   - ラウンジ観測記録の元データです。
-  - 「今日の一言」は本文の `content` に混ぜず、必要な場合だけ `todayWords` に分離して管理します。
-  - `scripts/generate_lounge.py` で `lounge.html`、日付別の `lounge-archive/YYYY-MM-DD.html`、`index.html`、`sitemap.xml` に反映されます。
-
-- `src/data/loungeCalendarTopics.json`
-  - ラウンジカレンダーに表示する時間帯別テーマと、日別アーカイブへのアンカーを管理します。
-  - テーマはおおむね25文字以内で、`date`、`time`、`topic`、`anchor` を持たせます。
+  - `scripts/generate_lounge.py` で `lounge.html`、日付別の `lounge-archive/YYYY-MM-DD.html`、`index.html`、`mainichi-miru-sitemap.xml` に反映されます。
 
 - `src/data/newsItems.json`
   - トップのお知らせ、ニュースページ、会社概要の沿革の元データです。
@@ -45,6 +40,13 @@
 - `src/data/pechiLoungeMemos.json`
   - ラウンジ内のペチ関連メモ用データです。
 
+- `src/data/music-room-config.json`
+  - 「毎日聴く音楽室」の公開状態、質問文、画面文言、使用する31日セットを管理します。
+
+- `src/data/music-room-tracks.json`
+  - 1〜31日と8回答ルートを組み合わせた248曲枠を管理します。
+  - 曲の編集方法と公開条件は `docs/music-room-data-guide.md` を参照してください。
+
 共通パーツ
 ----------
 
@@ -61,7 +63,7 @@
 
 - ラウンジ観測記録は `loungeLogs.json` で管理します。
 - 1日複数回更新できる前提で、日付別アーカイブページとカレンダー表示を生成します。
-- 2026-08-10 時点で、`loungeLogs.json` は 148 件あります。
+- 2026-08-10 時点で、`loungeLogs.json` は 147 件あります。
 - `lounge-archive/` は時間別ではなく、1日1ページの `YYYY-MM-DD.html` にまとめます。
 - 時間別の導線は `lounge-archive/YYYY-MM-DD.html#YYYY-MM-DD-HHMM` のアンカーで管理します。
 - `lounge.html` には時間帯でラウンジ画像を切り替えるJavaScriptがあります。
@@ -90,6 +92,14 @@
 - トップのお知らせは `newsItems.json` の `topVisible: true` の項目から生成されます。
 - 2026-07-09 の「制作物『神村フェーズデュエル』を更新しました」は、同期時に消えていたため復元済みです。
 
+### 毎日聴く音楽室
+
+- `music-room.html` は公開前プレビューです。
+- グローバルナビ、トップページ、制作物一覧、サイトマップにはまだ掲載しません。
+- `noindex`とcanonical未設定を、所長の公開承認まで維持します。
+- 曲データは現在0 / 248で、未登録枠では準備中メッセージを表示します。
+- AI社員情報は `tools/mmc-cms/data/workline-employees.json` を参照します。
+
 生成コマンド
 ------------
 
@@ -102,6 +112,7 @@ python scripts/generate_lounge.py
 python scripts/generate_works.py
 python scripts/generate_ai_forensics.py
 python scripts/apply_layout.py
+python scripts/validate_music_room.py
 ```
 
 Codex環境で通常の `python` が見つからない場合は、Codex同梱Pythonを使います。
@@ -113,6 +124,7 @@ Codex環境で通常の `python` が見つからない場合は、Codex同梱Pyt
 & 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/generate_works.py
 & 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/generate_ai_forensics.py
 & 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/apply_layout.py
+& 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/validate_music_room.py
 ```
 
 更新時の注意
@@ -145,12 +157,17 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 
 ### 2026-08-10
 
-- `src/data/loungeLogs.json` に 2026-08-10 08:00 の朝ラウンジ記録を追加しました。社員写真の履歴、机の上のマイアイテム、雑談から生まれる企画の種を記録しています。
-- 同じ朝ログの「今日の一言」は本文から分離し、`todayWords` としてトップの専用欄へ表示する形式にしました。
-- `src/data/loungeLogs.json` に 2026-08-10 13:00 の昼ラウンジ記録を追加しました。夏祭り仕様のBean & Bitsを季節限定で試す案を記録しています。
-- `src/data/loungeCalendarTopics.json` に 2026-08-10 08:00、13:00 のテーマとアーカイブアンカーを追加しました。
-- `scripts/generate_lounge.py` を実行し、`lounge.html`、`lounge-archive/2026-08-10.html`、`index.html`、`sitemap.xml` を更新しました。
-- 8:00分には「今日の一言」を設定し、13:00分には設定していません。本文と専用欄を混在させない運用を継続します。
+- 公開前の体験型コンテンツ `music-room.html` と、専用CSS・JavaScriptを追加しました。
+- 3問、8回答ルート、日本時間の日付、選曲演出、結果・準備中表示、戻る・やり直しを実装しました。
+- `src/data/music-room-config.json` と、1〜31日×8ルートの `src/data/music-room-tracks.json` 248枠を追加しました。
+- `scripts/generate_music_room_tracks.py`、`scripts/validate_music_room.py`、`tests/music-room.test.js` を追加しました。
+- Worklineの社員JSONへ正しいプロフィール画像パスとプロフィールURLを追加し、音楽室から既存社員データを参照できるようにしました。
+- 画像生成SkillでPC・スマートフォン用のジュークボックス背景を作成し、WebPへ最適化しました。
+- ヒーロー見出しを「今日のあなたに」「一曲だけ。」の2行へ固定し、320px幅でも3行にならない文字サイズへ調整しました。
+- 「今日の一曲を選んでもらう」押下時に、ジュークボックスのランプ点灯、レコード回転、トーンアーム、筐体と背景の起動演出を追加しました。
+- 起動・操作・選曲・決定の効果音とON/OFFスイッチを追加し、Web Audio API非対応時に使うWAV音源を `scripts/generate_music_room_sfx.py` で再生成できるようにしました。
+- `docs/music-room-data-guide.md` と `docs/music-room-implementation-report.md` に、データ入力・検証・公開手順とテスト結果を記録しました。
+- 公開承認前のため、`noindex`を設定し、ナビ、トップ、works、サイトマップへは追加していません。
 
 ### 2026-07-26
 
