@@ -1,0 +1,216 @@
+{
+    "id":  "case-20260811-03",
+    "publishedAt":  "2026-08-11",
+    "title":  "AIに「このツールも使えるようにしよう」　MCP接続、全部つないで大丈夫？",
+    "shortTitle":  "MCPは便利。でも「つなぐ先」と「渡す権限」を見る",
+    "category":  "security",
+    "difficulty":  "beginner",
+    "targetAudience":  [
+                           "ChatGPTやGitHub Copilotなどへ外部ツールを接続する人",
+                           "MCPという言葉を最近よく見かける人",
+                           "AIエージェントにファイル・Web・社内ツールを使わせたい人",
+                           "会社でAIツールの利用ルールを考える人"
+                       ],
+    "summary":  "AIエージェントへ外部ツールやデータを接続する仕組みとして、MCP（Model Context Protocol）の利用が広がっています。MCPを使うと、AIからファイル、データベース、開発ツールなどへ接続しやすくなります。GitHubは2026年8月6日、Copilotで利用できるMCPサーバーを企業が許可・拒否リストで管理できる機能を発表しました。([[The GitHub Blog](https://github.blog/changelog/month/08-2026/)][1]) これは「MCPが危険」という話ではありません。AIへできることが増えるほど、どの接続先を信用し、どの権限まで渡すかを管理する必要が出てきたということです。一般の利用者も、新しいMCPを見つけたら「便利そうだから接続」ではなく、「誰が提供しているか」「何にアクセスできるか」「その権限は本当に必要か」を見る習慣が大切です。",
+    "scenario":  {
+                     "headline":  "AIにファイル整理を頼みたくて、ネットで見つけたMCPサーバーを追加した",
+                     "description":  "紹介ページには「AIからPCのファイルを操作できる」「作業を完全自動化」と書かれていました。設定するとAIからフォルダやファイルへアクセスできるようになり、とても便利そうです。しかしMCPは、AIと外部のデータやツールをつなぐ仕組みです。つまり接続するサーバーや設定次第では、AIが扱える情報や操作範囲も広がります。GitHubの公式ドキュメントでも、企業向けにMCPサーバーを承認済みリストへ制限する仕組みが推奨されており、許可されていない接続先を一律に使わせない管理方法が提供されています。([[GitHub Docs](https://docs.github.com/en/copilot/concepts/mcp-management)][2])",
+                     "whyItMatters":  "GitHubは2026年8月6日、Copilotクライアントで実行可能なMCPサーバーを企業管理者が中央管理できるallowlist／denylist機能を公開しました。設定ではサーバー名、URL、実行コマンドなどを基準に許可・拒否でき、許可リストにないMCPサーバーをブロックすることもできます。([[The GitHub Blog](https://github.blog/changelog/month/08-2026/)][1]) また、MCPの2026年7月28日版セキュリティ仕様では、アクセストークンの盗難、悪意あるリダイレクト、認可コードの悪用、権限の混同など複数のリスクが明記され、トークンを接続先ごとに正しく制限することやHTTPS、適切な認証処理が求められています。([[Model Context Protocol](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations)][3])"
+                 },
+    "question":  {
+                     "text":  "AIへ新しいMCPサーバーを接続するとき、最も重要な確認は？",
+                     "choices":  [
+                                     {
+                                         "id":  "trust-popularity",
+                                         "label":  "SNSで話題になっているか確認する",
+                                         "description":  "利用者が多ければ安全だと判断する。"
+                                     },
+                                     {
+                                         "id":  "connect-first",
+                                         "label":  "一度全部の権限を許可し、問題があれば後で外す",
+                                         "description":  "便利さを優先してまず接続する。"
+                                     },
+                                     {
+                                         "id":  "verify-provider-and-permissions",
+                                         "label":  "提供元とアクセス範囲を確認し、必要な権限だけ許可する",
+                                         "description":  "何のデータや操作へアクセスできるのかを理解してから接続する。"
+                                     },
+                                     {
+                                         "id":  "avoid-mcp",
+                                         "label":  "MCPは危険なので一切利用しない",
+                                         "description":  "外部ツール連携そのものを避ける。"
+                                     }
+                                 ],
+                     "recommendedAnswers":  [
+                                                "verify-provider-and-permissions"
+                                            ],
+                     "explanation":  "MCPはAIから外部ツールを利用できる便利な標準ですが、接続先によって扱えるデータや操作が異なります。GitHubも企業向けに「MCP自体を禁止する」のではなく、承認されたサーバーだけを利用できるよう管理する方法を提供しています。([[GitHub Docs](https://docs.github.com/en/copilot/concepts/mcp-management)][2]) またMCP公式仕様でも、アクセストークンは対象となるサーバーへ限定し、不要な権限を別サービスへ流用できないよう設計することが求められています。([[Model Context Protocol](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations)][3])"
+                 },
+    "inspectionPoints":  [
+                             {
+                                 "title":  "MCPサーバーの提供元が分かるか",
+                                 "description":  "公式サービス、信頼できる開発元、公開されたリポジトリなど、誰が運営している接続先なのか確認します。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "AIから何へアクセスできるようになるか",
+                                 "description":  "ファイル、メール、データベース、ブラウザ、GitHubなど、接続後にAIが扱える範囲を確認します。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "読み取りだけか、変更・削除までできるか",
+                                 "description":  "同じサービスでも「読む」「作成する」「編集する」「削除する」ではリスクが大きく異なります。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "必要以上の権限を渡していないか",
+                                 "description":  "MCP公式のセキュリティガイダンスでも、アクセストークンを対象リソースへ限定し、別サービスへ使い回さないことが求められています。([[Model Context Protocol](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations)][3])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "接続時のURLや認証画面が想定したものか",
+                                 "description":  "MCP仕様では悪意あるリダイレクトや認可コードの横取りがセキュリティ上の検討事項として挙げられています。([[Model Context Protocol](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations)][3])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "HTTPSで接続されているか",
+                                 "description":  "2026年7月28日版MCP仕様では、本番の認証サーバー通信はHTTPSを利用することが要求されています。([[Model Context Protocol](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations)][3])",
+                                 "priority":  "medium"
+                             },
+                             {
+                                 "title":  "不要になった接続を残していないか",
+                                 "description":  "使わなくなったMCPや連携を外すことで、AIがアクセスできる範囲を小さく保てます。",
+                                 "priority":  "medium"
+                             },
+                             {
+                                 "title":  "会社利用なら承認済み接続先が決まっているか",
+                                 "description":  "GitHubは企業向けに、利用可能なMCPサーバーを中央管理するallowlist／denylistを提供しています。([[GitHub Docs](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist)][4])",
+                                 "priority":  "high"
+                             }
+                         ],
+    "verificationLevel":  4,
+    "verificationLabel":  "接続前に提供元・権限・操作範囲を確認",
+    "verificationMessage":  "MCPを追加する前に、誰が提供しているか、AIが何を読めるか・変更できるか、その権限が本当に必要かを確認してください。",
+    "verdict":  {
+                    "label":  "MCPは「AI用の便利な延長コード」。何を差すかは確認する",
+                    "description":  "MCPによってAIは、チャットだけではできなかったファイル操作、データ取得、開発ツール利用などへ広がっていきます。GitHub公式ドキュメントでもMCPはLLMとデータソース・ツールを接続するための標準として説明され、企業では承認済みサーバーだけを利用できる管理方法が提供されています。([[GitHub Docs](https://docs.github.com/en/copilot/concepts/mcp-management)][2]) 便利だからこそ、「MCPを使うか使わないか」の二択ではなく、「どの接続先に、どの権限を渡すか」を考える方が現実的です。",
+                    "confidence":  "high"
+                },
+    "safeActions":  [
+                        {
+                            "action":  "最初は読み取り権限だけで試す",
+                            "reason":  "情報を見るだけの利用から始めれば、誤操作による変更や削除の影響を小さくできます。"
+                        },
+                        {
+                            "action":  "公式サービスや信頼できる提供元のMCPを優先する",
+                            "reason":  "運営主体や更新情報、問題発生時の問い合わせ先を確認しやすくなります。"
+                        },
+                        {
+                            "action":  "接続前に利用できるツール一覧を確認する",
+                            "reason":  "AIがどんな操作を実行できるのか把握してから利用できます。"
+                        },
+                        {
+                            "action":  "重要操作は人間の確認を残す",
+                            "reason":  "ファイル削除、公開、送信、設定変更など取り消しにくい操作を完全自動化しないことで影響を抑えられます。"
+                        },
+                        {
+                            "action":  "仕事では承認済みMCPの一覧を作る",
+                            "reason":  "GitHubの最新機能も、接続可能なMCPサーバーを承認リストで管理する考え方を採用しています。([[GitHub Docs](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist)][4])"
+                        },
+                        {
+                            "action":  "不要になったMCPを削除・無効化する",
+                            "reason":  "使っていない接続先へ権限を残し続ける必要はありません。"
+                        },
+                        {
+                            "action":  "AIへ「実行前に何を変更するか説明して」と指示する",
+                            "reason":  "自動操作の前に人間が意図した作業か確認しやすくなります。"
+                        }
+                    ],
+    "avoidActions":  [
+                         {
+                             "action":  "便利そうなMCPを見つけるたびに全部追加する",
+                             "reason":  "接続先が増えるほど、AIがアクセスできるサービスやデータも増える可能性があります。"
+                         },
+                         {
+                             "action":  "認証画面を読まずにすべて許可する",
+                             "reason":  "接続先によって要求されるアクセス範囲は異なります。"
+                         },
+                         {
+                             "action":  "読み取りと削除権限を同じ感覚で扱う",
+                             "reason":  "操作失敗時の影響が大きく異なるため、変更系の権限は慎重に扱う必要があります。"
+                         },
+                         {
+                             "action":  "MCPサーバー名だけを見て提供元を確認しない",
+                             "reason":  "GitHubがURLや実行コマンド単位でallowlistを管理できるようにしていることからも、名前だけでなく接続先を確認することが重要だと分かります。([[GitHub Docs](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist)][4])"
+                         },
+                         {
+                             "action":  "一度認証したら永久に安全だと思う",
+                             "reason":  "利用サービス、権限、運営状況は変化するため、継続的な見直しが必要です。"
+                         },
+                         {
+                             "action":  "MCPにリスクがあるからAI連携を全部やめる",
+                             "reason":  "GitHubなど主要サービスはMCP利用を禁止するのではなく、許可リストや権限制御を使って安全に活用する方向で機能を整備しています。([[GitHub Docs](https://docs.github.com/en/copilot/concepts/mcp-management)][2])"
+                         }
+                     ],
+    "positiveUse":  {
+                        "title":  "MCPを使ってAIを「答える人」から「実際に作業できる助手」へ広げる",
+                        "description":  "MCPの魅力は、AIがチャット内で説明するだけでなく、外部のデータやツールへ接続して実際の仕事を進められることです。GitHub公式ドキュメントでも、MCPはLLMと異なるデータソース・ツールを標準化された形で連携させる仕組みとして説明されています。([[GitHub Docs](https://docs.github.com/en/copilot/concepts/mcp-management)][2]) 接続先を厳選し、読み取りと変更の権限を分け、重要操作に人間の確認を残せば、AIエージェントの便利さをかなり活かせます。",
+                        "examples":  [
+                                         "社内ドキュメントを検索するMCPを読み取り専用で利用する",
+                                         "GitHubのIssueやコード情報をAIから参照する",
+                                         "ブラウザ操作MCPをテスト環境だけで利用する",
+                                         "データベースから集計データだけを取得する",
+                                         "複数ツールをAIへ接続し、情報整理だけ自動化する",
+                                         "社内で承認済みMCP一覧を作り、社員がそこから選ぶ"
+                                     ]
+                    },
+    "makotoComment":  "MCPって聞くと少し難しそうですが、考え方はそんなに難しくありません。AIへ「この道具も使っていいよ」と渡す仕組みです。ただし、ハサミを渡すのと会社の金庫の鍵を渡すのは同じではありません。便利だから全部つなぐ、怖いから全部禁止する、どちらも少し極端です。GitHubが企業向けに許可リストを用意したのも、まさに「使うけど、つなぐ先は選ぶ」という方向ですね。AIが賢くなるほど、私たちが覚えるべきなのはプロンプトの魔法より、鍵の渡し方なのかもしれません。",
+    "oneLineLesson":  "MCPは「接続するか」ではなく、「誰につなぎ、どの鍵まで渡すか」で考える。",
+    "tags":  [
+                 "MCP",
+                 "Model Context Protocol",
+                 "AIエージェント",
+                 "GitHub Copilot",
+                 "外部ツール連携",
+                 "権限管理",
+                 "OAuth",
+                 "アクセストークン",
+                 "allowlist",
+                 "AIセキュリティ"
+             ],
+    "sources":  [
+                    {
+                        "title":  "MCP allowlists in enterprise managed settings",
+                        "publisher":  "GitHub Changelog",
+                        "sourceType":  "official-product-update",
+                        "publishedAt":  "2026-08-06",
+                        "url":  "https://github.blog/changelog/2026-08-06-mcp-allowlists-in-enterprise-managed-settings/"
+                    },
+                    {
+                        "title":  "MCP server usage in your company",
+                        "publisher":  "GitHub Docs",
+                        "sourceType":  "official-product-documentation",
+                        "publishedAt":  null,
+                        "url":  "https://docs.github.com/en/copilot/concepts/mcp-management"
+                    },
+                    {
+                        "title":  "Configuring an MCP server allowlist for your enterprise",
+                        "publisher":  "GitHub Docs",
+                        "sourceType":  "official-product-documentation",
+                        "publishedAt":  null,
+                        "url":  "https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist"
+                    },
+                    {
+                        "title":  "Authorization Security Considerations",
+                        "publisher":  "Model Context Protocol",
+                        "sourceType":  "official-protocol-specification",
+                        "publishedAt":  "2026-07-28",
+                        "url":  "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations"
+                    }
+                ],
+    "visualSuggestion":  {
+                             "mainVisual":  "中央にAIアシスタントを置き、その周囲に「ファイル」「メール」「GitHub」「データベース」「ブラウザ」の5つの外部ツールがコンセントのようにつながっている。接続ケーブルの途中にはそれぞれ「読むだけ」「作成」「編集」「削除」という権限ラベル付きの鍵があり、利用者が必要な鍵だけを選んで渡している。左側には何でも無条件につなぐ状態、右側には承認済みMCPだけを接続する状態を対比し、「MCPは危険」ではなく「接続先と権限を選べば便利」という印象を与える、明るいAI鑑識室風テックデザイン。",
+                             "cardIcon":  "mcp-permission-plug-check",
+                             "accentTone":  "security](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/authorization%22%7D%5D,%22visualSuggestion%22:%7B%22mainVisual%22:%22%E4%B8%AD%E5%A4%AE%E3%81%ABAI%E3%82%A2%E3%82%B7%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%88%E3%82%92%E7%BD%AE%E3%81%8D%E3%80%81%E3%81%9D%E3%81%AE%E5%91%A8%E5%9B%B2%E3%81%AB%E3%80%8C%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%80%8D%E3%80%8C%E3%83%A1%E3%83%BC%E3%83%AB%E3%80%8D%E3%80%8CGitHub%E3%80%8D%E3%80%8C%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%80%8D%E3%80%8C%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%80%8D%E3%81%AE5%E3%81%A4%E3%81%AE%E5%A4%96%E9%83%A8%E3%83%84%E3%83%BC%E3%83%AB%E3%81%8C%E3%82%B3%E3%83%B3%E3%82%BB%E3%83%B3%E3%83%88%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%8C%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%80%82%E6%8E%A5%E7%B6%9A%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AE%E9%80%94%E4%B8%AD%E3%81%AB%E3%81%AF%E3%81%9D%E3%82%8C%E3%81%9E%E3%82%8C%E3%80%8C%E8%AA%AD%E3%82%80%E3%81%A0%E3%81%91%E3%80%8D%E3%80%8C%E4%BD%9C%E6%88%90%E3%80%8D%E3%80%8C%E7%B7%A8%E9%9B%86%E3%80%8D%E3%80%8C%E5%89%8A%E9%99%A4%E3%80%8D%E3%81%A8%E3%81%84%E3%81%86%E6%A8%A9%E9%99%90%E3%83%A9%E3%83%99%E3%83%AB%E4%BB%98%E3%81%8D%E3%81%AE%E9%8D%B5%E3%81%8C%E3%81%82%E3%82%8A%E3%80%81%E5%88%A9%E7%94%A8%E8%80%85%E3%81%8C%E5%BF%85%E8%A6%81%E3%81%AA%E9%8D%B5%E3%81%A0%E3%81%91%E3%82%92%E9%81%B8%E3%82%93%E3%81%A7%E6%B8%A1%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%80%82%E5%B7%A6%E5%81%B4%E3%81%AB%E3%81%AF%E4%BD%95%E3%81%A7%E3%82%82%E7%84%A1%E6%9D%A1%E4%BB%B6%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90%E7%8A%B6%E6%85%8B%E3%80%81%E5%8F%B3%E5%81%B4%E3%81%AB%E3%81%AF%E6%89%BF%E8%AA%8D%E6%B8%88%E3%81%BFMCP%E3%81%A0%E3%81%91%E3%82%92%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B%E7%8A%B6%E6%85%8B%E3%82%92%E5%AF%BE%E6%AF%94%E3%81%97%E3%80%81%E3%80%8CMCP%E3%81%AF%E5%8D%B1%E9%99%BA%E3%80%8D%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E3%80%8C%E6%8E%A5%E7%B6%9A%E5%85%88%E3%81%A8%E6%A8%A9%E9%99%90%E3%82%92%E9%81%B8%E3%81%B9%E3%81%B0%E4%BE%BF%E5%88%A9%E3%80%8D%E3%81%A8%E3%81%84%E3%81%86%E5%8D%B0%E8%B1%A1%E3%82%92%E4%B8%8E%E3%81%88%E3%82%8B%E3%80%81%E6%98%8E%E3%82%8B%E3%81%84AI%E9%91%91%E8%AD%98%E5%AE%A4%E9%A2%A8%E3%83%86%E3%83%83%E3%82%AF%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%80%82%22,%22cardIcon%22:%22mcp-permission-plug-check%22,%22accentTone%22:%22security)](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/authorization%22}],%22visualSuggestion%22:{%22mainVisual%22:%22中央にAIアシスタントを置き、その周囲に「ファイル」「メール」「GitHub」「データベース」「ブラウザ」の5つの外部ツールがコンセントのようにつながっている。接続ケーブルの途中にはそれぞれ「読むだけ」「作成」「編集」「削除」という権限ラベル付きの鍵があり、利用者が必要な鍵だけを選んで渡している。左側には何でも無条件につなぐ状態、右側には承認済みMCPだけを接続する状態を対比し、「MCPは危険」ではなく「接続先と権限を選べば便利」という印象を与える、明るいAI鑑識室風テックデザイン。%22,%22cardIcon%22:%22mcp-permission-plug-check%22,%22accentTone%22:%22security)"
+                         }
+}

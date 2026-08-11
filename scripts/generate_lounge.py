@@ -804,11 +804,16 @@ def render_today_words(log: dict) -> str:
         return ""
     lines = ['        <div class="today-words-grid">']
     for item in today_words:
+        speaker = dict(item)
+        apply_speaker_defaults(speaker)
         lines.extend(
             [
                 "          <article>",
-                f"            <span>{esc(item.get('speaker', ''))}</span>",
-                f"            <p>{text_with_breaks(item.get('text', ''))}</p>",
+                '            <div class="today-word-speaker">',
+                f'              <img src="{esc(speaker.get("icon", "image/icon/icon_mmc001.jpg"))}" alt="{esc(speaker.get("alt", speaker.get("speaker", "")))}" loading="lazy" />',
+                f"              <span>{esc(speaker.get('speaker', ''))}</span>",
+                "            </div>",
+                f"            <p>{text_with_breaks(speaker.get('text', ''))}</p>",
                 "          </article>",
             ]
         )

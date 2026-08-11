@@ -1485,6 +1485,18 @@ h1 { margin: 0 0 20px; font-size: clamp(3.1rem, 7vw, 6.7rem); line-height: 1.18;
   border-radius: 14px;
   background: rgba(255,255,255,.72);
 }
+.today-word-speaker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.today-word-speaker img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e4d3be;
+}
 .today-words-grid span {
   color: var(--coffee);
   font-weight: 900;
