@@ -1,0 +1,229 @@
+{
+    "id":  "case-20260812-02",
+    "publishedAt":  "2026-08-12",
+    "title":  "作ったAIエージェント、誰が面倒を見る？　「担当者不在のAI」を増やさない運用ルール",
+    "shortTitle":  "AIにも「担当者」と「棚卸し日」を付ける",
+    "category":  "work-use",
+    "difficulty":  "beginner",
+    "targetAudience":  [
+                           "仕事でAIエージェントや自動化を使う人",
+                           "ChatGPT・Copilotなどで共有AIを作る人",
+                           "定期レポートや通知をAIで自動化する人",
+                           "会社で生成AIの運用ルールを考える人"
+                       ],
+    "summary":  "AIエージェントは、一度作ればレポート作成、情報整理、問い合わせ対応などを繰り返し実行できる便利な仕組みです。しかし「作った人が異動した」「もう使っていないのに動き続けている」「何のためのAIか誰も説明できない」といった状態になると、便利な自動化が管理されない業務へ変わります。Microsoftは2026年8月6日、社内で50万以上のAIエージェントを可視化・管理している事例を公開し、所有者のいないエージェントが社員の退職後も動き続けることを具体的なリスクとして挙げました。([[Microsoft](https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/)][1]) さらに8月10日には、複数環境のAIエージェントをまとめて確認・管理する機能を発表しています。([[Microsoft Learn](https://learn.microsoft.com/en-us/partner-center/announcements/2026-august)][2]) AIを怖がって自動化を避けるのではなく、「誰が責任を持つか」「いつ見直すか」「いつ止めるか」を最初から決めておくことが、長く便利に使うコツです。",
+    "scenario":  {
+                     "headline":  "毎週月曜日に売上レポートを作るAIを作った。半年後、作った社員が異動したがAIはそのまま動いている",
+                     "description":  "AIは毎週データを読み、レポートを作成して共有フォルダへ保存しています。最初はとても便利でした。しかし半年後、担当者が異動し、参照するデータの仕様も変わりました。レポート自体は今も生成されるため誰も異常に気付きませんが、古い集計条件を使っている可能性があります。さらに「誰が設定を変更できるのか」「どのデータへアクセスしているのか」「そもそも今も必要なのか」を説明できる人がいなくなっていました。Microsoftは、AIエージェントが増えるにつれて、所有者・利用状況・ライフサイクルを一覧化することが重要になったと報告しています。([[Microsoft](https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/)][1])",
+                     "whyItMatters":  "Microsoft Digitalでは、Agent 365を使って50万以上のAIエージェントを可視化し、エージェント名、状態、作成元、利用状況、所有者などを管理しています。([[Microsoft](https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/)][1]) 同社は、管理基盤がない場合の具体的な問題として「所有者のいないエージェントが社員の退職後も残る」「承認されていないエージェントを把握しにくい」「利用状況や影響を継続的に確認できない」ことを挙げています。([[Microsoft](https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/)][1]) NISTのAI Risk Management Frameworkも、AIシステムを把握するためのインベントリを持つことや、人間とAIの役割・監督責任を明確にすることをリスク管理の実践項目として示しています。([[NIST AI Resource Center](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/?utm_source=chatgpt.com)][3])"
+                 },
+    "question":  {
+                     "text":  "共有AIエージェントを作って業務を自動化したとき、運用開始と同時に最も決めておきたいことは？",
+                     "choices":  [
+                                     {
+                                         "id":  "make-it-smarter",
+                                         "label":  "もっと高度なプロンプトへ改良する担当",
+                                         "description":  "回答精度を上げることを最優先にする。"
+                                     },
+                                     {
+                                         "id":  "assign-owner-lifecycle",
+                                         "label":  "誰が管理するかと、いつ見直し・停止するか",
+                                         "description":  "所有者、利用目的、確認日、停止条件を決める。"
+                                     },
+                                     {
+                                         "id":  "never-change-it",
+                                         "label":  "一度うまく動いた設定は変更しない",
+                                         "description":  "安定しているので同じ設定を長期間使い続ける。"
+                                     },
+                                     {
+                                         "id":  "let-ai-manage-itself",
+                                         "label":  "AI自身に運用判断まで任せる",
+                                         "description":  "必要性や権限の見直しもAI自身に判断させる。"
+                                     }
+                                 ],
+                     "recommendedAnswers":  [
+                                                "assign-owner-lifecycle"
+                                            ],
+                     "explanation":  "AIエージェントはソフトウェアであると同時に、継続して業務を実行する仕組みです。そのため「誰が作ったか」だけでなく、「現在誰が責任を持っているか」を残すことが重要です。Microsoftはエージェント管理の基礎として、所有者とライフサイクル状態を明確にすることを推奨しています。([[Microsoft](https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/)][1]) NISTもAIシステムについて役割と責任を定義し、ライフサイクル全体で管理する考え方を示しています。([[NIST AI Resource Center](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/?utm_source=chatgpt.com)][3])"
+                 },
+    "inspectionPoints":  [
+                             {
+                                 "title":  "現在の担当者が決まっているか",
+                                 "description":  "作成者ではなく、「今このAIについて問い合わせを受ける人」を一人またはチーム単位で明確にします。Microsoftもエージェント管理でownershipの追跡を重視しています。([[Microsoft](https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/)][1])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "何のために作ったAIか一文で説明できるか",
+                                 "description":  "目的が曖昧なまま残ると、使われていないAIや役割が重複したAIを整理しにくくなります。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "どのデータやツールを使っているか記録しているか",
+                                 "description":  "参照先のファイル、データベース、メール、外部サービスなどを把握しておくと、仕様変更時に影響を確認できます。Microsoftはエージェントの接続先や権限を可視化する重要性を挙げています。([[Microsoft](https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/)][1])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "最後に正常動作を確認した日が分かるか",
+                                 "description":  "「今動いている」だけでなく、結果が今の業務ルールに合っているか定期的に確認します。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "作成者が異動・退職した場合の引き継ぎがあるか",
+                                 "description":  "Microsoftは所有者のいないエージェントが社員の退職後も動き続けることを管理上のリスクとして具体的に挙げています。([[Microsoft](https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/)][1])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "使われていないAIを停止する基準があるか",
+                                 "description":  "一定期間利用されていない、担当業務が終了した、参照システムが廃止されたなど、停止条件を決めておきます。",
+                                 "priority":  "medium"
+                             },
+                             {
+                                 "title":  "重要な自動処理に確認ポイントが残っているか",
+                                 "description":  "Microsoft Researchの開発者調査では、AIエージェントの監督には事前制御、共同計画、実行中の監視、実行後レビューなど複数の形があると整理されています。([[Microsoft](https://www.microsoft.com/en-us/research/publication/human-oversight-of-agentic-systems-in-practice-examining-the-oversight-work-challenges-and-heuristics-of-developers-using-software-agents/)][4])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "AIの数だけ増えていないか",
+                                 "description":  "似た目的のAIが複数作られている場合は、統合や共有を検討します。MicrosoftはAIエージェントが増えるにつれ一元的なインベントリが重要になると説明しています。([[Microsoft](https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/)][1])",
+                                 "priority":  "medium"
+                             }
+                         ],
+    "verificationLevel":  3,
+    "verificationLabel":  "定期的に担当者・目的・利用状況を棚卸し",
+    "verificationMessage":  "AIエージェントを自動運転のまま放置せず、担当者、目的、権限、参照データ、最終確認日を定期的に見直してください。",
+    "verdict":  {
+                    "label":  "AIエージェントは「作って終わり」ではなく「配属して運用する」",
+                    "description":  "AIエージェントが便利になるほど、作成数は自然に増えていきます。Microsoftではすでに50万以上のエージェントを一元的に可視化し、所有者やライフサイクルを管理する段階へ進んでいます。([[Microsoft](https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/)][1]) 一般の会社で同じ規模の管理システムを導入する必要はありません。スプレッドシートでも、「名前・目的・担当者・使うデータ・権限・最終確認日・停止条件」を記録するだけで十分な第一歩になります。AIを増やさないことより、増えても整理できる状態を作る方が実務的です。",
+                    "confidence":  "high"
+                },
+    "safeActions":  [
+                        {
+                            "action":  "AIを作った日に担当者を決める",
+                            "reason":  "後から決めようとすると、作成者の異動や退職で管理者不在になりやすくなります。"
+                        },
+                        {
+                            "action":  "AI台帳を作る",
+                            "reason":  "名前、目的、所有者、利用部署、接続先、権限、最終確認日を一覧にすると、少人数の会社でも管理しやすくなります。NISTもAIシステムを把握する仕組みを持つことを推奨しています。([[NIST AI Resource Center](https://airc.nist.gov/airmf-resources/playbook/govern/?utm_source=chatgpt.com)][5])"
+                        },
+                        {
+                            "action":  "3か月や6か月ごとに棚卸しする",
+                            "reason":  "業務ルールや参照データが変わっていないか定期的に確認できます。"
+                        },
+                        {
+                            "action":  "異動時の引き継ぎ対象にAIを入れる",
+                            "reason":  "メールアカウントや業務ファイルと同じように、AIエージェントも担当業務の資産として引き継げます。"
+                        },
+                        {
+                            "action":  "使われていないAIは一度停止する",
+                            "reason":  "必要になれば再開できるため、不要な自動処理を動かし続けるより管理しやすくなります。"
+                        },
+                        {
+                            "action":  "重要なAIには停止方法を残す",
+                            "reason":  "誤動作や仕様変更が起きたとき、すぐ人間が止められる状態にできます。"
+                        },
+                        {
+                            "action":  "AIの失敗や修正内容も共有する",
+                            "reason":  "MicrosoftのWork Trend Indexでは、高度なAI活用者ほどチーム内でAIの使い方、失敗、品質基準を共有する傾向が報告されています。([[Microsoft](https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization)][6])"
+                        }
+                    ],
+    "avoidActions":  [
+                         {
+                             "action":  "作った本人だけが設定内容を知っている状態にする",
+                             "reason":  "異動や退職後に、誰も修正・停止できないAIが残る可能性があります。"
+                         },
+                         {
+                             "action":  "正常に動いているので永久に確認しない",
+                             "reason":  "AIが同じ処理を続けていても、業務ルールや参照データ側が変化している可能性があります。"
+                         },
+                         {
+                             "action":  "利用数が少ないAIは管理しなくてよいと考える",
+                             "reason":  "利用者数が少なくても、機密データや重要システムへアクセスするAIなら影響は大きくなります。"
+                         },
+                         {
+                             "action":  "似たAIを部署ごとに無制限に作る",
+                             "reason":  "目的や責任者が重複し、どれが正式なAIなのか分かりにくくなります。"
+                         },
+                         {
+                             "action":  "AI自身に必要性や停止判断をすべて任せる",
+                             "reason":  "業務上そのAIがまだ必要か、組織として許可されているかは人間側の判断が必要です。"
+                         },
+                         {
+                             "action":  "管理が面倒だからAIエージェントを使わない",
+                             "reason":  "Microsoftの最新事例もAI利用を抑える方向ではなく、可視化とライフサイクル管理によって広く活用する考え方を採用しています。([[Microsoft](https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/)][1])"
+                         }
+                     ],
+    "positiveUse":  {
+                        "title":  "AI社員を増やすなら「社員名簿」と同じ感覚でAI台帳を持つ",
+                        "description":  "AIエージェントは、毎週の集計、問い合わせ整理、資料作成、情報収集など、繰り返し業務を任せるには非常に便利です。Microsoftの2026 Work Trend Indexでも、AIを高度に活用する人ほど複数ステップの仕事をエージェントへ任せつつ、人間が方向性と結果への責任を持つ働き方が紹介されています。([[Microsoft](https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization)][6]) そこでAIを作るたびに「担当業務」「上司にあたる責任者」「使える道具」「定期面談にあたる棚卸し日」を決めると、AIを組織へ自然に組み込みやすくなります。大企業向けの高度な管理ツールがなくても、小さなAI台帳から始められます。",
+                        "examples":  [
+                                         "毎朝ニュースをまとめるAIに担当者と参照サイトを記録する",
+                                         "売上レポートAIを3か月ごとに集計条件レビューする",
+                                         "問い合わせ分類AIに「誤分類が一定数を超えたら停止」という条件を付ける",
+                                         "担当社員の異動時にAIエージェントも引き継ぎ一覧へ入れる",
+                                         "半年使われていない共有AIを停止候補にする",
+                                         "社内AI一覧に「誰に聞けば分かるか」を必ず記載する"
+                                     ]
+                    },
+    "makotoComment":  "AIエージェントを作るのが簡単になると、たぶんこれから会社の中に「誰が作ったか分からないAI」がどんどん増えます。人間の社員なら、所属部署も上司も退職手続きもあります。でもAIは放っておくと、担当者がいなくなっても律儀に毎週レポートを作り続けます。ちょっと健気ですが、仕事としては困ります。なので私は、AIを作ったら名前だけでなく「担当者」と「次回点検日」までセットにするのをおすすめします。AI社員にも社員名簿と定期面談が必要な時代なのかもしれません。",
+    "oneLineLesson":  "AIを自動化したら、「誰が見るか」「いつ見直すか」「いつ止めるか」まで決める。",
+    "tags":  [
+                 "AIエージェント",
+                 "業務自動化",
+                 "AI運用",
+                 "AI台帳",
+                 "ライフサイクル管理",
+                 "担当者",
+                 "AIガバナンス",
+                 "Copilot",
+                 "Human in the Loop"
+             ],
+    "sources":  [
+                    {
+                        "title":  "Implementing Agent 365: How we’re governing and managing AI agents at Microsoft",
+                        "publisher":  "Microsoft Inside Track",
+                        "sourceType":  "official-enterprise-case-study",
+                        "publishedAt":  "2026-08-06",
+                        "url":  "https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/"
+                    },
+                    {
+                        "title":  "August 2026 announcements - Manage agents across multiple tenants",
+                        "publisher":  "Microsoft Learn",
+                        "sourceType":  "official-product-update",
+                        "publishedAt":  "2026-08-10",
+                        "url":  "https://learn.microsoft.com/en-us/partner-center/announcements/2026-august"
+                    },
+                    {
+                        "title":  "2026 Work Trend Index Annual Report: Agents, human agency, and the opportunity for every organization",
+                        "publisher":  "Microsoft WorkLab",
+                        "sourceType":  "industry-primary-research",
+                        "publishedAt":  "2026-05-05",
+                        "url":  "https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization"
+                    },
+                    {
+                        "title":  "Human oversight of agentic systems in practice",
+                        "publisher":  "Microsoft Research",
+                        "sourceType":  "peer-reviewed-research",
+                        "publishedAt":  "2026",
+                        "url":  "https://www.microsoft.com/en-us/research/publication/human-oversight-of-agentic-systems-in-practice-examining-the-oversight-work-challenges-and-heuristics-of-developers-using-software-agents/"
+                    },
+                    {
+                        "title":  "AI RMF Core",
+                        "publisher":  "National Institute of Standards and Technology",
+                        "sourceType":  "government-ai-risk-guidance",
+                        "publishedAt":  null,
+                        "url":  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+                    },
+                    {
+                        "title":  "AI RMF Playbook - Govern",
+                        "publisher":  "National Institute of Standards and Technology",
+                        "sourceType":  "government-ai-risk-guidance",
+                        "publishedAt":  null,
+                        "url":  "https://airc.nist.gov/airmf-resources/playbook/govern/"
+                    }
+                ],
+    "visualSuggestion":  {
+                             "mainVisual":  "オフィスの「AI社員名簿」をイメージした画面に、複数のAIエージェントが社員カードのように並んでいる。それぞれに「担当業務」「責任者」「使うデータ」「最終点検日」「稼働中／停止中」の項目が表示される。一つだけ責任者欄が「？」になったAIが毎週レポートを作り続けており、利用者がそのカードへ「新しい担当者」と「次回レビュー日」を設定している。中央に「AIを作る](https://airc.nist.gov/airmf-resources/playbook/govern/%22%7D%5D,%22visualSuggestion%22:%7B%22mainVisual%22:%22%E3%82%AA%E3%83%95%E3%82%A3%E3%82%B9%E3%81%AE%E3%80%8CAI%E7%A4%BE%E5%93%A1%E5%90%8D%E7%B0%BF%E3%80%8D%E3%82%92%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%E3%81%97%E3%81%9F%E7%94%BB%E9%9D%A2%E3%81%AB%E3%80%81%E8%A4%87%E6%95%B0%E3%81%AEAI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%8C%E7%A4%BE%E5%93%A1%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E4%B8%A6%E3%82%93%E3%81%A7%E3%81%84%E3%82%8B%E3%80%82%E3%81%9D%E3%82%8C%E3%81%9E%E3%82%8C%E3%81%AB%E3%80%8C%E6%8B%85%E5%BD%93%E6%A5%AD%E5%8B%99%E3%80%8D%E3%80%8C%E8%B2%AC%E4%BB%BB%E8%80%85%E3%80%8D%E3%80%8C%E4%BD%BF%E3%81%86%E3%83%87%E3%83%BC%E3%82%BF%E3%80%8D%E3%80%8C%E6%9C%80%E7%B5%82%E7%82%B9%E6%A4%9C%E6%97%A5%E3%80%8D%E3%80%8C%E7%A8%BC%E5%83%8D%E4%B8%AD%EF%BC%8F%E5%81%9C%E6%AD%A2%E4%B8%AD%E3%80%8D%E3%81%AE%E9%A0%85%E7%9B%AE%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8B%E3%80%82%E4%B8%80%E3%81%A4%E3%81%A0%E3%81%91%E8%B2%AC%E4%BB%BB%E8%80%85%E6%AC%84%E3%81%8C%E3%80%8C%EF%BC%9F%E3%80%8D%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%9FAI%E3%81%8C%E6%AF%8E%E9%80%B1%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8A%E7%B6%9A%E3%81%91%E3%81%A6%E3%81%8A%E3%82%8A%E3%80%81%E5%88%A9%E7%94%A8%E8%80%85%E3%81%8C%E3%81%9D%E3%81%AE%E3%82%AB%E3%83%BC%E3%83%89%E3%81%B8%E3%80%8C%E6%96%B0%E3%81%97%E3%81%84%E6%8B%85%E5%BD%93%E8%80%85%E3%80%8D%E3%81%A8%E3%80%8C%E6%AC%A1%E5%9B%9E%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E6%97%A5%E3%80%8D%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%80%82%E4%B8%AD%E5%A4%AE%E3%81%AB%E3%80%8CAI%E3%82%92%E4%BD%9C%E3%82%8B)](https://airc.nist.gov/airmf-resources/playbook/govern/%22}],%22visualSuggestion%22:{%22mainVisual%22:%22オフィスの「AI社員名簿」をイメージした画面に、複数のAIエージェントが社員カードのように並んでいる。それぞれに「担当業務」「責任者」「使うデータ」「最終点検日」「稼働中／停止中」の項目が表示される。一つだけ責任者欄が「？」になったAIが毎週レポートを作り続けており、利用者がそのカードへ「新しい担当者」と「次回レビュー日」を設定している。中央に「AIを作る) → 担当者を決める → 定期点検 → 不要なら停止」という簡単なライフサイクルを配置し、AI管理を難しいセキュリティ作業ではなく社員管理の延長として見せる、明るいAI鑑識室風デザイン。",
+                             "cardIcon":  "ai-agent-owner-lifecycle",
+                             "accentTone":  "productivity"
+                         }
+}

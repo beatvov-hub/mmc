@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>「スポンサー広告だから安全」は違う。SNSの広告欄にも“偽ショップ”は入り込む｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="FTCは2026年8月10日、SNS上の広告について「プラットフォームに表示されているから安全とは限らない」と改めて注意喚起しました。SNS事業者が広告主を常に十分審査しているとは限らず、詐欺師も正規企業と同じ広告配信の仕組みを利用できます。FTCによると、2025年にはSNS広告を見て商品を注文したことから始まった詐欺だけで、9500万ドルを超える被害が報告されました。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1]) さらにSNSを入口とした詐欺全体では2025年の報告被害額が21億ドルに達しています。([[Federal Trade Commission](https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2026/04/reported-losses-scams-social-media-eight-times-higher-2020)][2]) AIで広告画像や商品写真を自然に作れる現在は、「広告がきれい」「ブランドロゴがある」「スポンサー表示がある」といった見た目より、購入前に販売元そのものを確認することが重要です。FBIも生成AIが偽プロフィール、商品宣伝画像、偽サイト用コンテンツなどの金融詐欺に利用されていると警告しています。([[Internet Crime Complaint Center](https://www.ic3.gov/PSA/2024/PSA241203?country=US&amp;currency=USD&amp;japan_bespoke_content=false&amp;logged_in=false&amp;mobile=false&amp;utm_source=chatgpt.com)][3])" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260812-01" />
+<meta property="og:title" content="「スポンサー広告だから安全」は違う。SNSの広告欄にも“偽ショップ”は入り込む｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="FTCは2026年8月10日、SNS上の広告について「プラットフォームに表示されているから安全とは限らない」と改めて注意喚起しました。SNS事業者が広告主を常に十分審査しているとは限らず、詐欺師も正規企業と同じ広告配信の仕組みを利用できます。FTCによると、2025年にはSNS広告を見て商品を注文したことから始まった詐欺だけで、9500万ドルを超える被害が報告されました。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1]) さらにSNSを入口とした詐欺全体では2025年の報告被害額が21億ドルに達しています。([[Federal Trade Commission](https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2026/04/reported-losses-scams-social-media-eight-times-higher-2020)][2]) AIで広告画像や商品写真を自然に作れる現在は、「広告がきれい」「ブランドロゴがある」「スポンサー表示がある」といった見た目より、購入前に販売元そのものを確認することが重要です。FBIも生成AIが偽プロフィール、商品宣伝画像、偽サイト用コンテンツなどの金融詐欺に利用されていると警告しています。([[Internet Crime Complaint Center](https://www.ic3.gov/PSA/2024/PSA241203?country=US&amp;currency=USD&amp;japan_bespoke_content=false&amp;logged_in=false&amp;mobile=false&amp;utm_source=chatgpt.com)][3])" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260812-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>広告表示は「運営のお墨付き」ではない</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-12">2026.08.12</time>
+            </div>
+            <h1>「スポンサー広告だから安全」は違う。SNSの広告欄にも“偽ショップ”は入り込む</h1>
+            <p>FTCは2026年8月10日、SNS上の広告について「プラットフォームに表示されているから安全とは限らない」と改めて注意喚起しました。SNS事業者が広告主を常に十分審査しているとは限らず、詐欺師も正規企業と同じ広告配信の仕組みを利用できます。FTCによると、2025年にはSNS広告を見て商品を注文したことから始まった詐欺だけで、9500万ドルを超える被害が報告されました。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1]) さらにSNSを入口とした詐欺全体では2025年の報告被害額が21億ドルに達しています。([[Federal Trade Commission](https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2026/04/reported-losses-scams-social-media-eight-times-higher-2020)][2]) AIで広告画像や商品写真を自然に作れる現在は、「広告がきれい」「ブランドロゴがある」「スポンサー表示がある」といった見た目より、購入前に販売元そのものを確認することが重要です。FBIも生成AIが偽プロフィール、商品宣伝画像、偽サイト用コンテンツなどの金融詐欺に利用されていると警告しています。([[Internet Crime Complaint Center](https://www.ic3.gov/PSA/2024/PSA241203?country=US&amp;currency=USD&amp;japan_bespoke_content=false&amp;logged_in=false&amp;mobile=false&amp;utm_source=chatgpt.com)][3])</p>
+            <ul class="forensics-target-list"><li>Instagram・Facebook・TikTokなどSNSから買い物をする人</li><li>SNS広告から公式ブランドサイトへ移動することがある人</li><li>セール広告や限定商品をよく見る人</li><li>ネットショップを利用する人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>SNS広告</li><li>偽ショップ</li><li>ブランドなりすまし</li><li>ネット通販</li><li>Instagram</li><li>Facebook</li><li>生成AI</li><li>AI画像</li><li>ショッピング詐欺</li><li>広告</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>購入前に販売元を別経路で確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>SNS広告は商品の発見には便利ですが、購入前に公式サイト・企業情報・URLを広告とは別の経路から確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>SNSで好きなブランドの「70％OFF・本日限定」というスポンサー広告が表示された</h3><p>広告には公式ブランドと同じロゴ、きれいな商品写真、購入者レビューまで掲載されていました。「スポンサー」と表示されているのでSNS側が確認済みだと思い、そのままリンク先で購入しました。しかし商品は届かず、あとから確認するとURLは公式サイトによく似た別ドメインでした。FTCは2026年8月10日の注意喚起で、詐欺師が実在ブランドを装って広告を出したり、偽物の商品を販売したりできるため、SNS広告を見ただけで販売元を信用しないよう案内しています。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1])</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>FTCの2026年データでは、2025年に詐欺で損失を報告した人の約28％が「SNSから始まった」と回答し、報告被害額は21億ドルでした。([[Federal Trade Commission](https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2026/04/reported-losses-scams-social-media-eight-times-higher-2020)][2]) 特にショッピング詐欺は件数が多く、SNS詐欺で金銭被害を報告した人の40％超が、SNS広告で見た商品を注文したことから始まっていました。多くの広告は知らない通販サイトや、有名ブランドを装った偽サイトへ誘導していたとFTCは報告しています。([[Federal Trade Commission](https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2026/04/reported-losses-scams-social-media-eight-times-higher-2020)][2]) 一方で、SNS広告そのものを避ける必要はありません。広告を「商品を知る入口」として使い、購入時だけ販売元を別経路で確認することで便利さを残せます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="open-official-site-separately">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>SNSで有名ブランドの大幅値引き広告を見つけたとき、購入前に最も有効な確認は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="trust-sponsored-label" data-choice-id="trust-sponsored-label" />
+                <span>
+                  <strong>「スポンサー」と表示されているのでそのまま購入する</strong>
+                  <small>広告費を払って掲載されていることを安全性の証明と考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="inspect-image-ai" data-choice-id="inspect-image-ai" />
+                <span>
+                  <strong>商品写真がAI生成かどうかをじっくり見分ける</strong>
+                  <small>写真が本物ならショップも本物だと判断する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="open-official-site-separately" data-choice-id="open-official-site-separately" />
+                <span>
+                  <strong>広告リンクを使わず、ブランド公式サイトを自分で開いて同じセールがあるか確認する</strong>
+                  <small>広告とは別経路から販売元とキャンペーンを確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="avoid-social-shopping" data-choice-id="avoid-social-shopping" />
+                <span>
+                  <strong>SNS広告は危険なので一切買い物に利用しない</strong>
+                  <small>正規ブランドの広告も含めすべて避ける。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>広告リンクを使わず、ブランド公式サイトを自分で開いて同じセールがあるか確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>FTCは、SNS広告から購入する前に会社名を調べ、「scam」「complaint」などの語と一緒に検索して確認するよう推奨しています。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1]) 特に有名ブランドなら、広告リンクをクリックせず公式サイトや公式アプリを自分で開き、同じ商品・価格・キャンペーンが存在するか確認すると判断しやすくなります。AI生成画像を見抜く技術より、「別経路から販売元へ戻る」という確認方法の方が、画像生成技術が進歩しても使い続けられます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>「スポンサー＝審査済み」と思っていないか</h3>
+              <p>FTCは、SNSプラットフォームが広告や広告主を常に十分審査しているとは限らないと注意しています。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>広告リンクではなく公式サイトから確認したか</h3>
+              <p>ブランド名を検索するか、普段使っている公式アプリ・ブックマークなどから同じセールが存在するか確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>URLが公式ドメインと一致しているか</h3>
+              <p>ブランド名に似た文字列や余計な単語を含む偽ドメインではないか確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>値引き幅だけで急いでいないか</h3>
+              <p>「本日限定」「残り○個」などの表示は、本物の販促でも使われますが、確認を飛ばす理由にはしないようにします。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>販売会社の情報が確認できるか</h3>
+              <p>会社名、住所、返品条件、問い合わせ方法などが実在するか確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>レビューを広告内だけで判断していないか</h3>
+              <p>FTCはオンラインレビューの中には偽・操作されたものがあり、見た目だけでは真偽を判断しにくいと案内しています。([[Consumer Advice](https://consumer.ftc.gov/articles/how-evaluate-online-reviews)][4])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>商品写真がきれいだから信用していないか</h3>
+              <p>FBIは生成AIが偽プロフィール画像、商品宣伝画像、偽サイトなどを詐欺に利用できると警告しています。([[Internet Crime Complaint Center](https://www.ic3.gov/PSA/2024/PSA241203?country=US&amp;currency=USD&amp;japan_bespoke_content=false&amp;logged_in=false&amp;mobile=false&amp;utm_source=chatgpt.com)][3])</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>広告が自分の好みに合いすぎていることを信用材料にしていないか</h3>
+              <p>FTCは、詐欺師も正規企業と同じ広告ターゲティング機能を利用し、興味や購買傾向に合わせて広告を表示できると説明しています。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1])</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>広告は「おすすめ表示」であって「安全証明」ではない</strong><p>SNS広告には正規企業の商品も多数あり、広告から新しい商品を知ること自体は便利です。ただしFTCが2026年8月10日に改めて注意したように、広告枠へ表示されたことだけでは販売者の安全性は保証されません。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1]) AIによって写真・文章・レビュー風コピーまで自然に作れる現在は、「見た目の怪しさを見抜く」だけでは不十分です。広告で商品を知る→公式サイトへ自分で移動する→同じ商品やセールを確認する、という一手間を習慣にする方が長く使える対策です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>気になる商品を見つけても広告リンクから即購入しない</strong><span>商品名やブランド名を覚え、別途公式サイトへ移動する余裕を作れます。</span></li>
+            <li><strong>ブランド公式サイトで同じセールを探す</strong><span>偽広告が実在ブランド名を利用しているケースを見分けやすくなります。FTCもブランドを装った偽サイトへの誘導を報告しています。([[Federal Trade Commission](https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2026/04/reported-losses-scams-social-media-eight-times-higher-2020)][2])</span></li>
+            <li><strong>会社名＋「scam」「complaint」などで検索する</strong><span>FTCがSNS広告から購入する前の確認方法として推奨しています。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1])</span></li>
+            <li><strong>返品条件と問い合わせ先を購入前に見る</strong><span>商品が届かなかった場合や内容が違った場合に連絡可能な事業者か判断しやすくなります。</span></li>
+            <li><strong>クレジットカードなど補償制度を利用しやすい決済方法を選ぶ</strong><span>問題が起きた際に決済会社へ相談できる余地を残せます。</span></li>
+            <li><strong>広告を商品発見の入口として使う</strong><span>SNS広告自体を避ける必要はなく、購入判断だけ別経路で確認すれば利便性を保てます。</span></li>
+            <li><strong>怪しい広告はSNSと消費者保護機関へ報告する</strong><span>FTCは不審なSNS広告や被害についてReportFraud.ftc.govへの報告を案内しています。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1])</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>「スポンサー」と書いてあるだけで公式広告だと思う</strong><span>FTCは詐欺師も広告枠を購入できると注意しています。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1])</span></li>
+            <li><strong>ロゴや商品画像が本物に見えることだけで判断する</strong><span>生成AIや画像加工によって自然な販促素材を作ることが容易になっています。FBIもAI生成画像を使った詐欺を警告しています。([[Internet Crime Complaint Center](https://www.ic3.gov/PSA/2024/PSA241203?country=US&amp;currency=USD&amp;japan_bespoke_content=false&amp;logged_in=false&amp;mobile=false&amp;utm_source=chatgpt.com)][3])</span></li>
+            <li><strong>値引き率が大きいので確認を後回しにする</strong><span>時間制限を意識するとURLや販売元確認を飛ばしやすくなります。</span></li>
+            <li><strong>広告内のレビューだけを見る</strong><span>FTCはオンラインレビューには偽・操作されたものがあると案内しています。([[Consumer Advice](https://consumer.ftc.gov/articles/how-evaluate-online-reviews)][4])</span></li>
+            <li><strong>SNS広告は全部詐欺だと考える</strong><span>問題は広告という形式ではなく、販売元を確認せず広告表示そのものを信用することです。</span></li>
+            <li><strong>AI生成広告を完全に見抜ければ安全だと考える</strong><span>人間が作った偽広告も存在します。画像の制作方法ではなく、販売者と決済先の実在確認が重要です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>SNS広告は「商品発見エンジン」として使い、購入だけ公式ルートへ戻す</h3>
+          <p>SNSの広告配信は、自分が興味を持ちそうな商品やサービスを見つけるには便利です。FTCも、SNS広告では利用者の興味や購買行動などを使ったターゲティングが行われると説明しています。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1]) この便利さを捨てる必要はありません。広告を見て気になる商品を発見したら、その場で購入せず、ブランド名や商品名を使って公式サイトを探すという二段階にすると、安全性を高めながらSNS広告のメリットを残せます。</p>
+          <ul class="positive-example-list"><li>Instagramで商品を見つけ、ブランド公式アプリから購入する</li><li>広告の商品名だけコピーして公式サイトで検索する</li><li>AIに「この通販サイトを確認するときのチェック項目」を整理してもらう</li><li>広告価格と公式価格を比較する</li><li>知らないショップなら会社名・住所・返品条件を確認する</li><li>レビューを複数サイトで比較する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>「スポンサー」って表示されていると、なんとなくSNS運営会社が『この店は大丈夫です』と推薦しているように見えるんですよね。でも実際は、まず広告枠だと考えた方がいいです。しかも今はAIで商品写真も広告文もかなり自然に作れます。だから私は、怪しい画像を見抜く練習より「広告を見たら一回公式サイトへ戻る」をおすすめします。商品を見つける場所はSNS、買う場所は確認した公式ルート。この二段構えなら、便利さを捨てなくて済みます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>「スポンサー広告」を信用の印ではなく、商品を知る入口として見る。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know" target="_blank" rel="noopener noreferrer">Are ads on social media vetted or checked for scams? Here’s what to know<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Federal Trade Commission Consumer Advice</span>
+              <span>その他</span>
+              <time datetime="2026-08-10">2026-08-10</time>
+            </li>
+            <li>
+              <strong><a href="https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2026/04/reported-losses-scams-social-media-eight-times-higher-2020" target="_blank" rel="noopener noreferrer">Reported losses to scams on social media eight times higher than in 2020<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Federal Trade Commission</span>
+              <span>その他</span>
+              <time datetime="2026-04-27">2026-04-27</time>
+            </li>
+            <li>
+              <strong><a href="https://www.ic3.gov/PSA/2024/PSA241203" target="_blank" rel="noopener noreferrer">Criminals Use Generative Artificial Intelligence to Facilitate Financial Fraud<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>FBI Internet Crime Complaint Center</span>
+              <span>その他</span>
+              <time datetime="2024-12-03">2024-12-03</time>
+            </li>
+            <li>
+              <strong><a href="https://consumer.ftc.gov/articles/how-evaluate-online-reviews" target="_blank" rel="noopener noreferrer">How To Evaluate Online Reviews<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Federal Trade Commission Consumer Advice</span>
+              <span>その他</span>
+              <time datetime="2022-10">2022-10</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260811-02" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="「AIっぽい文章」を探すより、このコメント“話をそらしてない？”　最新研究が示すSNS情報操作の見抜き方 文章のクセより「会話の方向」を見る 2026年8月10日、Cardiff Universityなどの研究チームは、生成AIによって文章が自然になり「AIらしい言葉遣い」だけでは情報操作を見抜きにくくなっているとして、別の視点を紹介しました。([Phys.org][1]) 注目したのは文章の書き方ではなく、コメントが会話を突然別の対立的な話題へそらす「discourse derailment（議論の脱線）」です。研究チームはBBC NewsのYouTubeコメントを分析し、LLMに「普通なら続きそうな返信」を生成させ、実際の返信とのズレから脱線を検出する方法を開発しました。査読研究では、この方法が従来の単語・感情分析ベースの手法を上回り、人間の注釈者同士の一致度に近い性能を示したと報告されています。([Nature][2]) ただし、話題が変わること自体は普通の会話でも起こります。「脱線＝偽情報」と断定せず、情報確認を始めるサインとして使うのがポイントです。 情報の見極め はじめて SNS 情報の見極め 偽情報 ディスインフォメーション 生成AI コメント欄 論点そらし YouTube LLM ファクトチェック SNSやYouTubeのコメント欄を見る人 ネット上の議論やニュースコメントを読む人 AI生成文章を見分けたい人 SNS運営やコミュニティ管理をする人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">conversation-derailment-check</span>
+              <div>
+                <p>文章のクセより「会話の方向」を見る</p>
+                <h3>「AIっぽい文章」を探すより、このコメント“話をそらしてない？”　最新研究が示すSNS情報操作の見抜き方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-11">2026.08.11</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月10日、Cardiff Universityなどの研究チームは、生成AIによって文章が自然になり「AIらしい言葉遣い」だけでは情報操作を見抜きにくくなっているとして、別の視点を紹介しました。([Phys.org][1]) 注目したのは文章の書き方ではなく、コメントが会話を突然別の対立的な話題へそらす「discourse derailment（議論の脱線）」です。研究チームはBBC NewsのYouTubeコメントを分析し、LLMに「普通なら続きそうな返信」を生成させ、実際の返信とのズレから脱線を検出する方法を開発しました。査読研究では、この方法が従来の単語・感情分析ベースの手法を上回り、人間の注釈者同士の一致度に近い性能を示したと報告されています。([Nature][2]) ただし、話題が変わること自体は普通の会話でも起こります。「脱線＝偽情報」と断定せず、情報確認を始めるサインとして使うのがポイントです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>会話の流れに違和感があれば主張を別経路で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSやYouTubeのコメント欄を見る人</li><li>ネット上の議論やニュースコメントを読む人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>SNS</li><li>情報の見極め</li><li>偽情報</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260810-02" data-forensics-card data-category="scam" data-level="5" data-difficulty="beginner" data-search-text="「あなたの犬を保護しました。治療費を今すぐ払って」　AI画像で飼い主を狙う迷子ペット詐欺 ペットの写真より“公式窓口から逆確認” FTCは2026年6月24日、動物好きや迷子ペットの飼い主を狙い、盗用・加工画像やAI生成ディープフェイクを使って金銭や個人情報を奪う詐欺へ注意を呼びかけました。詐欺師は「あなたのペットが事故に遭い、動物病院で治療している」などと名乗り、AIで作ったペットの画像や動画を証拠として送り、治療費を急いで支払わせようとする場合があります。 写真が本物に見えるかを見抜くことより、連絡してきた相手とは別に、動物保護施設や病院の公式番号へ自分から連絡して確認する方が有効です。 詐欺・なりすまし はじめて 迷子ペット詐欺 AI生成画像 ディープフェイク ペット 動物病院 保護施設 SNS詐欺 なりすまし 認証コード SNSで迷子ペットの情報を投稿する人 犬や猫などのペットを飼っている人 動物保護団体やシェルターへ寄付する人 AI生成画像を使った詐欺について知りたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">lost-pet-ai-scam-check</span>
+              <div>
+                <p>ペットの写真より“公式窓口から逆確認”</p>
+                <h3>「あなたの犬を保護しました。治療費を今すぐ払って」　AI画像で飼い主を狙う迷子ペット詐欺</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-10">2026.08.10</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">FTCは2026年6月24日、動物好きや迷子ペットの飼い主を狙い、盗用・加工画像やAI生成ディープフェイクを使って金銭や個人情報を奪う詐欺へ注意を呼びかけました。詐欺師は「あなたのペットが事故に遭い、動物病院で治療している」などと名乗り、AIで作ったペットの画像や動画を証拠として送り、治療費を急いで支払わせようとする場合があります。 写真が本物に見えるかを見抜くことより、連絡してきた相手とは別に、動物保護施設や病院の公式番号へ自分から連絡して確認する方が有効です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>送金前に施設・病院へ独立確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSで迷子ペットの情報を投稿する人</li><li>犬や猫などのペットを飼っている人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>迷子ペット詐欺</li><li>AI生成画像</li><li>ディープフェイク</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260810-03" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="「それ、私の担当じゃない」が減っている？　AIで広がる“担当外の仕事”はどこまで自分でやっていい？ AIで担当外へ進むなら「試す」と「決める」を分ける OpenAIが2026年7月27日に公開した「Work at the Frontier」では、米国ユーザーの80万件超の仕事関連メッセージを分析した結果、職業固有の仕事に分類されたAI利用の43.5％が、その利用者の本来の職種とは別の職種に歴史的に関連するタスクだったと報告されました。 例えば営業担当者が顧客データを分析したり、マーケターがWebサイトの不具合を調べたり、小規模事業者が広告文、契約書確認、基本的な財務分析へAIを使ったりしています。ただし、この研究は「専門家が不要になった」ことを示すものではありません。OpenAI自身も、AIによって専門外の仕事を試しやすくなっても、専門的な判断やレビューは引き続き重要だと説明しています。 仕事・AI活用 はじめて 生成AI 仕事・AI活用 タスククロスオーバー 職務分担 ChatGPT 専門家レビュー 中小企業 業務改善 Human in the Loop 仕事でChatGPTなどの生成AIを使う人 少人数の会社やチームで複数の役割を担当する人 専門部署へ依頼する前にAIで下調べする人 AIで自分の業務範囲を広げたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-task-crossover-boundary</span>
+              <div>
+                <p>AIで担当外へ進むなら「試す」と「決める」を分ける</p>
+                <h3>「それ、私の担当じゃない」が減っている？　AIで広がる“担当外の仕事”はどこまで自分でやっていい？</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-10">2026.08.10</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIが2026年7月27日に公開した「Work at the Frontier」では、米国ユーザーの80万件超の仕事関連メッセージを分析した結果、職業固有の仕事に分類されたAI利用の43.5％が、その利用者の本来の職種とは別の職種に歴史的に関連するタスクだったと報告されました。 例えば営業担当者が顧客データを分析したり、マーケターがWebサイトの不具合を調べたり、小規模事業者が広告文、契約書確認、基本的な財務分析へAIを使ったりしています。ただし、この研究は「専門家が不要になった」ことを示すものではありません。OpenAI自身も、AIによって専門外の仕事を試しやすくなっても、専門的な判断やレビューは引き続き重要だと説明しています。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>専門外タスクは重要度に応じてレビュー</span>
+            </div>
+            <ul class="forensics-card-audience"><li>仕事でChatGPTなどの生成AIを使う人</li><li>少人数の会社やチームで複数の役割を担当する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>生成AI</li><li>仕事・AI活用</li><li>タスククロスオーバー</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260811-01">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
