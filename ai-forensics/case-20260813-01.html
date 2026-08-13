@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>「AI生成」のラベルが付いていたら嘘？　逆にラベルがなければ本物？　AI時代の“ラベルの読み方”｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="2026年8月2日、EUでAI Actの新しい透明性ルールが適用され、一定のAI生成・加工コンテンツについて、人が分かる表示や機械が読み取れるマークを付ける仕組みが本格化しました。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1]) さらにC2PAは7月31日に、AI生成・AI加工・人間による編集などをContent Credentialsでより細かく記録する新しい実装ガイドを公開しました。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2]) ただし覚えておきたいのは、「AIで作られた」と「内容が嘘」は同じ意味ではないことです。C2PA自身も、Content Credentialsはコンテンツの来歴を記録する仕組みであり、その情報が真実かどうかの価値判断を行うものではなく、誤情報対策の万能薬でもないと明記しています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3]) 反対に、AIラベルが付いていないことも「人間だけが作った本物」の証明にはなりません。ラベルは真偽を決める判定機ではなく、確認材料を一つ増やす仕組みとして読むのがポイントです。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260813-01" />
+<meta property="og:title" content="「AI生成」のラベルが付いていたら嘘？　逆にラベルがなければ本物？　AI時代の“ラベルの読み方”｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="2026年8月2日、EUでAI Actの新しい透明性ルールが適用され、一定のAI生成・加工コンテンツについて、人が分かる表示や機械が読み取れるマークを付ける仕組みが本格化しました。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1]) さらにC2PAは7月31日に、AI生成・AI加工・人間による編集などをContent Credentialsでより細かく記録する新しい実装ガイドを公開しました。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2]) ただし覚えておきたいのは、「AIで作られた」と「内容が嘘」は同じ意味ではないことです。C2PA自身も、Content Credentialsはコンテンツの来歴を記録する仕組みであり、その情報が真実かどうかの価値判断を行うものではなく、誤情報対策の万能薬でもないと明記しています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3]) 反対に、AIラベルが付いていないことも「人間だけが作った本物」の証明にはなりません。ラベルは真偽を決める判定機ではなく、確認材料を一つ増やす仕組みとして読むのがポイントです。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260813-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>AIラベルは「真偽判定」ではなく「作られ方の手掛かり」</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-13">2026.08.13</time>
+            </div>
+            <h1>「AI生成」のラベルが付いていたら嘘？　逆にラベルがなければ本物？　AI時代の“ラベルの読み方”</h1>
+            <p>2026年8月2日、EUでAI Actの新しい透明性ルールが適用され、一定のAI生成・加工コンテンツについて、人が分かる表示や機械が読み取れるマークを付ける仕組みが本格化しました。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1]) さらにC2PAは7月31日に、AI生成・AI加工・人間による編集などをContent Credentialsでより細かく記録する新しい実装ガイドを公開しました。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2]) ただし覚えておきたいのは、「AIで作られた」と「内容が嘘」は同じ意味ではないことです。C2PA自身も、Content Credentialsはコンテンツの来歴を記録する仕組みであり、その情報が真実かどうかの価値判断を行うものではなく、誤情報対策の万能薬でもないと明記しています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3]) 反対に、AIラベルが付いていないことも「人間だけが作った本物」の証明にはなりません。ラベルは真偽を決める判定機ではなく、確認材料を一つ増やす仕組みとして読むのがポイントです。</p>
+            <ul class="forensics-target-list"><li>SNSでAI生成画像や動画を見る人</li><li>ニュースやネット上の画像の真偽を確認する人</li><li>「AI生成」ラベルを見て内容を判断する人</li><li>生成AIで画像・文章・動画を作る人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AIラベル</li><li>Content Credentials</li><li>C2PA</li><li>EU AI Act</li><li>生成AI</li><li>AI画像</li><li>ディープフェイク</li><li>コンテンツ来歴</li><li>ファクトチェック</li><li>メディアリテラシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>AIラベル＋内容の根拠を別々に確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AI生成・加工の表示は制作履歴を知る手掛かりです。重要な情報では、ラベルの有無だけで真偽を決めず、日時・場所・出典・一次情報も確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>SNSで災害現場らしい写真を見たら「AI生成」の表示が付いていた。これは全部偽物として無視していい？</h3><p>写真にはAI生成を示す表示がありました。そのため「AIならニュースとして価値はない」と考えたくなります。しかしAIは、実在する出来事を説明する図解、再現イメージ、翻訳、画像補正などにも利用できます。逆に「AI生成」の表示がない写真でも、古い写真の転載、別の場所の写真、切り抜きによる誤解など、AIを使わずに誤情報になることがあります。EUの透明性ルールも、AI生成・加工されたことを利用者が認識できるようにすることを目的としており、その内容が正しいかどうかを自動的に保証する制度ではありません。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1])</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>EUでは2026年8月2日から、ディープフェイクや一定の公益情報に関するAI生成テキストなどについて透明性義務が適用されています。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1]) C2PAのContent Credentialsでは、単純な「AI／人間」の二択だけでなく、AIで完全生成されたのか、AIで一部加工されたのか、人間が編集したのかなど、制作履歴を記録できる方向へ仕様が進んでいます。最新の実装ガイドでは、AIが変更した画像領域や文書の特定段落まで記録できる仕組みも説明されています。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2]) 一方でC2PAは、来歴データが改ざんされていないことと、コンテンツが事実として正しいことは別だと明確にしています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3])</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="use-as-provenance-signal">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>SNSの画像に「AI生成」やContent Credentialsの表示があったとき、最も適切な読み方は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ai-means-false" data-choice-id="ai-means-false" />
+                <span>
+                  <strong>AI生成なら内容は嘘だと判断する</strong>
+                  <small>制作方法だけで情報の真偽を決める。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="no-label-means-real" data-choice-id="no-label-means-real" />
+                <span>
+                  <strong>AIラベルがなければ本物の写真だと判断する</strong>
+                  <small>表示がないことを人間制作・事実の証明として扱う。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="use-as-provenance-signal" data-choice-id="use-as-provenance-signal" />
+                <span>
+                  <strong>どう作られたかを知る手掛かりとして使い、重要な主張は別途確認する</strong>
+                  <small>制作履歴と情報の真偽を分けて考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ignore-labels" data-choice-id="ignore-labels" />
+                <span>
+                  <strong>AIラベルは意味がないので見ない</strong>
+                  <small>制作履歴の情報も判断材料にしない。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>どう作られたかを知る手掛かりとして使い、重要な主張は別途確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Content Credentialsが扱う中心情報は「そのコンテンツがどのように作成・編集されたか」という来歴です。C2PAは、来歴情報が正しく署名され改ざんされていないことは検証できても、そのコンテンツの主張が真実・正確・事実であるかを直接判定する仕組みではないと説明しています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3]) したがって、「AI生成」という表示は拒否ボタンではなく、「制作過程をもう一段確認できる情報」として読むのが適切です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AI生成と「嘘」を同じ意味にしていないか</h3>
+              <p>実在するデータから作ったグラフ、説明用イラスト、再現映像など、AI生成でも内容自体が正しい場合があります。制作方法と事実確認は分けます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ラベルがないことを「本物」の証明にしていないか</h3>
+              <p>C2PAはグローバルなオプトイン型の仕組みとして設計されているため、Content Credentialsがないだけで制作方法を確定することはできません。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Content Credentialsを開いて履歴を見たか</h3>
+              <p>対応コンテンツでは、作成方法、編集履歴、AI利用などの来歴情報を確認できます。([[Content Credentials](https://contentcredentials.org/about/?utm_source=chatgpt.com)][4])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>「AIで一部編集」と「AIで全部生成」を区別しているか</h3>
+              <p>最新C2PAガイドでは、完全なAI生成、AIによる加工、人間による編集などを細かく記録する方法が整理されています。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2])</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>AIが使われた場所を確認できるか</h3>
+              <p>C2PAの新しい実装方法では、画像の特定領域、文書の特定段落、音声・動画の特定区間など、AIが変更した場所を示すことも可能です。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>制作履歴と主張の根拠を分けているか</h3>
+              <p>画像がカメラ撮影だと確認できても、「この写真は今日の出来事」という投稿文まで正しいとは限りません。日時・場所・ニュース原文などは別途確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>メタデータが外れる場合があることを知っているか</h3>
+              <p>C2PAは、Content Credentialsのメタデータが意図的・偶然にファイルから分離される場合があると説明し、ウォーターマークやフィンガープリントによる復元技術を用意しています。([[C2PA](https://c2pa.org/faqs/)][5])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ラベルだけで拡散・否定を決めていないか</h3>
+              <p>重要なニュース、災害、健康、政治、金融などでは、制作履歴に加えて一次情報や信頼できる報道元を確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AIラベルは「偽物マーク」ではなく、デジタルコンテンツの成分表示</strong><p>C2PAはContent Credentialsを、コンテンツの作成・編集履歴を確認するための仕組みとして設計しています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html?utm_source=chatgpt.com)][6]) 2026年8月にはEUの透明性ルールも適用され、AIが関わったことを利用者へ知らせる環境がさらに整いつつあります。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1]) ただし成分表示に「砂糖を使っています」と書いてあっても料理がおいしいかは別問題なのと同じで、「AIを使っています」は情報が正しいかどうかを直接示しません。AIの関与を知ったうえで、内容の根拠を確認する。この二段階で考えるのが最も実用的です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>AIラベルを見たら、まず制作方法の情報として受け取る</strong><span>「AI＝嘘」という早合点を避け、どの程度AIが関与したのか確認できます。</span></li>
+            <li><strong>Content Credentialsがある場合は詳細を開く</strong><span>作成・編集・AI利用などの履歴を確認できる場合があります。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2])</span></li>
+            <li><strong>重要な主張は元の情報源へ戻る</strong><span>制作履歴が分かっても、投稿文の日時・場所・説明まで正しいとは限りません。</span></li>
+            <li><strong>AI加工された場所が表示される場合はそこを見る</strong><span>全体がAI生成なのか、一部分だけAI編集なのかを区別できます。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2])</span></li>
+            <li><strong>ラベルがなくても通常のファクトチェックを続ける</strong><span>C2PAはオプトイン型で、メタデータが分離される場合もあるため、表示なし＝非AIとは限りません。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3])</span></li>
+            <li><strong>自分がAIコンテンツを公開する場合も来歴を残す</strong><span>AI利用を隠すのではなく制作過程を示すことで、受け手が判断しやすくなります。</span></li>
+            <li><strong>AIラベルと出典確認をセットで使う</strong><span>制作方法と内容の信頼性という別の情報を組み合わせられます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AIラベルを見た瞬間に偽情報認定する</strong><span>ラベルが示すのは主に制作・加工方法であり、内容の事実性そのものではありません。C2PAも真偽の価値判断は行わないと明記しています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3])</span></li>
+            <li><strong>AIラベルがない画像を自動的に本物と判断する</strong><span>Content Credentialsはすべてのコンテンツへ必ず付く仕組みではありません。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3])</span></li>
+            <li><strong>Content Credentialsがあれば投稿文まで正しいと思う</strong><span>画像の来歴と、その画像へ付けられた説明文の正確性は別です。</span></li>
+            <li><strong>AIで一部補正した写真と完全生成画像を同じ扱いにする</strong><span>現在の来歴技術はAIの関与度をより細かく記録する方向へ進んでいます。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2])</span></li>
+            <li><strong>AIラベルは完璧ではないから全部無意味だと考える</strong><span>C2PA自身も万能薬ではないとしつつ、メディアリテラシーやファクトチェックを補完する仕組みとして位置付けています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3])</span></li>
+            <li><strong>「AIか人間か」を当てることだけに時間を使う</strong><span>重要なのは制作手段の当てゲームではなく、その情報を信用・共有・行動に使ってよいかを確認することです。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIラベルを「警告マーク」ではなく「確認できる情報が増えた」と考える</h3>
+          <p>AI生成コンテンツが増えるほど、「見ただけでAIを見抜く」方法は難しくなります。一方、EUの透明性ルールやC2PAのContent Credentialsは、利用者が制作過程について確認できる情報を増やす方向へ進んでいます。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1]) 特にC2PAの最新ガイドでは、単なるAI生成ラベルから、どこをAIが編集したのか、どのような制作工程だったのかを伝える方向へ進化しています。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2]) 「見抜く」だけではなく「履歴を見る」習慣へ変えることで、AIコンテンツを怖がりすぎず利用できます。</p>
+          <ul class="positive-example-list"><li>AI生成の解説画像でも、元になった統計や資料を確認する</li><li>写真にContent Credentialsがあれば撮影・編集履歴を確認する</li><li>AIで背景だけ変更した商品画像と完全生成画像を区別する</li><li>ニュース画像では来歴と掲載元の両方を見る</li><li>AIラベル付き動画でも引用されている数字は一次資料で確認する</li><li>自分がAIを使った制作物にも可能なら制作履歴や説明を残す</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>これから「AI生成」って表示を見る機会はかなり増えると思います。でも、そこで『はい偽物』と閉じるのは少しもったいないんですよね。AIで作った防災イラストもあるし、人間が撮った写真に嘘の説明文を付けることだってできます。今回覚えたいのは、AIラベルは“真偽判定ランプ”ではなく“制作方法の成分表示”だということです。むしろラベルが付くことで、今まで見えなかった制作過程が一つ見えるようになった。その情報を使って、次に出典を見る。ネット鑑識としては、こっちの方がずっと頼れる使い方だと思います。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>「AI生成」は嘘の印ではない。ラベルで作られ方を確認し、内容の真偽は別に確かめる。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en" target="_blank" rel="noopener noreferrer">Safer and more transparent AI<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>European Commission</span>
+              <span>その他</span>
+              <time datetime="2026-08-02">2026-08-02</time>
+            </li>
+            <li>
+              <strong><a href="https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content" target="_blank" rel="noopener noreferrer">Code of Practice on Transparency of AI-generated Content<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>European Commission</span>
+              <span>その他</span>
+              <time datetime="2026-07-31">2026-07-31</time>
+            </li>
+            <li>
+              <strong><a href="https://c2pa.org/a-new-implementation-guide-for-content-credentials/" target="_blank" rel="noopener noreferrer">A New Implementation Guide for Content Credentials<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Coalition for Content Provenance and Authenticity</span>
+              <span>その他</span>
+              <time datetime="2026-07-31">2026-07-31</time>
+            </li>
+            <li>
+              <strong><a href="https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html" target="_blank" rel="noopener noreferrer">C2PA and Content Credentials Explainer<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Coalition for Content Provenance and Authenticity</span>
+              <span>その他</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://c2pa.org/faqs/" target="_blank" rel="noopener noreferrer">C2PA FAQ<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Coalition for Content Provenance and Authenticity</span>
+              <span>その他</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://contentcredentials.org/about/" target="_blank" rel="noopener noreferrer">About Content Credentials<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Content Credentials / C2PA</span>
+              <span>その他</span>
+              
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260812-01" data-forensics-card data-category="scam" data-level="4" data-difficulty="beginner" data-search-text="「スポンサー広告だから安全」は違う。SNSの広告欄にも“偽ショップ”は入り込む 広告表示は「運営のお墨付き」ではない FTCは2026年8月10日、SNS上の広告について「プラットフォームに表示されているから安全とは限らない」と改めて注意喚起しました。SNS事業者が広告主を常に十分審査しているとは限らず、詐欺師も正規企業と同じ広告配信の仕組みを利用できます。FTCによると、2025年にはSNS広告を見て商品を注文したことから始まった詐欺だけで、9500万ドルを超える被害が報告されました。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1]) さらにSNSを入口とした詐欺全体では2025年の報告被害額が21億ドルに達しています。([[Federal Trade Commission](https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2026/04/reported-losses-scams-social-media-eight-times-higher-2020)][2]) AIで広告画像や商品写真を自然に作れる現在は、「広告がきれい」「ブランドロゴがある」「スポンサー表示がある」といった見た目より、購入前に販売元そのものを確認することが重要です。FBIも生成AIが偽プロフィール、商品宣伝画像、偽サイト用コンテンツなどの金融詐欺に利用されていると警告しています。([[Internet Crime Complaint Center](https://www.ic3.gov/PSA/2024/PSA241203?country=US&amp;currency=USD&amp;japan_bespoke_content=false&amp;logged_in=false&amp;mobile=false&amp;utm_source=chatgpt.com)][3]) 詐欺・なりすまし はじめて SNS広告 偽ショップ ブランドなりすまし ネット通販 Instagram Facebook 生成AI AI画像 ショッピング詐欺 広告 Instagram・Facebook・TikTokなどSNSから買い物をする人 SNS広告から公式ブランドサイトへ移動することがある人 セール広告や限定商品をよく見る人 ネットショップを利用する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">social-ad-brand-check</span>
+              <div>
+                <p>広告表示は「運営のお墨付き」ではない</p>
+                <h3>「スポンサー広告だから安全」は違う。SNSの広告欄にも“偽ショップ”は入り込む</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-12">2026.08.12</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">FTCは2026年8月10日、SNS上の広告について「プラットフォームに表示されているから安全とは限らない」と改めて注意喚起しました。SNS事業者が広告主を常に十分審査しているとは限らず、詐欺師も正規企業と同じ広告配信の仕組みを利用できます。FTCによると、2025年にはSNS広告を見て商品を注文したことから始まった詐欺だけで、9500万ドルを超える被害が報告されました。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1]) さらにSNSを入口とした詐欺全体では2025年の報告被害額が21億ドルに達しています。([[Federal Trade Commission](https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2026/04/reported-losses-scams-social-media-eight-times-higher-2020)][2]) AIで広告画像や商品写真を自然に作れる現在は、「広告がきれい」「ブランドロゴがある」「スポンサー表示がある」といった見た目より、購入前に販売元そのものを確認することが重要です。FBIも生成AIが偽プロフィール、商品宣伝画像、偽サイト用コンテンツなどの金融詐欺に利用されていると警告しています。([[Internet Crime Complaint Center](https://www.ic3.gov/PSA/2024/PSA241203?country=US&amp;currency=USD&amp;japan_bespoke_content=false&amp;logged_in=false&amp;mobile=false&amp;utm_source=chatgpt.com)][3])</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>購入前に販売元を別経路で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Instagram・Facebook・TikTokなどSNSから買い物をする人</li><li>SNS広告から公式ブランドサイトへ移動することがある人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>SNS広告</li><li>偽ショップ</li><li>ブランドなりすまし</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260812-03" data-forensics-card data-category="health-ai" data-level="5" data-difficulty="beginner" data-search-text="AIに症状を聞くなら「何の病気？」の一発勝負をやめる　最新研究で見えた“質問してもらう”コツ 症状相談は「答えを聞く」より「質問してもらう」 Google Researchが2026年7月22日に公開したSymptomAIの研究では、米国の13,917人が実際の症状について会話型AIとやり取りし、AIが積極的に追加質問を行う方式は、利用者が自分から情報を入力するだけの方式より鑑別診断の精度が有意に高くなりました。([[Google Research](https://research.google/blog/symptomai-towards-a-conversational-ai-agent-for-everyday-symptom-assessment/)][1]) 一方、Nature Healthに2026年5月掲載された500人の実験では、人は「医師ではなくAIへ話している」と思うと、緊急度判断に必要な症状説明の質が約8％低下する傾向が確認されています。([[Nature](https://www.nature.com/articles/s44360-026-00116-y?utm_source=chatgpt.com)][2]) つまりAIの医療相談で大事なのは、いきなり病名を当ててもらうことより、「判断する前に必要なことを質問して」とAIに問診役をさせることです。 健康・医療 はじめて 健康・医療 症状相談 SymptomAI 問診 生成AI Gemini AIチャットボット 診察準備 プロンプト Human in the Loop ChatGPTやGeminiなどへ体調について相談する人 症状を検索する代わりに生成AIを使う人 病院へ行く前に症状を整理したい人 AIを健康情報の補助に使いたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-symptom-followup-questions</span>
+              <div>
+                <p>症状相談は「答えを聞く」より「質問してもらう」</p>
+                <h3>AIに症状を聞くなら「何の病気？」の一発勝負をやめる　最新研究で見えた“質問してもらう”コツ</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-12">2026.08.12</time>
+              <span>健康・医療</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Google Researchが2026年7月22日に公開したSymptomAIの研究では、米国の13,917人が実際の症状について会話型AIとやり取りし、AIが積極的に追加質問を行う方式は、利用者が自分から情報を入力するだけの方式より鑑別診断の精度が有意に高くなりました。([[Google Research](https://research.google/blog/symptomai-towards-a-conversational-ai-agent-for-everyday-symptom-assessment/)][1]) 一方、Nature Healthに2026年5月掲載された500人の実験では、人は「医師ではなくAIへ話している」と思うと、緊急度判断に必要な症状説明の質が約8％低下する傾向が確認されています。([[Nature](https://www.nature.com/articles/s44360-026-00116-y?utm_source=chatgpt.com)][2]) つまりAIの医療相談で大事なのは、いきなり病名を当ててもらうことより、「判断する前に必要なことを質問して」とAIに問診役をさせることです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>AIで症状整理、診断・緊急判断は医療へ</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTやGeminiなどへ体調について相談する人</li><li>症状を検索する代わりに生成AIを使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>健康・医療</li><li>症状相談</li><li>SymptomAI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260811-02" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="「AIっぽい文章」を探すより、このコメント“話をそらしてない？”　最新研究が示すSNS情報操作の見抜き方 文章のクセより「会話の方向」を見る 2026年8月10日、Cardiff Universityなどの研究チームは、生成AIによって文章が自然になり「AIらしい言葉遣い」だけでは情報操作を見抜きにくくなっているとして、別の視点を紹介しました。([Phys.org][1]) 注目したのは文章の書き方ではなく、コメントが会話を突然別の対立的な話題へそらす「discourse derailment（議論の脱線）」です。研究チームはBBC NewsのYouTubeコメントを分析し、LLMに「普通なら続きそうな返信」を生成させ、実際の返信とのズレから脱線を検出する方法を開発しました。査読研究では、この方法が従来の単語・感情分析ベースの手法を上回り、人間の注釈者同士の一致度に近い性能を示したと報告されています。([Nature][2]) ただし、話題が変わること自体は普通の会話でも起こります。「脱線＝偽情報」と断定せず、情報確認を始めるサインとして使うのがポイントです。 情報の見極め はじめて SNS 情報の見極め 偽情報 ディスインフォメーション 生成AI コメント欄 論点そらし YouTube LLM ファクトチェック SNSやYouTubeのコメント欄を見る人 ネット上の議論やニュースコメントを読む人 AI生成文章を見分けたい人 SNS運営やコミュニティ管理をする人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">conversation-derailment-check</span>
+              <div>
+                <p>文章のクセより「会話の方向」を見る</p>
+                <h3>「AIっぽい文章」を探すより、このコメント“話をそらしてない？”　最新研究が示すSNS情報操作の見抜き方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-11">2026.08.11</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月10日、Cardiff Universityなどの研究チームは、生成AIによって文章が自然になり「AIらしい言葉遣い」だけでは情報操作を見抜きにくくなっているとして、別の視点を紹介しました。([Phys.org][1]) 注目したのは文章の書き方ではなく、コメントが会話を突然別の対立的な話題へそらす「discourse derailment（議論の脱線）」です。研究チームはBBC NewsのYouTubeコメントを分析し、LLMに「普通なら続きそうな返信」を生成させ、実際の返信とのズレから脱線を検出する方法を開発しました。査読研究では、この方法が従来の単語・感情分析ベースの手法を上回り、人間の注釈者同士の一致度に近い性能を示したと報告されています。([Nature][2]) ただし、話題が変わること自体は普通の会話でも起こります。「脱線＝偽情報」と断定せず、情報確認を始めるサインとして使うのがポイントです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>会話の流れに違和感があれば主張を別経路で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSやYouTubeのコメント欄を見る人</li><li>ネット上の議論やニュースコメントを読む人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>SNS</li><li>情報の見極め</li><li>偽情報</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260812-01">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

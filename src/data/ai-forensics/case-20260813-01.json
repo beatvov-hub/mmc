@@ -1,0 +1,230 @@
+{
+    "id":  "case-20260813-01",
+    "publishedAt":  "2026-08-13",
+    "title":  "「AI生成」のラベルが付いていたら嘘？　逆にラベルがなければ本物？　AI時代の“ラベルの読み方”",
+    "shortTitle":  "AIラベルは「真偽判定」ではなく「作られ方の手掛かり」",
+    "category":  "media-literacy",
+    "difficulty":  "beginner",
+    "targetAudience":  [
+                           "SNSでAI生成画像や動画を見る人",
+                           "ニュースやネット上の画像の真偽を確認する人",
+                           "「AI生成」ラベルを見て内容を判断する人",
+                           "生成AIで画像・文章・動画を作る人"
+                       ],
+    "summary":  "2026年8月2日、EUでAI Actの新しい透明性ルールが適用され、一定のAI生成・加工コンテンツについて、人が分かる表示や機械が読み取れるマークを付ける仕組みが本格化しました。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1]) さらにC2PAは7月31日に、AI生成・AI加工・人間による編集などをContent Credentialsでより細かく記録する新しい実装ガイドを公開しました。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2]) ただし覚えておきたいのは、「AIで作られた」と「内容が嘘」は同じ意味ではないことです。C2PA自身も、Content Credentialsはコンテンツの来歴を記録する仕組みであり、その情報が真実かどうかの価値判断を行うものではなく、誤情報対策の万能薬でもないと明記しています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3]) 反対に、AIラベルが付いていないことも「人間だけが作った本物」の証明にはなりません。ラベルは真偽を決める判定機ではなく、確認材料を一つ増やす仕組みとして読むのがポイントです。",
+    "scenario":  {
+                     "headline":  "SNSで災害現場らしい写真を見たら「AI生成」の表示が付いていた。これは全部偽物として無視していい？",
+                     "description":  "写真にはAI生成を示す表示がありました。そのため「AIならニュースとして価値はない」と考えたくなります。しかしAIは、実在する出来事を説明する図解、再現イメージ、翻訳、画像補正などにも利用できます。逆に「AI生成」の表示がない写真でも、古い写真の転載、別の場所の写真、切り抜きによる誤解など、AIを使わずに誤情報になることがあります。EUの透明性ルールも、AI生成・加工されたことを利用者が認識できるようにすることを目的としており、その内容が正しいかどうかを自動的に保証する制度ではありません。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1])",
+                     "whyItMatters":  "EUでは2026年8月2日から、ディープフェイクや一定の公益情報に関するAI生成テキストなどについて透明性義務が適用されています。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1]) C2PAのContent Credentialsでは、単純な「AI／人間」の二択だけでなく、AIで完全生成されたのか、AIで一部加工されたのか、人間が編集したのかなど、制作履歴を記録できる方向へ仕様が進んでいます。最新の実装ガイドでは、AIが変更した画像領域や文書の特定段落まで記録できる仕組みも説明されています。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2]) 一方でC2PAは、来歴データが改ざんされていないことと、コンテンツが事実として正しいことは別だと明確にしています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3])"
+                 },
+    "question":  {
+                     "text":  "SNSの画像に「AI生成」やContent Credentialsの表示があったとき、最も適切な読み方は？",
+                     "choices":  [
+                                     {
+                                         "id":  "ai-means-false",
+                                         "label":  "AI生成なら内容は嘘だと判断する",
+                                         "description":  "制作方法だけで情報の真偽を決める。"
+                                     },
+                                     {
+                                         "id":  "no-label-means-real",
+                                         "label":  "AIラベルがなければ本物の写真だと判断する",
+                                         "description":  "表示がないことを人間制作・事実の証明として扱う。"
+                                     },
+                                     {
+                                         "id":  "use-as-provenance-signal",
+                                         "label":  "どう作られたかを知る手掛かりとして使い、重要な主張は別途確認する",
+                                         "description":  "制作履歴と情報の真偽を分けて考える。"
+                                     },
+                                     {
+                                         "id":  "ignore-labels",
+                                         "label":  "AIラベルは意味がないので見ない",
+                                         "description":  "制作履歴の情報も判断材料にしない。"
+                                     }
+                                 ],
+                     "recommendedAnswers":  [
+                                                "use-as-provenance-signal"
+                                            ],
+                     "explanation":  "Content Credentialsが扱う中心情報は「そのコンテンツがどのように作成・編集されたか」という来歴です。C2PAは、来歴情報が正しく署名され改ざんされていないことは検証できても、そのコンテンツの主張が真実・正確・事実であるかを直接判定する仕組みではないと説明しています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3]) したがって、「AI生成」という表示は拒否ボタンではなく、「制作過程をもう一段確認できる情報」として読むのが適切です。"
+                 },
+    "inspectionPoints":  [
+                             {
+                                 "title":  "AI生成と「嘘」を同じ意味にしていないか",
+                                 "description":  "実在するデータから作ったグラフ、説明用イラスト、再現映像など、AI生成でも内容自体が正しい場合があります。制作方法と事実確認は分けます。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "ラベルがないことを「本物」の証明にしていないか",
+                                 "description":  "C2PAはグローバルなオプトイン型の仕組みとして設計されているため、Content Credentialsがないだけで制作方法を確定することはできません。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "Content Credentialsを開いて履歴を見たか",
+                                 "description":  "対応コンテンツでは、作成方法、編集履歴、AI利用などの来歴情報を確認できます。([[Content Credentials](https://contentcredentials.org/about/?utm_source=chatgpt.com)][4])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "「AIで一部編集」と「AIで全部生成」を区別しているか",
+                                 "description":  "最新C2PAガイドでは、完全なAI生成、AIによる加工、人間による編集などを細かく記録する方法が整理されています。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "AIが使われた場所を確認できるか",
+                                 "description":  "C2PAの新しい実装方法では、画像の特定領域、文書の特定段落、音声・動画の特定区間など、AIが変更した場所を示すことも可能です。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2])",
+                                 "priority":  "medium"
+                             },
+                             {
+                                 "title":  "制作履歴と主張の根拠を分けているか",
+                                 "description":  "画像がカメラ撮影だと確認できても、「この写真は今日の出来事」という投稿文まで正しいとは限りません。日時・場所・ニュース原文などは別途確認します。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "メタデータが外れる場合があることを知っているか",
+                                 "description":  "C2PAは、Content Credentialsのメタデータが意図的・偶然にファイルから分離される場合があると説明し、ウォーターマークやフィンガープリントによる復元技術を用意しています。([[C2PA](https://c2pa.org/faqs/)][5])",
+                                 "priority":  "medium"
+                             },
+                             {
+                                 "title":  "ラベルだけで拡散・否定を決めていないか",
+                                 "description":  "重要なニュース、災害、健康、政治、金融などでは、制作履歴に加えて一次情報や信頼できる報道元を確認します。",
+                                 "priority":  "high"
+                             }
+                         ],
+    "verificationLevel":  3,
+    "verificationLabel":  "AIラベル＋内容の根拠を別々に確認",
+    "verificationMessage":  "AI生成・加工の表示は制作履歴を知る手掛かりです。重要な情報では、ラベルの有無だけで真偽を決めず、日時・場所・出典・一次情報も確認してください。",
+    "verdict":  {
+                    "label":  "AIラベルは「偽物マーク」ではなく、デジタルコンテンツの成分表示",
+                    "description":  "C2PAはContent Credentialsを、コンテンツの作成・編集履歴を確認するための仕組みとして設計しています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html?utm_source=chatgpt.com)][6]) 2026年8月にはEUの透明性ルールも適用され、AIが関わったことを利用者へ知らせる環境がさらに整いつつあります。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1]) ただし成分表示に「砂糖を使っています」と書いてあっても料理がおいしいかは別問題なのと同じで、「AIを使っています」は情報が正しいかどうかを直接示しません。AIの関与を知ったうえで、内容の根拠を確認する。この二段階で考えるのが最も実用的です。",
+                    "confidence":  "high"
+                },
+    "safeActions":  [
+                        {
+                            "action":  "AIラベルを見たら、まず制作方法の情報として受け取る",
+                            "reason":  "「AI＝嘘」という早合点を避け、どの程度AIが関与したのか確認できます。"
+                        },
+                        {
+                            "action":  "Content Credentialsがある場合は詳細を開く",
+                            "reason":  "作成・編集・AI利用などの履歴を確認できる場合があります。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2])"
+                        },
+                        {
+                            "action":  "重要な主張は元の情報源へ戻る",
+                            "reason":  "制作履歴が分かっても、投稿文の日時・場所・説明まで正しいとは限りません。"
+                        },
+                        {
+                            "action":  "AI加工された場所が表示される場合はそこを見る",
+                            "reason":  "全体がAI生成なのか、一部分だけAI編集なのかを区別できます。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2])"
+                        },
+                        {
+                            "action":  "ラベルがなくても通常のファクトチェックを続ける",
+                            "reason":  "C2PAはオプトイン型で、メタデータが分離される場合もあるため、表示なし＝非AIとは限りません。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3])"
+                        },
+                        {
+                            "action":  "自分がAIコンテンツを公開する場合も来歴を残す",
+                            "reason":  "AI利用を隠すのではなく制作過程を示すことで、受け手が判断しやすくなります。"
+                        },
+                        {
+                            "action":  "AIラベルと出典確認をセットで使う",
+                            "reason":  "制作方法と内容の信頼性という別の情報を組み合わせられます。"
+                        }
+                    ],
+    "avoidActions":  [
+                         {
+                             "action":  "AIラベルを見た瞬間に偽情報認定する",
+                             "reason":  "ラベルが示すのは主に制作・加工方法であり、内容の事実性そのものではありません。C2PAも真偽の価値判断は行わないと明記しています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3])"
+                         },
+                         {
+                             "action":  "AIラベルがない画像を自動的に本物と判断する",
+                             "reason":  "Content Credentialsはすべてのコンテンツへ必ず付く仕組みではありません。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3])"
+                         },
+                         {
+                             "action":  "Content Credentialsがあれば投稿文まで正しいと思う",
+                             "reason":  "画像の来歴と、その画像へ付けられた説明文の正確性は別です。"
+                         },
+                         {
+                             "action":  "AIで一部補正した写真と完全生成画像を同じ扱いにする",
+                             "reason":  "現在の来歴技術はAIの関与度をより細かく記録する方向へ進んでいます。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2])"
+                         },
+                         {
+                             "action":  "AIラベルは完璧ではないから全部無意味だと考える",
+                             "reason":  "C2PA自身も万能薬ではないとしつつ、メディアリテラシーやファクトチェックを補完する仕組みとして位置付けています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3])"
+                         },
+                         {
+                             "action":  "「AIか人間か」を当てることだけに時間を使う",
+                             "reason":  "重要なのは制作手段の当てゲームではなく、その情報を信用・共有・行動に使ってよいかを確認することです。"
+                         }
+                     ],
+    "positiveUse":  {
+                        "title":  "AIラベルを「警告マーク」ではなく「確認できる情報が増えた」と考える",
+                        "description":  "AI生成コンテンツが増えるほど、「見ただけでAIを見抜く」方法は難しくなります。一方、EUの透明性ルールやC2PAのContent Credentialsは、利用者が制作過程について確認できる情報を増やす方向へ進んでいます。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1]) 特にC2PAの最新ガイドでは、単なるAI生成ラベルから、どこをAIが編集したのか、どのような制作工程だったのかを伝える方向へ進化しています。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2]) 「見抜く」だけではなく「履歴を見る」習慣へ変えることで、AIコンテンツを怖がりすぎず利用できます。",
+                        "examples":  [
+                                         "AI生成の解説画像でも、元になった統計や資料を確認する",
+                                         "写真にContent Credentialsがあれば撮影・編集履歴を確認する",
+                                         "AIで背景だけ変更した商品画像と完全生成画像を区別する",
+                                         "ニュース画像では来歴と掲載元の両方を見る",
+                                         "AIラベル付き動画でも引用されている数字は一次資料で確認する",
+                                         "自分がAIを使った制作物にも可能なら制作履歴や説明を残す"
+                                     ]
+                    },
+    "makotoComment":  "これから「AI生成」って表示を見る機会はかなり増えると思います。でも、そこで『はい偽物』と閉じるのは少しもったいないんですよね。AIで作った防災イラストもあるし、人間が撮った写真に嘘の説明文を付けることだってできます。今回覚えたいのは、AIラベルは“真偽判定ランプ”ではなく“制作方法の成分表示”だということです。むしろラベルが付くことで、今まで見えなかった制作過程が一つ見えるようになった。その情報を使って、次に出典を見る。ネット鑑識としては、こっちの方がずっと頼れる使い方だと思います。",
+    "oneLineLesson":  "「AI生成」は嘘の印ではない。ラベルで作られ方を確認し、内容の真偽は別に確かめる。",
+    "tags":  [
+                 "AIラベル",
+                 "Content Credentials",
+                 "C2PA",
+                 "EU AI Act",
+                 "生成AI",
+                 "AI画像",
+                 "ディープフェイク",
+                 "コンテンツ来歴",
+                 "ファクトチェック",
+                 "メディアリテラシー"
+             ],
+    "sources":  [
+                    {
+                        "title":  "Safer and more transparent AI",
+                        "publisher":  "European Commission",
+                        "sourceType":  "government-regulatory-update",
+                        "publishedAt":  "2026-08-02",
+                        "url":  "https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en"
+                    },
+                    {
+                        "title":  "Code of Practice on Transparency of AI-generated Content",
+                        "publisher":  "European Commission",
+                        "sourceType":  "government-regulatory-guidance",
+                        "publishedAt":  "2026-07-31",
+                        "url":  "https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content"
+                    },
+                    {
+                        "title":  "A New Implementation Guide for Content Credentials",
+                        "publisher":  "Coalition for Content Provenance and Authenticity",
+                        "sourceType":  "industry-standard-guidance",
+                        "publishedAt":  "2026-07-31",
+                        "url":  "https://c2pa.org/a-new-implementation-guide-for-content-credentials/"
+                    },
+                    {
+                        "title":  "C2PA and Content Credentials Explainer",
+                        "publisher":  "Coalition for Content Provenance and Authenticity",
+                        "sourceType":  "official-technical-standard-explainer",
+                        "publishedAt":  null,
+                        "url":  "https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html"
+                    },
+                    {
+                        "title":  "C2PA FAQ",
+                        "publisher":  "Coalition for Content Provenance and Authenticity",
+                        "sourceType":  "official-standard-guidance",
+                        "publishedAt":  null,
+                        "url":  "https://c2pa.org/faqs/"
+                    },
+                    {
+                        "title":  "About Content Credentials",
+                        "publisher":  "Content Credentials / C2PA",
+                        "sourceType":  "official-media-literacy-guidance",
+                        "publishedAt":  null,
+                        "url":  "https://contentcredentials.org/about/"
+                    }
+                ],
+    "visualSuggestion":  {
+                             "mainVisual":  "SNSのタイムラインに2枚の画像を並べる。左は「AI生成」ラベル付きの防災説明イラスト、右はラベルのない実写風ニュース写真。利用者が左へ赤い×、右へ緑の○を付けようとしているところに、鑑識用の虫眼鏡が入り「待って」と止める。次の画面では、左画像のContent](https://contentcredentials.org/about/%22%7D%5D,%22visualSuggestion%22:%7B%22mainVisual%22:%22SNS%E3%81%AE%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AB2%E6%9E%9A%E3%81%AE%E7%94%BB%E5%83%8F%E3%82%92%E4%B8%A6%E3%81%B9%E3%82%8B%E3%80%82%E5%B7%A6%E3%81%AF%E3%80%8CAI%E7%94%9F%E6%88%90%E3%80%8D%E3%83%A9%E3%83%99%E3%83%AB%E4%BB%98%E3%81%8D%E3%81%AE%E9%98%B2%E7%81%BD%E8%AA%AC%E6%98%8E%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%80%81%E5%8F%B3%E3%81%AF%E3%83%A9%E3%83%99%E3%83%AB%E3%81%AE%E3%81%AA%E3%81%84%E5%AE%9F%E5%86%99%E9%A2%A8%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E5%86%99%E7%9C%9F%E3%80%82%E5%88%A9%E7%94%A8%E8%80%85%E3%81%8C%E5%B7%A6%E3%81%B8%E8%B5%A4%E3%81%84%C3%97%E3%80%81%E5%8F%B3%E3%81%B8%E7%B7%91%E3%81%AE%E2%97%8B%E3%82%92%E4%BB%98%E3%81%91%E3%82%88%E3%81%86%E3%81%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%A8%E3%81%93%E3%82%8D%E3%81%AB%E3%80%81%E9%91%91%E8%AD%98%E7%94%A8%E3%81%AE%E8%99%AB%E7%9C%BC%E9%8F%A1%E3%81%8C%E5%85%A5%E3%82%8A%E3%80%8C%E5%BE%85%E3%81%A3%E3%81%A6%E3%80%8D%E3%81%A8%E6%AD%A2%E3%82%81%E3%82%8B%E3%80%82%E6%AC%A1%E3%81%AE%E7%94%BB%E9%9D%A2%E3%81%A7%E3%81%AF%E3%80%81%E5%B7%A6%E7%94%BB%E5%83%8F%E3%81%AEContent)](https://contentcredentials.org/about/%22}],%22visualSuggestion%22:{%22mainVisual%22:%22SNSのタイムラインに2枚の画像を並べる。左は「AI生成」ラベル付きの防災説明イラスト、右はラベルのない実写風ニュース写真。利用者が左へ赤い×、右へ緑の○を付けようとしているところに、鑑識用の虫眼鏡が入り「待って」と止める。次の画面では、左画像のContent) Credentialsから「AI生成・編集履歴」を確認し、右画像では掲載元・撮影日時・場所を確認している。中央に「AIラベル＝制作履歴」「真偽＝別途確認」という二本のチェックラインを配置する。Content Credentialsを食品の成分表示のようなカードとして見せ、AIを危険マークにせず“確認材料が増える技術”として表現した明るいAI鑑識室風デザイン。",
+                             "cardIcon":  "ai-label-provenance-check",
+                             "accentTone":  "information"
+                         }
+}
