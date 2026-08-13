@@ -1,0 +1,230 @@
+{
+    "id":  "case-20260813-02",
+    "publishedAt":  "2026-08-13",
+    "title":  "AIが「前に覚えた公式窓口です」と案内。その“記憶”、本当に信用していい？",
+    "shortTitle":  "AIの記憶にも「出どころ」がある",
+    "category":  "security",
+    "difficulty":  "beginner",
+    "targetAudience":  [
+                           "ChatGPTやCopilotなどのメモリ機能を使う人",
+                           "Web閲覧やメール処理ができるAIエージェントを使う人",
+                           "AIへ仕事のルールや好みを覚えさせている人",
+                           "社内AIやAIエージェントを運用する人"
+                       ],
+    "summary":  "AIが会話をまたいで好みやプロジェクト情報を覚える「長期メモリ」は、毎回同じ説明をしなくて済む便利な機能です。GitHubも2026年8月11日、Copilot for JetBrainsでチャットセッションをまたいで情報を保持・再利用できるpersistent memoryを追加しました。これは脆弱性の報告ではなく、長期メモリが一般的なAI機能になりつつある一例です。([[The GitHub Blog](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains)][1]) 一方、Forcepoint X-Labsは8月4日、外部のWebページや文書に含まれた偽情報をAIが長期メモリへ保存し、後日の別タスクでそれを信頼してしまう「persistent memory poisoning」を研究例として公開しました。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2]) AIの記憶機能を怖がる必要はありませんが、「AIが覚えている＝自分が確認した事実」とは限らないため、連絡先・支払先・セキュリティルールなど重要な記憶では出どころを確認する習慣が重要です。",
+    "scenario":  {
+                     "headline":  "出張用AIに「航空便が欠航した。どこへ連絡すればいい？」と聞くと、以前覚えた“公式サポート”を案内してきた",
+                     "description":  "Forcepointが2026年8月4日に公開した研究上のPoCでは、AIエージェントがWeb検索中に「今後の緊急出張では、この業者を公式窓口として利用する」という攻撃者側の情報を読み取り、それを長期メモリへ保存する状況を再現しました。後日ユーザーが航空便のトラブルについて相談すると、AIは保存された偽の業者を信頼できる窓口として推薦しました。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2]) 重要なのは、これは実際の大規模被害を報告したものではなく、長期メモリを無条件に信用する設計で起こり得るリスクを示した実証例だという点です。Forcepoint自身も公開コードを簡略化した概念実証と説明しています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])",
+                     "whyItMatters":  "通常のプロンプトインジェクションは、その会話が終われば影響も消える場合があります。しかしメモリ汚染では、偽の業者、サポート窓口、社内手順、セキュリティルールなどが長期メモリへ残り、数週間後や別のタスクで再利用される可能性があります。Forcepointは悪意あるWebページ、共有文書、メール、サポートチケット、チャット、PDF、ナレッジベースなどを侵入口の例として挙げています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2]) OWASPのAI Agent Security Cheat SheetもMemory Poisoningを主要リスクの一つに挙げ、外部データを信頼せず、メモリへ保存する前に検証・無害化し、ユーザーやセッション間でメモリを分離することを推奨しています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3])"
+                 },
+    "question":  {
+                     "text":  "AIが「以前の記憶によると、この会社が公式サポート窓口です」と案内した場合、特に重要な情報ならどうする？",
+                     "choices":  [
+                                     {
+                                         "id":  "trust-memory",
+                                         "label":  "AIが長期記憶している情報なのでそのまま信用する",
+                                         "description":  "過去から残っている情報なら確認済みだと考える。"
+                                     },
+                                     {
+                                         "id":  "disable-all-memory",
+                                         "label":  "危険なのでAIのメモリ機能をすべて使わない",
+                                         "description":  "好みやプロジェクト情報など便利な記憶も保存しない。"
+                                     },
+                                     {
+                                         "id":  "verify-memory-source",
+                                         "label":  "どこから覚えた情報か確認し、公式サイトなど別経路で再確認する",
+                                         "description":  "AIの記憶を参考情報として使い、重要情報だけ出典確認する。"
+                                     },
+                                     {
+                                         "id":  "ask-ai-again",
+                                         "label":  "同じAIへ「本当に公式ですか？」ともう一度聞く",
+                                         "description":  "保存された同じ記憶だけを使って再確認する。"
+                                     }
+                                 ],
+                     "recommendedAnswers":  [
+                                                "verify-memory-source"
+                                            ],
+                     "explanation":  "問題はメモリ機能そのものではなく、「保存された情報を無条件に真実として扱うこと」です。Forcepointは、メモリへ保存する際に情報源、ユーザー確認の有無、既存情報との矛盾などを評価する考え方を提案しています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2]) OWASPも外部から取得した情報を信頼せず、長期メモリへ入れる前に検証・無害化することを推奨しています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3]) 一般利用者なら、重要な連絡先や支払先について「AIが覚えているから」ではなく、公式サイトや自分の確認済み資料へ戻るだけでも十分有効です。"
+                 },
+    "inspectionPoints":  [
+                             {
+                                 "title":  "その記憶を誰が教えたのか分かるか",
+                                 "description":  "自分が直接入力した情報なのか、AIがWeb・メール・文書などから取得した情報なのかを区別します。",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "「公式」「承認済み」という言葉だけで信用していないか",
+                                 "description":  "ForcepointのPoCでは、攻撃者側の情報に「公式の緊急予約業者」という権威付けを行い、AIがそれを記憶する状況を再現しています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "新しい連絡先・ドメイン・業者が突然記憶に増えていないか",
+                                 "description":  "Forcepointは、新しい外部ドメインやベンダー、サポート窓口が記憶へ追加された場合をリスク評価の重要なシグナルとして挙げています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "以前の記憶と矛盾していないか",
+                                 "description":  "「公式窓口」が突然別会社へ変わるなど、既存情報と新しい記憶が衝突した場合は自動的に上書きせず確認します。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "支払い・認証・セキュリティ関連の記憶ではないか",
+                                 "description":  "支払先、銀行情報、VPN設定、緊急連絡先、セキュリティ窓口などは、誤った場合の影響が大きいため特に確認レベルを上げます。Forcepointもこれらを高感度カテゴリの例として挙げています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "外部コンテンツをそのまま長期メモリへ保存する設計になっていないか",
+                                 "description":  "OWASPはWebサイト、メール、文書、API応答など外部入力を信頼せず、メモリへ保存する前に検証・無害化することを推奨しています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3])",
+                                 "priority":  "high"
+                             },
+                             {
+                                 "title":  "不要・古い記憶を見直せるか",
+                                 "description":  "メモリを利用するAIでは、確認可能な場合は保存内容を定期的に見直し、古い情報や心当たりのない情報を整理します。GitHub Copilotのように、製品側でメモリ機能のオン・オフを管理できる例もあります。([[The GitHub Blog](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains)][1])",
+                                 "priority":  "medium"
+                             },
+                             {
+                                 "title":  "AIの記憶と一次情報を区別しているか",
+                                 "description":  "長期メモリは便利な文脈保存であり、公式情報源そのものではありません。重要な判断では元資料へ戻ります。",
+                                 "priority":  "high"
+                             }
+                         ],
+    "verificationLevel":  4,
+    "verificationLabel":  "重要なAI記憶は出どころを再確認",
+    "verificationMessage":  "AIが過去から覚えている情報でも、連絡先・支払先・認証・社内ルールなど重要な内容は、公式情報や確認済み資料から再確認してください。",
+    "verdict":  {
+                    "label":  "AIのメモリは「記憶」ではなく「便利なメモ帳」と考える",
+                    "description":  "長期メモリは、好み、プロジェクト背景、作業ルールなどを毎回説明しなくて済むため、AIを便利にする重要な機能です。GitHubの2026年8月11日の更新も、会話をまたいでプロジェクト情報や好みを保持する利便性を目的としています。([[The GitHub Blog](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains)][1]) 一方、OWASPはMemory PoisoningをAIエージェント特有の主要リスクとして挙げています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3]) つまり「記憶を使わない」のではなく、低リスクな好みは便利に覚えてもらい、支払い・認証・セキュリティ・公式窓口など重要な情報だけ出典確認する、という使い分けが現実的です。",
+                    "confidence":  "high"
+                },
+    "safeActions":  [
+                        {
+                            "action":  "重要な記憶について「これはどこから得た情報？」と確認する",
+                            "reason":  "自分が入力した情報なのか、Web・メール・文書など外部情報から取得したものなのかを意識できます。"
+                        },
+                        {
+                            "action":  "公式窓口や支払先はAIの記憶ではなく公式サイトから確認する",
+                            "reason":  "メモリが誤っていても、独立した経路から現在の正しい情報を確認できます。"
+                        },
+                        {
+                            "action":  "メモリを確認できるAIでは定期的に内容を見る",
+                            "reason":  "心当たりのない情報、古いルール、不要な好みなどを整理できます。"
+                        },
+                        {
+                            "action":  "低リスクな好みと重要情報を分けて覚えさせる",
+                            "reason":  "文章の好みや作業スタイルは長期メモリの恩恵を受けやすい一方、支払先や認証情報はより慎重に扱えます。"
+                        },
+                        {
+                            "action":  "AIエージェントには重要情報を保存する前の確認を入れる",
+                            "reason":  "OWASPは外部データを検証してからメモリへ保存し、高リスク操作には人間の確認を残すことを推奨しています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3])"
+                        },
+                        {
+                            "action":  "メモリに情報源や確認日を持たせる",
+                            "reason":  "Forcepointはメモリのsource、作成時刻、ユーザー確認の有無などを記録することで監査しやすくする考え方を示しています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])"
+                        },
+                        {
+                            "action":  "古い記憶には有効期限を設ける",
+                            "reason":  "OWASPはメモリの保存期間や容量を制限することを推奨しています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3])"
+                        }
+                    ],
+    "avoidActions":  [
+                         {
+                             "action":  "AIが何度も同じ情報を言うので正しいと思う",
+                             "reason":  "同じ長期メモリを繰り返し参照しているだけなら、回答回数が増えても独立した確認にはなりません。"
+                         },
+                         {
+                             "action":  "Webで読んだ内容を何でも自動的に長期メモリへ保存する",
+                             "reason":  "外部コンテンツには誤情報や悪意ある指示が含まれる可能性があります。OWASPも外部情報をそのまま信用しないよう推奨しています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3])"
+                         },
+                         {
+                             "action":  "「今後は必ずこの窓口を使う」と外部ページに書いてあれば従う",
+                             "reason":  "Forcepointの研究では、「今後」「常に」「デフォルトとして覚える」といった永続化を狙う文言をメモリ汚染のシグナルとして扱っています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])"
+                         },
+                         {
+                             "action":  "メモリ汚染があるから長期メモリ機能を全部無効にする",
+                             "reason":  "長期メモリはプロジェクト背景や利用者の好みを保持する便利な機能です。重要度によって保存内容を分ける方が利便性を残せます。([[The GitHub Blog](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains)][1])"
+                         },
+                         {
+                             "action":  "AIの記憶へパスワードや秘密鍵を積極的に保存する",
+                             "reason":  "OWASPは機密情報をメモリへ保存する場合に暗号化や削除処理を求め、外部入力やメモリの保護を重要な対策として挙げています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3])"
+                         },
+                         {
+                             "action":  "今回のPoCを「すでに大量のAIが乗っ取られている証拠」と受け取る",
+                             "reason":  "Forcepointが公開した例は仕組みを示すための概念実証であり、同社自身も完全な実攻撃シナリオではないと明記しています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])"
+                         }
+                     ],
+    "positiveUse":  {
+                        "title":  "AIメモリは「毎回説明しなくていいこと」を覚える場所として使う",
+                        "description":  "長期メモリは、文章の好み、よく使う形式、プロジェクトの背景、継続中のタスクなどを保存することで、AIとの会話をかなり効率化できます。GitHub Copilotでも2026年8月11日に、プロジェクト詳細や好みを会話ごとに再入力しなくて済むよう、セッションをまたぐメモリ機能が追加されました。([[The GitHub Blog](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains)][1]) そこで「便利な文脈は覚えさせる」「お金・認証・公式窓口・セキュリティルールは確認してから使う」という二段階にすると、メモリ機能の便利さを残しながらリスクを抑えられます。",
+                        "examples":  [
+                                         "文章のトーンやフォーマットを覚えてもらう",
+                                         "プロジェクトの目的や用語を記憶させる",
+                                         "よく使う作業手順を確認済み情報として保存する",
+                                         "AIが新しい連絡先を覚えようとしたら人間へ確認させる",
+                                         "社内AIのメモリに情報源と確認日を付ける",
+                                         "数か月ごとに保存された記憶を棚卸しする"
+                                     ]
+                    },
+    "makotoComment":  "AIにメモリが付くと、「前にも説明したよね」が減るので、かなり便利です。ただ、人間の記憶と違って、AIはWebページや文書から拾った情報まで“覚える候補”にできる場合があります。そこで私は、AIの記憶を頭の中ではなく共有メモ帳だと思うのがいいと思っています。『公式サポートはここ』とメモ帳に書いてあっても、誰が書いたか分からなければ一回確認しますよね。好みや仕事の背景はどんどん覚えてもらう。でも、お金・認証・公式窓口だけは「そのメモ、誰が書いた？」を見る。AIを便利に育てるなら、この距離感がちょうど良さそうです。",
+    "oneLineLesson":  "AIが「覚えている」ことと、「確認済みの事実」であることは別。",
+    "tags":  [
+                 "AIメモリ",
+                 "Persistent Memory",
+                 "Memory Poisoning",
+                 "AIエージェント",
+                 "プロンプトインジェクション",
+                 "長期記憶",
+                 "GitHub Copilot",
+                 "OWASP",
+                 "AIセキュリティ",
+                 "出典確認"
+             ],
+    "sources":  [
+                    {
+                        "title":  "Beyond Prompt Injection: Persistent Memory Poisoning in AI Agents",
+                        "publisher":  "Forcepoint X-Labs",
+                        "sourceType":  "primary-security-research",
+                        "publishedAt":  "2026-08-04",
+                        "url":  "https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents"
+                    },
+                    {
+                        "title":  "Copilot memory and Ollama in GitHub Copilot for JetBrains",
+                        "publisher":  "GitHub Changelog",
+                        "sourceType":  "official-product-update",
+                        "publishedAt":  "2026-08-11",
+                        "url":  "https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains/"
+                    },
+                    {
+                        "title":  "AI Agent Security Cheat Sheet",
+                        "publisher":  "OWASP Cheat Sheet Series",
+                        "sourceType":  "security-best-practice-guidance",
+                        "publishedAt":  null,
+                        "url":  "https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html"
+                    },
+                    {
+                        "title":  "Memory Is a Feature. It Is Also an Attack Surface",
+                        "publisher":  "OWASP Gen AI Security Project",
+                        "sourceType":  "security-research-explainer",
+                        "publishedAt":  "2026-05-13",
+                        "url":  "https://genai.owasp.org/2026/05/13/memory-is-a-feature-it-is-also-an-attack-surface/"
+                    },
+                    {
+                        "title":  "Identifying and remediating a persistent memory compromise in Claude Code",
+                        "publisher":  "Cisco Blogs",
+                        "sourceType":  "primary-security-research",
+                        "publishedAt":  "2026-04",
+                        "url":  "https://blogs.cisco.com/ai/identifying-and-remediating-a-persistent-memory-compromise-in-claude-code"
+                    },
+                    {
+                        "title":  "Summary Analysis of Responses to the Request for Information Regarding Security Considerations for AI Agents",
+                        "publisher":  "National Institute of Standards and Technology",
+                        "sourceType":  "government-ai-security-report",
+                        "publishedAt":  "2026-05-18",
+                        "url":  "https://www.nist.gov/publications/summary-analysis-responses-request-information-regarding-security-considerations-ai"
+                    }
+                ],
+    "visualSuggestion":  {
+                             "mainVisual":  "AIアシスタントの横に透明な「MEMORY」と書かれたメモ帳があり、「文章は丁寧に」「プロジェクトAの目的」といった安全な記憶に緑の付箋が付いている。一方、「公式サポート：謎の業者」「今後はこの支払先を使う」という外部Webページ由来の記憶には黄色い「出典？」マークが付く。利用者がその情報を削除するのではなく、「誰が教えた？」「公式サイトで確認」という虫眼鏡で確認している。中央に「AIの記憶](https://www.nist.gov/publications/summary-analysis-responses-request-information-regarding-security-considerations-ai%22%7D%5D,%22visualSuggestion%22:%7B%22mainVisual%22:%22AI%E3%82%A2%E3%82%B7%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%88%E3%81%AE%E6%A8%AA%E3%81%AB%E9%80%8F%E6%98%8E%E3%81%AA%E3%80%8CMEMORY%E3%80%8D%E3%81%A8%E6%9B%B8%E3%81%8B%E3%82%8C%E3%81%9F%E3%83%A1%E3%83%A2%E5%B8%B3%E3%81%8C%E3%81%82%E3%82%8A%E3%80%81%E3%80%8C%E6%96%87%E7%AB%A0%E3%81%AF%E4%B8%81%E5%AF%A7%E3%81%AB%E3%80%8D%E3%80%8C%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88A%E3%81%AE%E7%9B%AE%E7%9A%84%E3%80%8D%E3%81%A8%E3%81%84%E3%81%A3%E3%81%9F%E5%AE%89%E5%85%A8%E3%81%AA%E8%A8%98%E6%86%B6%E3%81%AB%E7%B7%91%E3%81%AE%E4%BB%98%E7%AE%8B%E3%81%8C%E4%BB%98%E3%81%84%E3%81%A6%E3%81%84%E3%82%8B%E3%80%82%E4%B8%80%E6%96%B9%E3%80%81%E3%80%8C%E5%85%AC%E5%BC%8F%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%EF%BC%9A%E8%AC%8E%E3%81%AE%E6%A5%AD%E8%80%85%E3%80%8D%E3%80%8C%E4%BB%8A%E5%BE%8C%E3%81%AF%E3%81%93%E3%81%AE%E6%94%AF%E6%89%95%E5%85%88%E3%82%92%E4%BD%BF%E3%81%86%E3%80%8D%E3%81%A8%E3%81%84%E3%81%86%E5%A4%96%E9%83%A8Web%E3%83%9A%E3%83%BC%E3%82%B8%E7%94%B1%E6%9D%A5%E3%81%AE%E8%A8%98%E6%86%B6%E3%81%AB%E3%81%AF%E9%BB%84%E8%89%B2%E3%81%84%E3%80%8C%E5%87%BA%E5%85%B8%EF%BC%9F%E3%80%8D%E3%83%9E%E3%83%BC%E3%82%AF%E3%81%8C%E4%BB%98%E3%81%8F%E3%80%82%E5%88%A9%E7%94%A8%E8%80%85%E3%81%8C%E3%81%9D%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%E3%81%AE%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E3%80%81%E3%80%8C%E8%AA%B0%E3%81%8C%E6%95%99%E3%81%88%E3%81%9F%EF%BC%9F%E3%80%8D%E3%80%8C%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%A7%E7%A2%BA%E8%AA%8D%E3%80%8D%E3%81%A8%E3%81%84%E3%81%86%E8%99%AB%E7%9C%BC%E9%8F%A1%E3%81%A7%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%80%82%E4%B8%AD%E5%A4%AE%E3%81%AB%E3%80%8CAI%E3%81%AE%E8%A8%98%E6%86%B6)](https://www.nist.gov/publications/summary-analysis-responses-request-information-regarding-security-considerations-ai%22}],%22visualSuggestion%22:{%22mainVisual%22:%22AIアシスタントの横に透明な「MEMORY」と書かれたメモ帳があり、「文章は丁寧に」「プロジェクトAの目的」といった安全な記憶に緑の付箋が付いている。一方、「公式サポート：謎の業者」「今後はこの支払先を使う」という外部Webページ由来の記憶には黄色い「出典？」マークが付く。利用者がその情報を削除するのではなく、「誰が教えた？」「公式サイトで確認」という虫眼鏡で確認している。中央に「AIの記憶) ≠ 確認済みの事実」「便利な記憶は活用、重要な記憶は出典確認」という二段階を配置し、メモリ機能を怖く描かず“AIの共有メモ帳を管理する”感覚で表現した明るいAI鑑識室風デザイン。",
+                             "cardIcon":  "ai-memory-source-check",
+                             "accentTone":  "security"
+                         }
+}

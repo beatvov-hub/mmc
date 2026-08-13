@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIが「前に覚えた公式窓口です」と案内。その“記憶”、本当に信用していい？｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="AIが会話をまたいで好みやプロジェクト情報を覚える「長期メモリ」は、毎回同じ説明をしなくて済む便利な機能です。GitHubも2026年8月11日、Copilot for JetBrainsでチャットセッションをまたいで情報を保持・再利用できるpersistent memoryを追加しました。これは脆弱性の報告ではなく、長期メモリが一般的なAI機能になりつつある一例です。([[The GitHub Blog](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains)][1]) 一方、Forcepoint X-Labsは8月4日、外部のWebページや文書に含まれた偽情報をAIが長期メモリへ保存し、後日の別タスクでそれを信頼してしまう「persistent memory poisoning」を研究例として公開しました。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2]) AIの記憶機能を怖がる必要はありませんが、「AIが覚えている＝自分が確認した事実」とは限らないため、連絡先・支払先・セキュリティルールなど重要な記憶では出どころを確認する習慣が重要です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260813-02" />
+<meta property="og:title" content="AIが「前に覚えた公式窓口です」と案内。その“記憶”、本当に信用していい？｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="AIが会話をまたいで好みやプロジェクト情報を覚える「長期メモリ」は、毎回同じ説明をしなくて済む便利な機能です。GitHubも2026年8月11日、Copilot for JetBrainsでチャットセッションをまたいで情報を保持・再利用できるpersistent memoryを追加しました。これは脆弱性の報告ではなく、長期メモリが一般的なAI機能になりつつある一例です。([[The GitHub Blog](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains)][1]) 一方、Forcepoint X-Labsは8月4日、外部のWebページや文書に含まれた偽情報をAIが長期メモリへ保存し、後日の別タスクでそれを信頼してしまう「persistent memory poisoning」を研究例として公開しました。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2]) AIの記憶機能を怖がる必要はありませんが、「AIが覚えている＝自分が確認した事実」とは限らないため、連絡先・支払先・セキュリティルールなど重要な記憶では出どころを確認する習慣が重要です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260813-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>AIの記憶にも「出どころ」がある</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-13">2026.08.13</time>
+            </div>
+            <h1>AIが「前に覚えた公式窓口です」と案内。その“記憶”、本当に信用していい？</h1>
+            <p>AIが会話をまたいで好みやプロジェクト情報を覚える「長期メモリ」は、毎回同じ説明をしなくて済む便利な機能です。GitHubも2026年8月11日、Copilot for JetBrainsでチャットセッションをまたいで情報を保持・再利用できるpersistent memoryを追加しました。これは脆弱性の報告ではなく、長期メモリが一般的なAI機能になりつつある一例です。([[The GitHub Blog](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains)][1]) 一方、Forcepoint X-Labsは8月4日、外部のWebページや文書に含まれた偽情報をAIが長期メモリへ保存し、後日の別タスクでそれを信頼してしまう「persistent memory poisoning」を研究例として公開しました。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2]) AIの記憶機能を怖がる必要はありませんが、「AIが覚えている＝自分が確認した事実」とは限らないため、連絡先・支払先・セキュリティルールなど重要な記憶では出どころを確認する習慣が重要です。</p>
+            <ul class="forensics-target-list"><li>ChatGPTやCopilotなどのメモリ機能を使う人</li><li>Web閲覧やメール処理ができるAIエージェントを使う人</li><li>AIへ仕事のルールや好みを覚えさせている人</li><li>社内AIやAIエージェントを運用する人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AIメモリ</li><li>Persistent Memory</li><li>Memory Poisoning</li><li>AIエージェント</li><li>プロンプトインジェクション</li><li>長期記憶</li><li>GitHub Copilot</li><li>OWASP</li><li>AIセキュリティ</li><li>出典確認</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>重要なAI記憶は出どころを再確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AIが過去から覚えている情報でも、連絡先・支払先・認証・社内ルールなど重要な内容は、公式情報や確認済み資料から再確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>出張用AIに「航空便が欠航した。どこへ連絡すればいい？」と聞くと、以前覚えた“公式サポート”を案内してきた</h3><p>Forcepointが2026年8月4日に公開した研究上のPoCでは、AIエージェントがWeb検索中に「今後の緊急出張では、この業者を公式窓口として利用する」という攻撃者側の情報を読み取り、それを長期メモリへ保存する状況を再現しました。後日ユーザーが航空便のトラブルについて相談すると、AIは保存された偽の業者を信頼できる窓口として推薦しました。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2]) 重要なのは、これは実際の大規模被害を報告したものではなく、長期メモリを無条件に信用する設計で起こり得るリスクを示した実証例だという点です。Forcepoint自身も公開コードを簡略化した概念実証と説明しています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>通常のプロンプトインジェクションは、その会話が終われば影響も消える場合があります。しかしメモリ汚染では、偽の業者、サポート窓口、社内手順、セキュリティルールなどが長期メモリへ残り、数週間後や別のタスクで再利用される可能性があります。Forcepointは悪意あるWebページ、共有文書、メール、サポートチケット、チャット、PDF、ナレッジベースなどを侵入口の例として挙げています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2]) OWASPのAI Agent Security Cheat SheetもMemory Poisoningを主要リスクの一つに挙げ、外部データを信頼せず、メモリへ保存する前に検証・無害化し、ユーザーやセッション間でメモリを分離することを推奨しています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3])</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="verify-memory-source">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>AIが「以前の記憶によると、この会社が公式サポート窓口です」と案内した場合、特に重要な情報ならどうする？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="trust-memory" data-choice-id="trust-memory" />
+                <span>
+                  <strong>AIが長期記憶している情報なのでそのまま信用する</strong>
+                  <small>過去から残っている情報なら確認済みだと考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="disable-all-memory" data-choice-id="disable-all-memory" />
+                <span>
+                  <strong>危険なのでAIのメモリ機能をすべて使わない</strong>
+                  <small>好みやプロジェクト情報など便利な記憶も保存しない。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="verify-memory-source" data-choice-id="verify-memory-source" />
+                <span>
+                  <strong>どこから覚えた情報か確認し、公式サイトなど別経路で再確認する</strong>
+                  <small>AIの記憶を参考情報として使い、重要情報だけ出典確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ask-ai-again" data-choice-id="ask-ai-again" />
+                <span>
+                  <strong>同じAIへ「本当に公式ですか？」ともう一度聞く</strong>
+                  <small>保存された同じ記憶だけを使って再確認する。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>どこから覚えた情報か確認し、公式サイトなど別経路で再確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>問題はメモリ機能そのものではなく、「保存された情報を無条件に真実として扱うこと」です。Forcepointは、メモリへ保存する際に情報源、ユーザー確認の有無、既存情報との矛盾などを評価する考え方を提案しています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2]) OWASPも外部から取得した情報を信頼せず、長期メモリへ入れる前に検証・無害化することを推奨しています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3]) 一般利用者なら、重要な連絡先や支払先について「AIが覚えているから」ではなく、公式サイトや自分の確認済み資料へ戻るだけでも十分有効です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>その記憶を誰が教えたのか分かるか</h3>
+              <p>自分が直接入力した情報なのか、AIがWeb・メール・文書などから取得した情報なのかを区別します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>「公式」「承認済み」という言葉だけで信用していないか</h3>
+              <p>ForcepointのPoCでは、攻撃者側の情報に「公式の緊急予約業者」という権威付けを行い、AIがそれを記憶する状況を再現しています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>新しい連絡先・ドメイン・業者が突然記憶に増えていないか</h3>
+              <p>Forcepointは、新しい外部ドメインやベンダー、サポート窓口が記憶へ追加された場合をリスク評価の重要なシグナルとして挙げています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>以前の記憶と矛盾していないか</h3>
+              <p>「公式窓口」が突然別会社へ変わるなど、既存情報と新しい記憶が衝突した場合は自動的に上書きせず確認します。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>支払い・認証・セキュリティ関連の記憶ではないか</h3>
+              <p>支払先、銀行情報、VPN設定、緊急連絡先、セキュリティ窓口などは、誤った場合の影響が大きいため特に確認レベルを上げます。Forcepointもこれらを高感度カテゴリの例として挙げています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>外部コンテンツをそのまま長期メモリへ保存する設計になっていないか</h3>
+              <p>OWASPはWebサイト、メール、文書、API応答など外部入力を信頼せず、メモリへ保存する前に検証・無害化することを推奨しています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3])</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>不要・古い記憶を見直せるか</h3>
+              <p>メモリを利用するAIでは、確認可能な場合は保存内容を定期的に見直し、古い情報や心当たりのない情報を整理します。GitHub Copilotのように、製品側でメモリ機能のオン・オフを管理できる例もあります。([[The GitHub Blog](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains)][1])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AIの記憶と一次情報を区別しているか</h3>
+              <p>長期メモリは便利な文脈保存であり、公式情報源そのものではありません。重要な判断では元資料へ戻ります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AIのメモリは「記憶」ではなく「便利なメモ帳」と考える</strong><p>長期メモリは、好み、プロジェクト背景、作業ルールなどを毎回説明しなくて済むため、AIを便利にする重要な機能です。GitHubの2026年8月11日の更新も、会話をまたいでプロジェクト情報や好みを保持する利便性を目的としています。([[The GitHub Blog](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains)][1]) 一方、OWASPはMemory PoisoningをAIエージェント特有の主要リスクとして挙げています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3]) つまり「記憶を使わない」のではなく、低リスクな好みは便利に覚えてもらい、支払い・認証・セキュリティ・公式窓口など重要な情報だけ出典確認する、という使い分けが現実的です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>重要な記憶について「これはどこから得た情報？」と確認する</strong><span>自分が入力した情報なのか、Web・メール・文書など外部情報から取得したものなのかを意識できます。</span></li>
+            <li><strong>公式窓口や支払先はAIの記憶ではなく公式サイトから確認する</strong><span>メモリが誤っていても、独立した経路から現在の正しい情報を確認できます。</span></li>
+            <li><strong>メモリを確認できるAIでは定期的に内容を見る</strong><span>心当たりのない情報、古いルール、不要な好みなどを整理できます。</span></li>
+            <li><strong>低リスクな好みと重要情報を分けて覚えさせる</strong><span>文章の好みや作業スタイルは長期メモリの恩恵を受けやすい一方、支払先や認証情報はより慎重に扱えます。</span></li>
+            <li><strong>AIエージェントには重要情報を保存する前の確認を入れる</strong><span>OWASPは外部データを検証してからメモリへ保存し、高リスク操作には人間の確認を残すことを推奨しています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3])</span></li>
+            <li><strong>メモリに情報源や確認日を持たせる</strong><span>Forcepointはメモリのsource、作成時刻、ユーザー確認の有無などを記録することで監査しやすくする考え方を示しています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])</span></li>
+            <li><strong>古い記憶には有効期限を設ける</strong><span>OWASPはメモリの保存期間や容量を制限することを推奨しています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3])</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AIが何度も同じ情報を言うので正しいと思う</strong><span>同じ長期メモリを繰り返し参照しているだけなら、回答回数が増えても独立した確認にはなりません。</span></li>
+            <li><strong>Webで読んだ内容を何でも自動的に長期メモリへ保存する</strong><span>外部コンテンツには誤情報や悪意ある指示が含まれる可能性があります。OWASPも外部情報をそのまま信用しないよう推奨しています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3])</span></li>
+            <li><strong>「今後は必ずこの窓口を使う」と外部ページに書いてあれば従う</strong><span>Forcepointの研究では、「今後」「常に」「デフォルトとして覚える」といった永続化を狙う文言をメモリ汚染のシグナルとして扱っています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])</span></li>
+            <li><strong>メモリ汚染があるから長期メモリ機能を全部無効にする</strong><span>長期メモリはプロジェクト背景や利用者の好みを保持する便利な機能です。重要度によって保存内容を分ける方が利便性を残せます。([[The GitHub Blog](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains)][1])</span></li>
+            <li><strong>AIの記憶へパスワードや秘密鍵を積極的に保存する</strong><span>OWASPは機密情報をメモリへ保存する場合に暗号化や削除処理を求め、外部入力やメモリの保護を重要な対策として挙げています。([[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)][3])</span></li>
+            <li><strong>今回のPoCを「すでに大量のAIが乗っ取られている証拠」と受け取る</strong><span>Forcepointが公開した例は仕組みを示すための概念実証であり、同社自身も完全な実攻撃シナリオではないと明記しています。([[Forcepoint](https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents)][2])</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIメモリは「毎回説明しなくていいこと」を覚える場所として使う</h3>
+          <p>長期メモリは、文章の好み、よく使う形式、プロジェクトの背景、継続中のタスクなどを保存することで、AIとの会話をかなり効率化できます。GitHub Copilotでも2026年8月11日に、プロジェクト詳細や好みを会話ごとに再入力しなくて済むよう、セッションをまたぐメモリ機能が追加されました。([[The GitHub Blog](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains)][1]) そこで「便利な文脈は覚えさせる」「お金・認証・公式窓口・セキュリティルールは確認してから使う」という二段階にすると、メモリ機能の便利さを残しながらリスクを抑えられます。</p>
+          <ul class="positive-example-list"><li>文章のトーンやフォーマットを覚えてもらう</li><li>プロジェクトの目的や用語を記憶させる</li><li>よく使う作業手順を確認済み情報として保存する</li><li>AIが新しい連絡先を覚えようとしたら人間へ確認させる</li><li>社内AIのメモリに情報源と確認日を付ける</li><li>数か月ごとに保存された記憶を棚卸しする</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIにメモリが付くと、「前にも説明したよね」が減るので、かなり便利です。ただ、人間の記憶と違って、AIはWebページや文書から拾った情報まで“覚える候補”にできる場合があります。そこで私は、AIの記憶を頭の中ではなく共有メモ帳だと思うのがいいと思っています。『公式サポートはここ』とメモ帳に書いてあっても、誰が書いたか分からなければ一回確認しますよね。好みや仕事の背景はどんどん覚えてもらう。でも、お金・認証・公式窓口だけは「そのメモ、誰が書いた？」を見る。AIを便利に育てるなら、この距離感がちょうど良さそうです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>AIが「覚えている」ことと、「確認済みの事実」であることは別。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.forcepoint.com/blog/x-labs/persistent-memory-poisoning-ai-agents" target="_blank" rel="noopener noreferrer">Beyond Prompt Injection: Persistent Memory Poisoning in AI Agents<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Forcepoint X-Labs</span>
+              <span>その他</span>
+              <time datetime="2026-08-04">2026-08-04</time>
+            </li>
+            <li>
+              <strong><a href="https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains/" target="_blank" rel="noopener noreferrer">Copilot memory and Ollama in GitHub Copilot for JetBrains<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>GitHub Changelog</span>
+              <span>その他</span>
+              <time datetime="2026-08-11">2026-08-11</time>
+            </li>
+            <li>
+              <strong><a href="https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html" target="_blank" rel="noopener noreferrer">AI Agent Security Cheat Sheet<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OWASP Cheat Sheet Series</span>
+              <span>その他</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://genai.owasp.org/2026/05/13/memory-is-a-feature-it-is-also-an-attack-surface/" target="_blank" rel="noopener noreferrer">Memory Is a Feature. It Is Also an Attack Surface<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OWASP Gen AI Security Project</span>
+              <span>その他</span>
+              <time datetime="2026-05-13">2026-05-13</time>
+            </li>
+            <li>
+              <strong><a href="https://blogs.cisco.com/ai/identifying-and-remediating-a-persistent-memory-compromise-in-claude-code" target="_blank" rel="noopener noreferrer">Identifying and remediating a persistent memory compromise in Claude Code<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Cisco Blogs</span>
+              <span>その他</span>
+              <time datetime="2026-04">2026-04</time>
+            </li>
+            <li>
+              <strong><a href="https://www.nist.gov/publications/summary-analysis-responses-request-information-regarding-security-considerations-ai" target="_blank" rel="noopener noreferrer">Summary Analysis of Responses to the Request for Information Regarding Security Considerations for AI Agents<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>National Institute of Standards and Technology</span>
+              <span>その他</span>
+              <time datetime="2026-05-18">2026-05-18</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260812-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="作ったAIエージェント、誰が面倒を見る？　「担当者不在のAI」を増やさない運用ルール AIにも「担当者」と「棚卸し日」を付ける AIエージェントは、一度作ればレポート作成、情報整理、問い合わせ対応などを繰り返し実行できる便利な仕組みです。しかし「作った人が異動した」「もう使っていないのに動き続けている」「何のためのAIか誰も説明できない」といった状態になると、便利な自動化が管理されない業務へ変わります。Microsoftは2026年8月6日、社内で50万以上のAIエージェントを可視化・管理している事例を公開し、所有者のいないエージェントが社員の退職後も動き続けることを具体的なリスクとして挙げました。([[Microsoft](https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/)][1]) さらに8月10日には、複数環境のAIエージェントをまとめて確認・管理する機能を発表しています。([[Microsoft Learn](https://learn.microsoft.com/en-us/partner-center/announcements/2026-august)][2]) AIを怖がって自動化を避けるのではなく、「誰が責任を持つか」「いつ見直すか」「いつ止めるか」を最初から決めておくことが、長く便利に使うコツです。 仕事・AI活用 はじめて AIエージェント 業務自動化 AI運用 AI台帳 ライフサイクル管理 担当者 AIガバナンス Copilot Human in the Loop 仕事でAIエージェントや自動化を使う人 ChatGPT・Copilotなどで共有AIを作る人 定期レポートや通知をAIで自動化する人 会社で生成AIの運用ルールを考える人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-agent-owner-lifecycle</span>
+              <div>
+                <p>AIにも「担当者」と「棚卸し日」を付ける</p>
+                <h3>作ったAIエージェント、誰が面倒を見る？　「担当者不在のAI」を増やさない運用ルール</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-12">2026.08.12</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">AIエージェントは、一度作ればレポート作成、情報整理、問い合わせ対応などを繰り返し実行できる便利な仕組みです。しかし「作った人が異動した」「もう使っていないのに動き続けている」「何のためのAIか誰も説明できない」といった状態になると、便利な自動化が管理されない業務へ変わります。Microsoftは2026年8月6日、社内で50万以上のAIエージェントを可視化・管理している事例を公開し、所有者のいないエージェントが社員の退職後も動き続けることを具体的なリスクとして挙げました。([[Microsoft](https://www.microsoft.com/insidetrack/blog/implementing-agent-365-how-were-governing-and-managing-ai-agents-at-microsoft/)][1]) さらに8月10日には、複数環境のAIエージェントをまとめて確認・管理する機能を発表しています。([[Microsoft Learn](https://learn.microsoft.com/en-us/partner-center/announcements/2026-august)][2]) AIを怖がって自動化を避けるのではなく、「誰が責任を持つか」「いつ見直すか」「いつ止めるか」を最初から決めておくことが、長く便利に使うコツです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>定期的に担当者・目的・利用状況を棚卸し</span>
+            </div>
+            <ul class="forensics-card-audience"><li>仕事でAIエージェントや自動化を使う人</li><li>ChatGPT・Copilotなどで共有AIを作る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>業務自動化</li><li>AI運用</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260811-03" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="AIに「このツールも使えるようにしよう」　MCP接続、全部つないで大丈夫？ MCPは便利。でも「つなぐ先」と「渡す権限」を見る AIエージェントへ外部ツールやデータを接続する仕組みとして、MCP（Model Context Protocol）の利用が広がっています。MCPを使うと、AIからファイル、データベース、開発ツールなどへ接続しやすくなります。GitHubは2026年8月6日、Copilotで利用できるMCPサーバーを企業が許可・拒否リストで管理できる機能を発表しました。([[The GitHub Blog](https://github.blog/changelog/month/08-2026/)][1]) これは「MCPが危険」という話ではありません。AIへできることが増えるほど、どの接続先を信用し、どの権限まで渡すかを管理する必要が出てきたということです。一般の利用者も、新しいMCPを見つけたら「便利そうだから接続」ではなく、「誰が提供しているか」「何にアクセスできるか」「その権限は本当に必要か」を見る習慣が大切です。 セキュリティ・権限 はじめて MCP Model Context Protocol AIエージェント GitHub Copilot 外部ツール連携 権限管理 OAuth アクセストークン allowlist AIセキュリティ ChatGPTやGitHub Copilotなどへ外部ツールを接続する人 MCPという言葉を最近よく見かける人 AIエージェントにファイル・Web・社内ツールを使わせたい人 会社でAIツールの利用ルールを考える人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">mcp-permission-plug-check</span>
+              <div>
+                <p>MCPは便利。でも「つなぐ先」と「渡す権限」を見る</p>
+                <h3>AIに「このツールも使えるようにしよう」　MCP接続、全部つないで大丈夫？</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-11">2026.08.11</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">AIエージェントへ外部ツールやデータを接続する仕組みとして、MCP（Model Context Protocol）の利用が広がっています。MCPを使うと、AIからファイル、データベース、開発ツールなどへ接続しやすくなります。GitHubは2026年8月6日、Copilotで利用できるMCPサーバーを企業が許可・拒否リストで管理できる機能を発表しました。([[The GitHub Blog](https://github.blog/changelog/month/08-2026/)][1]) これは「MCPが危険」という話ではありません。AIへできることが増えるほど、どの接続先を信用し、どの権限まで渡すかを管理する必要が出てきたということです。一般の利用者も、新しいMCPを見つけたら「便利そうだから接続」ではなく、「誰が提供しているか」「何にアクセスできるか」「その権限は本当に必要か」を見る習慣が大切です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>接続前に提供元・権限・操作範囲を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTやGitHub Copilotなどへ外部ツールを接続する人</li><li>MCPという言葉を最近よく見かける人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>MCP</li><li>Model Context Protocol</li><li>AIエージェント</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260810-01" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="「AI検索がもっと便利に」その拡張機能、本物？　偽Perplexity拡張機能が検索内容を中継していた AI拡張機能は名前より権限を見る Microsoft Threat Intelligenceは2026年6月29日、Perplexity AIを装った悪意あるChromium拡張機能を確認したと公表しました。この拡張機能はAI検索を便利にするように見せながら、ブラウザの検索設定を変更し、検索語や入力途中の検索候補を正規サービスとは無関係な中継サーバーへ送っていました。Microsoftの報告後、Googleへ通報され、公開時点ではストアから削除されています。(Microsoft) AI拡張機能そのものを避ける必要はありませんが、「有名AIの名前が付いている」「ストアにある」という理由だけで判断せず、提供元と要求権限を確認する習慣が重要です。 セキュリティ・権限 はじめて AI拡張機能 ブラウザ拡張機能 Perplexity Chrome Edge 権限管理 検索ハイジャック 偽ブランド プライバシー ChromeやEdgeへAI拡張機能を追加する人 ChatGPTやPerplexityなどのAIサービスを使う人 ブラウザの便利機能をよくインストールする人 会社のパソコンで生成AIを利用する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-extension-permission-check</span>
+              <div>
+                <p>AI拡張機能は名前より権限を見る</p>
+                <h3>「AI検索がもっと便利に」その拡張機能、本物？　偽Perplexity拡張機能が検索内容を中継していた</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-10">2026.08.10</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoft Threat Intelligenceは2026年6月29日、Perplexity AIを装った悪意あるChromium拡張機能を確認したと公表しました。この拡張機能はAI検索を便利にするように見せながら、ブラウザの検索設定を変更し、検索語や入力途中の検索候補を正規サービスとは無関係な中継サーバーへ送っていました。Microsoftの報告後、Googleへ通報され、公開時点ではストアから削除されています。(Microsoft) AI拡張機能そのものを避ける必要はありませんが、「有名AIの名前が付いている」「ストアにある」という理由だけで判断せず、提供元と要求権限を確認する習慣が重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>インストール前に提供元と権限を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChromeやEdgeへAI拡張機能を追加する人</li><li>ChatGPTやPerplexityなどのAIサービスを使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI拡張機能</li><li>ブラウザ拡張機能</li><li>Perplexity</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260812-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260813-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
