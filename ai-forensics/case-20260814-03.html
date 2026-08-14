@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>画像が偽物でも、出来事まで嘘とは限らない　熊本地震で広がった“本当の災害＋AI画像”｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="2026年7月28日に熊本県熊本地方でマグニチュード7.1、最大震度7の地震が発生しました。気象庁や消防庁、熊本県が被害を公式に報告しており、イオンモール熊本でも大きな被害が発生しています。一方、SNSでは実際の被害を伝える投稿に、現場写真のように見えるAI生成画像が添えられて拡散しました。AFPが8月3日に検証した画像では、実際の建物と外観が異なり、自衛隊員らしき人物の制服に実在しない「JSDE」という文字が描かれていました。さらにOpenAIの公式検証ツールでは、OpenAIツール由来の生成シグナルが検出されました。ここで大切なのは、「画像が偽物だった」ことと「地震や施設被害そのものが嘘だった」ことを混同しないことです。AI時代の情報確認では、投稿全体を○か×かで判定するのではなく、「出来事」「画像」「日時」「場所」「説明文」を分けて一つずつ確認する力が重要になります。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260814-03" />
+<meta property="og:title" content="画像が偽物でも、出来事まで嘘とは限らない　熊本地震で広がった“本当の災害＋AI画像”｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="2026年7月28日に熊本県熊本地方でマグニチュード7.1、最大震度7の地震が発生しました。気象庁や消防庁、熊本県が被害を公式に報告しており、イオンモール熊本でも大きな被害が発生しています。一方、SNSでは実際の被害を伝える投稿に、現場写真のように見えるAI生成画像が添えられて拡散しました。AFPが8月3日に検証した画像では、実際の建物と外観が異なり、自衛隊員らしき人物の制服に実在しない「JSDE」という文字が描かれていました。さらにOpenAIの公式検証ツールでは、OpenAIツール由来の生成シグナルが検出されました。ここで大切なのは、「画像が偽物だった」ことと「地震や施設被害そのものが嘘だった」ことを混同しないことです。AI時代の情報確認では、投稿全体を○か×かで判定するのではなく、「出来事」「画像」「日時」「場所」「説明文」を分けて一つずつ確認する力が重要になります。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260814-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>「偽画像を発見」しても、そこで検証を止めない</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-14">2026.08.14</time>
+            </div>
+            <h1>画像が偽物でも、出来事まで嘘とは限らない　熊本地震で広がった“本当の災害＋AI画像”</h1>
+            <p>2026年7月28日に熊本県熊本地方でマグニチュード7.1、最大震度7の地震が発生しました。気象庁や消防庁、熊本県が被害を公式に報告しており、イオンモール熊本でも大きな被害が発生しています。一方、SNSでは実際の被害を伝える投稿に、現場写真のように見えるAI生成画像が添えられて拡散しました。AFPが8月3日に検証した画像では、実際の建物と外観が異なり、自衛隊員らしき人物の制服に実在しない「JSDE」という文字が描かれていました。さらにOpenAIの公式検証ツールでは、OpenAIツール由来の生成シグナルが検出されました。ここで大切なのは、「画像が偽物だった」ことと「地震や施設被害そのものが嘘だった」ことを混同しないことです。AI時代の情報確認では、投稿全体を○か×かで判定するのではなく、「出来事」「画像」「日時」「場所」「説明文」を分けて一つずつ確認する力が重要になります。</p>
+            <ul class="forensics-target-list"><li>SNSで災害や事故の画像を見る人</li><li>AI生成画像の真偽を確認する人</li><li>画像が偽物だと分かると投稿全体を否定したくなる人</li><li>災害時にSNSから情報収集する人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AI生成画像</li><li>熊本地震</li><li>SNS</li><li>災害情報</li><li>ファクトチェック</li><li>画像検証</li><li>情報源確認</li><li>一次情報</li><li>OpenAI Verify</li><li>部分的な誤情報</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>投稿を要素分解して一次情報と照合</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>SNS投稿を丸ごと本物・偽物と判定せず、出来事、日時、場所、画像、説明文を分けて、それぞれ公式情報や一次資料と照合してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>SNSで「熊本のショッピングモールが地震で大きな被害」という投稿を見た。添付画像を調べるとAI生成だった</h3><p>画像がAI生成だと分かったため、「このニュース自体がデマだったのか」と考えました。しかし、地震そのものは気象庁が2026年7月28日に公式発表しており、熊本県の災害対策資料でもイオンモール熊本で救助活動が行われたことが確認できます。つまり、このケースでは「出来事は実在するが、添付された画像は偽物」という組み合わせでした。AFPが検証したSNS画像は、実際の施設写真やGoogle Mapsの外観と一致せず、制服の文字にも不自然な点があり、OpenAIの公式検証ツールでも生成シグナルが確認されています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>SNSの誤情報は「全部が嘘」とは限りません。実際に起きた出来事へ、無関係な写真、古い写真、AI生成画像、誇張された説明文などが組み合わされることがあります。このタイプは、一部が事実なので投稿全体がもっともらしく見えやすい一方、偽画像を発見した人が逆に「事件そのものも存在しなかった」と誤解する可能性もあります。AI生成技術が普及した現在は、「本物か偽物か」の二択より、「この投稿のどの部分まで確認できているか」を分解して考える方が実用的です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="separate-and-verify">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>実際の災害を伝えるSNS投稿で、添付画像がAI生成だと分かった場合、最も適切な次の行動は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="reject-whole-story" data-choice-id="reject-whole-story" />
+                <span>
+                  <strong>画像が偽物なので、出来事そのものもデマだと判断する</strong>
+                  <small>投稿の一部分が誤っていれば全体も嘘だと考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="trust-event-ignore-image" data-choice-id="trust-event-ignore-image" />
+                <span>
+                  <strong>災害が実際に起きているなら、画像の真偽は気にしない</strong>
+                  <small>出来事が本当なら添付素材も問題ないと考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="separate-and-verify" data-choice-id="separate-and-verify" />
+                <span>
+                  <strong>出来事と画像を分け、公式情報と現地写真をそれぞれ確認する</strong>
+                  <small>「何が本当で、何が誤っているか」を要素ごとに確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ask-ai-only" data-choice-id="ask-ai-only" />
+                <span>
+                  <strong>別の生成AIへ画像を見せ、「本物？」と聞いて判断する</strong>
+                  <small>AIの判定だけを最終的な証拠として扱う。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>出来事と画像を分け、公式情報と現地写真をそれぞれ確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>今回の熊本の事例では、地震と施設被害そのものは気象庁・消防庁・熊本県の公式資料で確認できます。一方、SNSで拡散した画像の一部はAI生成でした。したがって「画像が偽物＝出来事も嘘」「出来事が本当＝画像も本物」のどちらも適切ではありません。投稿を「出来事」「日時」「場所」「画像」「説明文」に分け、それぞれ独立して確認する方法が最も再利用しやすい確認方法です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>まず「何を確認したいのか」を分ける</h3>
+              <p>「地震が起きたか」「施設が被害を受けたか」「この写真が現場写真か」は別々の主張です。一つずつ確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>出来事そのものは公式機関で確認する</h3>
+              <p>地震なら気象庁、災害状況なら自治体や消防庁など、その出来事を直接扱う機関の情報を確認します。2026年7月28日の熊本地震は気象庁がマグニチュード7.1、最大震度7として発表しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>画像と実際の現場写真を比較する</h3>
+              <p>AFPの検証では、SNS画像のAEONロゴや建物外観が実際の写真と異なっていました。公式写真、報道写真、Street Viewなど複数の視覚資料と比べます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>文字や看板を拡大して確認する</h3>
+              <p>AI画像ではロゴ、制服、看板、標識などの文字に不自然さが現れる場合があります。今回の画像では自衛隊員らしき制服に「JSDE」と表示されていましたが、陸上自衛隊の英語略称はJGSDFです。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AI検出ツールの結果だけで断定しない</h3>
+              <p>OpenAIの公式VerifyツールはC2PAやSynthIDなどの来歴シグナルを確認できますが、OpenAI自身も、その結果だけでは内容が正確か、正しい文脈で使われているかは判定できないと説明しています。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>検出されなかった場合も「人間制作」と断定しない</h3>
+              <p>OpenAIは、メタデータの削除、ウォーターマークの劣化、旧モデル、他社モデルなどの場合、AI生成でもシグナルが検出されない可能性があると説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>投稿文と画像が同じ日時・場所なのか確認する</h3>
+              <p>実際の災害でも、過去の災害写真や別地域の写真が添付されることがあります。画像の出典と撮影時期を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>偽物を見つけても、残りの事実確認を続ける</h3>
+              <p>一部の素材が偽物でも、出来事全体まで嘘とは限りません。「何が間違っていたか」を限定して判断します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AI時代のファクトチェックは「投稿全体」ではなく「部品ごと」に見る</strong><p>今回の事例は、実際に発生した災害へAI生成画像が組み合わされたケースです。AI生成画像を見抜くことは役立ちますが、それだけで検証は終わりません。逆に、災害そのものが公式確認されているからといって、SNS上の写真まで本物になるわけでもありません。「地震は本当」「施設被害も確認できる」「しかしこの画像は現場写真ではない」というように、複数の結論を同時に持てることが情報リテラシーです。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>SNS投稿を「出来事・日時・場所・画像・説明文」に分解する</strong><span>どの部分が確認済みで、どの部分が未確認なのか整理しやすくなります。</span></li>
+            <li><strong>災害情報は気象庁・自治体・消防庁などへ戻る</strong><span>SNSとは独立した一次情報から、出来事そのものを確認できます。</span></li>
+            <li><strong>画像検索や地図サービスで建物を比較する</strong><span>建物の形、看板、周囲の道路などから別地点や生成画像の可能性を確認できます。</span></li>
+            <li><strong>画像に含まれる文字や制服を確認する</strong><span>実在組織の名称や略称と一致するかを調べることで、追加の判断材料になります。</span></li>
+            <li><strong>対応している場合は来歴検証ツールも補助的に使う</strong><span>OpenAI Verifyのようなツールで生成元のシグナルが確認できる場合があります。</span></li>
+            <li><strong>AIへは「この画像の怪しい点を挙げて」と補助を頼む</strong><span>人間が確認すべき看板、文字、建物、影などのポイントを整理する用途には便利です。ただし最終判定は一次情報と照合します。</span></li>
+            <li><strong>共有するときは「出来事は確認済みだが、この画像は偽物」のように範囲を明示する</strong><span>一部の誤情報を訂正する際に、本当の出来事まで否定する誤解を防げます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AI画像を見つけた瞬間に投稿全体をデマ認定する</strong><span>今回のように、実在する出来事へ偽画像だけが組み合わされる場合があります。</span></li>
+            <li><strong>出来事が公式確認されているので画像も本物だと思う</strong><span>事実のニュースへ無関係な画像やAI生成画像を添えることは可能です。</span></li>
+            <li><strong>画像の指や文字がおかしくないから本物だと判断する</strong><span>生成技術の進歩により、昔ながらの見た目の違和感だけでは判別できない画像が増えています。</span></li>
+            <li><strong>一つのAI検出サービスの結果だけで断定する</strong><span>検出対象や対応する生成モデル、メタデータの状態によって結果が変わります。OpenAIのVerifyも「シグナルなし＝AIではない」とはしていません。</span></li>
+            <li><strong>別のAIに「本物ですか？」と聞くだけで確認を終える</strong><span>生成AI自身も画像の来歴や最新ニュースについて誤った推測をする可能性があります。</span></li>
+            <li><strong>偽画像を訂正するとき「この災害はデマ」と大きく言い換える</strong><span>訂正そのものが新しい誤情報になる可能性があります。何が偽だったのか範囲を限定します。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIを「真偽判定機」ではなく「検証項目を分解する助手」として使う</h3>
+          <p>生成AIは画像を一発で本物・偽物と判定させるより、投稿に含まれる確認対象を整理させる用途で便利です。例えばSNS投稿を渡して「この投稿で独立して確認すべき事実を列挙して」と頼めば、「地震の発生日」「震度」「施設名」「被害内容」「画像の撮影場所」「制服の文字」といったチェック項目へ分けられます。その後、それぞれを気象庁、自治体、公式サイト、報道写真などで確認すれば、AIの整理能力と人間の検証を組み合わせられます。</p>
+          <ul class="positive-example-list"><li>SNS投稿をAIに渡し「事実確認が必要な主張を一文ずつ分解して」と頼む</li><li>画像内の文字や看板をAIに読み取らせ、公式名称と照合する候補を作る</li><li>建物の特徴を箇条書きにしてGoogle Mapsや公式写真と比較する</li><li>AIに「この投稿が一部だけ間違っているとしたら、どの部分を別々に検証する？」と聞く</li><li>確認結果を「確認済み・誤り・未確認」の3分類で整理する</li><li>災害時はAIで情報整理をしつつ、最終的な避難・安全情報は行政の公式情報へ戻る</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AI画像を見抜いた瞬間って、ちょっと「やった、デマ発見」と言いたくなるんですが、今回の事例はそこで止まると逆に間違えます。地震は本当に起きている。施設被害も確認されている。でも、その投稿に使われた写真はAI生成だった。全部を○か×かで判定しようとすると、この組み合わせを扱えないんですよね。私はこれからの情報確認では、「投稿を一枚の紙として見る」のではなく、「出来事、文章、写真、日時、場所という部品に分ける」癖がかなり大事になると思っています。AIを見抜く力より、何をまだ確認していないか分かる力。そちらの方が長く使える鑑識技術です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>画像が偽物でも、出来事まで偽物とは限らない。投稿は部品ごとに確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://factcheck.afp.com/doc.afp.com.C3MY463" target="_blank" rel="noopener noreferrer">AI-generated image of damaged shopping centre in Japan misleads online<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>AFP Fact Check</span>
+              <span>ファクトチェック</span>
+              <time datetime="2026-08-03">2026-08-03</time>
+            </li>
+            <li>
+              <strong><a href="https://www.jma.go.jp/jma/press/2607/28a/202607281730.html" target="_blank" rel="noopener noreferrer">令和8年7月28日16時27分頃の熊本県熊本地方の地震について<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>気象庁</span>
+              <span>官公庁</span>
+              <time datetime="2026-07-28">2026-07-28</time>
+            </li>
+            <li>
+              <strong><a href="https://www.fdma.go.jp/disaster/info/items/20260728kumamotojishin52.pdf" target="_blank" rel="noopener noreferrer">令和8年熊本地震による被害及び消防機関等の対応状況 第52報<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>総務省消防庁</span>
+              <span>官公庁</span>
+              <time datetime="2026-08-14">2026-08-14</time>
+            </li>
+            <li>
+              <strong><a href="https://www.pref.kumamoto.jp/uploaded/attachment/315685.pdf" target="_blank" rel="noopener noreferrer">令和8年熊本地震に係る災害対策本部会議資料<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>熊本県</span>
+              <span>官公庁</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://openai.com/research/verify/" target="_blank" rel="noopener noreferrer">Verify OpenAI-generated content<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI</span>
+              <span>公式発表</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://www.mod.go.jp/gsdf/english/" target="_blank" rel="noopener noreferrer">JGSDF - Japan Ground Self Defense Force<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>防衛省 陸上自衛隊</span>
+              <span>官公庁</span>
+              
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260813-01" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="「AI生成」のラベルが付いていたら嘘？　逆にラベルがなければ本物？　AI時代の“ラベルの読み方” AIラベルは「真偽判定」ではなく「作られ方の手掛かり」 2026年8月2日、EUでAI Actの新しい透明性ルールが適用され、一定のAI生成・加工コンテンツについて、人が分かる表示や機械が読み取れるマークを付ける仕組みが本格化しました。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1]) さらにC2PAは7月31日に、AI生成・AI加工・人間による編集などをContent Credentialsでより細かく記録する新しい実装ガイドを公開しました。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2]) ただし覚えておきたいのは、「AIで作られた」と「内容が嘘」は同じ意味ではないことです。C2PA自身も、Content Credentialsはコンテンツの来歴を記録する仕組みであり、その情報が真実かどうかの価値判断を行うものではなく、誤情報対策の万能薬でもないと明記しています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3]) 反対に、AIラベルが付いていないことも「人間だけが作った本物」の証明にはなりません。ラベルは真偽を決める判定機ではなく、確認材料を一つ増やす仕組みとして読むのがポイントです。 情報の見極め はじめて AIラベル Content Credentials C2PA EU AI Act 生成AI AI画像 ディープフェイク コンテンツ来歴 ファクトチェック メディアリテラシー SNSでAI生成画像や動画を見る人 ニュースやネット上の画像の真偽を確認する人 「AI生成」ラベルを見て内容を判断する人 生成AIで画像・文章・動画を作る人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-label-provenance-check</span>
+              <div>
+                <p>AIラベルは「真偽判定」ではなく「作られ方の手掛かり」</p>
+                <h3>「AI生成」のラベルが付いていたら嘘？　逆にラベルがなければ本物？　AI時代の“ラベルの読み方”</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-13">2026.08.13</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月2日、EUでAI Actの新しい透明性ルールが適用され、一定のAI生成・加工コンテンツについて、人が分かる表示や機械が読み取れるマークを付ける仕組みが本格化しました。([[European Commission](https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en)][1]) さらにC2PAは7月31日に、AI生成・AI加工・人間による編集などをContent Credentialsでより細かく記録する新しい実装ガイドを公開しました。([[C2PA](https://c2pa.org/a-new-implementation-guide-for-content-credentials/)][2]) ただし覚えておきたいのは、「AIで作られた」と「内容が嘘」は同じ意味ではないことです。C2PA自身も、Content Credentialsはコンテンツの来歴を記録する仕組みであり、その情報が真実かどうかの価値判断を行うものではなく、誤情報対策の万能薬でもないと明記しています。([[C2PA](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html)][3]) 反対に、AIラベルが付いていないことも「人間だけが作った本物」の証明にはなりません。ラベルは真偽を決める判定機ではなく、確認材料を一つ増やす仕組みとして読むのがポイントです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>AIラベル＋内容の根拠を別々に確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSでAI生成画像や動画を見る人</li><li>ニュースやネット上の画像の真偽を確認する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIラベル</li><li>Content Credentials</li><li>C2PA</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260813-03" data-forensics-card data-category="scam" data-level="5" data-difficulty="beginner" data-search-text="「投資を教わるだけだから安全」は違う。SNSの“稼げる投資スクール”を申し込む前に見るところ 投資スクールも「儲かる保証」が出たら要確認 FTCは2026年8月7日、SNSで「トレードを学べば稼げる」「仕事を辞められるほど収入が増える」などとうたう投資トレーニングについて注意喚起しました。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/how-spot-investment-training-scams-social-media?utm_source=chatgpt.com)][1]) 背景には、IM Mastery Academyなどの名称で投資教育サービスとMLM型ビジネスを展開していた事業者へのFTCとネバダ州の法的措置があります。FTCは、正当な資格を持たない「educators」がいたことや、根拠のない収益表示で参加者を勧誘したと主張し、2026年5月には主要被告らとの和解で約9000万ドル相当の資産引き渡しなどが決まりました。([[Federal Trade Commission](https://search.ftc.gov/news-events/news/press-releases/2026/05/lead-defendants-im-mastery-academy-mlm-scheme-turn-over-tens-millions-dollars-assets-settle-ftc?utm_source=chatgpt.com)][2]) 投資そのものではなく「投資を教えるサービス」でも、利益保証や豪華な生活の演出を信用材料にしないことが重要です。 詐欺・なりすまし はじめて 投資スクール 投資詐欺 SNS 情報商材 オンライン講座 MLM 収益保証 副業 FTC AI調査 SNSで投資・FX・暗号資産の勉強動画を見る人 オンラインの投資スクールやコーチングへ興味がある人 副業や資産形成の情報をSNSで探す人 AIを使って投資情報を調べる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">investment-training-claim-check</span>
+              <div>
+                <p>投資スクールも「儲かる保証」が出たら要確認</p>
+                <h3>「投資を教わるだけだから安全」は違う。SNSの“稼げる投資スクール”を申し込む前に見るところ</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-13">2026.08.13</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">FTCは2026年8月7日、SNSで「トレードを学べば稼げる」「仕事を辞められるほど収入が増える」などとうたう投資トレーニングについて注意喚起しました。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/how-spot-investment-training-scams-social-media?utm_source=chatgpt.com)][1]) 背景には、IM Mastery Academyなどの名称で投資教育サービスとMLM型ビジネスを展開していた事業者へのFTCとネバダ州の法的措置があります。FTCは、正当な資格を持たない「educators」がいたことや、根拠のない収益表示で参加者を勧誘したと主張し、2026年5月には主要被告らとの和解で約9000万ドル相当の資産引き渡しなどが決まりました。([[Federal Trade Commission](https://search.ftc.gov/news-events/news/press-releases/2026/05/lead-defendants-im-mastery-academy-mlm-scheme-turn-over-tens-millions-dollars-assets-settle-ftc?utm_source=chatgpt.com)][2]) 投資そのものではなく「投資を教えるサービス」でも、利益保証や豪華な生活の演出を信用材料にしないことが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>支払い前に運営者・収益表示・公的情報を独立確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSで投資・FX・暗号資産の勉強動画を見る人</li><li>オンラインの投資スクールやコーチングへ興味がある人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>投資スクール</li><li>投資詐欺</li><li>SNS</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260811-02" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="「AIっぽい文章」を探すより、このコメント“話をそらしてない？”　最新研究が示すSNS情報操作の見抜き方 文章のクセより「会話の方向」を見る 2026年8月10日、Cardiff Universityなどの研究チームは、生成AIによって文章が自然になり「AIらしい言葉遣い」だけでは情報操作を見抜きにくくなっているとして、別の視点を紹介しました。([Phys.org][1]) 注目したのは文章の書き方ではなく、コメントが会話を突然別の対立的な話題へそらす「discourse derailment（議論の脱線）」です。研究チームはBBC NewsのYouTubeコメントを分析し、LLMに「普通なら続きそうな返信」を生成させ、実際の返信とのズレから脱線を検出する方法を開発しました。査読研究では、この方法が従来の単語・感情分析ベースの手法を上回り、人間の注釈者同士の一致度に近い性能を示したと報告されています。([Nature][2]) ただし、話題が変わること自体は普通の会話でも起こります。「脱線＝偽情報」と断定せず、情報確認を始めるサインとして使うのがポイントです。 情報の見極め はじめて SNS 情報の見極め 偽情報 ディスインフォメーション 生成AI コメント欄 論点そらし YouTube LLM ファクトチェック SNSやYouTubeのコメント欄を見る人 ネット上の議論やニュースコメントを読む人 AI生成文章を見分けたい人 SNS運営やコミュニティ管理をする人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">conversation-derailment-check</span>
+              <div>
+                <p>文章のクセより「会話の方向」を見る</p>
+                <h3>「AIっぽい文章」を探すより、このコメント“話をそらしてない？”　最新研究が示すSNS情報操作の見抜き方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-11">2026.08.11</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月10日、Cardiff Universityなどの研究チームは、生成AIによって文章が自然になり「AIらしい言葉遣い」だけでは情報操作を見抜きにくくなっているとして、別の視点を紹介しました。([Phys.org][1]) 注目したのは文章の書き方ではなく、コメントが会話を突然別の対立的な話題へそらす「discourse derailment（議論の脱線）」です。研究チームはBBC NewsのYouTubeコメントを分析し、LLMに「普通なら続きそうな返信」を生成させ、実際の返信とのズレから脱線を検出する方法を開発しました。査読研究では、この方法が従来の単語・感情分析ベースの手法を上回り、人間の注釈者同士の一致度に近い性能を示したと報告されています。([Nature][2]) ただし、話題が変わること自体は普通の会話でも起こります。「脱線＝偽情報」と断定せず、情報確認を始めるサインとして使うのがポイントです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>会話の流れに違和感があれば主張を別経路で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSやYouTubeのコメント欄を見る人</li><li>ネット上の議論やニュースコメントを読む人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>SNS</li><li>情報の見極め</li><li>偽情報</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260813-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260814-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
