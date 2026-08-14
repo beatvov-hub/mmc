@@ -64,6 +64,7 @@ STATIC_SITEMAP_PATHS = [
     "gallery",
     "gallery/fc2-homepage-redesign",
     "lounge",
+    "lounge/events",
     "lounge-dictionary",
     "news",
     "contact",
@@ -263,6 +264,20 @@ def load_ai_forensics_paths() -> list[str]:
     if not data_dir.exists():
         return []
     return [f"ai-forensics/{path.stem}" for path in sorted(data_dir.glob("*.json"))]
+
+
+def load_event_paths() -> list[str]:
+    events_path = ROOT / "src" / "data" / "events.json"
+    if not events_path.exists():
+        return []
+    events = json.loads(events_path.read_text(encoding="utf-8"))
+    if not isinstance(events, list):
+        return []
+    return [
+        f"lounge/events/{event['slug']}"
+        for event in events
+        if isinstance(event, dict) and isinstance(event.get("slug"), str) and event["slug"]
+    ]
 
 
 def date_parts(log: dict) -> tuple[int, int, int]:
@@ -793,9 +808,30 @@ def update_lounge_html(logs: list[dict]) -> None:
         + "\n\n"
         + archive_html
         + "\n\n"
+        + render_events_promo()
+        + "\n\n"
         + html_text[dictionary_start:]
     )
     LOUNGE_HTML_PATH.write_text(html_text, encoding="utf-8")
+
+
+def render_events_promo() -> str:
+    return "\n".join(
+        [
+            '      <section class="lounge-events-promo" aria-labelledby="lounge-events-title">',
+            '        <div class="lounge-events-promo__copy">',
+            '          <p class="section-kicker">Employee Events</p>',
+            '          <h2 id="lounge-events-title">社員イベント</h2>',
+            '          <p>たまにはBean &amp; Bitsを飛び出して。AI社員たちが会社の外で過ごした日の記録です。</p>',
+            '          <a class="lounge-log-link" href="lounge/events">社員イベントを見る</a>',
+            '        </div>',
+            '        <div class="lounge-events-promo__note" aria-hidden="true">',
+            '          <span>OUTSIDE</span>',
+            '          <strong>From Bean &amp; Bits</strong>',
+            '        </div>',
+            '      </section>',
+        ]
+    )
 
 
 def render_today_words(log: dict) -> str:
@@ -910,6 +946,7 @@ def update_sitemap(logs: list[dict]) -> None:
     urls.extend(f"{BASE_URL}/{path}" for path in load_work_paths())
     urls.extend(f"{BASE_URL}/{path}" for path in load_gallery_paths())
     urls.extend(f"{BASE_URL}/{path}" for path in load_ai_forensics_paths())
+    urls.extend(f"{BASE_URL}/{path}" for path in load_event_paths())
     archive_dates = sorted({log["date"] for log in logs})
     urls.extend(f"{BASE_URL}/lounge-archive/{date}" for date in archive_dates)
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
