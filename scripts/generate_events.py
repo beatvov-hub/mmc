@@ -147,10 +147,10 @@ def render_event_index(events: list[dict]) -> str:
         '        <div class="employee-event-grid">',
     ])
     for event in events:
-        hero = event.get("heroImage", "")
+        hero = event.get("cardImage") or event.get("heroImage", "")
         lines.extend(['          <article class="employee-event-card">'])
         if hero:
-            lines.append(f'            <img class="employee-event-card__image" src="{esc("../../" + hero)}" alt="{esc(event.get("heroImageAlt") or event["title"])}" loading="lazy" />')
+            lines.append(f'            <img class="employee-event-card__image" src="{esc("../../" + hero)}" alt="{esc(event.get("cardImageAlt") or event.get("heroImageAlt") or event["title"])}" loading="lazy" />')
         else:
             lines.extend([
                 '            <div class="employee-event-card__placeholder" aria-hidden="true">',
@@ -189,10 +189,16 @@ def render_scene(scene: dict) -> str:
         if block.get("type") == "dialogue":
             speaker = str(block.get("speaker", ""))
             key = SPEAKER_IDS.get(speaker)
-            name, role, icon = PEOPLE.get(key or "", (speaker, "参加者", ""))
+            if speaker == "所長":
+                name, role, icon = "所長", "毎日見る株式会社 所長", ""
+            else:
+                name, role, icon = PEOPLE.get(key or "", (speaker, "参加者", ""))
             lines.extend(['            <article class="employee-event-dialogue">'])
             if icon:
                 lines.append(f'              <img src="../../{esc(icon)}" alt="{esc(name)}のアイコン" loading="lazy" />')
+            else:
+                avatar_label = "所" if speaker == "所長" else (name[:1] or "?" )
+                lines.append(f'              <span class="employee-event-dialogue__avatar" aria-label="{esc(name)}のアイコン">{esc(avatar_label)}</span>')
             lines.extend([
                 "              <div>",
                 f"                <p class=\"employee-event-dialogue__speaker\">{esc(name)}</p>",

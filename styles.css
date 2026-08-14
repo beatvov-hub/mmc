@@ -3257,6 +3257,19 @@ body.subpage { padding-top: 88px; }
 .employee-event-narration { margin: 0; color: var(--muted); line-height: 1.95; }
 .employee-event-dialogue { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 12px; align-items: start; padding: 15px; border-left: 4px solid #b88c5b; border-radius: 0 8px 8px 0; background: rgba(255,248,238,.86); }
 .employee-event-dialogue img { width: 46px; height: 46px; border: 2px solid #fff; border-radius: 50%; object-fit: cover; box-shadow: 0 6px 14px rgba(54,35,20,.1); }
+.employee-event-dialogue__avatar {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a9743e, #6e4727);
+  color: #fffaf2;
+  box-shadow: 0 6px 14px rgba(54,35,20,.1);
+  font-size: .95rem;
+  font-weight: 900;
+}
 .employee-event-dialogue p { margin: 0; color: var(--ink); line-height: 1.75; }
 .employee-event-dialogue__speaker { color: var(--coffee) !important; font-weight: 900; }
 .employee-event-dialogue__role { margin-bottom: 6px !important; color: var(--muted) !important; font-size: .8rem; font-weight: 800; }
