@@ -224,7 +224,7 @@ def article_url(article: dict[str, Any]) -> str:
 
 
 def index_url() -> str:
-    return f"{BASE_URL}/ai-forensics"
+    return f"{BASE_URL}/ai-forensics/"
 
 
 def render_head(title: str, description: str, url: str, *, prefix: str, og_type: str = "website") -> str:

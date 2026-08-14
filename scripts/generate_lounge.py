@@ -59,7 +59,7 @@ STATIC_SITEMAP_PATHS = [
     "members/makoto",
     "members/koto",
     "members/pechi",
-    "ai-forensics",
+    "ai-forensics/",
     "works",
     "gallery",
     "gallery/fc2-homepage-redesign",

@@ -119,6 +119,8 @@ def canonical_path(path: Path) -> str:
     rel = path.resolve().relative_to(ROOT).as_posix()
     if rel == "index.html":
         return "/"
+    if rel == "ai-forensics/index.html":
+        return "/ai-forensics/"
     if rel.endswith("/index.html"):
         rel = rel[: -len("/index.html")]
     elif rel.endswith(".html"):
