@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>「声が本人そっくり」は本人確認にならない　4100人調査で見えたAI音声詐欺の新しい弱点｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="2026年7月10日に公開され、Expert Systems with Applicationsへの掲載が受理された研究では、米国成人4,100人を対象にAI音声を使った5種類の詐欺シナリオを検証しました。家族が緊急事態にあると装うケースでは、最大36.1％が詐欺側の要求に「従う、または従う可能性がある」と回答しました。ただしこれは実際に送金した割合ではなく、実験内での自己申告による反応です。([[arXiv](https://arxiv.org/abs/2607.09970)][1]) さらに研究では、AIへの一般的な詳しさや音声アシスタントの利用経験が、AI音声を見抜く能力の向上につながらなかったと報告されています。([[arXiv](https://arxiv.org/abs/2607.09970)][1]) FTCも、短い音声クリップから家族の声を複製して緊急事態を装う詐欺について注意を促し、「声そのものを信用せず、普段知っている電話番号へ掛け直して確認する」ことを勧めています。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2]) AI音声を聞き分ける能力を鍛えるより、「重要なお願いは別ルートで本人確認する」という仕組みを持つ方が、技術が進歩しても使いやすい対策です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260814-04" />
+<meta property="og:title" content="「声が本人そっくり」は本人確認にならない　4100人調査で見えたAI音声詐欺の新しい弱点｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="2026年7月10日に公開され、Expert Systems with Applicationsへの掲載が受理された研究では、米国成人4,100人を対象にAI音声を使った5種類の詐欺シナリオを検証しました。家族が緊急事態にあると装うケースでは、最大36.1％が詐欺側の要求に「従う、または従う可能性がある」と回答しました。ただしこれは実際に送金した割合ではなく、実験内での自己申告による反応です。([[arXiv](https://arxiv.org/abs/2607.09970)][1]) さらに研究では、AIへの一般的な詳しさや音声アシスタントの利用経験が、AI音声を見抜く能力の向上につながらなかったと報告されています。([[arXiv](https://arxiv.org/abs/2607.09970)][1]) FTCも、短い音声クリップから家族の声を複製して緊急事態を装う詐欺について注意を促し、「声そのものを信用せず、普段知っている電話番号へ掛け直して確認する」ことを勧めています。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2]) AI音声を聞き分ける能力を鍛えるより、「重要なお願いは別ルートで本人確認する」という仕組みを持つ方が、技術が進歩しても使いやすい対策です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260814-04" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>声ではなく「別ルート」で本人確認する</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-14">2026.08.14</time>
+            </div>
+            <h1>「声が本人そっくり」は本人確認にならない　4100人調査で見えたAI音声詐欺の新しい弱点</h1>
+            <p>2026年7月10日に公開され、Expert Systems with Applicationsへの掲載が受理された研究では、米国成人4,100人を対象にAI音声を使った5種類の詐欺シナリオを検証しました。家族が緊急事態にあると装うケースでは、最大36.1％が詐欺側の要求に「従う、または従う可能性がある」と回答しました。ただしこれは実際に送金した割合ではなく、実験内での自己申告による反応です。([[arXiv](https://arxiv.org/abs/2607.09970)][1]) さらに研究では、AIへの一般的な詳しさや音声アシスタントの利用経験が、AI音声を見抜く能力の向上につながらなかったと報告されています。([[arXiv](https://arxiv.org/abs/2607.09970)][1]) FTCも、短い音声クリップから家族の声を複製して緊急事態を装う詐欺について注意を促し、「声そのものを信用せず、普段知っている電話番号へ掛け直して確認する」ことを勧めています。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2]) AI音声を聞き分ける能力を鍛えるより、「重要なお願いは別ルートで本人確認する」という仕組みを持つ方が、技術が進歩しても使いやすい対策です。</p>
+            <ul class="forensics-target-list"><li>家族や友人から電話でお金を頼まれる可能性がある人</li><li>高齢の家族がいる人</li><li>SNSへ自分の声を投稿している人</li><li>AI音声やボイスクローンに興味がある人</li><li>会社で電話による本人確認を行う人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AI音声</li><li>ボイスクローン</li><li>なりすまし</li><li>家族緊急詐欺</li><li>グランドペアレント詐欺</li><li>vishing</li><li>音声フィッシング</li><li>本人確認</li><li>ソーシャルエンジニアリング</li><li>詐欺対策</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 5</strong>
+              <span>金銭・緊急連絡は別ルートで本人確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot is-active">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>家族や上司そっくりの声でも、送金、認証情報、重要な指示が含まれる場合は、一度通信を切り、以前から知っている連絡先や別の関係者を通じて本人確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>夜、娘の声そっくりの電話がかかってきた。「事故を起こした。今すぐお金が必要。誰にも言わないで」と泣いている</h3><p>声の高さ、話し方、呼び方まで本人そっくりでした。電話の途中で警察官や弁護士を名乗る人物へ交代し、「すぐ送金しないと大変なことになる」と急かされます。FTCは家族緊急詐欺について、詐欺師がSNSなどに投稿された短い音声からAIで声を複製する可能性があると注意しています。また典型的な特徴として、「緊急」「秘密にしてほしい」「すぐ支払ってほしい」という圧力を挙げています。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2])</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>これまで電話では「声を聞けば本人か分かる」という感覚が本人確認の一部になっていました。しかし最新研究では、AI音声を使った詐欺シナリオに対して相当数の参加者が要求へ応じる可能性を示しました。特に重要なのは、最も高度なAI音声だけが危険だったわけではなく、研究では「人間らしさ」よりも、話の説得力や心理的な圧力の方が要求への従いやすさを強く予測していた点です。([[arXiv](https://arxiv.org/abs/2607.09970)][1]) つまり防御の中心を「AIっぽい声を聞き分ける」ことへ置くより、「緊急・秘密・送金が出たら別経路で本人確認する」という行動ルールへ置く方が実践的です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="callback-known-channel">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>家族そっくりの声で「事故に遭った。今すぐお金を送って」と電話が来た場合、最も有効な確認方法は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="listen-for-ai" data-choice-id="listen-for-ai" />
+                <span>
+                  <strong>声の違和感や機械っぽさを注意深く探す</strong>
+                  <small>発音、間、呼吸などからAI音声かどうかを聞き分ける。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ask-ai-or-human" data-choice-id="ask-ai-or-human" />
+                <span>
+                  <strong>電話口の相手へ「あなたはAIですか？」と聞く</strong>
+                  <small>相手の自己申告で本人かどうか確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="callback-known-channel" data-choice-id="callback-known-channel" />
+                <span>
+                  <strong>一度電話を切り、自分が以前から知っている番号や別の家族経由で本人を確認する</strong>
+                  <small>今かかってきている通信経路とは独立した方法で確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="send-small-payment" data-choice-id="send-small-payment" />
+                <span>
+                  <strong>まず少額だけ送って本当か様子を見る</strong>
+                  <small>金額を小さくすれば安全だと考える。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>一度電話を切り、自分が以前から知っている番号や別の家族経由で本人を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>FTCは、家族や友人を名乗る緊急電話が来た場合、声だけを信用せず、自分が正しいと知っている電話番号へ掛け直すことを推奨しています。連絡できなければ、別の家族や友人へ確認する方法も案内しています。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2]) 最新研究でも、AIへの慣れがAI音声の検出能力を大きく改善するとは確認されませんでした。([[arXiv](https://arxiv.org/abs/2607.09970)][1]) したがって「声を見抜く」より「通信経路を変えて確認する」方が、AI音声がさらに自然になっても使い続けやすい対策です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>「声が本人だから本物」と判断していないか</h3>
+              <p>FTCはAIによって家族の声を複製できる可能性があるため、声そのものを本人確認として信用しないよう注意しています。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>「今すぐ」という時間制限をかけられていないか</h3>
+              <p>家族緊急詐欺では、確認する時間を与えないために緊急性を強調する手口が使われます。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>「誰にも言わないで」と秘密を求められていないか</h3>
+              <p>FTCは、他の家族へ相談されると詐欺が発覚するため、秘密を要求することを典型的な特徴として挙げています。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>普段と違う支払い方法を指定されていないか</h3>
+              <p>FTCは送金サービス、暗号資産、決済アプリ、ギフトカードなど、取り戻しにくい方法を指定する詐欺に注意するよう案内しています。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>電話番号の表示だけを信用していないか</h3>
+              <p>表示された番号や相手の名乗りではなく、自分の連絡先に登録している番号など、以前から確認済みの経路で連絡し直します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>「AIに詳しいから見抜ける」と思っていないか</h3>
+              <p>4,100人を対象とした最新研究では、一般的なAIへの慣れや音声アシスタント利用経験が、AI音声の検出能力を有意に改善するとは確認されませんでした。([[arXiv](https://arxiv.org/abs/2607.09970)][1])</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>声のリアルさだけを評価していないか</h3>
+              <p>研究では、要求へ応じる可能性を予測するうえで、声が人間らしいかどうかより話の説得力の方が強い要因でした。([[arXiv](https://arxiv.org/abs/2607.09970)][1])</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>家族内で確認方法を決めているか</h3>
+              <p>緊急時に利用する合言葉や、必ず掛け直す番号を事前に決めておくと、その場で判断する負担を減らせます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>これからは「声紋」より「確認経路」を信用する</strong><p>AI音声技術そのものは、読み上げ、翻訳、アクセシビリティ、カスタマーサポートなど多くの便利な用途があります。問題は「AI音声が存在すること」ではなく、声だけを本人確認として使う仕組みです。FTCの対策も、AI音声を聞き分けることではなく、既知の電話番号へ掛け直すことを中心にしています。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2]) AI時代には「この声、本物かな？」と悩むより、「重要なお願いなので別ルートで確認します」と機械的に確認できる仕組みを持つ方が安全です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>お金の話が出たら一度電話を切る</strong><span>緊急性による心理的な圧力から離れ、落ち着いて確認できます。</span></li>
+            <li><strong>自分が以前から知っている電話番号へ掛け直す</strong><span>詐欺師が用意した通信経路ではなく、独立した経路から本人を確認できます。FTCもこの方法を推奨しています。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2])</span></li>
+            <li><strong>本人と連絡できない場合は別の家族や友人へ確認する</strong><span>「秘密にして」と言われても第三者へ確認することで、緊急事態が本当か確かめられます。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2])</span></li>
+            <li><strong>家族だけが知る確認質問を用意する</strong><span>FTCも、本人しか答えにくい質問を利用する方法を確認手段の一つとして案内しています。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2])</span></li>
+            <li><strong>家族内で緊急時の合言葉を決めておく</strong><span>声や電話番号だけに依存しない追加の確認材料を持てます。</span></li>
+            <li><strong>会社では送金や口座変更を電話だけで承認しない</strong><span>上司や取引先の声が再現されても、社内承認や別チャネル確認が残っていれば被害を防ぎやすくなります。</span></li>
+            <li><strong>怪しい電話を受けた家族を責めず、確認手順を共有する</strong><span>最新研究でもAIへの知識だけでは十分な防御にならないことが示されており、個人の見抜く能力より仕組みで支える方が現実的です。([[arXiv](https://arxiv.org/abs/2607.09970)][1])</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>声の機械っぽさだけでAIか判定する</strong><span>最新研究では一部のAI音声が人間音声と同程度に自然・説得的と評価されました。([[arXiv](https://arxiv.org/abs/2607.09970)][1])</span></li>
+            <li><strong>電話番号や表示名が家族と同じなので信用する</strong><span>本人確認は表示情報だけで完結させず、自分が管理している連絡先から確認し直します。</span></li>
+            <li><strong>「本人しか知らないはずの情報を知っている」だけで信用する</strong><span>SNS、漏えいデータ、過去の投稿などから個人情報を取得されている可能性があります。FTCも詐欺師がSNSなどから被害者や家族の情報を得る場合があると説明しています。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2])</span></li>
+            <li><strong>少額なら大丈夫と送金する</strong><span>詐欺師との関係が続き、追加の要求につながる可能性があります。</span></li>
+            <li><strong>「誰にも言わないで」と言われたので家族へ相談しない</strong><span>秘密を求めること自体が家族緊急詐欺の典型的な特徴です。([[Consumer Advice](https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money)][2])</span></li>
+            <li><strong>AI音声が危険だから音声AIを一切使わない</strong><span>音声AIにはアクセシビリティ、翻訳、読み上げ、学習など正当で便利な利用があります。問題は技術そのものではなく、本人確認を声だけへ依存することです。</span></li>
+            <li><strong>研究の36.1％を「36％の人が実際に詐欺送金した」と紹介する</strong><span>研究で測定したのは実際の送金行動ではなく、実験シナリオに対する「従う、または従う可能性がある」という自己申告の反応です。([[arXiv](https://arxiv.org/abs/2607.09970)][1])</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>音声AIが自然になるほど、「人を見抜く」より「確認手順を決める」</h3>
+          <p>自然なAI音声は、外国語学習、読み上げ、視覚障害者支援、カスタマーサポートなど、人とコンピューターのやり取りを便利にできます。一方、声の自然さが本人確認として使えなくなるなら、社会側の確認方法を更新すればよいとも考えられます。FCCはAI生成音声を使ったロボコールも既存の人工・録音音声に関する規則の対象になると明確化しています。([[FCC Docs](https://docs.fcc.gov/public/attachments/FCC-24-17A1_Rcd.pdf?utm_source=chatgpt.com)][3]) 家庭では「送金依頼は必ず掛け直す」、会社では「口座変更はチャットと承認システムでも確認する」というルールを作れば、AI音声の利便性を残したまま本人確認だけを強くできます。</p>
+          <ul class="positive-example-list"><li>家族で緊急時の合言葉を一つ決める</li><li>金銭依頼は電話を切って登録済み番号へ掛け直す</li><li>本人と連絡できなければ家族グループチャットでも確認する</li><li>会社の振込先変更は電話＋社内承認の2経路にする</li><li>AIに家族向けの「詐欺電話が来た時の3手順」を分かりやすく作ってもらう</li><li>高齢の家族と実際の電話を想定した確認練習をする</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>少し前までは「声を聞けば本人か分かる」が、かなり自然な本人確認でした。でもAI音声が自然になると、そこを頑張って聞き分けるゲームにするのは少し分が悪いんです。最新研究で面白かったのは、AIに詳しい人だから必ず見抜けるわけではなかったことです。だったら対策を人間の耳の性能に任せない方がいい。「お金の話が出たら一回切って、いつもの番号へ掛け直す」。これならAIの声が明日もっと上手になっても使えます。家族から『なんで切ったん？』と言われたら、その時は安心して謝ればいいんです。本物だった場合に少し気まずい確認手順は、偽物へ送金するよりずっと安いですから。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>本人そっくりの声を見抜こうとするより、重要な依頼は別の連絡経路で確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://arxiv.org/abs/2607.09970" target="_blank" rel="noopener noreferrer">Evaluating AI Models&#x27; Capability to Automate Voice Phishing Attacks<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>arXiv / Expert Systems with Applications accepted manuscript</span>
+              <span>研究・論文</span>
+              <time datetime="2026-07-10">2026-07-10</time>
+            </li>
+            <li>
+              <strong><a href="https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money" target="_blank" rel="noopener noreferrer">Scammers Use Fake Emergencies To Steal Your Money<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Federal Trade Commission Consumer Advice</span>
+              <span>消費者向け公式情報</span>
+              <time datetime="2023-09">2023-09</time>
+            </li>
+            <li>
+              <strong><a href="https://consumer.ftc.gov/consumer-alerts/2023/03/scammers-use-ai-enhance-their-family-emergency-schemes" target="_blank" rel="noopener noreferrer">Scammers use AI to enhance their family emergency schemes<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Federal Trade Commission Consumer Advice</span>
+              <span>消費者向け公式情報</span>
+              <time datetime="2023-03-20">2023-03-20</time>
+            </li>
+            <li>
+              <strong><a href="https://www.ic3.gov/PSA/2026/PSA260720" target="_blank" rel="noopener noreferrer">FBI Warns of Scammers Impersonating the IC3<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>FBI Internet Crime Complaint Center</span>
+              <span>セキュリティ機関</span>
+              <time datetime="2026-07-20">2026-07-20</time>
+            </li>
+            <li>
+              <strong><a href="https://docs.fcc.gov/public/attachments/FCC-24-17A1_Rcd.pdf" target="_blank" rel="noopener noreferrer">Implications of Artificial Intelligence Technologies on Protecting Consumers from Unwanted Robocalls and Robotexts<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Federal Communications Commission</span>
+              <span>公式発表</span>
+              <time datetime="2024-02-08">2024-02-08</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260813-03" data-forensics-card data-category="scam" data-level="5" data-difficulty="beginner" data-search-text="「投資を教わるだけだから安全」は違う。SNSの“稼げる投資スクール”を申し込む前に見るところ 投資スクールも「儲かる保証」が出たら要確認 FTCは2026年8月7日、SNSで「トレードを学べば稼げる」「仕事を辞められるほど収入が増える」などとうたう投資トレーニングについて注意喚起しました。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/how-spot-investment-training-scams-social-media?utm_source=chatgpt.com)][1]) 背景には、IM Mastery Academyなどの名称で投資教育サービスとMLM型ビジネスを展開していた事業者へのFTCとネバダ州の法的措置があります。FTCは、正当な資格を持たない「educators」がいたことや、根拠のない収益表示で参加者を勧誘したと主張し、2026年5月には主要被告らとの和解で約9000万ドル相当の資産引き渡しなどが決まりました。([[Federal Trade Commission](https://search.ftc.gov/news-events/news/press-releases/2026/05/lead-defendants-im-mastery-academy-mlm-scheme-turn-over-tens-millions-dollars-assets-settle-ftc?utm_source=chatgpt.com)][2]) 投資そのものではなく「投資を教えるサービス」でも、利益保証や豪華な生活の演出を信用材料にしないことが重要です。 詐欺・なりすまし はじめて 投資スクール 投資詐欺 SNS 情報商材 オンライン講座 MLM 収益保証 副業 FTC AI調査 SNSで投資・FX・暗号資産の勉強動画を見る人 オンラインの投資スクールやコーチングへ興味がある人 副業や資産形成の情報をSNSで探す人 AIを使って投資情報を調べる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">investment-training-claim-check</span>
+              <div>
+                <p>投資スクールも「儲かる保証」が出たら要確認</p>
+                <h3>「投資を教わるだけだから安全」は違う。SNSの“稼げる投資スクール”を申し込む前に見るところ</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-13">2026.08.13</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">FTCは2026年8月7日、SNSで「トレードを学べば稼げる」「仕事を辞められるほど収入が増える」などとうたう投資トレーニングについて注意喚起しました。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/how-spot-investment-training-scams-social-media?utm_source=chatgpt.com)][1]) 背景には、IM Mastery Academyなどの名称で投資教育サービスとMLM型ビジネスを展開していた事業者へのFTCとネバダ州の法的措置があります。FTCは、正当な資格を持たない「educators」がいたことや、根拠のない収益表示で参加者を勧誘したと主張し、2026年5月には主要被告らとの和解で約9000万ドル相当の資産引き渡しなどが決まりました。([[Federal Trade Commission](https://search.ftc.gov/news-events/news/press-releases/2026/05/lead-defendants-im-mastery-academy-mlm-scheme-turn-over-tens-millions-dollars-assets-settle-ftc?utm_source=chatgpt.com)][2]) 投資そのものではなく「投資を教えるサービス」でも、利益保証や豪華な生活の演出を信用材料にしないことが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>支払い前に運営者・収益表示・公的情報を独立確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSで投資・FX・暗号資産の勉強動画を見る人</li><li>オンラインの投資スクールやコーチングへ興味がある人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>投資スクール</li><li>投資詐欺</li><li>SNS</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260812-01" data-forensics-card data-category="scam" data-level="4" data-difficulty="beginner" data-search-text="「スポンサー広告だから安全」は違う。SNSの広告欄にも“偽ショップ”は入り込む 広告表示は「運営のお墨付き」ではない FTCは2026年8月10日、SNS上の広告について「プラットフォームに表示されているから安全とは限らない」と改めて注意喚起しました。SNS事業者が広告主を常に十分審査しているとは限らず、詐欺師も正規企業と同じ広告配信の仕組みを利用できます。FTCによると、2025年にはSNS広告を見て商品を注文したことから始まった詐欺だけで、9500万ドルを超える被害が報告されました。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1]) さらにSNSを入口とした詐欺全体では2025年の報告被害額が21億ドルに達しています。([[Federal Trade Commission](https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2026/04/reported-losses-scams-social-media-eight-times-higher-2020)][2]) AIで広告画像や商品写真を自然に作れる現在は、「広告がきれい」「ブランドロゴがある」「スポンサー表示がある」といった見た目より、購入前に販売元そのものを確認することが重要です。FBIも生成AIが偽プロフィール、商品宣伝画像、偽サイト用コンテンツなどの金融詐欺に利用されていると警告しています。([[Internet Crime Complaint Center](https://www.ic3.gov/PSA/2024/PSA241203?country=US&amp;currency=USD&amp;japan_bespoke_content=false&amp;logged_in=false&amp;mobile=false&amp;utm_source=chatgpt.com)][3]) 詐欺・なりすまし はじめて SNS広告 偽ショップ ブランドなりすまし ネット通販 Instagram Facebook 生成AI AI画像 ショッピング詐欺 広告 Instagram・Facebook・TikTokなどSNSから買い物をする人 SNS広告から公式ブランドサイトへ移動することがある人 セール広告や限定商品をよく見る人 ネットショップを利用する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">social-ad-brand-check</span>
+              <div>
+                <p>広告表示は「運営のお墨付き」ではない</p>
+                <h3>「スポンサー広告だから安全」は違う。SNSの広告欄にも“偽ショップ”は入り込む</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-12">2026.08.12</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">FTCは2026年8月10日、SNS上の広告について「プラットフォームに表示されているから安全とは限らない」と改めて注意喚起しました。SNS事業者が広告主を常に十分審査しているとは限らず、詐欺師も正規企業と同じ広告配信の仕組みを利用できます。FTCによると、2025年にはSNS広告を見て商品を注文したことから始まった詐欺だけで、9500万ドルを超える被害が報告されました。([[Consumer Advice](https://consumer.ftc.gov/consumer-alerts/2026/08/are-ads-social-media-vetted-or-checked-scams-heres-what-know)][1]) さらにSNSを入口とした詐欺全体では2025年の報告被害額が21億ドルに達しています。([[Federal Trade Commission](https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2026/04/reported-losses-scams-social-media-eight-times-higher-2020)][2]) AIで広告画像や商品写真を自然に作れる現在は、「広告がきれい」「ブランドロゴがある」「スポンサー表示がある」といった見た目より、購入前に販売元そのものを確認することが重要です。FBIも生成AIが偽プロフィール、商品宣伝画像、偽サイト用コンテンツなどの金融詐欺に利用されていると警告しています。([[Internet Crime Complaint Center](https://www.ic3.gov/PSA/2024/PSA241203?country=US&amp;currency=USD&amp;japan_bespoke_content=false&amp;logged_in=false&amp;mobile=false&amp;utm_source=chatgpt.com)][3])</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>購入前に販売元を別経路で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Instagram・Facebook・TikTokなどSNSから買い物をする人</li><li>SNS広告から公式ブランドサイトへ移動することがある人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>SNS広告</li><li>偽ショップ</li><li>ブランドなりすまし</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260810-02" data-forensics-card data-category="scam" data-level="5" data-difficulty="beginner" data-search-text="「あなたの犬を保護しました。治療費を今すぐ払って」　AI画像で飼い主を狙う迷子ペット詐欺 ペットの写真より“公式窓口から逆確認” FTCは2026年6月24日、動物好きや迷子ペットの飼い主を狙い、盗用・加工画像やAI生成ディープフェイクを使って金銭や個人情報を奪う詐欺へ注意を呼びかけました。詐欺師は「あなたのペットが事故に遭い、動物病院で治療している」などと名乗り、AIで作ったペットの画像や動画を証拠として送り、治療費を急いで支払わせようとする場合があります。 写真が本物に見えるかを見抜くことより、連絡してきた相手とは別に、動物保護施設や病院の公式番号へ自分から連絡して確認する方が有効です。 詐欺・なりすまし はじめて 迷子ペット詐欺 AI生成画像 ディープフェイク ペット 動物病院 保護施設 SNS詐欺 なりすまし 認証コード SNSで迷子ペットの情報を投稿する人 犬や猫などのペットを飼っている人 動物保護団体やシェルターへ寄付する人 AI生成画像を使った詐欺について知りたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">lost-pet-ai-scam-check</span>
+              <div>
+                <p>ペットの写真より“公式窓口から逆確認”</p>
+                <h3>「あなたの犬を保護しました。治療費を今すぐ払って」　AI画像で飼い主を狙う迷子ペット詐欺</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-10">2026.08.10</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">FTCは2026年6月24日、動物好きや迷子ペットの飼い主を狙い、盗用・加工画像やAI生成ディープフェイクを使って金銭や個人情報を奪う詐欺へ注意を呼びかけました。詐欺師は「あなたのペットが事故に遭い、動物病院で治療している」などと名乗り、AIで作ったペットの画像や動画を証拠として送り、治療費を急いで支払わせようとする場合があります。 写真が本物に見えるかを見抜くことより、連絡してきた相手とは別に、動物保護施設や病院の公式番号へ自分から連絡して確認する方が有効です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>送金前に施設・病院へ独立確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSで迷子ペットの情報を投稿する人</li><li>犬や猫などのペットを飼っている人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>迷子ペット詐欺</li><li>AI生成画像</li><li>ディープフェイク</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260813-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260814-03">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
