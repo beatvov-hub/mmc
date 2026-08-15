@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIに「8時間分の仕事」を任せる時代へ　長い仕事ほど“完成条件”を先に決める｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="OpenAIが2026年6月25日に公開したCodex利用分析では、2026年5月時点で調査対象となった個人ユーザーの80.6％が「人間なら30分超かかる」と推定される仕事を少なくとも1件Codexへ依頼し、70.2％は1時間超、25.6％は8時間超に相当する仕事を依頼していました。([[OpenAI](https://openai.com/ja-JP/index/how-agents-are-transforming-work/)][1]) AI利用が「質問して答えをもらう」段階から、複数工程をまとめて任せる段階へ進みつつあります。一方、仕事が長くなるほど「何を頼んだか」より「何をもって完了とするか」が重要になります。OpenAIの業務向けガイドも、エージェントへ仕事を渡す際には文脈、期待値、出力形式を明示し、完成後に品質・完全性・引用などを人間が確認することを勧めています。 AIへ長い仕事を任せること自体を怖がる必要はありません。むしろ、終了条件と確認ポイントを決めることで、長時間タスクほどAIの利点を活かしやすくなります。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260815-01" />
+<meta property="og:title" content="AIに「8時間分の仕事」を任せる時代へ　長い仕事ほど“完成条件”を先に決める｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="OpenAIが2026年6月25日に公開したCodex利用分析では、2026年5月時点で調査対象となった個人ユーザーの80.6％が「人間なら30分超かかる」と推定される仕事を少なくとも1件Codexへ依頼し、70.2％は1時間超、25.6％は8時間超に相当する仕事を依頼していました。([[OpenAI](https://openai.com/ja-JP/index/how-agents-are-transforming-work/)][1]) AI利用が「質問して答えをもらう」段階から、複数工程をまとめて任せる段階へ進みつつあります。一方、仕事が長くなるほど「何を頼んだか」より「何をもって完了とするか」が重要になります。OpenAIの業務向けガイドも、エージェントへ仕事を渡す際には文脈、期待値、出力形式を明示し、完成後に品質・完全性・引用などを人間が確認することを勧めています。 AIへ長い仕事を任せること自体を怖がる必要はありません。むしろ、終了条件と確認ポイントを決めることで、長時間タスクほどAIの利点を活かしやすくなります。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260815-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>長時間タスクは「何を作るか」より「どこで終わるか」を決める</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-15">2026.08.15</time>
+            </div>
+            <h1>AIに「8時間分の仕事」を任せる時代へ　長い仕事ほど“完成条件”を先に決める</h1>
+            <p>OpenAIが2026年6月25日に公開したCodex利用分析では、2026年5月時点で調査対象となった個人ユーザーの80.6％が「人間なら30分超かかる」と推定される仕事を少なくとも1件Codexへ依頼し、70.2％は1時間超、25.6％は8時間超に相当する仕事を依頼していました。([[OpenAI](https://openai.com/ja-JP/index/how-agents-are-transforming-work/)][1]) AI利用が「質問して答えをもらう」段階から、複数工程をまとめて任せる段階へ進みつつあります。一方、仕事が長くなるほど「何を頼んだか」より「何をもって完了とするか」が重要になります。OpenAIの業務向けガイドも、エージェントへ仕事を渡す際には文脈、期待値、出力形式を明示し、完成後に品質・完全性・引用などを人間が確認することを勧めています。 AIへ長い仕事を任せること自体を怖がる必要はありません。むしろ、終了条件と確認ポイントを決めることで、長時間タスクほどAIの利点を活かしやすくなります。</p>
+            <ul class="forensics-target-list"><li>ChatGPT・Codex・Claudeなどへ複数工程の仕事を任せる人</li><li>AIエージェントを業務へ取り入れたい人</li><li>調査・資料作成・データ整理をAIへ委任する人</li><li>AIへ仕事を任せた後の確認方法に悩んでいる人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AIエージェント</li><li>Codex</li><li>仕事の委任</li><li>業務設計</li><li>完成条件</li><li>Human in the Loop</li><li>AIレビュー</li><li>長時間タスク</li><li>プロンプト設計</li><li>業務効率化</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>依頼前に完成条件、終了後に品質確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>長時間のAIタスクでは、開始前に「完成条件・使う情報源・不明時の対応・人間へ戻す条件」を決め、終了後に品質・引用・抜け漏れを確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>AIへ「競合10社を調査して、新商品の企画書を作って」と頼み、そのまま2時間後に戻ってきた</h3><p>AIは競合調査、価格比較、特徴整理、企画案、資料作成まで進めていました。しかし確認すると、調査対象の定義が違う、古い価格が混じっている、競合と呼べない企業まで含まれている、企画書の結論が依頼者の意図とずれている、といった問題がありました。作業量は多くても、「対象企業は何社か」「価格はいつ時点か」「一次情報を優先するか」「企画書には何を必ず入れるか」「不明な場合は止まるか」といった完成条件を決めていなかったためです。OpenAIの最新研究では、ユーザーがエージェントへより長時間・複雑な仕事を任せる傾向が確認されています。([[OpenAI](https://openai.com/ja-JP/index/how-agents-are-transforming-work/)][1])</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>長時間タスクでは、AIが途中で何度も判断します。検索対象を選び、情報を捨て、優先順位を付け、表を作り、文章をまとめる。つまり依頼者が最初に曖昧なゴールを渡すと、その曖昧さが複数工程へ連鎖します。OpenAIの業務向けガイドでは、エージェントへ仕事を委任する際に、利用する情報源、データ、出力構造、期待する結果を具体的に示すほど精度と一貫性を高めやすいと説明されています。 Microsoftの2026 Work Trend Indexでも、AI利用者の50％がAI出力の品質管理、46％が批判的思考を今後さらに重要になる人間側の能力として挙げ、86％はAI出力を最終回答ではなく出発点として扱うと回答しています。([[Microsoft](https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization)][2])</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="completion-criteria">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>AIエージェントへ数時間分の調査・資料作成をまとめて任せる時、最も先に決めておきたいものは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="longer-prompt" data-choice-id="longer-prompt" />
+                <span>
+                  <strong>できるだけ長いプロンプトを書く</strong>
+                  <small>文字数が多いほど成功しやすいと考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="completion-criteria" data-choice-id="completion-criteria" />
+                <span>
+                  <strong>完成条件・確認条件・止まる条件を決める</strong>
+                  <small>何が揃えば完了か、何を確認するか、不明時にどうするかを指定する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="no-check" data-choice-id="no-check" />
+                <span>
+                  <strong>AIが長時間考えた結果なので、そのまま採用する</strong>
+                  <small>作業時間の長さを品質の保証と考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="manual-only" data-choice-id="manual-only" />
+                <span>
+                  <strong>長い仕事は危険なのでAIへ任せない</strong>
+                  <small>複数工程の仕事はすべて人間だけで行う。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>完成条件・確認条件・止まる条件を決める</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>長時間の仕事では、AIが途中で行う判断回数が増えます。そのため「何をしてください」だけでなく、「この5項目が揃えば完了」「一次情報が見つからなければ推測せず未確認と書く」「この金額以上の判断は人間へ戻す」といった終了条件を置く方が管理しやすくなります。OpenAIの業務向けガイドも、仕事の背景、期待値、構造を同僚へ依頼するように明確化し、完成後に人間が確認・修正する運用を推奨しています。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>「完成」の定義を書いているか</h3>
+              <p>「調査してください」ではなく、「10社について公式価格・特徴・出典URLが揃った表を作成」のように、完了状態を確認可能な形へします。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>利用する情報源の条件を決めているか</h3>
+              <p>公式サイト、一次資料、査読論文など、どの情報源を優先するか指定します。OpenAIのガイドでも、査読済み情報のみを使うなど情報源を限定する例が示されています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>不明な時の動きを決めているか</h3>
+              <p>情報が見つからない場合に推測するのか、未確認と書くのか、人間へ質問するのかを事前に決めます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>途中で人間へ戻す条件があるか</h3>
+              <p>高額な判断、公開、送信、契約、重要な数値などは、エージェントの作業途中でも人間へ確認させます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>出力形式を決めているか</h3>
+              <p>表の列、資料の章立て、ファイル形式などを指定すると、完成後の確認時間を減らしやすくなります。OpenAIも出力構造を具体的に指定することを勧めています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>長く働いたことを品質の証明にしていないか</h3>
+              <p>OpenAIの調査はユーザーが長い仕事を任せるようになったことを示していますが、長時間実行すれば正確になるという意味ではありません。([[OpenAI](https://openai.com/ja-JP/index/how-agents-are-transforming-work/)][1])</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>完成後のレビュー項目が決まっているか</h3>
+              <p>OpenAIの業務向けガイドでは、エージェント完了後に品質、完全性、引用・参照などを確認することを推奨しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>自分が最終責任を持つ部分を残しているか</h3>
+              <p>Microsoftの調査では、86％のAI利用者がAI出力を出発点として扱い、自分が思考への責任を持つと回答しています。([[Microsoft](https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization)][2])</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>エージェント時代のプロンプトは「質問文」より「仕事の依頼書」に近づく</strong><p>AIが一回答えるだけなら多少曖昧な質問でも会話で修正できます。しかし数十分・数時間の仕事を任せる場合、AIは途中で多くの判断を行います。OpenAIの最新利用分析では、個人ユーザーの70.2％が人間換算で1時間超、25.6％が8時間超と推定される仕事を少なくとも一度Codexへ依頼していました。([[OpenAI](https://openai.com/ja-JP/index/how-agents-are-transforming-work/)][1]) こうなると重要なのは「すごいプロンプトを書くこと」より、仕事の目的、範囲、完成条件、確認方法を決めることです。AIに長い仕事を任せるほど、人間の仕事は作業そのものから、仕事を切り分け、完成を判定する側へ移っていきます。OpenAIの業務ガイドも、仕事を作る時間からレビュー・判断へ時間を移す考え方を示しています。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>依頼の最後に「完了条件」を3〜5個書く</strong><span>AI自身も作業が終わったか判断しやすくなり、人間側も成果物を確認しやすくなります。</span></li>
+            <li><strong>「分からない場合は推測せず未確認と記載」と指定する</strong><span>長い作業の途中で根拠のない補完が積み重なることを減らせます。</span></li>
+            <li><strong>情報源の優先順位を指定する</strong><span>「公式資料→一次情報→信頼できる報道」のように指定すると、調査基準を途中でぶらしにくくできます。</span></li>
+            <li><strong>長い仕事は途中成果物を残させる</strong><span>調査一覧、判断理由、参照URLなどを残しておくと、最後の完成物だけを見るより誤りを発見しやすくなります。</span></li>
+            <li><strong>高影響の工程だけ人間確認を挟む</strong><span>全工程を監視せず、公開・送信・購入・契約など重要な部分だけ確認すれば自動化の利点を残せます。</span></li>
+            <li><strong>完成後に「抜け漏れ・出典・矛盾」を別チェックさせる</strong><span>生成とレビューを分けることで、同じ成果物を別の観点から確認できます。</span></li>
+            <li><strong>良かった依頼をテンプレート化する</strong><span>OpenAIの業務向けガイドも、再利用できるエージェント対応ワークフローを共有資産として蓄積する考え方を勧めています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>「いい感じに全部調べて資料にして」で長時間走らせる</strong><span>対象範囲と品質基準が曖昧なまま複数工程へ進むため、後で大量の修正が必要になる可能性があります。</span></li>
+            <li><strong>長時間実行したので正しいと思う</strong><span>作業量や実行時間と、事実の正確性は別です。OpenAIの研究は利用の長時間化を示したもので、品質保証を示したものではありません。([[OpenAI](https://openai.com/ja-JP/index/how-agents-are-transforming-work/)][1])</span></li>
+            <li><strong>最終成果物だけ受け取り、参照元を残さない</strong><span>間違いが見つかった時に、どこで判断がずれたか確認しにくくなります。</span></li>
+            <li><strong>AIが止まらないので追加の仕事を次々つなげる</strong><span>目的が増えるほど完成条件が曖昧になり、最終的に何を評価すべきか分からなくなります。</span></li>
+            <li><strong>AIの作業を全部細かく監視する</strong><span>人間が常時監視するなら長時間委任の利点が小さくなります。重要なチェックポイントだけ残す方が効率的です。</span></li>
+            <li><strong>AIへ長い仕事を任せること自体を避ける</strong><span>最新の利用データでは、長時間・複雑なタスクへエージェントを使う動きが広がっており、調査・変換・資料作成などで大きな時間短縮につながる可能性があります。([[OpenAI](https://openai.com/ja-JP/index/how-agents-are-transforming-work/)][1])</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIを「一問一答の助手」から「仕事を渡せる担当者」へ変える</h3>
+          <p>AIエージェントの強みは、単発の文章生成だけではなく、複数の工程をまとめて進められることです。OpenAIでは2026年4月ごろまでに、法務・財務・採用など非技術部門でもCodexが主要なAIツールとなり、非開発者も自動化、データ変換、ツール作成、構造化分析などへ利用を広げています。([[OpenAI](https://openai.com/ja-JP/index/how-agents-are-transforming-work/)][1]) 仕事を任せる際に「目的・材料・完成条件・確認方法」をセットで渡し、終了後は人間がレビューする。この運用なら、AIの作業時間が長くなっても人間が張り付く必要はなく、判断や企画へ時間を移しやすくなります。OpenAIの業務向けガイドも、エージェント利用後は人間が成果物を評価・修正し、判断・戦略・創造へより多くの時間を使う働き方を示しています。</p>
+          <ul class="positive-example-list"><li>競合10社の調査を「公式価格・特徴・更新日・出典URL」の4項目必須で任せる</li><li>100件の商品レビューを分類し、判断できないものだけ別リストへ出させる</li><li>会議資料を読み、決定事項・未決事項・担当だけ抽出させる</li><li>複数資料からレポートを作らせ、引用箇所を必ず併記させる</li><li>AIへアプリの試作品を作らせ、完了条件として指定画面と動作確認項目を設定する</li><li>調査→整理→初稿までAIへ任せ、最終的な採用判断だけ人間が行う</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIエージェントが数時間分の仕事をしてくれるとなると、つい「じゃあ全部お願いします」と言いたくなります。でも、人間の部下や外注先に8時間の仕事を頼む時も、「なんかいい感じによろしく」だけでは怖いですよね。AIも同じだと思います。むしろ疲れずにどんどん進む分、方向を間違えた時の進み方まで速い。だから長い仕事ほど、最初に「ここまでできたら終了」「ここが分からなければ止まる」を決めておく。AIに長時間働いてもらうために必要なのは、監視時間を増やすことではなく、完成の定義を少し丁寧にすることだと思います。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>AIに長い仕事を任せるほど、「何をするか」より「何をもって終わりとするか」を決める。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://openai.com/ja-JP/index/how-agents-are-transforming-work/" target="_blank" rel="noopener noreferrer">How agents are transforming work<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI</span>
+              <span>研究・論文</span>
+              <time datetime="2026-06-25">2026-06-25</time>
+            </li>
+            <li>
+              <strong><a href="https://cdn.openai.com/business-guides-and-resources/a-business-leaders-guide-to-working-with-agents.pdf" target="_blank" rel="noopener noreferrer">A business leader&#x27;s guide to working with agents<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI</span>
+              <span>公式発表</span>
+              <time datetime="2026">2026</time>
+            </li>
+            <li>
+              <strong><a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener noreferrer">2026 Work Trend Index Annual Report: Agents, human agency, and the opportunity for every organization<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft WorkLab</span>
+              <span>研究・論文</span>
+              <time datetime="2026">2026</time>
+            </li>
+            <li>
+              <strong><a href="https://www.anthropic.com/research/economic-index-june-2026-report" target="_blank" rel="noopener noreferrer">Anthropic Economic Index report: Cadences<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Anthropic</span>
+              <span>研究・論文</span>
+              <time datetime="2026-06">2026-06</time>
+            </li>
+            <li>
+              <strong><a href="https://forum.openai.com/en/public/videos/event-replay-inside-openai-how-openai-teams-use-codex-to-do-more-2026-07-14" target="_blank" rel="noopener noreferrer">Inside OpenAI: How OpenAI Teams use Codex to Do More<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Forum</span>
+              <span>公式発表</span>
+              <time datetime="2026-07-15">2026-07-15</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-friendly" href="case-20260814-01" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="AI活用の先生は「上司」とは限らない？　最新データでは若手ほどAIをよく使っていた AIの上手な使い方は、役職より現場から拾う OpenAIが2026年8月12日に公開した企業利用分析では、ChatGPT Enterprise導入から6か月後、early-career層はexecutive層より週あたり13件多くメッセージを送っていました。([[OpenAI](https://openai.com/index/how-enterprises-put-ai-to-work/)][1]) OpenAIは、この結果から「AIをよく使う社員を役職に関係なく見つけ、そのワークフローを組織内で共有する」機会があるとしています。([[OpenAI](https://openai.com/index/how-enterprises-put-ai-to-work/)][1]) ただし、利用回数が多いことと仕事の質が高いことは同じではありません。最新のEnterprise Signalsも、トークン量はAI利用の深さを見る代理指標にはなるが、ビジネス価値を直接測る指標ではないと明記しています。([[OpenAI](https://openai.com/signals/enterprise-data/)][2]) AI導入では「上司が正しい使い方を教える」だけでなく、現場でうまく使えている人の方法を拾い、安全確認を加えてチームの共通手順へ育てる発想が有効です。 仕事・AI活用 はじめて 生成AI AI研修 AIリテラシー ChatGPT Enterprise AI活用 若手社員 管理職 逆メンタリング ナレッジ共有 業務改善 仕事でChatGPTやCopilotなどを使う人 社内のAI活用を広げたい管理職・担当者 AI研修や社内ルールを考える人 自分より若い社員のAI活用についていけるか不安な人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-reverse-mentoring-workflow</span>
+              <div>
+                <p>AIの上手な使い方は、役職より現場から拾う</p>
+                <h3>AI活用の先生は「上司」とは限らない？　最新データでは若手ほどAIをよく使っていた</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-14">2026.08.14</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIが2026年8月12日に公開した企業利用分析では、ChatGPT Enterprise導入から6か月後、early-career層はexecutive層より週あたり13件多くメッセージを送っていました。([[OpenAI](https://openai.com/index/how-enterprises-put-ai-to-work/)][1]) OpenAIは、この結果から「AIをよく使う社員を役職に関係なく見つけ、そのワークフローを組織内で共有する」機会があるとしています。([[OpenAI](https://openai.com/index/how-enterprises-put-ai-to-work/)][1]) ただし、利用回数が多いことと仕事の質が高いことは同じではありません。最新のEnterprise Signalsも、トークン量はAI利用の深さを見る代理指標にはなるが、ビジネス価値を直接測る指標ではないと明記しています。([[OpenAI](https://openai.com/signals/enterprise-data/)][2]) AI導入では「上司が正しい使い方を教える」だけでなく、現場でうまく使えている人の方法を拾い、安全確認を加えてチームの共通手順へ育てる発想が有効です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>現場のAI活用例を成果と安全性の両方で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>仕事でChatGPTやCopilotなどを使う人</li><li>社内のAI活用を広げたい管理職・担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>生成AI</li><li>AI研修</li><li>AIリテラシー</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260814-02" data-forensics-card data-category="health-ai" data-level="5" data-difficulty="beginner" data-search-text="AIが「専門家っぽく」話しても、資格まであるわけじゃない　米国で“AIと人間を明示する”法案にAMAが支持 AIの肩書きより「誰が責任を持つ回答か」を見る American Medical Association（AMA）は2026年8月14日、米上院に提出されている「Senior Chatbot Protection Act of 2026」への支持を改めて表明しました。この法案は7月23日に提出されたもので、AIチャットボットが人間や資格を持つ専門家であるかのように表示することを防ぎ、医療・法律・金融など重要な判断に関わる相談では「AIは資格を持つ専門家ではなく、回答だけを根拠に判断しないこと」を利用者へ示す仕組みを求めています。([[American Medical Association](https://www.ama-assn.org/health-care-advocacy/advocacy-update/aug-14-2026-national-advocacy-update?utm_source=chatgpt.com)][1]) 重要なのは、これは現時点で成立した法律ではなく、上院委員会へ付託されている法案だという点です。([[GovInfo](https://www.govinfo.gov/app/details/BILLS-119s5117is?utm_source=chatgpt.com)][2]) AIは医療用語の説明や診察準備には便利ですが、文章が専門的で自信に満ちていることと、その回答に医療資格や診療責任があることは別です。 健康・医療 はじめて AIチャットボット 健康相談 Senior Chatbot Protection Act 高齢者 医療AI 透明性 専門家資格 AIリテラシー プライバシー Human in the Loop AIへ健康や薬について質問する人 家族の健康相談にAIを使う人 高齢の家族へAIチャットボットを勧める人 AIの回答が専門的だと信用しやすい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-professional-identity-check</span>
+              <div>
+                <p>AIの肩書きより「誰が責任を持つ回答か」を見る</p>
+                <h3>AIが「専門家っぽく」話しても、資格まであるわけじゃない　米国で“AIと人間を明示する”法案にAMAが支持</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-14">2026.08.14</time>
+              <span>健康・医療</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">American Medical Association（AMA）は2026年8月14日、米上院に提出されている「Senior Chatbot Protection Act of 2026」への支持を改めて表明しました。この法案は7月23日に提出されたもので、AIチャットボットが人間や資格を持つ専門家であるかのように表示することを防ぎ、医療・法律・金融など重要な判断に関わる相談では「AIは資格を持つ専門家ではなく、回答だけを根拠に判断しないこと」を利用者へ示す仕組みを求めています。([[American Medical Association](https://www.ama-assn.org/health-care-advocacy/advocacy-update/aug-14-2026-national-advocacy-update?utm_source=chatgpt.com)][1]) 重要なのは、これは現時点で成立した法律ではなく、上院委員会へ付託されている法案だという点です。([[GovInfo](https://www.govinfo.gov/app/details/BILLS-119s5117is?utm_source=chatgpt.com)][2]) AIは医療用語の説明や診察準備には便利ですが、文章が専門的で自信に満ちていることと、その回答に医療資格や診療責任があることは別です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>医療の重要判断は資格を持つ専門家へ確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIへ健康や薬について質問する人</li><li>家族の健康相談にAIを使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIチャットボット</li><li>健康相談</li><li>Senior Chatbot Protection Act</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260814-05" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「GitHub IssueをAIに自動対応させよう」が入口になる？　公開コメントを“命令”として読ませない設計 AIに公開Issueを読ませるなら、権限は最小限に 2026年8月6日、Black Hat USA 2026に合わせてNovee Securityが、Claude Code、Gemini CLI、CodexをGitHub上の自動処理へ組み込んだ環境を対象とするセキュリティ研究を公開しました。研究では、第三者が投稿できるGitHub Issueなどの内容をAIエージェントが読み、その後にコマンド実行やファイル操作へ進む構成では、悪意ある文章が単なる「相談内容」ではなくエージェントへの指示として働く可能性が示されました。([[Novee](https://novee.security/blog/critical-flaws-in-anthropic-google-and-openais-coding-agents/)][1]) GoogleのGemini CLIについては、ユーザー入力を扱う自動処理でツール制限やワークスペース信頼に問題があった脆弱性がGitHub Advisory DatabaseでCritical・CVSS 10.0として公開され、修正版が提供されています。([[GitHub](https://github.com/advisories/GHSA-wpqr-6v78-jr5g)][2]) OpenAIのCodex Action公式セキュリティ文書も、Issue、Pull Request、コミットメッセージ、AGENTS.md、スクリーンショットなどを「信頼できない入力」として扱い、利用者を限定し、ファイル・ネットワーク・コマンド権限を最小化するよう案内しています。([[GitHub](https://github.com/openai/codex-action/blob/master/docs/security.md)][3]) AIコーディングエージェントを怖がる必要はありません。重要なのは「何を読ませるか」と「読んだAIに何を実行させるか」を分けることです。 セキュリティ・権限 標準 AIコーディングエージェント GitHub Actions Codex Claude Code Gemini CLI プロンプトインジェクション CI/CD GITHUB_TOKEN 最小権限 Human in the Loop Codex・Claude Code・Gemini CLIなどのAIコーディングエージェントを使う人 GitHub IssueやPull RequestをAIで自動処理している人 AIにコード修正やCI/CD作業を任せたい人 GitHub ActionsとAIを組み合わせる開発者 AIエージェントの自動化に興味がある人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">github-agent-permission-gate</span>
+              <div>
+                <p>AIに公開Issueを読ませるなら、権限は最小限に</p>
+                <h3>「GitHub IssueをAIに自動対応させよう」が入口になる？　公開コメントを“命令”として読ませない設計</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-14">2026.08.14</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月6日、Black Hat USA 2026に合わせてNovee Securityが、Claude Code、Gemini CLI、CodexをGitHub上の自動処理へ組み込んだ環境を対象とするセキュリティ研究を公開しました。研究では、第三者が投稿できるGitHub Issueなどの内容をAIエージェントが読み、その後にコマンド実行やファイル操作へ進む構成では、悪意ある文章が単なる「相談内容」ではなくエージェントへの指示として働く可能性が示されました。([[Novee](https://novee.security/blog/critical-flaws-in-anthropic-google-and-openais-coding-agents/)][1]) GoogleのGemini CLIについては、ユーザー入力を扱う自動処理でツール制限やワークスペース信頼に問題があった脆弱性がGitHub Advisory DatabaseでCritical・CVSS 10.0として公開され、修正版が提供されています。([[GitHub](https://github.com/advisories/GHSA-wpqr-6v78-jr5g)][2]) OpenAIのCodex Action公式セキュリティ文書も、Issue、Pull Request、コミットメッセージ、AGENTS.md、スクリーンショットなどを「信頼できない入力」として扱い、利用者を限定し、ファイル・ネットワーク・コマンド権限を最小化するよう案内しています。([[GitHub](https://github.com/openai/codex-action/blob/master/docs/security.md)][3]) AIコーディングエージェントを怖がる必要はありません。重要なのは「何を読ませるか」と「読んだAIに何を実行させるか」を分けることです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>公開入力と実行権限を分離して確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Codex・Claude Code・Gemini CLIなどのAIコーディングエージェントを使う人</li><li>GitHub IssueやPull RequestをAIで自動処理している人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIコーディングエージェント</li><li>GitHub Actions</li><li>Codex</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260814-01">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
