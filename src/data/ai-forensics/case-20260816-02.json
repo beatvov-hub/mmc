@@ -1,0 +1,224 @@
+{
+  "id": "case-20260816-02",
+  "publishedAt": "2026-08-16",
+  "title": "検索AIの「評判が悪い」、本当にその店の話？　別会社のクチコミが混ざった最新事例",
+  "shortTitle": "AI検索の評判は「同じ会社か」まで確認する",
+  "category": "media-literacy",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Google検索のAI要約を使う人",
+    "飲食店・病院・通販サイト・業者選びで口コミを調べる人",
+    "会社名や商品名をAI検索で調べる人",
+    "小規模事業者・EC事業者",
+    "生成AIの検索機能を情報収集に使う人"
+  ],
+  "summary": "2026年8月11日、Business Insiderは、GoogleのAI Overviewsが別企業のレビューや苦情を混同し、小規模事業者について誤った評判を表示した複数の事例を報じました。英国の建材販売会社The Plastics Shedでは、AI Overviewが顧客評価を「圧倒的に否定的」とまとめましたが、そこで挙げられた苦情は競合企業や「plastic shed」を販売する別企業のレビューだったと報じられています。別の米国企業でも、似た名称の企業や他州の事業者の情報が混ざる問題が紹介されています。([[Business Insider](https://www.businessinsider.com/google-ai-overviews-aio-causing-chaos-small-businesses-2026-8)][1]) Google自身も、AI Overviewsはウェブ情報をまとめる際に、検索意図やウェブ上の言葉のニュアンスを誤解したり、十分な高品質情報がない場合に不正確な結果を出すことがあると説明しています。([[blog.google](https://blog.google/products-and-platforms/products/search/ai-overviews-update-may-2024/)][2]) AI検索は複数サイトを短時間で整理する便利な入口ですが、店や会社の評判を判断する場合は「引用先が本当に同じ企業か」まで確認することが重要です。",
+  "scenario": {
+    "headline": "初めて利用する通販会社をGoogleで検索すると、AIによる概要に「配送遅延や顧客対応への否定的な口コミが多数」と表示された",
+    "description": "その文章だけを見ると、利用を避けた方がよさそうに感じます。しかし引用リンクを開くと、社名が似た別会社、別地域の店舗、同じ単語を含む別の商品についての口コミが混ざっていました。2026年8月に報じられたThe Plastics Shedのケースでは、実際にこうした企業識別の混同が起きたとされています。([[Business Insider](https://www.businessinsider.com/google-ai-overviews-aio-causing-chaos-small-businesses-2026-8)][1])",
+    "whyItMatters": "AI検索は複数の検索結果を一つの読みやすい文章へ圧縮します。そのため便利ですが、「どの情報がどの企業について書かれたものか」という対応関係が崩れた場合、人間が複数ページを見比べる従来検索より誤りへ気付きにくくなることがあります。GoogleはAI Overviewsに関連リンクを表示し、利用者がさらに情報を確認できる設計にしていると説明しています。([[blog.google](https://blog.google/products-and-platforms/products/search/ai-overviews-update-may-2024/)][2]) つまりAI要約は最終判定ではなく、確認先を素早く見つける入口として使う方が安全です。"
+  },
+  "question": {
+    "text": "AI検索が「この会社は悪い口コミが多い」とまとめていた場合、購入や契約前に最も重要な確認は？",
+    "choices": [
+      {
+        "id": "trust-summary",
+        "label": "検索AIが複数サイトを調べているので、そのまま信用する",
+        "description": "AIがまとめた結論を最終評価として使う。"
+      },
+      {
+        "id": "count-negative-words",
+        "label": "悪い口コミの件数だけを見る",
+        "description": "企業や投稿元を確認せず、ネガティブな文章量で判断する。"
+      },
+      {
+        "id": "verify-entity-and-sources",
+        "label": "引用先を開き、会社名・所在地・公式サイトなどが本当に同じ企業を指しているか確認する",
+        "description": "AIの結論ではなく、元情報と対象企業の対応関係を確認する。"
+      },
+      {
+        "id": "avoid-ai-search",
+        "label": "AI検索では間違いが起きるので一切使わない",
+        "description": "AIによる検索要約をすべて避ける。"
+      }
+    ],
+    "recommendedAnswers": [
+      "verify-entity-and-sources"
+    ],
+    "explanation": "今回報じられた問題は「口コミそのものが存在しなかった」というより、「別企業についての情報が対象企業の評判としてまとめられた」というケースです。([[Business Insider](https://www.businessinsider.com/google-ai-overviews-aio-causing-chaos-small-businesses-2026-8)][1]) Googleのビジネス情報は、公式サイトだけでなく公開ウェブ情報、第三者データ、ユーザー投稿、レビューなど複数の情報源から構成されます。([[Google ヘルプ](https://support.google.com/business/answer/2721884?hl=en)][3]) そのため評判を確認する場合は、口コミ本文だけでなく、会社名、住所、商品、公式URLなどを見て「同じ対象についての情報か」を確かめることが重要です。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "会社名だけでなく所在地まで一致しているか",
+      "description": "同名・類似名の企業は珍しくありません。口コミ元の住所、都市、国、公式サイトを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "口コミが本当にその商品・サービスについて書かれているか",
+      "description": "会社名に一般名詞が含まれる場合、別商品や別業種の情報が検索結果へ混ざる可能性があります。The Plastics Shedの事例でも名称の意味が混同要因になった可能性が報じられています。([[Business Insider](https://www.businessinsider.com/google-ai-overviews-aio-causing-chaos-small-businesses-2026-8)][1])",
+      "priority": "high"
+    },
+    {
+      "title": "AI要約の引用リンクを実際に開いたか",
+      "description": "GoogleはAI Overviewsに関連リンクを付け、利用者が詳しい情報を確認できるようにしています。([[blog.google](https://blog.google/products-and-platforms/products/search/ai-overviews-update-may-2024/)][2])",
+      "priority": "high"
+    },
+    {
+      "title": "引用元の文章がAI要約の主張を本当に支えているか",
+      "description": "リンクが付いていても、「リンクが存在すること」と「そのページが要約文の根拠になっていること」は別です。文章と引用元を照らし合わせます。",
+      "priority": "high"
+    },
+    {
+      "title": "古い情報が混ざっていないか",
+      "description": "移転、社名変更、経営変更などがある企業では、現在の会社と過去の情報を分けて確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "公式サイトやGoogle Business Profileの基本情報と一致するか",
+      "description": "住所、電話番号、会社概要など、本人が管理している情報との照合が企業識別の手掛かりになります。Googleはビジネス情報を複数の公開・第三者・ユーザー情報から構成すると説明しています。([[Google ヘルプ](https://support.google.com/business/answer/2721884?hl=en)][3])",
+      "priority": "high"
+    },
+    {
+      "title": "一つの検索文だけで判断していないか",
+      "description": "「会社名＋レビュー」「会社名＋所在地」「会社名＋商品名」など検索条件を変えると、別企業との混同に気付きやすくなります。",
+      "priority": "medium"
+    },
+    {
+      "title": "間違いを見つけた場合にフィードバックしたか",
+      "description": "GoogleはAI Overviewが不正確・偏っている・問題がある場合、低評価アイコンから問題を報告できる仕組みを提供しています。([[Google ヘルプ](https://support.google.com/websearch/answer/14901683?hl=ja)][4])",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "AI要約から元ページへ一段戻って確認",
+  "verificationMessage": "企業・店舗・商品など固有の対象についてAI検索が評判をまとめた場合は、引用先を開き、名称・所在地・商品・公式URLが本当に同じ対象を指しているか確認してください。",
+  "verdict": {
+    "label": "AI検索は「結論を読む場所」ではなく「確認先を集める場所」と考える",
+    "description": "AI Overviewsは複数の情報を短時間で整理できる便利な機能です。一方、Google自身も、検索意図やウェブ上の言葉の意味を誤解した場合などに不正確な結果が出ることがあると説明しています。([[blog.google](https://blog.google/products-and-platforms/products/search/ai-overviews-update-may-2024/)][2]) 特に会社、人物、商品など固有名詞では、「似た名前の別対象」が混ざると、個々の口コミが本物でも最終的な要約が間違う可能性があります。AI要約を捨てる必要はありません。要約で全体像をつかみ、購入・契約・予約などの判断前だけ元情報へ戻る使い方が実用的です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "AI要約を読んだ後、重要な主張の引用リンクを1〜3件開く",
+      "reason": "すべての検索結果を見る必要はなく、判断に影響する主張だけ確認すれば利便性を残せます。"
+    },
+    {
+      "action": "会社名と所在地をセットで検索する",
+      "reason": "同名企業や類似名称の企業を分離しやすくなります。"
+    },
+    {
+      "action": "会社名＋公式サイト＋レビューサイトを見比べる",
+      "reason": "検索AIの要約だけでなく、複数の独立した情報面から対象企業を確認できます。"
+    },
+    {
+      "action": "AIに「この情報はすべて同じ会社についてですか？」と整理させる",
+      "reason": "複数の企業名、住所、URLを比較する補助としてAIを利用できます。最終確認は元ページで行います。"
+    },
+    {
+      "action": "重要な購入では口コミの具体的な日付と内容を見る",
+      "reason": "平均評価だけでなく、最近も同じ問題が続いているのかを判断しやすくなります。"
+    },
+    {
+      "action": "誤ったAI Overviewには具体的なフィードバックを送る",
+      "reason": "Googleは不正確な概要について低評価アイコンから問題を報告できる仕組みを案内しています。([[Google ヘルプ](https://support.google.com/websearch/answer/14901683?hl=ja)][4])"
+    },
+    {
+      "action": "事業者側は公式サイトの会社名・住所・連絡先を明確にする",
+      "reason": "Googleはビジネス情報を公式サイトを含む複数の情報源から構成しています。対象企業を識別しやすい情報を整えておくことは確認材料になります。([[Google ヘルプ](https://support.google.com/business/answer/2721884?hl=en)][3])"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "AI要約の文章だけをスクリーンショットして共有する",
+      "reason": "元の検索条件や引用先が失われ、別企業との混同を他の人が確認できなくなります。"
+    },
+    {
+      "action": "「Googleに表示されたから事実」と考える",
+      "reason": "Google自身もAI Overviewsが検索意図やウェブ情報を誤解し、不正確な回答を出す場合があると説明しています。([[blog.google](https://blog.google/products-and-platforms/products/search/ai-overviews-update-may-2024/)][2])"
+    },
+    {
+      "action": "口コミ数だけで対象企業が同じだと判断する",
+      "reason": "別地域・別会社・別商品についての口コミが混ざっている可能性があります。"
+    },
+    {
+      "action": "AIが引用リンクを付けているので検証済みだと思う",
+      "reason": "リンクは確認材料ですが、対象企業や文脈が一致しているかは利用者側でも確認する必要があります。"
+    },
+    {
+      "action": "一度間違いを見たら、その会社は危険だとSNSで断定する",
+      "reason": "AI側の企業識別ミスである可能性があり、誤情報をさらに拡散してしまう場合があります。"
+    },
+    {
+      "action": "AI検索で間違いが起きるので従来検索だけに戻す",
+      "reason": "AI要約は大量の情報から確認候補を見つける用途には便利です。重要な部分だけ元情報へ戻れば、利便性と確認を両立できます。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AI検索を「口コミ判定係」ではなく「評判調査の目次」にする",
+    "description": "店や会社を調べる時、AI検索へ「良い点と悪い点を整理して」「口コミで繰り返し出ている話題を分けて」と頼めば、大量の情報を短時間で把握できます。ただし、その結果を評決として使うのではなく、重要な主張の横にあるリンクを開くための目次として使います。特に会社名、人物名、商品名など固有名詞では「同じ対象か」を確認する工程を一つ加えるだけで、AI検索の便利さをかなり残せます。",
+    "examples": [
+      "購入候補3社をAI検索でざっくり比較し、最後に各社の公式情報と引用元だけ確認する",
+      "口コミの内容を「配送・品質・対応・返品」に分類してもらう",
+      "AIへ企業名と所在地の一覧を作らせ、似た名前の会社がないか確認する",
+      "ネガティブな口コミの引用元だけ開いて対象企業を確認する",
+      "店舗選びでは住所・営業時間を公式サイトやGoogle Mapsでも確認する",
+      "AI要約と元ページが食い違った場合は元ページを優先する"
+    ]
+  },
+  "makotoComment": "検索AIの便利なところは、10ページ読む前に「だいたい何が書かれているか」を教えてくれることです。でも今回の事例を見ると、その“だいたい”の中に別会社が一人混ざるだけで、結論がかなり変わってしまいます。しかも口コミ自体は本当に存在するので、完全なハルシネーションより見抜きにくいんですよね。私は企業や店の評判を見る時、「その情報は本当？」の前に「その情報、本当にこの会社の話？」を一回挟むのがおすすめです。AI検索を疑い続ける必要はありません。まとめてもらって、重要なところだけ元ページへ戻る。検索がAI化しても、確認ボタンはまだ人間側に残しておきたいところです。",
+  "oneLineLesson": "AI検索で評判を見る時は、「内容が本当か」だけでなく「本当にその会社の話か」も確認する。",
+  "tags": [
+    "AI検索",
+    "Google AI Overviews",
+    "口コミ",
+    "企業評判",
+    "エンティティ混同",
+    "検索リテラシー",
+    "情報源確認",
+    "Google検索",
+    "レビュー",
+    "ファクトチェック"
+  ],
+  "sources": [
+    {
+      "title": "Google's AI Overviews Are Causing Chaos for Small Businesses",
+      "publisher": "Business Insider",
+      "sourceType": "news",
+      "publishedAt": "2026-08-11",
+      "url": "https://www.businessinsider.com/google-ai-overviews-aio-causing-chaos-small-businesses-2026-8"
+    },
+    {
+      "title": "Google 検索の AI による概要で、情報をすばやく簡単に見つける",
+      "publisher": "Google Search Help",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.google.com/websearch/answer/14901683?hl=ja"
+    },
+    {
+      "title": "AI Overviews: About last week",
+      "publisher": "Google",
+      "sourceType": "official",
+      "publishedAt": "2024-05-30",
+      "url": "https://blog.google/products-and-platforms/products/search/ai-overviews-update-may-2024/"
+    },
+    {
+      "title": "Understand how Google sources & uses info in Business Profiles & local search results",
+      "publisher": "Google Business Profile Help",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.google.com/business/answer/2721884?hl=en"
+    },
+    {
+      "title": "Google Search’s AI Overview is incorrectly attributing negative complaints from another business",
+      "publisher": "Google Search Community",
+      "sourceType": "other",
+      "publishedAt": "2026-03",
+      "url": "https://support.google.com/websearch/thread/417928268"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "検索画面のAI要約に「口コミは非常に悪い」と表示されているが、引用元をたどる3本の線は別々の会社へつながっている。会社A・B・Cは住所やロゴが違い、中央の利用者が虫眼鏡で「会社名・住所・URL」を照合する。左に「AI要約だけを見る→同じ会社と思う」、右に「AI要約→引用元→会社識別→判断」の流れを置き、「その口コミ、本当にその会社の話？」を示すAI鑑識室風デザイン。",
+    "cardIcon": "ai-search-entity-check",
+    "accentTone": "caution"
+  }
+}
