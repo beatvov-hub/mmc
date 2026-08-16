@@ -1,0 +1,228 @@
+{
+  "id": "case-20260816-03",
+  "publishedAt": "2026-08-16",
+  "title": "「ウイルス感染！今すぐこの番号へ」——その“電話番号付き警告”こそ要注意　FBIが最新注意喚起",
+  "shortTitle": "警告画面の電話番号には、すぐ電話しない",
+  "category": "scam",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "パソコンやスマートフォンで突然の警告画面を見た人",
+    "家族のパソコン相談を受ける人",
+    "高齢の家族がインターネットを利用している人",
+    "オンラインでPCトラブルの解決方法を探す人",
+    "生成AIをパソコン相談に使う人"
+  ],
+  "summary": "2026年8月12日、FBI Portlandは、オレゴン州でテクニカルサポート詐欺による金銭被害が続いているとして注意喚起しました。詐欺師は銀行、通信会社、オンラインショップ、セキュリティ会社、暗号資産取引所などのサポート担当者を装い、電話・SMS・広告・偽の警告ポップアップなどから接触します。典型的な流れは「あなたの端末やアカウントに問題がある」と不安を与え、電話をかけさせたり、遠隔操作ソフトを入れさせたりするものです。Microsoftも、正規のWindowsエラーや警告メッセージにはサポートへ電話するための電話番号は表示されないと明記しています。さらにMicrosoft Edgeには、偽の全画面警告などを機械学習で検出するAIベースのScareware blockerも搭載されています。AI時代の対策は「警告画面を全部疑う」ことではなく、画面に書かれた連絡先を使わず、公式アプリや公式サイトなど別ルートから確認することです。",
+  "scenario": {
+    "headline": "ネットを見ていたら突然画面いっぱいに「重大なウイルスを検出しました。Microsoftサポート：0120-XXXX-XXXXへ今すぐ電話してください」と表示された",
+    "description": "警告音が鳴り、マウス操作もしづらくなっています。「閉じるとデータが失われます」と書かれているため、慌てて表示された電話番号へ連絡したくなりました。しかしMicrosoftは、正規のエラーや警告メッセージに電話番号を表示することはないと案内しています。テクニカルサポート詐欺では、全画面表示、繰り返すポップアップ、警告音などを使ってWindowsそのものが警告しているように見せることがあります。FBI Portlandも2026年8月12日、こうした警告や広告から偽サポートへ誘導され、遠隔操作や送金を求められる被害について改めて注意を呼びかけました。",
+    "whyItMatters": "テクニカルサポート詐欺では、最初から偽サイトへログインさせるとは限りません。「本当にパソコンが壊れているかもしれない」という不安を利用し、利用者自身に電話をかけさせ、正規の遠隔操作ソフトをインストールさせる場合があります。つまり、使われるアプリ自体が正規でも、相手が詐欺師なら危険です。FTCも、偽サポート担当者がリモートアクセスを取得した後、存在しないウイルスを見つけたように装い、料金や個人情報を要求する手口を案内しています。"
+  },
+  "question": {
+    "text": "突然「ウイルス感染。今すぐこの番号へ電話してください」という警告が出た場合、最も安全な最初の行動は？",
+    "choices": [
+      {
+        "id": "call-number",
+        "label": "表示された電話番号へすぐ連絡する",
+        "description": "緊急警告なので、画面に表示されたサポート窓口を信用する。"
+      },
+      {
+        "id": "install-remote-tool",
+        "label": "案内された遠隔操作ソフトを入れて見てもらう",
+        "description": "正規の遠隔操作アプリなら安全だと考える。"
+      },
+      {
+        "id": "stop-and-verify-officially",
+        "label": "画面の電話番号やリンクは使わず、公式サイト・公式アプリなど別ルートで確認する",
+        "description": "警告画面から一度離れ、自分で確認した正規の窓口へ戻る。"
+      },
+      {
+        "id": "ignore-all-security-alerts",
+        "label": "警告は全部詐欺だと思って無視する",
+        "description": "OSやセキュリティソフトの正規警告も確認しない。"
+      }
+    ],
+    "recommendedAnswers": [
+      "stop-and-verify-officially"
+    ],
+    "explanation": "Microsoftは、Windowsの正規エラー・警告メッセージには電話番号が表示されないと明記しています。またFTCは、正規のテクノロジー企業が突然電話やメール、SMSで「あなたのパソコンに問題があります」と連絡してくることはないと案内しています。警告が本物か不安な場合は、画面内の番号やリンクを使わず、自分で公式サイトや端末のセキュリティ機能を開いて確認するのが基本です。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "警告画面に電話番号が書かれていないか",
+      "description": "Microsoftは、正規のMicrosoftエラー・警告メッセージには電話番号を表示しないと明記しています。電話を要求する警告は強い警戒材料です。",
+      "priority": "high"
+    },
+    {
+      "title": "「今すぐ」「閉じないで」と急かされていないか",
+      "description": "FBIはテクニカルサポート詐欺で、端末やアカウントに緊急の問題があると不安をあおり、素早い行動を迫る手口を説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "全画面表示や大きな警告音で焦らされていないか",
+      "description": "MicrosoftはScarewareの特徴として、全画面表示、大きな音、偽のシステムメッセージ、操作を妨げる表示などを挙げています。",
+      "priority": "high"
+    },
+    {
+      "title": "遠隔操作ソフトのインストールを求められていないか",
+      "description": "FTC、FBI、Microsoftはいずれも、偽サポートがリモートアクセスを要求する典型的な手口を注意点として挙げています。",
+      "priority": "high"
+    },
+    {
+      "title": "遠隔操作アプリが正規だから相手も正規だと思っていないか",
+      "description": "Quick Assistなど正規の遠隔支援ツールでも、接続相手が詐欺師なら危険です。Microsoftは、自分からMicrosoft Supportへ連絡して開始した場合など、信頼できる相手だけに接続を許可するよう案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "ギフトカード・暗号資産・送金を要求されていないか",
+      "description": "FBIの最新注意喚起では、偽サポートがギフトカード、銀行送金、暗号資産などによる支払いを迫るケースが説明されています。",
+      "priority": "high"
+    },
+    {
+      "title": "検索結果に出たサポート番号を無条件で信用していないか",
+      "description": "FTCは、詐欺師が検索結果やオンライン広告に偽サポートサイトを表示させる場合があると注意しています。検索順位だけでは公式窓口の証明になりません。",
+      "priority": "high"
+    },
+    {
+      "title": "ブラウザやOSの標準セキュリティ機能を有効にしているか",
+      "description": "Microsoft Edgeには既知の詐欺サイトを防ぐSmartScreenに加え、全画面Scarewareの挙動を機械学習で検出するScareware blockerがあります。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 5,
+  "verificationLabel": "警告画面とは別の経路から公式情報を確認",
+  "verificationMessage": "突然のセキュリティ警告で電話・遠隔操作・支払いを求められた場合は、その画面に表示された連絡先を使わず、公式サイト、公式アプリ、端末の標準セキュリティ機能など、自分で確認できる別ルートから状況を確かめてください。",
+  "verdict": {
+    "label": "「警告が本物か」を見抜くより、「警告画面から連絡しない」という仕組みにする",
+    "description": "偽警告画面は年々本物らしくなり、全画面表示、Windows風デザイン、警告音などを組み合わせることがあります。そのため画面のデザインだけで本物か偽物かを判断するのは負担が大きくなります。一方、「画面に表示された電話番号には電話しない」「自分で公式サイトを開き直す」というルールなら、偽画面がどれだけ精巧になっても使えます。またMicrosoft EdgeのScareware blockerのように、AI・機械学習を防御側へ使う技術も登場しています。AIや新技術を怖がるのではなく、人間の確認手順と自動防御を組み合わせる方が実践的です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "警告画面の電話番号には電話しない",
+      "reason": "正規のMicrosoftエラーや警告には電話番号が表示されません。"
+    },
+    {
+      "action": "ブラウザを閉じるか、必要ならタスク終了して警告画面から離れる",
+      "reason": "全画面表示やポップアップループは、利用者を焦らせて電話させるために使われます。"
+    },
+    {
+      "action": "端末の標準セキュリティソフトを更新してスキャンする",
+      "reason": "FTCとFBIは、本当に端末が心配な場合はセキュリティソフトを更新してスキャンする方法を案内しています。"
+    },
+    {
+      "action": "公式サポートが必要なら、自分で公式サイトを開いて連絡先を確認する",
+      "reason": "詐欺画面や検索広告に表示された連絡先を経由しないことで、なりすましを避けやすくなります。"
+    },
+    {
+      "action": "生成AIへ警告文の意味を整理してもらう場合は、電話番号へ連絡する前の確認補助として使う",
+      "reason": "「この警告で確認すべき点は？」「安全に確認する手順を教えて」と質問すれば、焦った状態で行動する前の整理役として使えます。ただしAIの判定だけで安全確定はせず公式情報へ戻ります。"
+    },
+    {
+      "action": "Edgeなどのブラウザの詐欺防止機能を有効にする",
+      "reason": "Microsoft EdgeのScareware blockerは、端末上の機械学習モデルで不審な全画面ページの挙動を検出し、警告音停止や全画面解除を行います。"
+    },
+    {
+      "action": "遠隔操作を許可してしまった場合は、接続を切り、パスワード変更・マルウェアスキャン・金融機関への確認を行う",
+      "reason": "FBI、FTC、Microsoftはいずれも、すでにアクセスを許可した場合は迅速なアカウント・端末・金融面の確認を推奨しています。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "警告音が鳴っているのでOS自身の警告だと思う",
+      "reason": "偽サイトも音声や全画面表示を使い、システム警告のように見せることがあります。"
+    },
+    {
+      "action": "電話番号が0120やフリーダイヤルなので公式だと判断する",
+      "reason": "電話番号の形式だけでは、企業やサポート窓口の正当性は確認できません。"
+    },
+    {
+      "action": "正規の遠隔操作アプリなので接続相手も信用する",
+      "reason": "正規ツールは詐欺師にも利用できます。重要なのはアプリ名ではなく、誰との接続を自分が開始したかです。"
+    },
+    {
+      "action": "検索結果の最上位にあるサポート番号へそのまま電話する",
+      "reason": "FTCは、詐欺師が検索結果や広告へ偽サポート番号を掲載するケースもあると案内しています。"
+    },
+    {
+      "action": "「ウイルスを消すため」と言われて銀行口座へログインする",
+      "reason": "遠隔操作中に銀行情報を見せると、アカウントや資金を狙われる危険があります。"
+    },
+    {
+      "action": "ギフトカードや暗号資産ならサポート料金として普通だと思う",
+      "reason": "Microsoftはサポート料金として暗号資産やギフトカードを要求しないと明記しています。"
+    },
+    {
+      "action": "偽警告があるからオンラインの技術サポートをすべて信用しない",
+      "reason": "正規のオンラインサポートや遠隔支援は便利なサービスです。自分から公式窓口へアクセスし、接続相手を確認して利用すればよい問題です。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを「偽サポートを作る技術」だけでなく「焦らせる画面を止める技術」にも使う",
+    "description": "生成AIや機械学習は詐欺文面の作成にも使えますが、防御側にも利用されています。Microsoft EdgeのScareware blockerは、端末上の機械学習モデルを使い、全画面化、警告音、偽のシステム表示などScareware特有の挙動を検出します。怪しいページを検出すると全画面表示を解除し、攻撃的な音声を停止して、利用者へページを閉じる選択肢を提示します。利用者側でも生成AIへ「この警告文から確認すべき項目を整理して」と頼めば、焦って電話する前の思考整理に使えます。重要なのは、AIへ『この番号は絶対安全？』と最終判断させるのではなく、公式情報へ戻るための補助として使うことです。",
+    "examples": [
+      "警告文をコピーしてAIへ「危険な行動をせず確認する手順だけ教えて」と頼む",
+      "AIへ「この文章で不安を煽っている表現を分けて」と整理させる",
+      "Windows Securityや利用中のセキュリティソフトの公式手順を探すための検索語をAIに作ってもらう",
+      "家族向けに「警告画面が出た時の3ステップ」をAIで簡単なメモにする",
+      "EdgeのScareware blockerやSmartScreenを利用する",
+      "PCに詳しい家族へ画面写真を送り、表示された番号ではなく別ルートで相談する"
+    ]
+  },
+  "makotoComment": "こういう画面を見ると、「本物か偽物かを今すぐ見抜かないと」と思ってしまうんですが、実はそこまで頑張らなくても大丈夫です。覚えておきたいのは一つ。画面に『今すぐここへ電話』と書いてあっても、その番号から確認しない。自分で公式サイトを開き直せばいいんです。Microsoftが「本物の警告には電話番号を載せない」と明記しているのも、かなり分かりやすい確認ポイントですね。そして面白いのは、AIが詐欺を便利にするだけではなく、EdgeではAI・機械学習がこうした怖い全画面警告を止める側にも使われていることです。怖い技術というより、使う側と守る側の両方が進化している。だからこそ最後は、「どの画面を信じるか」ではなく「どの経路から確認するか」を決めておきたいですね。",
+  "oneLineLesson": "「今すぐ電話」の警告が出ても、その番号は使わない。公式窓口へ自分から戻る。",
+  "tags": [
+    "テクニカルサポート詐欺",
+    "偽警告",
+    "Scareware",
+    "リモートアクセス",
+    "Microsoft Edge",
+    "AIセキュリティ",
+    "FBI",
+    "FTC",
+    "なりすまし",
+    "オンライン詐欺"
+  ],
+  "sources": [
+    {
+      "title": "Take a Beat: How to Protect Yourself from Scams",
+      "publisher": "Federal Bureau of Investigation",
+      "sourceType": "security",
+      "publishedAt": "2026-08-12",
+      "url": "https://www.fbi.gov/video-repository/portland-scams-psa-081226.mp4/view"
+    },
+    {
+      "title": "Protect yourself from tech support scams",
+      "publisher": "Microsoft Support",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/en-us/office/protect-yourself-from-tech-support-scams"
+    },
+    {
+      "title": "Prevent online scams with the scareware blocker in Microsoft Edge",
+      "publisher": "Microsoft Support",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/en-us/edge/prevent-online-scams-with-the-scareware-blocker-in-microsoft-edge"
+    },
+    {
+      "title": "How To Spot, Avoid, and Report Tech Support Scams",
+      "publisher": "Federal Trade Commission Consumer Advice",
+      "sourceType": "official-consumer-guidance",
+      "publishedAt": "2025-09",
+      "url": "https://consumer.ftc.gov/articles/how-spot-avoid-and-report-tech-support-scams"
+    },
+    {
+      "title": "Solve PC problems remotely using Quick Assist",
+      "publisher": "Microsoft Support",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/en-us/windows/solve-pc-problems-remotely-using-quick-assist-b077e31a-16f4-2529-1a47-21f6a9040bf3"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "PC画面いっぱいに赤い警告と電話番号付きポップアップが表示され、左の利用者が電話しようとしている場面に大きな×印。右では画面を閉じ、別のスマートフォンから公式サイトを開き直してWindows Securityでスキャンしている。ブラウザ上ではAIベースのScareware blockerが偽警告を検出して全画面表示と音を止めている。「警告画面の番号を使わない」「公式窓口へ自分から戻る」を大きく示すAI鑑識室風デザイン。",
+    "cardIcon": "fake-tech-support-warning",
+    "accentTone": "caution"
+  }
+}
