@@ -189,6 +189,14 @@ def text_with_breaks(value: str) -> str:
     return "<br />".join(esc(part) for part in str(value).split("\n"))
 
 
+def time_sort_key(value: object) -> tuple[int, int]:
+    hour_text, _, minute_text = str(value).partition(":")
+    try:
+        return int(hour_text), int(minute_text or 0)
+    except ValueError:
+        return 0, 0
+
+
 def load_logs() -> list[dict]:
     logs = json.loads(LOUNGE_LOGS_PATH.read_text(encoding="utf-8"))
     if not isinstance(logs, list):
@@ -203,7 +211,7 @@ def load_logs() -> list[dict]:
         if not isinstance(log["content"], list):
             raise ValueError(f"content must be a list: {log['id']}")
         normalize_lounge_log(log)
-    return sorted(logs, key=lambda item: (item["date"], item["time"]))
+    return sorted(logs, key=lambda item: (item["date"], time_sort_key(item["time"])))
 
 
 def load_calendar_topics() -> dict[str, dict[str, dict]]:
@@ -705,7 +713,7 @@ def render_calendar(logs: list[dict]) -> str:
     for log in logs:
         by_date[log["date"]].append(log)
     for items in by_date.values():
-        items.sort(key=lambda item: item["time"])
+        items.sort(key=lambda item: time_sort_key(item["time"]))
 
     months = sorted({
         (date_parts(log)[0], date_parts(log)[1])
