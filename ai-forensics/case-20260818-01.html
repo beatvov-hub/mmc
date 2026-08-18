@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>「検索したら高評価レビューもニュース記事も出てきた」それでも詐欺かもしれない　AIが作る“偽の裏取り材料”｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="2026年8月17日、オーストラリアのABC Newsは、ASIC（オーストラリア証券投資委員会）が公表した最新データとして、過去12か月にオンライン上の詐欺を19,400件以上削除し、前年より182％増加したと報じました。ASICは、AI生成の政治家・著名人ディープフェイクを入口に、偽ニュース記事、偽レビュー、偽の投資サイトまで組み合わせる投資詐欺が増えていると警告しています。 特に厄介なのは、怪しい投資名を検索すると、複数のサイトや記事が同じサービスを褒めているように見えることです。しかし、それらが独立した第三者情報ではなく、詐欺グループ自身がまとめて作った“偽の裏取り材料”である可能性があります。ASICは以前から、生成AIを使った偽の著名人広告、偽ニュース、プロ仕様に見える投資サイトなどを詐欺の主要手口として挙げています。 Scamwatchも、AIを使った著名人の偽広告や偽ニュース、架空の取引画面、少額の引き出しで信用させる手口について注意を促しています。 AI時代の確認では「検索結果が何件あるか」より、「その情報源は詐欺業者から独立しているか」を見ることが重要です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260818-01" />
+<meta property="og:title" content="「検索したら高評価レビューもニュース記事も出てきた」それでも詐欺かもしれない　AIが作る“偽の裏取り材料”｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="2026年8月17日、オーストラリアのABC Newsは、ASIC（オーストラリア証券投資委員会）が公表した最新データとして、過去12か月にオンライン上の詐欺を19,400件以上削除し、前年より182％増加したと報じました。ASICは、AI生成の政治家・著名人ディープフェイクを入口に、偽ニュース記事、偽レビュー、偽の投資サイトまで組み合わせる投資詐欺が増えていると警告しています。 特に厄介なのは、怪しい投資名を検索すると、複数のサイトや記事が同じサービスを褒めているように見えることです。しかし、それらが独立した第三者情報ではなく、詐欺グループ自身がまとめて作った“偽の裏取り材料”である可能性があります。ASICは以前から、生成AIを使った偽の著名人広告、偽ニュース、プロ仕様に見える投資サイトなどを詐欺の主要手口として挙げています。 Scamwatchも、AIを使った著名人の偽広告や偽ニュース、架空の取引画面、少額の引き出しで信用させる手口について注意を促しています。 AI時代の確認では「検索結果が何件あるか」より、「その情報源は詐欺業者から独立しているか」を見ることが重要です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260818-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>検索結果が多い＝裏取りできた、ではない</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-18">2026.08.18</time>
+            </div>
+            <h1>「検索したら高評価レビューもニュース記事も出てきた」それでも詐欺かもしれない　AIが作る“偽の裏取り材料”</h1>
+            <p>2026年8月17日、オーストラリアのABC Newsは、ASIC（オーストラリア証券投資委員会）が公表した最新データとして、過去12か月にオンライン上の詐欺を19,400件以上削除し、前年より182％増加したと報じました。ASICは、AI生成の政治家・著名人ディープフェイクを入口に、偽ニュース記事、偽レビュー、偽の投資サイトまで組み合わせる投資詐欺が増えていると警告しています。 特に厄介なのは、怪しい投資名を検索すると、複数のサイトや記事が同じサービスを褒めているように見えることです。しかし、それらが独立した第三者情報ではなく、詐欺グループ自身がまとめて作った“偽の裏取り材料”である可能性があります。ASICは以前から、生成AIを使った偽の著名人広告、偽ニュース、プロ仕様に見える投資サイトなどを詐欺の主要手口として挙げています。 Scamwatchも、AIを使った著名人の偽広告や偽ニュース、架空の取引画面、少額の引き出しで信用させる手口について注意を促しています。 AI時代の確認では「検索結果が何件あるか」より、「その情報源は詐欺業者から独立しているか」を見ることが重要です。</p>
+            <ul class="forensics-target-list"><li>SNS広告から投資・副業サービスを知る人</li><li>ネット検索で会社や投資サービスの安全性を確認する人</li><li>AI生成の動画や広告を見る人</li><li>家族の投資詐欺対策を考えている人</li><li>生成AI時代の情報確認方法を知りたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AI投資詐欺</li><li>ディープフェイク</li><li>偽ニュース</li><li>偽レビュー</li><li>著名人なりすまし</li><li>SNS広告</li><li>投資詐欺</li><li>社会的証明</li><li>生成AI</li><li>情報源の独立性</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 5</strong>
+              <span>検索結果の外にある独立情報で確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot is-active">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>投資・副業・金融サービスを確認する際は、SNS広告、検索結果、レビューだけで完結せず、規制当局の登録情報、自分で取得した公式連絡先、金融機関など、相手が自由に作れない独立した経路から確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>SNSで有名な経済評論家が「政府公認のAI投資サービス」を紹介する動画を見つけた</h3><p>動画は自然で、リンク先には有名ニュースサイト風の記事があります。さらにサービス名を検索すると、「利用者の評判」「投資レビュー」「高収益を紹介するブログ」まで複数表示されました。「ここまで情報があるなら本物だろう」と思いたくなります。しかしASICが2026年8月17日に示した最新の注意喚起では、詐欺師が著名人のAIディープフェイクをSNS広告に使い、そこから偽ニュース記事、偽投資サイトへ誘導し、複数の偽情報を“社会的証明”として組み合わせる手口が報告されています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>従来のネット詐欺では、怪しい会社名を検索して「詐欺」という報告がないか調べるだけでも有効な場合がありました。しかし生成AIによって文章、画像、レビュー、ニュース風ページを大量に作りやすくなると、詐欺師自身が検索結果の周辺情報まで用意できます。ABCが報じたASICの最新説明でも、著名人の偽広告から偽ニュースを経由し、偽投資サイトへ誘導する複数段階の構造が紹介されています。 つまり「検索して複数サイトで確認した」という行為そのものが不十分になるのではなく、“誰が管理している情報を何個見たのか”まで考える必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="verify-independent-registers">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>SNSで見つけた投資サービスを検索すると、好意的なニュース記事やレビューが何件も出てきました。次に確認すべきことは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="trust-many-results" data-choice-id="trust-many-results" />
+                <span>
+                  <strong>複数サイトが同じことを書いているので信用する</strong>
+                  <small>検索結果の件数を独立した裏取りの数として扱う。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="trust-famous-face" data-choice-id="trust-famous-face" />
+                <span>
+                  <strong>有名人が動画で紹介しているので信用する</strong>
+                  <small>顔や声が本人らしければ正規広告と判断する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="verify-independent-registers" data-choice-id="verify-independent-registers" />
+                <span>
+                  <strong>検索結果とは別に、規制当局の登録情報や自分で取得した公式連絡先から確認する</strong>
+                  <small>サービス自身が作れない独立した情報源へ移動して確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ask-another-ai" data-choice-id="ask-another-ai" />
+                <span>
+                  <strong>別の生成AIへ「この投資は安全？」と聞いて多数決する</strong>
+                  <small>AI検索やチャット回答の一致を安全性の証拠にする。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>検索結果とは別に、規制当局の登録情報や自分で取得した公式連絡先から確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Scamwatchは、投資前に会社や担当者を独立して確認し、金融サービスを提供する人物の登録状況、会社住所、連絡先などを確認するよう案内しています。また、実在する金融ライセンス保有者を詐欺師がなりすます場合もあるため、自分で見つけた連絡先から組織へ確認することを推奨しています。 検索結果が多いことではなく、詐欺業者が自由に作れない情報源で確認できるかがポイントです。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>最初の入口がSNS広告ではないか</h3>
+              <p>Scamwatchは、著名人を使った偽ニュースや広告を投資詐欺の代表的な警告サインとして挙げています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>有名人の顔や声だけを本人確認に使っていないか</h3>
+              <p>Scamwatchは、AIで著名人や政治家の映像・音声を偽造し、投資や商品を推薦しているように見せる手口を案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>検索結果が本当に独立した情報源か</h3>
+              <p>ASICの最新注意喚起では、偽広告、偽ニュース、偽レビュー、投資サイトなど複数の情報を組み合わせ、信頼できるように見せる手口が問題になっています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ニュース記事のドメインを確認したか</h3>
+              <p>有名メディアと似たデザインでも、URLが公式サイトと異なる偽ニュースページの場合があります。ページの見た目よりドメインを確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>投資会社や担当者を公的登録で確認したか</h3>
+              <p>Scamwatchは、金融商品や助言を提供する人物のライセンスや登録、会社の住所・連絡先などを確認するよう案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>登録番号だけを信用していないか</h3>
+              <p>ABCが報じたASICの最新警告では、詐欺サイトが実在企業の金融サービスライセンスを流用することもあるため、ライセンスの名称と実際の投資サービスが一致するか確認する必要があるとされています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>最初は少額を引き出せたから安全と思っていないか</h3>
+              <p>Scamwatchは、信用させるために少額の引き出しを許可した後、大きな資金を入れさせ、最終的に出金できなくする手口を説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>短時間で投資を決めるよう急かされていないか</h3>
+              <p>Scamwatchは「今すぐ」「機会を逃す」といった圧力を投資詐欺の代表的な特徴として挙げています。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AI時代は「情報がたくさんある」こと自体が信用の証拠ではなくなる</strong><p>今回の事例で重要なのは、ディープフェイク動画そのものだけではありません。ASICが警告しているのは、動画、偽ニュース、レビュー、投資サイトなどを組み合わせて“本物らしい情報環境”そのものを作れるようになっている点です。 ただし、だからインターネット検索が役に立たなくなったわけではありません。検索は怪しい点や会社名を調べる入口として便利です。その上で、金銭に関わる判断だけは公的登録や自分で確認した連絡先など、サービス提供者が操作しにくい情報へ一段外側に移る。AI時代の裏取りは「何件見たか」より「独立した情報源を見たか」が重要になります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>投資サービス名を検索した後、公的な登録情報でも確認する</strong><span>検索結果とは独立した情報源を追加することで、詐欺師が作った偽の情報群だけを見て判断することを避けられます。</span></li>
+            <li><strong>登録された会社名と、実際に勧誘しているサービス名を照合する</strong><span>実在する企業やライセンス番号をコピーして信用させる詐欺もあるためです。</span></li>
+            <li><strong>公式組織へ連絡する場合は、自分で調べた電話番号や公式サイトを使う</strong><span>Scamwatchは、相手が提示した連絡先ではなく、自分で見つけた連絡先から本人・組織を確認するよう推奨しています。</span></li>
+            <li><strong>ニュース風の記事は媒体名だけでなくドメインを見る</strong><span>偽ニュースサイトは有名媒体のレイアウトやブランドを模倣できるため、ページの外見だけでは確認になりません。</span></li>
+            <li><strong>AIに「独立して確認すべき項目」を整理させる</strong><span>生成AIを真偽判定機としてではなく、「ライセンス、会社名、住所、ドメイン、著名人の公式発言」など確認項目を整理する補助として使えます。</span></li>
+            <li><strong>投資前に一晩置く</strong><span>詐欺では緊急性やFOMOを利用することが多く、時間を置くことで追加確認をしやすくなります。Scamwatchも急がず確認するよう案内しています。</span></li>
+            <li><strong>送金してしまった場合はすぐ金融機関へ連絡する</strong><span>Scamwatchは、詐欺被害が疑われる場合は銀行やカード会社へ迅速に連絡し、追加被害を防ぐよう案内しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>検索結果が10件あるので10人が評価していると思う</strong><span>複数サイトが同じ詐欺グループによって作成・管理されている可能性があります。</span></li>
+            <li><strong>ニュースサイト風なので本物の記事だと思う</strong><span>ASICは以前から、有名メディアを模倣した偽ニュースページとAI生成の著名人推薦を投資詐欺の手口として挙げています。</span></li>
+            <li><strong>ディープフェイクを見抜ければ詐欺を防げると思う</strong><span>動画が自然すぎて判断できない場合でも、投資会社の登録、ドメイン、連絡経路など別の確認方法があります。</span></li>
+            <li><strong>ライセンス番号が掲載されているだけで安全と判断する</strong><span>実在企業の登録情報を無断使用するなりすましもあるため、会社名やサービス内容との一致まで確認します。</span></li>
+            <li><strong>最初の出金が成功したので追加で大金を入れる</strong><span>Scamwatchは、小額の引き出しを許可して信用を作った後に追加投資を促す手口を説明しています。</span></li>
+            <li><strong>AI生成広告があるからSNS広告は全部危険だと思う</strong><span>正規企業もSNS広告を利用します。広告であること自体ではなく、広告の外にある独立情報で確認できるかを見る方が実践的です。</span></li>
+            <li><strong>別のAI検索結果が同じことを言ったので裏取り完了とする</strong><span>複数のAIが同じウェブ上の偽情報群を参照すれば、同じ誤った結論へ到達する可能性があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIを「安全判定機」ではなく「情報源のつながりを調べる鑑識助手」にする</h3>
+          <p>生成AIは、投資広告そのものを見て「詐欺です」「安全です」と最終判定させるより、裏取りの設計を手伝わせる方が便利です。例えば広告、ニュース記事、レビュー、会社サイトのURLを並べ、「これらは本当に別々の情報源か」「確認すべき会社名、ドメイン、登録番号を一覧にして」と頼めます。その後、公的な登録簿や本人の公式サイトを人間が確認します。AIで大量情報を整理し、独立した一次情報で最後を確認する。この組み合わせなら、生成AIによって偽情報の量が増えても、生成AIそのものを情報整理側へ活用できます。</p>
+          <ul class="positive-example-list"><li>複数サイトの運営会社・ドメイン・連絡先を一覧化してもらう</li><li>広告に登場する著名人の名前と主張を抽出し、公式発言を探すための検索語を作ってもらう</li><li>投資会社名、サービス名、ライセンス番号が一致しているか確認項目を作る</li><li>AIへ「この5つの情報源のうち、相互に独立しているか確認する方法を教えて」と聞く</li><li>怪しい広告から判断に必要な事実だけを抜き出してもらう</li><li>調査結果を「確認済み・未確認・相手側の主張」の3種類へ整理する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>以前なら、「怪しかったら会社名を検索してみましょう」はかなり有効な助言でした。今でも有効です。ただ、そこで終わらせない方がよくなってきました。今回の事例では、詐欺師が広告だけでなく、検索した時に見つかるニュース記事やレビューまで用意している。つまり、私たちが裏取りに使う“景色”そのものを作ろうとしているんですね。こうなると大切なのは情報の数ではなく、情報同士の独立性です。同じ人が作ったサイトを10個読んでも、裏取りは10回ではなく実質1回です。AIによって偽物を作りやすくなった一方、公的な登録簿や自分で見つけた公式連絡先まで偽物になるわけではありません。検索をやめるのではなく、最後に一歩だけ検索結果の外へ出る。そこを習慣にしたいですね。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>検索結果が10件あっても、同じ詐欺師が作った10件なら「裏取り10回」にはならない。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.abc.net.au/news/2026-08-17/asic-ai-powered-impersonation-scams-warning-alan-kohler/107038256" target="_blank" rel="noopener noreferrer">AI deepfake scams &#x27;an emergency in the making&#x27; as ASIC reports rise in false investment endorsements<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>ABC News</span>
+              <span>報道機関</span>
+              <time datetime="2026-08-17">2026-08-17</time>
+            </li>
+            <li>
+              <strong><a href="https://www.scamwatch.gov.au/types-of-scams/investment-scams" target="_blank" rel="noopener noreferrer">Investment scams<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Scamwatch / National Anti-Scam Centre</span>
+              <span>消費者向け公式情報</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://www.scamwatch.gov.au/stop-check-protect/help-to-spot-and-avoid-scams/how-scammers-use-technology-and-ai" target="_blank" rel="noopener noreferrer">How scammers use technology and AI<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Scamwatch / National Anti-Scam Centre</span>
+              <span>消費者向け公式情報</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2025-releases/25-171mr-scammers-on-notice-as-asic-steps-up-action-to-protect-consumers-from-online-investment-scams" target="_blank" rel="noopener noreferrer">Scammers on notice as ASIC steps up action to protect consumers from online investment scams<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Australian Securities and Investments Commission</span>
+              <span>官公庁</span>
+              <time datetime="2025-07-16">2025-07-16</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260816-01" data-forensics-card data-category="health-ai" data-level="4" data-difficulty="beginner" data-search-text="AIの栄養相談、「ほぼ正しい」が一番見抜きにくい？　最新研究で見えた“正しい一般論＋危ない曖昧さ” 栄養相談は「正解率」だけで安全を判断しない 2026年8月3日にFrontiers in Public Healthで公開された研究では、ChatGPT、Gemini、Microsoft Copilot、DeepSeek、Doubaoの5つの一般向けAIチャットボットへ、ベジタリアン・ヴィーガン栄養に関する58問を質問し、計290回答を臨床栄養の訓練を受けた5人が評価しました。研究では全5サービスで潜在的に有害な回答が確認され、47回答・14質問が安全上の問題を含むと分類されました。([[フロンティアーズ](https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1921819/full)][1]) 特に重要なのは、多くの問題回答が完全な誤情報ではなく、「一般論としては正しいが、安全上必要な注意が足りない」という形だったことです。ビタミンB12、ヨウ素、セレン、妊娠・乳幼児、腎臓病・甲状腺疾患、疲労やしびれなどで、補足条件や受診目安が不足する例が見られました。([[フロンティアーズ](https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1921819/full)][1]) AIを栄養相談に使わないのではなく、「献立や一般知識はAI」「サプリ量・症状・妊娠・持病は公式情報や専門家でも確認」と用途を分けることが実践的です。 健康・医療 はじめて 栄養相談 サプリメント 生成AI ChatGPT Gemini Copilot ヴィーガン ビタミンB12 ヨウ素 セレン 健康情報 ChatGPTやGeminiなどへ食事・栄養について相談する人 サプリメントについてAIへ質問する人 ベジタリアン・ヴィーガン食に関心がある人 妊娠中・持病がある状態で食事情報を調べる人 AIで健康情報を整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">nutrition-ai-context-check</span>
+              <div>
+                <p>栄養相談は「正解率」だけで安全を判断しない</p>
+                <h3>AIの栄養相談、「ほぼ正しい」が一番見抜きにくい？　最新研究で見えた“正しい一般論＋危ない曖昧さ”</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-16">2026.08.16</time>
+              <span>健康・医療</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月3日にFrontiers in Public Healthで公開された研究では、ChatGPT、Gemini、Microsoft Copilot、DeepSeek、Doubaoの5つの一般向けAIチャットボットへ、ベジタリアン・ヴィーガン栄養に関する58問を質問し、計290回答を臨床栄養の訓練を受けた5人が評価しました。研究では全5サービスで潜在的に有害な回答が確認され、47回答・14質問が安全上の問題を含むと分類されました。([[フロンティアーズ](https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1921819/full)][1]) 特に重要なのは、多くの問題回答が完全な誤情報ではなく、「一般論としては正しいが、安全上必要な注意が足りない」という形だったことです。ビタミンB12、ヨウ素、セレン、妊娠・乳幼児、腎臓病・甲状腺疾患、疲労やしびれなどで、補足条件や受診目安が不足する例が見られました。([[フロンティアーズ](https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1921819/full)][1]) AIを栄養相談に使わないのではなく、「献立や一般知識はAI」「サプリ量・症状・妊娠・持病は公式情報や専門家でも確認」と用途を分けることが実践的です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>栄養一般論と個別の摂取判断を分けて確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTやGeminiなどへ食事・栄養について相談する人</li><li>サプリメントについてAIへ質問する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>栄養相談</li><li>サプリメント</li><li>生成AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260816-03" data-forensics-card data-category="scam" data-level="5" data-difficulty="beginner" data-search-text="「ウイルス感染！今すぐこの番号へ」——その“電話番号付き警告”こそ要注意　FBIが最新注意喚起 警告画面の電話番号には、すぐ電話しない 2026年8月12日、FBI Portlandは、オレゴン州でテクニカルサポート詐欺による金銭被害が続いているとして注意喚起しました。詐欺師は銀行、通信会社、オンラインショップ、セキュリティ会社、暗号資産取引所などのサポート担当者を装い、電話・SMS・広告・偽の警告ポップアップなどから接触します。典型的な流れは「あなたの端末やアカウントに問題がある」と不安を与え、電話をかけさせたり、遠隔操作ソフトを入れさせたりするものです。Microsoftも、正規のWindowsエラーや警告メッセージにはサポートへ電話するための電話番号は表示されないと明記しています。さらにMicrosoft Edgeには、偽の全画面警告などを機械学習で検出するAIベースのScareware blockerも搭載されています。AI時代の対策は「警告画面を全部疑う」ことではなく、画面に書かれた連絡先を使わず、公式アプリや公式サイトなど別ルートから確認することです。 詐欺・なりすまし はじめて テクニカルサポート詐欺 偽警告 Scareware リモートアクセス Microsoft Edge AIセキュリティ FBI FTC なりすまし オンライン詐欺 パソコンやスマートフォンで突然の警告画面を見た人 家族のパソコン相談を受ける人 高齢の家族がインターネットを利用している人 オンラインでPCトラブルの解決方法を探す人 生成AIをパソコン相談に使う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">fake-tech-support-warning</span>
+              <div>
+                <p>警告画面の電話番号には、すぐ電話しない</p>
+                <h3>「ウイルス感染！今すぐこの番号へ」——その“電話番号付き警告”こそ要注意　FBIが最新注意喚起</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-16">2026.08.16</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月12日、FBI Portlandは、オレゴン州でテクニカルサポート詐欺による金銭被害が続いているとして注意喚起しました。詐欺師は銀行、通信会社、オンラインショップ、セキュリティ会社、暗号資産取引所などのサポート担当者を装い、電話・SMS・広告・偽の警告ポップアップなどから接触します。典型的な流れは「あなたの端末やアカウントに問題がある」と不安を与え、電話をかけさせたり、遠隔操作ソフトを入れさせたりするものです。Microsoftも、正規のWindowsエラーや警告メッセージにはサポートへ電話するための電話番号は表示されないと明記しています。さらにMicrosoft Edgeには、偽の全画面警告などを機械学習で検出するAIベースのScareware blockerも搭載されています。AI時代の対策は「警告画面を全部疑う」ことではなく、画面に書かれた連絡先を使わず、公式アプリや公式サイトなど別ルートから確認することです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>警告画面とは別の経路から公式情報を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>パソコンやスマートフォンで突然の警告画面を見た人</li><li>家族のパソコン相談を受ける人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>テクニカルサポート詐欺</li><li>偽警告</li><li>Scareware</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-friendly" href="case-20260814-01" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="AI活用の先生は「上司」とは限らない？　最新データでは若手ほどAIをよく使っていた AIの上手な使い方は、役職より現場から拾う OpenAIが2026年8月12日に公開した企業利用分析では、ChatGPT Enterprise導入から6か月後、early-career層はexecutive層より週あたり13件多くメッセージを送っていました。([[OpenAI](https://openai.com/index/how-enterprises-put-ai-to-work/)][1]) OpenAIは、この結果から「AIをよく使う社員を役職に関係なく見つけ、そのワークフローを組織内で共有する」機会があるとしています。([[OpenAI](https://openai.com/index/how-enterprises-put-ai-to-work/)][1]) ただし、利用回数が多いことと仕事の質が高いことは同じではありません。最新のEnterprise Signalsも、トークン量はAI利用の深さを見る代理指標にはなるが、ビジネス価値を直接測る指標ではないと明記しています。([[OpenAI](https://openai.com/signals/enterprise-data/)][2]) AI導入では「上司が正しい使い方を教える」だけでなく、現場でうまく使えている人の方法を拾い、安全確認を加えてチームの共通手順へ育てる発想が有効です。 仕事・AI活用 はじめて 生成AI AI研修 AIリテラシー ChatGPT Enterprise AI活用 若手社員 管理職 逆メンタリング ナレッジ共有 業務改善 仕事でChatGPTやCopilotなどを使う人 社内のAI活用を広げたい管理職・担当者 AI研修や社内ルールを考える人 自分より若い社員のAI活用についていけるか不安な人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-reverse-mentoring-workflow</span>
+              <div>
+                <p>AIの上手な使い方は、役職より現場から拾う</p>
+                <h3>AI活用の先生は「上司」とは限らない？　最新データでは若手ほどAIをよく使っていた</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-14">2026.08.14</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIが2026年8月12日に公開した企業利用分析では、ChatGPT Enterprise導入から6か月後、early-career層はexecutive層より週あたり13件多くメッセージを送っていました。([[OpenAI](https://openai.com/index/how-enterprises-put-ai-to-work/)][1]) OpenAIは、この結果から「AIをよく使う社員を役職に関係なく見つけ、そのワークフローを組織内で共有する」機会があるとしています。([[OpenAI](https://openai.com/index/how-enterprises-put-ai-to-work/)][1]) ただし、利用回数が多いことと仕事の質が高いことは同じではありません。最新のEnterprise Signalsも、トークン量はAI利用の深さを見る代理指標にはなるが、ビジネス価値を直接測る指標ではないと明記しています。([[OpenAI](https://openai.com/signals/enterprise-data/)][2]) AI導入では「上司が正しい使い方を教える」だけでなく、現場でうまく使えている人の方法を拾い、安全確認を加えてチームの共通手順へ育てる発想が有効です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>現場のAI活用例を成果と安全性の両方で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>仕事でChatGPTやCopilotなどを使う人</li><li>社内のAI活用を広げたい管理職・担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>生成AI</li><li>AI研修</li><li>AIリテラシー</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260817-01">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
