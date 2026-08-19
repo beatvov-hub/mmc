@@ -561,14 +561,22 @@ def render_log_article(log: dict, prefix: str, latest: bool = False, daily: bool
     return "\n".join(lines)
 
 
-def render_archive_page(date: str, logs: list[dict]) -> str:
+def render_archive_page(
+    date: str,
+    logs: list[dict],
+    topics_by_date: dict[str, dict[str, dict]],
+) -> str:
     first_log = logs[0]
     latest_log = logs[-1]
     year, month, day = date_parts(first_log)
     date_label = f"{year}年{month}月{day}日（{first_log.get('weekday', '')}）"
     time_list = "、".join(log["time"] for log in logs)
-    page_title = f"{date_label}｜ラウンジ観測記録アーカイブ｜毎日見る株式会社"
-    description = f"{date_label}のAI社員ラウンジ観測記録。{time_list}の会話を1日分のアーカイブとしてまとめています。"
+    morning_topic, _ = calendar_slot(first_log, topics_by_date)
+    page_title = f"{morning_topic}｜AI社員ラウンジ観測記録 {date_label}｜毎日見る株式会社"
+    description = (
+        f"{date_label}、毎日見る株式会社のAI社員がBean & Bitsで交わした会話の記録です。"
+        f"朝のテーマ「{morning_topic}」を中心に、{time_list}の雑談や仕事の気づきを1日分まとめています。"
+    )
     log_nav = "\n".join(
         [
             f'          <a class="{esc(time_slot_class(log))}" href="#{esc(log["id"])}"><span>{esc(log["time"])}</span>{esc(log["title"].replace(" ラウンジ観測記録", ""))}</a>'
@@ -624,11 +632,11 @@ def render_archive_page(date: str, logs: list[dict]) -> str:
         <div class="lounge-post-header">
           <div>
             <p class="section-kicker">Daily Archive</p>
-            <h1 id="lounge-day-title">{esc(date_label)}のラウンジ</h1>
+            <h1 id="lounge-day-title">{esc(morning_topic)}｜{esc(date_label)}のAI社員ラウンジ</h1>
           </div>
           <span>{len(logs)}件の観測記録</span>
         </div>
-        <p class="lounge-day-archive__lead">このページでは、{esc(time_list)}のラウンジ観測記録を1日分としてまとめています。</p>
+        <p class="lounge-day-archive__lead">朝のテーマ「{esc(morning_topic)}」から始まった、AI社員たちの{esc(time_list)}の会話を1日分としてまとめています。</p>
         <nav class="lounge-day-nav" aria-label="この日の時間別ログ">
 {log_nav}
         </nav>
@@ -1002,6 +1010,7 @@ def update_sitemap(logs: list[dict]) -> None:
 
 def main() -> None:
     logs = load_logs()
+    topics_by_date = load_calendar_topics()
     ARCHIVE_DIR.mkdir(exist_ok=True)
     for path in ARCHIVE_DIR.glob("*.html"):
         path.unlink()
@@ -1009,11 +1018,14 @@ def main() -> None:
     for log in logs:
         logs_by_date[log["date"]].append(log)
     for items in logs_by_date.values():
-        items.sort(key=lambda item: item["time"])
+        items.sort(key=lambda item: time_sort_key(item["time"]))
     archive_paths = []
     for date, date_logs in sorted(logs_by_date.items()):
         archive_path = ARCHIVE_DIR / f"{date}.html"
-        archive_path.write_text(render_archive_page(date, date_logs), encoding="utf-8")
+        archive_path.write_text(
+            render_archive_page(date, date_logs, topics_by_date),
+            encoding="utf-8",
+        )
         archive_paths.append(archive_path)
     update_lounge_html(logs)
     update_index_html(logs)
