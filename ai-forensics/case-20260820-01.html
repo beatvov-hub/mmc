@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>「ベンチマーク1位だから、このAIが一番賢い？」NIST最新評価案が示す“ランキングと実力を分ける”見方｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="2026年8月7日、米国立標準技術研究所（NIST）は、AIシステムを目的に合わせて評価するための「TEVV-Athlon Framework」の初期公開草案を発表しました。NISTは、AIの用途は非常に幅広く、評価方法も利用目的に応じて調整する必要があるとしています。これは、「有名ベンチマークで高得点だったAI＝どんな用途でも一番優秀」という意味ではないことを考えるうえで重要です。NISTは2026年2月の別の評価研究でも、特定のベンチマーク上の正答率と、似た問題全体へ一般化した場合の性能を区別しており、単一のスコアだけではAIの性能を十分に説明できない場合があるとしています。また7月には、学習データへの混入を避けるため非公開データを使ってモデルを評価するAITEプログラムも開始しました。AIランキングは比較の入口として便利ですが、自分の文章作成、調査、画像理解、コーディングなどの用途で本当に使いやすいかは、実際の仕事に近い条件でも確かめる必要があります。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260820-01" />
+<meta property="og:title" content="「ベンチマーク1位だから、このAIが一番賢い？」NIST最新評価案が示す“ランキングと実力を分ける”見方｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="2026年8月7日、米国立標準技術研究所（NIST）は、AIシステムを目的に合わせて評価するための「TEVV-Athlon Framework」の初期公開草案を発表しました。NISTは、AIの用途は非常に幅広く、評価方法も利用目的に応じて調整する必要があるとしています。これは、「有名ベンチマークで高得点だったAI＝どんな用途でも一番優秀」という意味ではないことを考えるうえで重要です。NISTは2026年2月の別の評価研究でも、特定のベンチマーク上の正答率と、似た問題全体へ一般化した場合の性能を区別しており、単一のスコアだけではAIの性能を十分に説明できない場合があるとしています。また7月には、学習データへの混入を避けるため非公開データを使ってモデルを評価するAITEプログラムも開始しました。AIランキングは比較の入口として便利ですが、自分の文章作成、調査、画像理解、コーディングなどの用途で本当に使いやすいかは、実際の仕事に近い条件でも確かめる必要があります。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260820-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>AIランキング1位＝自分の用途でも1位？</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-20">2026.08.20</time>
+            </div>
+            <h1>「ベンチマーク1位だから、このAIが一番賢い？」NIST最新評価案が示す“ランキングと実力を分ける”見方</h1>
+            <p>2026年8月7日、米国立標準技術研究所（NIST）は、AIシステムを目的に合わせて評価するための「TEVV-Athlon Framework」の初期公開草案を発表しました。NISTは、AIの用途は非常に幅広く、評価方法も利用目的に応じて調整する必要があるとしています。これは、「有名ベンチマークで高得点だったAI＝どんな用途でも一番優秀」という意味ではないことを考えるうえで重要です。NISTは2026年2月の別の評価研究でも、特定のベンチマーク上の正答率と、似た問題全体へ一般化した場合の性能を区別しており、単一のスコアだけではAIの性能を十分に説明できない場合があるとしています。また7月には、学習データへの混入を避けるため非公開データを使ってモデルを評価するAITEプログラムも開始しました。AIランキングは比較の入口として便利ですが、自分の文章作成、調査、画像理解、コーディングなどの用途で本当に使いやすいかは、実際の仕事に近い条件でも確かめる必要があります。</p>
+            <ul class="forensics-target-list"><li>ChatGPT・Claude・Geminiなど複数のAIを比較している人</li><li>AIモデルのランキングやベンチマーク結果を見る人</li><li>仕事へ導入するAIサービスを選ぶ人</li><li>「精度○％」「世界1位」といった宣伝を見る人</li><li>生成AIを便利に使いたい一般ユーザー</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AIベンチマーク</li><li>AIランキング</li><li>NIST</li><li>TEVV</li><li>TEVV-Athlon</li><li>AI評価</li><li>LLM比較</li><li>モデル比較</li><li>AITE</li><li>生成AIリテラシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>ランキングを見る前に「何を測った試験か」を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AIの性能比較では、順位だけでなく、評価対象、データ、条件、モデルバージョンを確認してください。そのうえで、自分が実際にAIへ任せたい仕事を数件試すと、ベンチマークと実用性能を分けて判断できます。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>SNSで「最新AI、ベンチマーク世界1位！」という投稿を見て、今使っているAIからすぐ乗り換えようと思った</h3><p>投稿には複数の評価項目で高い数字が並び、「最も賢いAI」と紹介されています。しかし、その評価が数学問題なのか、知識問題なのか、画像理解なのか、コード生成なのかはよく見ていませんでした。自分が普段使うのは、日本語のメール整理、長い資料の要約、商品企画の壁打ちです。NISTが2026年8月7日に公開したTEVV-Athlon Frameworkでは、AI評価はまず「何のために評価するのか」を明確にし、その目的に合った測定方法を設計する考え方が示されています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIモデルの性能は一つの能力ではありません。ある試験で高得点でも、別の種類の仕事、言語、長文、曖昧な指示、実際の業務データでは結果が変わることがあります。ランキングを見ること自体は悪くありませんが、「その評価が何を測っているか」と「自分がAIへ任せたい仕事」が一致しているかを確認しないと、自分にはあまり関係のない数字で製品を選ぶことになります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-own-tasks">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>あるAIが有名なベンチマークで1位になっていました。自分の仕事でも一番使いやすいAIか判断するには、次に何をするのがよいでしょうか？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="choose-ranking" data-choice-id="choose-ranking" />
+                <span>
+                  <strong>ランキング1位なのでそのまま採用する</strong>
+                  <small>総合順位が高ければ、自分の用途でも最も高性能だと考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-own-tasks" data-choice-id="check-own-tasks" />
+                <span>
+                  <strong>ベンチマークの評価内容を確認し、自分が実際に使う仕事でも試す</strong>
+                  <small>評価項目と利用目的が合っているか確認し、実際の用途に近い課題でも比較する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ignore-benchmarks" data-choice-id="ignore-benchmarks" />
+                <span>
+                  <strong>ベンチマークは意味がないので全部無視する</strong>
+                  <small>外部評価を参考にせず、感覚だけでAIを選ぶ。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="choose-most-famous" data-choice-id="choose-most-famous" />
+                <span>
+                  <strong>一番有名な会社のAIを選ぶ</strong>
+                  <small>提供企業の知名度だけを性能評価として使う。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>ベンチマークの評価内容を確認し、自分が実際に使う仕事でも試す</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>NISTの2026年8月公開草案では、AI評価は利用目的や組織の目標に合わせて設計する必要があるとされています。ベンチマークはAIを比較する有用な材料ですが、その結果が自分の利用環境へそのまま当てはまるとは限りません。ランキングを入口として使い、その後に自分が日常的に行う数件の仕事で比較すると、数字と実際の使いやすさを組み合わせて判断できます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>そのベンチマークは何を測っているか</h3>
+              <p>数学、一般知識、コーディング、画像理解、推論など、評価対象を確認します。「AI性能」という一つの能力を測っているわけではありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>自分が使う仕事と評価内容が近いか</h3>
+              <p>英語の難問で高得点でも、日本語の商品説明、社内文書、顧客対応などで同じ順位になるとは限りません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>単一スコアだけを見ていないか</h3>
+              <p>NISTは2026年2月、特定のベンチマークそのものに対する正答率と、似た問題全体に一般化した性能を区別しています。一つの数字へ性能を集約すると、評価条件の違いが見えにくくなります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>評価条件が書かれているか</h3>
+              <p>利用したモデルのバージョン、プロンプト、試行回数、ツール利用の有無などが違えば結果も変わる可能性があります。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>公開ベンチマークだけで評価していないか</h3>
+              <p>公開済みの問題が学習データへ含まれる可能性は、AI評価で注意されている課題の一つです。NISTのAITEは、非公開のテストデータを利用することで学習データとの混入リスクを抑える設計を採用しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>順位差と実用上の差を同じものとして見ていないか</h3>
+              <p>ランキングで1位と2位に差があっても、自分の業務では両方とも十分だったり、逆に下位モデルの方が操作性や速度、価格で適している場合があります。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>速度・価格・使いやすさも評価しているか</h3>
+              <p>最も高いベンチマークスコアのモデルが、必ずしも最も速い、安い、扱いやすいモデルとは限りません。実運用では複数の条件が重要です。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>評価結果の公開時期を確認したか</h3>
+              <p>AIモデルは更新頻度が高く、数か月前の比較が現在のバージョンを正確に反映していない場合があります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>ベンチマークはAI選びの入口として有用。ただしゴールではない</strong><p>AIベンチマークは、多数のモデルを同じ条件で比較するための重要な道具です。NISTもAI評価の研究や共通テスト環境の整備を進めています。一方で、2026年8月に公開されたTEVV-Athlon Frameworkは、AIの評価方法を利用目的や運用環境に合わせて設計する考え方を示しています。したがって「ベンチマークを見るな」ではなく、「そのテストで何が分かったのか」を確認したうえで、自分の用途に近いテストを追加するのが実用的です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>ランキングを見る時は評価項目を一つ確認する</strong><span>数学、コード、知識、画像など、自分の用途と関係する評価か判断できます。</span></li>
+            <li><strong>普段AIへ頼む仕事を5〜10件だけテストセットにする</strong><span>大規模な評価環境を作らなくても、自分の利用目的に近い比較ができます。</span></li>
+            <li><strong>同じプロンプトを複数のAIへ入力して比較する</strong><span>自分の文章、データ、言語、仕事の条件で結果を比較できます。</span></li>
+            <li><strong>正しさだけでなく速度・操作性・価格も記録する</strong><span>実際の業務では、性能以外の条件も継続利用のしやすさに影響します。</span></li>
+            <li><strong>AIへ評価表の作成を手伝わせる</strong><span>「正確さ・読みやすさ・修正量・速度」のような評価項目を整理させる用途なら、AIを比較作業の補助に使えます。</span></li>
+            <li><strong>重要な比較では複数回試す</strong><span>生成AIは同じ質問でも出力が変わる場合があるため、1回の成功や失敗だけで性能を決めない方が安定した判断ができます。</span></li>
+            <li><strong>モデル更新後は小さな再テストを行う</strong><span>AIサービスは継続的に更新されるため、以前の評価結果が現在も同じとは限りません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>総合ランキング1位を「どんな仕事でも一番」と表現する</strong><span>評価された能力と実際の利用目的が異なる可能性があります。</span></li>
+            <li><strong>ベンチマーク結果を全部信用できないものとして捨てる</strong><span>標準化された比較試験は、AIの特徴を理解するための有用な情報源です。</span></li>
+            <li><strong>1問だけ試してAIの優劣を決める</strong><span>生成AIには出力のばらつきがあり、一つの問題だけでは安定した性能を判断しにくい場合があります。</span></li>
+            <li><strong>SNSに掲載された順位表だけで判断する</strong><span>評価方法、データ、モデルバージョンなどの重要な条件が省略されている場合があります。</span></li>
+            <li><strong>0.数ポイントの順位差を大きな実用差だと思う</strong><span>統計的な不確実性や問題ごとの得意不得意によって、順位の意味が限定的な場合があります。</span></li>
+            <li><strong>自分のテストで負けたAIを完全に低性能と判断する</strong><span>そのテストはあくまで自分の用途に対する評価であり、別の用途では結果が異なる可能性があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIランキングを見たら、自分専用の「ミニベンチマーク」を作る</h3>
+          <p>NISTが示している重要な考え方の一つは、AI評価を利用目的へ結び付けることです。一般ユーザーでも、大規模な研究用ベンチマークを作る必要はありません。普段よく頼む仕事を5〜10件保存し、新しいAIが登場した時に同じ課題を試すだけでも、自分にとって意味のある比較になります。AIは、このテストセットの整理、採点基準作成、結果の表形式への整理などにも利用できます。最後の採用判断だけ人間が行えば、AIを比較する作業そのものにもAIを活用できます。</p>
+          <ul class="positive-example-list"><li>普段使うメール要約を3件保存して比較する</li><li>日本語の長文を同じ条件で要約させる</li><li>実際の企画相談を匿名化して複数AIへ入力する</li><li>コード作成なら同じ小さな修正課題を試す</li><li>回答の正確さだけでなく、人間の修正量も記録する</li><li>新モデル公開時に同じ10問を再実行して変化を見る</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIのランキングを見るのは、私はけっこう好きです。比較条件が揃っているので、「このモデルはここが強そうだ」と知るには便利なんですよね。ただ、スポーツの記録と少し似ています。100メートル走が一番速い選手を見て、「じゃあマラソンもこの人が一番ですね」とは普通は言いません。AIも、評価した競技が違えば順位が変わります。NISTが今回示しているのも、まさに「何を測りたいのかを先に決めましょう」という考え方です。ベンチマークを疑う必要はありません。ただし、数字を見る前に競技名も確認する。これだけで、AI比較の記事やSNS投稿をかなり冷静に読めるようになります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>AIランキングを見る時は、順位より先に「何の競技で1位なのか」を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems" target="_blank" rel="noopener noreferrer">The TEVV-Athlon Framework for Evaluating AI Systems<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>National Institute of Standards and Technology</span>
+              <span>官公庁</span>
+              <time datetime="2026-08-07">2026-08-07</time>
+            </li>
+            <li>
+              <strong><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.200-2.ipd.pdf" target="_blank" rel="noopener noreferrer">The TEVV-Athlon Framework for Evaluating AI Systems - Initial Public Draft<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>National Institute of Standards and Technology</span>
+              <span>官公庁</span>
+              <time datetime="2026-08-07">2026-08-07</time>
+            </li>
+            <li>
+              <strong><a href="https://www.nist.gov/news-events/news/2026/07/announcing-nists-artificial-intelligence-technology-evaluation-aite" target="_blank" rel="noopener noreferrer">Announcing NIST&#x27;s Artificial Intelligence Technology Evaluation (AITE)<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>National Institute of Standards and Technology</span>
+              <span>官公庁</span>
+              <time datetime="2026-07-27">2026-07-27</time>
+            </li>
+            <li>
+              <strong><a href="https://www.nist.gov/news-events/news/2026/02/new-report-expanding-ai-evaluation-toolbox-statistical-models" target="_blank" rel="noopener noreferrer">New Report: Expanding the AI Evaluation Toolbox with Statistical Models<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>National Institute of Standards and Technology</span>
+              <span>官公庁</span>
+              <time datetime="2026-02-19">2026-02-19</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260818-03" data-forensics-card data-category="media-literacy" data-level="5" data-difficulty="standard" data-search-text="「ChatGPTを使っていた」＝誤りもAIが作った？　豪州政府関連レポートで学ぶ“原因と証拠を分ける”確認術 AI使用の証拠と、AIが間違えた証拠は別 2026年8月17日、Guardian Australiaは、豪州政府が公開している年齢確認技術の大規模試験レポートについて、存在しない論文へつながるDOI、別論文へつながるDOI、著者・雑誌名・発行年が一致しない参考文献など、複数の引用上の問題を確認したと報じました。レポートを作成したAge Check Certification Scheme（ACCS）は、当初AI利用を否定した後、ChatGPTを一部の文章を簡潔に書き直すために使ったことを認めています。一方ACCSは、AIを調査や参考文献生成には使っておらず、引用は人間が確認したと説明しています。現時点で確認できるのは「レポートに複数の引用エラーがある」「ChatGPTが編集工程の一部で使われた」という2点であり、「その引用エラーをChatGPTが生成した」とまでは独立して確認されていません。この事例は、AIニュースを見る時に「AIが使われていた」という事実と「AIが問題の原因だった」という推測を分ける重要性を示しています。 情報の見極め 標準 AIハルシネーション ChatGPT 引用確認 因果関係 ファクトチェック 政府レポート 参考文献 AI利用開示 情報リテラシー 事実と推測 AIを使った文章やレポートを読む人 ChatGPTなどを仕事の編集・校正に使う人 AI関連ニュースをSNSで見る人 企業・行政・学校でAI利用ルールを考える人 記事や資料の事実確認を担当する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">fact-causation-separator</span>
+              <div>
+                <p>AI使用の証拠と、AIが間違えた証拠は別</p>
+                <h3>「ChatGPTを使っていた」＝誤りもAIが作った？　豪州政府関連レポートで学ぶ“原因と証拠を分ける”確認術</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-18">2026.08.18</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月17日、Guardian Australiaは、豪州政府が公開している年齢確認技術の大規模試験レポートについて、存在しない論文へつながるDOI、別論文へつながるDOI、著者・雑誌名・発行年が一致しない参考文献など、複数の引用上の問題を確認したと報じました。レポートを作成したAge Check Certification Scheme（ACCS）は、当初AI利用を否定した後、ChatGPTを一部の文章を簡潔に書き直すために使ったことを認めています。一方ACCSは、AIを調査や参考文献生成には使っておらず、引用は人間が確認したと説明しています。現時点で確認できるのは「レポートに複数の引用エラーがある」「ChatGPTが編集工程の一部で使われた」という2点であり、「その引用エラーをChatGPTが生成した」とまでは独立して確認されていません。この事例は、AIニュースを見る時に「AIが使われていた」という事実と「AIが問題の原因だった」という推測を分ける重要性を示しています。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>事実・原因・影響範囲を別々に検証</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIを使った文章やレポートを読む人</li><li>ChatGPTなどを仕事の編集・校正に使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIハルシネーション</li><li>ChatGPT</li><li>引用確認</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260816-02" data-forensics-card data-category="media-literacy" data-level="4" data-difficulty="beginner" data-search-text="検索AIの「評判が悪い」、本当にその店の話？　別会社のクチコミが混ざった最新事例 AI検索の評判は「同じ会社か」まで確認する 2026年8月11日、Business Insiderは、GoogleのAI Overviewsが別企業のレビューや苦情を混同し、小規模事業者について誤った評判を表示した複数の事例を報じました。英国の建材販売会社The Plastics Shedでは、AI Overviewが顧客評価を「圧倒的に否定的」とまとめましたが、そこで挙げられた苦情は競合企業や「plastic shed」を販売する別企業のレビューだったと報じられています。別の米国企業でも、似た名称の企業や他州の事業者の情報が混ざる問題が紹介されています。([[Business Insider](https://www.businessinsider.com/google-ai-overviews-aio-causing-chaos-small-businesses-2026-8)][1]) Google自身も、AI Overviewsはウェブ情報をまとめる際に、検索意図やウェブ上の言葉のニュアンスを誤解したり、十分な高品質情報がない場合に不正確な結果を出すことがあると説明しています。([[blog.google](https://blog.google/products-and-platforms/products/search/ai-overviews-update-may-2024/)][2]) AI検索は複数サイトを短時間で整理する便利な入口ですが、店や会社の評判を判断する場合は「引用先が本当に同じ企業か」まで確認することが重要です。 情報の見極め はじめて AI検索 Google AI Overviews 口コミ 企業評判 エンティティ混同 検索リテラシー 情報源確認 Google検索 レビュー ファクトチェック Google検索のAI要約を使う人 飲食店・病院・通販サイト・業者選びで口コミを調べる人 会社名や商品名をAI検索で調べる人 小規模事業者・EC事業者 生成AIの検索機能を情報収集に使う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-search-entity-check</span>
+              <div>
+                <p>AI検索の評判は「同じ会社か」まで確認する</p>
+                <h3>検索AIの「評判が悪い」、本当にその店の話？　別会社のクチコミが混ざった最新事例</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-16">2026.08.16</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月11日、Business Insiderは、GoogleのAI Overviewsが別企業のレビューや苦情を混同し、小規模事業者について誤った評判を表示した複数の事例を報じました。英国の建材販売会社The Plastics Shedでは、AI Overviewが顧客評価を「圧倒的に否定的」とまとめましたが、そこで挙げられた苦情は競合企業や「plastic shed」を販売する別企業のレビューだったと報じられています。別の米国企業でも、似た名称の企業や他州の事業者の情報が混ざる問題が紹介されています。([[Business Insider](https://www.businessinsider.com/google-ai-overviews-aio-causing-chaos-small-businesses-2026-8)][1]) Google自身も、AI Overviewsはウェブ情報をまとめる際に、検索意図やウェブ上の言葉のニュアンスを誤解したり、十分な高品質情報がない場合に不正確な結果を出すことがあると説明しています。([[blog.google](https://blog.google/products-and-platforms/products/search/ai-overviews-update-may-2024/)][2]) AI検索は複数サイトを短時間で整理する便利な入口ですが、店や会社の評判を判断する場合は「引用先が本当に同じ企業か」まで確認することが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AI要約から元ページへ一段戻って確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google検索のAI要約を使う人</li><li>飲食店・病院・通販サイト・業者選びで口コミを調べる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI検索</li><li>Google AI Overviews</li><li>口コミ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260814-03" data-forensics-card data-category="media-literacy" data-level="4" data-difficulty="beginner" data-search-text="画像が偽物でも、出来事まで嘘とは限らない　熊本地震で広がった“本当の災害＋AI画像” 「偽画像を発見」しても、そこで検証を止めない 2026年7月28日に熊本県熊本地方でマグニチュード7.1、最大震度7の地震が発生しました。気象庁や消防庁、熊本県が被害を公式に報告しており、イオンモール熊本でも大きな被害が発生しています。一方、SNSでは実際の被害を伝える投稿に、現場写真のように見えるAI生成画像が添えられて拡散しました。AFPが8月3日に検証した画像では、実際の建物と外観が異なり、自衛隊員らしき人物の制服に実在しない「JSDE」という文字が描かれていました。さらにOpenAIの公式検証ツールでは、OpenAIツール由来の生成シグナルが検出されました。ここで大切なのは、「画像が偽物だった」ことと「地震や施設被害そのものが嘘だった」ことを混同しないことです。AI時代の情報確認では、投稿全体を○か×かで判定するのではなく、「出来事」「画像」「日時」「場所」「説明文」を分けて一つずつ確認する力が重要になります。 情報の見極め はじめて AI生成画像 熊本地震 SNS 災害情報 ファクトチェック 画像検証 情報源確認 一次情報 OpenAI Verify 部分的な誤情報 SNSで災害や事故の画像を見る人 AI生成画像の真偽を確認する人 画像が偽物だと分かると投稿全体を否定したくなる人 災害時にSNSから情報収集する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">claim-image-separate-verification</span>
+              <div>
+                <p>「偽画像を発見」しても、そこで検証を止めない</p>
+                <h3>画像が偽物でも、出来事まで嘘とは限らない　熊本地震で広がった“本当の災害＋AI画像”</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-14">2026.08.14</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年7月28日に熊本県熊本地方でマグニチュード7.1、最大震度7の地震が発生しました。気象庁や消防庁、熊本県が被害を公式に報告しており、イオンモール熊本でも大きな被害が発生しています。一方、SNSでは実際の被害を伝える投稿に、現場写真のように見えるAI生成画像が添えられて拡散しました。AFPが8月3日に検証した画像では、実際の建物と外観が異なり、自衛隊員らしき人物の制服に実在しない「JSDE」という文字が描かれていました。さらにOpenAIの公式検証ツールでは、OpenAIツール由来の生成シグナルが検出されました。ここで大切なのは、「画像が偽物だった」ことと「地震や施設被害そのものが嘘だった」ことを混同しないことです。AI時代の情報確認では、投稿全体を○か×かで判定するのではなく、「出来事」「画像」「日時」「場所」「説明文」を分けて一つずつ確認する力が重要になります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>投稿を要素分解して一次情報と照合</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSで災害や事故の画像を見る人</li><li>AI生成画像の真偽を確認する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI生成画像</li><li>熊本地震</li><li>SNS</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260819-01">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
