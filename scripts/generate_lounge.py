@@ -274,6 +274,25 @@ def load_ai_forensics_paths() -> list[str]:
     return [f"ai-forensics/{path.stem}" for path in sorted(data_dir.glob("*.json"))]
 
 
+def load_ai_forensics_lastmods() -> dict[str, str]:
+    data_dir = ROOT / "src" / "data" / "ai-forensics"
+    if not data_dir.exists():
+        return {}
+    lastmods: dict[str, str] = {}
+    for path in data_dir.glob("*.json"):
+        try:
+            article = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        if not isinstance(article, dict):
+            continue
+        article_id = article.get("id")
+        published_at = article.get("publishedAt")
+        if isinstance(article_id, str) and isinstance(published_at, str):
+            lastmods[f"ai-forensics/{article_id}"] = published_at
+    return lastmods
+
+
 def load_event_paths() -> list[str]:
     events_path = ROOT / "src" / "data" / "events.json"
     if not events_path.exists():
@@ -953,18 +972,30 @@ def update_index_html(logs: list[dict]) -> None:
 
 
 def update_sitemap(logs: list[dict]) -> None:
-    urls = []
+    latest_lounge_date = logs[-1]["date"] if logs else None
+    forensics_lastmods = load_ai_forensics_lastmods()
+    latest_forensics_date = max(forensics_lastmods.values(), default=None)
+    static_lastmods = {
+        "lounge": latest_lounge_date,
+        "ai-forensics/": latest_forensics_date,
+    }
+    entries: list[tuple[str, str | None]] = []
     for path in STATIC_SITEMAP_PATHS:
         suffix = f"/{path}" if path else "/"
-        urls.append(f"{BASE_URL}{suffix}")
-    urls.extend(f"{BASE_URL}/{path}" for path in load_work_paths())
-    urls.extend(f"{BASE_URL}/{path}" for path in load_gallery_paths())
-    urls.extend(f"{BASE_URL}/{path}" for path in load_ai_forensics_paths())
-    urls.extend(f"{BASE_URL}/{path}" for path in load_event_paths())
+        entries.append((f"{BASE_URL}{suffix}", static_lastmods.get(path)))
+    entries.extend((f"{BASE_URL}/{path}", None) for path in load_work_paths())
+    entries.extend((f"{BASE_URL}/{path}", None) for path in load_gallery_paths())
+    entries.extend(
+        (f"{BASE_URL}/{path}", forensics_lastmods.get(path))
+        for path in load_ai_forensics_paths()
+    )
+    entries.extend((f"{BASE_URL}/{path}", None) for path in load_event_paths())
     archive_dates = sorted({log["date"] for log in logs})
-    urls.extend(f"{BASE_URL}/lounge-archive/{date}" for date in archive_dates)
+    entries.extend((f"{BASE_URL}/lounge-archive/{date}", date) for date in archive_dates)
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    lines.extend(f"  <url><loc>{esc(url)}</loc></url>" for url in urls)
+    for url, lastmod in entries:
+        lastmod_xml = f"<lastmod>{esc(lastmod)}</lastmod>" if lastmod else ""
+        lines.append(f"  <url><loc>{esc(url)}</loc>{lastmod_xml}</url>")
     lines.append("</urlset>")
     SITEMAP_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
