@@ -160,6 +160,28 @@
             <ul class="pill-list forensics-card-tags"><li>AIベンチマーク</li><li>AIランキング</li><li>NIST</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
+          <a class="forensics-card tone-serious" href="case-20260820-02" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「ゼロデータ保持」なら何も残らない？ OpenAI最新発表で学ぶ“保存しない範囲”の確認術 「保存しない」は、どこまで保存しない？ 2026年8月19日、OpenAIは、対象となるAPI顧客向けのZero Data Retention（ZDR）と両立しながら、複数のAI操作にまたがる安全上の兆候を検知する「Private Safety Processing」を発表しました。OpenAIはZDRについて、対象となるAPI利用ではリクエスト処理後にプロンプトやモデル出力を保持しない仕組みだと説明しています。一方、現在のAPIデータ管理ドキュメントを見ると、すべての機能がZDR対象ではなく、一部の機能ではアプリケーション状態が保存される場合があります。また、AIから外部のMCPサーバーなど第三者サービスへデータを送信した場合、そのデータは第三者側の保持ポリシーに従います。API Platformの監査ログも、顧客のプロンプトや回答とは別の管理メタデータとしてZDRの対象外です。つまり「ゼロデータ保持」という表示は「インターネット上のどこにも何も残らない」という意味ではありません。AIサービスのデータ保護を見る時は、「誰が」「どのデータを」「どの機能で」「どの期間保存しないのか」を確認することが重要です。 セキュリティ・権限 標準 Zero Data Retention ZDR OpenAI Private Safety Processing データ保持 プライバシー API MCP 監査ログ AIデータ管理 生成AIへ社内情報を入力する人 AIサービスのプライバシー設定を確認する人 ChatGPTやAI APIを仕事で利用する人 AIサービスの「学習しない」「保存しない」という説明を見る人 社内で生成AIの利用ルールを作る人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">zero-retention-data-flow</span>
+              <div>
+                <p>「保存しない」は、どこまで保存しない？</p>
+                <h3>「ゼロデータ保持」なら何も残らない？ OpenAI最新発表で学ぶ“保存しない範囲”の確認術</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-20">2026.08.20</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月19日、OpenAIは、対象となるAPI顧客向けのZero Data Retention（ZDR）と両立しながら、複数のAI操作にまたがる安全上の兆候を検知する「Private Safety Processing」を発表しました。OpenAIはZDRについて、対象となるAPI利用ではリクエスト処理後にプロンプトやモデル出力を保持しない仕組みだと説明しています。一方、現在のAPIデータ管理ドキュメントを見ると、すべての機能がZDR対象ではなく、一部の機能ではアプリケーション状態が保存される場合があります。また、AIから外部のMCPサーバーなど第三者サービスへデータを送信した場合、そのデータは第三者側の保持ポリシーに従います。API Platformの監査ログも、顧客のプロンプトや回答とは別の管理メタデータとしてZDRの対象外です。つまり「ゼロデータ保持」という表示は「インターネット上のどこにも何も残らない」という意味ではありません。AIサービスのデータ保護を見る時は、「誰が」「どのデータを」「どの機能で」「どの期間保存しないのか」を確認することが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>AI本体だけでなく「データの通り道」全体を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>生成AIへ社内情報を入力する人</li><li>AIサービスのプライバシー設定を確認する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Zero Data Retention</li><li>ZDR</li><li>OpenAI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
           <a class="forensics-card tone-friendly" href="case-20260819-01" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="AIとの仕事、チャット履歴だけで管理していない？　GitHub最新事例が示す「進捗を会話の外へ出す」運用 AIの仕事は「会話」より「状態」を残す 2026年8月17日、GitHubはAIエージェントとの長い仕事をチャットだけで管理すると、計画、決定事項、検証結果、人間が承認すべき箇所などが長い会話ログの中へ埋もれやすいとして、GitHub Copilot appのCanvasesを使った運用例を公開しました。GitHubは、チャットは目的や相談を伝えるには優れている一方、長時間・複数工程の実行では状態管理に弱くなりやすいと説明しています。紹介されたJava Modernization StudioやSite Studioでは、「今どの工程か」「何が決定済みか」「何が未確認か」「どこで人間の承認が必要か」を持続的な画面へ出し、AIと人間が同じ状態を確認できるようにしています。これはGitHub担当者による実践事例であり、すべての業務で生産性向上を証明した研究ではありません。ただしNISTも2026年3月のAIシステム監視レポートで、実環境のAIについて、動作・品質・人間との相互作用・セキュリティなどを継続的に監視する重要性を整理しています。AIへ長い仕事を任せる時は、プロンプトを長くするだけでなく、「現在地」をチャットの外でも確認できる状態を作ることが重要になっています。 仕事・AI活用 はじめて AIエージェント GitHub Copilot Canvases 進捗管理 Human in the Loop AI業務設計 状態管理 AIレビュー 業務引き継ぎ エージェント運用 ChatGPT・Copilot・Claudeなどへ複数工程の仕事を任せる人 AIエージェントを業務で使う人 AIとの長いチャットから必要な情報を探すことが増えた人 複数人でAIを使って仕事を進めるチーム AIへ制作・調査・開発を継続的に任せたい人">
             <div class="forensics-card-head">
               <span class="forensics-card-icon" aria-hidden="true">agent-workflow-state-board</span>

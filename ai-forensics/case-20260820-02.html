@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>「ゼロデータ保持」なら何も残らない？ OpenAI最新発表で学ぶ“保存しない範囲”の確認術｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="2026年8月19日、OpenAIは、対象となるAPI顧客向けのZero Data Retention（ZDR）と両立しながら、複数のAI操作にまたがる安全上の兆候を検知する「Private Safety Processing」を発表しました。OpenAIはZDRについて、対象となるAPI利用ではリクエスト処理後にプロンプトやモデル出力を保持しない仕組みだと説明しています。一方、現在のAPIデータ管理ドキュメントを見ると、すべての機能がZDR対象ではなく、一部の機能ではアプリケーション状態が保存される場合があります。また、AIから外部のMCPサーバーなど第三者サービスへデータを送信した場合、そのデータは第三者側の保持ポリシーに従います。API Platformの監査ログも、顧客のプロンプトや回答とは別の管理メタデータとしてZDRの対象外です。つまり「ゼロデータ保持」という表示は「インターネット上のどこにも何も残らない」という意味ではありません。AIサービスのデータ保護を見る時は、「誰が」「どのデータを」「どの機能で」「どの期間保存しないのか」を確認することが重要です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260820-02" />
+<meta property="og:title" content="「ゼロデータ保持」なら何も残らない？ OpenAI最新発表で学ぶ“保存しない範囲”の確認術｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="2026年8月19日、OpenAIは、対象となるAPI顧客向けのZero Data Retention（ZDR）と両立しながら、複数のAI操作にまたがる安全上の兆候を検知する「Private Safety Processing」を発表しました。OpenAIはZDRについて、対象となるAPI利用ではリクエスト処理後にプロンプトやモデル出力を保持しない仕組みだと説明しています。一方、現在のAPIデータ管理ドキュメントを見ると、すべての機能がZDR対象ではなく、一部の機能ではアプリケーション状態が保存される場合があります。また、AIから外部のMCPサーバーなど第三者サービスへデータを送信した場合、そのデータは第三者側の保持ポリシーに従います。API Platformの監査ログも、顧客のプロンプトや回答とは別の管理メタデータとしてZDRの対象外です。つまり「ゼロデータ保持」という表示は「インターネット上のどこにも何も残らない」という意味ではありません。AIサービスのデータ保護を見る時は、「誰が」「どのデータを」「どの機能で」「どの期間保存しないのか」を確認することが重要です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260820-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>「保存しない」は、どこまで保存しない？</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-08-20">2026.08.20</time>
+            </div>
+            <h1>「ゼロデータ保持」なら何も残らない？ OpenAI最新発表で学ぶ“保存しない範囲”の確認術</h1>
+            <p>2026年8月19日、OpenAIは、対象となるAPI顧客向けのZero Data Retention（ZDR）と両立しながら、複数のAI操作にまたがる安全上の兆候を検知する「Private Safety Processing」を発表しました。OpenAIはZDRについて、対象となるAPI利用ではリクエスト処理後にプロンプトやモデル出力を保持しない仕組みだと説明しています。一方、現在のAPIデータ管理ドキュメントを見ると、すべての機能がZDR対象ではなく、一部の機能ではアプリケーション状態が保存される場合があります。また、AIから外部のMCPサーバーなど第三者サービスへデータを送信した場合、そのデータは第三者側の保持ポリシーに従います。API Platformの監査ログも、顧客のプロンプトや回答とは別の管理メタデータとしてZDRの対象外です。つまり「ゼロデータ保持」という表示は「インターネット上のどこにも何も残らない」という意味ではありません。AIサービスのデータ保護を見る時は、「誰が」「どのデータを」「どの機能で」「どの期間保存しないのか」を確認することが重要です。</p>
+            <ul class="forensics-target-list"><li>生成AIへ社内情報を入力する人</li><li>AIサービスのプライバシー設定を確認する人</li><li>ChatGPTやAI APIを仕事で利用する人</li><li>AIサービスの「学習しない」「保存しない」という説明を見る人</li><li>社内で生成AIの利用ルールを作る人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Zero Data Retention</li><li>ZDR</li><li>OpenAI</li><li>Private Safety Processing</li><li>データ保持</li><li>プライバシー</li><li>API</li><li>MCP</li><li>監査ログ</li><li>AIデータ管理</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 5</strong>
+              <span>AI本体だけでなく「データの通り道」全体を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot is-active">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AIサービスのデータ保護を確認する時は、「学習利用」「AI提供会社での保持」「自社側の保存」「外部連携先の保持」「監査メタデータ」を分けて確認してください。「保存しない」という一つの表現だけで全体を判断しないことが重要です。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>会社で使うAIに「Zero Data Retention」と書いてあったので、機密資料を入れてもどこにもデータが残らないと思った</h3><p>利用しているAI APIではZero Data Retentionが有効になっています。そのため「入力した文章も、外部ツールへ送られたデータも、監査情報も全部消える」と考えていました。しかしOpenAIの現在のAPIドキュメントでは、ZDRは主に顧客コンテンツの保持を制御する仕組みであり、機能によって対応状況が異なります。また、remote MCP serverなど第三者サービスへ送信したデータは、そのサービスのデータ保持ポリシーに従います。さらにAPI Platformの監査ログには、ユーザー、プロジェクト、APIキー、設定変更などの管理イベントが記録され、これはプロンプトやレスポンスとは別の情報としてZDRの影響を受けません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>「保存しません」「学習に使いません」「ゼロデータ保持」という言葉は似ていますが、意味する範囲は同じではありません。モデル学習に利用されないこと、AI提供会社がプロンプトを保持しないこと、自社システムにログが残らないこと、連携した外部サービスがデータを保持しないことは、それぞれ別の条件です。この違いを理解せず「保存されないから安全」と一括りにすると、連携サービスや社内ログなど別の場所に残るデータを見落とす可能性があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-data-flow">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>利用しているAI APIに「Zero Data Retention」と表示されています。機密情報を扱う前に最も適切な確認は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-nothing-stored" data-choice-id="assume-nothing-stored" />
+                <span>
+                  <strong>Zeroなので、どこにも一切データは残らないと判断する</strong>
+                  <small>AI提供会社、自社システム、外部ツール、監査ログをすべて同じ扱いにする。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-data-flow" data-choice-id="check-data-flow" />
+                <span>
+                  <strong>どのデータがZDR対象で、外部ツールやログへ何が渡るか確認する</strong>
+                  <small>AI本体だけでなく、連携サービスや自社側を含めてデータの流れを確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="avoid-all-ai" data-choice-id="avoid-all-ai" />
+                <span>
+                  <strong>保存場所が複雑なのでAIは業務で使わない</strong>
+                  <small>データ管理の確認をせず利用そのものをやめる。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-training-only" data-choice-id="check-training-only" />
+                <span>
+                  <strong>モデル学習に使われないことだけ確認する</strong>
+                  <small>保存期間や外部サービスへの送信は確認しない。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>どのデータがZDR対象で、外部ツールやログへ何が渡るか確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Zero Data Retentionは重要なプライバシー機能ですが、「すべてのシステムから全情報が消える」という意味ではありません。OpenAIのAPIドキュメントでは、ZDRに対応するエンドポイントと対応しない機能が区別されており、remote MCP serverへ送信したデータは第三者側の保持ポリシーに従うと明記されています。また管理イベントを記録する監査ログは、顧客のプロンプトや回答とは別のメタデータとして扱われます。したがって、AIへ入力する前にデータがどこを通り、どのサービスが保持する可能性があるか確認するのが適切です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>「学習しない」と「保存しない」を分けているか</h3>
+              <p>モデル改善のために利用しないことと、一定期間データを保存することは別の条件です。OpenAI APIでは、デフォルトでAPIデータをモデル学習に利用しない一方、通常の利用では不正利用監視ログなどが一定期間保持される場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Zero Data Retentionの対象機能を確認したか</h3>
+              <p>OpenAIのAPIドキュメントでは、エンドポイントや機能ごとにZDRへの対応状況が異なります。設定名だけでなく、実際に使用する機能が対象か確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AIから外部サービスへデータを送っていないか</h3>
+              <p>MCPサーバーなど第三者サービスへ送った情報は、そのサービス側のプライバシー・保持ポリシーに従います。AI提供会社のZDR設定だけでは第三者の保存を制御できません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>自社アプリ側で入力内容を保存していないか</h3>
+              <p>AI提供会社が保存しなくても、自社のデータベース、ログ、分析基盤、ブラウザ履歴などに入力内容が残る設計であれば、全体としてはデータが保存されます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>監査ログと顧客コンテンツを分けているか</h3>
+              <p>OpenAI API Platformの監査ログでは、ユーザー、プロジェクト、APIキー、設定変更などの管理イベントが記録されます。これはAPIリクエスト本文やレスポンスとは別のデータです。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>例外条件を確認したか</h3>
+              <p>データ保持には安全上・法令上の例外や、特定機能の技術的な保存要件が設定されている場合があります。「ゼロ」という名称だけでなく公式ドキュメントの制限事項を確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>組織全体とプロジェクト単位の設定を混同していないか</h3>
+              <p>OpenAI APIではデータ保持設定を組織単位またはプロジェクト単位で設定できます。別プロジェクトが同じ設定を継承しているとは限らないため、実際に使用する環境を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>「保存されないから何を入力してもよい」と考えていないか</h3>
+              <p>保持期間とは別に、社内規程、個人情報、契約上の秘密保持、第三者情報の取り扱いなどを確認する必要があります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Zero Data Retentionは強い保護機能。ただし「世界中の全コピーがゼロ」という意味ではない</strong><p>OpenAIが2026年8月19日に発表したPrivate Safety Processingは、対象となるAPI顧客のZDRを維持しながら、複数のAI操作にまたがる安全上の兆候を自動的に検知するための新しい仕組みです。この発表は、プライバシーと安全対策を両立させようとする取り組みとして重要です。一方、実際のデータ管理では、使用するAPI機能、自社システム、外部サービス、監査ログなど複数の場所を確認する必要があります。ZDRを過小評価する必要も、万能だと思う必要もありません。どこまでが対象かを理解して使えば、機密性の高い業務でもAIを安全に導入できる範囲を広げられます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>AIへ入力するデータの流れを簡単な図にする</strong><span>利用者→自社アプリ→AI API→外部ツール→自社保存先という経路を可視化すると、どこにデータが残る可能性があるか確認しやすくなります。</span></li>
+            <li><strong>実際に利用するAPI機能がZDR対応か公式ドキュメントで確認する</strong><span>同じAIサービスでもエンドポイントや機能ごとにデータ保持条件が異なる場合があります。</span></li>
+            <li><strong>MCPや外部サービスを追加した時は、そのサービスの保持ポリシーも確認する</strong><span>AI本体のプライバシー設定は、第三者サービスへ自動的には引き継がれません。</span></li>
+            <li><strong>社内アプリのログにプロンプトや回答を保存しているか確認する</strong><span>AI提供会社が保持しなくても、自社システム側でデータが保存される可能性があります。</span></li>
+            <li><strong>「学習利用」「保持期間」「外部共有」を別項目で管理する</strong><span>似ているプライバシー用語を一つにまとめず、それぞれの条件を確認できます。</span></li>
+            <li><strong>機密度によってAIへ入力できる情報を分類する</strong><span>ZDRの有無だけに依存せず、個人情報、社外秘、公開情報などで入力ルールを決めると運用しやすくなります。</span></li>
+            <li><strong>AIにデータフローの整理を手伝わせ、人間が公式仕様と照合する</strong><span>利用しているサービス一覧をAIへ渡し、「保存場所・送信先・確認すべき規約」を整理させることで、確認作業を効率化できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>「Zero」という名前だけで全データが完全消去されると判断する</strong><span>ZDRが対象とするデータや機能には範囲があります。</span></li>
+            <li><strong>「モデル学習に使われない」と「保存されない」を同じ意味として扱う</strong><span>学習利用と保存期間は別のデータ管理項目です。</span></li>
+            <li><strong>外部MCPや連携アプリへ送ったデータもAI提供会社のZDR対象だと思う</strong><span>第三者サービスへ送信された情報は、そのサービス側の保持ポリシーに従います。</span></li>
+            <li><strong>AI提供会社だけ確認し、自社システムのログを確認しない</strong><span>入力や回答が自社側のログ、データベース、分析サービスなどへ保存されている場合があります。</span></li>
+            <li><strong>ZDRがあるので社内の情報分類ルールを不要と考える</strong><span>データ保持とは別に、契約、個人情報保護、アクセス権限などの管理が必要です。</span></li>
+            <li><strong>プライバシー設定が複雑だから業務でAIを使わない</strong><span>データの流れと保存範囲を整理すれば、機密度に応じてAIを安全に使い分けることができます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AI自身に「このデータ、どこを通る？」を整理させる</h3>
+          <p>生成AIはデータ管理そのものの最終判定者には向きませんが、システム構成を整理する助手として利用できます。例えば「ブラウザ→社内アプリ→AI API→MCP→データベース」という構成を渡し、それぞれの場所で確認すべき保存期間、権限、ログ、利用規約を一覧化させることができます。その後、人間が各サービスの公式ドキュメントと照合すれば、複雑なAIシステムでもプライバシー確認を効率よく進められます。</p>
+          <ul class="positive-example-list"><li>利用中のAI・MCP・クラウドサービスをAIに一覧化させる</li><li>「この構成でデータが保存される可能性がある場所を列挙して」と依頼する</li><li>「学習利用・保持・第三者共有・監査ログ」の4項目で確認表を作らせる</li><li>社内AI利用ルールのチェックリストを作る</li><li>新しいAIツール導入時に、既存システムとの差分だけ整理させる</li><li>公式プライバシーポリシーの確認ポイントをAIに抽出させ、人間が原文を確認する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>「Zero Data Retention」。名前だけ見ると、かなり分かりやすいですよね。ゼロなんだから何も残らない、と考えたくなります。ただ、情報管理では「ゼロ」の対象を確認するのが大切です。AI提供会社がプロンプトを保持しないことと、自社のログに残らないこと、外部サービスへ送った情報が残らないことは別です。これはZDRが信用できないという話ではありません。むしろ強いデータ保護機能だからこそ、どこまで守ってくれる仕組みなのか正しく理解した方が安心して使えます。「保存しない」と書いてあったら、その次に「誰が、何を？」まで確認する。それだけでプライバシー説明の読み方がかなり変わります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>「保存しない」を見たら、「誰が・何を・どこまで保存しない？」まで確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://openai.com/index/offering-zero-data-retention-for-frontier-models/" target="_blank" rel="noopener noreferrer">Offering Zero Data Retention for frontier models<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI</span>
+              <span>公式発表</span>
+              <time datetime="2026-08-19">2026-08-19</time>
+            </li>
+            <li>
+              <strong><a href="https://developers.openai.com/api/docs/guides/your-data#default-usage-policies-by-endpoint" target="_blank" rel="noopener noreferrer">Data controls in the OpenAI platform<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI</span>
+              <span>公式発表</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://openai.com/ja-JP/business-data/" target="_blank" rel="noopener noreferrer">ビジネスデータのプライバシー、セキュリティ、コンプライアンス<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI</span>
+              <span>公式発表</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/ja-jp/articles/9687866-admin-and-audit-logs-api-for-the-api-platform" target="_blank" rel="noopener noreferrer">API Platform 向けの Admin API と Audit Logs API<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI</span>
+              <span>公式発表</span>
+              
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-serious" href="case-20260818-02" data-forensics-card data-category="security" data-level="5" data-difficulty="beginner" data-search-text="「AIが攻撃してくるなら、もう防げない？」台湾政府の最新事例が示した“入口は意外といつもの資安” AI攻撃でも、基本対策はまだ効く 2026年8月13日、台湾のデジタル発展部・資通安全署は、7月に政府機関を狙った国外由来の異常なサイバー攻撃を確認し、攻撃者がOpenClawなどのAI Agentを補助的に利用した「人間＋AIエージェント」の混合型攻撃だったと発表しました。AIエージェントは複数の攻撃手法を素早くつなぎ、バックアップ環境やテスト環境などの副次的なシステムを足掛かりとして攻撃を拡大できるため、攻撃速度・規模・コスト面で攻撃者を支援すると説明されています。一方、台湾国家資通安全研究院は同じ攻撃を分析し、「AI Agentによって攻撃が自動化されても、弱いパスワード、システムの脆弱性、機密情報の露出といった既存リスクの本質は変わらない」と明記しています。つまり「AIを使った攻撃＝未知の方法で防御不能」ではありません。AIによって攻撃が速くなるからこそ、MFA、アップデート、不要な公開サービスの停止、最小権限、ログ監視など、これまでの基本対策を早く・継続的に行う価値がむしろ高まっています。 セキュリティ・権限 はじめて AIエージェント サイバー攻撃 台湾 OpenClaw MFA 脆弱性管理 最小権限 テスト環境 認証情報 サイバーセキュリティ 生成AIやAIエージェントのニュースを見て不安を感じる人 会社でAIやクラウドサービスを利用する人 社内システムやWebサイトを管理する人 AI時代のサイバーセキュリティを知りたい人 中小企業や個人事業でIT管理を担当する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-agent-cyber-defense</span>
+              <div>
+                <p>AI攻撃でも、基本対策はまだ効く</p>
+                <h3>「AIが攻撃してくるなら、もう防げない？」台湾政府の最新事例が示した“入口は意外といつもの資安”</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-18">2026.08.18</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月13日、台湾のデジタル発展部・資通安全署は、7月に政府機関を狙った国外由来の異常なサイバー攻撃を確認し、攻撃者がOpenClawなどのAI Agentを補助的に利用した「人間＋AIエージェント」の混合型攻撃だったと発表しました。AIエージェントは複数の攻撃手法を素早くつなぎ、バックアップ環境やテスト環境などの副次的なシステムを足掛かりとして攻撃を拡大できるため、攻撃速度・規模・コスト面で攻撃者を支援すると説明されています。一方、台湾国家資通安全研究院は同じ攻撃を分析し、「AI Agentによって攻撃が自動化されても、弱いパスワード、システムの脆弱性、機密情報の露出といった既存リスクの本質は変わらない」と明記しています。つまり「AIを使った攻撃＝未知の方法で防御不能」ではありません。AIによって攻撃が速くなるからこそ、MFA、アップデート、不要な公開サービスの停止、最小権限、ログ監視など、これまでの基本対策を早く・継続的に行う価値がむしろ高まっています。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>「AI攻撃」の見出しより、実際に使われた入口を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>生成AIやAIエージェントのニュースを見て不安を感じる人</li><li>会社でAIやクラウドサービスを利用する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>サイバー攻撃</li><li>台湾</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260817-01" data-forensics-card data-category="security" data-level="5" data-difficulty="beginner" data-search-text="人間には普通のメール、AIには「命令」かもしれない　Microsoftがメール内プロンプトインジェクション対策を強化 AIにメールを読ませるなら「本文＝指示」ではない Microsoftは2026年7月、Microsoft Defender for Office 365に、受信メールへ埋め込まれたプロンプトインジェクションを配信前に検出・隔離する機能をパブリックプレビューとして追加しました。関連ドキュメントは8月14日にも更新されています。 従来のフィッシングは人間をだましてリンクをクリックさせることが中心でしたが、メールをAIが要約・分類・処理する環境では、攻撃者が「メールを読むAI」を直接だますことも攻撃経路になります。Microsoftは、白文字、画面外のテキスト、引用返信、添付ファイル、難読化した文字列など、人間には見えにくい場所へAI向けの命令を埋め込む手法を説明しています。 OpenAIも、外部コンテンツ内の指示によってAIエージェントへユーザーが望まない行動を取らせるプロンプトインジェクションを、エージェント時代の重要なセキュリティ課題として扱っています。 AIにメールを読ませること自体を避ける必要はありません。重要なのは「メールは参考情報であって、AIへの新しい命令ではない」と扱い、送信・外部共有・機密情報取得などの操作には権限制限や確認を残すことです。 セキュリティ・権限 はじめて プロンプトインジェクション メールセキュリティ Microsoft Defender Microsoft 365 Copilot AIエージェント 間接プロンプトインジェクション 権限管理 メール要約 Human in the Loop 情報漏えい対策 CopilotやChatGPTなどでメールを要約する人 AIに受信メールの整理や返信案作成を任せる人 AIエージェントを仕事で使う人 会社で生成AIの導入や運用を担当する人 メールとAIを連携する自動化に興味がある人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">email-prompt-injection-shield</span>
+              <div>
+                <p>AIにメールを読ませるなら「本文＝指示」ではない</p>
+                <h3>人間には普通のメール、AIには「命令」かもしれない　Microsoftがメール内プロンプトインジェクション対策を強化</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-17">2026.08.17</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは2026年7月、Microsoft Defender for Office 365に、受信メールへ埋め込まれたプロンプトインジェクションを配信前に検出・隔離する機能をパブリックプレビューとして追加しました。関連ドキュメントは8月14日にも更新されています。 従来のフィッシングは人間をだましてリンクをクリックさせることが中心でしたが、メールをAIが要約・分類・処理する環境では、攻撃者が「メールを読むAI」を直接だますことも攻撃経路になります。Microsoftは、白文字、画面外のテキスト、引用返信、添付ファイル、難読化した文字列など、人間には見えにくい場所へAI向けの命令を埋め込む手法を説明しています。 OpenAIも、外部コンテンツ内の指示によってAIエージェントへユーザーが望まない行動を取らせるプロンプトインジェクションを、エージェント時代の重要なセキュリティ課題として扱っています。 AIにメールを読ませること自体を避ける必要はありません。重要なのは「メールは参考情報であって、AIへの新しい命令ではない」と扱い、送信・外部共有・機密情報取得などの操作には権限制限や確認を残すことです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>外部コンテンツとAIの操作権限を分離</span>
+            </div>
+            <ul class="forensics-card-audience"><li>CopilotやChatGPTなどでメールを要約する人</li><li>AIに受信メールの整理や返信案作成を任せる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>プロンプトインジェクション</li><li>メールセキュリティ</li><li>Microsoft Defender</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260814-02" data-forensics-card data-category="health-ai" data-level="5" data-difficulty="beginner" data-search-text="AIが「専門家っぽく」話しても、資格まであるわけじゃない　米国で“AIと人間を明示する”法案にAMAが支持 AIの肩書きより「誰が責任を持つ回答か」を見る American Medical Association（AMA）は2026年8月14日、米上院に提出されている「Senior Chatbot Protection Act of 2026」への支持を改めて表明しました。この法案は7月23日に提出されたもので、AIチャットボットが人間や資格を持つ専門家であるかのように表示することを防ぎ、医療・法律・金融など重要な判断に関わる相談では「AIは資格を持つ専門家ではなく、回答だけを根拠に判断しないこと」を利用者へ示す仕組みを求めています。([[American Medical Association](https://www.ama-assn.org/health-care-advocacy/advocacy-update/aug-14-2026-national-advocacy-update?utm_source=chatgpt.com)][1]) 重要なのは、これは現時点で成立した法律ではなく、上院委員会へ付託されている法案だという点です。([[GovInfo](https://www.govinfo.gov/app/details/BILLS-119s5117is?utm_source=chatgpt.com)][2]) AIは医療用語の説明や診察準備には便利ですが、文章が専門的で自信に満ちていることと、その回答に医療資格や診療責任があることは別です。 健康・医療 はじめて AIチャットボット 健康相談 Senior Chatbot Protection Act 高齢者 医療AI 透明性 専門家資格 AIリテラシー プライバシー Human in the Loop AIへ健康や薬について質問する人 家族の健康相談にAIを使う人 高齢の家族へAIチャットボットを勧める人 AIの回答が専門的だと信用しやすい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-professional-identity-check</span>
+              <div>
+                <p>AIの肩書きより「誰が責任を持つ回答か」を見る</p>
+                <h3>AIが「専門家っぽく」話しても、資格まであるわけじゃない　米国で“AIと人間を明示する”法案にAMAが支持</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-14">2026.08.14</time>
+              <span>健康・医療</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">American Medical Association（AMA）は2026年8月14日、米上院に提出されている「Senior Chatbot Protection Act of 2026」への支持を改めて表明しました。この法案は7月23日に提出されたもので、AIチャットボットが人間や資格を持つ専門家であるかのように表示することを防ぎ、医療・法律・金融など重要な判断に関わる相談では「AIは資格を持つ専門家ではなく、回答だけを根拠に判断しないこと」を利用者へ示す仕組みを求めています。([[American Medical Association](https://www.ama-assn.org/health-care-advocacy/advocacy-update/aug-14-2026-national-advocacy-update?utm_source=chatgpt.com)][1]) 重要なのは、これは現時点で成立した法律ではなく、上院委員会へ付託されている法案だという点です。([[GovInfo](https://www.govinfo.gov/app/details/BILLS-119s5117is?utm_source=chatgpt.com)][2]) AIは医療用語の説明や診察準備には便利ですが、文章が専門的で自信に満ちていることと、その回答に医療資格や診療責任があることは別です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>医療の重要判断は資格を持つ専門家へ確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIへ健康や薬について質問する人</li><li>家族の健康相談にAIを使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIチャットボット</li><li>健康相談</li><li>Senior Chatbot Protection Act</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260819-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260820-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

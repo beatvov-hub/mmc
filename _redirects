@@ -1,3 +1,7 @@
+# Legacy Netlify hostname: preserve every path while canonicalizing at the CDN edge.
+http://mainichi-miru.netlify.app/* https://mainichi-miru.com/:splat 301!
+https://mainichi-miru.netlify.app/* https://mainichi-miru.com/:splat 301!
+
 # Generated static redirects for canonical clean URLs.
 # Old .html URLs are permanently redirected before clean URLs are rewritten.
 
