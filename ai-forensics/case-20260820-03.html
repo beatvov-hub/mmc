@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>スマホに「FBI公式番号」と出ても本人確認にはならない　最新なりすまし事例で学ぶ“確認経路を分ける”方法｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="2026年8月19日、FBIボストン支局は、実際のFBIボストン支局の代表番号を発信者番号として表示させる新たな政府機関なりすまし詐欺を警告しました。報告された手口では、まず金融機関を名乗る人物が「あなたの情報で違法な銃器購入用の口座が作られた」と不安をあおり、続いてFBI捜査官を名乗る人物へ電話を転送します。その後いったん電話が切れ、FBIボストン支局の本物の代表番号に見える番号から再び着信し、偽の氏名やバッジ番号を提示して、暗号化メッセージアプリへ移動するよう求めるケースが報告されています。FBIは、発信者番号は偽装できるため、表示された番号を本人確認の証拠にせず、一度通話を切り、自分で調べた公式番号から組織へかけ直すよう案内しています。AI生成音声や動画が高度になる時代ほど、「見た目や声が本物らしいか」ではなく、「相手とは別の経路から確認したか」が重要になります。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260820-03" />
+<meta property="og:title" content="スマホに「FBI公式番号」と出ても本人確認にはならない　最新なりすまし事例で学ぶ“確認経路を分ける”方法｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="2026年8月19日、FBIボストン支局は、実際のFBIボストン支局の代表番号を発信者番号として表示させる新たな政府機関なりすまし詐欺を警告しました。報告された手口では、まず金融機関を名乗る人物が「あなたの情報で違法な銃器購入用の口座が作られた」と不安をあおり、続いてFBI捜査官を名乗る人物へ電話を転送します。その後いったん電話が切れ、FBIボストン支局の本物の代表番号に見える番号から再び着信し、偽の氏名やバッジ番号を提示して、暗号化メッセージアプリへ移動するよう求めるケースが報告されています。FBIは、発信者番号は偽装できるため、表示された番号を本人確認の証拠にせず、一度通話を切り、自分で調べた公式番号から組織へかけ直すよう案内しています。AI生成音声や動画が高度になる時代ほど、「見た目や声が本物らしいか」ではなく、「相手とは別の経路から確認したか」が重要になります。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260820-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>公式番号からの着信＝公式本人、ではない</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-20">2026.08.20</time>
+            </div>
+            <h1>スマホに「FBI公式番号」と出ても本人確認にはならない　最新なりすまし事例で学ぶ“確認経路を分ける”方法</h1>
+            <p>2026年8月19日、FBIボストン支局は、実際のFBIボストン支局の代表番号を発信者番号として表示させる新たな政府機関なりすまし詐欺を警告しました。報告された手口では、まず金融機関を名乗る人物が「あなたの情報で違法な銃器購入用の口座が作られた」と不安をあおり、続いてFBI捜査官を名乗る人物へ電話を転送します。その後いったん電話が切れ、FBIボストン支局の本物の代表番号に見える番号から再び着信し、偽の氏名やバッジ番号を提示して、暗号化メッセージアプリへ移動するよう求めるケースが報告されています。FBIは、発信者番号は偽装できるため、表示された番号を本人確認の証拠にせず、一度通話を切り、自分で調べた公式番号から組織へかけ直すよう案内しています。AI生成音声や動画が高度になる時代ほど、「見た目や声が本物らしいか」ではなく、「相手とは別の経路から確認したか」が重要になります。</p>
+            <ul class="forensics-target-list"><li>知らない番号からの電話を受ける人</li><li>銀行や行政機関からの連絡をスマートフォンで確認する人</li><li>家族の詐欺対策をサポートする人</li><li>AI音声やディープフェイクによるなりすましが気になる人</li><li>電話・SNS・メッセージアプリを仕事で利用する人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>FBI</li><li>政府機関なりすまし</li><li>Caller ID Spoofing</li><li>発信者番号偽装</li><li>電話詐欺</li><li>AI音声</li><li>ディープフェイク</li><li>本人確認</li><li>社会工学</li><li>暗号化メッセージアプリ</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 5</strong>
+              <span>相手とは別の経路で本人確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot is-active">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>電話、音声、動画、表示番号、身分証などが本物らしく見えても、それらが相手自身から提供された情報なら独立した本人確認にはなりません。重要な依頼を受けた時は一度連絡を切り、自分で取得した公式連絡先から確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>「本当にFBIです」と言われ、スマホを見ると検索で確認したFBIの代表番号と同じ番号が表示されていた</h3><p>電話の相手は捜査官名とバッジ番号まで伝え、「あなた名義の口座が犯罪に使われているので、この件は秘密にしてください」と説明します。スマートフォンに表示された番号を検索すると、本当にFBIボストン支局の代表番号と一致しました。その後、安全な連絡のためとして暗号化メッセージアプリへ移動するよう求められます。しかしFBIが2026年8月19日に発表した最新の警告では、まさにこの代表番号が発信者番号偽装に使われた事例が報告されています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>人は「電話番号を検索して公式サイトと一致した」という行動をすると、本人確認を完了した気持ちになりやすくなります。しかし発信者番号表示は、相手がその番号から実際に電話していることを必ずしも証明しません。さらに現在は、公開写真、AI生成音声、AI動画、実在人物名、偽の身分証など複数の材料を組み合わせて信頼感を作る詐欺も報告されています。一つ一つの情報が本物らしくても、それらがすべて詐欺師自身から提示された情報なら、独立した本人確認にはなりません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="independent-callback">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>政府機関を名乗る相手から電話があり、表示された番号を検索すると本物の公式番号と一致しました。次に行う確認として最も適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="trust-caller-id" data-choice-id="trust-caller-id" />
+                <span>
+                  <strong>公式番号と一致したので、そのまま会話を続ける</strong>
+                  <small>発信者番号表示を本人確認として扱う。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ask-badge-number" data-choice-id="ask-badge-number" />
+                <span>
+                  <strong>相手から氏名とバッジ番号を聞き、その回答だけで確認する</strong>
+                  <small>相手自身が提示した追加情報で本人確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="independent-callback" data-choice-id="independent-callback" />
+                <span>
+                  <strong>一度切り、自分で公式サイトなどから取得した番号へかけ直す</strong>
+                  <small>相手が提示した連絡経路とは別の経路から組織へ確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ask-ai" data-choice-id="ask-ai" />
+                <span>
+                  <strong>通話内容をAIに説明し、「本物だと思う？」と聞いて決める</strong>
+                  <small>AIの推測を本人確認として利用する。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>一度切り、自分で公式サイトなどから取得した番号へかけ直す</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>FBIは、今回報告された詐欺で実際のFBIボストン支局の代表番号が発信者番号として偽装されたとしています。FTCとFCCも、発信者番号は偽装できるため、表示された番号だけを信用しないよう案内しています。本人確認では、相手から教えられた番号やリンクを利用せず、一度連絡を切り、自分で公式サイトや公的資料から調べた連絡先へアクセスすることが重要です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>発信者番号を本人確認として使っていないか</h3>
+              <p>スマートフォンに表示された電話番号が実在する組織の番号と一致していても、その番号が偽装されている可能性があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>相手が提示した情報だけで確認を完結していないか</h3>
+              <p>氏名、部署名、バッジ番号、事件番号、公式ロゴなどを複数提示されても、それらがすべて相手側から出た情報なら独立確認にはなりません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>「一度電話を切らせない」状況になっていないか</h3>
+              <p>詐欺では、利用者が家族や公式機関へ確認する時間を作らないため、通話継続や秘密保持を求めることがあります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>暗号化メッセージアプリへの移動を求められていないか</h3>
+              <p>FBIボストン支局は今回の警告で、FBIが一般市民に対し、逮捕回避などの目的で暗号化アプリへ移動するよう求めることはないとしています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>恐怖と緊急性が同時に使われていないか</h3>
+              <p>「犯罪に関与している」「逮捕される」「今すぐ対応が必要」といった説明は、確認する時間を奪うための典型的な社会工学的手法です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AI生成物を見抜くことだけに集中していないか</h3>
+              <p>FBIは別の警告で、AI生成動画や音声もなりすましに利用されているとしています。しかし生成物が本物か偽物かを目視だけで判断するより、別経路で本人確認する方が確実です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>相手が教えた番号へかけ直していないか</h3>
+              <p>「確認したければこの番号へ」と言われた番号も攻撃者が管理している可能性があります。公式サイトなど独立した場所から連絡先を取得します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>金銭だけを詐欺の目的だと思っていないか</h3>
+              <p>政府機関なりすましでは、送金だけでなく、銀行情報、個人番号、認証情報、端末へのアクセスなどを狙う場合があります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AI時代のなりすまし対策は「偽物を見抜く」より「確認経路を分ける」</strong><p>FBIが2026年8月19日に警告した事例では、詐欺師は単に「FBIです」と名乗るだけではなく、実在する代表番号の発信者番号表示、偽の捜査官名、偽のバッジ番号、犯罪に関する緊迫したストーリー、暗号化メッセージアプリへの誘導を組み合わせています。さらにFBIは別の2026年の警告で、AI生成動画や音声も政府機関なりすましに利用されていると説明しています。こうした環境では、声や映像の不自然さを探す方法だけでは限界があります。「一度切って、自分で公式窓口へアクセスする」という確認方法なら、AI生成物の品質がさらに高くなっても有効です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>政府機関・銀行・警察を名乗る重要な電話はいったん切る</strong><span>通話を切ることで、相手が作った会話の流れから離れ、独立確認する時間を作れます。</span></li>
+            <li><strong>公式サイトや契約書から自分で電話番号を調べる</strong><span>着信履歴や相手から教えられた番号を使わなければ、攻撃者とは別の確認経路を作れます。</span></li>
+            <li><strong>表示番号ではなく「自分から公式番号へ発信した事実」を確認材料にする</strong><span>受信時のCaller IDは偽装される可能性がありますが、自分で取得した正しい公式番号へ発信することで確認経路を分離できます。</span></li>
+            <li><strong>「秘密にしてください」と言われた時ほど第三者へ相談する</strong><span>家族、職場、金融機関などへ相談することで、詐欺師が作った閉じた情報環境から離れられます。</span></li>
+            <li><strong>AIには通話内容の整理や危険サインの抽出を頼む</strong><span>AIへ「金銭要求・秘密保持・緊急性・外部アプリへの移動などの危険サインを整理して」と頼めば、落ち着いて状況を確認する補助に使えます。</span></li>
+            <li><strong>本人確認用の質問より、本人確認用の経路を変える</strong><span>実在人物の所属や役職などは公開情報から調べられる場合があります。質問に正答したことより、公式窓口から本人へつながったことの方が強い確認になります。</span></li>
+            <li><strong>被害が疑われる場合は金融機関や公式窓口へ早く連絡する</strong><span>送金や口座情報の提供をしてしまった場合でも、早い段階で金融機関や警察などへ相談することで対応できる可能性があります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>検索した公式番号と着信番号が一致しただけで本人だと判断する</strong><span>発信者番号表示は偽装できます。今回のFBI警告でも実際の代表番号が偽装されています。</span></li>
+            <li><strong>バッジ番号や事件番号を言えたので本物だと判断する</strong><span>それらの情報自体を詐欺師が作成している可能性があります。</span></li>
+            <li><strong>相手から渡されたURLや電話番号を本人確認に使う</strong><span>確認先まで攻撃者側が用意していれば、確認したつもりでも同じ相手へ戻ってしまいます。</span></li>
+            <li><strong>AI音声やディープフェイクの違和感を見抜けた時だけ詐欺と判断する</strong><span>生成技術の品質は向上しており、FBIもAI生成物は見分けにくくなっていると注意しています。</span></li>
+            <li><strong>暗号化アプリだから安全な相手だと思う</strong><span>暗号化は通信方式の安全性であり、会話相手の本人性を証明するものではありません。</span></li>
+            <li><strong>AIに電話番号を入力して「この人は本物？」と判定させる</strong><span>AIは現在電話している人物の正体を確認できません。公開情報との一致と本人確認は別です。</span></li>
+            <li><strong>政府機関からの電話はすべて詐欺だと決めつける</strong><span>実際の機関から連絡が来る場合もあります。重要なのは受信した電話を信用するかではなく、公式経路から確認し直すことです。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIを「声の鑑定士」ではなく「詐欺の会話を分解する補助員」にする</h3>
+          <p>AIへ音声や電話番号を渡して「本物ですか」と最終判定させるより、会話の中で何を要求されたかを整理させる使い方が向いています。例えば通話後に内容をメモし、「恐怖をあおる表現」「秘密保持の要求」「金銭や個人情報の要求」「別アプリへの移動」「相手自身が提示した本人確認材料」を分類させることができます。その後、人間が公式窓口へ独立して確認すれば、AIの情報整理能力と強い本人確認を組み合わせられます。</p>
+          <ul class="positive-example-list"><li>通話内容を匿名化してAIへ渡し、危険サインを一覧化する</li><li>「相手自身から出た情報」と「第三者から独立確認できた情報」を分けてもらう</li><li>公式機関へ確認する時に聞くべき項目を整理してもらう</li><li>家族向けに「怪しい電話を受けた時の3ステップ」をAIと作る</li><li>電話後のメモから時系列を整理して、警察や金融機関へ説明しやすくする</li><li>複雑な詐欺の説明をAIに短く整理させ、本人確認そのものは公式窓口で行う</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>今回の事例で少し厄介なのは、利用者がちゃんと確認しようとしている点です。「FBIだと言われたので番号を検索した。公式番号と一致した」。かなり真面目に確認しています。でも、発信者番号そのものが偽装されていれば、その確認だけでは足りません。これからAI音声や動画がもっと自然になれば、「声がおかしくないか」「顔が変じゃないか」という見破り方も難しくなります。なので私は、偽物を見抜く能力を鍛えるより、確認経路を一つ増やす方をおすすめします。一度切る。自分で公式窓口を探す。そこから確認する。技術が進化しても、この方法はかなり強いです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>本物らしさを確認するより、相手とは別の道から本人確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.fbi.gov/contact-us/field-offices/boston/news/fbi-boston-warns-of-new-agent-impersonation-scam-spoofing-fbis-phone-number-before-urging-victims-to-switch-to-encrypted-application" target="_blank" rel="noopener noreferrer">FBI Boston Warns of New Agent Impersonation Scam Spoofing FBI&#x27;s Phone Number Before Urging Victims to Switch to Encrypted Application<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Federal Bureau of Investigation</span>
+              <span>官公庁</span>
+              <time datetime="2026-08-19">2026-08-19</time>
+            </li>
+            <li>
+              <strong><a href="https://www.ic3.gov/PSA/2026/PSA260720" target="_blank" rel="noopener noreferrer">FBI Warns of Scammers Impersonating the IC3<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>FBI Internet Crime Complaint Center</span>
+              <span>官公庁</span>
+              <time datetime="2026-07-20">2026-07-20</time>
+            </li>
+            <li>
+              <strong><a href="https://consumer.ftc.gov/articles/how-avoid-government-impersonation-scam" target="_blank" rel="noopener noreferrer">How To Avoid a Government Impersonation Scam<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Federal Trade Commission</span>
+              <span>官公庁</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://www.fcc.gov/sites/default/files/caller_id_spoofing.pdf" target="_blank" rel="noopener noreferrer">Caller ID Spoofing<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Federal Communications Commission</span>
+              <span>官公庁</span>
+              
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260819-02" data-forensics-card data-category="scam" data-level="5" data-difficulty="beginner" data-search-text="検索結果の一番上だから「公式」とは限らない　FTC最新和解が示した“検索広告なりすまし”の落とし穴 検索1位＝公式サイト、ではない 2026年8月17日、米連邦取引委員会（FTC）は、オンライン請求書支払いサービスDoxoが210万ドルを支払い、FTCの訴えを解決するための和解案に合意したと発表しました。FTCは2024年の訴状で、Doxoと共同創業者2人が検索広告などを使い、公共料金、通信、医療検査、ローンなどの支払先企業と提携した公式決済窓口であるかのように消費者を誘導したと主張していました。ランディングページには企業名やロゴが表示されることもありましたが、FTCによればDoxoは掲載企業の圧倒的多数と関係を持っていませんでした。さらにFTCは、追加の「delivery fees」の表示や定期購読への登録方法にも問題があったと主張しています。連邦裁判所は、定期購読条件を明確に開示せず、課金への同意を適切に取得しなかった点についてRestore Online Shoppers&#x27; Confidence Act違反を認定しました。今回の事例で覚えておきたいのは、「検索結果の上にある」「会社名が書いてある」「ロゴがある」という3つだけでは公式サイト確認にならないことです。検索は公式サイトを探す便利な入口ですが、支払い・ログイン・個人情報入力の直前だけは、URLと運営主体を一度確認する習慣が有効です。 詐欺・なりすまし はじめて 検索広告 なりすまし Doxo FTC オンライン決済 請求書支払い 公式サイト確認 URL確認 定期課金 検索リテラシー 公共料金や通信費などをネットで支払う人 GoogleやBingで公式サイトを検索してからログインする人 検索結果上部の広告をよく利用する人 家族のネット決済をサポートする人 企業や自治体の公式サイトを探す機会が多い人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">search-ad-official-check</span>
+              <div>
+                <p>検索1位＝公式サイト、ではない</p>
+                <h3>検索結果の一番上だから「公式」とは限らない　FTC最新和解が示した“検索広告なりすまし”の落とし穴</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-19">2026.08.19</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月17日、米連邦取引委員会（FTC）は、オンライン請求書支払いサービスDoxoが210万ドルを支払い、FTCの訴えを解決するための和解案に合意したと発表しました。FTCは2024年の訴状で、Doxoと共同創業者2人が検索広告などを使い、公共料金、通信、医療検査、ローンなどの支払先企業と提携した公式決済窓口であるかのように消費者を誘導したと主張していました。ランディングページには企業名やロゴが表示されることもありましたが、FTCによればDoxoは掲載企業の圧倒的多数と関係を持っていませんでした。さらにFTCは、追加の「delivery fees」の表示や定期購読への登録方法にも問題があったと主張しています。連邦裁判所は、定期購読条件を明確に開示せず、課金への同意を適切に取得しなかった点についてRestore Online Shoppers&#x27; Confidence Act違反を認定しました。今回の事例で覚えておきたいのは、「検索結果の上にある」「会社名が書いてある」「ロゴがある」という3つだけでは公式サイト確認にならないことです。検索は公式サイトを探す便利な入口ですが、支払い・ログイン・個人情報入力の直前だけは、URLと運営主体を一度確認する習慣が有効です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>お金を払う直前に「検索結果の外」で公式確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>公共料金や通信費などをネットで支払う人</li><li>GoogleやBingで公式サイトを検索してからログインする人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>検索広告</li><li>なりすまし</li><li>Doxo</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260818-01" data-forensics-card data-category="scam" data-level="5" data-difficulty="beginner" data-search-text="「検索したら高評価レビューもニュース記事も出てきた」それでも詐欺かもしれない　AIが作る“偽の裏取り材料” 検索結果が多い＝裏取りできた、ではない 2026年8月17日、オーストラリアのABC Newsは、ASIC（オーストラリア証券投資委員会）が公表した最新データとして、過去12か月にオンライン上の詐欺を19,400件以上削除し、前年より182％増加したと報じました。ASICは、AI生成の政治家・著名人ディープフェイクを入口に、偽ニュース記事、偽レビュー、偽の投資サイトまで組み合わせる投資詐欺が増えていると警告しています。 特に厄介なのは、怪しい投資名を検索すると、複数のサイトや記事が同じサービスを褒めているように見えることです。しかし、それらが独立した第三者情報ではなく、詐欺グループ自身がまとめて作った“偽の裏取り材料”である可能性があります。ASICは以前から、生成AIを使った偽の著名人広告、偽ニュース、プロ仕様に見える投資サイトなどを詐欺の主要手口として挙げています。 Scamwatchも、AIを使った著名人の偽広告や偽ニュース、架空の取引画面、少額の引き出しで信用させる手口について注意を促しています。 AI時代の確認では「検索結果が何件あるか」より、「その情報源は詐欺業者から独立しているか」を見ることが重要です。 詐欺・なりすまし はじめて AI投資詐欺 ディープフェイク 偽ニュース 偽レビュー 著名人なりすまし SNS広告 投資詐欺 社会的証明 生成AI 情報源の独立性 SNS広告から投資・副業サービスを知る人 ネット検索で会社や投資サービスの安全性を確認する人 AI生成の動画や広告を見る人 家族の投資詐欺対策を考えている人 生成AI時代の情報確認方法を知りたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">fake-verification-network</span>
+              <div>
+                <p>検索結果が多い＝裏取りできた、ではない</p>
+                <h3>「検索したら高評価レビューもニュース記事も出てきた」それでも詐欺かもしれない　AIが作る“偽の裏取り材料”</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-18">2026.08.18</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月17日、オーストラリアのABC Newsは、ASIC（オーストラリア証券投資委員会）が公表した最新データとして、過去12か月にオンライン上の詐欺を19,400件以上削除し、前年より182％増加したと報じました。ASICは、AI生成の政治家・著名人ディープフェイクを入口に、偽ニュース記事、偽レビュー、偽の投資サイトまで組み合わせる投資詐欺が増えていると警告しています。 特に厄介なのは、怪しい投資名を検索すると、複数のサイトや記事が同じサービスを褒めているように見えることです。しかし、それらが独立した第三者情報ではなく、詐欺グループ自身がまとめて作った“偽の裏取り材料”である可能性があります。ASICは以前から、生成AIを使った偽の著名人広告、偽ニュース、プロ仕様に見える投資サイトなどを詐欺の主要手口として挙げています。 Scamwatchも、AIを使った著名人の偽広告や偽ニュース、架空の取引画面、少額の引き出しで信用させる手口について注意を促しています。 AI時代の確認では「検索結果が何件あるか」より、「その情報源は詐欺業者から独立しているか」を見ることが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>検索結果の外にある独立情報で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNS広告から投資・副業サービスを知る人</li><li>ネット検索で会社や投資サービスの安全性を確認する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI投資詐欺</li><li>ディープフェイク</li><li>偽ニュース</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260816-03" data-forensics-card data-category="scam" data-level="5" data-difficulty="beginner" data-search-text="「ウイルス感染！今すぐこの番号へ」——その“電話番号付き警告”こそ要注意　FBIが最新注意喚起 警告画面の電話番号には、すぐ電話しない 2026年8月12日、FBI Portlandは、オレゴン州でテクニカルサポート詐欺による金銭被害が続いているとして注意喚起しました。詐欺師は銀行、通信会社、オンラインショップ、セキュリティ会社、暗号資産取引所などのサポート担当者を装い、電話・SMS・広告・偽の警告ポップアップなどから接触します。典型的な流れは「あなたの端末やアカウントに問題がある」と不安を与え、電話をかけさせたり、遠隔操作ソフトを入れさせたりするものです。Microsoftも、正規のWindowsエラーや警告メッセージにはサポートへ電話するための電話番号は表示されないと明記しています。さらにMicrosoft Edgeには、偽の全画面警告などを機械学習で検出するAIベースのScareware blockerも搭載されています。AI時代の対策は「警告画面を全部疑う」ことではなく、画面に書かれた連絡先を使わず、公式アプリや公式サイトなど別ルートから確認することです。 詐欺・なりすまし はじめて テクニカルサポート詐欺 偽警告 Scareware リモートアクセス Microsoft Edge AIセキュリティ FBI FTC なりすまし オンライン詐欺 パソコンやスマートフォンで突然の警告画面を見た人 家族のパソコン相談を受ける人 高齢の家族がインターネットを利用している人 オンラインでPCトラブルの解決方法を探す人 生成AIをパソコン相談に使う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">fake-tech-support-warning</span>
+              <div>
+                <p>警告画面の電話番号には、すぐ電話しない</p>
+                <h3>「ウイルス感染！今すぐこの番号へ」——その“電話番号付き警告”こそ要注意　FBIが最新注意喚起</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-16">2026.08.16</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月12日、FBI Portlandは、オレゴン州でテクニカルサポート詐欺による金銭被害が続いているとして注意喚起しました。詐欺師は銀行、通信会社、オンラインショップ、セキュリティ会社、暗号資産取引所などのサポート担当者を装い、電話・SMS・広告・偽の警告ポップアップなどから接触します。典型的な流れは「あなたの端末やアカウントに問題がある」と不安を与え、電話をかけさせたり、遠隔操作ソフトを入れさせたりするものです。Microsoftも、正規のWindowsエラーや警告メッセージにはサポートへ電話するための電話番号は表示されないと明記しています。さらにMicrosoft Edgeには、偽の全画面警告などを機械学習で検出するAIベースのScareware blockerも搭載されています。AI時代の対策は「警告画面を全部疑う」ことではなく、画面に書かれた連絡先を使わず、公式アプリや公式サイトなど別ルートから確認することです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>警告画面とは別の経路から公式情報を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>パソコンやスマートフォンで突然の警告画面を見た人</li><li>家族のパソコン相談を受ける人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>テクニカルサポート詐欺</li><li>偽警告</li><li>Scareware</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260819-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260820-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
