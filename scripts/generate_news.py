@@ -66,6 +66,13 @@ def item_href(item: dict) -> str:
     return "news.html"
 
 
+def render_item_link(item: dict) -> str:
+    label = item.get("linkLabel")
+    if not label:
+        return ""
+    return f'<a class="text-link" href="{esc(item_href(item))}">{esc(label)}</a>'
+
+
 def render_tag(item: dict) -> str:
     tag = item.get("tag")
     if not tag:
@@ -80,6 +87,7 @@ def render_index_news(data: dict) -> str:
     for item in top_items(data)[:4]:
         title = item.get("topTitle") or item.get("title", "")
         summary = item.get("topSummary") or item.get("summary", "")
+        related_link = render_item_link(item)
         lines.extend(
             [
                 "          <article>",
@@ -88,9 +96,11 @@ def render_index_news(data: dict) -> str:
                 "            </div>",
                 f'            <a href="{esc(item_href(item))}">{esc(title)}</a>',
                 f"            <p>{esc(summary)}</p>",
-                "          </article>",
             ]
         )
+        if related_link:
+            lines.append(f"            {related_link}")
+        lines.append("          </article>")
     lines.append("        </div>")
     return "\n".join(lines)
 
@@ -165,6 +175,7 @@ def render_news_items(data: dict) -> str:
         '        <div class="news-card-list">',
     ]
     for item in items[:4]:
+        related_link = render_item_link(item)
         lines.extend(
             [
                 '          <article class="news-card">',
@@ -175,6 +186,8 @@ def render_news_items(data: dict) -> str:
                 f'            <p>{esc(item.get("summary", ""))}</p>',
             ]
         )
+        if related_link:
+            lines.append(f"            {related_link}")
         bullets = item.get("bullets", [])
         if bullets:
             lines.append("            <ul>")
@@ -192,6 +205,7 @@ def render_news_items(data: dict) -> str:
             ]
         )
         for item in items[4:]:
+            related_link = render_item_link(item)
             lines.extend(
                 [
                     '            <article class="news-card">',
@@ -202,6 +216,8 @@ def render_news_items(data: dict) -> str:
                     f'              <p>{esc(item.get("summary", ""))}</p>',
                 ]
             )
+            if related_link:
+                lines.append(f"              {related_link}")
             bullets = item.get("bullets", [])
             if bullets:
                 lines.append("              <ul>")
@@ -388,8 +404,8 @@ def update_about_html(data: dict) -> None:
     html_text = ABOUT_HTML_PATH.read_text(encoding="utf-8")
     section_start = html_text.index('<section class="about-rich-section" aria-labelledby="history-title">')
     list_start = html_text.index('        <ol class="about-timeline">', section_start)
-    list_end = html_text.index("        </ol>", list_start) + len("        </ol>")
-    html_text = html_text[:list_start] + render_about_timeline(data) + html_text[list_end:]
+    section_end = html_text.index("      </section>", list_start)
+    html_text = html_text[:list_start] + render_about_timeline(data) + "\n" + html_text[section_end:]
     ABOUT_HTML_PATH.write_text(html_text, encoding="utf-8")
 
 
