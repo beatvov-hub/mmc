@@ -207,6 +207,13 @@ def render_scene(scene: dict) -> str:
                 "              </div>",
                 "            </article>",
             ])
+        elif block.get("type") == "whiteboard":
+            lines.extend([
+                '            <blockquote class="lounge-quote employee-event-whiteboard">',
+                f'              <p>{esc(block.get("text", "")).replace(chr(10), "<br />")}</p>',
+                f'              <cite>{esc(block.get("cite", "所長の判決"))}</cite>',
+                "            </blockquote>",
+            ])
         elif block.get("type") == "image" and block.get("src"):
             lines.extend([
                 '            <figure class="employee-event-scene__image">',
