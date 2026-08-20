@@ -73,6 +73,17 @@ def render_item_link(item: dict) -> str:
     return f'<a class="text-link" href="{esc(item_href(item))}">{esc(label)}</a>'
 
 
+def render_bullet(bullet: object) -> str:
+    if isinstance(bullet, dict):
+        text = esc(bullet.get("text", ""))
+        href = bullet.get("href", "")
+        label = bullet.get("linkLabel", "")
+        if href and label:
+            return f'{text}<a class="text-link" href="{esc(href)}">{esc(label)}</a>'
+        return text
+    return esc(bullet)
+
+
 def render_tag(item: dict) -> str:
     tag = item.get("tag")
     if not tag:
@@ -192,7 +203,7 @@ def render_news_items(data: dict) -> str:
         if bullets:
             lines.append("            <ul>")
             for bullet in bullets:
-                lines.append(f"              <li>{esc(bullet)}</li>")
+                lines.append(f"              <li>{render_bullet(bullet)}</li>")
             lines.append("            </ul>")
         lines.append("          </article>")
     lines.append("        </div>")
@@ -222,7 +233,7 @@ def render_news_items(data: dict) -> str:
             if bullets:
                 lines.append("              <ul>")
                 for bullet in bullets:
-                    lines.append(f"                <li>{esc(bullet)}</li>")
+                    lines.append(f"                <li>{render_bullet(bullet)}</li>")
                 lines.append("              </ul>")
             lines.append("            </article>")
         lines.extend(["          </div>", "        </details>"])
@@ -258,7 +269,7 @@ def render_timeline(data: dict) -> str:
             ]
         )
         for bullet in item.get("bullets", []):
-            lines.append(f"                <li>{esc(bullet)}</li>")
+            lines.append(f"                <li>{render_bullet(bullet)}</li>")
         lines.extend(["              </ul>", "            </div>", "          </article>"])
         if index != min(len(items), 4) - 1:
             lines.append("")
@@ -285,7 +296,7 @@ def render_timeline(data: dict) -> str:
                 ]
             )
             for bullet in item.get("bullets", []):
-                lines.append(f"                  <li>{esc(bullet)}</li>")
+                lines.append(f"                  <li>{render_bullet(bullet)}</li>")
             lines.extend(["                </ul>", "              </div>", "            </article>"])
             if index != len(items[4:]) - 1:
                 lines.append("")
