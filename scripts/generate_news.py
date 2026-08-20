@@ -387,9 +387,13 @@ def render_about_timeline(data: dict) -> str:
                     "            <article>",
                     f"              <h3>{esc(item.get('aboutTitle') or item.get('title', ''))}</h3>",
                     f"              <p>{esc(item.get('aboutSummary') or item.get('summary', ''))}</p>",
-                    "            </article>",
                 ]
             )
+            about_link = item.get("aboutLink")
+            about_link_label = item.get("aboutLinkLabel")
+            if about_link and about_link_label:
+                group_lines.append(f'              <a class="text-link" href="{esc(about_link)}">{esc(about_link_label)}</a>')
+            group_lines.append("            </article>")
         group_lines.append("          </div></li>")
         return group_lines
 
