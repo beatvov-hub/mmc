@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260822-01" />
+<meta property="og:title" content="AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260822-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>AIエージェントにも「専用の鍵」を持たせる</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-08-22">2026.08.22</time>
+            </div>
+            <h1>AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方</h1>
+            <p>2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。</p>
+            <ul class="forensics-target-list"><li>AIエージェントを仕事で使う人</li><li>生成AIにGoogle Driveや社内システムを接続する人</li><li>MCPや外部ツール連携を試している人</li><li>社内AIの権限設計を担当する人</li><li>AIにメール送信・ファイル操作・データ取得などを任せたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AIエージェント</li><li>Agent Identity</li><li>Google Cloud</li><li>IAM</li><li>最小権限</li><li>アクセス権限</li><li>MCP</li><li>Human in the Loop</li><li>AIセキュリティ</li><li>権限管理</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>AIが「何をできるか」を仕事単位で確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AIエージェントへ外部サービスを接続する時は、「どのAIが」「どのデータへ」「どの操作をできるか」を確認してください。必要以上の権限を渡さず、削除・送信・公開など影響の大きい操作には人間確認を残すと安全性を高められます。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>AIエージェントに資料整理を任せるため、自分が普段使っている強い権限のアカウントをそのまま接続した</h3><p>AIに必要なのは特定フォルダの資料を読むことだけですが、接続したアカウントは、他部署のファイル閲覧、削除、共有設定変更などもできます。AIが正しく動いている間は便利ですが、誤った指示、プロンプトインジェクション、ツール連携ミスなどが起きた場合、本来の仕事と関係のない範囲まで操作できる状態になっています。AIエージェントごとに固有のIDと最小限の権限を与える設計なら、影響範囲を限定しやすくなります。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIエージェントは、文章を返すだけのチャットAIと違い、ファイルを読む、メールを送る、APIを呼ぶ、データを変更するといった行動を取ることがあります。そのため安全性は「AIが賢いか」だけでなく、「間違えた時にどこまで操作できるか」に大きく左右されます。強い権限を持つ人間のアカウントをそのまま利用させると、一つの誤操作の影響範囲が大きくなります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="least-privilege">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>社内資料を整理するAIエージェントを導入します。そのAIに必要なのは特定フォルダの閲覧だけです。最も適切な権限設定は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="use-admin-account" data-choice-id="use-admin-account" />
+                <span>
+                  <strong>管理者アカウントを接続して、必要な操作だけAIに指示する</strong>
+                  <small>AIは指示されたことだけする前提で、広い権限を持たせる。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="use-human-account" data-choice-id="use-human-account" />
+                <span>
+                  <strong>担当者本人の普段使いアカウントをそのまま使う</strong>
+                  <small>人間がアクセスできる範囲をAIにも同じように渡す。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="least-privilege" data-choice-id="least-privilege" />
+                <span>
+                  <strong>AI専用の権限を用意し、必要なフォルダの閲覧だけ許可する</strong>
+                  <small>AIの仕事内容に必要な最小限のアクセスだけを与える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="no-ai-tools" data-choice-id="no-ai-tools" />
+                <span>
+                  <strong>権限管理が必要なのでAIに外部ツールを一切使わせない</strong>
+                  <small>AIエージェントの活用そのものを避ける。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>AI専用の権限を用意し、必要なフォルダの閲覧だけ許可する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Google CloudのAgent Identityは、AIエージェントを人間や共有サービスアカウントとは別の主体として扱い、エージェント単位で権限を管理する考え方です。セキュリティの基本である最小権限の原則をAIにも適用し、仕事に必要な操作だけ許可することで、誤操作や侵害時の影響範囲を小さくできます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AI専用の権限になっているか</h3>
+              <p>人間の通常アカウントや複数システムで共有する強いサービスアカウントをそのまま使うと、AIが必要以上の権限を持つ可能性があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>「読む」「書く」「削除する」を分けているか</h3>
+              <p>資料を読むだけのAIに、削除・公開・共有設定変更などの権限まで与える必要はありません。操作単位で権限を絞ります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>アクセスできる場所を限定しているか</h3>
+              <p>Google CloudはAgent IdentityやPrincipal Access Boundaryなどを使い、エージェントがアクセスできるリソース範囲を制限する仕組みを提供しています。一般運用でも、フォルダ・システム・API単位で範囲を絞る考え方が有効です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>人間の代わりに行動する時、誰の操作か記録できるか</h3>
+              <p>エージェント専用IDを使うと、「人間が操作したのか」「どのAIが操作したのか」を監査しやすくなります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>重要な操作に人間承認を残しているか</h3>
+              <p>Google CloudのMCPセキュリティ文書でも、人間が操作を承認するHuman-in-the-Middle方式はリスク低減策として紹介されています。削除、送信、公開、購入などは承認ステップを残す方法があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AIにAPIキーやパスワードを直接見せていないか</h3>
+              <p>認証情報そのものをAIの入力や会話へ含めるのではなく、認証管理機構を経由して利用できる設計の方が安全です。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>使わなくなったAIの権限を残していないか</h3>
+              <p>不要になったAIの認証情報や連携権限を残し続けないよう、停止時に権限も停止・削除します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>承認画面を見ずに毎回「許可」していないか</h3>
+              <p>人間承認が設定されていても、内容を確認せず承認し続ければ安全対策として機能しません。操作内容と対象を確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AIエージェントは「賢い社員」より先に「権限を持つ利用者」として設計する</strong><p>Google CloudがAgent Identityを強化している背景には、AIエージェントが長時間動き、複数のツールやデータへアクセスするようになった変化があります。AIへ固有のIDを与え、最小権限を設定し、操作を監査できるようにすることで、AIの便利さを保ちながら影響範囲を制御できます。この考え方はGoogle Cloudだけに限定されません。ChatGPT、Claude、Gemini、MCP、自作AIエージェントなどでも、「AIに何を任せるか」と同時に「その仕事に必要な権限はどこまでか」を決めることが重要です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>AIエージェントごとに仕事内容を一文で決める</strong><span>仕事内容が明確になると、その仕事に必要な権限だけを判断しやすくなります。</span></li>
+            <li><strong>最初は閲覧権限だけで試す</strong><span>読み取りだけで目的を達成できる場合、書き込みや削除権限を渡す必要がありません。</span></li>
+            <li><strong>必要になった権限を後から追加する</strong><span>最初から全部許可するより、実際に必要だと分かった操作だけ追加する方が最小権限を保ちやすくなります。</span></li>
+            <li><strong>削除・公開・送信・購入などは人間承認を入れる</strong><span>AIが判断を誤った場合でも、取り返しのつきにくい操作の前で止められます。</span></li>
+            <li><strong>AIごとに操作ログを確認できる状態にする</strong><span>問題発生時に、どのAIが何を行ったか追跡しやすくなります。</span></li>
+            <li><strong>使用しなくなったAIや連携サービスの権限を解除する</strong><span>古いAIや接続が長期間アクセス権を持ち続ける状態を防げます。</span></li>
+            <li><strong>AIへ接続する前に「本当に必要な権限」をAI自身にも整理させる</strong><span>AIへ仕事内容を説明し、「読む・書く・削除・送信のどれが必要か」を一覧化させ、人間が最終確認する補助として利用できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AIに管理者権限を与え、プロンプトで行動を制限する</strong><span>プロンプト上の指示とシステム上のアクセス権限は別です。AIが誤動作した場合でも技術的に操作できない状態を作る方が安全です。</span></li>
+            <li><strong>人間の普段使いアカウントをそのままAIへ共有する</strong><span>本人がアクセスできる広い範囲をAIにも渡すことになり、操作主体も分かりにくくなります。</span></li>
+            <li><strong>複数のAIエージェントで同じ強い認証情報を共有する</strong><span>問題が起きた時にどのAIが使ったのか分かりにくくなり、一つの漏えいが複数エージェントへ影響する可能性があります。</span></li>
+            <li><strong>人間承認があるのでAIへ強い権限を全部渡す</strong><span>承認ミスや確認疲れも起こり得ます。承認機能と最小権限は組み合わせて使います。</span></li>
+            <li><strong>AIが信頼できるモデルだから権限管理は不要と考える</strong><span>誤指示、外部コンテンツによるプロンプトインジェクション、ツール連携ミスなど、モデル性能とは別の原因でも問題は起こり得ます。</span></li>
+            <li><strong>権限設計が面倒なのでAIエージェントを使わない</strong><span>読み取り専用や限定フォルダなど小さな権限から始めれば、安全性を保ちながら便利な自動化を試せます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIに「何でもできる鍵」を渡すのではなく、仕事ごとの社員証を作る</h3>
+          <p>AIエージェントを安全に使う時は、人間の社員管理と似た考え方が役立ちます。経理担当には経理システム、編集担当には記事フォルダというように、仕事に必要な場所だけを許可します。Google CloudのAgent Identityは、この考え方をAIエージェント向けの固有IDとして実装しています。一般ユーザーでも、連携サービスの権限画面で「閲覧だけにできないか」「対象フォルダを限定できないか」「送信前に確認できないか」を見るだけで、AIへ安全に任せられる仕事を増やせます。</p>
+          <ul class="positive-example-list"><li>資料検索AIには特定フォルダの閲覧権限だけ与える</li><li>メール下書きAIには作成権限を与え、送信は人間が行う</li><li>SNS投稿AIには文章作成まで任せ、公開ボタンは人間が押す</li><li>在庫確認AIには在庫データの読み取りだけ許可する</li><li>ファイル整理AIは削除ではなく移動候補の提示までにする</li><li>AIエージェントごとに専用IDとログを持たせる</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIエージェントの安全対策というと、どうしても「AIが変なことをしないように賢くする」という話へ行きがちです。でも、私はその前に権限を見たいです。資料を読む仕事なら、読めれば十分です。削除も共有変更もできる必要はありません。これはAIを信用しないという話ではなく、人間の社員でも同じですよね。全社員へ管理者権限を配らないのと同じです。Google CloudがAgent Identityを強化しているのも、AIが実際に仕事をする存在になってきたからこそだと思います。AIに仕事を任せるなら、役割と一緒に「この人はどの鍵を持つのか」も決める。そこまで設計すると、安心して任せられる仕事がむしろ増えていきます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>AIに仕事を渡す時は、指示だけでなく「その仕事に必要な鍵だけ」を渡す。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://docs.cloud.google.com/iam/docs/release-notes" target="_blank" rel="noopener noreferrer">IAM release notes<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Cloud</span>
+              <span>公式発表</span>
+              <time datetime="2026-08-14">2026-08-14</time>
+            </li>
+            <li>
+              <strong><a href="https://cloud.google.com/blog/products/ai-machine-learning/whats-new-in-gemini-enterprise-agent-platform" target="_blank" rel="noopener noreferrer">What’s new in Gemini Enterprise Agent Platform<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Cloud</span>
+              <span>公式発表</span>
+              <time datetime="2026-07-29">2026-07-29</time>
+            </li>
+            <li>
+              <strong><a href="https://docs.cloud.google.com/iam/docs/agent-identity-overview" target="_blank" rel="noopener noreferrer">Agent Identity overview<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Cloud</span>
+              <span>公式発表</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://docs.cloud.google.com/mcp/ai-security-safety" target="_blank" rel="noopener noreferrer">AI security and safety<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Cloud</span>
+              <span>セキュリティ指針</span>
+              
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-serious" href="case-20260821-01" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="前回うまくいったAIの答えを、そのまま「テンプレ化」してない？　OpenAI実務ガイドで学ぶ“残すべきは結論より判断基準” AIの再利用は「答え」より「判断基準」を残す 2026年8月20日、OpenAI Academyはデータ分析チーム向けのChatGPT Work実務ガイドを公開しました。重要なのは、再利用するAIスキルに前回のデータや結論を残すのではなく、テンプレート、証拠確認方法、引用ルールなどのレビュー基準を残すという考え方です。前回の分析結果まで定型手順に埋め込むと、新しいデータを扱う時にも古い結論が前提として残る可能性があります。確認手順と判断基準だけを残せば、毎回最新の資料から結論を作り直せます。 仕事・AI活用 標準 AI業務自動化 ChatGPT Work AIスキル プロンプトテンプレート 定期レポート AIワークフロー 再利用 データ分析 Human in the Loop 業務設計 ChatGPTなどで定型業務を繰り返している人 AIプロンプトやワークフローをチームで共有する人 AIの回答をテンプレート・スキル・マニュアル化する人 毎週・毎月のAI定期レポートを作っている人 AIエージェントへ継続業務を任せたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">reusable-ai-review-method</span>
+              <div>
+                <p>AIの再利用は「答え」より「判断基準」を残す</p>
+                <h3>前回うまくいったAIの答えを、そのまま「テンプレ化」してない？　OpenAI実務ガイドで学ぶ“残すべきは結論より判断基準”</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-21">2026.08.21</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月20日、OpenAI Academyはデータ分析チーム向けのChatGPT Work実務ガイドを公開しました。重要なのは、再利用するAIスキルに前回のデータや結論を残すのではなく、テンプレート、証拠確認方法、引用ルールなどのレビュー基準を残すという考え方です。前回の分析結果まで定型手順に埋め込むと、新しいデータを扱う時にも古い結論が前提として残る可能性があります。確認手順と判断基準だけを残せば、毎回最新の資料から結論を作り直せます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>再利用するのは「前回の答え」ではなく「確認方法」</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTなどで定型業務を繰り返している人</li><li>AIプロンプトやワークフローをチームで共有する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI業務自動化</li><li>ChatGPT Work</li><li>AIスキル</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260821-02" data-forensics-card data-category="health-ai" data-level="5" data-difficulty="standard" data-search-text="AIが「救急へ行って」と言ったら従えば安全？　FDA最新議論が示す“受診を勧めすぎるAI”にもあるリスク AIの「救急へ」は多ければ安全、でもない 2026年8月18日、米食品医薬品局（FDA）は、生成AIを搭載した医療機器の評価方法について議論するディスカッションペーパーを公開しました。そこで扱われたのが、救急医療を受けるべきかを判断するAIのトリアージ機能です。FDAは、必要なのに受診を勧めないunder-escalationだけでなく、必要性が低い状況でも救急受診を繰り返し勧めるover-escalationもリスクになり得ると指摘しています。この文書は規制案や最終ガイダンスではなく、今後の評価方法について意見を求める議論用文書です。 健康・医療 標準 医療AI FDA 生成AI医療機器 健康相談AI トリアージ 救急受診 under-escalation over-escalation Human in the Loop AIヘルスリテラシー ChatGPTなどへ症状を相談する人 AI搭載の健康アプリや医療サービスを利用する人 家族の症状についてAIへ相談する人 AIのトリアージ機能に興味がある人 医療AIを安全に活用したい一般ユーザー">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-medical-triage-balance</span>
+              <div>
+                <p>AIの「救急へ」は多ければ安全、でもない</p>
+                <h3>AIが「救急へ行って」と言ったら従えば安全？　FDA最新議論が示す“受診を勧めすぎるAI”にもあるリスク</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-21">2026.08.21</time>
+              <span>健康・医療</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月18日、米食品医薬品局（FDA）は、生成AIを搭載した医療機器の評価方法について議論するディスカッションペーパーを公開しました。そこで扱われたのが、救急医療を受けるべきかを判断するAIのトリアージ機能です。FDAは、必要なのに受診を勧めないunder-escalationだけでなく、必要性が低い状況でも救急受診を繰り返し勧めるover-escalationもリスクになり得ると指摘しています。この文書は規制案や最終ガイダンスではなく、今後の評価方法について意見を求める議論用文書です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>AIの受診判断は「見逃し」と「勧めすぎ」の両方向を見る</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTなどへ症状を相談する人</li><li>AI搭載の健康アプリや医療サービスを利用する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>医療AI</li><li>FDA</li><li>生成AI医療機器</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260820-02" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「ゼロデータ保持」なら何も残らない？ OpenAI最新発表で学ぶ“保存しない範囲”の確認術 「保存しない」は、どこまで保存しない？ 2026年8月19日、OpenAIは、対象となるAPI顧客向けのZero Data Retention（ZDR）と両立しながら、複数のAI操作にまたがる安全上の兆候を検知する「Private Safety Processing」を発表しました。OpenAIはZDRについて、対象となるAPI利用ではリクエスト処理後にプロンプトやモデル出力を保持しない仕組みだと説明しています。一方、現在のAPIデータ管理ドキュメントを見ると、すべての機能がZDR対象ではなく、一部の機能ではアプリケーション状態が保存される場合があります。また、AIから外部のMCPサーバーなど第三者サービスへデータを送信した場合、そのデータは第三者側の保持ポリシーに従います。API Platformの監査ログも、顧客のプロンプトや回答とは別の管理メタデータとしてZDRの対象外です。つまり「ゼロデータ保持」という表示は「インターネット上のどこにも何も残らない」という意味ではありません。AIサービスのデータ保護を見る時は、「誰が」「どのデータを」「どの機能で」「どの期間保存しないのか」を確認することが重要です。 セキュリティ・権限 標準 Zero Data Retention ZDR OpenAI Private Safety Processing データ保持 プライバシー API MCP 監査ログ AIデータ管理 生成AIへ社内情報を入力する人 AIサービスのプライバシー設定を確認する人 ChatGPTやAI APIを仕事で利用する人 AIサービスの「学習しない」「保存しない」という説明を見る人 社内で生成AIの利用ルールを作る人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">zero-retention-data-flow</span>
+              <div>
+                <p>「保存しない」は、どこまで保存しない？</p>
+                <h3>「ゼロデータ保持」なら何も残らない？ OpenAI最新発表で学ぶ“保存しない範囲”の確認術</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-20">2026.08.20</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月19日、OpenAIは、対象となるAPI顧客向けのZero Data Retention（ZDR）と両立しながら、複数のAI操作にまたがる安全上の兆候を検知する「Private Safety Processing」を発表しました。OpenAIはZDRについて、対象となるAPI利用ではリクエスト処理後にプロンプトやモデル出力を保持しない仕組みだと説明しています。一方、現在のAPIデータ管理ドキュメントを見ると、すべての機能がZDR対象ではなく、一部の機能ではアプリケーション状態が保存される場合があります。また、AIから外部のMCPサーバーなど第三者サービスへデータを送信した場合、そのデータは第三者側の保持ポリシーに従います。API Platformの監査ログも、顧客のプロンプトや回答とは別の管理メタデータとしてZDRの対象外です。つまり「ゼロデータ保持」という表示は「インターネット上のどこにも何も残らない」という意味ではありません。AIサービスのデータ保護を見る時は、「誰が」「どのデータを」「どの機能で」「どの期間保存しないのか」を確認することが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>AI本体だけでなく「データの通り道」全体を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>生成AIへ社内情報を入力する人</li><li>AIサービスのプライバシー設定を確認する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Zero Data Retention</li><li>ZDR</li><li>OpenAI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260821-01">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

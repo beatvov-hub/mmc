@@ -86,26 +86,26 @@
       <section class="card-section" id="latest-cases" aria-labelledby="latest-cases-title">
         <div class="section-heading"><div><p class="section-kicker">Latest Case</p><h2 id="latest-cases-title">最新の鑑識事例</h2></div></div>
         <div class="forensics-featured-grid">
-          <a class="forensics-card is-featured tone-serious" href="case-20260821-01" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="前回うまくいったAIの答えを、そのまま「テンプレ化」してない？　OpenAI実務ガイドで学ぶ“残すべきは結論より判断基準” AIの再利用は「答え」より「判断基準」を残す 2026年8月20日、OpenAI Academyはデータ分析チーム向けのChatGPT Work実務ガイドを公開しました。重要なのは、再利用するAIスキルに前回のデータや結論を残すのではなく、テンプレート、証拠確認方法、引用ルールなどのレビュー基準を残すという考え方です。前回の分析結果まで定型手順に埋め込むと、新しいデータを扱う時にも古い結論が前提として残る可能性があります。確認手順と判断基準だけを残せば、毎回最新の資料から結論を作り直せます。 仕事・AI活用 標準 AI業務自動化 ChatGPT Work AIスキル プロンプトテンプレート 定期レポート AIワークフロー 再利用 データ分析 Human in the Loop 業務設計 ChatGPTなどで定型業務を繰り返している人 AIプロンプトやワークフローをチームで共有する人 AIの回答をテンプレート・スキル・マニュアル化する人 毎週・毎月のAI定期レポートを作っている人 AIエージェントへ継続業務を任せたい人">
+          <a class="forensics-card is-featured tone-serious" href="case-20260822-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方 AIエージェントにも「専用の鍵」を持たせる 2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。 セキュリティ・権限 標準 AIエージェント Agent Identity Google Cloud IAM 最小権限 アクセス権限 MCP Human in the Loop AIセキュリティ 権限管理 AIエージェントを仕事で使う人 生成AIにGoogle Driveや社内システムを接続する人 MCPや外部ツール連携を試している人 社内AIの権限設計を担当する人 AIにメール送信・ファイル操作・データ取得などを任せたい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">reusable-ai-review-method</span>
+              <span class="forensics-card-icon" aria-hidden="true">agent-identity-least-privilege</span>
               <div>
-                <p>AIの再利用は「答え」より「判断基準」を残す</p>
-                <h3>前回うまくいったAIの答えを、そのまま「テンプレ化」してない？　OpenAI実務ガイドで学ぶ“残すべきは結論より判断基準”</h3>
+                <p>AIエージェントにも「専用の鍵」を持たせる</p>
+                <h3>AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-21">2026.08.21</time>
-              <span>仕事・AI活用</span>
+              <time datetime="2026-08-22">2026.08.22</time>
+              <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">2026年8月20日、OpenAI Academyはデータ分析チーム向けのChatGPT Work実務ガイドを公開しました。重要なのは、再利用するAIスキルに前回のデータや結論を残すのではなく、テンプレート、証拠確認方法、引用ルールなどのレビュー基準を残すという考え方です。前回の分析結果まで定型手順に埋め込むと、新しいデータを扱う時にも古い結論が前提として残る可能性があります。確認手順と判断基準だけを残せば、毎回最新の資料から結論を作り直せます。</p>
+            <p class="forensics-card-summary">2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 4</strong>
-              <span>再利用するのは「前回の答え」ではなく「確認方法」</span>
+              <span>AIが「何をできるか」を仕事単位で確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>ChatGPTなどで定型業務を繰り返している人</li><li>AIプロンプトやワークフローをチームで共有する人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AI業務自動化</li><li>ChatGPT Work</li><li>AIスキル</li></ul>
+            <ul class="forensics-card-audience"><li>AIエージェントを仕事で使う人</li><li>生成AIにGoogle Driveや社内システムを接続する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>Agent Identity</li><li>Google Cloud</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
         </div>
@@ -138,6 +138,28 @@
         <p class="forensics-results-status" data-forensics-results aria-live="polite"></p>
         <p class="forensics-empty-message" data-forensics-empty hidden>該当する事例は、現在準備中です。別の条件でも探してみてください。</p>
         <div class="forensics-card-grid">
+          <a class="forensics-card tone-serious" href="case-20260822-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方 AIエージェントにも「専用の鍵」を持たせる 2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。 セキュリティ・権限 標準 AIエージェント Agent Identity Google Cloud IAM 最小権限 アクセス権限 MCP Human in the Loop AIセキュリティ 権限管理 AIエージェントを仕事で使う人 生成AIにGoogle Driveや社内システムを接続する人 MCPや外部ツール連携を試している人 社内AIの権限設計を担当する人 AIにメール送信・ファイル操作・データ取得などを任せたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">agent-identity-least-privilege</span>
+              <div>
+                <p>AIエージェントにも「専用の鍵」を持たせる</p>
+                <h3>AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-22">2026.08.22</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AIが「何をできるか」を仕事単位で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIエージェントを仕事で使う人</li><li>生成AIにGoogle Driveや社内システムを接続する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>Agent Identity</li><li>Google Cloud</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
           <a class="forensics-card tone-serious" href="case-20260821-01" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="前回うまくいったAIの答えを、そのまま「テンプレ化」してない？　OpenAI実務ガイドで学ぶ“残すべきは結論より判断基準” AIの再利用は「答え」より「判断基準」を残す 2026年8月20日、OpenAI Academyはデータ分析チーム向けのChatGPT Work実務ガイドを公開しました。重要なのは、再利用するAIスキルに前回のデータや結論を残すのではなく、テンプレート、証拠確認方法、引用ルールなどのレビュー基準を残すという考え方です。前回の分析結果まで定型手順に埋め込むと、新しいデータを扱う時にも古い結論が前提として残る可能性があります。確認手順と判断基準だけを残せば、毎回最新の資料から結論を作り直せます。 仕事・AI活用 標準 AI業務自動化 ChatGPT Work AIスキル プロンプトテンプレート 定期レポート AIワークフロー 再利用 データ分析 Human in the Loop 業務設計 ChatGPTなどで定型業務を繰り返している人 AIプロンプトやワークフローをチームで共有する人 AIの回答をテンプレート・スキル・マニュアル化する人 毎週・毎月のAI定期レポートを作っている人 AIエージェントへ継続業務を任せたい人">
             <div class="forensics-card-head">
               <span class="forensics-card-icon" aria-hidden="true">reusable-ai-review-method</span>
