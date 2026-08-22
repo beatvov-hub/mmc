@@ -1,0 +1,80 @@
+{
+  "id": "case-20260822-02",
+  "publishedAt": "2026-08-22",
+  "title": "AIに作った成果物を置きっぱなしにしてない？ Microsoft Copilotの機能終了で学ぶ“AIサービスを保管庫にしない”仕事術",
+  "shortTitle": "AIの中にある＝ずっと残る、ではない",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": ["ChatGPT・Copilot・Claude・Geminiなどで仕事の成果物を作る人", "AIの調査レポートや音声コンテンツを保存している人", "AIサービスの新機能を業務へ取り入れる人", "AIを使った定期業務やワークフローを運用する人", "社内でAI活用ルールを作る人"],
+  "summary": "2026年8月18日から、Microsoftは個人向けCopilotの更新に伴い、Deep ResearchやPodcastsなど一部機能を終了しました。重要なのは、機能ごとに過去の成果物の扱いが異なることです。Microsoftの公式案内では、Deep Researchで保存した既存レポートはMicrosoft 365 Premium利用者ならResearcherから、Personal・Family利用者ならチャット履歴から引き続きアクセスでき、Wordへ保存することもできます。一方、Podcastsは8月18日の終了後、過去に作成したポッドキャストもCopilot上からアクセスできなくなり、共有リンクも利用できなくなると案内されています。AIサービスは制作場所として便利ですが、サービス内に置かれた成果物が永久保存されるとは限りません。重要な成果物は、AIサービスとは別の自分たちが管理できる場所へ保存しておくことが実務上重要です。",
+  "scenario": {
+    "headline": "AIで作った重要な調査資料や音声を「履歴にあるから大丈夫」と、そのサービス内だけに保存していた",
+    "description": "毎週AIで調査レポートを作り、過去の成果物もすべてAIサービスの履歴や専用ライブラリから開いていました。しかしある日、利用していた機能の終了が発表されます。Microsoft Copilotでは2026年8月18日から複数機能が終了し、Deep Researchの既存レポートは引き続きアクセスできる一方、Podcastsでは以前作成した音声も終了後はアクセスできなくなりました。同じサービス内でも、機能によって移行・保存方針が異なります。",
+    "whyItMatters": "生成AIサービスは更新が速く、新しい機能が追加される一方、統合、名称変更、提供プラン変更、終了が起きることもあります。問題なのは機能が変わること自体ではなく、「その機能がなくなった時に、自分の仕事まで止まる状態」になっていることです。重要な成果物や業務手順をAIサービス内部だけに置かず、自分たちが管理できるファイルや文書へ残しておけば、AIサービスが変わっても仕事を続けやすくなります。"
+  },
+  "question": {
+    "text": "AIサービスで作った重要なレポートを今後も業務で使いたい場合、最も適切な管理方法は？",
+    "choices": [
+      {"id": "leave-in-ai", "label": "AIの履歴に残っているので、そのままサービス内だけで保管する", "description": "必要になった時はAIサービスから開けばよいと考える。"},
+      {"id": "export-important", "label": "重要な成果物は、自分たちが管理できるファイルや保管場所にも保存する", "description": "AIサービスを制作場所として使いつつ、成果物の正本を別に持つ。"},
+      {"id": "avoid-ai-features", "label": "機能終了の可能性があるので新しいAI機能は使わない", "description": "サービス変更を避けるためAI活用自体を控える。"},
+      {"id": "screenshot-only", "label": "念のため画面のスクリーンショットだけ残す", "description": "元データや編集可能な成果物は保存しない。"}
+    ],
+    "recommendedAnswers": ["export-important"],
+    "explanation": "Microsoftの今回のCopilot更新では、Deep ResearchとPodcastsで既存成果物の扱いが異なります。サービス内の履歴やライブラリは便利ですが、将来も同じ形でアクセスできる保証とは別です。重要な成果物はWord、PDF、Markdown、音声ファイルなど用途に合った形式で、自分や組織が管理できる保存先にも残しておくと、機能変更やサービス移行へ対応しやすくなります。"
+  },
+  "inspectionPoints": [
+    {"title": "AIサービス内だけに重要成果物を置いていないか", "description": "チャット履歴や専用ライブラリは便利ですが、その機能自体が終了・変更された場合のアクセス方法はサービス側の方針に依存します。", "priority": "high"},
+    {"title": "機能終了後に既存データがどうなるか確認したか", "description": "今回のMicrosoft Copilotでは、Deep Researchの既存レポートとPodcastsの既存音声で終了後の扱いが異なります。機能終了の案内では、新規作成可否だけでなく過去データの扱いも確認します。", "priority": "high"},
+    {"title": "エクスポート方法を確認しているか", "description": "Deep Researchでは既存レポートをWordへ保存でき、Podcastsでは終了前に個別の音声をダウンロードする方法が案内されていました。重要な成果物は利用可能な形式で保存します。", "priority": "high"},
+    {"title": "成果物とAIの作業履歴を分けて考えているか", "description": "最終レポートや完成音声は保存できても、AIとの途中のやり取りや生成過程まで同じ形で移行できるとは限りません。何を将来残したいのかを決めます。", "priority": "high"},
+    {"title": "AI機能そのものが業務手順になっていないか", "description": "「このボタンを押せば仕事が終わる」という運用だけを覚えると、機能名やUIが変わった時に業務が止まりやすくなります。目的と手順を別に残します。", "priority": "high"},
+    {"title": "代替手段があるか確認したか", "description": "MicrosoftはDeep Research終了後の代替として、対象となるMicrosoft 365 Premium利用者向けにResearcherを案内しています。終了＝同じ仕事ができなくなる、とは限りません。", "priority": "medium"},
+    {"title": "共有リンクを長期保存先として扱っていないか", "description": "Podcastsでは機能終了後、以前発行した共有リンクも利用できなくなると案内されています。URLが存在することと、永続的にアクセスできることは別です。", "priority": "high"},
+    {"title": "AIサービスの変更を悪いことだと決めつけていないか", "description": "サービス側が機能を統合・変更することで、新しい使い方や改善された機能へ移行できる場合もあります。必要なのは変更を止めることではなく、仕事を特定機能へ依存させすぎないことです。", "priority": "medium"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "重要成果物は「AIの外」にも正本を持つ",
+  "verificationMessage": "AIサービスで作った成果物が業務上重要なら、そのサービス内の履歴だけに依存せず、自分や組織が管理できる保存先にも残してください。機能変更時は「新規作成できるか」だけでなく、「過去データ」「共有リンク」「エクスポート」「代替機能」まで確認します。",
+  "verdict": {
+    "label": "AIサービスは優秀な作業場。でも長期保管庫として使うかは別に考える",
+    "description": "Microsoft Copilotの2026年8月の更新では、Deep ResearchやPodcastsなど複数の機能が終了しました。ただし過去の成果物の扱いは一律ではありません。Deep Researchの既存レポートは引き続きアクセス可能で、Wordへの保存もできます。一方、Podcastsは終了後に過去コンテンツへアクセスできなくなります。ここから学べるのは「AIサービスは信用できない」ではなく、「制作サービスと保管場所を分ける」という実務設計です。AIは便利な作業環境として積極的に使いながら、重要な成果物、業務ルール、判断基準は自分たちが管理できる場所へ残しておく。その形ならAIサービスが進化しても、次のサービスや機能へ移りやすくなります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "重要なAI成果物は完成時に別ファイルへ保存する", "reason": "AIサービスのUIや機能が変更されても、成果物自体を利用し続けられます。"},
+    {"action": "業務で使うAI機能は、代替手段を一つ把握しておく", "reason": "特定機能が終了しても、同じ目的を別の方法で達成しやすくなります。"},
+    {"action": "AIで定期作業を始める時にエクスポート方法を確認する", "reason": "大量の成果物が蓄積してから保存方法を調べるより、最初から運用へ組み込みやすくなります。"},
+    {"action": "成果物の正本をどこに置くか決める", "reason": "AIチャット、メール、クラウドストレージなど複数の場所へ同じ情報が散らばることを防げます。"},
+    {"action": "AIの機能名ではなく、業務目的を手順書に残す", "reason": "「Deep Researchを使う」ではなく「複数情報源から調査レポートを作る」と記録しておけば、別機能へ置き換えやすくなります。"},
+    {"action": "サービス変更のお知らせではデータ移行部分まで読む", "reason": "機能の終了日だけでなく、既存コンテンツの保持、移行先、ダウンロード期限など重要な情報が含まれる場合があります。"},
+    {"action": "AIに移行チェックリストを作らせる", "reason": "保存すべき成果物、依存している機能、代替方法、移行後の確認項目を整理する補助としてAIを活用できます。"}
+  ],
+  "avoidActions": [
+    {"action": "AIサービスの履歴を永久保存領域だと考える", "reason": "サービスや機能の変更によって、アクセス方法や保持方針が変わる可能性があります。"},
+    {"action": "共有URLだけを成果物として保存する", "reason": "リンク先の機能が終了すれば、URL自体が残っていてもコンテンツへアクセスできない場合があります。"},
+    {"action": "機能終了と聞いて、AIで作った成果物がすべて消えると判断する", "reason": "今回のDeep Researchのように、既存コンテンツが別の場所から引き続き利用できる場合もあります。公式案内で確認します。"},
+    {"action": "機能が終了する可能性を理由に新機能を一切試さない", "reason": "新しいAI機能には大きな業務改善効果がある場合があります。成果物の保存と代替手段を準備すれば、積極的に試せます。"},
+    {"action": "スクリーンショットだけで重要資料を保存する", "reason": "検索、編集、再利用、データ抽出が難しくなるため、可能なら元の文書やファイル形式でも保存します。"},
+    {"action": "一つのAI機能が終了したので、そのAIサービス全体が終了すると考える", "reason": "MicrosoftはCopilot自体を終了するのではなく、更新されたCopilotへ機能を整理・統合しています。機能単位とサービス全体を分けて確認します。"}
+  ],
+  "positiveUse": {
+    "title": "AIを乗り換えられる仕事にしておく",
+    "description": "生成AIの進化が速い時代では、「ずっと同じAIを使えること」を前提にするより、「必要なら別のAIや機能へ移れること」を前提にした方が実務では強くなります。成果物を一般的なファイル形式で残し、プロンプトや判断基準を文書化し、利用しているAI機能と業務目的を分けて管理すれば、新しいAIが登場した時にも移行しやすくなります。AIサービスが変わることをリスクだけでなく、より良い道具へ乗り換えられる余地として扱えます。",
+    "examples": ["AIの調査レポートをWordやPDFでも保存する", "重要な文章をMarkdownやテキストとして保管する", "AIで生成した画像・音声は完成時にローカルやクラウドへ保存する", "定期業務のプロンプトと判断基準をAIチャットとは別に管理する", "「このAI機能で何をしているか」を一文で記録する", "半年に一度、現在のAI機能と代替サービスを確認する"]
+  },
+  "makotoComment": "AIサービスって、便利になるスピードがかなり速いですよね。その反対側で、機能が統合されたり終わったりするスピードも速くなっています。今回のCopilotを見ると分かりやすくて、Deep Researchのレポートは残る。でもPodcastsは終了後に過去の音声へアクセスできなくなる。同じサービスでも扱いが違います。だから私は、「AIの中にあるから保存済み」とは考えない方がいいと思っています。AIは仕事場として使う。完成した重要なものは、自分の棚にも置く。これだけです。AIを怖がって使わない必要はありません。むしろ乗り換えられる形にしておけば、新しいAIが出た時にも気軽に試せます。",
+  "oneLineLesson": "AIは作業場として使い、重要な成果物の正本は自分たちが管理できる場所にも残す。",
+  "tags": ["Microsoft Copilot", "Deep Research", "Podcasts", "AIサービス終了", "データ移行", "AI成果物", "業務継続", "AIワークフロー", "データポータビリティ", "AI乗り換え"],
+  "sources": [
+    {"title": "Updates to Copilot and the Microsoft Copilot app", "publisher": "Microsoft Support", "sourceType": "official", "publishedAt": null, "url": "https://support.microsoft.com/ja-jp/microsoft-365-copilot/learning/changes-microsoft-copilot-app"},
+    {"title": "Deep Research in Microsoft Copilot", "publisher": "Microsoft Support", "sourceType": "official", "publishedAt": null, "url": "https://support.microsoft.com/en-us/microsoft-copilot/deep-research-in-microsoft-copilot"},
+    {"title": "Podcasts in Microsoft Copilot", "publisher": "Microsoft Support", "sourceType": "official", "publishedAt": null, "url": "https://support.microsoft.com/en-us/microsoft-copilot/podcasts-in-microsoft-copilot"},
+    {"title": "Frequently asked questions about retiring Copilot features", "publisher": "Microsoft Support", "sourceType": "official", "publishedAt": null, "url": "https://support.microsoft.com/ja-jp/microsoft-365-copilot/frequently-asked-questions-about-retired-copilot-features"}
+  ],
+  "visualSuggestion": {
+    "mainVisual": "左側にAIサービスの画面があり、「Deep Research」「Podcasts」などの機能カードが並び、そのうち一つに「RETIRED」の表示が出ている。サービス内部だけにレポート・音声・画像を積み上げていた利用者が少し困っている。中央では鑑識担当者が「AI SERVICE＝作業場」「MY STORAGE＝保管庫」と書かれた2つの箱を分ける。右側では完成したレポートがWord・PDF・Markdown、音声がAudio Fileとして自分のクラウドストレージへ保存され、別のAIサービスへ矢印で移動できる構図。下部に「機能は変わる。成果物は持ち運べるようにする」「CREATE HERE → KEEP YOUR COPY」と表示する。サービス終了を怖く描かず、AIを安心して乗り換えながら使える仕事術として表現するAI鑑識室風の明るい図解。",
+    "cardIcon": "ai-work-portable-output",
+    "accentTone": "calm"
+  }
+}
