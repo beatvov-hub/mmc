@@ -1,0 +1,68 @@
+{
+  "id": "case-20260823-01",
+  "publishedAt": "2026-08-23",
+  "title": "同じ商品なのに、私だけ高い？　FTC最新方針案で学ぶ“価格差＝AIによる個別価格”と決めつけない見方",
+  "shortTitle": "価格が違う＝AIに狙われた、とは限らない",
+  "category": "media-literacy",
+  "difficulty": "beginner",
+  "targetAudience": ["ネット通販や予約サイトを利用する人", "AIやアルゴリズムによる価格設定が気になる人", "家族や友人と表示価格が違った経験がある人", "SNSで「人によって価格が違う」という投稿を見る人", "EC・アプリ・オンラインサービスを利用する一般消費者"],
+  "summary": "2026年8月19日、米連邦取引委員会（FTC）は「personalized pricing（個別化された価格設定）」に関する執行方針案を公表し、意見募集を開始しました。FTCがここでいうpersonalized pricingとは、消費者の個人データを分析し、「この人はいくらまでなら払うか」「比較購入しそうか」といった推定をもとに個別の価格を設定することです。一方、FTC自身も、現在どの程度まで個別価格が実際に使われているのか、その消費者への影響は十分に分かっていないと明記しています。需要と供給、地域、税金、会員割引などによる価格差と、個人データをもとにしたpersonalized pricingは別の仕組みです。友人と価格が違った、シークレットモードで値段が変わった、といった一つの現象だけから「AIが私の購買履歴を見て値上げした」と断定することはできません。",
+  "scenario": {
+    "headline": "友人と同じ通販ページを開いたら、自分の方が500円高かった。「AIが私なら高くても買うと判断したんだ」とSNSへ投稿しようと思った",
+    "description": "表示された価格が違うのは事実です。ただし、その原因はまだ分かっていません。ログイン状態、会員ランク、クーポン、地域、配送条件、時間帯、在庫、通貨、税、販売チャネルなどでも価格は変わることがあります。FTCが2026年8月19日に示した方針案では、個人データから支払意思額などを推定して価格を変えるpersonalized pricingについて透明性を求めていますが、同時に、その実際の利用範囲や影響はまだ十分に把握されていないとしています。",
+    "whyItMatters": "AIやアルゴリズムへの関心が高まると、価格差を見つけた時に「AIが自分を分析して値上げした」と説明したくなります。しかし、確認できているのは価格が違ったことだけで、その原因まで同時に確認できたわけではありません。原因を早くAIへ結びつけると、通常の会員価格や地域差、追加料金、販売条件の違いを見落とす可能性があります。一方で、個人データを使った価格設定について透明性を確認すること自体は重要です。"
+  },
+  "question": {
+    "text": "同じ商品を見ている友人と自分で表示価格が違いました。最も適切な確認方法は？",
+    "choices": [
+      {"id": "assume-ai-personalization", "label": "AIが自分の購買履歴から高い価格を設定したと判断する", "description": "価格差が確認できた時点で、原因を個人データ分析だと決める。"},
+      {"id": "compare-conditions", "label": "ログイン状態・地域・会員条件・手数料などをそろえて再確認する", "description": "価格以外の条件をそろえ、どの要因で差が出ているか確認する。"},
+      {"id": "ignore-difference", "label": "ネット価格は変わるものなので確認しない", "description": "価格差の原因や利用条件をまったく確認しない。"},
+      {"id": "ask-ai-cause", "label": "AIへスクリーンショットを見せて、価格差の原因を断定してもらう", "description": "サイト内部の価格決定ロジックを確認できないAIへ原因判定を任せる。"}
+    ],
+    "recommendedAnswers": ["compare-conditions"],
+    "explanation": "FTCの方針案は、個人データに基づくpersonalized pricingが存在し得ることと、その場合の情報開示の重要性を論じています。しかしFTC自身も、現在の利用範囲や影響は十分に分かっていないとしています。一つの価格差だけでは、個人データを使った価格設定なのか、需要・地域・会員条件など別の理由なのか判断できません。条件を一つずつそろえて確認するのが適切です。"
+  },
+  "inspectionPoints": [
+    {"title": "価格差という事実と、その原因を分けているか", "description": "「価格が違った」は観察できますが、「個人データを使って値上げされた」は追加確認が必要な推測です。", "priority": "high"},
+    {"title": "dynamic pricingとpersonalized pricingを混同していないか", "description": "需要、供給、時間帯、地域など市場条件によって価格が変わることと、個人ごとのデータを使って価格を変えることは別です。", "priority": "high"},
+    {"title": "ログイン・会員条件をそろえたか", "description": "会員価格、初回購入割引、ポイント、クーポン、過去購入特典などによって表示価格が異なる場合があります。", "priority": "high"},
+    {"title": "地域・税・配送条件を確認したか", "description": "住所、国、通貨、税、配送方法などが違えば、同じ商品ページでも最終的な価格が変わる場合があります。", "priority": "high"},
+    {"title": "商品価格と総支払額を分けているか", "description": "本体価格が同じでも、手数料、送料、サービス料などが違えば総額は変わります。比較する段階をそろえます。", "priority": "high"},
+    {"title": "プライベートブラウズで変わっただけで原因を断定していないか", "description": "表示が変わることは調査の手掛かりになりますが、Cookie、ログイン状態、セッション、ABテストなど複数の要因が変化するため、それだけでpersonalized pricingの証明にはなりません。", "priority": "high"},
+    {"title": "FTCの方針案を「個別価格が広く使われている証拠」と読んでいないか", "description": "FTCは2026年8月の方針案で、personalized pricingの利用範囲や消費者への影響は十分に理解されていないと明記しています。", "priority": "high"},
+    {"title": "価格の根拠に関する表示を確認したか", "description": "FTCの方針案では、個人データを使った価格設定を行う場合、個別化されている事実、根拠、使用するデータの種類を明確に開示することが重要だとしています。", "priority": "medium"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "価格差→条件差→原因の順に確認",
+  "verificationMessage": "価格が人によって違って見えた時は、まずログイン状態、地域、会員条件、配送、手数料、時間などの条件をそろえてください。それでも差が残る場合に、価格の個別化に関する表示やプライバシーポリシーなどを確認します。「価格差がある」と「AIが個人データで値上げした」は別の確認です。",
+  "verdict": {"label": "個別価格は確認すべきテーマ。ただし「値段が違う＝AIがあなたを値踏みした」ではない", "description": "FTCは2026年8月19日、個人データを利用して消費者ごとの支払意思額などを推定するpersonalized pricingについて、適切に開示されない場合は消費者を誤解させる可能性があるとの方針案を示しました。一方で、価格が変動する仕組みはほかにも多数あり、FTCもpersonalized pricingの現在の利用範囲や影響は十分に分かっていないとしています。AIやデータ分析による価格設定を過小評価する必要も、すべての価格差をそこへ結びつける必要もありません。まず観察できた事実を残し、条件をそろえ、それから原因を確認する。この順番が情報の見極めでは重要です。", "confidence": "high"},
+  "safeActions": [
+    {"action": "価格が違った場合はスクリーンショットと確認時刻を残す", "reason": "後から条件や価格変化を比較しやすくなります。"},
+    {"action": "ログイン状態・会員ランク・クーポンをそろえて比較する", "reason": "個人データによる価格設定以外の原因を切り分けられます。"},
+    {"action": "送料・手数料・税を含む最終支払額も比較する", "reason": "商品価格以外の差をpersonalized pricingと誤認することを防げます。"},
+    {"action": "価格の個別化に関する説明やプライバシーポリシーを確認する", "reason": "企業がどのデータをどの目的で利用すると説明しているか確認できます。"},
+    {"action": "条件を変える場合は一つずつ変える", "reason": "ログアウト、地域変更、プライベートブラウズなどを同時に行うと、何が価格差へ影響したのか分かりにくくなります。"},
+    {"action": "AIには価格比較表の整理を手伝わせる", "reason": "日時、ログイン状態、地域、価格、手数料などを表へ整理させることで、人間が原因を確認しやすくなります。"},
+    {"action": "不明な価格設定については事業者へ問い合わせる", "reason": "外部から推測するより、価格条件やデータ利用について公式な説明を確認できます。"}
+  ],
+  "avoidActions": [
+    {"action": "価格が違っただけで「AIによるぼったくり」とSNSへ断定投稿する", "reason": "価格差の原因が確認されていない段階では、事実と推測が混ざります。"},
+    {"action": "プライベートブラウズで安くなったので、閲覧履歴が原因だったと断定する", "reason": "ブラウザ状態を変えると複数の条件が同時に変化するため、因果関係を特定できません。"},
+    {"action": "価格差はすべて需要と供給によるものだと決める", "reason": "FTCは個人データを使ったpersonalized pricingの可能性について実際に調査・政策検討を行っています。"},
+    {"action": "AIへ「なぜこの価格？」と聞き、その説明をサイト内部の事実として扱う", "reason": "一般的な生成AIは、その企業の非公開価格決定システムを直接確認できない場合があります。"},
+    {"action": "価格を調べるために必要以上の個人情報をAIへ渡す", "reason": "購買履歴や住所などを共有しなくても、価格比較条件を匿名化して整理できる場合があります。"},
+    {"action": "personalized pricingはすべて違法だと考える", "reason": "FTCの2026年8月方針案は、すべてのpersonalized pricingを禁止するものではなく、主に不十分な開示や不公正・欺瞞的な運用への執行方針を示す提案です。"}
+  ],
+  "positiveUse": {"title": "AIを「価格の陰謀を推理する役」ではなく「比較条件をそろえる助手」にする", "description": "価格差を調べる時、生成AIは原因を断定するより、比較実験を整理する用途に向いています。例えば「日時、端末、ログイン状態、会員条件、地域、商品価格、送料、手数料、総額」という確認表を作らせ、複数回の結果を整理できます。条件を一つずつ変えれば、どの要因と価格変化が一緒に動いたか確認しやすくなります。ただし、それでも企業内部の価格ロジックまでは分からない場合があります。AIには観察を整理してもらい、原因の最終判断は公式説明や追加証拠で確認する使い方が適しています。", "examples": ["複数回の価格確認結果を表へ整理する", "比較時にそろえる条件のチェックリストを作らせる", "商品価格と手数料・送料を分離して比較する", "利用規約やプライバシーポリシーから価格個別化に関係する記述を探す補助に使う", "SNS投稿前に「確認済み事実」と「推測」を分けてもらう", "家族や友人との価格差を匿名化して比較条件だけ整理する"]},
+  "makotoComment": "同じ商品なのに自分だけ高い。これ、見つけたらかなり気になりますよね。そして今は「AIが自分なら高くても買うと判断したのでは」と考えるのも自然です。実際、FTCも個人データを使った価格設定について政策検討を進めています。ただ、ここで一つだけ止めたいのは、価格差を見つけた瞬間に原因まで決めることです。FTC自身も、現在どこまでpersonalized pricingが使われているのかは十分に分かっていないとしています。まず価格が違うという事実を確認する。次に条件をそろえる。それでも違えば、企業の説明やデータ利用方針を見る。AI時代でも、こういう地味な切り分けが一番強いです。",
+  "oneLineLesson": "「値段が違う」は事実でも、「AIがあなたを値踏みした」はまだ推測かもしれない。",
+  "tags": ["personalized pricing", "個別価格", "surveillance pricing", "アルゴリズム価格", "FTC", "個人データ", "EC", "オンラインショッピング", "価格比較", "情報リテラシー"],
+  "sources": [
+    {"title": "FTC Seeks Comment on Enforcement Policy Statement Regarding Personalized Pricing", "publisher": "Federal Trade Commission", "sourceType": "government", "publishedAt": "2026-08-19", "url": "https://www.ftc.gov/news-events/news/press-releases/2026/08/ftc-seeks-comment-enforcement-policy-statement-regarding-personalized-pricing"},
+    {"title": "Federal Trade Commission’s Proposed Enforcement Policy Statement Regarding Personalized Pricing", "publisher": "Federal Trade Commission", "sourceType": "government", "publishedAt": "2026-08-19", "url": "https://www.ftc.gov/system/files/ftc_gov/pdf/p034101-ftc-enforcement-policy-statement-re-personalized-pricing-proposed-for-public-comment.pdf"},
+    {"title": "FTC Surveillance Pricing Study Indicates Wide Range of Personal Data Used to Set Individualized Consumer Prices", "publisher": "Federal Trade Commission", "sourceType": "government", "publishedAt": "2025-01-17", "url": "https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-surveillance-pricing-study-indicates-wide-range-personal-data-used-set-individualized-consumer"},
+    {"title": "Surveillance Pricing", "publisher": "Federal Trade Commission", "sourceType": "government", "publishedAt": null, "url": "https://www.ftc.gov/news-events/features/surveillance-pricing"}
+  ],
+  "visualSuggestion": {"mainVisual": "中央に同じEC商品ページを見ている2台のスマートフォンを並べ、一方は「4,980円」、もう一方は「5,480円」と表示する。左側では利用者が「AIに値踏みされた？」と考えているが、その吹き出しには『まだ推測』タグを付ける。右側では鑑識担当者が「ログイン」「会員条件」「地域」「時間」「送料・手数料」「個人データ利用」の6枚の確認カードを順番に並べている。中央下に「PRICE DIFFERENCE＝確認済み」「WHY＝要検証」と分離し、「価格差と原因を一緒に決めない」と表示する。AIやアルゴリズムを黒幕として怖く描かず、比較条件を整理すれば冷静に確認できるというAI鑑識室風の明るい情報リテラシー図解。", "cardIcon": "personalized-price-condition-check", "accentTone": "calm"}
+}

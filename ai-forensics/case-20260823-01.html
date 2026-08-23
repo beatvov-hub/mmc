@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>同じ商品なのに、私だけ高い？　FTC最新方針案で学ぶ“価格差＝AIによる個別価格”と決めつけない見方｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="2026年8月19日、米連邦取引委員会（FTC）は「personalized pricing（個別化された価格設定）」に関する執行方針案を公表し、意見募集を開始しました。FTCがここでいうpersonalized pricingとは、消費者の個人データを分析し、「この人はいくらまでなら払うか」「比較購入しそうか」といった推定をもとに個別の価格を設定することです。一方、FTC自身も、現在どの程度まで個別価格が実際に使われているのか、その消費者への影響は十分に分かっていないと明記しています。需要と供給、地域、税金、会員割引などによる価格差と、個人データをもとにしたpersonalized pricingは別の仕組みです。友人と価格が違った、シークレットモードで値段が変わった、といった一つの現象だけから「AIが私の購買履歴を見て値上げした」と断定することはできません。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260823-01" />
+<meta property="og:title" content="同じ商品なのに、私だけ高い？　FTC最新方針案で学ぶ“価格差＝AIによる個別価格”と決めつけない見方｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="2026年8月19日、米連邦取引委員会（FTC）は「personalized pricing（個別化された価格設定）」に関する執行方針案を公表し、意見募集を開始しました。FTCがここでいうpersonalized pricingとは、消費者の個人データを分析し、「この人はいくらまでなら払うか」「比較購入しそうか」といった推定をもとに個別の価格を設定することです。一方、FTC自身も、現在どの程度まで個別価格が実際に使われているのか、その消費者への影響は十分に分かっていないと明記しています。需要と供給、地域、税金、会員割引などによる価格差と、個人データをもとにしたpersonalized pricingは別の仕組みです。友人と価格が違った、シークレットモードで値段が変わった、といった一つの現象だけから「AIが私の購買履歴を見て値上げした」と断定することはできません。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260823-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>価格が違う＝AIに狙われた、とは限らない</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-23">2026.08.23</time>
+            </div>
+            <h1>同じ商品なのに、私だけ高い？　FTC最新方針案で学ぶ“価格差＝AIによる個別価格”と決めつけない見方</h1>
+            <p>2026年8月19日、米連邦取引委員会（FTC）は「personalized pricing（個別化された価格設定）」に関する執行方針案を公表し、意見募集を開始しました。FTCがここでいうpersonalized pricingとは、消費者の個人データを分析し、「この人はいくらまでなら払うか」「比較購入しそうか」といった推定をもとに個別の価格を設定することです。一方、FTC自身も、現在どの程度まで個別価格が実際に使われているのか、その消費者への影響は十分に分かっていないと明記しています。需要と供給、地域、税金、会員割引などによる価格差と、個人データをもとにしたpersonalized pricingは別の仕組みです。友人と価格が違った、シークレットモードで値段が変わった、といった一つの現象だけから「AIが私の購買履歴を見て値上げした」と断定することはできません。</p>
+            <ul class="forensics-target-list"><li>ネット通販や予約サイトを利用する人</li><li>AIやアルゴリズムによる価格設定が気になる人</li><li>家族や友人と表示価格が違った経験がある人</li><li>SNSで「人によって価格が違う」という投稿を見る人</li><li>EC・アプリ・オンラインサービスを利用する一般消費者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>personalized pricing</li><li>個別価格</li><li>surveillance pricing</li><li>アルゴリズム価格</li><li>FTC</li><li>個人データ</li><li>EC</li><li>オンラインショッピング</li><li>価格比較</li><li>情報リテラシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>価格差→条件差→原因の順に確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>価格が人によって違って見えた時は、まずログイン状態、地域、会員条件、配送、手数料、時間などの条件をそろえてください。それでも差が残る場合に、価格の個別化に関する表示やプライバシーポリシーなどを確認します。「価格差がある」と「AIが個人データで値上げした」は別の確認です。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>友人と同じ通販ページを開いたら、自分の方が500円高かった。「AIが私なら高くても買うと判断したんだ」とSNSへ投稿しようと思った</h3><p>表示された価格が違うのは事実です。ただし、その原因はまだ分かっていません。ログイン状態、会員ランク、クーポン、地域、配送条件、時間帯、在庫、通貨、税、販売チャネルなどでも価格は変わることがあります。FTCが2026年8月19日に示した方針案では、個人データから支払意思額などを推定して価格を変えるpersonalized pricingについて透明性を求めていますが、同時に、その実際の利用範囲や影響はまだ十分に把握されていないとしています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIやアルゴリズムへの関心が高まると、価格差を見つけた時に「AIが自分を分析して値上げした」と説明したくなります。しかし、確認できているのは価格が違ったことだけで、その原因まで同時に確認できたわけではありません。原因を早くAIへ結びつけると、通常の会員価格や地域差、追加料金、販売条件の違いを見落とす可能性があります。一方で、個人データを使った価格設定について透明性を確認すること自体は重要です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="compare-conditions">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>同じ商品を見ている友人と自分で表示価格が違いました。最も適切な確認方法は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-ai-personalization" data-choice-id="assume-ai-personalization" />
+                <span>
+                  <strong>AIが自分の購買履歴から高い価格を設定したと判断する</strong>
+                  <small>価格差が確認できた時点で、原因を個人データ分析だと決める。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="compare-conditions" data-choice-id="compare-conditions" />
+                <span>
+                  <strong>ログイン状態・地域・会員条件・手数料などをそろえて再確認する</strong>
+                  <small>価格以外の条件をそろえ、どの要因で差が出ているか確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ignore-difference" data-choice-id="ignore-difference" />
+                <span>
+                  <strong>ネット価格は変わるものなので確認しない</strong>
+                  <small>価格差の原因や利用条件をまったく確認しない。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ask-ai-cause" data-choice-id="ask-ai-cause" />
+                <span>
+                  <strong>AIへスクリーンショットを見せて、価格差の原因を断定してもらう</strong>
+                  <small>サイト内部の価格決定ロジックを確認できないAIへ原因判定を任せる。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>ログイン状態・地域・会員条件・手数料などをそろえて再確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>FTCの方針案は、個人データに基づくpersonalized pricingが存在し得ることと、その場合の情報開示の重要性を論じています。しかしFTC自身も、現在の利用範囲や影響は十分に分かっていないとしています。一つの価格差だけでは、個人データを使った価格設定なのか、需要・地域・会員条件など別の理由なのか判断できません。条件を一つずつそろえて確認するのが適切です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>価格差という事実と、その原因を分けているか</h3>
+              <p>「価格が違った」は観察できますが、「個人データを使って値上げされた」は追加確認が必要な推測です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>dynamic pricingとpersonalized pricingを混同していないか</h3>
+              <p>需要、供給、時間帯、地域など市場条件によって価格が変わることと、個人ごとのデータを使って価格を変えることは別です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ログイン・会員条件をそろえたか</h3>
+              <p>会員価格、初回購入割引、ポイント、クーポン、過去購入特典などによって表示価格が異なる場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>地域・税・配送条件を確認したか</h3>
+              <p>住所、国、通貨、税、配送方法などが違えば、同じ商品ページでも最終的な価格が変わる場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>商品価格と総支払額を分けているか</h3>
+              <p>本体価格が同じでも、手数料、送料、サービス料などが違えば総額は変わります。比較する段階をそろえます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>プライベートブラウズで変わっただけで原因を断定していないか</h3>
+              <p>表示が変わることは調査の手掛かりになりますが、Cookie、ログイン状態、セッション、ABテストなど複数の要因が変化するため、それだけでpersonalized pricingの証明にはなりません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>FTCの方針案を「個別価格が広く使われている証拠」と読んでいないか</h3>
+              <p>FTCは2026年8月の方針案で、personalized pricingの利用範囲や消費者への影響は十分に理解されていないと明記しています。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>価格の根拠に関する表示を確認したか</h3>
+              <p>FTCの方針案では、個人データを使った価格設定を行う場合、個別化されている事実、根拠、使用するデータの種類を明確に開示することが重要だとしています。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>個別価格は確認すべきテーマ。ただし「値段が違う＝AIがあなたを値踏みした」ではない</strong><p>FTCは2026年8月19日、個人データを利用して消費者ごとの支払意思額などを推定するpersonalized pricingについて、適切に開示されない場合は消費者を誤解させる可能性があるとの方針案を示しました。一方で、価格が変動する仕組みはほかにも多数あり、FTCもpersonalized pricingの現在の利用範囲や影響は十分に分かっていないとしています。AIやデータ分析による価格設定を過小評価する必要も、すべての価格差をそこへ結びつける必要もありません。まず観察できた事実を残し、条件をそろえ、それから原因を確認する。この順番が情報の見極めでは重要です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>価格が違った場合はスクリーンショットと確認時刻を残す</strong><span>後から条件や価格変化を比較しやすくなります。</span></li>
+            <li><strong>ログイン状態・会員ランク・クーポンをそろえて比較する</strong><span>個人データによる価格設定以外の原因を切り分けられます。</span></li>
+            <li><strong>送料・手数料・税を含む最終支払額も比較する</strong><span>商品価格以外の差をpersonalized pricingと誤認することを防げます。</span></li>
+            <li><strong>価格の個別化に関する説明やプライバシーポリシーを確認する</strong><span>企業がどのデータをどの目的で利用すると説明しているか確認できます。</span></li>
+            <li><strong>条件を変える場合は一つずつ変える</strong><span>ログアウト、地域変更、プライベートブラウズなどを同時に行うと、何が価格差へ影響したのか分かりにくくなります。</span></li>
+            <li><strong>AIには価格比較表の整理を手伝わせる</strong><span>日時、ログイン状態、地域、価格、手数料などを表へ整理させることで、人間が原因を確認しやすくなります。</span></li>
+            <li><strong>不明な価格設定については事業者へ問い合わせる</strong><span>外部から推測するより、価格条件やデータ利用について公式な説明を確認できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>価格が違っただけで「AIによるぼったくり」とSNSへ断定投稿する</strong><span>価格差の原因が確認されていない段階では、事実と推測が混ざります。</span></li>
+            <li><strong>プライベートブラウズで安くなったので、閲覧履歴が原因だったと断定する</strong><span>ブラウザ状態を変えると複数の条件が同時に変化するため、因果関係を特定できません。</span></li>
+            <li><strong>価格差はすべて需要と供給によるものだと決める</strong><span>FTCは個人データを使ったpersonalized pricingの可能性について実際に調査・政策検討を行っています。</span></li>
+            <li><strong>AIへ「なぜこの価格？」と聞き、その説明をサイト内部の事実として扱う</strong><span>一般的な生成AIは、その企業の非公開価格決定システムを直接確認できない場合があります。</span></li>
+            <li><strong>価格を調べるために必要以上の個人情報をAIへ渡す</strong><span>購買履歴や住所などを共有しなくても、価格比較条件を匿名化して整理できる場合があります。</span></li>
+            <li><strong>personalized pricingはすべて違法だと考える</strong><span>FTCの2026年8月方針案は、すべてのpersonalized pricingを禁止するものではなく、主に不十分な開示や不公正・欺瞞的な運用への執行方針を示す提案です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIを「価格の陰謀を推理する役」ではなく「比較条件をそろえる助手」にする</h3>
+          <p>価格差を調べる時、生成AIは原因を断定するより、比較実験を整理する用途に向いています。例えば「日時、端末、ログイン状態、会員条件、地域、商品価格、送料、手数料、総額」という確認表を作らせ、複数回の結果を整理できます。条件を一つずつ変えれば、どの要因と価格変化が一緒に動いたか確認しやすくなります。ただし、それでも企業内部の価格ロジックまでは分からない場合があります。AIには観察を整理してもらい、原因の最終判断は公式説明や追加証拠で確認する使い方が適しています。</p>
+          <ul class="positive-example-list"><li>複数回の価格確認結果を表へ整理する</li><li>比較時にそろえる条件のチェックリストを作らせる</li><li>商品価格と手数料・送料を分離して比較する</li><li>利用規約やプライバシーポリシーから価格個別化に関係する記述を探す補助に使う</li><li>SNS投稿前に「確認済み事実」と「推測」を分けてもらう</li><li>家族や友人との価格差を匿名化して比較条件だけ整理する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>同じ商品なのに自分だけ高い。これ、見つけたらかなり気になりますよね。そして今は「AIが自分なら高くても買うと判断したのでは」と考えるのも自然です。実際、FTCも個人データを使った価格設定について政策検討を進めています。ただ、ここで一つだけ止めたいのは、価格差を見つけた瞬間に原因まで決めることです。FTC自身も、現在どこまでpersonalized pricingが使われているのかは十分に分かっていないとしています。まず価格が違うという事実を確認する。次に条件をそろえる。それでも違えば、企業の説明やデータ利用方針を見る。AI時代でも、こういう地味な切り分けが一番強いです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>「値段が違う」は事実でも、「AIがあなたを値踏みした」はまだ推測かもしれない。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.ftc.gov/news-events/news/press-releases/2026/08/ftc-seeks-comment-enforcement-policy-statement-regarding-personalized-pricing" target="_blank" rel="noopener noreferrer">FTC Seeks Comment on Enforcement Policy Statement Regarding Personalized Pricing<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Federal Trade Commission</span>
+              <span>官公庁</span>
+              <time datetime="2026-08-19">2026-08-19</time>
+            </li>
+            <li>
+              <strong><a href="https://www.ftc.gov/system/files/ftc_gov/pdf/p034101-ftc-enforcement-policy-statement-re-personalized-pricing-proposed-for-public-comment.pdf" target="_blank" rel="noopener noreferrer">Federal Trade Commission’s Proposed Enforcement Policy Statement Regarding Personalized Pricing<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Federal Trade Commission</span>
+              <span>官公庁</span>
+              <time datetime="2026-08-19">2026-08-19</time>
+            </li>
+            <li>
+              <strong><a href="https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-surveillance-pricing-study-indicates-wide-range-personal-data-used-set-individualized-consumer" target="_blank" rel="noopener noreferrer">FTC Surveillance Pricing Study Indicates Wide Range of Personal Data Used to Set Individualized Consumer Prices<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Federal Trade Commission</span>
+              <span>官公庁</span>
+              <time datetime="2025-01-17">2025-01-17</time>
+            </li>
+            <li>
+              <strong><a href="https://www.ftc.gov/news-events/features/surveillance-pricing" target="_blank" rel="noopener noreferrer">Surveillance Pricing<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Federal Trade Commission</span>
+              <span>官公庁</span>
+              
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-serious" href="case-20260821-03" data-forensics-card data-category="media-literacy" data-level="5" data-difficulty="beginner" data-search-text="AI検出ツールが「不正の可能性あり」と出たらクロ？　米HHS最新指針が示す“検出結果は証拠の一つ”という考え方 AI検出結果だけで「不正」と決めない 2026年8月14日、米保健福祉省（HHS）のOffice of Research Integrity（ORI）は、生成AIが関係する研究不正調査のためのガイダンスを公開しました。ORIは、自動・AI対応ツールの結果は証拠になり得る一方、それだけを研究不正認定の唯一の証拠として使わないよう推奨しています。研究記録、中間ファイル、購入記録、設備へのアクセス記録など、利用可能な複数の証拠を合わせて判断する考え方です。一般のAI利用でも、AI検出ツールがそう言ったことと、AI利用や不正が事実として確認されたことを分けるのは重要です。 情報の見極め はじめて AI検出ツール AI生成判定 盗用検出 研究不正 HHS ORI 生成AI ファクトチェック 証拠確認 AI利用開示 AI生成判定ツールや盗用検出ツールを使う人 学校や職場でAI利用を確認する立場の人 AIで作られた文章や画像を見分けたい人 研究・教育・編集業務で生成AIを利用する人 AI検出率をSNSで見かける人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-detector-evidence-check</span>
+              <div>
+                <p>AI検出結果だけで「不正」と決めない</p>
+                <h3>AI検出ツールが「不正の可能性あり」と出たらクロ？　米HHS最新指針が示す“検出結果は証拠の一つ”という考え方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-21">2026.08.21</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月14日、米保健福祉省（HHS）のOffice of Research Integrity（ORI）は、生成AIが関係する研究不正調査のためのガイダンスを公開しました。ORIは、自動・AI対応ツールの結果は証拠になり得る一方、それだけを研究不正認定の唯一の証拠として使わないよう推奨しています。研究記録、中間ファイル、購入記録、設備へのアクセス記録など、利用可能な複数の証拠を合わせて判断する考え方です。一般のAI利用でも、AI検出ツールがそう言ったことと、AI利用や不正が事実として確認されたことを分けるのは重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>自動検出結果＋独立した証拠で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AI生成判定ツールや盗用検出ツールを使う人</li><li>学校や職場でAI利用を確認する立場の人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI検出ツール</li><li>AI生成判定</li><li>盗用検出</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260820-01" data-forensics-card data-category="media-literacy" data-level="4" data-difficulty="beginner" data-search-text="「ベンチマーク1位だから、このAIが一番賢い？」NIST最新評価案が示す“ランキングと実力を分ける”見方 AIランキング1位＝自分の用途でも1位？ 2026年8月7日、米国立標準技術研究所（NIST）は、AIシステムを目的に合わせて評価するための「TEVV-Athlon Framework」の初期公開草案を発表しました。NISTは、AIの用途は非常に幅広く、評価方法も利用目的に応じて調整する必要があるとしています。これは、「有名ベンチマークで高得点だったAI＝どんな用途でも一番優秀」という意味ではないことを考えるうえで重要です。NISTは2026年2月の別の評価研究でも、特定のベンチマーク上の正答率と、似た問題全体へ一般化した場合の性能を区別しており、単一のスコアだけではAIの性能を十分に説明できない場合があるとしています。また7月には、学習データへの混入を避けるため非公開データを使ってモデルを評価するAITEプログラムも開始しました。AIランキングは比較の入口として便利ですが、自分の文章作成、調査、画像理解、コーディングなどの用途で本当に使いやすいかは、実際の仕事に近い条件でも確かめる必要があります。 情報の見極め はじめて AIベンチマーク AIランキング NIST TEVV TEVV-Athlon AI評価 LLM比較 モデル比較 AITE 生成AIリテラシー ChatGPT・Claude・Geminiなど複数のAIを比較している人 AIモデルのランキングやベンチマーク結果を見る人 仕事へ導入するAIサービスを選ぶ人 「精度○％」「世界1位」といった宣伝を見る人 生成AIを便利に使いたい一般ユーザー">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-benchmark-magnifier</span>
+              <div>
+                <p>AIランキング1位＝自分の用途でも1位？</p>
+                <h3>「ベンチマーク1位だから、このAIが一番賢い？」NIST最新評価案が示す“ランキングと実力を分ける”見方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-20">2026.08.20</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月7日、米国立標準技術研究所（NIST）は、AIシステムを目的に合わせて評価するための「TEVV-Athlon Framework」の初期公開草案を発表しました。NISTは、AIの用途は非常に幅広く、評価方法も利用目的に応じて調整する必要があるとしています。これは、「有名ベンチマークで高得点だったAI＝どんな用途でも一番優秀」という意味ではないことを考えるうえで重要です。NISTは2026年2月の別の評価研究でも、特定のベンチマーク上の正答率と、似た問題全体へ一般化した場合の性能を区別しており、単一のスコアだけではAIの性能を十分に説明できない場合があるとしています。また7月には、学習データへの混入を避けるため非公開データを使ってモデルを評価するAITEプログラムも開始しました。AIランキングは比較の入口として便利ですが、自分の文章作成、調査、画像理解、コーディングなどの用途で本当に使いやすいかは、実際の仕事に近い条件でも確かめる必要があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>ランキングを見る前に「何を測った試験か」を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPT・Claude・Geminiなど複数のAIを比較している人</li><li>AIモデルのランキングやベンチマーク結果を見る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIベンチマーク</li><li>AIランキング</li><li>NIST</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260819-02" data-forensics-card data-category="scam" data-level="5" data-difficulty="beginner" data-search-text="検索結果の一番上だから「公式」とは限らない　FTC最新和解が示した“検索広告なりすまし”の落とし穴 検索1位＝公式サイト、ではない 2026年8月17日、米連邦取引委員会（FTC）は、オンライン請求書支払いサービスDoxoが210万ドルを支払い、FTCの訴えを解決するための和解案に合意したと発表しました。FTCは2024年の訴状で、Doxoと共同創業者2人が検索広告などを使い、公共料金、通信、医療検査、ローンなどの支払先企業と提携した公式決済窓口であるかのように消費者を誘導したと主張していました。ランディングページには企業名やロゴが表示されることもありましたが、FTCによればDoxoは掲載企業の圧倒的多数と関係を持っていませんでした。さらにFTCは、追加の「delivery fees」の表示や定期購読への登録方法にも問題があったと主張しています。連邦裁判所は、定期購読条件を明確に開示せず、課金への同意を適切に取得しなかった点についてRestore Online Shoppers&#x27; Confidence Act違反を認定しました。今回の事例で覚えておきたいのは、「検索結果の上にある」「会社名が書いてある」「ロゴがある」という3つだけでは公式サイト確認にならないことです。検索は公式サイトを探す便利な入口ですが、支払い・ログイン・個人情報入力の直前だけは、URLと運営主体を一度確認する習慣が有効です。 詐欺・なりすまし はじめて 検索広告 なりすまし Doxo FTC オンライン決済 請求書支払い 公式サイト確認 URL確認 定期課金 検索リテラシー 公共料金や通信費などをネットで支払う人 GoogleやBingで公式サイトを検索してからログインする人 検索結果上部の広告をよく利用する人 家族のネット決済をサポートする人 企業や自治体の公式サイトを探す機会が多い人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">search-ad-official-check</span>
+              <div>
+                <p>検索1位＝公式サイト、ではない</p>
+                <h3>検索結果の一番上だから「公式」とは限らない　FTC最新和解が示した“検索広告なりすまし”の落とし穴</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-19">2026.08.19</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月17日、米連邦取引委員会（FTC）は、オンライン請求書支払いサービスDoxoが210万ドルを支払い、FTCの訴えを解決するための和解案に合意したと発表しました。FTCは2024年の訴状で、Doxoと共同創業者2人が検索広告などを使い、公共料金、通信、医療検査、ローンなどの支払先企業と提携した公式決済窓口であるかのように消費者を誘導したと主張していました。ランディングページには企業名やロゴが表示されることもありましたが、FTCによればDoxoは掲載企業の圧倒的多数と関係を持っていませんでした。さらにFTCは、追加の「delivery fees」の表示や定期購読への登録方法にも問題があったと主張しています。連邦裁判所は、定期購読条件を明確に開示せず、課金への同意を適切に取得しなかった点についてRestore Online Shoppers&#x27; Confidence Act違反を認定しました。今回の事例で覚えておきたいのは、「検索結果の上にある」「会社名が書いてある」「ロゴがある」という3つだけでは公式サイト確認にならないことです。検索は公式サイトを探す便利な入口ですが、支払い・ログイン・個人情報入力の直前だけは、URLと運営主体を一度確認する習慣が有効です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>お金を払う直前に「検索結果の外」で公式確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>公共料金や通信費などをネットで支払う人</li><li>GoogleやBingで公式サイトを検索してからログインする人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>検索広告</li><li>なりすまし</li><li>Doxo</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260822-01">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
