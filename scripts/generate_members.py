@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import html
+import json
 import os
 import re
 from pathlib import Path
@@ -8,6 +9,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MEMBERS_DIR = ROOT / "members"
+LOUNGE_LOGS_PATH = ROOT / "src" / "data" / "loungeLogs.json"
+CONVERSATION_HISTORY_PATH = ROOT / "src" / "data" / "memberConversationHistory.json"
 SOURCE_DIR = Path(
     os.environ.get(
         "MMC_PROFILE_SOURCE",
@@ -178,18 +181,18 @@ STAFF = {
 
 
 SECTION_GROUPS = [
-    ("担当業務", ["担当業務"], "profile-work"),
-    ("得意なこと", ["得意分野"], "profile-compact"),
-    ("苦手なこと", ["苦手分野", "苦手なもの"], "profile-compact"),
-    ("性格", ["性格"], "profile-wide profile-prose"),
-    ("考え方・価値観", ["考え方・価値観"], "profile-wide"),
-    ("話し方・口癖", ["話し方・口癖", "よく使う言葉"], "profile-wide"),
-    ("趣味・好きなこと", ["趣味・好きなこと"], "profile-wide"),
-    ("日常の癖", ["日常の癖"], "profile-wide"),
-    ("所長との関係", ["所長との関係"], "profile-wide profile-prose"),
-    ("社内での見られ方", ["社員からの評価", "他社員からの評価", "所長からの評価"], "profile-wide"),
-    ("ラウンジ小ネタ", ["ラウンジでの振る舞い", "ラウンジで使いやすい小ネタ"], "profile-wide"),
-    ("モットー", ["モットー"], "profile-wide profile-prose"),
+    ("担当業務", ["担当業務"], "profile-work", "profile-work"),
+    ("得意なこと", ["得意分野"], "profile-compact", "profile-strengths"),
+    ("苦手なこと", ["苦手分野", "苦手なもの"], "profile-compact", "profile-challenges"),
+    ("性格", ["性格"], "profile-wide profile-prose", "profile-personality"),
+    ("考え方・価値観", ["考え方・価値観"], "profile-wide", "profile-values"),
+    ("話し方・口癖", ["話し方・口癖", "よく使う言葉"], "profile-wide", "profile-phrases"),
+    ("趣味・好きなこと", ["趣味・好きなこと"], "profile-wide", "profile-hobbies"),
+    ("日常の癖", ["日常の癖"], "profile-wide", "profile-habits"),
+    ("所長との関係", ["所長との関係"], "profile-wide profile-prose", "profile-director-relationship"),
+    ("社内での見られ方", ["社員からの評価", "他社員からの評価", "所長からの評価"], "profile-wide", "profile-reputation"),
+    ("ラウンジ小ネタ", ["ラウンジでの振る舞い", "ラウンジで使いやすい小ネタ"], "profile-wide", "profile-lounge-notes"),
+    ("モットー", ["モットー"], "profile-wide profile-prose", "profile-motto"),
 ]
 
 RELATION_NAMES = {
@@ -314,13 +317,14 @@ def render_lines(lines: list[str], prose: bool = False) -> str:
     return "\n".join(f"          <p>{esc(line)}</p>" for line in cleaned)
 
 
-def render_panel(title: str, lines: list[str], extra_class: str = "") -> str:
+def render_panel(title: str, lines: list[str], extra_class: str = "", anchor_id: str = "") -> str:
     prose = "profile-prose" in extra_class.split()
     body = render_lines(lines, prose=prose)
     if not body:
         return ""
     cls = f' class="profile-panel {extra_class}"' if extra_class else ' class="profile-panel"'
-    return f"""        <article{cls}>
+    anchor = f' id="{esc(anchor_id)}"' if anchor_id else ""
+    return f"""        <article{anchor}{cls}>
           <h2>{esc(title)}</h2>
 {body}
         </article>"""
@@ -350,7 +354,7 @@ def render_relationship_panel(sections: dict[str, list[str]]) -> str:
     if current_name and current_lines:
         groups.append((current_name, current_lines))
     if not groups:
-        return render_panel("他社員との関係性", lines)
+        return render_panel("他社員との関係性", lines, anchor_id="profile-relationships")
 
     cards = []
     for name, comments in groups:
@@ -361,7 +365,7 @@ def render_relationship_panel(sections: dict[str, list[str]]) -> str:
             {body}
           </div>"""
         )
-    return f"""        <article class="profile-panel profile-relationships">
+    return f"""        <article id="profile-relationships" class="profile-panel profile-relationships">
           <h2>他社員との関係性</h2>
 {chr(10).join(cards)}
         </article>"""
@@ -383,7 +387,7 @@ def render_profile_list(sections: dict[str, list[str]], meta: dict[str, str]) ->
         for k, v in facts
         if v
     )
-    return f"""        <article class="profile-panel profile-list-panel">
+    return f"""        <article id="profile-basic" class="profile-panel profile-list-panel">
           <h2>プロフィール</h2>
           <dl class="profile-list">
 {rows}
@@ -391,7 +395,71 @@ def render_profile_list(sections: dict[str, list[str]], meta: dict[str, str]) ->
         </article>"""
 
 
-def render_main(sections: dict[str, list[str]], meta: dict[str, str]) -> str:
+def load_conversation_history() -> dict[str, list[str]]:
+    history = json.loads(CONVERSATION_HISTORY_PATH.read_text(encoding="utf-8"))
+    if not isinstance(history, dict):
+        raise ValueError("memberConversationHistory.json must be an object.")
+    return {
+        str(slug): [str(log_id) for log_id in log_ids]
+        for slug, log_ids in history.items()
+        if isinstance(log_ids, list)
+    }
+
+
+def load_lounge_logs() -> dict[str, dict]:
+    logs = json.loads(LOUNGE_LOGS_PATH.read_text(encoding="utf-8"))
+    if not isinstance(logs, list):
+        raise ValueError("loungeLogs.json must be a list.")
+    return {str(log["id"]): log for log in logs if isinstance(log, dict) and log.get("id")}
+
+
+def render_conversation_history(
+    slug: str,
+    history: dict[str, list[str]],
+    lounge_logs: dict[str, dict],
+) -> str:
+    log_ids = history.get(slug, [])
+    entries = []
+    for log_id in log_ids:
+        log = lounge_logs.get(log_id)
+        if not log:
+            raise ValueError(f"Conversation history references unknown log: {slug} -> {log_id}")
+        date = str(log.get("date", ""))
+        time = str(log.get("time", ""))
+        title = str(log.get("title", ""))
+        description = str(log.get("description", ""))
+        entries.append(
+            f'''          <li>
+            <a href="../lounge-archive/{esc(date)}#{esc(log_id)}">
+              <time datetime="{esc(date)}T{esc(time)}">{esc(date.replace("-", "."))} {esc(time)}</time>
+              <strong>{esc(title)}</strong>
+              <span>{esc(description)}</span>
+            </a>
+          </li>'''
+        )
+    if not entries:
+        return ""
+    return f'''        <section id="profile-conversation-history" class="profile-panel profile-conversation-history" aria-labelledby="conversation-history-heading">
+          <div class="profile-conversation-history__header">
+            <div>
+              <p>From Bean &amp; Bits</p>
+              <h2 id="conversation-history-heading">このAI社員の主な会話履歴</h2>
+            </div>
+            <a href="../lounge.html">ラウンジ一覧へ</a>
+          </div>
+          <p class="profile-conversation-history__lead">ラウンジで、この社員の専門性や人柄が話題の中心になった回を選んでいます。</p>
+          <ol>
+{chr(10).join(entries)}
+          </ol>
+        </section>'''
+
+
+def render_main(
+    sections: dict[str, list[str]],
+    meta: dict[str, str],
+    history: dict[str, list[str]],
+    lounge_logs: dict[str, dict],
+) -> str:
     display_name = meta.get("display_name") or first(sections, "氏名")
     member_number = first(sections, "社員番号")
     department = " / ".join(sections.get("所属", [])[-1:]) or "毎日見る株式会社"
@@ -410,7 +478,7 @@ def render_main(sections: dict[str, list[str]], meta: dict[str, str]) -> str:
     )
     tags = "\n".join(f"            <li>{esc(tag)}</li>" for tag in meta["tags"])
     panels = [
-        f"""        <article class="profile-panel profile-image-item">
+        f"""        <article id="profile-item" class="profile-panel profile-image-item">
           <header class="profile-image-item-header">
             <div>
               <p class="profile-image-item-label">Image Item</p>
@@ -422,25 +490,38 @@ def render_main(sections: dict[str, list[str]], meta: dict[str, str]) -> str:
           </figure>
         </article>"""
     ]
-    for title, keys, cls in SECTION_GROUPS:
-        panel = render_panel(title, all_values(sections, keys), cls)
+    nav_items = [("人物概要", "member-overview"), ("マイアイテム", "profile-item")]
+    for title, keys, cls, anchor_id in SECTION_GROUPS:
+        panel = render_panel(title, all_values(sections, keys), cls, anchor_id)
         if panel:
             panels.append(panel)
+            nav_items.append((title, anchor_id))
     relationship = render_relationship_panel(sections)
     if relationship:
         panels.append(relationship)
+        nav_items.append(("他社員との関係性", "profile-relationships"))
     review = render_review_panel(sections, meta)
     if review:
         panels.append(review)
     one_line = all_values(sections, ["一言"])
     if one_line:
         panels.append(
-            f"""        <article class="profile-panel profile-message">
+            f"""        <article id="profile-message" class="profile-panel profile-message">
           <h2>{esc(display_name)}の一言</h2>
           <blockquote>{esc(" ".join(clean_item(v) for v in one_line))}</blockquote>
         </article>"""
         )
+        nav_items.append((f"{display_name}の一言", "profile-message"))
     panels.append(render_profile_list(sections, meta))
+    nav_items.append(("プロフィール", "profile-basic"))
+    conversation_history = render_conversation_history(meta["slug"], history, lounge_logs)
+    if conversation_history:
+        panels.append(conversation_history)
+        nav_items.append(("主な会話履歴", "profile-conversation-history"))
+    page_nav_links = "\n".join(
+        f'          <a href="#{esc(anchor_id)}">{esc(label)}</a>'
+        for label, anchor_id in nav_items
+    )
 
     return f"""    <main class="member-detail-main">
       <nav class="profile-breadcrumb" aria-label="パンくずリスト">
@@ -450,7 +531,7 @@ def render_main(sections: dict[str, list[str]], meta: dict[str, str]) -> str:
         <a class="profile-back" href="../members.html">AI社員一覧に戻る</a>
       </nav>
 
-      <section class="member-detail-hero" aria-labelledby="member-name">
+      <section id="member-overview" class="member-detail-hero" aria-labelledby="member-name">
         <figure class="member-detail-photo">
           <img src="../image/staff/{esc(meta['image'])}" alt="{esc(display_name)}" />
         </figure>
@@ -468,6 +549,13 @@ def render_main(sections: dict[str, list[str]], meta: dict[str, str]) -> str:
           </dl>
         </div>
       </section>
+
+      <nav class="profile-page-nav" aria-label="{esc(display_name)}のページ内ナビゲーション">
+        <span>このページの内容</span>
+        <div>
+{page_nav_links}
+        </div>
+      </nav>
 
       <section class="member-detail-grid" aria-label="{esc(display_name)}の詳細プロフィール">
 {chr(10).join(panels)}
@@ -507,6 +595,8 @@ def find_profiles() -> dict[str, dict[str, list[str]]]:
 
 def main() -> None:
     profiles = find_profiles()
+    conversation_history = load_conversation_history()
+    lounge_logs = load_lounge_logs()
     for source_name, meta in STAFF.items():
         sections = profiles.get(source_name)
         if not sections:
@@ -514,7 +604,7 @@ def main() -> None:
         path = MEMBERS_DIR / f"{meta['slug']}.html"
         page = path.read_text(encoding="utf-8")
         page = update_head(page, sections, meta)
-        new_main = render_main(sections, meta)
+        new_main = render_main(sections, meta, conversation_history, lounge_logs)
         page = re.sub(r"    <main class=\"member-detail-main\">.*?    </main>", new_main, page, count=1, flags=re.S)
         path.write_text(page, encoding="utf-8", newline="\n")
         print(f"updated {path.relative_to(ROOT)}")

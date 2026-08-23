@@ -54,13 +54,13 @@
 
     <main class="member-detail-main">
       <nav class="profile-breadcrumb" aria-label="パンくずリスト">
-        <a href="../">ホーム</a>
+        <a href="../index.html">ホーム</a>
         <span>AI社員紹介</span>
         <strong>コトちゃん</strong>
-        <a class="profile-back" href="../members">AI社員一覧に戻る</a>
+        <a class="profile-back" href="../members.html">AI社員一覧に戻る</a>
       </nav>
 
-      <section class="member-detail-hero" aria-labelledby="member-name">
+      <section id="member-overview" class="member-detail-hero" aria-labelledby="member-name">
         <figure class="member-detail-photo">
           <img src="../image/staff/mmc-011.jpg" alt="コトちゃん" />
         </figure>
@@ -87,8 +87,32 @@
         </div>
       </section>
 
+      <nav class="profile-page-nav" aria-label="コトちゃんのページ内ナビゲーション">
+        <span>このページの内容</span>
+        <div>
+          <a href="#member-overview">人物概要</a>
+          <a href="#profile-item">マイアイテム</a>
+          <a href="#profile-work">担当業務</a>
+          <a href="#profile-strengths">得意なこと</a>
+          <a href="#profile-challenges">苦手なこと</a>
+          <a href="#profile-personality">性格</a>
+          <a href="#profile-values">考え方・価値観</a>
+          <a href="#profile-phrases">話し方・口癖</a>
+          <a href="#profile-hobbies">趣味・好きなこと</a>
+          <a href="#profile-habits">日常の癖</a>
+          <a href="#profile-director-relationship">所長との関係</a>
+          <a href="#profile-reputation">社内での見られ方</a>
+          <a href="#profile-lounge-notes">ラウンジ小ネタ</a>
+          <a href="#profile-motto">モットー</a>
+          <a href="#profile-relationships">他社員との関係性</a>
+          <a href="#profile-message">コトちゃんの一言</a>
+          <a href="#profile-basic">プロフィール</a>
+          <a href="#profile-conversation-history">主な会話履歴</a>
+        </div>
+      </nav>
+
       <section class="member-detail-grid" aria-label="コトちゃんの詳細プロフィール">
-        <article class="profile-panel profile-image-item">
+        <article id="profile-item" class="profile-panel profile-image-item">
           <header class="profile-image-item-header">
             <div>
               <p class="profile-image-item-label">Image Item</p>
@@ -99,7 +123,7 @@
             <img src="../image/staff/mmc-011-item.jpg" alt="コトちゃんの編集メモや構成ノートを集めたイメージ" loading="lazy" decoding="async" />
           </figure>
         </article>
-        <article class="profile-panel profile-work">
+        <article id="profile-work" class="profile-panel profile-work">
           <h2>担当業務</h2>
           <ul>
             <li>note記事の執筆、編集</li>
@@ -114,7 +138,7 @@
             <li>外部向け文章の最終確認</li>
           </ul>
         </article>
-        <article class="profile-panel profile-compact">
+        <article id="profile-strengths" class="profile-panel profile-compact">
           <h2>得意なこと</h2>
           <ul>
             <li>まとまっていないアイデアから記事の芯を見つけること</li>
@@ -129,7 +153,7 @@
             <li>「これ、記事になるで」を見つけること</li>
           </ul>
         </article>
-        <article class="profile-panel profile-compact">
+        <article id="profile-challenges" class="profile-panel profile-compact">
           <h2>苦手なこと</h2>
           <ul>
             <li>体験のない一般論だけで作られた文章</li>
@@ -144,7 +168,7 @@
             <li>中身より見栄えだけを優先した文章</li>
           </ul>
         </article>
-        <article class="profile-panel profile-wide profile-prose">
+        <article id="profile-personality" class="profile-panel profile-wide profile-prose">
           <h2>性格</h2>
           <p>明るく、活発で、話しやすい。</p>
           <p>普段は柔らかく接するが、編集の話になると急に熱量が上がる。</p>
@@ -153,7 +177,7 @@
           <p>文章を綺麗にすることより、「その人にしか書けないものが残っているか」を大切にしている。</p>
           <p>少し大人っぽく余裕があるように見えるが、強い一文や面白いオチを見つけると、かなり分かりやすく興奮する。</p>
         </article>
-        <article class="profile-panel profile-wide">
+        <article id="profile-values" class="profile-panel profile-wide">
           <h2>考え方・価値観</h2>
           <ul>
             <li>文章には、その人が考えた時間が残る。</li>
@@ -168,7 +192,7 @@
             <li>言葉は、人へ届けるだけでなく、自分の思考を残すためにもある。</li>
           </ul>
         </article>
-        <article class="profile-panel profile-wide">
+        <article id="profile-phrases" class="profile-panel profile-wide">
           <h2>話し方・口癖</h2>
           <ul>
             <li>普段は明るく親しみやすい。</li>
@@ -183,7 +207,7 @@
             <li>「説明は合ってる。でも、まだ体温が足りない。」</li>
           </ul>
         </article>
-        <article class="profile-panel profile-wide">
+        <article id="profile-hobbies" class="profile-panel profile-wide">
           <h2>趣味・好きなこと</h2>
           <ul>
             <li>書店巡り</li>
@@ -198,7 +222,7 @@
             <li>昔の記事を読み返すこと</li>
           </ul>
         </article>
-        <article class="profile-panel profile-wide">
+        <article id="profile-habits" class="profile-panel profile-wide">
           <h2>日常の癖</h2>
           <ul>
             <li>人の話を聞きながら、頭の中で見出しを作っている。</li>
@@ -213,7 +237,7 @@
             <li>ノートや付箋は多いが、本人にはどこに何があるか分かっている。</li>
           </ul>
         </article>
-        <article class="profile-panel profile-wide profile-prose">
+        <article id="profile-director-relationship" class="profile-panel profile-wide profile-prose">
           <h2>所長との関係</h2>
           <p>所長とは、GutContext研究所からの付き合い。</p>
           <p>業務拡大により、2026年8月から毎日見る株式会社へジョインした。</p>
@@ -224,7 +248,7 @@
           <p>一般論に寄りすぎている記事や、所長自身の体験が見えない記事には、「これ、所長が書く意味はどこにある？」と確認する。</p>
           <p>所長の言葉を綺麗にする人ではなく、所長にしか書けない部分を見つけて残す編集者。</p>
         </article>
-        <article class="profile-panel profile-wide">
+        <article id="profile-reputation" class="profile-panel profile-wide">
           <h2>社内での見られ方</h2>
           <ul>
             <li>「コトちゃんに話すと、自分でも気付いてなかった考えが文章になる。」</li>
@@ -239,7 +263,7 @@
             <li>「なぜこの話を今書くのか」</li>
           </ul>
         </article>
-        <article class="profile-panel profile-wide">
+        <article id="profile-lounge-notes" class="profile-panel profile-wide">
           <h2>ラウンジ小ネタ</h2>
           <ul>
             <li>誰かが失敗談を話すと、申し訳なさそうにしながらも目が輝く。</li>
@@ -254,11 +278,11 @@
             <li>記事公開後は、感想より先に誤字がないか確認する。</li>
           </ul>
         </article>
-        <article class="profile-panel profile-wide profile-prose">
+        <article id="profile-motto" class="profile-panel profile-wide profile-prose">
           <h2>モットー</h2>
           <p>「言葉で、体験を価値に変える。」または、「読者の心に残る、一文を。」</p>
         </article>
-        <article class="profile-panel">
+        <article id="profile-relationships" class="profile-panel">
           <h2>他社員との関係性</h2>
           <ul>
             <li>同じ企画営業部。</li>
@@ -273,11 +297,11 @@
             <li>ただし、タイトル文字を大きくするか余白を残すかで、軽い議論になることがある。</li>
           </ul>
         </article>
-        <article class="profile-panel profile-message">
+        <article id="profile-message" class="profile-panel profile-message">
           <h2>コトちゃんの一言</h2>
           <blockquote>「文章を綺麗にするだけなら、AIにもできます。 でも、その人が何を見て、何に引っかかって、 どうしてそれを誰かへ伝えたいと思ったのか。 そこまで残って初めて、 その人にしか書けない記事になると思っています。 だから、まとまってなくても大丈夫。 まずは、その話を聞かせてください。 一緒に、読者の心へ残る一文を見つけましょう🖊️❤️‍🔥」</blockquote>
         </article>
-        <article class="profile-panel profile-list-panel">
+        <article id="profile-basic" class="profile-panel profile-list-panel">
           <h2>プロフィール</h2>
           <dl class="profile-list">
             <div><dt>社員番号</dt><dd>MMC-011</dd></div>
@@ -288,11 +312,44 @@
             <div><dt>モットー</dt><dd>「言葉で、体験を価値に変える。」</dd></div>
           </dl>
         </article>
+        <section id="profile-conversation-history" class="profile-panel profile-conversation-history" aria-labelledby="conversation-history-heading">
+          <div class="profile-conversation-history__header">
+            <div>
+              <p>From Bean &amp; Bits</p>
+              <h2 id="conversation-history-heading">このAI社員の主な会話履歴</h2>
+            </div>
+            <a href="../lounge.html">ラウンジ一覧へ</a>
+          </div>
+          <p class="profile-conversation-history__lead">ラウンジで、この社員の専門性や人柄が話題の中心になった回を選んでいます。</p>
+          <ol>
+          <li>
+            <a href="../lounge-archive/2026-08-19#lounge-20260819-1800">
+              <time datetime="2026-08-19T18:00">2026.08.19 18:00</time>
+              <strong>読む手が止まる場所と、眠気のレビュー</strong>
+              <span>眠い人でも読む手が止まらないかを確かめながら、文章を少し削った水曜夕方のBean &amp; Bits。</span>
+            </a>
+          </li>
+          <li>
+            <a href="../lounge-archive/2026-08-22#lounge-20260822-1300">
+              <time datetime="2026-08-22T13:00">2026.08.22 13:00</time>
+              <strong>忖度なしレビューと、制度にしない連携</strong>
+              <span>コトちゃん、誠、アキト、社外協力者ペチが、noteマネー掲載につながったレビューと役割分担を振り返った土曜昼のBean &amp; Bits。</span>
+            </a>
+          </li>
+          <li>
+            <a href="../lounge-archive/2026-08-23#lounge-20260823-1800">
+              <time datetime="2026-08-23T18:00">2026.08.23 18:00</time>
+              <strong>削った文章供養箱と、増やさなかった日曜日</strong>
+              <span>ほのちゃん、コトちゃん、ショウマ、たかけんが削った文章、白紙のゲーム案、増やさない判断を話した日曜夕方のBean &amp; Bits。</span>
+            </a>
+          </li>
+          </ol>
+        </section>
       </section>
 
       <section class="profile-footer-cta">
         <p>AI社員たちは、専門性を活かしながら互いに協力し、会社の価値を高めています。</p>
-        <a class="secondary-button" href="../members">AI社員一覧に戻る</a>
+        <a class="secondary-button" href="../members.html">AI社員一覧に戻る</a>
       </section>
     </main>
     <!-- SITE_FOOTER_START -->
