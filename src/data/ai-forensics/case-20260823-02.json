@@ -1,0 +1,80 @@
+{
+  "id": "case-20260823-02",
+  "publishedAt": "2026-08-23",
+  "title": "「WHOの事例集に載ったAI」なら安心して使える？　最新GI-AI4H募集で学ぶ“掲載・発表・承認を分ける”見方",
+  "shortTitle": "WHO掲載＝WHOのお墨付き、ではない",
+  "category": "health-ai",
+  "difficulty": "beginner",
+  "targetAudience": ["AI医療サービスの記事や紹介を見る人", "健康アプリや医療AIを利用する人", "「WHOで紹介」「国際会議で発表」という表現を見る人", "医療AIの導入を検討する人", "AIサービスの信頼性を確認したい一般ユーザー"],
+  "summary": "WHO・ITU・WIPOによるGlobal Initiative on AI for Health（GI-AI4H）は、2026年9月に中国・杭州で第3回会合を開き、実際に導入されたAI for Healthの事例を募集しています。選ばれた事例は会合報告書への掲載や発表対象になる可能性がありますが、WHOは選定・発表・報告書への掲載がWHO、ITU、WIPOによる推奨や承認を意味しないと明記しています。ベンチマークで高得点だったことも、規制承認や認証、推奨とは別です。医療AIを見る時は、「国際機関で紹介された」「研究やベンチマークで評価された」「規制当局の承認を受けた」を同じ意味で読まないことが大切です。",
+  "scenario": {
+    "headline": "健康AIサービスの広告に「WHOの国際会議で紹介予定」と書かれていたので、WHOが安全性と有効性を認定した製品だと思った",
+    "description": "GI-AI4Hは、実際に導入されたAI for Healthの事例を集め、実装規模、結果や根拠、ガバナンス、公平性・アクセシビリティ、課題や学びを確認する取り組みです。選ばれた事例は会合で紹介されたり、報告書に含まれたりする可能性があります。ただし公式ページは、選定・発表・掲載がWHO、ITU、WIPOによる推奨を意味しないと明記しています。国際機関で紹介されることと、規制当局が製品として承認することは別です。",
+    "whyItMatters": "「WHOで紹介」「国際会議で発表」「ベンチマークで高評価」という言葉は安心感を与えます。しかし、それぞれが示す範囲は異なります。紹介実績は取り組みが共有対象になったこと、研究やベンチマークは特定条件での評価、規制承認は法的・医療的な審査です。言葉の強さだけで安全性や有効性まで保証されたと受け取ると、利用判断を誤る可能性があります。"
+  },
+  "question": {
+    "text": "ある医療AIについて「WHO・ITU・WIPOのAI for Health会合で事例として紹介された」と書かれていました。利用前に最も適切な考え方は？",
+    "choices": [
+      {"id": "treat-as-approved", "label": "WHOで紹介されたので、安全性と有効性が公式に承認された製品だと考える", "description": "紹介実績を、そのまま製品の承認や推奨として扱う。"},
+      {"id": "ignore-international-case", "label": "国際会議の事例紹介は意味がないので、まったく参考にしない", "description": "導入経験や実装上の学びまで無価値だと考える。"},
+      {"id": "check-status-separately", "label": "紹介実績は参考にしつつ、根拠・評価・規制承認の状況を別々に確認する", "description": "掲載、研究・ベンチマーク、規制上の位置付けを分けて公式情報で確かめる。"},
+      {"id": "ask-ai-if-approved", "label": "生成AIが「承認済み」と答えたら、そのまま利用判断に使う", "description": "一次情報を確認せず、AIの要約だけで承認状況を決める。"}
+    ],
+    "recommendedAnswers": ["check-status-separately"],
+    "explanation": "GI-AI4Hの公式案内では、選定、発表、報告書への掲載はWHO、ITU、WIPOによる推奨を意味しないと明記されています。また、ベンチマーク結果も規制承認、認証、推奨を意味しません。紹介実績を無視する必要はありませんが、何が確認されたのか、どの範囲まで評価されたのか、利用地域で必要な規制上の手続きがあるかを別に確認します。"
+  },
+  "inspectionPoints": [
+    {"title": "「紹介」「掲載」「採択」「推奨」「承認」を同じ意味で読んでいないか", "description": "国際会議での紹介や事例集への掲載は、製品推奨や規制承認とは別の事実です。", "priority": "high"},
+    {"title": "公式ページの免責・位置付けを読んだか", "description": "GI-AI4Hは、選定・発表・掲載がWHO、ITU、WIPOによるendorsementではないと明記しています。", "priority": "high"},
+    {"title": "何の根拠が提出・評価されたのか確認したか", "description": "実装規模、結果や根拠、ガバナンス、公平性・アクセシビリティ、課題や学びなど、確認された項目と限界を読みます。", "priority": "high"},
+    {"title": "ベンチマーク結果と規制承認を分けているか", "description": "特定データセットでの性能評価は、規制承認、認証、臨床での有効性保証と同じではありません。", "priority": "high"},
+    {"title": "実際に使われた対象・場所が自分の条件に近いか", "description": "対象患者、医療機関、地域、運用体制、利用規模が異なれば、同じ結果をそのまま当てはめられません。", "priority": "medium"},
+    {"title": "紹介された製品・機能の範囲を確認したか", "description": "ある機能や実証だけが紹介されている場合、サービス全体が評価されたとは限りません。", "priority": "medium"},
+    {"title": "国際機関の関与を商業提携と誤解していないか", "description": "会合での紹介や資料への掲載は、販売提携や継続的な監督関係を意味するとは限りません。", "priority": "medium"},
+    {"title": "紹介時点と現在の製品版を混同していないか", "description": "発表後にモデル、利用条件、提供地域、規制上の位置付けが変わっている可能性があります。", "priority": "medium"}
+  ],
+  "verificationLevel": 5,
+  "verificationLabel": "掲載実績・研究結果・承認状況を別々に確認",
+  "verificationMessage": "医療AIで「WHO掲載」「国際会議で発表」「ベンチマーク高得点」などを見た場合は、その事実自体を確認したうえで、それが製品推奨、規制承認、安全性・有効性の保証を意味するのかを公式情報から別途確認してください。",
+  "verdict": {
+    "label": "権威ある場所に「載った」ことには価値がある。でも「認められた範囲」は別に確認する",
+    "description": "GI-AI4Hの事例収集には、現場での導入、ガバナンス、公平性、実装上の課題を共有する価値があります。ただし、紹介されたことを「WHOがこの製品を推奨している」と読むのは別問題です。事例紹介は実装から学ぶための共有、ベンチマークは条件付きの性能測定、規制承認は法的・医療的な評価です。権威ある場での実績を無視せず、同時にその実績が何を意味し、何を意味しないかを分けて確認しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "「WHOで紹介」と見たら、実際のWHOページを確認する", "reason": "企業の要約ではなく、紹介の形式や注意書きを一次情報で確認できます。"},
+    {"action": "推奨・承認に関する免責や位置付けを探す", "reason": "掲載実績が製品推奨や規制承認を意味するかを切り分けられます。"},
+    {"action": "事例紹介、研究・ベンチマーク、規制承認を別の欄に整理する", "reason": "異なる種類の根拠を一つの「お墨付き」にまとめることを防げます。"},
+    {"action": "利用地域の規制当局データベースや公式情報を確認する", "reason": "自分の地域・用途で必要な規制上の位置付けを確認できます。"},
+    {"action": "研究や事例の対象、医療機関、規模、結果を読む", "reason": "自分の利用条件へ結果を当てはめられるか考えやすくなります。"},
+    {"action": "AIには掲載実績・研究・承認状況の仕分けを手伝わせる", "reason": "情報を分類してもらい、最終確認は一次情報で行えます。"},
+    {"action": "健康や医療上の判断は専門家にも相談する", "reason": "サービスの紹介実績だけで、個別の診療や利用適性は判断できません。"}
+  ],
+  "avoidActions": [
+    {"action": "掲載実績をWHO承認・WHO推奨と書き換える", "reason": "GI-AI4Hは、選定・発表・掲載がendorsementではないと明記しています。"},
+    {"action": "国際会議で発表されたことを、臨床的有効性の確定とみなす", "reason": "発表は共有の機会であり、規制審査や臨床判断そのものではありません。"},
+    {"action": "ベンチマーク1位や高得点を規制承認と混同する", "reason": "性能評価の結果は、承認、認証、推奨とは別です。"},
+    {"action": "免責があるから事例紹介には価値がないと考える", "reason": "実装の経験やガバナンス上の学びには、承認とは異なる価値があります。"},
+    {"action": "企業側の紹介文だけで判断する", "reason": "紹介範囲、免責、現在の規制状況を公式情報で補う必要があります。"},
+    {"action": "生成AIの回答だけで規制承認の有無を決める", "reason": "承認状況は地域や時期で変わるため、規制当局などの一次情報を確認します。"}
+  ],
+  "positiveUse": {
+    "title": "AIを「お墨付き判定機」ではなく「評価の種類を仕分ける助手」にする",
+    "description": "生成AIは、サービスの説明文や公式資料を「事例紹介」「研究」「ベンチマーク」「規制承認」「商業提携」といった種類へ整理する補助に向いています。「featured」と「approved」の違いを確認する質問案を作ったり、公式ページを読み比べるための表を作ったりもできます。ただし、AIの要約を最終結論にせず、重要な表示はWHOや規制当局などの一次情報へ戻って確認してください。",
+    "examples": ["製品サイトの主張を事例紹介・研究・ベンチマーク・規制承認・提携へ分類する", "「featured」と「approved」の違いを確認する質問リストを作る", "公式ページにある免責・注意書きを探す補助に使う", "複数の公式資料から対象、規模、結果、限界を比較表へ整理する", "地域ごとに確認すべき規制当局や検索語を洗い出す", "健康上の判断で専門家へ聞くべき点を整理する"]
+  },
+  "makotoComment": "WHOで紹介されたと聞くと、安心材料に感じますよね。それ自体は自然です。ただ、GI-AI4Hの公式ページは、選定・発表・報告書への掲載がWHO、ITU、WIPOによる推奨を意味しないとはっきり書いています。紹介すること、性能を測ること、製品を承認することは、違う仕事です。権威ある名前を見た時ほど、何が確認されたのかを一段だけ具体的に見る。それで紹介実績の価値を下げずに、読み違いも減らせます。",
+  "oneLineLesson": "「WHOに載った」と「WHOが推奨した」は別。まず、その実績が何を意味するのか確認する。",
+  "tags": ["医療AI", "WHO", "ITU", "WIPO", "GI-AI4H", "AI for Health", "国際会議", "endorsement", "規制承認", "医療リテラシー"],
+  "sources": [
+    {"title": "Third meeting of the Global Initiative on AI for Health", "publisher": "World Health Organization", "sourceType": "international-organization", "publishedAt": null, "url": "https://www.who.int/news-room/events/detail/2026/09/16/default-calendar/third-meeting-of-the-global-initiative-on-ai-for-health"},
+    {"title": "Global Initiative on AI for Health", "publisher": "World Health Organization", "sourceType": "international-organization", "publishedAt": null, "url": "https://www.who.int/initiatives/global-initiative-on-ai-for-health"},
+    {"title": "Artificial intelligence and evidence-informed policy: emerging challenges and opportunities: discussion paper", "publisher": "World Health Organization", "sourceType": "international-organization", "publishedAt": "2026-04-25", "url": "https://www.who.int/publications/i/item/B09667"},
+    {"title": "New WHO discussion paper sets out opportunities and risks of AI in evidence-informed health policy", "publisher": "World Health Organization", "sourceType": "international-organization", "publishedAt": "2026-06-02", "url": "https://www.who.int/news/item/02-06-2026-new-who-discussion-paper-sets-out-opportunities-and-risks-of-ai-in-evidence-informed-health-policy"}
+  ],
+  "visualSuggestion": {
+    "mainVisual": "中央に医療AIの紹介カードを置き、上部に「WHOで紹介」、左に「事例紹介・実装の共有」、中央に「研究・ベンチマーク」、右に「規制承認」を三つの別カードとして並べる。「WHOで紹介」から「WHO推奨」へ直接つながる矢印には大きく「＝ではない」と表示する。下部では鑑識担当者が「対象」「根拠」「導入規模」「免責」「承認状況」の確認カードを一枚ずつ見ている。国際機関のロゴを承認印のように扱わず、権威ある紹介と製品承認を冷静に分ける、明るいAI鑑識室風の情報リテラシー図解。",
+    "cardIcon": "health-ai-listing-endorsement-check",
+    "accentTone": "calm"
+  }
+}
