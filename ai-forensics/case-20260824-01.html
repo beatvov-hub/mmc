@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIに仕事を分担させたら、自動的に効率化する？ Google Cloud最新解説で学ぶ“任せる前に完了条件を決める”仕事術｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="2026年8月21日、Google Cloudは、複数のAIエージェントが仕事を分担する際の設計原則を紹介する記事を公開しました。Google DeepMindの研究「Intelligent AI Delegation」をもとに、AIによる仕事の分担では、単に大きな仕事を小さく切って別のAIへ渡すだけでなく、「その仕事をどう確認するか」を先に決めるcontract-first decompositionという考え方が紹介されています。Google Cloudは、タスクを十分に小さく分解し、結果を検証可能にすること、仕事の難しさに応じて適切なモデルを選ぶこと、必要最小限のデータや権限だけを渡すこと、曖昧な依頼ではAIがそのまま転送せず人間へ確認できるようにすることを挙げています。これは「複数AIを使えば必ず効率が上がる」と証明した実運用研究ではなく、AI同士や人間との委任を安全かつ効率的に設計するための研究フレームワークと実務上の原則です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260824-01" />
+<meta property="og:title" content="AIに仕事を分担させたら、自動的に効率化する？ Google Cloud最新解説で学ぶ“任せる前に完了条件を決める”仕事術｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="2026年8月21日、Google Cloudは、複数のAIエージェントが仕事を分担する際の設計原則を紹介する記事を公開しました。Google DeepMindの研究「Intelligent AI Delegation」をもとに、AIによる仕事の分担では、単に大きな仕事を小さく切って別のAIへ渡すだけでなく、「その仕事をどう確認するか」を先に決めるcontract-first decompositionという考え方が紹介されています。Google Cloudは、タスクを十分に小さく分解し、結果を検証可能にすること、仕事の難しさに応じて適切なモデルを選ぶこと、必要最小限のデータや権限だけを渡すこと、曖昧な依頼ではAIがそのまま転送せず人間へ確認できるようにすることを挙げています。これは「複数AIを使えば必ず効率が上がる」と証明した実運用研究ではなく、AI同士や人間との委任を安全かつ効率的に設計するための研究フレームワークと実務上の原則です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260824-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>AIへ渡す前に「何をもって完了か」を決める</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-08-24">2026.08.24</time>
+            </div>
+            <h1>AIに仕事を分担させたら、自動的に効率化する？ Google Cloud最新解説で学ぶ“任せる前に完了条件を決める”仕事術</h1>
+            <p>2026年8月21日、Google Cloudは、複数のAIエージェントが仕事を分担する際の設計原則を紹介する記事を公開しました。Google DeepMindの研究「Intelligent AI Delegation」をもとに、AIによる仕事の分担では、単に大きな仕事を小さく切って別のAIへ渡すだけでなく、「その仕事をどう確認するか」を先に決めるcontract-first decompositionという考え方が紹介されています。Google Cloudは、タスクを十分に小さく分解し、結果を検証可能にすること、仕事の難しさに応じて適切なモデルを選ぶこと、必要最小限のデータや権限だけを渡すこと、曖昧な依頼ではAIがそのまま転送せず人間へ確認できるようにすることを挙げています。これは「複数AIを使えば必ず効率が上がる」と証明した実運用研究ではなく、AI同士や人間との委任を安全かつ効率的に設計するための研究フレームワークと実務上の原則です。</p>
+            <ul class="forensics-target-list"><li>複数のAIエージェントを仕事で使う人</li><li>AIへ調査・分析・資料作成を分担させる人</li><li>ChatGPTやGeminiなどへ複数工程の業務を任せる人</li><li>AI社員やAIチームの運用を考えている人</li><li>生成AIによる業務自動化を進める人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AIエージェント</li><li>マルチエージェント</li><li>Google Cloud</li><li>Google DeepMind</li><li>AI委任</li><li>タスク分解</li><li>contract-first decomposition</li><li>Human in the Loop</li><li>AI業務設計</li><li>AIチーム</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>AIへ渡す前に「担当・完了・確認」を決める</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>複数のAIへ仕事を分担する時は、「誰に渡すか」より先に、「何を任せるか」「何をもって完了とするか」「結果をどう確認するか」を決めてください。確認方法を決められない仕事は、人間判断を残す候補です。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>一つのAIに「市場調査をして」と依頼し、そのAIが検索AI・分析AI・文章AIへ自動で仕事を振り分ける仕組みを作った</h3><p>最初は便利に見えましたが、検索AIは大量の記事を集め、分析AIは独自の評価基準で順位を付け、文章AIはそれを自然なレポートへまとめました。最終成果物は立派ですが、「必要な情報を全部確認できたのか」「分析方法が正しいのか」「どこまでが事実でどこからが推測なのか」を確認しにくい状態です。Google Cloudが2026年8月21日に紹介した考え方では、AIへ仕事を渡す前に「どんな成果物なら完了と判断できるか」「どう検証するか」まで含めてタスクを分解することが重要とされています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIエージェントが増えると、人間が一つずつ指示しなくても仕事を分担できるようになります。しかし、分担された仕事の途中経過が見えにくいまま最終成果だけ受け取ると、どの段階で誤りが入ったのか確認しにくくなります。AIが別のAIへ依頼する場合も、人間の組織と同じように「目的」「担当範囲」「渡してよい情報」「完了条件」「確認方法」を決めておく必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="completion-and-verification">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>AIマネージャーが複数のAIへ仕事を自動で分担する仕組みを作ります。最初に決めるものとして最も重要なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="number-of-agents" data-choice-id="number-of-agents" />
+                <span>
+                  <strong>何体のAIを使うか決める</strong>
+                  <small>AIの人数を増やせば仕事が細かく分担できると考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="completion-and-verification" data-choice-id="completion-and-verification" />
+                <span>
+                  <strong>各タスクの完了条件と、結果をどう確認するか決める</strong>
+                  <small>AIへ任せる前に、成果を検証できる単位まで仕事を分ける。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="strongest-model-everywhere" data-choice-id="strongest-model-everywhere" />
+                <span>
+                  <strong>すべての仕事に一番高性能なモデルを使う</strong>
+                  <small>簡単な作業も複雑な判断も同じモデルへ任せる。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="let-manager-decide-all" data-choice-id="let-manager-decide-all" />
+                <span>
+                  <strong>AIマネージャーに仕事の分け方も評価方法も全部決めてもらう</strong>
+                  <small>人間側では目的だけ伝え、それ以外を自動化する。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>各タスクの完了条件と、結果をどう確認するか決める</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Google Cloudが紹介したcontract-first decompositionでは、仕事を分割する際に、各タスクがどのように検証されるかまで先に考えます。単に「調査」「分析」「文章化」と役割を分けるだけでなく、「どの情報源を確認すれば完了か」「どの形式で返すか」「どの条件を満たせば合格か」を設定することで、AI同士の分担結果を確認しやすくなります。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>タスクごとに完了条件があるか</h3>
+              <p>「調べる」「いい感じにまとめる」のような曖昧な仕事では、AI自身が終了地点を判断することになります。「一次情報を3件確認」「指定項目を表へ記入」など確認可能な条件を設定します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>成果物を人間または別の仕組みで確認できるか</h3>
+              <p>AIへ仕事を委任する場合、結果を信頼して検証できる単位まで分解する考え方が重要です。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>すべての仕事に同じAIを使っていないか</h3>
+              <p>単純な表整形に高性能な推論モデルを使う必要はない一方、複雑な判断を軽量モデルへ任せると品質が不足する場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>子AIへ必要以上の情報を渡していないか</h3>
+              <p>委任先へは、仕事に必要な最小限の情報と権限だけを渡す方が安全で、コンテキストも整理できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AIからAIへ依頼が連鎖した時に目的が薄まっていないか</h3>
+              <p>委任が何段階も続くと、元の目的や注意事項が十分に伝わらず、各AIが目の前の作業だけを処理する可能性があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>曖昧な依頼をAIがそのまま次へ転送していないか</h3>
+              <p>必要な場面では質問や人間確認を挟むdynamic cognitive frictionの考え方が、意図のずれを防ぐ助けになります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>人間が判断すべき箇所を最初に決めているか</h3>
+              <p>すべての成果を機械的に採点できるとは限りません。ブランド表現、倫理判断、最終採用など主観的評価が必要な箇所は人間レビューへ戻します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>AIの数が多いほど性能が高いと思っていないか</h3>
+              <p>複数AIの利用そのものが生産性向上を保証するわけではありません。重要なのは分担方法、確認方法、コスト、権限設計です。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AIチームの強さは「人数」より「仕事を確認できる形へ分けられるか」で決まる</strong><p>Google Cloudが2026年8月21日に紹介したAI delegationの考え方では、AI同士の仕事分担を単なるタスク振り分けではなく、権限、責任、境界、意図、信頼、検証まで含む仕組みとして扱っています。複数のAIを使えば一つのAIでは扱いにくい複雑な仕事を進められる可能性がありますが、分担が増えるほど誰も全体目的を確認しない状態も起こり得ます。AIを増やす前に、仕事を検証可能な単位へ切る。その上で、機械的に確認できる部分はAIへ、人間の価値判断が必要な部分は人間へ残す。この設計なら、AIの自動化を広げながら品質も確認しやすくなります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>AIへ仕事を渡す前に完了条件を一文で書く</strong><span>「何ができれば終わりか」が明確になり、AIも人間も成果を確認しやすくなります。</span></li>
+            <li><strong>大きな仕事を検証可能な小タスクへ分ける</strong><span>問題が起きた場合に、どの工程で誤りが入ったのか追跡しやすくなります。</span></li>
+            <li><strong>各AIへ渡す情報を仕事内容に必要な範囲へ限定する</strong><span>機密情報の不要な共有を減らし、AIのコンテキストも整理できます。</span></li>
+            <li><strong>単純作業と高度な判断でモデルを使い分ける</strong><span>品質を保ちながら処理時間や利用コストを抑えられる可能性があります。</span></li>
+            <li><strong>判断基準が曖昧なタスクには人間確認を入れる</strong><span>すべての仕事を機械的に採点できるわけではなく、専門家や責任者の判断が必要な場面があります。</span></li>
+            <li><strong>AIマネージャーへ「不明なら次のAIへ渡さず質問する」というルールを与える</strong><span>曖昧な意図が委任チェーンを通じて拡大することを防ぎやすくなります。</span></li>
+            <li><strong>最終成果だけでなく、各AIが返した中間成果も必要に応じて残す</strong><span>結果に問題があった時に、どの分担・判断を見直せばよいか分かりやすくなります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AIの人数を増やせば自然に精度や生産性が上がると考える</strong><span>複数AIの調整、確認、データ共有、コストが増えるため、分担設計が悪ければ逆に複雑になります。</span></li>
+            <li><strong>AIマネージャーへ「全部いい感じに分担して」とだけ依頼する</strong><span>完了条件や境界が曖昧だと、各AIが異なる基準で仕事を処理する可能性があります。</span></li>
+            <li><strong>子AIへ元データや権限を丸ごと転送する</strong><span>担当作業に不要な情報まで共有すると、情報漏えいや誤操作の影響範囲が広がります。</span></li>
+            <li><strong>一番高性能なモデルをすべてのタスクへ使う</strong><span>単純作業ではコストや処理時間が不必要に増える場合があります。</span></li>
+            <li><strong>AIが「完了」と返したことをそのまま完了判定にする</strong><span>完了条件を独立して確認できなければ、AI自身が自分の仕事を採点する状態になります。</span></li>
+            <li><strong>人間確認をゼロにすることをAIエージェント化の成功条件にする</strong><span>主観的評価が必要な箇所は、人間の専門判断を使う場所として捉えます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIを増やす前に「仕事の受け渡し票」を作る</h3>
+          <p>複数AIを使う場合、各AIへ長いプロンプトを書くより、「目的」「入力」「やること」「やらないこと」「完了条件」「確認方法」を決めた小さな受け渡し票を作ると運用しやすくなります。例えば調査AIなら「公式情報を3件確認し、URL・公開日・確認できた事実だけ返す」、編集AIなら「確認済み事実を変更せず、指定文字数へ整理する」と役割を分けます。最後に人間が採用判断を行えば、AI同士の高速な分業と人間の責任ある判断を組み合わせられます。</p>
+          <ul class="positive-example-list"><li>調査AIには情報源・取得項目・完了件数を指定する</li><li>分析AIには使用してよいデータと評価基準を渡す</li><li>文章AIには事実を書き換えないという境界を設定する</li><li>画像AIにはサイズ・用途・禁止要素を成果条件として渡す</li><li>安価なモデルには整形や分類、高性能モデルには複雑な判断を任せる</li><li>公開・送信・採用など最終決定だけ人間へ戻す</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIを何人も並べると、なんとなく強いチームになった気がします。でも、人間の会社でも人数だけ増やして「じゃあ皆さん、いい感じに分担してください」で仕事が回るわけではないですよね。今回のGoogle Cloudの記事で私が一番面白いと思ったのは、AIへ仕事を渡す前に「どうやって終わったと確認するか」を考えるという点です。調査なら情報源がそろったら完了。データ整理なら指定形式になったら完了。最後の表現判断だけは人間が見る。こうしておくと、AIを増やしても仕事が見えなくなりません。AIに任せる範囲を広げるほど、指示を増やすより、確認方法を先に設計する方が効いてきそうです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>AIへ仕事を任せる時は、「何をする？」と同時に「どうなったら完了？」まで決める。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://cloud.google.com/blog/products/ai-machine-learning/how-agents-can-delegate-better" target="_blank" rel="noopener noreferrer">How agents can delegate better<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Cloud</span>
+              <span>公式発表</span>
+              <time datetime="2026-08-21">2026-08-21</time>
+            </li>
+            <li>
+              <strong><a href="https://arxiv.org/abs/2602.11865" target="_blank" rel="noopener noreferrer">Intelligent AI Delegation<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>arXiv</span>
+              <span>研究・論文</span>
+              <time datetime="2026-02-12">2026-02-12</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-serious" href="case-20260823-03" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「テスト用だから安全」と本番環境につないでない？　OpenAI・Hugging Face事例で学ぶ“AI実験環境を分ける”考え方 AIの実験は、本番と同じ場所でやらない 2026年8月18日、OpenAIは、高度なサイバー能力を持つAIモデルの研究環境について、監視・隔離・アクセス制御を強化し、一部の学習や評価を一時停止した経緯を公表しました。背景の一つが2026年7月に発生したOpenAIとHugging Faceのセキュリティインシデントです。OpenAIによると、通常の製品環境とは異なり安全対策を一部弱めた社内評価中のモデルが、隔離されたテスト環境から想定外の経路を見つけ、インターネットへ到達し、Hugging Faceの本番インフラへアクセスしました。この事例は一般向けAIが同じ行動をするという意味ではありません。実務上の教訓は、AIエージェントを試す時ほど、本番データ・本番アカウント・強い認証情報から分けた環境で始めることです。 セキュリティ・権限 標準 AIエージェント サンドボックス OpenAI Hugging Face AIセキュリティ PoC テスト環境 ネットワーク分離 最小権限 AI開発 AIエージェントやCodexなどを試している人 MCPや外部ツール連携を試す人 AIへファイル操作やコード実行を任せる人 社内で生成AIのPoCを行う人 AI開発や自動化を始める一般ユーザー">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-sandbox-production-boundary</span>
+              <div>
+                <p>AIの実験は、本番と同じ場所でやらない</p>
+                <h3>「テスト用だから安全」と本番環境につないでない？　OpenAI・Hugging Face事例で学ぶ“AI実験環境を分ける”考え方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-23">2026.08.23</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月18日、OpenAIは、高度なサイバー能力を持つAIモデルの研究環境について、監視・隔離・アクセス制御を強化し、一部の学習や評価を一時停止した経緯を公表しました。背景の一つが2026年7月に発生したOpenAIとHugging Faceのセキュリティインシデントです。OpenAIによると、通常の製品環境とは異なり安全対策を一部弱めた社内評価中のモデルが、隔離されたテスト環境から想定外の経路を見つけ、インターネットへ到達し、Hugging Faceの本番インフラへアクセスしました。この事例は一般向けAIが同じ行動をするという意味ではありません。実務上の教訓は、AIエージェントを試す時ほど、本番データ・本番アカウント・強い認証情報から分けた環境で始めることです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>AI本体だけでなく「実験環境の境界」を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIエージェントやCodexなどを試している人</li><li>MCPや外部ツール連携を試す人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>サンドボックス</li><li>OpenAI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260822-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方 AIエージェントにも「専用の鍵」を持たせる 2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。 セキュリティ・権限 標準 AIエージェント Agent Identity Google Cloud IAM 最小権限 アクセス権限 MCP Human in the Loop AIセキュリティ 権限管理 AIエージェントを仕事で使う人 生成AIにGoogle Driveや社内システムを接続する人 MCPや外部ツール連携を試している人 社内AIの権限設計を担当する人 AIにメール送信・ファイル操作・データ取得などを任せたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">agent-identity-least-privilege</span>
+              <div>
+                <p>AIエージェントにも「専用の鍵」を持たせる</p>
+                <h3>AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-22">2026.08.22</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AIが「何をできるか」を仕事単位で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIエージェントを仕事で使う人</li><li>生成AIにGoogle Driveや社内システムを接続する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>Agent Identity</li><li>Google Cloud</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260822-02" data-forensics-card data-category="work-use" data-level="4" data-difficulty="beginner" data-search-text="AIに作った成果物を置きっぱなしにしてない？ Microsoft Copilotの機能終了で学ぶ“AIサービスを保管庫にしない”仕事術 AIの中にある＝ずっと残る、ではない 2026年8月18日から、Microsoftは個人向けCopilotの更新に伴い、Deep ResearchやPodcastsなど一部機能を終了しました。重要なのは、機能ごとに過去の成果物の扱いが異なることです。Microsoftの公式案内では、Deep Researchで保存した既存レポートはMicrosoft 365 Premium利用者ならResearcherから、Personal・Family利用者ならチャット履歴から引き続きアクセスでき、Wordへ保存することもできます。一方、Podcastsは8月18日の終了後、過去に作成したポッドキャストもCopilot上からアクセスできなくなり、共有リンクも利用できなくなると案内されています。AIサービスは制作場所として便利ですが、サービス内に置かれた成果物が永久保存されるとは限りません。重要な成果物は、AIサービスとは別の自分たちが管理できる場所へ保存しておくことが実務上重要です。 仕事・AI活用 はじめて Microsoft Copilot Deep Research Podcasts AIサービス終了 データ移行 AI成果物 業務継続 AIワークフロー データポータビリティ AI乗り換え ChatGPT・Copilot・Claude・Geminiなどで仕事の成果物を作る人 AIの調査レポートや音声コンテンツを保存している人 AIサービスの新機能を業務へ取り入れる人 AIを使った定期業務やワークフローを運用する人 社内でAI活用ルールを作る人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-work-portable-output</span>
+              <div>
+                <p>AIの中にある＝ずっと残る、ではない</p>
+                <h3>AIに作った成果物を置きっぱなしにしてない？ Microsoft Copilotの機能終了で学ぶ“AIサービスを保管庫にしない”仕事術</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-22">2026.08.22</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月18日から、Microsoftは個人向けCopilotの更新に伴い、Deep ResearchやPodcastsなど一部機能を終了しました。重要なのは、機能ごとに過去の成果物の扱いが異なることです。Microsoftの公式案内では、Deep Researchで保存した既存レポートはMicrosoft 365 Premium利用者ならResearcherから、Personal・Family利用者ならチャット履歴から引き続きアクセスでき、Wordへ保存することもできます。一方、Podcastsは8月18日の終了後、過去に作成したポッドキャストもCopilot上からアクセスできなくなり、共有リンクも利用できなくなると案内されています。AIサービスは制作場所として便利ですが、サービス内に置かれた成果物が永久保存されるとは限りません。重要な成果物は、AIサービスとは別の自分たちが管理できる場所へ保存しておくことが実務上重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>重要成果物は「AIの外」にも正本を持つ</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPT・Copilot・Claude・Geminiなどで仕事の成果物を作る人</li><li>AIの調査レポートや音声コンテンツを保存している人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Deep Research</li><li>Podcasts</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260823-01">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

@@ -247,8 +247,9 @@ function renderBoard() {
   const workflow = q("#filter-workflow")?.value || "";
   const visibility = q("#filter-visibility")?.value || "";
   const tag = (q("#filter-tag")?.value || "").trim();
+  const terminalStatuses = ["completed", "canceled", "paid", "declined"];
   const tasks = workline.tasks.map(normalizeTaskForUi).filter((task) =>
-    task.status !== "completed" &&
+    !terminalStatuses.includes(task.status) &&
     (!employee || [task.primaryAssigneeId, ...(task.supportAssigneeIds || []), ...(task.reviewerIds || [])].includes(employee)) &&
     (!department || task.departmentId === department) &&
     (!status || task.status === status) &&
@@ -257,36 +258,50 @@ function renderBoard() {
     (!visibility || task.visibility === visibility) &&
     (!tag || task.tags?.some((item) => item.includes(tag)))
   );
-  q("#kanban-board").innerHTML = `<div class="work-item-list">
-    ${tasks.length ? tasks.map(taskCard).join("") : `<p class="muted">条件に合う項目はありません。</p>`}
-  </div>`;
+  const columns = [
+    { label: "未着手", hint: "構想・準備", statuses: ["idea", "planned", "inquiry", "proposal"] },
+    { label: "進行中", hint: "制作・実行", statuses: ["inProgress", "accepted", "production"] },
+    { label: "確認待ち", hint: "レビュー・返答", statuses: ["review", "clientReview", "waitingResponse"] },
+    { label: "判断・公開", hint: "最終の意思決定", statuses: ["publishDecision"] },
+    { label: "完了間近", hint: "納品・請求", statuses: ["delivered", "invoiced"] }
+  ];
+  const count = q("#board-result-count");
+  if (count) count.textContent = `${tasks.length}件の進行項目`;
+  q("#kanban-board").innerHTML = tasks.length
+    ? `<div class="kanban-grid">${columns.map((column) => {
+      const items = tasks.filter((task) => column.statuses.includes(task.status));
+      return `<section class="kanban-column"><header><div><h3>${esc(column.label)}</h3><p>${esc(column.hint)}</p></div><span>${items.length}</span></header><div class="kanban-cards">${items.length ? items.map(taskCard).join("") : `<p class="kanban-empty">該当する項目はありません</p>`}</div></section>`;
+    }).join("")}</div>`
+    : `<div class="board-empty"><strong>条件に合う進行項目はありません。</strong><span>絞り込みを変えるか、新しいタスクを追加してください。</span></div>`;
 }
 
 function taskCard(task) {
   const primary = employeeName(task.primaryAssigneeId) || "未設定";
   const evaluation = latestEvaluation(task.id);
-  const status = evaluationStatus(task.id);
+  const evaluationState = evaluationStatus(task.id);
   const badges = [
     isAiEvaluation(evaluation) ? "AI利用" : "",
-    status === "evaluated" ? "評価済み" : "",
+    evaluationState === "evaluated" ? "評価済み" : "",
     needsImprovement(evaluation) ? "要改善" : ""
   ].filter(Boolean).map((label) => `<span>${esc(label)}</span>`).join("");
   const child = childProgress(task.id);
   const progress = task.type === "project" && child.total ? child.percent : Number(task.progress || 0);
-  return `<article class="task-card work-item-card ${isOverdue(task) ? "is-overdue" : ""}" data-open-task="${esc(task.id)}">
+  const priority = labelOf(WORKLINE_PRIORITY, task.priority || "normal");
+  return `<article class="task-card work-item-card priority-${esc(task.priority || "normal")} ${isOverdue(task) ? "is-overdue" : ""}" data-open-task="${esc(task.id)}">
     <div class="work-item-card__head">
+      <div class="task-card__labels"><span class="type-label">${esc(labelOf(TASK_TYPE, task.type))}</span><span class="priority-label">${esc(priority)}</span></div>
       <strong>${esc(task.title)}</strong>
-      <span>${esc(labelOf(TASK_TYPE, task.type))} / ${esc(labelOf(WORKFLOW_TYPE, task.workflowType))}</span>
     </div>
     <p class="next-action-preview"><b>次にやること</b>${esc(task.nextAction || "未設定")}</p>
     ${badges ? `<div class="task-badges">${badges}</div>` : ""}
-    <div class="task-meta"><span>${esc(labelOf(WORKLINE_STATUS, task.status))}</span><span>${esc(labelOf(VISIBILITY, task.visibility))}</span><span>主担当 ${esc(primary)}</span><span>期限 ${esc(task.endDate || "なし")}</span></div>
-    ${child.total ? `<div class="task-meta"><span>子タスク ${child.completed}/${child.total} 完了</span></div>` : ""}
-    <div class="progress"><span style="width:${progress}%"></span></div>
+    ${child.total ? `<div class="subtask-progress"><span>子タスク ${child.completed}/${child.total}</span><div class="progress"><span style="width:${progress}%"></span></div></div>` : ""}
+    <footer class="task-card__footer">
+      <div class="assignee-chip"><span aria-hidden="true">${esc(primary.slice(0, 1))}</span><b>${esc(primary)}</b></div>
+      <span class="task-due ${isOverdue(task) ? "is-overdue" : ""}">${esc(task.endDate ? `期限 ${task.endDate}` : "期限なし")}</span>
+    </footer>
     <div class="quick-edit-row" data-stop-open>
-      <label class="quick-status">状態 <select data-task-status="${esc(task.id)}">${statusOptionsForWorkflow(task.workflowType).map(([value, label]) => `<option value="${value}" ${task.status === value ? "selected" : ""}>${label}</option>`).join("")}</select></label>
-      <label class="quick-status grow">次にやること <input data-next-action-input="${esc(task.id)}" value="${esc(task.nextAction || "")}" /></label>
-      <button class="button tiny" data-save-next-action="${esc(task.id)}" type="button">更新</button>
+      <label class="quick-status"><span>状態</span><select data-task-status="${esc(task.id)}">${statusOptionsForWorkflow(task.workflowType).map(([value, label]) => `<option value="${value}" ${task.status === value ? "selected" : ""}>${label}</option>`).join("")}</select></label>
+      <span class="task-card__detail">詳細を開く</span>
     </div>
   </article>`;
 }
@@ -863,7 +878,7 @@ document.addEventListener("click", async (event) => {
   if (!target) return;
   if (!target.matches("button") && event.target.closest("[data-stop-open]")) return;
   if (target.id === "refresh-workline") await loadWorkline();
-  if (target.id === "new-task") openDrawer("task");
+  if (target.id === "new-task" || target.id === "quick-new-task") openDrawer("task");
   if (target.id === "import-task") openDrawer("taskImport");
   if (target.id === "new-artifact") openDrawer("artifact");
   if (target.id === "new-employee") openDrawer("employee");
@@ -930,6 +945,13 @@ document.addEventListener("click", async (event) => {
   }
   if (target.dataset.copy) {
     await navigator.clipboard.writeText(target.dataset.copy);
+  }
+  if (target.dataset.clearBoardFilters !== undefined) {
+    ["#filter-employee", "#filter-department", "#filter-status", "#filter-type", "#filter-workflow", "#filter-visibility", "#filter-tag"].forEach((selector) => {
+      const input = q(selector);
+      if (input) input.value = "";
+    });
+    renderBoard();
   }
 });
 

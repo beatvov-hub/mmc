@@ -9,15 +9,20 @@
   </head>
   <body>
     <header class="app-header">
-      <div>
+      <div class="brand-lockup">
         <p class="eyebrow">MAINICHI MIRU COMPANY</p>
         <h1>MMC Workline</h1>
-        <p>毎日見る株式会社 業務進行・更新管理ツール</p>
+        <p>業務進行・更新管理ツール</p>
       </div>
-      <div class="status-card" id="system-status" aria-live="polite">接続を確認しています…</div>
+      <div class="topbar-actions">
+        <div class="workspace-location"><span>WORKSPACE</span><strong>進行と更新</strong></div>
+        <button class="button primary topbar-new-task" id="quick-new-task" type="button">＋ タスクを追加</button>
+        <div class="status-card" id="system-status" aria-live="polite">接続を確認しています…</div>
+      </div>
     </header>
 
     <nav class="section-tabs app-sidebar" aria-label="MMC Workline">
+      <div class="sidebar-heading">WORKSPACE</div>
       <button class="is-active" data-tab="dashboard" type="button">ダッシュボード</button>
       <button data-tab="board" type="button">進行ボード</button>
       <button data-tab="evaluations" type="button">業務振り返り</button>
@@ -96,22 +101,26 @@
           <div>
             <span class="step-mark">02</span>
             <h2>進行ボード</h2>
-            <p>MMC専用ステータスで、企画から公開準備までを見渡します。</p>
+            <p>担当、優先度、次の行動を見ながら、今動かす仕事だけを整理します。</p>
           </div>
           <div class="button-row">
             <button class="button secondary" id="import-task" type="button">AI回答を取り込む</button>
             <button class="button primary" id="new-task" type="button">タスクを追加</button>
           </div>
         </div>
-        <section class="panel workline-filters">
+        <section class="panel workline-filters board-filters">
           <label class="field"><span>担当社員</span><select id="filter-employee"></select></label>
           <label class="field"><span>部署</span><select id="filter-department"></select></label>
           <label class="field"><span>状態</span><select id="filter-status"></select></label>
           <label class="field"><span>種類</span><select id="filter-type"></select></label>
           <label class="field"><span>業務フロー</span><select id="filter-workflow"></select></label>
           <label class="field"><span>公開範囲</span><select id="filter-visibility"></select></label>
-          <label class="field"><span>タグ</span><input id="filter-tag" placeholder="例：ラウンジ" /></label>
+          <label class="field"><span>検索 / タグ</span><input id="filter-tag" placeholder="例：ラウンジ、有料記事" /></label>
         </section>
+        <div class="board-result-bar">
+          <p id="board-result-count" aria-live="polite">読み込み中…</p>
+          <button class="button quiet tiny" data-clear-board-filters type="button">絞り込みをクリア</button>
+        </div>
         <div class="kanban-board" id="kanban-board"></div>
       </section>
 
