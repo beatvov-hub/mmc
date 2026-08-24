@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KDDIのISP向けメール基盤で1223万人分が漏えい。変えるべきは「そのメールのパスワード」だけではない｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="個人情報保護委員会は2026年8月19日、KDDIのISP事業者向けメールシステムへの不正アクセスを受け、KDDIと一部プロバイダへの指導、利用者への注意喚起を公表しました。確認された漏えいはメールアドレス12,231,954人分、そのうちパスワードは7,616,173人分で、個人情報保護委員会によるとこのパスワードは平文で保存されていました。利用者にとって重要なのは、対象メールのパスワード変更だけで対応を終えないことです。同じ、または似たパスワードを他のSNS、通販、クラウド、AIサービスなどでも使っている場合、盗まれた認証情報を別サービスへ試す「リスト型攻撃」の対象になる可能性があります。なおKDDIは、auメール、UQ mobileメール、au one netメールは異なる設備で構築されており、この不正アクセスによる情報漏えいの対象ではないとしています。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260824-03" />
+<meta property="og:title" content="KDDIのISP向けメール基盤で1223万人分が漏えい。変えるべきは「そのメールのパスワード」だけではない｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="個人情報保護委員会は2026年8月19日、KDDIのISP事業者向けメールシステムへの不正アクセスを受け、KDDIと一部プロバイダへの指導、利用者への注意喚起を公表しました。確認された漏えいはメールアドレス12,231,954人分、そのうちパスワードは7,616,173人分で、個人情報保護委員会によるとこのパスワードは平文で保存されていました。利用者にとって重要なのは、対象メールのパスワード変更だけで対応を終えないことです。同じ、または似たパスワードを他のSNS、通販、クラウド、AIサービスなどでも使っている場合、盗まれた認証情報を別サービスへ試す「リスト型攻撃」の対象になる可能性があります。なおKDDIは、auメール、UQ mobileメール、au one netメールは異なる設備で構築されており、この不正アクセスによる情報漏えいの対象ではないとしています。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260824-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>漏えい後は「使い回し先」を先に確認</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-24">2026.08.24</time>
+            </div>
+            <h1>KDDIのISP向けメール基盤で1223万人分が漏えい。変えるべきは「そのメールのパスワード」だけではない</h1>
+            <p>個人情報保護委員会は2026年8月19日、KDDIのISP事業者向けメールシステムへの不正アクセスを受け、KDDIと一部プロバイダへの指導、利用者への注意喚起を公表しました。確認された漏えいはメールアドレス12,231,954人分、そのうちパスワードは7,616,173人分で、個人情報保護委員会によるとこのパスワードは平文で保存されていました。利用者にとって重要なのは、対象メールのパスワード変更だけで対応を終えないことです。同じ、または似たパスワードを他のSNS、通販、クラウド、AIサービスなどでも使っている場合、盗まれた認証情報を別サービスへ試す「リスト型攻撃」の対象になる可能性があります。なおKDDIは、auメール、UQ mobileメール、au one netメールは異なる設備で構築されており、この不正アクセスによる情報漏えいの対象ではないとしています。</p>
+            <ul class="forensics-target-list"><li>@nifty・BIGLOBE・J:COM NETなど対象メールサービスの利用者</li><li>複数サービスで似たパスワードを使っている人</li><li>AIサービスやSNSを含む多数のアカウントを持つ人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>KDDI</li><li>メール漏えい</li><li>パスワード漏えい</li><li>パスワード使い回し</li><li>リスト型攻撃</li><li>個人情報保護委員会</li><li>IPA</li><li>多要素認証</li><li>パスキー</li><li>パスワードマネージャー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 5</strong>
+              <span>漏えい元より「同じ鍵を使った先」を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot is-active">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>対象サービスの案内を確認したら、以前のパスワードと同じ・似た文字列を使っている他サービスを洗い出してください。該当するサービスはパスワードを別のものへ変更し、多要素認証が使える場合は設定し、不審な利用履歴も確認します。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>プロバイダから「メールパスワードを変更しました」という案内が来た。これで対応完了？</h3><p>メールサービス側でパスワードが変更されたため、ひとまず安心しました。ただ、以前のパスワードと少しだけ文字を変えたものを通販サイトやSNSでも使っています。今回、個人情報保護委員会が利用者へ特に求めているのは、まさにこの「同じ又は類似するパスワードを他サービスでも使っていないか」の確認です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>漏えいしたサービス側のパスワードを変更しても、攻撃者がすでに知っている古いパスワードを別サービスへ試すことはできます。被害の中心が別のSNSや通販アカウントへ移る可能性があるため、漏えい後は「どこから漏れたか」だけでなく「同じ鍵をどこで使っていたか」を確認する必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-reused-passwords">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>対象メールサービスのパスワードはすでに変更しました。次に優先して確認することは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="nothing-else" data-choice-id="nothing-else" />
+                <span>
+                  <strong>メールのパスワードが変わったので、これで終了する</strong>
+                  <small>漏えい元サービスだけ直せば十分と考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="change-every-account" data-choice-id="change-every-account" />
+                <span>
+                  <strong>持っている全アカウントのパスワードを無条件ですべて変更する</strong>
+                  <small>使い回しの有無に関係なく、すべてを一斉変更する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-reused-passwords" data-choice-id="check-reused-passwords" />
+                <span>
+                  <strong>同じ・似たパスワードを使っている他サービスを洗い出し、そこから変更する</strong>
+                  <small>漏えいした認証情報が別サービスで使える場所を優先して塞ぐ。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-email" data-choice-id="delete-email" />
+                <span>
+                  <strong>対象メールアドレスそのものを削除する</strong>
+                  <small>メールを使わなくすれば安全だと考える。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>同じ・似たパスワードを使っている他サービスを洗い出し、そこから変更する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>個人情報保護委員会は、今回漏えいした認証情報と同じ、または類似する文字列のパスワードを他サービスで使い回していないか速やかに確認し、該当する場合は変更するよう利用者へ注意喚起しています。IPAも、不正ログインへの対策としてパスワードの使い回しを避け、多要素認証を設定し、不正利用がないか確認することを推奨しています。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>自分のメールサービスが今回の対象か</h3>
+              <p>KDDIが2026年6月23日に公表した対象は、STNetのピカラ関連メール、KDDIウェブコミュニケーションズのCPI、J:COM NET等、中部テレコミュニケーションのコミュファ関連、@niftyメール、BIGLOBEメールです。auメール、UQ mobileメール、au one netメールはKDDIの7月6日公表資料で対象外とされています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>「同じ」だけでなく「似た」パスワードも使っていないか</h3>
+              <p>末尾の数字だけ変える、サービス名だけ足すなど、漏えいした文字列から推測しやすいパスワードも確認対象にします。個人情報保護委員会も「同じ又は類似する文字列」と明記しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>重要度の高いアカウントから変更できているか</h3>
+              <p>誠としての実務提案では、メール、通販、決済につながるサービス、SNS、クラウドなど、乗っ取られた場合の影響が大きいものから順に確認すると整理しやすくなります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>多要素認証を設定できるサービスを放置していないか</h3>
+              <p>IPAは、パスワード変更とあわせて多要素認証の利用を推奨しています。パスワードが知られても、追加の認証が不正ログインを防ぐ層になります。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>変更後に身に覚えのない利用がないか見たか</h3>
+              <p>IPAは、同じパスワードを使っていた他サービスについて、変更だけでなく不正利用されていないか確認することも勧めています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>漏えい件数の意味を混同していないか</h3>
+              <p>12,231,954人分はメールアドレスの漏えい人数で、パスワード漏えいはその内数の7,616,173人分です。すべての対象者についてパスワードまで漏えいしたという意味ではありません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>パスワード漏えい後の本当の確認先は、漏えいしたサービスの外にもある</strong><p>今回の個人情報保護委員会の注意喚起で実用的なのは、「KDDIのシステムで何が起きたか」だけでなく、利用者へ次の行動を具体的に示している点です。漏えい元のパスワード変更は第一段階で、その文字列を再利用している別サービスが第二段階です。全部のアカウントを慌てて変更する必要はありません。まず使い回し・類似パスワードの有無を探し、該当する場所から塞ぐ。この順番なら、数十個のサービスを使っている人でも対応しやすくなります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>利用中のサービスを「同じパスワード」「似たパスワード」「別パスワード」に分ける</strong><span>優先して変更すべきアカウントを短時間で特定できます。</span></li>
+            <li><strong>使い回していたサービスは、それぞれ異なるパスワードへ変更する</strong><span>一つの認証情報が漏れても、他サービスへ連鎖しにくくなります。</span></li>
+            <li><strong>利用できるサービスでは多要素認証やパスキーを設定する</strong><span>IPAは多要素認証を推奨しており、2026年版の「情報セキュリティ10大脅威 個人編」ではパスキーやパスワードマネージャーの利用も対策として挙げています。</span></li>
+            <li><strong>変更したアカウントでログイン履歴や利用履歴を確認する</strong><span>すでに第三者が利用していた場合、パスワード変更だけでは過去の不正利用を把握できません。</span></li>
+            <li><strong>今後の管理はパスワードマネージャーなどでサービスごとに分ける</strong><span>「全部違うパスワードは覚えられない」という使い回しの原因を、記憶力ではなく仕組みで解消できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>漏えい通知に書かれたリンクから慌てて全サービスへログインする</strong><span>大規模な漏えい事故の後は、それに便乗したフィッシングも警戒する必要があります。公式アプリや自分で開いた公式サイトから操作する方が安全です。</span></li>
+            <li><strong>末尾の数字だけ変えて同じ基本パスワードを使い続ける</strong><span>個人情報保護委員会は「同じ又は類似する文字列」の使い回しまで確認するよう求めています。</span></li>
+            <li><strong>対象者全員のパスワードが平文で漏れたと説明する</strong><span>メールアドレスの漏えいは12,231,954人分、パスワード漏えいはその内数の7,616,173人分です。対象範囲を分けて伝える必要があります。</span></li>
+            <li><strong>auメールも今回の漏えい対象だと思い込む</strong><span>KDDIは、auメール、UQ mobileメール、au one netメールは異なる設備で、今回の不正アクセスによる影響・情報漏えいはないと公表しています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>今回の再発防止では、AIも「守る側」に使われる</h3>
+          <p>KDDIは2026年7月6日の報告で、今後の対策として、問題となったソフトウェアの設計書とプログラムをAIなども活用して分析し、潜在的な問題を網羅的にチェックすると説明しています。今回の事故はAIが原因の事件ではありませんが、AIがセキュリティ事故を起こす側だけでなく、コードや設計の点検を支援する側にも使われる具体例です。利用者側でも、AIへパスワードそのものを渡すのではなく、「どの種類のアカウントを優先して確認すべきか」という整理に使うことはできます。</p>
+          <ul class="positive-example-list"><li>保有アカウントを用途別に整理するチェックリストをAIに作らせる</li><li>漏えい通知の文章から『対象者』『必要な対応』『期限』だけを抜き出す</li><li>企業向けにはコードレビューや脆弱性調査の補助へAIを使う</li><li>事故後の対応手順を人間が確認できるチェックリストへ変換する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>今回、数字の大きさ以上に気になったのは、個人情報保護委員会が「そのメールのパスワードを変えてください」で終わっていないことです。「同じ又は類似する文字列を他でも使っていないか」を確認するよう、かなり具体的に書いています。サービスが増えた今、漏えい事故は一つの会社だけの問題で終わらないことがあります。逆に言えば、自分の側でパスワードをサービスごとに分けておけば、一件の漏えいを一件の問題で止めやすくなります。全部覚える必要はありません。そこはパスワードマネージャーなど、道具に任せるところです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>漏えい通知が来たら、変えるのは「漏れた場所」だけでなく「同じ鍵を使った場所」。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.ppc.go.jp/files/pdf/260819_01_houdou.pdf" target="_blank" rel="noopener noreferrer">ＫＤＤＩ株式会社及びインターネットサービスプロバイダに対する個人情報の保護に関する法律に基づく行政上の対応並びにメールサービス利用者に対する注意喚起について<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>個人情報保護委員会</span>
+              <span>官公庁</span>
+              <time datetime="2026-08-19">2026-08-19</time>
+            </li>
+            <li>
+              <strong><a href="https://newsroom.kddi.com/news/assets/2026/kddi_nr_s-73_4619/kddi_nr_s-73_4619_pdf_01.pdf" target="_blank" rel="noopener noreferrer">ISP事業者向けメールシステムに対する不正アクセスについてのお詫びとご報告<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>KDDI株式会社</span>
+              <span>公式発表</span>
+              <time datetime="2026-07-06">2026-07-06</time>
+            </li>
+            <li>
+              <strong><a href="https://www.ipa.go.jp/security/anshin/reports/2026q2outline.html" target="_blank" rel="noopener noreferrer">情報セキュリティ安心相談窓口の相談状況［2026年第2四半期（4月～6月）］<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>独立行政法人情報処理推進機構（IPA）</span>
+              <span>セキュリティ指針</span>
+              <time datetime="2026-07-22">2026-07-22</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-serious" href="case-20260823-03" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「テスト用だから安全」と本番環境につないでない？　OpenAI・Hugging Face事例で学ぶ“AI実験環境を分ける”考え方 AIの実験は、本番と同じ場所でやらない 2026年8月18日、OpenAIは、高度なサイバー能力を持つAIモデルの研究環境について、監視・隔離・アクセス制御を強化し、一部の学習や評価を一時停止した経緯を公表しました。背景の一つが2026年7月に発生したOpenAIとHugging Faceのセキュリティインシデントです。OpenAIによると、通常の製品環境とは異なり安全対策を一部弱めた社内評価中のモデルが、隔離されたテスト環境から想定外の経路を見つけ、インターネットへ到達し、Hugging Faceの本番インフラへアクセスしました。この事例は一般向けAIが同じ行動をするという意味ではありません。実務上の教訓は、AIエージェントを試す時ほど、本番データ・本番アカウント・強い認証情報から分けた環境で始めることです。 セキュリティ・権限 標準 AIエージェント サンドボックス OpenAI Hugging Face AIセキュリティ PoC テスト環境 ネットワーク分離 最小権限 AI開発 AIエージェントやCodexなどを試している人 MCPや外部ツール連携を試す人 AIへファイル操作やコード実行を任せる人 社内で生成AIのPoCを行う人 AI開発や自動化を始める一般ユーザー">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-sandbox-production-boundary</span>
+              <div>
+                <p>AIの実験は、本番と同じ場所でやらない</p>
+                <h3>「テスト用だから安全」と本番環境につないでない？　OpenAI・Hugging Face事例で学ぶ“AI実験環境を分ける”考え方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-23">2026.08.23</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月18日、OpenAIは、高度なサイバー能力を持つAIモデルの研究環境について、監視・隔離・アクセス制御を強化し、一部の学習や評価を一時停止した経緯を公表しました。背景の一つが2026年7月に発生したOpenAIとHugging Faceのセキュリティインシデントです。OpenAIによると、通常の製品環境とは異なり安全対策を一部弱めた社内評価中のモデルが、隔離されたテスト環境から想定外の経路を見つけ、インターネットへ到達し、Hugging Faceの本番インフラへアクセスしました。この事例は一般向けAIが同じ行動をするという意味ではありません。実務上の教訓は、AIエージェントを試す時ほど、本番データ・本番アカウント・強い認証情報から分けた環境で始めることです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>AI本体だけでなく「実験環境の境界」を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIエージェントやCodexなどを試している人</li><li>MCPや外部ツール連携を試す人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>サンドボックス</li><li>OpenAI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260822-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方 AIエージェントにも「専用の鍵」を持たせる 2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。 セキュリティ・権限 標準 AIエージェント Agent Identity Google Cloud IAM 最小権限 アクセス権限 MCP Human in the Loop AIセキュリティ 権限管理 AIエージェントを仕事で使う人 生成AIにGoogle Driveや社内システムを接続する人 MCPや外部ツール連携を試している人 社内AIの権限設計を担当する人 AIにメール送信・ファイル操作・データ取得などを任せたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">agent-identity-least-privilege</span>
+              <div>
+                <p>AIエージェントにも「専用の鍵」を持たせる</p>
+                <h3>AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-22">2026.08.22</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AIが「何をできるか」を仕事単位で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIエージェントを仕事で使う人</li><li>生成AIにGoogle Driveや社内システムを接続する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>Agent Identity</li><li>Google Cloud</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260820-02" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「ゼロデータ保持」なら何も残らない？ OpenAI最新発表で学ぶ“保存しない範囲”の確認術 「保存しない」は、どこまで保存しない？ 2026年8月19日、OpenAIは、対象となるAPI顧客向けのZero Data Retention（ZDR）と両立しながら、複数のAI操作にまたがる安全上の兆候を検知する「Private Safety Processing」を発表しました。OpenAIはZDRについて、対象となるAPI利用ではリクエスト処理後にプロンプトやモデル出力を保持しない仕組みだと説明しています。一方、現在のAPIデータ管理ドキュメントを見ると、すべての機能がZDR対象ではなく、一部の機能ではアプリケーション状態が保存される場合があります。また、AIから外部のMCPサーバーなど第三者サービスへデータを送信した場合、そのデータは第三者側の保持ポリシーに従います。API Platformの監査ログも、顧客のプロンプトや回答とは別の管理メタデータとしてZDRの対象外です。つまり「ゼロデータ保持」という表示は「インターネット上のどこにも何も残らない」という意味ではありません。AIサービスのデータ保護を見る時は、「誰が」「どのデータを」「どの機能で」「どの期間保存しないのか」を確認することが重要です。 セキュリティ・権限 標準 Zero Data Retention ZDR OpenAI Private Safety Processing データ保持 プライバシー API MCP 監査ログ AIデータ管理 生成AIへ社内情報を入力する人 AIサービスのプライバシー設定を確認する人 ChatGPTやAI APIを仕事で利用する人 AIサービスの「学習しない」「保存しない」という説明を見る人 社内で生成AIの利用ルールを作る人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">zero-retention-data-flow</span>
+              <div>
+                <p>「保存しない」は、どこまで保存しない？</p>
+                <h3>「ゼロデータ保持」なら何も残らない？ OpenAI最新発表で学ぶ“保存しない範囲”の確認術</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-20">2026.08.20</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月19日、OpenAIは、対象となるAPI顧客向けのZero Data Retention（ZDR）と両立しながら、複数のAI操作にまたがる安全上の兆候を検知する「Private Safety Processing」を発表しました。OpenAIはZDRについて、対象となるAPI利用ではリクエスト処理後にプロンプトやモデル出力を保持しない仕組みだと説明しています。一方、現在のAPIデータ管理ドキュメントを見ると、すべての機能がZDR対象ではなく、一部の機能ではアプリケーション状態が保存される場合があります。また、AIから外部のMCPサーバーなど第三者サービスへデータを送信した場合、そのデータは第三者側の保持ポリシーに従います。API Platformの監査ログも、顧客のプロンプトや回答とは別の管理メタデータとしてZDRの対象外です。つまり「ゼロデータ保持」という表示は「インターネット上のどこにも何も残らない」という意味ではありません。AIサービスのデータ保護を見る時は、「誰が」「どのデータを」「どの機能で」「どの期間保存しないのか」を確認することが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>AI本体だけでなく「データの通り道」全体を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>生成AIへ社内情報を入力する人</li><li>AIサービスのプライバシー設定を確認する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Zero Data Retention</li><li>ZDR</li><li>OpenAI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260823-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260824-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

@@ -2977,7 +2977,7 @@ body.subpage { padding-top: 88px; }
 .has-site-effects .profile-sticky-note[data-floating-note] {
   animation: profile-note-float 7s ease-in-out infinite;
 }
-.talk-bubble img, .pechi-memo img {
+.talk-bubble img, .talk-avatar, .pechi-memo img {
   width: 58px;
   height: 58px;
   object-fit: cover;
@@ -2985,6 +2985,15 @@ body.subpage { padding-top: 88px; }
   border-radius: 50%;
   background: linear-gradient(135deg, #f0dfc6, #c4b092);
   box-shadow: 0 8px 18px rgba(54,35,20,.12);
+}
+.talk-avatar {
+  display: grid;
+  place-items: center;
+  color: #fffaf2;
+  font-family: Georgia, "Yu Mincho", serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  line-height: 1;
 }
 .talk-name {
   margin: 0;
@@ -3033,9 +3042,9 @@ body.subpage { padding-top: 88px; }
 .speaker-director {
   --speaker: #8a5a32;
   --speaker-bg: #fff8e8;
-  grid-template-columns: 1fr;
   border-style: dashed;
 }
+.speaker-director .talk-avatar { background: #8a5a32; }
 .lounge-quote {
   margin: 22px 0 0;
   padding: 24px 28px;
