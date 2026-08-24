@@ -163,6 +163,13 @@ SPEAKER_DEFAULTS = {
         "alt": "所長のアイコン",
         "role": "毎日見る株式会社 所長",
     },
+    "所": {
+        "speakerClass": "speaker-director",
+        "icon": "",
+        "iconText": "所",
+        "alt": "所長のアイコン",
+        "role": "毎日見る株式会社 所長",
+    },
 }
 
 
