@@ -1,5 +1,53 @@
 [
   {
+    "id": "task-mt6odz8m-ulo32t",
+    "title": "TOTALLY SAFE TOWER 15F実装・調整",
+    "description": "3D一人称視点の謎解きデスタワー「TOTALLY SAFE TOWER」を制作する。ガチ謎、初見殺し系の騙し、心理的にびびらせるだけのフロアを各5種類ずつ組み合わせ、全15Fを登って脱出するゲームとして完成させる。現在は15Fまでの基本実装が完了しており、実プレイしながら各フロアの謎、罠、演出、再挑戦テンポを微調整している。",
+    "type": "project",
+    "workflowType": "general",
+    "visibility": "internal",
+    "nextAction": "15Fを最初から最後まで通しプレイし、各フロアの違和感と微調整箇所を洗い出す。",
+    "departmentId": "game-production",
+    "primaryAssigneeId": "takaken",
+    "supportAssigneeIds": [
+      "dg"
+    ],
+    "reviewerIds": [
+      "akito"
+    ],
+    "employeeIds": [
+      "takaken",
+      "dg",
+      "akito"
+    ],
+    "startDate": "2026-08-24",
+    "endDate": null,
+    "status": "inProgress",
+    "priority": "normal",
+    "progress": 10,
+    "parentTaskId": null,
+    "tags": [
+      "TOTALLY SAFE TOWER\\n3Dゲーム\\n謎解き\\n脱出ゲーム\\n死にゲー\\nブラウザゲーム"
+    ],
+    "notes": "海外ユーザーにも遊んでもらう前提で、謎は可能な限り文字に依存せず、形・位置・光・音・方向・物体の挙動で成立させる。理不尽さは残しつつ、死亡後は同フロアから素早く再挑戦できる設計を重視する。YELLOW・RED・WHITEの意味深カードなど、意図的に用途のない赤ニシンも採用する。",
+    "codexInstruction": "現在実装済みのFLOOR 01〜15を維持し、通しプレイで判明した個別の違和感に対して、フロア単位で謎解き導線、罠判定、インタラクション範囲、演出、死亡後の復帰テンポを調整する。新規ギミックの大量追加や大規模な設計変更は行わず、既存15Fを最後まで気持ちよく遊べる状態へ仕上げる。",
+    "external": {
+      "clientName": "",
+      "projectName": "",
+      "proposedAmount": 0,
+      "taxType": "",
+      "proposedAt": null,
+      "desiredDueDate": null,
+      "deliverables": "",
+      "invoiceStatus": "",
+      "paymentStatus": ""
+    },
+    "createdAt": "2026-08-24T03:27:37.894Z",
+    "updatedAt": "2026-08-24T03:27:37.894Z",
+    "completedAt": null,
+    "decisionLogs": []
+  },
+  {
     "id": "task-msnef1t6-ems47u",
     "title": "3D Puzzle Archive拡張",
     "description": "ブラウザ向け3Dパズル基盤「3D Puzzle Archive」を継続開発する。Laser Lab・Shadow Match・Mystery Boxを共通フレームワーク上でデータ駆動運用し、まずLaser Labのステージ追加と新ギミック対応を進め、今後ほかのパズルもJSON追加で拡張できる状態を目指す。",
@@ -21,9 +69,9 @@
     ],
     "startDate": "2026-08-11",
     "endDate": "2026-08-23",
-    "status": "inProgress",
+    "status": "completed",
     "priority": "normal",
-    "progress": 0,
+    "progress": 100,
     "parentTaskId": null,
     "tags": [
       "3Dパズル\\nLaser Lab\\nMystery Box\\nShadow Match\\nJSON\\nブラウザゲーム"
@@ -42,8 +90,8 @@
       "paymentStatus": ""
     },
     "createdAt": "2026-08-10T15:40:54.378Z",
-    "updatedAt": "2026-08-10T15:40:54.378Z",
-    "completedAt": null,
+    "updatedAt": "2026-08-24T03:24:35.377Z",
+    "completedAt": "2026-08-24T03:24:35.377Z",
     "decisionLogs": []
   },
   {
@@ -66,9 +114,9 @@
     ],
     "startDate": "2026-08-11",
     "endDate": null,
-    "status": "inProgress",
+    "status": "completed",
     "priority": "high",
-    "progress": 0,
+    "progress": 100,
     "parentTaskId": null,
     "tags": [
       "Persona Portable\\nAI社員\\nプロフィール\\nJSON\\nポータビリティ"
@@ -87,8 +135,8 @@
       "paymentStatus": ""
     },
     "createdAt": "2026-08-10T15:37:27.904Z",
-    "updatedAt": "2026-08-10T15:37:27.904Z",
-    "completedAt": null,
+    "updatedAt": "2026-08-24T03:24:09.376Z",
+    "completedAt": "2026-08-24T03:24:09.376Z",
     "decisionLogs": []
   },
   {
@@ -160,9 +208,9 @@
     ],
     "startDate": "2026-08-11",
     "endDate": "2026-08-31",
-    "status": "planned",
+    "status": "completed",
     "priority": "normal",
-    "progress": 0,
+    "progress": 100,
     "parentTaskId": null,
     "tags": [
       "イベントログ\\nAI社員\\nMMC-IP\\n記念写真\\n世界観\\nWebコンテンツ"
@@ -181,8 +229,8 @@
       "paymentStatus": ""
     },
     "createdAt": "2026-08-10T15:23:25.689Z",
-    "updatedAt": "2026-08-10T15:23:25.689Z",
-    "completedAt": null,
+    "updatedAt": "2026-08-24T03:24:26.413Z",
+    "completedAt": "2026-08-24T03:24:26.413Z",
     "decisionLogs": []
   },
   {
@@ -301,9 +349,9 @@
     ],
     "startDate": "2026-08-10",
     "endDate": "2026-08-16",
-    "status": "idea",
+    "status": "completed",
     "priority": "normal",
-    "progress": 0,
+    "progress": 100,
     "parentTaskId": null,
     "tags": [
       "人狼メモ\\n吊りHP\\n感情ライン"
@@ -322,8 +370,8 @@
       "paymentStatus": ""
     },
     "createdAt": "2026-08-10T13:50:58.995Z",
-    "updatedAt": "2026-08-10T13:50:58.995Z",
-    "completedAt": null,
+    "updatedAt": "2026-08-24T03:24:15.556Z",
+    "completedAt": "2026-08-24T03:24:15.556Z",
     "decisionLogs": []
   },
   {
@@ -348,9 +396,9 @@
     ],
     "startDate": "2026-08-07",
     "endDate": null,
-    "status": "idea",
+    "status": "completed",
     "priority": "normal",
-    "progress": 0,
+    "progress": 100,
     "parentTaskId": null,
     "tags": [],
     "notes": "まずWorklineを実際に触り、気になる箇所を画面ごとにスクリーンショット付きで洗い出す。\n\n現在までに決まっていること\n対象はMMC Workline\n大規模な作り直しではなく、細かなデザイン修正を行う\n日常利用時の見やすさと使いやすさを改善する\nWorklineの既存機能は原則として維持する\n修正内容を整理した後、必要に応じてCodexへ実装を依頼する\n未決定・確認が必要なこと\n修正対象となる画面\n気になっている箇所の具体的な内容\nPC画面サイズごとの表示確認が必要か\n配色、余白、文字サイズ、ボタン配置の変更範囲\n進行ボードのカードデザインを変更するか\nダッシュボードやサイドメニューも対象に含めるか\nサイト更新室、成果物、業務振り返り画面も対象に含めるか\nデザインのみの変更か、軽い操作改善も含めるか\nCodexへ一括依頼するか、画面ごとに分けて依頼するか\n完了後に.exeを再ビルドするか\n修正前後の比較画像を残すか",
@@ -367,8 +415,8 @@
       "paymentStatus": ""
     },
     "createdAt": "2026-08-06T15:42:49.321Z",
-    "updatedAt": "2026-08-06T15:42:49.321Z",
-    "completedAt": null,
+    "updatedAt": "2026-08-24T03:25:09.821Z",
+    "completedAt": "2026-08-24T03:25:09.821Z",
     "decisionLogs": []
   },
   {
