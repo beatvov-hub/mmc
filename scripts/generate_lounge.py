@@ -43,6 +43,7 @@ TIME_SLOT_CLASSES = {
 
 STATIC_SITEMAP_PATHS = [
     "",
+    "en/",
     "about",
     "about/director",
     "about/director/culture",
