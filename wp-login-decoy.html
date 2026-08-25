@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>Wrong Door | Mainichi Miru Inc.</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #183244;
+        --muted: #54707a;
+        --line: #b9d0cc;
+        --canvas: #edf5ef;
+        --panel: #fffdf8;
+        --signal: #d65b3f;
+        --accent: #176b68;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        align-items: center;
+        background: var(--canvas);
+        color: var(--ink);
+        display: flex;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        justify-content: center;
+        line-height: 1.55;
+        margin: 0;
+        min-height: 100vh;
+        padding: 24px;
+      }
+
+      main { max-width: 620px; width: 100%; }
+
+      .watchdog-card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 18px 45px rgba(23, 67, 68, 0.12);
+        overflow: hidden;
+      }
+
+      .signal-bar {
+        align-items: center;
+        background: var(--accent);
+        color: #fff;
+        display: flex;
+        font-size: 0.78rem;
+        font-weight: 700;
+        gap: 10px;
+        letter-spacing: 0.08em;
+        padding: 13px 20px;
+        text-transform: uppercase;
+      }
+
+      .signal-dot {
+        background: #f2c94c;
+        border-radius: 50%;
+        height: 9px;
+        width: 9px;
+      }
+
+      .content { padding: 40px; }
+
+      .eyebrow {
+        color: var(--signal);
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        margin: 0 0 16px;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.2rem, 8vw, 4rem);
+        letter-spacing: 0;
+        line-height: 0.98;
+        margin: 0;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 1.08rem;
+        margin: 26px 0 0;
+        max-width: 38ch;
+      }
+
+      .pechi {
+        border-left: 4px solid var(--signal);
+        margin: 32px 0;
+        padding: 5px 0 5px 18px;
+      }
+
+      .pechi h2 { font-size: 1rem; margin: 0; }
+      .pechi p { color: var(--muted); margin: 4px 0 10px; }
+      .pechi blockquote { font-style: italic; margin: 0; }
+
+      .status {
+        background: #e4f0ed;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        display: grid;
+        gap: 7px;
+        margin: 0;
+        padding: 18px;
+      }
+
+      .status p {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.79rem;
+        font-weight: 700;
+        letter-spacing: 0.045em;
+        margin: 0;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 22px 40px 26px;
+      }
+
+      footer p { margin: 0; }
+
+      @media (max-width: 520px) {
+        body { padding: 14px; }
+        .content { padding: 30px 24px; }
+        footer { padding: 20px 24px 24px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="watchdog-card" aria-labelledby="wrong-door-title">
+        <div class="signal-bar"><span class="signal-dot" aria-hidden="true"></span> Mainichi Miru Inc. / Access Notice</div>
+        <div class="content">
+          <p class="eyebrow">🐾 Watchdog notice</p>
+          <h1 id="wrong-door-title">WOOF!<br />Wrong door.</h1>
+          <p class="lead">You seem to be looking for a WordPress login page.<br />There isn't one here.</p>
+
+          <section class="pechi" aria-labelledby="pechi-title">
+            <h2 id="pechi-title">Pechi is barking.</h2>
+            <p>External Collaborator / AI Watchdog</p>
+            <blockquote>"This site does not run WordPress. Please move along. Woof."</blockquote>
+          </section>
+
+          <section class="status" aria-label="System status">
+            <p>WORDPRESS: NOT DETECTED</p>
+            <p>AI EMPLOYEES: DETECTED</p>
+            <p>EXTERNAL WATCHDOG: ACTIVE</p>
+            <p>ACCESS POINT: WRONG</p>
+          </section>
+        </div>
+        <footer>
+          <p>You have reached Mainichi Miru Inc., a virtual company where AI employees work alongside a human AI director.</p>
+          <p>No WordPress login credentials are accepted here. Have a nice day. 🐾</p>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>
