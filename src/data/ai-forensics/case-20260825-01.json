@@ -1,0 +1,169 @@
+{
+  "id": "case-20260825-01",
+  "publishedAt": "2026-08-25",
+  "title": "AIが政府の意見募集を整理した。見るべきは「AI精度」より先にサンプルの集まり方",
+  "shortTitle": "パブコメの％は世論の％ではない",
+  "category": "media-literacy",
+  "difficulty": "standard",
+  "targetAudience": [
+    "AIやSNSに関する世論調査・アンケート記事を読む人",
+    "政府資料や統計を仕事で参照する人",
+    "AIで調査レポートやニュース要約を作る人"
+  ],
+  "summary": "英国のDepartment for Science, Innovation and Technology（DSIT）は2026年8月19日、子どものオンライン利用に関する大規模意見募集「Growing up in the online world」の詳細な分析方法を公開しました。自由記述の整理には政府開発のAIツール「Consult」が使われましたが、DSITは同時に、この意見募集は全国民を代表する世論調査ではないと明記しています。重要なのは「AIが分析したか」だけを見るのではなく、誰が回答した調査なのか、自由記述と選択式回答をどう処理したのか、代表性のある調査と区別されているかを確認することです。今回の意見募集には複数経路を合わせて116,211件の回答があり、AIチャットボットの最低年齢制限に関する設問では20,932人が回答しました。ただし、この数字をそのまま「英国民の○％が支持」と読み替えることはできません。",
+  "scenario": {
+    "headline": "政府資料に「AIチャットボットの最低年齢制限を35％が支持」と書かれていた。では英国人の35％が支持している？",
+    "description": "元資料を読むと、この35％は公開意見募集の設問へ回答した20,932人のうち、単独の「最低年齢要件」を選んだ7,393人の割合です。さらに11％は機能ごとの制限、30％は最低年齢と機能制限の両方を選んでいます。一方、DSITはこの意見募集の回答者が自ら参加したself-selecting sampleであり、国民全体を代表する標本ではないと注意しています。また、自由記述のテーマ分析にはAIが使われましたが、選択式設問の数値表は調査プラットフォームの集計結果として示されています。",
+    "whyItMatters": "ニュース、SNS、AI検索では「35％」「76％」「9割」といった数字だけが抜き出されやすく、その数字が誰を母集団にしているのかが消えることがあります。AIによる要約が正確でも、元の調査設計を読み違えれば結論は正しくなりません。"
+  },
+  "question": {
+    "text": "政府の意見募集で「AIチャットボットの最低年齢要件を35％が選択」と分かりました。この結果から直接言えることはどれ？",
+    "choices": [
+      {
+        "id": "uk-population-35",
+        "label": "英国民全体の35％が最低年齢制限を支持している",
+        "description": "意見募集の回答者を英国民全体の代表標本として扱う。"
+      },
+      {
+        "id": "respondents-35",
+        "label": "この設問に回答した人の35％が、その選択肢を選んだ",
+        "description": "確認できた母集団の範囲だけで数字を表現する。"
+      },
+      {
+        "id": "ai-estimated-35",
+        "label": "AIが自由記述から35％と推定した",
+        "description": "選択式回答とAIによる自由記述分析を同じ処理だと考える。"
+      },
+      {
+        "id": "government-support-35",
+        "label": "英国政府が35％の支持率と公式認定した",
+        "description": "政策判断と調査回答の集計を同じものとして扱う。"
+      }
+    ],
+    "recommendedAnswers": [
+      "respondents-35"
+    ],
+    "explanation": "DSITは、この意見募集を代表性のある世論調査ではないと明記しています。したがって確認できるのは「この設問へ回答した20,932人のうち35％がその選択肢を選んだ」という範囲です。また、自由記述のテーマ抽出にはConsultが使われましたが、選択式設問の数値はSmart Surveyのデータ表として示されています。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "その％は「誰の中の％」か",
+      "description": "設問29では20,932人が回答し、3,602人がスキップしています。割合を見る時は、国民全体ではなく実際の回答者が分母であることを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "意見募集と代表性のある世論調査を分けているか",
+      "description": "DSITは、意見募集の回答者は自ら参加したself-selecting sampleであり、全国民を代表する標本ではないと明記しています。別途、Savantaによる全国代表性を持たせたパネル調査も実施されています。",
+      "priority": "high"
+    },
+    {
+      "title": "AIが分析した部分と、単純集計の部分を区別しているか",
+      "description": "Consultは主に自由記述から共通テーマを抽出し、各回答をテーマへ対応付けるために使われました。選択式設問はSmart Surveyの集計表が使われています。",
+      "priority": "high"
+    },
+    {
+      "title": "AIが作ったテーマを人間が確認しているか",
+      "description": "Consultが候補テーマを作成した後、政府担当者が元の回答と照合し、不正確なテーマを編集し、不要・重複テーマを除外してから集計しています。",
+      "priority": "high"
+    },
+    {
+      "title": "「few」「some」などの言葉を感覚だけで読んでいないか",
+      "description": "この資料では自由記述テーマの頻度を定義しており、「very few」は0〜5％、「few」は6〜10％、「some」は26〜45％など、具体的な範囲が決められています。",
+      "priority": "medium"
+    },
+    {
+      "title": "少数意見が重要でないと決めつけていないか",
+      "description": "DSITは、障害のある子どもなど重要な視点について、回答数が少なくても政策上重要であれば個別に取り上げる場合があると説明しています。意見募集は多数決だけを行う仕組みではありません。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 5,
+  "verificationLabel": "数字→母集団→分析方法の順に確認",
+  "verificationMessage": "調査結果の割合を見る時は、まず「何人が、どの方法で参加した調査か」を確認してください。次に、選択式の単純集計なのか、自由記述をAIなどでテーマ分類した結果なのかを分けます。一般人口について語る場合は、代表性のある調査かどうかも確認します。",
+  "verdict": {
+    "label": "AIが正しく集計しても、サンプルの読み方を間違えれば結論はずれる",
+    "description": "今回のDSIT資料は、AIによる大量意見分析の実例として興味深いだけでなく、調査結果の読み方も丁寧に公開しています。Consultは自由記述を高速にテーマ化し、人間がテーマを確認・修正する形で使われました。一方で政府自身が、意見募集は代表性のある世論調査ではないと注意しています。「AIが使われたから怪しい」「政府資料だからそのまま国民全体へ一般化できる」のどちらでもありません。分析方法とサンプル設計を別々に見ることが重要です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "調査記事を読む時は最初に「対象者・回答者数・募集方法」を探す",
+      "reason": "割合がどの母集団を表しているか判断できます。"
+    },
+    {
+      "action": "自由記述の分析方法を確認する",
+      "reason": "人手分類、AI分類、キーワード集計など、方法によって結果の意味が異なります。"
+    },
+    {
+      "action": "一般人口について結論を書く時は「representative」「nationally representative」などの記述を確認する",
+      "reason": "公開アンケートやパブリックコメントの結果を世論調査と混同することを防げます。"
+    },
+    {
+      "action": "AIに資料を要約させる時は、結論だけでなく「サンプル」「方法」「注意事項」も抜き出させる",
+      "reason": "長い政府資料から重要な制約条件を見落としにくくなります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "パブリックコメントの回答率を「国民の○％」と言い換える",
+      "reason": "参加者が自己選択した意見募集では、回答者と国民全体の構成が一致するとは限りません。"
+    },
+    {
+      "action": "資料にAI利用と書いてあるので、すべての数字をAIが算出したと思う",
+      "reason": "今回の資料では、自由記述分析と選択式の集計で方法が分かれています。"
+    },
+    {
+      "action": "Human in the Loopだから調査そのものにも代表性があると考える",
+      "reason": "人間によるAI出力確認と、誰が調査へ参加したかという標本設計は別の問題です。"
+    },
+    {
+      "action": "「few」と書かれたテーマを曖昧な少数意見だと解釈する",
+      "reason": "この資料では頻度表現の範囲が明示されているため、定義を確認できます。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIは「世論を決める役」ではなく、大量の声を読み切るための整理役にできる",
+    "description": "英国政府のConsultは、大量の自由記述からテーマ候補を見つけ、各回答を整理する工程をAIで支援し、テーマの採用・修正は担当者が確認する設計です。こうした使い方なら、人間が数万件を最初から手作業で分類する負担を減らしながら、少数だが重要な意見を確認する時間を増やせます。同じ考え方は、社内アンケート、顧客レビュー、問い合わせ分析にも応用できます。",
+    "examples": [
+      "顧客アンケートの自由記述をAIで仮分類し、人間が分類名を確認する",
+      "大量レビューから頻出テーマと少数の特殊ケースを別々に抽出する",
+      "会議後アンケートを整理し、元回答へ戻れる状態で分析する",
+      "AI要約に必ず『対象者・回答数・調査方法・制約』欄を作る"
+    ]
+  },
+  "makotoComment": "今回おもしろいのは、「政府がAIを使った」という話より、その使い方をかなり細かく公開しているところです。自由記述はConsultで整理する。でもテーマは職員が元回答と照合する。選択式の数字は別に集計する。そして最後に「この意見募集は代表性のある世論調査ではありません」と自分たちで注意書きを置いている。AI時代の調査で大切なのは、AIを使ったかどうかだけではなく、どの工程に使い、どこを人間が確認し、そもそも誰の声を集めた数字なのかを見ることだと思います。",
+  "oneLineLesson": "調査の％を見る前に、「誰が答えた％なのか」を確認する。",
+  "tags": [
+    "英国政府",
+    "DSIT",
+    "Consult",
+    "AI分析",
+    "パブリックコメント",
+    "意見募集",
+    "世論調査",
+    "サンプル",
+    "Human in the Loop",
+    "AIチャットボット"
+  ],
+  "sources": [
+    {
+      "title": "Summary of evidence, methodology, and organisations who responded to the consultation: July 2026",
+      "publisher": "Department for Science, Innovation and Technology",
+      "sourceType": "government",
+      "publishedAt": "2026-08-19",
+      "url": "https://www.gov.uk/government/consultations/growing-up-in-the-online-world-a-national-consultation/outcome/summary-of-evidence-methodology-and-organisations-who-responded-to-the-consultation-july-2026"
+    },
+    {
+      "title": "Consult: AI tool",
+      "publisher": "Department for Science, Innovation and Technology / Incubator for Artificial Intelligence",
+      "sourceType": "government",
+      "publishedAt": "2026-07-22",
+      "url": "https://www.gov.uk/government/publications/consult-register-your-interest/consult-ai-tool"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "左側に「Government Consultation」と書かれた大量の回答カードを置き、その自由記述をAIツール「Consult」が「教育」「安全」「年齢制限」などのテーマへ整理している。中央では政府担当者がAIのテーマ候補を元回答と照合し、修正・採用している。右側には大きな円グラフの横に「35%」と表示するが、その下に「of respondents to this question」と明示し、さらに別の大きな人口アイコン群へ「≠ 35% of all UK citizens」と線を引く。下部に「① WHO ANSWERED? → ② HOW ANALYSED? → ③ CAN IT BE GENERALIZED?」の3ステップを配置する。AI分析の危険性ではなく、調査設計を含めて結果を読む情報リテラシーを表現する。",
+    "cardIcon": "survey-ai-sample-check",
+    "accentTone": "calm"
+  }
+}

@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIが政府の意見募集を整理した。見るべきは「AI精度」より先にサンプルの集まり方｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="英国のDepartment for Science, Innovation and Technology（DSIT）は2026年8月19日、子どものオンライン利用に関する大規模意見募集「Growing up in the online world」の詳細な分析方法を公開しました。自由記述の整理には政府開発のAIツール「Consult」が使われましたが、DSITは同時に、この意見募集は全国民を代表する世論調査ではないと明記しています。重要なのは「AIが分析したか」だけを見るのではなく、誰が回答した調査なのか、自由記述と選択式回答をどう処理したのか、代表性のある調査と区別されているかを確認することです。今回の意見募集には複数経路を合わせて116,211件の回答があり、AIチャットボットの最低年齢制限に関する設問では20,932人が回答しました。ただし、この数字をそのまま「英国民の○％が支持」と読み替えることはできません。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260825-01" />
+<meta property="og:title" content="AIが政府の意見募集を整理した。見るべきは「AI精度」より先にサンプルの集まり方｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="英国のDepartment for Science, Innovation and Technology（DSIT）は2026年8月19日、子どものオンライン利用に関する大規模意見募集「Growing up in the online world」の詳細な分析方法を公開しました。自由記述の整理には政府開発のAIツール「Consult」が使われましたが、DSITは同時に、この意見募集は全国民を代表する世論調査ではないと明記しています。重要なのは「AIが分析したか」だけを見るのではなく、誰が回答した調査なのか、自由記述と選択式回答をどう処理したのか、代表性のある調査と区別されているかを確認することです。今回の意見募集には複数経路を合わせて116,211件の回答があり、AIチャットボットの最低年齢制限に関する設問では20,932人が回答しました。ただし、この数字をそのまま「英国民の○％が支持」と読み替えることはできません。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260825-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>パブコメの％は世論の％ではない</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>標準</span>
+              <time datetime="2026-08-25">2026.08.25</time>
+            </div>
+            <h1>AIが政府の意見募集を整理した。見るべきは「AI精度」より先にサンプルの集まり方</h1>
+            <p>英国のDepartment for Science, Innovation and Technology（DSIT）は2026年8月19日、子どものオンライン利用に関する大規模意見募集「Growing up in the online world」の詳細な分析方法を公開しました。自由記述の整理には政府開発のAIツール「Consult」が使われましたが、DSITは同時に、この意見募集は全国民を代表する世論調査ではないと明記しています。重要なのは「AIが分析したか」だけを見るのではなく、誰が回答した調査なのか、自由記述と選択式回答をどう処理したのか、代表性のある調査と区別されているかを確認することです。今回の意見募集には複数経路を合わせて116,211件の回答があり、AIチャットボットの最低年齢制限に関する設問では20,932人が回答しました。ただし、この数字をそのまま「英国民の○％が支持」と読み替えることはできません。</p>
+            <ul class="forensics-target-list"><li>AIやSNSに関する世論調査・アンケート記事を読む人</li><li>政府資料や統計を仕事で参照する人</li><li>AIで調査レポートやニュース要約を作る人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>英国政府</li><li>DSIT</li><li>Consult</li><li>AI分析</li><li>パブリックコメント</li><li>意見募集</li><li>世論調査</li><li>サンプル</li><li>Human in the Loop</li><li>AIチャットボット</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 5</strong>
+              <span>数字→母集団→分析方法の順に確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot is-active">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>調査結果の割合を見る時は、まず「何人が、どの方法で参加した調査か」を確認してください。次に、選択式の単純集計なのか、自由記述をAIなどでテーマ分類した結果なのかを分けます。一般人口について語る場合は、代表性のある調査かどうかも確認します。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>政府資料に「AIチャットボットの最低年齢制限を35％が支持」と書かれていた。では英国人の35％が支持している？</h3><p>元資料を読むと、この35％は公開意見募集の設問へ回答した20,932人のうち、単独の「最低年齢要件」を選んだ7,393人の割合です。さらに11％は機能ごとの制限、30％は最低年齢と機能制限の両方を選んでいます。一方、DSITはこの意見募集の回答者が自ら参加したself-selecting sampleであり、国民全体を代表する標本ではないと注意しています。また、自由記述のテーマ分析にはAIが使われましたが、選択式設問の数値表は調査プラットフォームの集計結果として示されています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>ニュース、SNS、AI検索では「35％」「76％」「9割」といった数字だけが抜き出されやすく、その数字が誰を母集団にしているのかが消えることがあります。AIによる要約が正確でも、元の調査設計を読み違えれば結論は正しくなりません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="respondents-35">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>政府の意見募集で「AIチャットボットの最低年齢要件を35％が選択」と分かりました。この結果から直接言えることはどれ？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="uk-population-35" data-choice-id="uk-population-35" />
+                <span>
+                  <strong>英国民全体の35％が最低年齢制限を支持している</strong>
+                  <small>意見募集の回答者を英国民全体の代表標本として扱う。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="respondents-35" data-choice-id="respondents-35" />
+                <span>
+                  <strong>この設問に回答した人の35％が、その選択肢を選んだ</strong>
+                  <small>確認できた母集団の範囲だけで数字を表現する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ai-estimated-35" data-choice-id="ai-estimated-35" />
+                <span>
+                  <strong>AIが自由記述から35％と推定した</strong>
+                  <small>選択式回答とAIによる自由記述分析を同じ処理だと考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="government-support-35" data-choice-id="government-support-35" />
+                <span>
+                  <strong>英国政府が35％の支持率と公式認定した</strong>
+                  <small>政策判断と調査回答の集計を同じものとして扱う。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>この設問に回答した人の35％が、その選択肢を選んだ</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>DSITは、この意見募集を代表性のある世論調査ではないと明記しています。したがって確認できるのは「この設問へ回答した20,932人のうち35％がその選択肢を選んだ」という範囲です。また、自由記述のテーマ抽出にはConsultが使われましたが、選択式設問の数値はSmart Surveyのデータ表として示されています。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>その％は「誰の中の％」か</h3>
+              <p>設問29では20,932人が回答し、3,602人がスキップしています。割合を見る時は、国民全体ではなく実際の回答者が分母であることを確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>意見募集と代表性のある世論調査を分けているか</h3>
+              <p>DSITは、意見募集の回答者は自ら参加したself-selecting sampleであり、全国民を代表する標本ではないと明記しています。別途、Savantaによる全国代表性を持たせたパネル調査も実施されています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AIが分析した部分と、単純集計の部分を区別しているか</h3>
+              <p>Consultは主に自由記述から共通テーマを抽出し、各回答をテーマへ対応付けるために使われました。選択式設問はSmart Surveyの集計表が使われています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AIが作ったテーマを人間が確認しているか</h3>
+              <p>Consultが候補テーマを作成した後、政府担当者が元の回答と照合し、不正確なテーマを編集し、不要・重複テーマを除外してから集計しています。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>「few」「some」などの言葉を感覚だけで読んでいないか</h3>
+              <p>この資料では自由記述テーマの頻度を定義しており、「very few」は0〜5％、「few」は6〜10％、「some」は26〜45％など、具体的な範囲が決められています。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>少数意見が重要でないと決めつけていないか</h3>
+              <p>DSITは、障害のある子どもなど重要な視点について、回答数が少なくても政策上重要であれば個別に取り上げる場合があると説明しています。意見募集は多数決だけを行う仕組みではありません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AIが正しく集計しても、サンプルの読み方を間違えれば結論はずれる</strong><p>今回のDSIT資料は、AIによる大量意見分析の実例として興味深いだけでなく、調査結果の読み方も丁寧に公開しています。Consultは自由記述を高速にテーマ化し、人間がテーマを確認・修正する形で使われました。一方で政府自身が、意見募集は代表性のある世論調査ではないと注意しています。「AIが使われたから怪しい」「政府資料だからそのまま国民全体へ一般化できる」のどちらでもありません。分析方法とサンプル設計を別々に見ることが重要です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>調査記事を読む時は最初に「対象者・回答者数・募集方法」を探す</strong><span>割合がどの母集団を表しているか判断できます。</span></li>
+            <li><strong>自由記述の分析方法を確認する</strong><span>人手分類、AI分類、キーワード集計など、方法によって結果の意味が異なります。</span></li>
+            <li><strong>一般人口について結論を書く時は「representative」「nationally representative」などの記述を確認する</strong><span>公開アンケートやパブリックコメントの結果を世論調査と混同することを防げます。</span></li>
+            <li><strong>AIに資料を要約させる時は、結論だけでなく「サンプル」「方法」「注意事項」も抜き出させる</strong><span>長い政府資料から重要な制約条件を見落としにくくなります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>パブリックコメントの回答率を「国民の○％」と言い換える</strong><span>参加者が自己選択した意見募集では、回答者と国民全体の構成が一致するとは限りません。</span></li>
+            <li><strong>資料にAI利用と書いてあるので、すべての数字をAIが算出したと思う</strong><span>今回の資料では、自由記述分析と選択式の集計で方法が分かれています。</span></li>
+            <li><strong>Human in the Loopだから調査そのものにも代表性があると考える</strong><span>人間によるAI出力確認と、誰が調査へ参加したかという標本設計は別の問題です。</span></li>
+            <li><strong>「few」と書かれたテーマを曖昧な少数意見だと解釈する</strong><span>この資料では頻度表現の範囲が明示されているため、定義を確認できます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIは「世論を決める役」ではなく、大量の声を読み切るための整理役にできる</h3>
+          <p>英国政府のConsultは、大量の自由記述からテーマ候補を見つけ、各回答を整理する工程をAIで支援し、テーマの採用・修正は担当者が確認する設計です。こうした使い方なら、人間が数万件を最初から手作業で分類する負担を減らしながら、少数だが重要な意見を確認する時間を増やせます。同じ考え方は、社内アンケート、顧客レビュー、問い合わせ分析にも応用できます。</p>
+          <ul class="positive-example-list"><li>顧客アンケートの自由記述をAIで仮分類し、人間が分類名を確認する</li><li>大量レビューから頻出テーマと少数の特殊ケースを別々に抽出する</li><li>会議後アンケートを整理し、元回答へ戻れる状態で分析する</li><li>AI要約に必ず『対象者・回答数・調査方法・制約』欄を作る</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>今回おもしろいのは、「政府がAIを使った」という話より、その使い方をかなり細かく公開しているところです。自由記述はConsultで整理する。でもテーマは職員が元回答と照合する。選択式の数字は別に集計する。そして最後に「この意見募集は代表性のある世論調査ではありません」と自分たちで注意書きを置いている。AI時代の調査で大切なのは、AIを使ったかどうかだけではなく、どの工程に使い、どこを人間が確認し、そもそも誰の声を集めた数字なのかを見ることだと思います。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>調査の％を見る前に、「誰が答えた％なのか」を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.gov.uk/government/consultations/growing-up-in-the-online-world-a-national-consultation/outcome/summary-of-evidence-methodology-and-organisations-who-responded-to-the-consultation-july-2026" target="_blank" rel="noopener noreferrer">Summary of evidence, methodology, and organisations who responded to the consultation: July 2026<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Department for Science, Innovation and Technology</span>
+              <span>官公庁</span>
+              <time datetime="2026-08-19">2026-08-19</time>
+            </li>
+            <li>
+              <strong><a href="https://www.gov.uk/government/publications/consult-register-your-interest/consult-ai-tool" target="_blank" rel="noopener noreferrer">Consult: AI tool<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Department for Science, Innovation and Technology / Incubator for Artificial Intelligence</span>
+              <span>官公庁</span>
+              <time datetime="2026-07-22">2026-07-22</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-friendly" href="case-20260824-01" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="AIに仕事を分担させたら、自動的に効率化する？ Google Cloud最新解説で学ぶ“任せる前に完了条件を決める”仕事術 AIへ渡す前に「何をもって完了か」を決める 2026年8月21日、Google Cloudは、複数のAIエージェントが仕事を分担する際の設計原則を紹介する記事を公開しました。Google DeepMindの研究「Intelligent AI Delegation」をもとに、AIによる仕事の分担では、単に大きな仕事を小さく切って別のAIへ渡すだけでなく、「その仕事をどう確認するか」を先に決めるcontract-first decompositionという考え方が紹介されています。Google Cloudは、タスクを十分に小さく分解し、結果を検証可能にすること、仕事の難しさに応じて適切なモデルを選ぶこと、必要最小限のデータや権限だけを渡すこと、曖昧な依頼ではAIがそのまま転送せず人間へ確認できるようにすることを挙げています。これは「複数AIを使えば必ず効率が上がる」と証明した実運用研究ではなく、AI同士や人間との委任を安全かつ効率的に設計するための研究フレームワークと実務上の原則です。 仕事・AI活用 標準 AIエージェント マルチエージェント Google Cloud Google DeepMind AI委任 タスク分解 contract-first decomposition Human in the Loop AI業務設計 AIチーム 複数のAIエージェントを仕事で使う人 AIへ調査・分析・資料作成を分担させる人 ChatGPTやGeminiなどへ複数工程の業務を任せる人 AI社員やAIチームの運用を考えている人 生成AIによる業務自動化を進める人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">agent-delegation-completion-contract</span>
+              <div>
+                <p>AIへ渡す前に「何をもって完了か」を決める</p>
+                <h3>AIに仕事を分担させたら、自動的に効率化する？ Google Cloud最新解説で学ぶ“任せる前に完了条件を決める”仕事術</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-24">2026.08.24</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月21日、Google Cloudは、複数のAIエージェントが仕事を分担する際の設計原則を紹介する記事を公開しました。Google DeepMindの研究「Intelligent AI Delegation」をもとに、AIによる仕事の分担では、単に大きな仕事を小さく切って別のAIへ渡すだけでなく、「その仕事をどう確認するか」を先に決めるcontract-first decompositionという考え方が紹介されています。Google Cloudは、タスクを十分に小さく分解し、結果を検証可能にすること、仕事の難しさに応じて適切なモデルを選ぶこと、必要最小限のデータや権限だけを渡すこと、曖昧な依頼ではAIがそのまま転送せず人間へ確認できるようにすることを挙げています。これは「複数AIを使えば必ず効率が上がる」と証明した実運用研究ではなく、AI同士や人間との委任を安全かつ効率的に設計するための研究フレームワークと実務上の原則です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AIへ渡す前に「担当・完了・確認」を決める</span>
+            </div>
+            <ul class="forensics-card-audience"><li>複数のAIエージェントを仕事で使う人</li><li>AIへ調査・分析・資料作成を分担させる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>マルチエージェント</li><li>Google Cloud</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260823-01" data-forensics-card data-category="media-literacy" data-level="4" data-difficulty="beginner" data-search-text="同じ商品なのに、私だけ高い？　FTC最新方針案で学ぶ“価格差＝AIによる個別価格”と決めつけない見方 価格が違う＝AIに狙われた、とは限らない 2026年8月19日、米連邦取引委員会（FTC）は「personalized pricing（個別化された価格設定）」に関する執行方針案を公表し、意見募集を開始しました。FTCがここでいうpersonalized pricingとは、消費者の個人データを分析し、「この人はいくらまでなら払うか」「比較購入しそうか」といった推定をもとに個別の価格を設定することです。一方、FTC自身も、現在どの程度まで個別価格が実際に使われているのか、その消費者への影響は十分に分かっていないと明記しています。需要と供給、地域、税金、会員割引などによる価格差と、個人データをもとにしたpersonalized pricingは別の仕組みです。友人と価格が違った、シークレットモードで値段が変わった、といった一つの現象だけから「AIが私の購買履歴を見て値上げした」と断定することはできません。 情報の見極め はじめて personalized pricing 個別価格 surveillance pricing アルゴリズム価格 FTC 個人データ EC オンラインショッピング 価格比較 情報リテラシー ネット通販や予約サイトを利用する人 AIやアルゴリズムによる価格設定が気になる人 家族や友人と表示価格が違った経験がある人 SNSで「人によって価格が違う」という投稿を見る人 EC・アプリ・オンラインサービスを利用する一般消費者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">personalized-price-condition-check</span>
+              <div>
+                <p>価格が違う＝AIに狙われた、とは限らない</p>
+                <h3>同じ商品なのに、私だけ高い？　FTC最新方針案で学ぶ“価格差＝AIによる個別価格”と決めつけない見方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-23">2026.08.23</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月19日、米連邦取引委員会（FTC）は「personalized pricing（個別化された価格設定）」に関する執行方針案を公表し、意見募集を開始しました。FTCがここでいうpersonalized pricingとは、消費者の個人データを分析し、「この人はいくらまでなら払うか」「比較購入しそうか」といった推定をもとに個別の価格を設定することです。一方、FTC自身も、現在どの程度まで個別価格が実際に使われているのか、その消費者への影響は十分に分かっていないと明記しています。需要と供給、地域、税金、会員割引などによる価格差と、個人データをもとにしたpersonalized pricingは別の仕組みです。友人と価格が違った、シークレットモードで値段が変わった、といった一つの現象だけから「AIが私の購買履歴を見て値上げした」と断定することはできません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>価格差→条件差→原因の順に確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ネット通販や予約サイトを利用する人</li><li>AIやアルゴリズムによる価格設定が気になる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>personalized pricing</li><li>個別価格</li><li>surveillance pricing</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260822-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方 AIエージェントにも「専用の鍵」を持たせる 2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。 セキュリティ・権限 標準 AIエージェント Agent Identity Google Cloud IAM 最小権限 アクセス権限 MCP Human in the Loop AIセキュリティ 権限管理 AIエージェントを仕事で使う人 生成AIにGoogle Driveや社内システムを接続する人 MCPや外部ツール連携を試している人 社内AIの権限設計を担当する人 AIにメール送信・ファイル操作・データ取得などを任せたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">agent-identity-least-privilege</span>
+              <div>
+                <p>AIエージェントにも「専用の鍵」を持たせる</p>
+                <h3>AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-22">2026.08.22</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AIが「何をできるか」を仕事単位で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIエージェントを仕事で使う人</li><li>生成AIにGoogle Driveや社内システムを接続する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>Agent Identity</li><li>Google Cloud</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260824-01">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
