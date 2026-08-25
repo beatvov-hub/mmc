@@ -1,0 +1,181 @@
+{
+  "id": "case-20260825-03",
+  "publishedAt": "2026-08-25",
+  "title": "EU AI ActのAIリテラシー義務、一律の資格試験は不要。企業が実際に整えるべきもの",
+  "shortTitle": "AI研修は「全員同じ資格」ではない",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": [
+    "社内でChatGPTなど生成AIを利用している企業担当者",
+    "AI利用ルールや研修を設計する人",
+    "EU向け事業でAI Act対応を確認する人"
+  ],
+  "summary": "欧州委員会が2026年7月27日に更新したAI Act Article 4の公式Q&Aでは、AIシステムの提供者・利用組織には、AIを扱うスタッフ等のAIリテラシー向上を支援する措置が求められる一方、個人に特定の知識レベルを保証させること、一律の試験、特定形式の研修、資格証明書は義務付けられていません。監督・執行ルールは、同Q&Aによれば2026年8月3日から適用されています。企業が考えるべきなのは「全社員に同じAI講座を受けさせること」ではなく、どのAIを、誰が、何の仕事で使い、どんなリスクを理解する必要があるかを整理し、それに合った研修・ガイド・支援策を用意することです。なお、高リスクAIシステムを扱う場合には、人間による監督を担うスタッフへの適切な訓練に関する別の義務も残ります。",
+  "scenario": {
+    "headline": "「EU AI Act対応には全社員がAI資格を取得する必要があります」と研修サービスを勧められた",
+    "description": "社内では営業担当が文章作成に生成AIを使い、開発担当はコード生成、管理部門は要約に使っています。担当者は全員へ同じオンライン講座と修了試験を受けさせる案を検討しました。しかし欧州委員会の公式Q&Aを見ると、Article 4は特定の資格、試験、研修形式を指定していません。むしろ従業員の知識・経験、利用するAI、用途、リスクに応じてAIリテラシー施策を設計する考え方が示されています。",
+    "whyItMatters": "規制対応を「研修を一回受ければ完了」と考えると、実際のAI利用と教育内容がずれる可能性があります。文章生成を使う担当者にはハルシネーションや機密情報入力、採用AIを扱う担当者にはバイアスや人間による監督など、必要な知識は異なります。逆に、全員へ高度な技術試験を課す必要もありません。"
+  },
+  "question": {
+    "text": "会社でChatGPTを広告文作成や翻訳に使っています。EU AI Act Article 4を意識したAIリテラシー施策として最も適切なのは？",
+    "choices": [
+      {
+        "id": "mandatory-certificate",
+        "label": "全社員に同じAI資格を取得させる",
+        "description": "利用目的や担当業務に関係なく、一律の試験と資格取得を必須にする。"
+      },
+      {
+        "id": "manual-only",
+        "label": "AIサービスの利用規約とマニュアルを配布して終える",
+        "description": "読んだか、業務上のリスクを理解したかは確認しない。"
+      },
+      {
+        "id": "role-based-literacy",
+        "label": "利用中のAIと業務を整理し、役割とリスクに応じた研修・ガイドを用意する",
+        "description": "文章生成、開発、意思決定支援など実際の用途ごとに必要な知識を決め、実施記録も残す。"
+      },
+      {
+        "id": "ban-ai",
+        "label": "法対応が複雑なので生成AIを社内で禁止する",
+        "description": "AI利用をなくすことでAIリテラシー施策自体を不要にしようとする。"
+      }
+    ],
+    "recommendedAnswers": [
+      "role-based-literacy"
+    ],
+    "explanation": "欧州委員会Q&Aは、Article 4について一律の研修形式や資格を求めていません。組織は、AIシステムの種類とリスク、利用目的、スタッフの技術知識・経験・教育・訓練を考慮して施策を設計します。Q&Aは、ChatGPTを広告文作成や翻訳に使う企業についても、ハルシネーションなど固有のリスクをスタッフへ知らせる必要があると説明しています。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "「資格取得」が法律上の必須条件だと思っていないか",
+      "description": "欧州委員会Q&Aは、Article 4への対応に特定の証明書は必要ないと明記しています。組織内で研修やガイド施策の記録を残す方法が示されています。",
+      "priority": "high"
+    },
+    {
+      "title": "全員へ同じ内容を教えようとしていないか",
+      "description": "Article 4では、スタッフの技術知識、経験、教育、訓練、AIを利用する文脈を考慮するよう求めています。開発者、一般利用者、管理者で内容を変えることができます。",
+      "priority": "high"
+    },
+    {
+      "title": "社内でどのAIが実際に使われているか把握しているか",
+      "description": "欧州委員会はAIリテラシー施策を考える最初の項目として、組織でどのAIを利用しているか、その役割が提供者なのか利用者なのかを整理することを挙げています。",
+      "priority": "high"
+    },
+    {
+      "title": "利用マニュアルを配っただけで完了していないか",
+      "description": "公式Q&Aは、多くの場合、AIシステムの利用説明書を読ませるだけでは不十分になり得るとしています。実際の利用目的とリスクに合わせたガイダンスが必要です。",
+      "priority": "medium"
+    },
+    {
+      "title": "高リスクAIの追加義務を見落としていないか",
+      "description": "Article 4では特定の個人レベルは要求されませんが、高リスクAIシステムの利用者には、人間による監督を担当するスタッフが適切な能力や訓練を持つための別の要件があります。",
+      "priority": "high"
+    },
+    {
+      "title": "そもそも自社がEU AI Actの適用範囲か確認したか",
+      "description": "EU域外の事業者でもAIシステムをEU市場へ提供する、EU内で利用する、またはEU内の人々へ影響を与える場合はAI Actの対象になり得ます。日本国内だけの利用について自動的に同じ法的義務が生じるという意味ではありません。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 5,
+  "verificationLabel": "AI一覧→利用者→用途→リスク→教育内容の順で設計",
+  "verificationMessage": "Article 4対応を検討する場合は、最初に社内で利用しているAIシステムと担当者を一覧化し、それぞれの用途とリスクを確認します。その上で必要な研修、ガイド、Q&A、相談窓口などを組み合わせ、実施した施策を社内記録として残します。資格取得そのものを目的にしないことが重要です。具体的な適用判断は、自社の事業・利用形態に応じて専門家へ確認してください。",
+  "verdict": {
+    "label": "AIリテラシー義務は「試験に合格させる制度」より「安全に使える環境を作る義務」に近い",
+    "description": "2026年7月の改正後もAI Act Article 4のAIリテラシーに関する義務は残っていますが、欧州委員会は特定の「十分なレベル」を個人に要求せず、知識測定、資格証明、特定形式の研修も義務付けていません。組織が実際のAI利用に合わせて適切な措置を取ることが中心です。欧州委員会自身も、一般職、管理職、開発者で異なる学習パッケージを用意するなど、役割別のアプローチを採用しています。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "社内で利用しているAIを用途付きで一覧化する",
+      "reason": "どの担当者へ、何を教える必要があるか判断する起点になります。"
+    },
+    {
+      "action": "業務ごとに「知っておくべきリスク」を数個に絞る",
+      "reason": "広告文章ならハルシネーションや著作権、機密情報、開発なら生成コードの検証など、実務と結び付けた教育にできます。"
+    },
+    {
+      "action": "一般利用者・管理者・開発者など役割別に内容を変える",
+      "reason": "欧州委員会自身も複数の対象グループ向けに異なるAI学習パッケージを運用しています。"
+    },
+    {
+      "action": "研修だけでなくガイド、相談窓口、社内Q&Aも組み合わせる",
+      "reason": "Article 4は特定形式の研修を指定しておらず、継続的にAIを安全利用する仕組みを設計できます。"
+    },
+    {
+      "action": "実施した施策を簡単に記録する",
+      "reason": "欧州委員会Q&Aは証明書を要求していませんが、研修やガイダンスなどの社内記録を残す方法を示しています。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "「EU AI Act対応資格」を取れば自動的にArticle 4へ適合すると考える",
+      "reason": "欧州委員会は特定の証明書を要求しておらず、外部の事例や研修をそのまま導入しても自動的に適合が推定されるわけではありません。"
+    },
+    {
+      "action": "年1回の全社員研修だけで運用を固定する",
+      "reason": "AIツールや利用方法は変化するため、実際の利用状況に合わせて内容を見直す必要があります。"
+    },
+    {
+      "action": "技術者はAIに詳しいので教育不要と決める",
+      "reason": "欧州委員会Q&Aは、技術経験がある人でも利用するAI固有のリスク、法的・倫理的事項など追加で知るべき内容がないか確認するよう示しています。"
+    },
+    {
+      "action": "日本企業なら必ず対象外だと決める",
+      "reason": "EU域外企業でもEU市場やEU内の利用・影響との関係によって適用される可能性があります。具体的な法的適用判断は自社の事業範囲を確認する必要があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "「コンプライアンス研修」を、実際にAIを使いやすくする社内オンボーディングへ変える",
+    "description": "Article 4の考え方は、AI利用を制限するルール作りだけでなく、社員が迷わずAIを使える環境作りにも使えます。「使ってよいAI」「入力してよい情報」「出力を確認するポイント」「困った時の相談先」を業務別に整理すれば、禁止事項だけを並べた規程より実用的です。欧州委員会のLiving Repositoryにも、40件を超えるAIリテラシー施策の例が掲載されています。",
+    "examples": [
+      "生成AIを初めて使う社員向けに30分の基本ガイドを用意する",
+      "管理職にはAI出力を使った意思決定時の確認ポイントを追加する",
+      "開発者には生成コードのレビュー・セキュリティ確認を扱う",
+      "社内AI利用ルールと実際の成功・失敗事例を更新型FAQにする",
+      "部署ごとにAI相談役やコミュニティを置き、質問を共有する"
+    ]
+  },
+  "makotoComment": "今回のQ&Aで面白いのは、「何点取ればAIリテラシー合格」という方向へ行かなかったことです。むしろ、何のAIをどんな仕事で使っているかによって必要な知識は違う、とかなり現実的に整理されています。広告文を書く人と、採用判断にAIを使う人と、モデルを開発する人へ同じ試験を配っても、たぶん肝心なところが抜けます。規制対応というと証明書を集めたくなりますが、Article 4はそれより「その人がそのAIを安全に使うために何を知るべきか」を考える材料として読む方が実務に使いやすいですね。",
+  "oneLineLesson": "AIリテラシーは「全員が同じ試験に合格すること」ではなく、「その仕事で使うAIを安全に扱えるようにすること」。",
+  "tags": [
+    "EU AI Act",
+    "Article 4",
+    "AIリテラシー",
+    "AI研修",
+    "生成AI研修",
+    "社内AI活用",
+    "AIガバナンス",
+    "ChatGPT",
+    "AIコンプライアンス",
+    "職種別研修"
+  ],
+  "sources": [
+    {
+      "title": "AI Literacy - Questions & Answers",
+      "publisher": "European Commission, Directorate-General for Communications Networks, Content and Technology",
+      "sourceType": "official",
+      "publishedAt": "2026-07-27",
+      "url": "https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers"
+    },
+    {
+      "title": "AI talent, skills and literacy",
+      "publisher": "European Commission, Directorate-General for Communications Networks, Content and Technology",
+      "sourceType": "official",
+      "publishedAt": "2026-07-27",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-talent-skills-and-literacy"
+    },
+    {
+      "title": "Living repository to foster learning and exchange on AI literacy",
+      "publisher": "European Commission, Directorate-General for Communications Networks, Content and Technology",
+      "sourceType": "official",
+      "publishedAt": "2026-08-10",
+      "url": "https://digital-strategy.ec.europa.eu/en/library/living-repository-foster-learning-and-exchange-ai-literacy"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "左側に「ALL EMPLOYEES → SAME AI EXAM」と書かれた一律研修の図を置き、大きな×ではなく「NOT REQUIRED」と表示する。中央には誠風の鑑識担当者が社内AI利用を「営業：文章生成」「管理：要約」「開発：コード生成」「管理職：意思決定支援」のカードへ分け、それぞれに異なる学習項目を割り当てる。右側には「AI SYSTEM → ROLE → CONTEXT → RISK → LITERACY ACTION」の流れを配置し、その下に「Certificate: not required」「Internal records: useful」「High-risk AI: additional training duties」の小さな注記を置く。規制を怖い壁として描かず、職種別のAIオンボーディング設計として見せる実務的なAI鑑識室図解。",
+    "cardIcon": "role-based-ai-literacy",
+    "accentTone": "serious"
+  }
+}

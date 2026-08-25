@@ -45,6 +45,7 @@ STATIC_SITEMAP_PATHS = [
     "",
     "en/",
     "about",
+    "about/faq",
     "about/director",
     "about/director/culture",
     "members",
