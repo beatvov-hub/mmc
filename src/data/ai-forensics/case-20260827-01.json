@@ -1,0 +1,70 @@
+{
+  "id": "case-20260827-01",
+  "publishedAt": "2026-08-27",
+  "title": "Google検索に「Preferred Sources」。好きな媒体をAI Modeで優先しても“信頼済み”になるわけではない",
+  "shortTitle": "Preferred Sourcesは「信頼認証」ではない",
+  "category": "media-literacy",
+  "difficulty": "beginner",
+  "targetAudience": ["Google検索やAI Modeでニュースを調べる人", "よく読むニュースサイトや専門メディアがある人", "AI検索で情報源を自分好みに調整したい人"],
+  "summary": "Googleは2026年8月20日、Google検索の「Preferred Sources」を拡張し、利用者が選んだ媒体をTop StoriesだけでなくAI OverviewsやAI Modeでも優先して見つけやすくする仕組みを案内しました。Preferred Sourcesに登録すると、その媒体の記事が関連する検索で表示されやすくなり「preferred」バッジが付く場合がありますが、これはGoogleがその媒体の内容をすべて正しいと認証したという意味ではありません。情報源を自分で選べる便利な機能だからこそ、「よく読みたい媒体」と「その主張が正しいか」の判断は分けて使うのがポイントです。",
+  "scenario": {
+    "headline": "いつも読む専門サイトをPreferred Sourcesへ登録。AI Modeに出た記事なら、もう出典確認はいらない？",
+    "description": "普段から信頼しているニュースサイトをPreferred Sourcesへ追加したところ、GoogleのAI Modeでその媒体の記事が目立つようになりました。利用者は「GoogleがPreferredと表示しているなら、この記事は検証済みなのだろう」と考え、そのまま内容を共有しようとしています。しかしGoogleの公式説明で示されているのは、利用者が価値を感じる情報源を優先表示するパーソナライズ機能です。",
+    "whyItMatters": "AI検索では、どの情報源が回答へ入るかが結果の見え方に大きく影響します。自分で情報源を選べることは便利ですが、好きな媒体ばかりを優先すると別の視点を見なくなることもあります。Preferred Sourcesは情報源を管理する道具として使い、事実確認そのものとは分けて考える必要があります。"
+  },
+  "question": {
+    "text": "Preferred Sourcesに登録したニュースサイトの記事がAI Modeに表示されました。この時の理解として最も適切なのは？",
+    "choices": [
+      { "id": "google-certified", "label": "Googleが内容の正確性を認証した媒体なので、そのまま信じてよい", "description": "Preferredという表示をファクトチェック済みの認証として扱う。" },
+      { "id": "personal-preference", "label": "自分が選んだ情報源が優先されているので、重要な主張は記事本文や一次情報まで確認する", "description": "表示優先と情報の正確性を分けて考える。" },
+      { "id": "exclusive-source", "label": "今後のAI検索では、その媒体だけが情報源として使われる", "description": "Preferred Sourcesを検索結果の完全な情報源指定機能と考える。" },
+      { "id": "avoid-feature", "label": "情報が偏るのでPreferred Sourcesは使わない方がよい", "description": "パーソナライズ機能自体を避ける。" }
+    ],
+    "recommendedAnswers": ["personal-preference"],
+    "explanation": "GoogleはPreferred Sourcesを、利用者が価値を感じる情報源を検索結果で見つけやすくするパーソナライズ機能として説明しています。選択した媒体の記事はTop Storiesで表示されやすくなり、AI ModeやAI Overviewsではpreferredバッジで強調される場合があります。一方、Googleはこれを記事内容の正確性を保証する認証制度とは説明していません。"
+  },
+  "inspectionPoints": [
+    { "title": "「Preferred」をGoogleによる品質認証と読み違えていないか", "description": "Preferred Sourcesは利用者自身が選ぶ設定です。「自分が優先した媒体」と「第三者が内容を検証した媒体」は同じ意味ではありません。", "priority": "high" },
+    { "title": "検索結果から他の情報源が消えると思っていないか", "description": "Googleは、選択した媒体のコンテンツが関連する検索で「より表示されやすくなる」と説明しています。Preferred Sourcesだけに検索結果を限定する機能ではありません。", "priority": "high" },
+    { "title": "AI ModeやAI Overviewsでpreferredバッジを確認したか", "description": "Google Search Centralによると、選択したPreferred SourceはAI ModeやAI Overviewsでpreferredバッジ付きで強調される場合があります。どの情報源を自分が優先設定しているか気付きやすくなります。", "priority": "medium" },
+    { "title": "一つの媒体だけで重要な結論を出していないか", "description": "普段よく読む媒体でも、速報、分析、論説、一次資料では役割が異なります。医療、法律、金銭など重要な内容では、元となる公式資料も確認します。", "priority": "high" },
+    { "title": "現在の提供範囲を固定情報だと思っていないか", "description": "Google Search Centralは2026年8月20日時点で、Preferred SourcesはTop StoriesではGoogle検索が利用できる全言語で利用でき、AI ModeとAI Overviewsではそれぞれの機能が利用できる言語・地域で表示され得ると案内しています。検索機能の提供地域は今後変わる可能性があります。", "priority": "medium" }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "優先表示と事実確認を分ける",
+  "verificationMessage": "Preferred Sourcesを使う時は、①なぜその媒体を優先したいのか決める、②AI検索でpreferred表示を確認する、③重要な数字・制度・発言だけ元記事や一次情報へ進む、という使い方が分かりやすいです。普段の検索まで毎回複数媒体を読み比べる必要はありません。",
+  "verdict": {
+    "label": "Preferred Sourcesは「信頼できる媒体を自分で選ぶ機能」ではなく「読みたい媒体を自分で優先する機能」",
+    "description": "Googleは2026年8月20日の発表で、Preferred SourcesをTop Stories、AI Overviews、AI Modeへつながるパーソナライズ機能として拡張しました。Googleによると、すでに60万を超えるユニークな情報源が利用者によって選択されています。自分がよく読む媒体へ素早くアクセスできる点は便利ですが、選択した媒体の個々の記事まで自動的に正しいと保証されるわけではありません。情報源を選ぶ作業と、その記事の内容を評価する作業は別です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    { "action": "日常的によく読む公式機関や専門媒体をPreferred Sourcesへ登録する", "reason": "AI検索やニュース検索で、自分が継続的に確認したい情報源を見つけやすくできます。" },
+    { "action": "重要なテーマではPreferred Source以外の結果も一度見る", "reason": "自分の好みだけで情報源が固定されるのを防ぎ、異なる視点や一次情報を見つけられます。" },
+    { "action": "数字・制度変更・発言は元記事から一次資料へ進む", "reason": "ニュース媒体が正しく報じていても、対象範囲や例外は一次資料の方が詳しいことがあります。" },
+    { "action": "定期的にPreferred Sourcesの一覧を見直す", "reason": "以前よく読んでいた媒体が更新されなくなったり、自分が必要とする分野が変わったりするためです。" }
+  ],
+  "avoidActions": [
+    { "action": "preferredバッジを「Google認定の正しい記事」というマークとして扱う", "reason": "バッジは利用者が選んだ情報源を識別するための表示で、個々の記事の真偽認証ではありません。" },
+    { "action": "同じ考え方の媒体だけを大量にPreferred Sourcesへ登録する", "reason": "検索の便利さは上がっても、異なる視点に触れる機会が減る可能性があります。" },
+    { "action": "Preferred Sourceの記事ならAIの要約だけ読んで元記事を開かない", "reason": "重要な条件、例外、文脈が要約から抜ける可能性があります。" }
+  ],
+  "positiveUse": {
+    "title": "AI検索を「情報源まで自分で設計できる検索」へ近づける",
+    "description": "Preferred Sourcesの面白い点は、AI検索を受け身で使うだけでなく、自分が継続して読みたい情報源を検索体験へ反映できることです。例えば行政情報なら官公庁、技術情報なら公式ドキュメント、業界動向なら専門媒体を登録しておけば、日々の調査で目的の情報源へ到達しやすくなります。その上で必要な時だけ別媒体や一次資料を追加すれば、検索時間を減らしながら情報源の質も管理できます。",
+    "examples": ["行政・制度をよく調べる人が官公庁や公共メディアを優先する", "技術者が公式開発ブログや専門技術媒体を登録する", "特定業界を追う人が複数の専門媒体を組み合わせる", "AI Modeでpreferred表示を見ながら、必要な記事だけ原文へ進む"]
+  },
+  "makotoComment": "これはAI検索の使い方が少し変わる機能だと思います。これまでは「AIがどの情報源を拾うかを見る」ことが多かったですが、Preferred Sourcesでは利用者側も情報源の選択に参加できます。ただ、名前が少し紛らわしいですね。「Preferred」は「信頼済み」ではなく「私はここをよく読みたい」です。お気に入りの新聞でも間違えることはありますし、公式サイトでも古いページはあります。好きな情報源を登録する。その上で、大事な話だけもう一段確認する。このくらいの距離感が一番使いやすそうです。",
+  "oneLineLesson": "Preferred Sourcesは「Googleが信頼性を認証した媒体」ではなく、「自分が検索で優先したい媒体」を指定する機能。",
+  "tags": ["Google検索", "Preferred Sources", "AI Mode", "AI Overviews", "AI検索", "情報源", "ニュース", "パーソナライズ", "検索リテラシー"],
+  "sources": [
+    { "title": "Personalize the content you see on Search, Discover, and News", "publisher": "Google", "sourceType": "official", "publishedAt": "2026-08-20", "url": "https://blog.google/products-and-platforms/products/search/personalize-search-discover-news/" },
+    { "title": "Guide to Preferred Sources in Google Search for Web Publishers", "publisher": "Google Search Central", "sourceType": "official", "publishedAt": null, "url": "https://developers.google.com/search/docs/appearance/preferred-sources" },
+    { "title": "Preferred Sources in Google Search", "publisher": "Google Search Help", "sourceType": "official", "publishedAt": null, "url": "https://support.google.com/websearch/answer/16379181?hl=en" }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "中央にGoogle検索とAI Modeの画面を並べ、同じニュース媒体の記事に小さな「Preferred」バッジが付いている。左側には利用者が星マークで「自分が選んだ情報源」を設定する様子、右側には誠風の鑑識担当者が「PREFERRED ≠ VERIFIED」と書かれたカードを示す。下部に「①好きな情報源を選ぶ → ②AI検索で見つけやすくする → ③重要な事実だけ一次情報へ」の3ステップを配置する。警告色を強く使わず、検索を自分好みに設計できる便利さを主役にした明るい情報リテラシー図解。",
+    "cardIcon": "preferred-source-check",
+    "accentTone": "calm"
+  }
+}
