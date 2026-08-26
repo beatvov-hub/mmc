@@ -1,0 +1,75 @@
+{
+  "id": "case-20260826-02",
+  "publishedAt": "2026-08-26",
+  "title": "Copilotの「Agent Blocked」、モデル故障とは限らない。Claude利用は管理者のAIプロバイダー設定で止まる",
+  "shortTitle": "Agent Blockedは権限設定も確認",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["Microsoft CopilotやCopilot Studioを仕事で使う人", "Claudeなど複数のAIモデルを社内で使い分ける人", "生成AIの社内利用を管理するIT・AI担当者"],
+  "summary": "Microsoftは2026年8月19日時点のMicrosoft 365 Copilot Extensibilityの既知の問題として、Copilot Studioで作成したエージェントがClaude Sonnet 4.6など第三者AIモデルを使う場合、利用者にそのAIプロバイダーへのアクセス権がなければ「Agent Blocked」と表示されることを案内しています。これは必ずしもエージェントやモデルの故障ではなく、組織のAIプロバイダー設定によって意図的に利用が止められている可能性があります。MicrosoftではAnthropicなどの第三者AI事業者を「AI Subprocessor」としてMicrosoft Copilotへ組み込む仕組みがあり、管理者はモデル単位ではなくAIプロバイダー単位で、利用できるユーザーやMicrosoft Entra IDのセキュリティグループを指定できます。AIがマルチモデル化すると、「同じCopilot画面で使えるか」だけでなく、「どの会社のモデルが処理するのか」「自社でそのプロバイダーを許可しているか」まで確認することが重要になります。",
+  "scenario": {
+    "headline": "昨日まで使えていた社内エージェントで「Agent Blocked」と表示された。Claudeが落ちている？",
+    "description": "Copilot Studioで作ったエージェントはClaude Sonnet 4.6を利用する設定です。担当者は障害を疑いましたが、Microsoftの公式ドキュメントでは、Anthropicモデルへのアクセスが管理者から許可されていない利用者でも同じエラーが発生すると説明されています。EUではAnthropicへのAIプロバイダーアクセスが既定でオフになるケースもあり、利用者側だけでは解除できません。",
+    "whyItMatters": "複数モデルを選べるAIサービスでは、見た目が一つのサービスでも、裏側では別会社のモデルが使われることがあります。そのため「AIが動かない」という問題が、サービス障害、モデル変更、ライセンス、組織ポリシー、第三者AIプロバイダーへのアクセス制御のどこで起きているのかを分けて考える必要があります。"
+  },
+  "question": {
+    "text": "Copilot StudioのエージェントでClaudeを利用したところ「Agent Blocked」と表示されました。最初に確認する内容として適切なのは？",
+    "choices": [
+      {"id": "assume-outage", "label": "Claude側の障害と判断して復旧を待つ", "description": "設定やアクセス権を確認せず、外部サービス障害だと考える。"},
+      {"id": "check-provider-access", "label": "管理者にAnthropicへのAIプロバイダーアクセスが許可されているか確認する", "description": "Microsoft 365管理センターのAIプロバイダー設定と、自分または所属グループへの割り当てを確認する。"},
+      {"id": "rebuild-agent", "label": "エージェントを削除して最初から作り直す", "description": "アクセス制御とは無関係に、設定ファイルの破損を疑う。"},
+      {"id": "use-personal-claude", "label": "会社の設定を避けるため個人のClaudeへ業務データを移す", "description": "組織のAI利用ポリシーを回避して別サービスへデータを入力する。"}
+    ],
+    "recommendedAnswers": ["check-provider-access"],
+    "explanation": "MicrosoftのKnown Issuesでは、Claude Sonnet 4.6など第三者モデルを使用するCopilot Studioエージェントについて、利用者がそのAIプロバイダーへのアクセスを許可されていない場合に「Agent Blocked」が発生すると説明しています。管理者はMicrosoft 365管理センターの「AI providers operating as Microsoft subprocessors」からプロバイダーを選び、ユーザーまたはMicrosoft Entra IDのセキュリティグループへアクセスを割り当てます。設定反映には10〜15分かかる場合があります。"
+  },
+  "inspectionPoints": [
+    {"title": "エラーが「モデル障害」なのか「組織のアクセス制御」なのか", "description": "Agent Blockedは第三者AIモデルへのアクセス権不足でも発生します。障害情報を探す前に、組織のAIプロバイダー設定を確認する価値があります。", "priority": "high"},
+    {"title": "どのAIプロバイダーのモデルを使っているか", "description": "ClaudeはAnthropicが提供するモデルです。Microsoft Copilotの画面内で使っていても、Microsoft自身が提供するモデルと同じ扱いとは限りません。", "priority": "high"},
+    {"title": "自分個人ではなく所属グループに権限が割り当てられているか", "description": "Microsoftは個人ユーザーだけでなくMicrosoft Entra IDのセキュリティグループやネストされたグループへAIプロバイダーアクセスを割り当てられる仕組みを提供しています。", "priority": "high"},
+    {"title": "権限制御がモデル単位だと思っていないか", "description": "Microsoftの公式資料では、ユーザー・グループへの割り当てはAIモデル単位ではなくAIプロバイダー単位で適用されます。同じプロバイダーの別モデルや将来追加される機能への影響も考慮する必要があります。", "priority": "high"},
+    {"title": "設定変更直後に何度も作り直していないか", "description": "Microsoftはアクセス割り当ての反映に10〜15分待ってから再試行する手順を案内しています。設定直後の失敗だけで構成ミスと判断しない方がよい場合があります。", "priority": "medium"},
+    {"title": "第三者モデル利用時のデータ処理条件を確認したか", "description": "AnthropicはMicrosoftのAI Subprocessorとして契約上の保護下で動作しますが、MicrosoftはAnthropicモデルが現在MicrosoftのEU Data Boundaryの対象外であることも案内しています。利用地域や社内ポリシーによって確認すべき条件が変わります。", "priority": "high"}
+  ],
+  "verificationLevel": 5,
+  "verificationLabel": "エラー表示→利用モデル→AIプロバイダー権限の順で確認",
+  "verificationMessage": "Copilotや社内AIエージェントが突然使えなくなった時は、①どのモデルを使っているか、②そのモデルのAIプロバイダーは誰か、③組織がそのプロバイダーを有効化しているか、④自分または所属グループへアクセスが割り当てられているか、の順に確認します。設定変更後は反映時間も考慮してください。",
+  "verdict": {
+    "label": "マルチモデル時代の「AIが使える」は、サービスへのログイン権限だけでは決まらない",
+    "description": "Microsoft Copilotでは、一つの製品の中でMicrosoft提供モデルだけでなくAnthropicやOpenAIなど第三者AIプロバイダーのモデルを利用する構成が広がっています。Microsoftはそのため、AIプロバイダーごとに利用者やグループを制御する仕組みを整備しています。今回のAgent Blockedは単なるエラー対処の記事ではなく、AIサービスの管理単位が「アプリ」から「モデル提供者」へ広がっていることを示す具体例です。社内で複数モデルを使う場合は、誰がCopilotを使えるかだけでなく、誰がどのAIプロバイダーを使えるかまで把握する方が運用しやすくなります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "Agent Blockedが出たら、利用モデルとAIプロバイダー名を確認する", "reason": "モデル側の障害と組織側のアクセス制御を切り分ける最初の手掛かりになります。"},
+    {"action": "管理者はAIプロバイダーごとの利用者・グループ一覧を定期的に確認する", "reason": "どの部署がどの第三者AIモデルを利用できる状態なのかを把握できます。"},
+    {"action": "新しいAIプロバイダーは少人数のグループから有効化する", "reason": "データ処理条件や業務適合性を確認しながら段階的に利用範囲を広げられます。"},
+    {"action": "設定変更後は10〜15分待ってから再試行する", "reason": "Microsoftが案内している設定反映時間を考慮し、不要なエージェント再作成を避けられます。"},
+    {"action": "第三者モデルを導入する際は、利用条件とデータ処理地域も一緒に記録する", "reason": "後からモデルやプロバイダーが増えても、どの条件で利用を許可したのか追跡しやすくなります。"}
+  ],
+  "avoidActions": [
+    {"action": "Agent Blockedを見てすぐにエージェントを作り直す", "reason": "原因がAIプロバイダーへのアクセス制御なら、エージェントを再作成しても解決しません。"},
+    {"action": "会社でブロックされたモデルを個人アカウントで代用する", "reason": "組織が意図して設定しているデータ保護やAI利用ポリシーを回避することになり、業務データの扱いが変わる可能性があります。"},
+    {"action": "Copilot内で選べるモデルはすべてMicrosoftが直接運用していると思う", "reason": "Microsoft CopilotではAnthropicやOpenAIなどAI Subprocessorによるモデルも利用されます。提供主体とデータ処理条件を確認する必要があります。"},
+    {"action": "一つのClaudeモデルを許可したつもりで、モデル単位の設定だと思い込む", "reason": "Microsoftのアクセス割り当てはAIプロバイダー単位で適用されるため、許可範囲の考え方がモデル単体とは異なります。"}
+  ],
+  "positiveUse": {
+    "title": "AIプロバイダー単位のアクセス制御を「モデルの試用制度」に使う",
+    "description": "AIプロバイダーのアクセス設定は、単に利用を止めるための仕組みではありません。例えば新しいClaudeモデルを試したい部署だけをMicrosoft Entra IDのグループへ追加し、実務での品質、データ処理条件、コスト、使い勝手を確認してから対象を広げる運用にも使えます。モデルの選択肢が増えるほど、全員へ一斉開放するより「誰が・何の目的で・どのプロバイダーを使うか」を小さく試せる仕組みの価値が上がります。",
+    "examples": ["新しいAIプロバイダーを検証チームだけへ30日間開放する", "文章作成部門と開発部門で利用できるAIプロバイダーを分ける", "モデル比較を行う担当者だけ複数プロバイダーへアクセスできるようにする", "利用開始時にプロバイダー名・用途・データ条件を社内台帳へ記録する"]
+  },
+  "makotoComment": "「Agent Blocked」と出たら、普通は壊れたと思いますよね。でも今回のMicrosoftの説明を見ると、実際には「その人にはAnthropicを使わせない」という組織設定が正常に働いている場合があります。ここがマルチモデル化したAIの少し面白いところです。同じCopilotの画面でも、裏側のモデル提供者は一つとは限りません。これからは『Copilotを許可するか』だけでなく、『Copilotの中で誰のモデルまで許可するか』という管理が普通になっていきそうです。エラーを見る時にも、モデルだけでなくプロバイダーを見る癖は役立つと思います。",
+  "oneLineLesson": "AIが動かない時は、モデルの故障だけでなく「そのAIプロバイダーを使う権限があるか」も確認する。",
+  "tags": ["Microsoft Copilot", "Copilot Studio", "Agent Blocked", "Claude", "Anthropic", "AI Subprocessor", "Microsoft Entra ID", "AIプロバイダー", "アクセス制御", "マルチモデル"],
+  "sources": [
+    {"title": "Known Issues in Microsoft 365 Copilot Extensibility", "publisher": "Microsoft Learn", "sourceType": "official", "publishedAt": null, "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/known-issues"},
+    {"title": "Assign AI provider access to users and groups", "publisher": "Microsoft Learn", "sourceType": "official", "publishedAt": null, "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-ai-provider-user-sec-group-access"},
+    {"title": "Anthropic models in Microsoft Online Services", "publisher": "Microsoft Learn", "sourceType": "official", "publishedAt": null, "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor"},
+    {"title": "Overview of AI Subprocessors", "publisher": "Microsoft Learn", "sourceType": "official", "publishedAt": null, "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-subprocessor-overview"},
+    {"title": "Data, Privacy, and Security for Microsoft 365 Copilot", "publisher": "Microsoft Learn", "sourceType": "official", "publishedAt": null, "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy"}
+  ],
+  "visualSuggestion": {
+    "mainVisual": "左側にMicrosoft Copilotの画面と赤ではなく落ち着いた黄色の「Agent Blocked」表示を置く。中央で原因を「MODEL DOWN?」「LICENSE?」「AI PROVIDER ACCESS?」の3方向へ分岐させ、Anthropicの経路だけ管理者設定のゲートで止まっている構図にする。右側にはMicrosoft 365管理センター風の画面で「AI Provider: Anthropic」「Allowed: AI検証チーム」と表示し、その下に個人ユーザーとMicrosoft Entra IDグループのアイコンを並べる。さらに小さく「Copilot UI → AI Provider → Model」の3層を描き、「同じ画面でも、処理するAI提供者は同じとは限らない」と表示する。エラーを怖く描くのではなく、組織のガバナンスが正常に働いている可能性を理解できるAI鑑識室風の実務図解。",
+    "cardIcon": "copilot-provider-access-block",
+    "accentTone": "serious"
+  }
+}
