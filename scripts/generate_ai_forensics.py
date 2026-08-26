@@ -272,6 +272,51 @@ def render_level(level: int, label: str, message: str = "") -> str:
     )
 
 
+def excerpt(value: object, limit: int) -> str:
+    text = " ".join(str(value or "").split())
+    return text if len(text) <= limit else text[: limit - 1].rstrip() + "…"
+
+
+def render_index_card(article: dict[str, Any], *, featured: bool = False, href_prefix: str = "") -> str:
+    search_text = " ".join(
+        [
+            article.get("title", ""),
+            article.get("shortTitle", ""),
+            article.get("summary", ""),
+            category_label(article.get("category", "")),
+            difficulty_label(article.get("difficulty", "")),
+            " ".join(article.get("tags", [])),
+            " ".join(article.get("targetAudience", [])),
+        ]
+    )
+    level = int(article.get("verificationLevel", 1))
+    tone = article.get("visualSuggestion", {}).get("accentTone", "calm")
+    if tone not in ACCENT_TONES:
+        tone = "calm"
+    class_name = "forensics-card is-index-card"
+    if featured:
+        class_name += " is-featured"
+    latest_label = '<span class="forensics-latest-label">Latest</span>' if featured else ""
+    summary_limit = 160 if featured else 118
+    return "\n".join(
+        [
+            f'          <a class="{class_name} tone-{esc(tone)}" href="{esc(href_prefix + article["id"] + ".html")}" data-forensics-card data-category="{esc(article["category"])}" data-level="{level}" data-difficulty="{esc(article["difficulty"])}" data-search-text="{esc(search_text)}">',
+            '            <div class="forensics-index-card-meta">',
+            latest_label,
+            f'              <span>{esc(category_label(article["category"]))}</span>',
+            f'              <time datetime="{esc(article["publishedAt"])}">{esc(article["publishedAt"].replace("-", "."))}</time>',
+            f'              <small>確認 {level}</small>',
+            "            </div>",
+            f'            <h3>{esc(article["title"])}</h3>',
+            f'            <p class="forensics-card-summary">{esc(excerpt(article["summary"], summary_limit))}</p>',
+            '            <p class="forensics-card-lesson"><span>今回の結論</span>',
+            f'              {esc(excerpt(article.get("oneLineLesson", ""), 96))}</p>',
+            '            <span class="forensics-card-cta">詳しく見る</span>',
+            "          </a>",
+        ]
+    )
+
+
 def render_card(article: dict[str, Any], *, featured: bool = False, href_prefix: str = "") -> str:
     tags = "".join(f"<li>{esc(tag)}</li>" for tag in article.get("tags", [])[:3])
     audience = "".join(f"<li>{esc(item)}</li>" for item in article.get("targetAudience", [])[:2])
@@ -321,8 +366,9 @@ def render_card(article: dict[str, Any], *, featured: bool = False, href_prefix:
 
 def render_index_page(articles: list[dict[str, Any]]) -> str:
     latest = articles[0] if articles else None
-    card_grid = "\n".join(render_card(article) for article in articles)
-    featured = render_card(latest, featured=True) if latest else '<div class="forensics-empty-card">AI鑑識室の記事を準備しています。</div>'
+    archive_articles = articles[1:] if latest else []
+    card_grid = "\n".join(render_index_card(article) for article in archive_articles)
+    featured = render_index_card(latest, featured=True) if latest else '<div class="forensics-empty-card">AI鑑識室の記事を準備しています。</div>'
     used_categories = {article.get("category", "") for article in articles}
     category_options = "\n".join(
         f'              <option value="{esc(key)}">{esc(value)}</option>'
@@ -370,16 +416,16 @@ def render_index_page(articles: list[dict[str, Any]]) -> str:
             "",
             '      <section class="forensics-steps card-section" id="about-forensics" aria-labelledby="forensics-steps-title">',
             '        <div class="section-heading"><div><p class="section-kicker">How to Read</p><h2 id="forensics-steps-title">AI鑑識室の読み方</h2></div></div>',
-            '        <div class="forensics-step-grid">',
-            '          <article><span>1</span><strong>事例を知る</strong><p>身近に起こりそうな場面から始めます。</p></article>',
-            '          <article><span>2</span><strong>自分で考える</strong><p>すぐ答えを見る前に、取れる行動を選びます。</p></article>',
-            '          <article><span>3</span><strong>確認する</strong><p>情報源、日時、根拠などを見るポイントを整理します。</p></article>',
-            '          <article><span>4</span><strong>安全に対処する</strong><p>共有、保存、相談など、落ち着いた行動へつなげます。</p></article>',
-            '          <article><span>5</span><strong>前向きに活用する</strong><p>AIを確認作業や整理の相棒として使います。</p></article>',
-            "        </div>",
+            '        <ol class="forensics-reading-flow">',
+            '          <li><span>1</span><div><strong>事例を知る</strong><p>身近に起こりそうな場面から始めます。</p></div></li>',
+            '          <li><span>2</span><div><strong>自分で考える</strong><p>すぐ答えを見る前に、取れる行動を選びます。</p></div></li>',
+            '          <li><span>3</span><div><strong>確認する</strong><p>情報源、日時、根拠などを見るポイントを整理します。</p></div></li>',
+            '          <li><span>4</span><div><strong>安全に対処する</strong><p>共有、保存、相談など、落ち着いた行動へつなげます。</p></div></li>',
+            '          <li><span>5</span><div><strong>前向きに活用する</strong><p>AIを確認作業や整理の相棒として使います。</p></div></li>',
+            '        </ol>',
             "      </section>",
             "",
-            '      <section class="card-section" id="latest-cases" aria-labelledby="latest-cases-title">',
+            '      <section class="card-section forensics-latest-section" id="latest-cases" aria-labelledby="latest-cases-title">',
             '        <div class="section-heading"><div><p class="section-kicker">Latest Case</p><h2 id="latest-cases-title">最新の鑑識事例</h2></div></div>',
             '        <div class="forensics-featured-grid">',
             featured,
@@ -387,7 +433,7 @@ def render_index_page(articles: list[dict[str, Any]]) -> str:
             "      </section>",
             "",
             '      <section class="card-section forensics-search-section" aria-labelledby="forensics-search-title">',
-            '        <div class="section-heading"><div><p class="section-kicker">Find by Theme</p><h2 id="forensics-search-title">テーマから探す</h2></div></div>',
+            '        <div class="section-heading"><div><p class="section-kicker">Find by Theme</p><h2 id="forensics-search-title">過去記事を探す</h2></div></div>',
             '        <form class="forensics-filters" role="search" aria-label="AI鑑識室の記事を絞り込む">',
             '          <label>カテゴリ<select data-forensics-filter="category"><option value="all">すべて</option>',
             category_options,

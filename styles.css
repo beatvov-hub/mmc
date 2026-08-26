@@ -6639,6 +6639,249 @@ img { max-width: 100%; }
   transform: none;
 }
 
+/* AI forensics index: keep the hub focused on discovery, not article detail. */
+.ai-forensics-page .forensics-hero {
+  gap: clamp(28px, 5vw, 64px);
+  padding-bottom: 42px;
+}
+
+.ai-forensics-page .forensics-visual {
+  gap: 10px;
+  padding: clamp(18px, 3vw, 24px);
+  border-color: rgba(29, 107, 103, .2);
+  background: rgba(255, 255, 255, .5);
+  box-shadow: none;
+}
+
+.ai-forensics-page .forensics-visual::before {
+  inset: 12px;
+  border-color: rgba(29, 107, 103, .12);
+}
+
+.ai-forensics-page .forensics-visual-card {
+  display: grid;
+  grid-template-columns: 5.7rem minmax(0, 1fr);
+  column-gap: 10px;
+  align-items: baseline;
+  padding: 10px 12px;
+  border-color: transparent;
+  background: transparent;
+}
+
+.ai-forensics-page .forensics-visual-card strong,
+.ai-forensics-page .forensics-visual-card small {
+  grid-column: 2;
+}
+
+.ai-forensics-page .forensics-visual-card span {
+  grid-row: 1 / span 2;
+}
+
+.ai-forensics-page .forensics-visual-card strong {
+  font-size: 1rem;
+}
+
+.ai-forensics-page .forensics-visual-card small {
+  font-size: .82rem;
+}
+
+.ai-forensics-page .forensics-visual-note {
+  padding: 7px 10px;
+  background: transparent;
+  color: var(--forensics-teal);
+  font-size: .84rem;
+}
+
+.ai-forensics-page .forensics-steps {
+  margin-top: 10px;
+}
+
+.forensics-reading-flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--forensics-line);
+  border-bottom: 1px solid var(--forensics-line);
+}
+
+.forensics-reading-flow li {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 10px;
+  padding: 16px;
+  border-right: 1px solid var(--forensics-line);
+}
+
+.forensics-reading-flow li:last-child {
+  border-right: 0;
+}
+
+.forensics-reading-flow span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--forensics-teal);
+  border-radius: 50%;
+  color: var(--forensics-teal);
+  font-size: .78rem;
+  font-weight: 900;
+}
+
+.forensics-reading-flow strong {
+  display: block;
+  color: var(--forensics-ink);
+  font-size: .96rem;
+}
+
+.forensics-reading-flow p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.55;
+}
+
+.ai-forensics-page .forensics-latest-section {
+  margin-top: 56px;
+}
+
+.forensics-card.is-index-card {
+  min-height: 0;
+  gap: 12px;
+  padding: 20px;
+  border-color: rgba(29, 107, 103, .22);
+  background: rgba(255, 255, 255, .78);
+  box-shadow: 0 8px 24px rgba(26, 69, 65, .05);
+}
+
+.forensics-card.is-index-card:hover,
+.forensics-card.is-index-card:focus-visible {
+  box-shadow: 0 14px 30px rgba(26, 69, 65, .1);
+}
+
+.forensics-index-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+  color: var(--coffee);
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .03em;
+}
+
+.forensics-index-card-meta time,
+.forensics-index-card-meta small {
+  color: var(--muted);
+  font: inherit;
+}
+
+.forensics-latest-label {
+  color: var(--forensics-teal);
+}
+
+.forensics-card.is-index-card h3 {
+  margin: 0;
+  color: var(--forensics-ink);
+  font-size: 1.18rem;
+  line-height: 1.5;
+}
+
+.forensics-card.is-index-card .forensics-card-summary {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: var(--muted);
+  line-height: 1.7;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.forensics-card-lesson {
+  display: -webkit-box;
+  margin: 0;
+  padding-top: 11px;
+  overflow: hidden;
+  border-top: 1px solid rgba(29, 107, 103, .16);
+  color: var(--forensics-ink);
+  font-size: .9rem;
+  font-weight: 800;
+  line-height: 1.6;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.forensics-card-lesson span {
+  margin-right: .5em;
+  color: var(--forensics-teal);
+  font-size: .78rem;
+  letter-spacing: .04em;
+}
+
+.forensics-card-cta {
+  margin-top: auto;
+  color: var(--forensics-teal);
+  font-size: .88rem;
+  font-weight: 900;
+}
+
+.forensics-card.is-index-card.is-featured {
+  gap: 16px;
+  padding: clamp(26px, 4vw, 40px);
+  border-color: rgba(29, 107, 103, .28);
+  background: linear-gradient(135deg, rgba(216, 235, 230, .72), rgba(255, 255, 255, .9));
+  box-shadow: 0 16px 38px rgba(26, 69, 65, .09);
+}
+
+.forensics-card.is-index-card.is-featured h3 {
+  max-width: 24ch;
+  font-size: clamp(1.5rem, 3vw, 2.05rem);
+  line-height: 1.38;
+}
+
+.forensics-card.is-index-card.is-featured .forensics-card-summary {
+  max-width: 72ch;
+  -webkit-line-clamp: 3;
+}
+
+.forensics-card.is-index-card.is-featured .forensics-card-lesson {
+  max-width: 74ch;
+}
+
+.ai-forensics-page .forensics-search-section {
+  margin-top: 62px;
+}
+
+.ai-forensics-page .forensics-filters {
+  gap: 14px;
+  margin-bottom: 14px;
+  padding: 16px;
+  border: 1px solid rgba(29, 107, 103, .18);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .5);
+}
+
+.ai-forensics-page .forensics-filters label {
+  font-size: .8rem;
+}
+
+.ai-forensics-page .forensics-filters select,
+.ai-forensics-page .forensics-filters input {
+  min-height: 42px;
+  border-color: rgba(29, 107, 103, .22);
+  background: rgba(255, 255, 255, .82);
+}
+
+.ai-forensics-page .forensics-results-status {
+  margin: 0 0 16px;
+}
+
+.ai-forensics-page .forensics-pagination {
+  margin-top: 30px;
+}
+
 .forensics-makoto-card {
   display: grid;
   grid-template-columns: 72px 1fr;
@@ -7192,6 +7435,64 @@ img { max-width: 100%; }
   .forensics-level-dot {
     min-height: 32px;
     font-size: .84rem;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+  .ai-forensics-page .forensics-card-grid,
+  .ai-forensics-page .forensics-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .forensics-reading-flow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .forensics-reading-flow li:nth-child(3) {
+    border-right: 0;
+  }
+
+  .forensics-reading-flow li:nth-child(-n + 3) {
+    border-bottom: 1px solid var(--forensics-line);
+  }
+}
+
+@media (max-width: 760px) {
+  .ai-forensics-page .forensics-visual {
+    padding: 14px;
+  }
+
+  .ai-forensics-page .forensics-visual-card {
+    grid-template-columns: 5.1rem minmax(0, 1fr);
+    padding: 8px 9px;
+  }
+
+  .forensics-reading-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .forensics-reading-flow li,
+  .forensics-reading-flow li:nth-child(3) {
+    padding: 13px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--forensics-line);
+  }
+
+  .forensics-reading-flow li:last-child {
+    border-bottom: 0;
+  }
+
+  .ai-forensics-page .forensics-latest-section,
+  .ai-forensics-page .forensics-search-section {
+    margin-top: 42px;
+  }
+
+  .forensics-card.is-index-card.is-featured h3 {
+    max-width: none;
+  }
+
+  .ai-forensics-page .forensics-filters {
+    padding: 14px;
   }
 }
 
