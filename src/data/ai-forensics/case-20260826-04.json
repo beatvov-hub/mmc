@@ -1,0 +1,84 @@
+{
+  "id": "case-20260826-04",
+  "publishedAt": "2026-08-26",
+  "title": "シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角",
+  "shortTitle": "シャドーAI、まず利用先を棚卸しする",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "仕事で生成AIを使っている人",
+    "社内のAI利用ルールを作る人",
+    "IT・情報システム・セキュリティ担当者"
+  ],
+  "summary": "Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。",
+  "scenario": {
+    "headline": "会社ではCopilotだけ利用可。でも社員が個人のChatGPT Desktopで資料を要約していた",
+    "description": "社員は作業を早く終わらせるため、会社PCに入れたAIアプリへ会議メモを貼り付けていました。本人には情報を持ち出す意識はなく、「ブラウザではなくデスクトップアプリだから大丈夫」と考えています。一方、IT部門はそのAIを業務利用として把握しておらず、どのデータが送られたか、どのアカウントで利用しているか、どんな外部接続があるかを確認できません。このように便利さを求めた自然な利用が、組織側から見るとシャドーAIになることがあります。",
+    "whyItMatters": "シャドーAIの問題は「社員が勝手なことをした」という個人のマナーだけではありません。承認済みのAIが業務で使いにくい、必要な機能がない、申請方法が分からないといった理由から、利用者が別のAIへ流れることもあります。見えないAI利用を減らすには、禁止だけでなく、仕事で使えるAIを分かりやすく提示し、必要な新しいAIを申請できる仕組みも重要です。"
+  },
+  "question": {
+    "text": "社内で未承認の生成AIが使われていることが分かりました。最初の対応として最も適切なのは？",
+    "choices": [
+      { "id": "ban-everything", "label": "すべての生成AIサービスをすぐ全面禁止する", "description": "利用目的や扱っているデータを確認する前に、AI利用自体を止める。" },
+      { "id": "ignore-productivity", "label": "仕事が速くなっているなら、そのまま黙認する", "description": "業務上便利であれば、データや権限の確認は不要と考える。" },
+      { "id": "inventory-first", "label": "どのAIを何の仕事で使い、何を入力・接続しているかを棚卸しする", "description": "利用実態を把握した上で、許可・制限・代替手段を決める。" },
+      { "id": "blame-user", "label": "利用した社員だけ注意して終了する", "description": "なぜ未承認AIを使う必要があったのかは確認しない。" }
+    ],
+    "recommendedAnswers": ["inventory-first"],
+    "explanation": "MicrosoftのShadow AI関連機能も、最初の役割を「発見・可視化」としています。Microsoft Entra Global Secure AccessのShadow AI discoveryでは、利用されているAIアプリやツール、利用者、利用頻度、転送データ量、リスク情報などを確認してから、教育、監視、ポリシーによる制御へ進む設計です。対策の入口は、まず何が使われているかを知ることです。"
+  },
+  "inspectionPoints": [
+    { "title": "「シャドーAI＝ブラウザでChatGPT」だけになっていないか", "description": "Microsoftの現在の定義や検出機能では、AIチャット、デスクトップアプリ、AIモデルAPI、SaaS MCPサーバー、コード生成ツール、独立型エージェントなども対象になります。", "priority": "high" },
+    { "title": "どのアカウントで利用しているか", "description": "会社が契約した業務アカウントなのか、個人アカウントなのかで、管理者が確認できる設定やデータ管理条件が異なる場合があります。", "priority": "high" },
+    { "title": "AIへ何を入力・アップロードしているか", "description": "利用サービス名だけではなく、顧客情報、社内資料、ソースコード、公開情報など、実際に扱っているデータの種類を確認します。", "priority": "high" },
+    { "title": "AIが読むだけか、外部操作までできるか", "description": "MicrosoftはShadow AIの対象として、ファイル閲覧やコード実行などを行うローカル・クラウド型エージェントも挙げています。チャット利用と、自律的に操作するエージェントでは確認項目が変わります。", "priority": "high" },
+    { "title": "なぜ承認済みAIでは足りなかったのか", "description": "未承認AIを使った理由を確認すると、必要な機能、使いにくい申請手続き、モデル性能など、正式運用を改善する材料になることがあります。", "priority": "medium" },
+    { "title": "Microsoftの検出機能を「すべてのAIを完全に把握できる仕組み」と思っていないか", "description": "Microsoft 365管理センターのShadow AI機能は現在プレビューで、対応するエージェントやブロック機能には範囲があります。2026年7月15日時点では複数エージェントを検出できますが、同画面からブロック可能と明示されているのはOpenClawで、対象はIntune管理下のWindowsデバイスです。", "priority": "high" }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "使っているAIと渡している情報を一度確認",
+  "verificationMessage": "仕事で会社が把握していないAIを使っていることに気づいたら、まずサービス名、アカウント、用途、入力している情報、接続しているツールを整理してください。その上で社内ルールや管理者へ確認し、承認済みの代替手段があるか、新たに利用申請できるかを確認します。",
+  "verdict": {
+    "label": "シャドーAI対策の第一歩は「禁止」ではなく「見えるようにする」",
+    "description": "MicrosoftはShadow AIを、組織のIT部門から見えない、または承認されていないAIアプリやエージェントとして扱っています。Microsoft 365管理センターやGlobal Secure Accessでも、まず利用実態を検出・可視化し、その後に教育、監視、アクセス制御などを選べる設計になっています。社員が便利なAIを探すこと自体を問題にするのではなく、「安全に使える正式ルートへどう移すか」まで考えることが、シャドーAIを減らす現実的な方法です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    { "action": "社内で使っているAIサービスを一度一覧化する", "reason": "公式導入したものだけでなく、個人アカウント、デスクトップアプリ、API、ローカルAIなどを含めて実態を確認できます。" },
+    { "action": "AIごとに「用途」と「入力している情報」をセットで記録する", "reason": "同じAIでも、公開文章の要約と顧客データの処理では必要な管理が異なります。" },
+    { "action": "承認済みAIと禁止・要申請のAIを分かりやすく社員へ示す", "reason": "利用者が毎回判断しなくても、安全な選択肢を選びやすくなります。" },
+    { "action": "必要なAIを申請できる簡単なルートを用意する", "reason": "業務上必要な機能が正式ツールにない場合でも、個人判断で使い始める前に相談できます。" },
+    { "action": "未承認AIが見つかったら利用理由も聞く", "reason": "便利な機能や現場ニーズを正式なAI環境へ取り込む改善材料になります。" }
+  ],
+  "avoidActions": [
+    { "action": "未承認AIを使った社員を責めるだけで終わる", "reason": "利用の背景や正式ツールの不足を改善しなければ、別のシャドーAI利用が再発する可能性があります。" },
+    { "action": "「会社PCに入っているアプリなら安全」と考える", "reason": "インストールできることと、会社が業務利用を承認・管理していることは別です。" },
+    { "action": "AIサービス名だけを管理し、利用方法を確認しない", "reason": "同じサービスでも、公開情報の要約、機密ファイルのアップロード、外部ツール操作ではリスクが異なります。" },
+    { "action": "シャドーAI対策としてAI利用そのものを禁止する", "reason": "Microsoftも正当な業務フローを妨げずにShadow AIを管理する考え方を示しています。安全な正式ルートを用意する方が継続的な対策になります。" }
+  ],
+  "positiveUse": {
+    "title": "シャドーAIの棚卸しを「社員が本当に欲しいAI」を見つける調査にする",
+    "description": "未承認AIの利用状況を調べると、単なる違反一覧ではなく、現場がどんな作業をAIで効率化したいのかが見えてきます。議事録要約、コード生成、画像作成、資料検索など利用目的を集計し、需要が大きい用途から正式なAI環境を整えれば、セキュリティ対策と業務改善を同時に進められます。",
+    "examples": [
+      "部署ごとに利用中のAIと用途を匿名アンケートで集める",
+      "未承認AIでよく使われている機能を正式ツールで代替できないか確認する",
+      "新しいAIを短期間の試用枠で評価してから正式採用する",
+      "社内ポータルに「使ってよいAI・申請が必要なAI」をまとめる",
+      "定期的にAI利用一覧を見直し、使われなくなったサービスも整理する"
+    ]
+  },
+  "makotoComment": "「シャドーAI」と聞くと、社員がこっそり危険なAIを使っているような響きがあります。でもMicrosoftの資料を見ると、重要なのは悪意ではなく『管理側から見えているか』です。特に今はChatGPTのWeb画面だけではなく、デスクトップアプリ、API、MCP、ローカルエージェントまで入口が増えています。全部禁止するのは簡単ですが、それで仕事上の需要まで消えるわけではありません。まず何を使っているか聞く。なぜそれが必要だったかを見る。その上で正式な使い方へ移す。シャドーAI対策は、監視というより社内AI環境の健康診断に近いのかもしれません。",
+  "oneLineLesson": "シャドーAIを見つけたら、まず「誰が悪いか」ではなく「何を、何のために、どんな情報で使っているか」を確認する。",
+  "tags": ["シャドーAI", "Shadow AI", "生成AI", "ChatGPT", "Claude", "MCP", "AIエージェント", "Microsoft 365", "AIガバナンス", "社内AI利用"],
+  "sources": [
+    { "title": "Shadow AI in Microsoft 365 admin center (Preview)", "publisher": "Microsoft Learn", "sourceType": "official", "publishedAt": "2026-07-15", "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-shadow-ai?view=o365-worldwide" },
+    { "title": "Shadow AI discovery in Global Secure Access", "publisher": "Microsoft Learn", "sourceType": "official", "publishedAt": "2026-06-11", "url": "https://learn.microsoft.com/en-us/entra/global-secure-access/concept-shadow-ai-discovery" },
+    { "title": "Microsoft Agent 365, now generally available, expands capabilities and integrations", "publisher": "Microsoft Security Blog", "sourceType": "official", "publishedAt": "2026-05-01", "url": "https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/" },
+    { "title": "Protect your enterprise from shadow AI and more: Announcements at RSAC 2026", "publisher": "Microsoft Edge Blog", "sourceType": "official", "publishedAt": "2026-03-23", "url": "https://blogs.windows.com/msedgedev/2026/03/23/protect-your-enterprise-from-shadow-ai-and-more-announcements-at-rsac-2026/" }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "中央に会社PCを置き、その周囲から「Web Chat」「Desktop App」「API」「MCP」「Local Agent」という5つのAI利用経路が伸びている。左側にはIT部門から見えている承認済みAIを緑の点線内に、右側には個人アカウントのChatGPT Desktopや未登録のAIエージェントを「SHADOW AI」としてグレーの点線内に配置する。誠風の鑑識担当者は赤い禁止マークではなく「①何を使う？ ②何を渡す？ ③何をさせる？」の棚卸しカードを持つ。下部に「DISCOVER → UNDERSTAND → APPROVE / LIMIT」と表示し、「シャドーAI対策＝まず見える化」とまとめる。社員を悪者にせず、正式なAI利用ルートへ案内する明るい社内AIガバナンス図解。",
+    "cardIcon": "shadow-ai-inventory",
+    "accentTone": "serious"
+  }
+}

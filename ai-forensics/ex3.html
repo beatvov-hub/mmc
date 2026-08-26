@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Copilotでメールを書いたら、そのまま送らない。名前・数字・日付だけ最後に見る｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="MicrosoftはMicrosoft 365 Copilotの公式ドキュメントで、生成AIの応答は100%事実である保証はなく、他の人へ送信する前に利用者が出力を確認する必要があると説明しています。ただし、毎回全文を一から書き直す必要はありません。初心者ならまず「相手の名前」「数字・金額」「日付・期限」の3点だけを送信前に確認する習慣を付けると、AI下書きの速さを活かしながら実務上の大きなミスを減らせます。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/ex3" />
+<meta property="og:title" content="Copilotでメールを書いたら、そのまま送らない。名前・数字・日付だけ最後に見る｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="MicrosoftはMicrosoft 365 Copilotの公式ドキュメントで、生成AIの応答は100%事実である保証はなく、他の人へ送信する前に利用者が出力を確認する必要があると説明しています。ただし、毎回全文を一から書き直す必要はありません。初心者ならまず「相手の名前」「数字・金額」「日付・期限」の3点だけを送信前に確認する習慣を付けると、AI下書きの速さを活かしながら実務上の大きなミスを減らせます。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/ex3" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>AIメールは3点だけ送信前チェック</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-26">2026.08.26</time>
+            </div>
+            <h1>Copilotでメールを書いたら、そのまま送らない。名前・数字・日付だけ最後に見る</h1>
+            <p>MicrosoftはMicrosoft 365 Copilotの公式ドキュメントで、生成AIの応答は100%事実である保証はなく、他の人へ送信する前に利用者が出力を確認する必要があると説明しています。ただし、毎回全文を一から書き直す必要はありません。初心者ならまず「相手の名前」「数字・金額」「日付・期限」の3点だけを送信前に確認する習慣を付けると、AI下書きの速さを活かしながら実務上の大きなミスを減らせます。</p>
+            <ul class="forensics-target-list"><li>生成AIでメールや文章の下書きを作る人</li><li>Microsoft 365 Copilotを仕事で使い始めた人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft 365 Copilot</li><li>メール</li><li>文章作成</li><li>生成AI</li><li>仕事術</li><li>初心者</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 1</strong>
+              <span>送信前に3点だけ見る</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AI下書きでは全文を精読するところから始めなくても構いません。まず相手の名前、数字、日付を確認し、重要なメールでは約束や期限も追加で確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Copilotに取引先へのメールを書いてもらった。文章が自然なので、そのまま送信ボタンへ</h3><p>AIが作ったメールは敬語も自然で、文章の流れにも違和感がありません。しかし確認すると、打ち合わせ日は元資料の「9月18日」ではなく「9月19日」、担当者名も似た別人になっていました。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AI下書きのメリットは、文章をゼロから考える時間を減らせることです。だからこそ全文を書き直すのではなく、間違った場合に影響が大きい具体情報だけを短時間で見る方が、便利さと確認を両立できます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-three">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>AIが作ったメールを送信する直前です。時間がない場合、最低限どこを見る？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="no-check" data-choice-id="no-check" />
+                <span>
+                  <strong>文章が自然ならそのまま送る</strong>
+                  <small>文章品質を事実確認の代わりにする。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-three" data-choice-id="check-three" />
+                <span>
+                  <strong>相手の名前・数字・日付を確認する</strong>
+                  <small>間違えた時の影響が大きい具体情報を優先する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="rewrite-all" data-choice-id="rewrite-all" />
+                <span>
+                  <strong>AI文章をすべて自分で書き直す</strong>
+                  <small>AIによる下書きの効率化を使わない。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>相手の名前・数字・日付を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>MicrosoftはCopilotを、完全自動化ではなく、利用者が生成内容をレビューできる下書き・要約支援として説明しています。確認箇所を絞れば、AIを使うメリットを残したまま誤送信を防ぎやすくなります。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>相手の名前・会社名が合っているか</h3>
+              <p>似た名称や会話中に登場した別の人物へ置き換わっていないか確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>金額・数量・割合などの数字が合っているか</h3>
+              <p>桁や単位の間違いは文章が自然でも気付きにくいため、元資料と見比べます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>日付・曜日・締切が合っているか</h3>
+              <p>予定や納期に直結するため、送信前に確認する価値が高い項目です。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>AIが勝手に約束を追加していないか</h3>
+              <p>「必ず対応します」「○日までに完了します」など、自分が決めていない約束が入っていないか最後に見ます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AI下書きは使ってよい。ただし送信ボタンの直前だけ人間に戻す</strong><p>Microsoft 365 Copilotは、文章作成や要約を効率化するための道具です。Microsoft自身も出力が100%事実とは保証されないと説明しています。下書きをAIに任せ、人間は影響の大きい具体情報だけ確認する使い方なら、確認作業を増やしすぎずに実務へ取り入れられます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>送信前に名前・数字・日付を順番に見る</strong><span>3項目に固定すると習慣化しやすくなります。</span></li>
+            <li><strong>元メールや予定表を横に開いて確認する</strong><span>記憶だけで確認するより短時間で正確に照合できます。</span></li>
+            <li><strong>重要なメールだけ「約束・期限」の確認も追加する</strong><span>AIが意図していない確約を文章へ補う可能性に備えられます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>文章が丁寧なので事実も正しいと思う</strong><span>文章の自然さと具体情報の正確性は別です。</span></li>
+            <li><strong>毎回AI文章を全部書き直す</strong><span>確認方法を絞らないと、AIによる時間短縮の効果が失われます。</span></li>
+            <li><strong>AIに送信まで任せる前に確認ポイントを決めない</strong><span>誤った具体情報がそのまま外部へ送られる可能性があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>文章作りをAIへ渡し、人間は「間違うと困る場所」だけ見る</h3>
+          <p>メールの挨拶、文章構成、言い換えなどはAIが得意な領域です。そこを任せ、人間は名前、数字、日付など事実確認へ集中すると、役割分担が明確になります。</p>
+          <ul class="positive-example-list"><li>箇条書きから丁寧なメールへ整えてもらう</li><li>長文メールを短く要約して返信案を作る</li><li>文体を柔らかくしてもらう</li><li>最後に名前・数字・日付だけ人間が確認する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>「AIが作った文章は必ず全部確認してください」と言われると、結局自分で書いた方が早いと思う人もいます。なので最初はチェック場所を三つに固定するのもいいと思います。名前、数字、日付。文章の大部分をAIへ任せたまま、事故になりやすい部分だけ人間へ戻す。AIを仕事で使い続けるには、このくらい軽い確認方法の方が実践しやすいですね。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>AIメールは、送信前に「名前・数字・日付」の3点だけでも確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://learn.microsoft.com/ja-jp/microsoft-365/copilot/microsoft-365-copilot-privacy" target="_blank" rel="noopener noreferrer">Microsoft 365 Copilot のデータ、プライバシー、セキュリティ<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Learn</span>
+              <span>公式発表</span>
+              <time datetime="2026-07-09">2026-07-09</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-serious" href="case-20260826-04" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角 シャドーAI、まず利用先を棚卸しする Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。 セキュリティ・権限 はじめて シャドーAI Shadow AI 生成AI ChatGPT Claude MCP AIエージェント Microsoft 365 AIガバナンス 社内AI利用 仕事で生成AIを使っている人 社内のAI利用ルールを作る人 IT・情報システム・セキュリティ担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shadow-ai-inventory</span>
+              <div>
+                <p>シャドーAI、まず利用先を棚卸しする</p>
+                <h3>シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>使っているAIと渡している情報を一度確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>仕事で生成AIを使っている人</li><li>社内のAI利用ルールを作る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>シャドーAI</li><li>Shadow AI</li><li>生成AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="ex1" data-forensics-card data-category="media-literacy" data-level="1" data-difficulty="beginner" data-search-text="引用が付いていても確認終了ではない。AI検索ではリンク先を1回開く AI検索の引用を1回開く OpenAIは公式ヘルプで、ChatGPTは検索や引用を利用できても、誤った日付・事実・引用・研究・参考文献を提示する可能性があると説明しています。初心者が最初に覚えておきたいのは、引用が付いている回答を捨てることではなく、重要な情報だけリンク先を1回開き、「本当にその内容が書いてあるか」「いつの情報か」を見ることです。 情報の見極め はじめて AI検索 ChatGPT 引用 情報源 ハルシネーション 初心者 ChatGPTなどのAI検索を使い始めた人 AIの回答を学校や仕事の調べものに使う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">source-check</span>
+              <div>
+                <p>AI検索の引用を1回開く</p>
+                <h3>引用が付いていても確認終了ではない。AI検索ではリンク先を1回開く</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは公式ヘルプで、ChatGPTは検索や引用を利用できても、誤った日付・事実・引用・研究・参考文献を提示する可能性があると説明しています。初心者が最初に覚えておきたいのは、引用が付いている回答を捨てることではなく、重要な情報だけリンク先を1回開き、「本当にその内容が書いてあるか」「いつの情報か」を見ることです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 1</strong>
+              <span>引用リンクを1回開いて確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTなどのAI検索を使い始めた人</li><li>AIの回答を学校や仕事の調べものに使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI検索</li><li>ChatGPT</li><li>引用</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="ex2" data-forensics-card data-category="security" data-level="1" data-difficulty="beginner" data-search-text="Geminiの「アクティビティ保存オフ」＝即時削除ではない。72時間保持を知っておこう Geminiの保存オフと72時間 GoogleのGemini Apps Privacy Hubでは、Geminiの「アクティビティの保存」をオフにした場合や一時チャットを利用した場合でも、チャットは72時間アカウントに保持されると説明されています。一方、一時チャットはGoogleのAIモデルのトレーニングには使用されません。初心者が覚えておきたいのは、「履歴に残らない」「学習に使われない」「即座にデータが消える」は別の話だということです。 セキュリティ・権限 はじめて Gemini プライバシー アクティビティ 一時チャット データ保存 初心者 個人のGoogleアカウントでGeminiを使う人 生成AIへ入力する情報の扱いが気になる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">privacy-settings</span>
+              <div>
+                <p>Geminiの保存オフと72時間</p>
+                <h3>Geminiの「アクティビティ保存オフ」＝即時削除ではない。72時間保持を知っておこう</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">GoogleのGemini Apps Privacy Hubでは、Geminiの「アクティビティの保存」をオフにした場合や一時チャットを利用した場合でも、チャットは72時間アカウントに保持されると説明されています。一方、一時チャットはGoogleのAIモデルのトレーニングには使用されません。初心者が覚えておきたいのは、「履歴に残らない」「学習に使われない」「即座にデータが消える」は別の話だということです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 1</strong>
+              <span>使う前に保存設定を1か所確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>個人のGoogleアカウントでGeminiを使う人</li><li>生成AIへ入力する情報の扱いが気になる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>プライバシー</li><li>アクティビティ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260825-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="ex2">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

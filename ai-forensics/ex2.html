@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Geminiの「アクティビティ保存オフ」＝即時削除ではない。72時間保持を知っておこう｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="GoogleのGemini Apps Privacy Hubでは、Geminiの「アクティビティの保存」をオフにした場合や一時チャットを利用した場合でも、チャットは72時間アカウントに保持されると説明されています。一方、一時チャットはGoogleのAIモデルのトレーニングには使用されません。初心者が覚えておきたいのは、「履歴に残らない」「学習に使われない」「即座にデータが消える」は別の話だということです。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/ex2" />
+<meta property="og:title" content="Geminiの「アクティビティ保存オフ」＝即時削除ではない。72時間保持を知っておこう｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="GoogleのGemini Apps Privacy Hubでは、Geminiの「アクティビティの保存」をオフにした場合や一時チャットを利用した場合でも、チャットは72時間アカウントに保持されると説明されています。一方、一時チャットはGoogleのAIモデルのトレーニングには使用されません。初心者が覚えておきたいのは、「履歴に残らない」「学習に使われない」「即座にデータが消える」は別の話だということです。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/ex2" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>Geminiの保存オフと72時間</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-26">2026.08.26</time>
+            </div>
+            <h1>Geminiの「アクティビティ保存オフ」＝即時削除ではない。72時間保持を知っておこう</h1>
+            <p>GoogleのGemini Apps Privacy Hubでは、Geminiの「アクティビティの保存」をオフにした場合や一時チャットを利用した場合でも、チャットは72時間アカウントに保持されると説明されています。一方、一時チャットはGoogleのAIモデルのトレーニングには使用されません。初心者が覚えておきたいのは、「履歴に残らない」「学習に使われない」「即座にデータが消える」は別の話だということです。</p>
+            <ul class="forensics-target-list"><li>個人のGoogleアカウントでGeminiを使う人</li><li>生成AIへ入力する情報の扱いが気になる人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Gemini</li><li>プライバシー</li><li>アクティビティ</li><li>一時チャット</li><li>データ保存</li><li>初心者</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 1</strong>
+              <span>使う前に保存設定を1か所確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Geminiで内容を残したくない時は、まずアクティビティ設定を確認してください。その上で、「表示されない＝即時消去」とは考えず、本当に入力してよい内容かも一度判断します。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Geminiの履歴を残したくないので「アクティビティの保存」をオフにした。これで入力内容は即時削除？</h3><p>設定をオフにしたので、利用者は「入力した内容はその場で完全に消える」と考えました。しかしGoogleの公式説明では、サービス提供や安全性確保などの目的でチャットは72時間保持されます。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIのプライバシー設定には、履歴表示、モデル改善への利用、保持期間など複数の意味があります。一つのスイッチですべてが同時に変わるとは限りません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="retained-72h">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Geminiで「アクティビティの保存」をオフにしました。正しい理解はどれ？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="deleted-immediately" data-choice-id="deleted-immediately" />
+                <span>
+                  <strong>入力内容は必ず即時削除される</strong>
+                  <small>保持時間は一切ないと考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="retained-72h" data-choice-id="retained-72h" />
+                <span>
+                  <strong>今後のチャットはアクティビティに表示されなくても、72時間保持される</strong>
+                  <small>履歴表示と保存期間を分けて考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="always-training" data-choice-id="always-training" />
+                <span>
+                  <strong>オフにしても必ずモデル訓練に使用される</strong>
+                  <small>設定による違いはないと考える。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>今後のチャットはアクティビティに表示されなくても、72時間保持される</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Googleは、一時チャットとアクティビティ保存オフ時のチャットを72時間保持すると説明しています。また一時チャットはGoogleのAIモデルのトレーニングには使用されず、保存オフ後のチャットも原則としてモデル改善に使われません。ただしフィードバックを送った場合などには別の扱いがあります。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>履歴に表示されるか</h3>
+              <p>アクティビティの保存をオフにした今後のチャットはGemini Apps Activityには表示されません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>何時間保持されるか</h3>
+              <p>Googleは保存オフ時と一時チャットについて72時間の保持を案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>モデル改善へ使われるか</h3>
+              <p>一時チャットはGoogle AIのモデル訓練には使用されません。保存オフ後のチャットも、フィードバックを送信した場合を除きモデル改善には使用されないと説明されています。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>フィードバックを送ったか</h3>
+              <p>低評価などでフィードバックを送る場合、関連する会話やコンテンツの取り扱いが変わるため、通常の保存オフ時とは分けて考えます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>プライバシー設定は「履歴」「モデル改善」「保持期間」を分けて読む</strong><p>Geminiでは、アクティビティ保存オフや一時チャットによって履歴やモデル改善への利用を抑えられますが、それはデータが瞬時に消去されるという意味ではありません。設定を正しく理解すれば、必要以上に怖がらず、自分の用途に合ったモードを選べます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Gemini Apps Activityの設定を一度確認する</strong><span>現在どの保存設定で利用しているか把握できます。</span></li>
+            <li><strong>残したくない会話では一時チャットを検討する</strong><span>通常チャットとは異なるデータ利用条件を選べます。</span></li>
+            <li><strong>住所・パスワード・秘密情報などは設定に関係なく必要性を考えてから入力する</strong><span>プライバシー設定は、何を入力しても安全になる魔法のスイッチではありません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>保存オフを「完全なゼロ保存」と読み替える</strong><span>公式説明では72時間保持されます。</span></li>
+            <li><strong>履歴に見えないのでデータが存在しないと考える</strong><span>画面上の履歴表示とサービス側の保持期間は別です。</span></li>
+            <li><strong>設定が複雑だからプライバシー機能を使わない</strong><span>設定には実際の効果があるため、意味を知って利用すれば便利です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>会話の用途に合わせて通常チャットと一時チャットを使い分ける</h3>
+          <p>残して後から続けたい相談と、一度だけ使いたい相談を同じ扱いにする必要はありません。保存設定の意味を知ることで、AIを用途別に使い分けられます。</p>
+          <ul class="positive-example-list"><li>継続して考えたい旅行計画は通常チャットを使う</li><li>一度だけ文章の言い換えを試す場合は一時チャットを検討する</li><li>保存設定を変更した後に現在の状態を確認する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>「履歴に残らない」と聞くと、「その場で完全に消える」と受け取りやすいですよね。でもAIサービスでは、履歴表示、モデル改善への利用、サービス運用上の保持は別々に決められていることがあります。全部の利用規約を覚える必要はありません。まず自分がよく使うAI一つだけ、保存設定を見ておく。それだけでも十分なAIリテラシーだと思います。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>「履歴に残らない」「学習に使われない」「保存されない」は同じ意味ではない。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/gemini/answer/13594961?hl=ja-jp" target="_blank" rel="noopener noreferrer">Gemini アプリのプライバシー ハブ<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Gemini Apps Help</span>
+              <span>公式発表</span>
+              <time datetime="2026-07-15">2026-07-15</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-serious" href="case-20260826-02" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="Copilotの「Agent Blocked」、モデル故障とは限らない。Claude利用は管理者のAIプロバイダー設定で止まる Agent Blockedは権限設定も確認 Microsoftは2026年8月19日時点のMicrosoft 365 Copilot Extensibilityの既知の問題として、Copilot Studioで作成したエージェントがClaude Sonnet 4.6など第三者AIモデルを使う場合、利用者にそのAIプロバイダーへのアクセス権がなければ「Agent Blocked」と表示されることを案内しています。これは必ずしもエージェントやモデルの故障ではなく、組織のAIプロバイダー設定によって意図的に利用が止められている可能性があります。MicrosoftではAnthropicなどの第三者AI事業者を「AI Subprocessor」としてMicrosoft Copilotへ組み込む仕組みがあり、管理者はモデル単位ではなくAIプロバイダー単位で、利用できるユーザーやMicrosoft Entra IDのセキュリティグループを指定できます。AIがマルチモデル化すると、「同じCopilot画面で使えるか」だけでなく、「どの会社のモデルが処理するのか」「自社でそのプロバイダーを許可しているか」まで確認することが重要になります。 セキュリティ・権限 標準 Microsoft Copilot Copilot Studio Agent Blocked Claude Anthropic AI Subprocessor Microsoft Entra ID AIプロバイダー アクセス制御 マルチモデル Microsoft CopilotやCopilot Studioを仕事で使う人 Claudeなど複数のAIモデルを社内で使い分ける人 生成AIの社内利用を管理するIT・AI担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-provider-access-block</span>
+              <div>
+                <p>Agent Blockedは権限設定も確認</p>
+                <h3>Copilotの「Agent Blocked」、モデル故障とは限らない。Claude利用は管理者のAIプロバイダー設定で止まる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは2026年8月19日時点のMicrosoft 365 Copilot Extensibilityの既知の問題として、Copilot Studioで作成したエージェントがClaude Sonnet 4.6など第三者AIモデルを使う場合、利用者にそのAIプロバイダーへのアクセス権がなければ「Agent Blocked」と表示されることを案内しています。これは必ずしもエージェントやモデルの故障ではなく、組織のAIプロバイダー設定によって意図的に利用が止められている可能性があります。MicrosoftではAnthropicなどの第三者AI事業者を「AI Subprocessor」としてMicrosoft Copilotへ組み込む仕組みがあり、管理者はモデル単位ではなくAIプロバイダー単位で、利用できるユーザーやMicrosoft Entra IDのセキュリティグループを指定できます。AIがマルチモデル化すると、「同じCopilot画面で使えるか」だけでなく、「どの会社のモデルが処理するのか」「自社でそのプロバイダーを許可しているか」まで確認することが重要になります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>エラー表示→利用モデル→AIプロバイダー権限の順で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft CopilotやCopilot Studioを仕事で使う人</li><li>Claudeなど複数のAIモデルを社内で使い分ける人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Copilot Studio</li><li>Agent Blocked</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260826-04" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角 シャドーAI、まず利用先を棚卸しする Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。 セキュリティ・権限 はじめて シャドーAI Shadow AI 生成AI ChatGPT Claude MCP AIエージェント Microsoft 365 AIガバナンス 社内AI利用 仕事で生成AIを使っている人 社内のAI利用ルールを作る人 IT・情報システム・セキュリティ担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shadow-ai-inventory</span>
+              <div>
+                <p>シャドーAI、まず利用先を棚卸しする</p>
+                <h3>シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>使っているAIと渡している情報を一度確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>仕事で生成AIを使っている人</li><li>社内のAI利用ルールを作る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>シャドーAI</li><li>Shadow AI</li><li>生成AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="ex1" data-forensics-card data-category="media-literacy" data-level="1" data-difficulty="beginner" data-search-text="引用が付いていても確認終了ではない。AI検索ではリンク先を1回開く AI検索の引用を1回開く OpenAIは公式ヘルプで、ChatGPTは検索や引用を利用できても、誤った日付・事実・引用・研究・参考文献を提示する可能性があると説明しています。初心者が最初に覚えておきたいのは、引用が付いている回答を捨てることではなく、重要な情報だけリンク先を1回開き、「本当にその内容が書いてあるか」「いつの情報か」を見ることです。 情報の見極め はじめて AI検索 ChatGPT 引用 情報源 ハルシネーション 初心者 ChatGPTなどのAI検索を使い始めた人 AIの回答を学校や仕事の調べものに使う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">source-check</span>
+              <div>
+                <p>AI検索の引用を1回開く</p>
+                <h3>引用が付いていても確認終了ではない。AI検索ではリンク先を1回開く</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは公式ヘルプで、ChatGPTは検索や引用を利用できても、誤った日付・事実・引用・研究・参考文献を提示する可能性があると説明しています。初心者が最初に覚えておきたいのは、引用が付いている回答を捨てることではなく、重要な情報だけリンク先を1回開き、「本当にその内容が書いてあるか」「いつの情報か」を見ることです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 1</strong>
+              <span>引用リンクを1回開いて確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTなどのAI検索を使い始めた人</li><li>AIの回答を学校や仕事の調べものに使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI検索</li><li>ChatGPT</li><li>引用</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260825-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="ex1">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
