@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import html
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -13,6 +14,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "src" / "data" / "ai-forensics"
 OUTPUT_DIR = ROOT / "ai-forensics"
 INDEX_HTML_PATH = OUTPUT_DIR / "index.html"
+SITEMAP_PATH = ROOT / "sitemap.xml"
+REDIRECTS_PATH = ROOT / "_redirects"
 BASE_URL = "https://mainichi-miru.com"
 MAKOTO_ICON = "image/icon/icon_mmc010.jpg"
 
@@ -747,6 +750,73 @@ def public_article(article: dict[str, Any]) -> dict[str, Any]:
     return {key: value for key, value in article.items() if not str(key).startswith("_")}
 
 
+def update_sitemap(articles: list[dict[str, Any]]) -> None:
+    """Keep the AI鑑識室 portion of the existing sitemap in sync with article data."""
+    if not SITEMAP_PATH.exists():
+        warn("sitemap", "sitemap.xml が見つからないため更新をスキップしました。")
+        return
+
+    sitemap = SITEMAP_PATH.read_text(encoding="utf-8")
+    published_dates = [str(article.get("publishedAt", "")) for article in articles]
+    latest_date = max(published_dates, default="")
+    index_pattern = re.compile(
+        r"(<url><loc>https://mainichi-miru\.com/ai-forensics/</loc><lastmod>)[^<]*(</lastmod></url>)"
+    )
+    if index_pattern.search(sitemap):
+        sitemap = index_pattern.sub(rf"\g<1>{latest_date}\g<2>", sitemap, count=1)
+    else:
+        warn("sitemap", "AI鑑識室一覧の sitemap エントリが見つからないため更新をスキップしました。")
+
+    case_articles = [article for article in articles if str(article.get("id", "")).startswith("case-")]
+    existing_case_ids = set(re.findall(r"/ai-forensics/(case-[^<]+)</loc>", sitemap))
+    missing_articles = [article for article in case_articles if article["id"] not in existing_case_ids]
+    if missing_articles:
+        case_urls = "".join(
+            f"  <url><loc>{article_url(article)}</loc><lastmod>{article['publishedAt']}</lastmod></url>\n"
+            for article in sorted(missing_articles, key=lambda item: (item["publishedAt"], item["id"]))
+        )
+        insertion = sitemap.find("  <url><loc>https://mainichi-miru.com/ai-forensics/ex")
+        if insertion == -1:
+            insertion = sitemap.rfind("</urlset>")
+        sitemap = sitemap[:insertion] + case_urls + sitemap[insertion:]
+    SITEMAP_PATH.write_text(sitemap, encoding="utf-8")
+
+
+def update_redirects(articles: list[dict[str, Any]]) -> None:
+    """Generate only the AI鑑識室 clean-URL routes inside the existing Netlify redirects file."""
+    if not REDIRECTS_PATH.exists():
+        warn("redirects", "_redirects が見つからないため更新をスキップしました。")
+        return
+
+    redirects = REDIRECTS_PATH.read_text(encoding="utf-8")
+    old_case_routes = re.compile(
+        r"^/ai-forensics/case-[^\s]+(?:\.html)?\s+/ai-forensics/case-[^\s]+(?:\.html)?\s+(?:200|301)\r?\n?",
+        re.MULTILINE,
+    )
+    redirects = old_case_routes.sub("", redirects)
+    block = ["# AI_FORENSICS_REDIRECTS_START"]
+    case_articles = [article for article in articles if str(article.get("id", "")).startswith("case-")]
+    for article in sorted(case_articles, key=lambda item: (item["publishedAt"], item["id"])):
+        article_id = article["id"]
+        block.append(f"/ai-forensics/{article_id}.html /ai-forensics/{article_id} 301")
+        block.append(f"/ai-forensics/{article_id} /ai-forensics/{article_id}.html 200")
+    block.append("# AI_FORENSICS_REDIRECTS_END")
+    rendered_block = "\n".join(block) + "\n"
+    marker_pattern = re.compile(
+        r"# AI_FORENSICS_REDIRECTS_START\r?\n.*?# AI_FORENSICS_REDIRECTS_END\r?\n?",
+        re.DOTALL,
+    )
+    if marker_pattern.search(redirects):
+        redirects = marker_pattern.sub(rendered_block, redirects, count=1)
+    else:
+        insert_at = redirects.find("/ai-forensics/index.html /ai-forensics/ 301")
+        if insert_at == -1:
+            redirects += "\n" + rendered_block
+        else:
+            redirects = redirects[:insert_at] + rendered_block + redirects[insert_at:]
+    REDIRECTS_PATH.write_text(redirects, encoding="utf-8")
+
+
 def write_pages(articles: list[dict[str, Any]], *, force: bool = False) -> int:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     public_articles = [public_article(article) for article in articles]
@@ -761,6 +831,8 @@ def write_pages(articles: list[dict[str, Any]], *, force: bool = False) -> int:
         path.write_text(render_article_page(public_current, public_articles), encoding="utf-8")
         apply_layout_to_file(path)
         written += 1
+    update_sitemap(public_articles)
+    update_redirects(public_articles)
     return written
 
 
