@@ -3053,11 +3053,13 @@ body.subpage { padding-top: 88px; }
 .speaker-makoto { --speaker: #1d6b67; --speaker-bg: #e4f1ed; }
 .speaker-koto { --speaker: #88485a; --speaker-bg: #f7e8ec; }
 .speaker-pechi { --speaker: #1f1a15; --speaker-bg: #fff2d8; }
+.speaker-group { --speaker: #6a5b4e; --speaker-bg: #f4efe8; }
 .speaker-director {
   --speaker: #8a5a32;
   --speaker-bg: #fff8e8;
   border-style: dashed;
 }
+.speaker-group .talk-avatar { background: #6a5b4e; }
 .speaker-director .talk-avatar { background: #8a5a32; }
 .lounge-quote {
   margin: 22px 0 0;
@@ -4049,7 +4051,7 @@ body.has-night-lounge { overflow: hidden; }
     gap: 12px;
     padding: 15px;
   }
-  .talk-bubble img {
+  .talk-bubble img, .talk-bubble .talk-avatar {
     width: 46px;
     height: 46px;
   }
@@ -4424,7 +4426,7 @@ img { max-width: 100%; }
     border-left-width: 5px;
     padding: 13px;
   }
-  .talk-bubble img {
+  .talk-bubble img, .talk-bubble .talk-avatar {
     width: 42px;
     height: 42px;
   }

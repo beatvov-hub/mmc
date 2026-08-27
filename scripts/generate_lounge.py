@@ -4,6 +4,7 @@ from __future__ import annotations
 import calendar
 import html
 import json
+import re
 from collections import defaultdict
 from pathlib import Path
 
@@ -174,13 +175,26 @@ SPEAKER_DEFAULTS = {
     },
 }
 
+GROUP_SPEAKER_DEFAULTS = {
+    "speakerClass": "speaker-group",
+    "icon": "",
+    "iconText": "全",
+    "alt": "複数人のアイコン",
+    "role": "",
+}
+GROUP_SPEAKER_PATTERN = re.compile(
+    r"^(?:全員|みんな|一同|(?:周りの)?(?:[0-9]+|[一二三四五六七八九十]+)"
+    r"(?:[〜～-](?:[0-9]+|[一二三四五六七八九十]+))?人(?:とも)?)$"
+)
+
 
 def esc(value: object) -> str:
     return html.escape(str(value), quote=True)
 
 
 def apply_speaker_defaults(item: dict) -> None:
-    defaults = SPEAKER_DEFAULTS.get(str(item.get("speaker", "")))
+    speaker = str(item.get("speaker", ""))
+    defaults = GROUP_SPEAKER_DEFAULTS if GROUP_SPEAKER_PATTERN.fullmatch(speaker) else SPEAKER_DEFAULTS.get(speaker)
     if not defaults:
         return
     for key, value in defaults.items():
