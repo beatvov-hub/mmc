@@ -69,6 +69,7 @@ STATIC_SITEMAP_PATHS = [
     "lounge",
     "lounge/events",
     "lounge-dictionary",
+    "today-one",
     "news",
     "contact",
     "thanks",

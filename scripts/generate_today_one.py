@@ -1,0 +1,546 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import html
+import json
+import re
+import sys
+from datetime import date, datetime
+from html.parser import HTMLParser
+from pathlib import Path
+from urllib.parse import urlparse
+from zoneinfo import ZoneInfo
+
+from site_layout import apply_layout_to_file
+
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA_PATH = ROOT / "src" / "data" / "todayOne.json"
+MEMBERS_PATH = ROOT / "members.html"
+OUTPUT_PATH = ROOT / "today-one.html"
+INDEX_PATH = ROOT / "index.html"
+BASE_URL = "https://mainichi-miru.com"
+CANONICAL_URL = f"{BASE_URL}/today-one"
+TOKYO = ZoneInfo("Asia/Tokyo")
+WEEKDAY_EN = ("MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN")
+PUBLISHED_REQUIRED_FIELDS = (
+    "date",
+    "slug",
+    "name",
+    "category",
+    "officialUrl",
+    "summary",
+    "whyToday",
+    "useFor",
+    "keiComment",
+    "verifiedAt",
+    "status",
+)
+TEASER_START = "<!-- TODAY_ONE_TEASER_START -->"
+TEASER_END = "<!-- TODAY_ONE_TEASER_END -->"
+TEASER_RE = re.compile(
+    rf"^[ \t]*{re.escape(TEASER_START)}[\s\S]*?^[ \t]*{re.escape(TEASER_END)}\s*",
+    re.MULTILINE,
+)
+
+
+def esc(value: object) -> str:
+    return html.escape(str(value), quote=True)
+
+
+def today_in_tokyo(now: datetime | None = None) -> date:
+    current = now.astimezone(TOKYO) if now else datetime.now(TOKYO)
+    return current.date()
+
+
+def parse_iso_date(value: object, *, label: str) -> date:
+    try:
+        return date.fromisoformat(str(value))
+    except (TypeError, ValueError) as exc:
+        raise ValueError(f"{label} must be a valid YYYY-MM-DD date: {value!r}") from exc
+
+
+def is_safe_external_url(value: object) -> bool:
+    parsed = urlparse(str(value))
+    return parsed.scheme == "https" and bool(parsed.netloc)
+
+
+def published_entry_issues(entry: object, *, label: str) -> list[str]:
+    if not isinstance(entry, dict):
+        return [f"{label} must be an object."]
+    if entry.get("status") != "published":
+        return []
+
+    issues: list[str] = []
+    missing = [field for field in PUBLISHED_REQUIRED_FIELDS if not entry.get(field)]
+    recommended = entry.get("recommendedFor")
+    if not isinstance(recommended, dict):
+        missing.append("recommendedFor")
+    else:
+        for field in ("employeeId", "reason"):
+            if not recommended.get(field):
+                missing.append(f"recommendedFor.{field}")
+    if missing:
+        issues.append(f"{label} is missing published fields: {', '.join(missing)}")
+
+    if entry.get("officialUrl") and not is_safe_external_url(entry["officialUrl"]):
+        issues.append(f"{label}.officialUrl must be an https URL.")
+    if entry.get("githubUrl") and not is_safe_external_url(entry["githubUrl"]):
+        issues.append(f"{label}.githubUrl must be an https URL when present.")
+    if entry.get("verifiedAt"):
+        try:
+            parse_iso_date(entry["verifiedAt"], label=f"{label}.verifiedAt")
+        except ValueError as exc:
+            issues.append(str(exc))
+    return issues
+
+
+def is_renderable_published_entry(entry: object) -> bool:
+    return (
+        isinstance(entry, dict)
+        and entry.get("status") == "published"
+        and not published_entry_issues(entry, label="entry")
+    )
+
+
+class MemberCardParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.members: dict[str, dict[str, str]] = {}
+        self.current: dict[str, str] | None = None
+        self.article_depth = 0
+        self.capture_tag = ""
+        self.capture_key = ""
+        self.capture_text: list[str] = []
+
+    @staticmethod
+    def classes(attrs: list[tuple[str, str | None]]) -> set[str]:
+        value = dict(attrs).get("class") or ""
+        return set(value.split())
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attrs_dict = dict(attrs)
+        classes = self.classes(attrs)
+        if tag == "article" and "member-card" in classes and self.current is None:
+            self.current = {}
+            self.article_depth = 1
+            return
+        if self.current is None:
+            return
+        if tag == "article":
+            self.article_depth += 1
+        if tag == "img" and not self.current.get("image"):
+            self.current["image"] = attrs_dict.get("src") or ""
+        if tag == "a" and "mini-button" in classes:
+            self.current["profileUrl"] = attrs_dict.get("href") or ""
+        capture_key = ""
+        if tag == "span" and "member-meta" in classes:
+            capture_key = "meta"
+        elif tag == "h2":
+            capture_key = "name"
+        elif tag == "strong":
+            capture_key = "role"
+        if capture_key:
+            self.capture_tag = tag
+            self.capture_key = capture_key
+            self.capture_text = []
+
+    def handle_data(self, data: str) -> None:
+        if self.current is not None and self.capture_key:
+            self.capture_text.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if self.current is None:
+            return
+        if tag == self.capture_tag and self.capture_key:
+            self.current[self.capture_key] = "".join(self.capture_text).strip()
+            self.capture_tag = ""
+            self.capture_key = ""
+            self.capture_text = []
+        if tag != "article":
+            return
+        self.article_depth -= 1
+        if self.article_depth > 0:
+            return
+        meta = self.current.get("meta", "")
+        employee_id, _, department = meta.partition("/")
+        employee_id = employee_id.strip()
+        if employee_id:
+            self.current["employeeId"] = employee_id
+            self.current["department"] = department.strip()
+            self.members[employee_id] = self.current
+        self.current = None
+
+
+def load_members(path: Path = MEMBERS_PATH) -> dict[str, dict[str, str]]:
+    parser = MemberCardParser()
+    parser.feed(path.read_text(encoding="utf-8"))
+    if not parser.members:
+        raise ValueError(f"No member cards found in {path}")
+    return parser.members
+
+
+def load_data(path: Path = DATA_PATH) -> dict:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict) or not isinstance(data.get("entries"), list):
+        raise ValueError("todayOne.json must contain an entries array.")
+    return data
+
+
+def validate_data(data: dict, members: dict[str, dict[str, str]]) -> list[str]:
+    warnings: list[str] = []
+    updated_at = data.get("updatedAt")
+    if updated_at is not None:
+        try:
+            datetime.fromisoformat(str(updated_at))
+        except ValueError as exc:
+            raise ValueError("updatedAt must be null or an ISO 8601 datetime.") from exc
+
+    published_by_date: dict[str, int] = {}
+    for index, entry in enumerate(data["entries"]):
+        label = f"entries[{index}]"
+        if not isinstance(entry, dict):
+            warnings.append(f"{label} must be an object and was skipped.")
+            continue
+        status = entry.get("status")
+        if status not in {"published", "draft"}:
+            warnings.append(f"{label}.status must be published or draft; entry was skipped.")
+            continue
+        try:
+            entry_date = parse_iso_date(entry.get("date"), label=f"{label}.date")
+        except ValueError as exc:
+            warnings.append(f"{exc} Entry was skipped.")
+            continue
+        if status == "draft":
+            continue
+
+        date_key = entry_date.isoformat()
+        if date_key in published_by_date:
+            first_index = published_by_date[date_key]
+            raise ValueError(
+                f"Duplicate published entries for {date_key}: entries[{first_index}] and {label}."
+            )
+        published_by_date[date_key] = index
+
+        issues = published_entry_issues(entry, label=label)
+        if issues:
+            warnings.extend(f"{issue} Entry was skipped." for issue in issues)
+            continue
+
+        recommended = entry["recommendedFor"]
+        employee_id = str(recommended["employeeId"])
+        if employee_id not in members:
+            warnings.append(
+                f"{label}.recommendedFor.employeeId was not found in members.html: {employee_id}"
+            )
+    return warnings
+
+
+def select_today_entry(data: dict, target_date: date) -> dict | None:
+    target = target_date.isoformat()
+    return next(
+        (
+            entry
+            for entry in data["entries"]
+            if is_renderable_published_entry(entry) and entry.get("date") == target
+        ),
+        None,
+    )
+
+
+def select_previous_entry(data: dict, target_date: date) -> dict | None:
+    previous = []
+    for entry in data["entries"]:
+        if not is_renderable_published_entry(entry):
+            continue
+        try:
+            entry_date = parse_iso_date(entry.get("date"), label="entry.date")
+        except ValueError:
+            continue
+        if entry_date < target_date:
+            previous.append(entry)
+    return max(previous, key=lambda item: item["date"], default=None)
+
+
+def display_date(value: date) -> str:
+    return f"{value:%Y.%m.%d} {WEEKDAY_EN[value.weekday()]}"
+
+
+def render_member(entry: dict, members: dict[str, dict[str, str]]) -> str:
+    recommendation = entry.get("recommendedFor") or {}
+    employee_id = str(recommendation.get("employeeId", ""))
+    reason = recommendation.get("reason", "")
+    member = members.get(employee_id)
+    if not member:
+        return f'''        <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
+          <p class="section-kicker">Recommended For</p>
+          <h2 id="today-one-recommendation-title">誰に持たせたい？</h2>
+          <p>{esc(reason)}</p>
+        </section>'''
+
+    department = member.get("department", "")
+    role = member.get("role", "")
+    department_html = f'<span>{esc(department)}</span>' if department else ""
+    profile_url = member.get("profileUrl", "")
+    profile_link = (
+        f'<a class="today-one-profile-link" href="{esc(profile_url)}">プロフィールを見る</a>'
+        if profile_url
+        else ""
+    )
+    image_html = (
+        f'<img src="{esc(member["image"])}" alt="{esc(member.get("name", ""))}" loading="lazy" />'
+        if member.get("image")
+        else ""
+    )
+    return f'''        <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
+          <p class="section-kicker">Recommended For</p>
+          <h2 id="today-one-recommendation-title">誰に持たせたい？</h2>
+          <div class="today-one-member-card">
+            {image_html}
+            <div>
+              <small>{esc(employee_id)}</small>
+              <h3>{esc(member.get("name", ""))}</h3>
+              <p class="today-one-member-role">{esc(role)} {department_html}</p>
+              <p>{esc(reason)}</p>
+              {profile_link}
+            </div>
+          </div>
+        </section>'''
+
+
+def render_kei_comment(entry: dict, members: dict[str, dict[str, str]]) -> str:
+    kei = members.get("MMC-009", {})
+    image_html = (
+        f'<img src="{esc(kei["image"])}" alt="{esc(kei.get("name", "ケイ"))}" loading="lazy" />'
+        if kei.get("image")
+        else ""
+    )
+    byline = "｜".join(filter(None, [kei.get("name", "ケイ"), kei.get("role", "広報部長")]))
+    return f'''        <section class="today-one-section today-one-kei" aria-labelledby="today-one-kei-title">
+          <p class="section-kicker">Kei's Note</p>
+          <h2 id="today-one-kei-title">ケイのひとこと</h2>
+          <div class="today-one-kei-note">
+            {image_html}
+            <div>
+              <strong>{esc(byline)}</strong>
+              <p>{esc(entry.get("keiComment", ""))}</p>
+            </div>
+          </div>
+        </section>'''
+
+
+def render_value(value: object) -> str:
+    if isinstance(value, list):
+        items = "".join(f"<li>{esc(item)}</li>" for item in value if item not in (None, ""))
+        return f"<ul>{items}</ul>" if items else ""
+    return esc(value)
+
+
+def render_basic_info(entry: dict) -> str:
+    rows: list[str] = []
+    rows.append(f"<div><dt>種別</dt><dd>{esc(entry.get('category', ''))}</dd></div>")
+    rows.append(
+        '<div><dt>公式サイト</dt><dd>'
+        f'<a href="{esc(entry.get("officialUrl", ""))}" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a>'
+        "</dd></div>"
+    )
+    rows.append(
+        f'<div><dt>確認日</dt><dd><time datetime="{esc(entry.get("verifiedAt", ""))}">{esc(entry.get("verifiedAt", ""))}</time></dd></div>'
+    )
+    optional_fields = (
+        ("pricing", "料金"),
+        ("conditions", "利用条件"),
+        ("license", "ライセンス"),
+        ("notes", "補足"),
+    )
+    for field, label in optional_fields:
+        value = entry.get(field)
+        if value not in (None, "", []):
+            rows.append(f"<div><dt>{esc(label)}</dt><dd>{render_value(value)}</dd></div>")
+    if entry.get("githubUrl"):
+        rows.append(
+            '<div><dt>GitHub</dt><dd>'
+            f'<a href="{esc(entry["githubUrl"])}" target="_blank" rel="noopener noreferrer">GitHubを開く（外部サイト）</a>'
+            "</dd></div>"
+        )
+    return f'''        <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
+          <p class="section-kicker">Basic Information</p>
+          <h2 id="today-one-basic-title">基本情報</h2>
+          <dl>{''.join(rows)}</dl>
+        </section>'''
+
+
+def render_entry(entry: dict, members: dict[str, dict[str, str]], target_date: date) -> str:
+    return f'''      <article class="today-one-entry" aria-labelledby="today-one-entry-name">
+        <header class="today-one-entry-header">
+          <div class="today-one-entry-meta">
+            <time datetime="{esc(entry["date"])}">{esc(display_date(target_date))}</time>
+            <span>{esc(entry.get("category", ""))}</span>
+          </div>
+          <p class="today-one-entry-label">今日のひとつ</p>
+          <h2 id="today-one-entry-name">{esc(entry.get("name", ""))}</h2>
+          <p class="today-one-summary-label">一言でいうと</p>
+          <p class="today-one-summary">{esc(entry.get("summary", ""))}</p>
+          <a class="today-one-official-link" href="{esc(entry.get("officialUrl", ""))}" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
+        </header>
+        <div class="today-one-content-grid">
+          <section class="today-one-section" aria-labelledby="today-one-why-title">
+            <p class="section-kicker">Why Today</p>
+            <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
+            <p>{esc(entry.get("whyToday", ""))}</p>
+          </section>
+          <section class="today-one-section" aria-labelledby="today-one-use-title">
+            <p class="section-kicker">Use For</p>
+            <h2 id="today-one-use-title">何に使える？</h2>
+            <p>{esc(entry.get("useFor", ""))}</p>
+          </section>
+          {render_member(entry, members)}
+          {render_kei_comment(entry, members)}
+          {render_basic_info(entry)}
+        </div>
+      </article>'''
+
+
+def render_empty(members: dict[str, dict[str, str]], target_date: date) -> str:
+    kei = members.get("MMC-009", {})
+    image_html = (
+        f'<img src="{esc(kei["image"])}" alt="{esc(kei.get("name", "ケイ"))}" loading="lazy" />'
+        if kei.get("image")
+        else ""
+    )
+    return f'''      <section class="today-one-empty" aria-labelledby="today-one-empty-title">
+        <time datetime="{target_date.isoformat()}">{display_date(target_date)}</time>
+        <div class="today-one-empty-inner">
+          {image_html}
+          <div>
+            <p class="section-kicker">Today's One</p>
+            <h2 id="today-one-empty-title">本日のひとつは、まだ届いていません。</h2>
+            <p>ケイ、まだ巡回中です。今日の仕事道具が決まったら、ここへ一件だけ届きます。</p>
+          </div>
+        </div>
+      </section>'''
+
+
+def render_previous(entry: dict | None) -> str:
+    if not entry:
+        return ""
+    return f'''      <aside class="today-one-previous" aria-label="昨日以前のひとつ">
+        <p><span>前回のひとつ</span><time datetime="{esc(entry.get("date", ""))}">{esc(entry.get("date", "").replace("-", "."))}</time></p>
+        <strong>{esc(entry.get("name", ""))}</strong>
+        <p>{esc(entry.get("summary", ""))}</p>
+      </aside>'''
+
+
+def render_page(
+    entry: dict | None,
+    previous: dict | None,
+    members: dict[str, dict[str, str]],
+    target_date: date,
+) -> str:
+    title = "今日ひとつ。｜AIと働くための仕事道具を毎日1つ｜毎日見る株式会社"
+    description = "AIエージェント、Codex、MCP、API、OSS、AIサービスなど、AIと働くための仕事道具を毎日ひとつだけ紹介します。何に使えるか、誰に持たせたいかを毎日見る株式会社の広報部長ケイが整理します。"
+    structured_data = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "今日ひとつ。",
+        "description": description,
+        "url": CANONICAL_URL,
+        "inLanguage": "ja-JP",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "毎日見る株式会社",
+            "url": f"{BASE_URL}/",
+        },
+    }
+    content = render_entry(entry, members, target_date) if entry else render_empty(members, target_date)
+    return f'''<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{esc(title)}</title>
+    <meta name="description" content="{esc(description)}" />
+    <link rel="canonical" href="{CANONICAL_URL}" />
+    <meta property="og:title" content="{esc(title)}" />
+    <meta property="og:description" content="{esc(description)}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{CANONICAL_URL}" />
+    <meta property="og:site_name" content="毎日見る株式会社" />
+    <meta property="og:image" content="{BASE_URL}/image/top009.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">{json.dumps(structured_data, ensure_ascii=False)}</script>
+  </head>
+  <body class="subpage today-one-page">
+    <header class="site-header" aria-label="サイトヘッダー"></header>
+    <main class="today-one-main">
+      <nav class="profile-breadcrumb today-one-breadcrumb" aria-label="パンくずリスト">
+        <a href="index.html">ホーム</a>
+        <strong>今日ひとつ。</strong>
+      </nav>
+      <section class="today-one-intro" aria-labelledby="today-one-title">
+        <p class="section-kicker">Today's One</p>
+        <h1 id="today-one-title">今日ひとつ。</h1>
+        <p class="today-one-catch">何に使えるか。誰に持たせたいか。</p>
+        <p>AIと働くための道具を、毎日ひとつだけ。<br />たくさん並べる代わりに、今日はこれを見ます。</p>
+      </section>
+{content}
+{render_previous(previous)}
+    </main>
+    <footer class="site-footer"></footer>
+  </body>
+</html>
+'''
+
+
+def render_teaser(entry: dict | None) -> str:
+    if entry:
+        name_or_state = f'<strong>{esc(entry.get("name", ""))}</strong>'
+        link_label = "今日のひとつを見る"
+    else:
+        name_or_state = "<strong>本日のひとつは、まだ届いていません。</strong>"
+        link_label = "ページを見る"
+    body = f'''      <section id="today-one-teaser" class="today-one-teaser" aria-labelledby="today-one-teaser-title">
+        <div>
+          <p class="section-kicker">Today's One</p>
+          <h2 id="today-one-teaser-title">今日ひとつ。</h2>
+        </div>
+        <div class="today-one-teaser-copy">
+          {name_or_state}
+          <p>AIと働くための道具を、毎日ひとつだけ。</p>
+        </div>
+        <a href="today-one.html">{esc(link_label)} <span aria-hidden="true">→</span></a>
+      </section>'''
+    return f"    {TEASER_START}\n{body}\n    {TEASER_END}\n"
+
+
+def update_index(entry: dict | None) -> None:
+    html_text = INDEX_PATH.read_text(encoding="utf-8")
+    teaser = render_teaser(entry)
+    if TEASER_RE.search(html_text):
+        html_text = TEASER_RE.sub(teaser, html_text, count=1)
+    else:
+        insert_at = html_text.index('      <section id="news"')
+        html_text = html_text[:insert_at] + teaser + "\n" + html_text[insert_at:]
+    INDEX_PATH.write_text(html_text, encoding="utf-8")
+
+
+def generate(target_date: date | None = None) -> None:
+    target = target_date or today_in_tokyo()
+    members = load_members()
+    data = load_data()
+    for warning in validate_data(data, members):
+        print(f"WARNING: {warning}", file=sys.stderr)
+    entry = select_today_entry(data, target)
+    previous = select_previous_entry(data, target)
+    OUTPUT_PATH.write_text(render_page(entry, previous, members, target), encoding="utf-8")
+    update_index(entry)
+    for path in (OUTPUT_PATH, INDEX_PATH):
+        apply_layout_to_file(path)
+    state = entry.get("name") if entry else "empty state"
+    print(f"Generated today-one.html and top teaser for {target.isoformat()}: {state}")
+
+
+if __name__ == "__main__":
+    generate()

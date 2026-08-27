@@ -2,6 +2,8 @@
   "name": "mainichi-miru-site",
   "private": true,
   "scripts": {
+    "generate:today-one": "python3 scripts/generate_today_one.py",
+    "test:today-one": "python3 -m unittest tests.test_today_one",
     "validate:music-room": "python3 scripts/validate_music_room.py",
     "test:music-room": "node --test tests/music-room.test.js"
   }
