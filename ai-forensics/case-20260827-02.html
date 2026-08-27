@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Claudeの文章にウォーターマーク導入へ。「隠し文字」「利用者ID」「AI判定100%」のどれでもない｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Anthropicは2026年8月14日、今後のClaudeモデルが生成する文章へテキストウォーターマークを導入する仕組みを公開しました。これは文章へ見えない文字や利用者IDを追加する方式ではなく、Claudeが単語を選ぶ際の確率的なパターンを使い、「Claudeが文章生成に関与した可能性」を検出する仕組みです。AnthropicはEU AI Actへの対応として導入し、開始時には地域を限定せず世界で適用する方針を示しています。一方、短文、事実中心の文章、軽い校正、コードなどでは痕跡が少なくなるため、ウォーターマークの有無だけで「人間が書いた」「AIが全部書いた」と断定することはできません。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260827-02" />
+<meta property="og:title" content="Claudeの文章にウォーターマーク導入へ。「隠し文字」「利用者ID」「AI判定100%」のどれでもない｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Anthropicは2026年8月14日、今後のClaudeモデルが生成する文章へテキストウォーターマークを導入する仕組みを公開しました。これは文章へ見えない文字や利用者IDを追加する方式ではなく、Claudeが単語を選ぶ際の確率的なパターンを使い、「Claudeが文章生成に関与した可能性」を検出する仕組みです。AnthropicはEU AI Actへの対応として導入し、開始時には地域を限定せず世界で適用する方針を示しています。一方、短文、事実中心の文章、軽い校正、コードなどでは痕跡が少なくなるため、ウォーターマークの有無だけで「人間が書いた」「AIが全部書いた」と断定することはできません。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260827-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>Claudeの文章透かし、何が分かる？</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-27">2026.08.27</time>
+            </div>
+            <h1>Claudeの文章にウォーターマーク導入へ。「隠し文字」「利用者ID」「AI判定100%」のどれでもない</h1>
+            <p>Anthropicは2026年8月14日、今後のClaudeモデルが生成する文章へテキストウォーターマークを導入する仕組みを公開しました。これは文章へ見えない文字や利用者IDを追加する方式ではなく、Claudeが単語を選ぶ際の確率的なパターンを使い、「Claudeが文章生成に関与した可能性」を検出する仕組みです。AnthropicはEU AI Actへの対応として導入し、開始時には地域を限定せず世界で適用する方針を示しています。一方、短文、事実中心の文章、軽い校正、コードなどでは痕跡が少なくなるため、ウォーターマークの有無だけで「人間が書いた」「AIが全部書いた」と断定することはできません。</p>
+            <ul class="forensics-target-list"><li>Claudeで文章作成や翻訳をしている人</li><li>AI生成文を見分ける仕組みに関心がある人</li><li>社内や学校でAI利用ルールを考える人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Claude</li><li>Anthropic</li><li>ウォーターマーク</li><li>SynthID-Text</li><li>AI生成文章</li><li>AI判定</li><li>EU AI Act</li><li>C2PA</li><li>コンテンツ来歴</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>「検出できること」と「証明できないこと」を分ける</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AI生成の可能性を調べる場面では、①どのモデル・方式を対象にした検出なのか、②十分な文章量があるか、③結果が確率・可能性なのか確定判定なのか、④その結果から著者や利用者まで推定していないか、の順で確認します。ウォーターマークは出所確認の材料を増やす技術であり、単独で作者を特定する鑑定書ではありません。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Claudeで作った文章を貼り付けると、会社に自分のアカウントや会話履歴まで分かる？</h3><p>Claudeのウォーターマーク導入を知った利用者が、「WordやCMSへ貼り付けた文章には見えない識別番号が残り、誰のClaudeアカウントで作ったか追跡されるのでは」と心配しています。別の人は逆に、「ウォーターマーク検出器があれば、その文章をAIが書いたか100%証明できる」と考えています。Anthropicが説明している仕組みは、そのどちらとも異なります。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AI生成物の出所を確認できる技術が広がると、学校、採用、社内文書、ニュースなどで検出結果が判断材料として使われる可能性があります。そこで「何を検出でき、何を証明できないか」を理解していないと、AIを使っていない人を誤って疑ったり、逆に検出されなかった文章を人間作成だと決めつけたりする原因になります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="claude-involvement">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>将来、Claudeのテキストウォーターマークが検出された文章について、最も適切な理解はどれ？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="account-trace" data-choice-id="account-trace" />
+                <span>
+                  <strong>Claudeを使った利用者のアカウントや元のチャットを特定できる</strong>
+                  <small>ウォーターマークに個人識別情報が入っていると考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="full-ai-proof" data-choice-id="full-ai-proof" />
+                <span>
+                  <strong>文章全体をClaudeが書いたことを100%証明できる</strong>
+                  <small>検出結果を著者判定として扱う。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="claude-involvement" data-choice-id="claude-involvement" />
+                <span>
+                  <strong>Claudeがその文章の生成や大幅な編集に関与した可能性を判断する材料になる</strong>
+                  <small>ウォーターマークが示せる範囲と限界を分けて考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="hidden-character" data-choice-id="hidden-character" />
+                <span>
+                  <strong>コピーした文章に特殊な非表示文字が追加されている</strong>
+                  <small>ゼロ幅文字や隠し文字を埋め込む方式だと考える。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Claudeがその文章の生成や大幅な編集に関与した可能性を判断する材料になる</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Anthropicによると、Claudeのテキストウォーターマークには利用者、組織、チャットを特定する情報は含まれず、隠し文字も追加されません。検出できるのは「Claudeがこの文章へ関与した可能性」であり、「Claudeが全文を書いた」のか「人間の文章をClaudeが大幅に編集した」のかまでは区別できません。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ウォーターマークは文章へ何かを書き足す仕組みではない</h3>
+              <p>Claudeが次の単語を選ぶ際、意味や品質を変えにくい複数候補の中から選択するパターンに鍵を使います。そのパターンを後から統計的に調べる方式で、ゼロ幅文字、利用者番号、チャットIDなどを文章へ挿入するものではありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>検出結果が示すのは「Claudeの関与」であって著者ではない</h3>
+              <p>Anthropicは、ウォーターマークから「Claudeが書いた」と「Claudeが大幅に編集した」を区別できないと説明しています。所有権や著者性、誰が操作したかを決める情報でもありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>短文や校正では検出しにくくなる</h3>
+              <p>文章が短いほど判断材料となる単語選択が少なくなります。また、正解がほぼ決まる事実記述、文法や句読点だけの軽い校正、正確な記述が要求されるコードなどではウォーターマークを載せられる余地が少なくなります。逆に翻訳はClaudeがほぼすべての単語を選ぶため、Anthropicはウォーターマークの対象になると説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>すべてのClaude出力が同じ状態になるわけではない</h3>
+              <p>2026年8月14日の発表は「今後のClaudeモデル」への導入についてのものです。Anthropicは2026年8月2日より前に提供されたモデルについても今後数か月かけて対応するとしています。EU側も、同日より前に市場投入されたAIシステムの生成物マーキングについては2026年12月2日までの限定的な猶予を設けています。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>テキストの透かしと画像ファイルの来歴情報は別方式</h3>
+              <p>Anthropicは、対応するPNG、JPEG、SVGなどのファイルについてはC2PAという標準を使った暗号署名付きのContent Credentialsをメタデータへ付けると説明しています。文章の単語選択パターンを使うテキストウォーターマークとは仕組みが異なります。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>検出APIは発表時点では「近日提供」</h3>
+              <p>Anthropicは2026年8月14日の発表でウォーターマーク検出APIを今後提供するとしており、その記事では具体的な提供方法や一般利用開始日はまだ示していません。現時点で第三者の一般的なAI文章判定サービスとAnthropic自身のウォーターマーク検出を同一視しないことが重要です。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Claudeのウォーターマークは「誰が使ったか」ではなく「Claudeが関与した可能性」を残す仕組み</strong><p>Anthropicが採用するのはGoogle DeepMindが公開したSynthID-Textを基にした方式です。Natureに2024年10月23日掲載された研究では、約2000万件のGemini応答を使った実運用評価で、ウォーターマークあり・なしのユーザー評価に統計的に有意な品質差は確認されませんでした。一方、同研究も生成ウォーターマークをAI文章検出の完全な解決策とは位置付けておらず、文章の編集や言い換えで弱くなることなどを限界として挙げています。つまり「見えない追跡タグ」でも「万能なAI探知機」でもなく、生成元を判断するための新しい証拠の一つと考えるのが適切です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>AI利用を管理する組織では、後から文章判定だけに頼らず作成時の利用記録を残す</strong><span>ウォーターマークはモデルの関与を推定する技術で、誰が、どんな目的で、どの程度AIを使ったかまでは記録できません。</span></li>
+            <li><strong>ウォーターマーク検出結果を見る時は、対象モデルと文章量を確認する</strong><span>短文や軽い編集では検出材料が少なく、対象外モデルの文章をClaude用の鍵で判定することもできません。</span></li>
+            <li><strong>EU向けに公共性の高い文章を公開する業務では、ウォーターマークとは別に表示義務を確認する</strong><span>EU AI Actでは、AI提供者による機械可読なマーキングと、一定のAI生成コンテンツを公開する側による人間向け表示は別の義務です。人間による実質的なレビューや編集管理がある場合など、適用条件も異なります。</span></li>
+            <li><strong>AI生成疑惑を判断する時は、文章の出所や編集履歴など他の証拠と組み合わせる</strong><span>ウォーターマークが検出されないことも、検出されたことも、それだけで人間作成・AI作成を完全に確定するものではありません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>ゼロ幅文字や特殊文字を削除すればテキストウォーターマークを消せると思う</strong><span>Anthropic方式は隠し文字を挿入する仕組みではなく、単語選択の統計的なパターンを利用します。</span></li>
+            <li><strong>ウォーターマーク検出を本人確認や不正利用の証拠として単独で使う</strong><span>ウォーターマークには個人、組織、チャットを特定する情報がありません。</span></li>
+            <li><strong>ウォーターマークが見つからなければ人間が書いたと断定する</strong><span>短い文章、軽い校正、事実中心の文章、対応前モデル、強く書き換えられた文章などでは検出が難しくなる可能性があります。</span></li>
+            <li><strong>一般的なAI文章判定サービスとClaude公式ウォーターマーク検出を同じものとして扱う</strong><span>Anthropic自身の方式は秘密鍵を使って生成時のパターンを確認します。文章の言い回しなどから推定する事後型AI判定サービスとは原理が異なります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>「AIっぽい文章」を勘で探すより、生成時に来歴を残す方向へ</h3>
+          <p>文章の癖だけを見て「これはAIっぽい」と推測する方法には限界があります。生成サービス自身が来歴を示す仕組みを持てば、AIを禁止するためではなく、どの工程でAIが関わったかを説明しやすくなります。ウォーターマーク、C2PA、作業履歴、人間のレビュー記録を役割ごとに使い分けることで、AIを利用した制作物も扱いやすくなります。</p>
+          <ul class="positive-example-list"><li>報道機関がAI利用ポリシーと編集者のレビュー記録を残し、生成元情報を補助材料として使う</li><li>企業が「AI使用禁止」ではなく、AIを使った工程と最終確認者を記録する運用へ移行する</li><li>教育現場で文章判定器の結果だけで処分せず、制作過程や下書きと合わせて評価する</li><li>画像ではC2PA、文章では生成ウォーターマークというように媒体ごとの来歴技術を使い分ける</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>今回面白いのは、「透かし」という言葉から想像する仕組みと実物がかなり違うところです。紙幣の透かしのように何かが埋め込まれるのではなく、文章を作る時の「どの言葉を選ぶか」という小さな選択の積み重ねが痕跡になります。だから特殊文字を探しても意味がありませんし、逆に痕跡が見つかったからといって作者まで分かるわけでもありません。これからAI生成物の来歴技術は増えていきそうですが、「生成の痕跡」「作者」「利用者」「内容の正しさ」はそれぞれ別の情報です。ここを一緒にしてしまわないことが、この技術を便利に使うポイントだと思います。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Claudeのテキストウォーターマークが示すのは「Claudeが関与した可能性」であり、利用者の身元や文章の著者を示すものではない。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.anthropic.com/news/claude-text-watermark" target="_blank" rel="noopener noreferrer">How Claude’s text watermark works<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Anthropic</span>
+              <span>公式発表</span>
+              <time datetime="2026-08-14">2026-08-14</time>
+            </li>
+            <li>
+              <strong><a href="https://digital-strategy.ec.europa.eu/en/library/guidelines-transparency-obligations-providers-and-deployers-ai-systems" target="_blank" rel="noopener noreferrer">Guidelines on transparency obligations for providers and deployers of AI systems<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>European Commission</span>
+              <span>公式発表</span>
+              <time datetime="2026-07-20">2026-07-20</time>
+            </li>
+            <li>
+              <strong><a href="https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act" target="_blank" rel="noopener noreferrer">Transparency obligations under Article 50 of the AI Act<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>European Commission</span>
+              <span>公式発表</span>
+              
+            </li>
+            <li>
+              <strong><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj?locale=en" target="_blank" rel="noopener noreferrer">Regulation (EU) 2024/1689 (Artificial Intelligence Act)<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>EUR-Lex</span>
+              <span>官公庁</span>
+              <time datetime="2024-07-12">2024-07-12</time>
+            </li>
+            <li>
+              <strong><a href="https://www.nature.com/articles/s41586-024-08025-4" target="_blank" rel="noopener noreferrer">Scalable watermarking for identifying large language model outputs<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Nature</span>
+              <span>研究・論文</span>
+              <time datetime="2024-10-23">2024-10-23</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260827-01" data-forensics-card data-category="media-literacy" data-level="2" data-difficulty="beginner" data-search-text="Google検索に「Preferred Sources」。好きな媒体をAI Modeで優先しても“信頼済み”になるわけではない Preferred Sourcesは「信頼認証」ではない Googleは2026年8月20日、Google検索の「Preferred Sources」を拡張し、利用者が選んだ媒体をTop StoriesだけでなくAI OverviewsやAI Modeでも優先して見つけやすくする仕組みを案内しました。Preferred Sourcesに登録すると、その媒体の記事が関連する検索で表示されやすくなり「preferred」バッジが付く場合がありますが、これはGoogleがその媒体の内容をすべて正しいと認証したという意味ではありません。情報源を自分で選べる便利な機能だからこそ、「よく読みたい媒体」と「その主張が正しいか」の判断は分けて使うのがポイントです。 情報の見極め はじめて Google検索 Preferred Sources AI Mode AI Overviews AI検索 情報源 ニュース パーソナライズ 検索リテラシー Google検索やAI Modeでニュースを調べる人 よく読むニュースサイトや専門メディアがある人 AI検索で情報源を自分好みに調整したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">preferred-source-check</span>
+              <div>
+                <p>Preferred Sourcesは「信頼認証」ではない</p>
+                <h3>Google検索に「Preferred Sources」。好きな媒体をAI Modeで優先しても“信頼済み”になるわけではない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-27">2026.08.27</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年8月20日、Google検索の「Preferred Sources」を拡張し、利用者が選んだ媒体をTop StoriesだけでなくAI OverviewsやAI Modeでも優先して見つけやすくする仕組みを案内しました。Preferred Sourcesに登録すると、その媒体の記事が関連する検索で表示されやすくなり「preferred」バッジが付く場合がありますが、これはGoogleがその媒体の内容をすべて正しいと認証したという意味ではありません。情報源を自分で選べる便利な機能だからこそ、「よく読みたい媒体」と「その主張が正しいか」の判断は分けて使うのがポイントです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>優先表示と事実確認を分ける</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google検索やAI Modeでニュースを調べる人</li><li>よく読むニュースサイトや専門メディアがある人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google検索</li><li>Preferred Sources</li><li>AI Mode</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260826-01" data-forensics-card data-category="media-literacy" data-level="4" data-difficulty="standard" data-search-text="買い物AIが1商品に絞ったとき、何を確認する？ 消費者委員会で議論された「選択の自律性」 AIのおすすめは「比較軸」まで見る 内閣府の消費者委員会は2026年8月21日、前日に開催した「第8回 人工知能（AI）技術の利用と消費者問題に関する専門調査会」の資料を公開しました。有識者資料では、対話型AIは情報探索や候補比較の負担を減らせる一方、買物相談から購入誘導までがシームレスになることや、AIに選択を任せすぎた場合の「自律性」が論点として示されています。ここでいう自律性は、自分の価値観や関心に基づいて自由に選択・行動できると感じられることです。ただし、これらは専門調査会で検討されている論点や仮説を含み、「AI推薦が消費者の満足度を下げる」と実証した政府の結論ではありません。実際の買物では、AIに候補を絞ってもらいつつ、自分が重視した条件、他の候補、採用・除外理由を見える形にしておくと、効率化と自分で選ぶ感覚を両立しやすくなります。 情報の見極め 標準 買物AI AIエージェント 消費者委員会 商品推薦 EC 意思決定 自律性 AIショッピング 商品比較 消費者問題 生成AIに商品選びや比較を頼む人 AIショッピング・買物支援機能を利用する人 ECサイトやマーケットプレイスでAI推薦を見る人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-shopping-comparison-path</span>
+              <div>
+                <p>AIのおすすめは「比較軸」まで見る</p>
+                <h3>買い物AIが1商品に絞ったとき、何を確認する？ 消費者委員会で議論された「選択の自律性」</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">内閣府の消費者委員会は2026年8月21日、前日に開催した「第8回 人工知能（AI）技術の利用と消費者問題に関する専門調査会」の資料を公開しました。有識者資料では、対話型AIは情報探索や候補比較の負担を減らせる一方、買物相談から購入誘導までがシームレスになることや、AIに選択を任せすぎた場合の「自律性」が論点として示されています。ここでいう自律性は、自分の価値観や関心に基づいて自由に選択・行動できると感じられることです。ただし、これらは専門調査会で検討されている論点や仮説を含み、「AI推薦が消費者の満足度を下げる」と実証した政府の結論ではありません。実際の買物では、AIに候補を絞ってもらいつつ、自分が重視した条件、他の候補、採用・除外理由を見える形にしておくと、効率化と自分で選ぶ感覚を両立しやすくなります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>おすすめ商品より「比較の途中」を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>生成AIに商品選びや比較を頼む人</li><li>AIショッピング・買物支援機能を利用する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>買物AI</li><li>AIエージェント</li><li>消費者委員会</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260826-02" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="Copilotの「Agent Blocked」、モデル故障とは限らない。Claude利用は管理者のAIプロバイダー設定で止まる Agent Blockedは権限設定も確認 Microsoftは2026年8月19日時点のMicrosoft 365 Copilot Extensibilityの既知の問題として、Copilot Studioで作成したエージェントがClaude Sonnet 4.6など第三者AIモデルを使う場合、利用者にそのAIプロバイダーへのアクセス権がなければ「Agent Blocked」と表示されることを案内しています。これは必ずしもエージェントやモデルの故障ではなく、組織のAIプロバイダー設定によって意図的に利用が止められている可能性があります。MicrosoftではAnthropicなどの第三者AI事業者を「AI Subprocessor」としてMicrosoft Copilotへ組み込む仕組みがあり、管理者はモデル単位ではなくAIプロバイダー単位で、利用できるユーザーやMicrosoft Entra IDのセキュリティグループを指定できます。AIがマルチモデル化すると、「同じCopilot画面で使えるか」だけでなく、「どの会社のモデルが処理するのか」「自社でそのプロバイダーを許可しているか」まで確認することが重要になります。 セキュリティ・権限 標準 Microsoft Copilot Copilot Studio Agent Blocked Claude Anthropic AI Subprocessor Microsoft Entra ID AIプロバイダー アクセス制御 マルチモデル Microsoft CopilotやCopilot Studioを仕事で使う人 Claudeなど複数のAIモデルを社内で使い分ける人 生成AIの社内利用を管理するIT・AI担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-provider-access-block</span>
+              <div>
+                <p>Agent Blockedは権限設定も確認</p>
+                <h3>Copilotの「Agent Blocked」、モデル故障とは限らない。Claude利用は管理者のAIプロバイダー設定で止まる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは2026年8月19日時点のMicrosoft 365 Copilot Extensibilityの既知の問題として、Copilot Studioで作成したエージェントがClaude Sonnet 4.6など第三者AIモデルを使う場合、利用者にそのAIプロバイダーへのアクセス権がなければ「Agent Blocked」と表示されることを案内しています。これは必ずしもエージェントやモデルの故障ではなく、組織のAIプロバイダー設定によって意図的に利用が止められている可能性があります。MicrosoftではAnthropicなどの第三者AI事業者を「AI Subprocessor」としてMicrosoft Copilotへ組み込む仕組みがあり、管理者はモデル単位ではなくAIプロバイダー単位で、利用できるユーザーやMicrosoft Entra IDのセキュリティグループを指定できます。AIがマルチモデル化すると、「同じCopilot画面で使えるか」だけでなく、「どの会社のモデルが処理するのか」「自社でそのプロバイダーを許可しているか」まで確認することが重要になります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>エラー表示→利用モデル→AIプロバイダー権限の順で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft CopilotやCopilot Studioを仕事で使う人</li><li>Claudeなど複数のAIモデルを社内で使い分ける人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Copilot Studio</li><li>Agent Blocked</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260826-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260827-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

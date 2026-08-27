@@ -1,0 +1,74 @@
+{
+  "id": "case-20260827-02",
+  "publishedAt": "2026-08-27",
+  "title": "Claudeの文章にウォーターマーク導入へ。「隠し文字」「利用者ID」「AI判定100%」のどれでもない",
+  "shortTitle": "Claudeの文章透かし、何が分かる？",
+  "category": "media-literacy",
+  "difficulty": "beginner",
+  "targetAudience": ["Claudeで文章作成や翻訳をしている人", "AI生成文を見分ける仕組みに関心がある人", "社内や学校でAI利用ルールを考える人"],
+  "summary": "Anthropicは2026年8月14日、今後のClaudeモデルが生成する文章へテキストウォーターマークを導入する仕組みを公開しました。これは文章へ見えない文字や利用者IDを追加する方式ではなく、Claudeが単語を選ぶ際の確率的なパターンを使い、「Claudeが文章生成に関与した可能性」を検出する仕組みです。AnthropicはEU AI Actへの対応として導入し、開始時には地域を限定せず世界で適用する方針を示しています。一方、短文、事実中心の文章、軽い校正、コードなどでは痕跡が少なくなるため、ウォーターマークの有無だけで「人間が書いた」「AIが全部書いた」と断定することはできません。",
+  "scenario": {
+    "headline": "Claudeで作った文章を貼り付けると、会社に自分のアカウントや会話履歴まで分かる？",
+    "description": "Claudeのウォーターマーク導入を知った利用者が、「WordやCMSへ貼り付けた文章には見えない識別番号が残り、誰のClaudeアカウントで作ったか追跡されるのでは」と心配しています。別の人は逆に、「ウォーターマーク検出器があれば、その文章をAIが書いたか100%証明できる」と考えています。Anthropicが説明している仕組みは、そのどちらとも異なります。",
+    "whyItMatters": "AI生成物の出所を確認できる技術が広がると、学校、採用、社内文書、ニュースなどで検出結果が判断材料として使われる可能性があります。そこで「何を検出でき、何を証明できないか」を理解していないと、AIを使っていない人を誤って疑ったり、逆に検出されなかった文章を人間作成だと決めつけたりする原因になります。"
+  },
+  "question": {
+    "text": "将来、Claudeのテキストウォーターマークが検出された文章について、最も適切な理解はどれ？",
+    "choices": [
+      { "id": "account-trace", "label": "Claudeを使った利用者のアカウントや元のチャットを特定できる", "description": "ウォーターマークに個人識別情報が入っていると考える。" },
+      { "id": "full-ai-proof", "label": "文章全体をClaudeが書いたことを100%証明できる", "description": "検出結果を著者判定として扱う。" },
+      { "id": "claude-involvement", "label": "Claudeがその文章の生成や大幅な編集に関与した可能性を判断する材料になる", "description": "ウォーターマークが示せる範囲と限界を分けて考える。" },
+      { "id": "hidden-character", "label": "コピーした文章に特殊な非表示文字が追加されている", "description": "ゼロ幅文字や隠し文字を埋め込む方式だと考える。" }
+    ],
+    "recommendedAnswers": ["claude-involvement"],
+    "explanation": "Anthropicによると、Claudeのテキストウォーターマークには利用者、組織、チャットを特定する情報は含まれず、隠し文字も追加されません。検出できるのは「Claudeがこの文章へ関与した可能性」であり、「Claudeが全文を書いた」のか「人間の文章をClaudeが大幅に編集した」のかまでは区別できません。"
+  },
+  "inspectionPoints": [
+    { "title": "ウォーターマークは文章へ何かを書き足す仕組みではない", "description": "Claudeが次の単語を選ぶ際、意味や品質を変えにくい複数候補の中から選択するパターンに鍵を使います。そのパターンを後から統計的に調べる方式で、ゼロ幅文字、利用者番号、チャットIDなどを文章へ挿入するものではありません。", "priority": "high" },
+    { "title": "検出結果が示すのは「Claudeの関与」であって著者ではない", "description": "Anthropicは、ウォーターマークから「Claudeが書いた」と「Claudeが大幅に編集した」を区別できないと説明しています。所有権や著者性、誰が操作したかを決める情報でもありません。", "priority": "high" },
+    { "title": "短文や校正では検出しにくくなる", "description": "文章が短いほど判断材料となる単語選択が少なくなります。また、正解がほぼ決まる事実記述、文法や句読点だけの軽い校正、正確な記述が要求されるコードなどではウォーターマークを載せられる余地が少なくなります。逆に翻訳はClaudeがほぼすべての単語を選ぶため、Anthropicはウォーターマークの対象になると説明しています。", "priority": "high" },
+    { "title": "すべてのClaude出力が同じ状態になるわけではない", "description": "2026年8月14日の発表は「今後のClaudeモデル」への導入についてのものです。Anthropicは2026年8月2日より前に提供されたモデルについても今後数か月かけて対応するとしています。EU側も、同日より前に市場投入されたAIシステムの生成物マーキングについては2026年12月2日までの限定的な猶予を設けています。", "priority": "high" },
+    { "title": "テキストの透かしと画像ファイルの来歴情報は別方式", "description": "Anthropicは、対応するPNG、JPEG、SVGなどのファイルについてはC2PAという標準を使った暗号署名付きのContent Credentialsをメタデータへ付けると説明しています。文章の単語選択パターンを使うテキストウォーターマークとは仕組みが異なります。", "priority": "medium" },
+    { "title": "検出APIは発表時点では「近日提供」", "description": "Anthropicは2026年8月14日の発表でウォーターマーク検出APIを今後提供するとしており、その記事では具体的な提供方法や一般利用開始日はまだ示していません。現時点で第三者の一般的なAI文章判定サービスとAnthropic自身のウォーターマーク検出を同一視しないことが重要です。", "priority": "medium" }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "「検出できること」と「証明できないこと」を分ける",
+  "verificationMessage": "AI生成の可能性を調べる場面では、①どのモデル・方式を対象にした検出なのか、②十分な文章量があるか、③結果が確率・可能性なのか確定判定なのか、④その結果から著者や利用者まで推定していないか、の順で確認します。ウォーターマークは出所確認の材料を増やす技術であり、単独で作者を特定する鑑定書ではありません。",
+  "verdict": {
+    "label": "Claudeのウォーターマークは「誰が使ったか」ではなく「Claudeが関与した可能性」を残す仕組み",
+    "description": "Anthropicが採用するのはGoogle DeepMindが公開したSynthID-Textを基にした方式です。Natureに2024年10月23日掲載された研究では、約2000万件のGemini応答を使った実運用評価で、ウォーターマークあり・なしのユーザー評価に統計的に有意な品質差は確認されませんでした。一方、同研究も生成ウォーターマークをAI文章検出の完全な解決策とは位置付けておらず、文章の編集や言い換えで弱くなることなどを限界として挙げています。つまり「見えない追跡タグ」でも「万能なAI探知機」でもなく、生成元を判断するための新しい証拠の一つと考えるのが適切です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    { "action": "AI利用を管理する組織では、後から文章判定だけに頼らず作成時の利用記録を残す", "reason": "ウォーターマークはモデルの関与を推定する技術で、誰が、どんな目的で、どの程度AIを使ったかまでは記録できません。" },
+    { "action": "ウォーターマーク検出結果を見る時は、対象モデルと文章量を確認する", "reason": "短文や軽い編集では検出材料が少なく、対象外モデルの文章をClaude用の鍵で判定することもできません。" },
+    { "action": "EU向けに公共性の高い文章を公開する業務では、ウォーターマークとは別に表示義務を確認する", "reason": "EU AI Actでは、AI提供者による機械可読なマーキングと、一定のAI生成コンテンツを公開する側による人間向け表示は別の義務です。人間による実質的なレビューや編集管理がある場合など、適用条件も異なります。" },
+    { "action": "AI生成疑惑を判断する時は、文章の出所や編集履歴など他の証拠と組み合わせる", "reason": "ウォーターマークが検出されないことも、検出されたことも、それだけで人間作成・AI作成を完全に確定するものではありません。" }
+  ],
+  "avoidActions": [
+    { "action": "ゼロ幅文字や特殊文字を削除すればテキストウォーターマークを消せると思う", "reason": "Anthropic方式は隠し文字を挿入する仕組みではなく、単語選択の統計的なパターンを利用します。" },
+    { "action": "ウォーターマーク検出を本人確認や不正利用の証拠として単独で使う", "reason": "ウォーターマークには個人、組織、チャットを特定する情報がありません。" },
+    { "action": "ウォーターマークが見つからなければ人間が書いたと断定する", "reason": "短い文章、軽い校正、事実中心の文章、対応前モデル、強く書き換えられた文章などでは検出が難しくなる可能性があります。" },
+    { "action": "一般的なAI文章判定サービスとClaude公式ウォーターマーク検出を同じものとして扱う", "reason": "Anthropic自身の方式は秘密鍵を使って生成時のパターンを確認します。文章の言い回しなどから推定する事後型AI判定サービスとは原理が異なります。" }
+  ],
+  "positiveUse": {
+    "title": "「AIっぽい文章」を勘で探すより、生成時に来歴を残す方向へ",
+    "description": "文章の癖だけを見て「これはAIっぽい」と推測する方法には限界があります。生成サービス自身が来歴を示す仕組みを持てば、AIを禁止するためではなく、どの工程でAIが関わったかを説明しやすくなります。ウォーターマーク、C2PA、作業履歴、人間のレビュー記録を役割ごとに使い分けることで、AIを利用した制作物も扱いやすくなります。",
+    "examples": ["報道機関がAI利用ポリシーと編集者のレビュー記録を残し、生成元情報を補助材料として使う", "企業が「AI使用禁止」ではなく、AIを使った工程と最終確認者を記録する運用へ移行する", "教育現場で文章判定器の結果だけで処分せず、制作過程や下書きと合わせて評価する", "画像ではC2PA、文章では生成ウォーターマークというように媒体ごとの来歴技術を使い分ける"]
+  },
+  "makotoComment": "今回面白いのは、「透かし」という言葉から想像する仕組みと実物がかなり違うところです。紙幣の透かしのように何かが埋め込まれるのではなく、文章を作る時の「どの言葉を選ぶか」という小さな選択の積み重ねが痕跡になります。だから特殊文字を探しても意味がありませんし、逆に痕跡が見つかったからといって作者まで分かるわけでもありません。これからAI生成物の来歴技術は増えていきそうですが、「生成の痕跡」「作者」「利用者」「内容の正しさ」はそれぞれ別の情報です。ここを一緒にしてしまわないことが、この技術を便利に使うポイントだと思います。",
+  "oneLineLesson": "Claudeのテキストウォーターマークが示すのは「Claudeが関与した可能性」であり、利用者の身元や文章の著者を示すものではない。",
+  "tags": ["Claude", "Anthropic", "ウォーターマーク", "SynthID-Text", "AI生成文章", "AI判定", "EU AI Act", "C2PA", "コンテンツ来歴"],
+  "sources": [
+    { "title": "How Claude’s text watermark works", "publisher": "Anthropic", "sourceType": "official", "publishedAt": "2026-08-14", "url": "https://www.anthropic.com/news/claude-text-watermark" },
+    { "title": "Guidelines on transparency obligations for providers and deployers of AI systems", "publisher": "European Commission", "sourceType": "official", "publishedAt": "2026-07-20", "url": "https://digital-strategy.ec.europa.eu/en/library/guidelines-transparency-obligations-providers-and-deployers-ai-systems" },
+    { "title": "Transparency obligations under Article 50 of the AI Act", "publisher": "European Commission", "sourceType": "official", "publishedAt": null, "url": "https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act" },
+    { "title": "Regulation (EU) 2024/1689 (Artificial Intelligence Act)", "publisher": "EUR-Lex", "sourceType": "government", "publishedAt": "2024-07-12", "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj?locale=en" },
+    { "title": "Scalable watermarking for identifying large language model outputs", "publisher": "Nature", "sourceType": "research", "publishedAt": "2024-10-23", "url": "https://www.nature.com/articles/s41586-024-08025-4" }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "中央に同じ内容の2つの文章カードを置き、見た目はまったく同じにする。一方の背後には小さな単語候補が枝分かれする図と鍵アイコンを描き、「単語選択のパターン」と表示する。横には大きく「隠し文字ではない」「個人IDではない」「100%判定ではない」の3枚のカード。下段では「Claudeの関与の可能性 → ○」「誰が使ったか → ×」「内容が正しいか → ×」と、ウォーターマークから分かる範囲を一目で区別する。画像ファイル側には別枠でC2PAメタデータの小さなカードを置き、文章の透かしとは別方式であることを示す。",
+    "cardIcon": "text-watermark-key",
+    "accentTone": "calm"
+  }
+}
