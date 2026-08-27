@@ -93,6 +93,50 @@ class TodayOneTest(unittest.TestCase):
         self.assertIn("members/akito", rendered)
         self.assertIn("一言でいうと", rendered)
 
+    def test_archive_keeps_published_entries_up_to_target_date(self) -> None:
+        future = published_entry("2026-08-29", slug="future")
+        draft = published_entry("2026-08-27", slug="draft")
+        draft["status"] = "draft"
+        data = {
+            "entries": [
+                published_entry("2026-08-26", slug="older"),
+                future,
+                draft,
+                published_entry("2026-08-28", slug="today"),
+            ]
+        }
+        entries = today_one.published_archive_entries(data, date(2026, 8, 28))
+        self.assertEqual([entry["slug"] for entry in entries], ["today", "older"])
+
+    def test_archive_uses_stable_date_and_slug_url(self) -> None:
+        entry = published_entry("2026-08-28", slug="context-seven")
+        self.assertEqual(
+            today_one.archive_filename(entry),
+            "2026-08-28-context-seven.html",
+        )
+        self.assertEqual(
+            today_one.archive_url(entry),
+            "https://mainichi-miru.com/today-one/archive/2026-08-28-context-seven",
+        )
+
+    def test_archive_detail_prefixes_existing_member_assets(self) -> None:
+        members = today_one.load_members()
+        rendered = today_one.render_archive_detail_page(
+            published_entry("2026-08-28"),
+            members,
+        )
+        self.assertIn('../../image/staff/mmc-008.jpg', rendered)
+        self.assertIn('../../members/akito', rendered)
+
+    def test_unsafe_slug_is_skipped(self) -> None:
+        entry = published_entry("2026-08-28", slug="../unsafe")
+        warnings = today_one.validate_data(
+            {"updatedAt": None, "entries": [entry]},
+            self.members,
+        )
+        self.assertTrue(any("slug" in warning for warning in warnings))
+        self.assertFalse(today_one.is_renderable_published_entry(entry))
+
 
 if __name__ == "__main__":
     unittest.main()

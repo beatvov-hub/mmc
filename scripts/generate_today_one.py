@@ -11,6 +11,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
+from generate_lounge import load_logs, update_sitemap
 from site_layout import apply_layout_to_file
 
 
@@ -18,6 +19,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "src" / "data" / "todayOne.json"
 MEMBERS_PATH = ROOT / "members.html"
 OUTPUT_PATH = ROOT / "today-one.html"
+ARCHIVE_DIR = ROOT / "today-one" / "archive"
+ARCHIVE_INDEX_PATH = ARCHIVE_DIR / "index.html"
 INDEX_PATH = ROOT / "index.html"
 BASE_URL = "https://mainichi-miru.com"
 CANONICAL_URL = f"{BASE_URL}/today-one"
@@ -42,6 +45,7 @@ TEASER_RE = re.compile(
     rf"^[ \t]*{re.escape(TEASER_START)}[\s\S]*?^[ \t]*{re.escape(TEASER_END)}\s*",
     re.MULTILINE,
 )
+SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 
 def esc(value: object) -> str:
@@ -65,6 +69,12 @@ def is_safe_external_url(value: object) -> bool:
     return parsed.scheme == "https" and bool(parsed.netloc)
 
 
+def prefixed_path(value: str, prefix: str) -> str:
+    if not value or value.startswith(("http://", "https://", "/")):
+        return value
+    return f"{prefix}{value}"
+
+
 def published_entry_issues(entry: object, *, label: str) -> list[str]:
     if not isinstance(entry, dict):
         return [f"{label} must be an object."]
@@ -82,6 +92,9 @@ def published_entry_issues(entry: object, *, label: str) -> list[str]:
                 missing.append(f"recommendedFor.{field}")
     if missing:
         issues.append(f"{label} is missing published fields: {', '.join(missing)}")
+
+    if entry.get("slug") and not SLUG_RE.fullmatch(str(entry["slug"])):
+        issues.append(f"{label}.slug must contain lowercase letters, numbers, and hyphens only.")
 
     if entry.get("officialUrl") and not is_safe_external_url(entry["officialUrl"]):
         issues.append(f"{label}.officialUrl must be an https URL.")
@@ -266,7 +279,34 @@ def display_date(value: date) -> str:
     return f"{value:%Y.%m.%d} {WEEKDAY_EN[value.weekday()]}"
 
 
-def render_member(entry: dict, members: dict[str, dict[str, str]]) -> str:
+def archive_filename(entry: dict) -> str:
+    return f'{entry["date"]}-{entry["slug"]}.html'
+
+
+def archive_url(entry: dict) -> str:
+    return f'{BASE_URL}/today-one/archive/{entry["date"]}-{entry["slug"]}'
+
+
+def published_archive_entries(data: dict, target_date: date) -> list[dict]:
+    entries: list[dict] = []
+    for entry in data["entries"]:
+        if not is_renderable_published_entry(entry):
+            continue
+        try:
+            entry_date = parse_iso_date(entry.get("date"), label="entry.date")
+        except ValueError:
+            continue
+        if entry_date <= target_date:
+            entries.append(entry)
+    return sorted(entries, key=lambda item: (item["date"], item["slug"]), reverse=True)
+
+
+def render_member(
+    entry: dict,
+    members: dict[str, dict[str, str]],
+    *,
+    prefix: str = "",
+) -> str:
     recommendation = entry.get("recommendedFor") or {}
     employee_id = str(recommendation.get("employeeId", ""))
     reason = recommendation.get("reason", "")
@@ -283,12 +323,12 @@ def render_member(entry: dict, members: dict[str, dict[str, str]]) -> str:
     department_html = f'<span>{esc(department)}</span>' if department else ""
     profile_url = member.get("profileUrl", "")
     profile_link = (
-        f'<a class="today-one-profile-link" href="{esc(profile_url)}">プロフィールを見る</a>'
+        f'<a class="today-one-profile-link" href="{esc(prefixed_path(profile_url, prefix))}">プロフィールを見る</a>'
         if profile_url
         else ""
     )
     image_html = (
-        f'<img src="{esc(member["image"])}" alt="{esc(member.get("name", ""))}" loading="lazy" />'
+        f'<img src="{esc(prefixed_path(member["image"], prefix))}" alt="{esc(member.get("name", ""))}" loading="lazy" />'
         if member.get("image")
         else ""
     )
@@ -308,10 +348,15 @@ def render_member(entry: dict, members: dict[str, dict[str, str]]) -> str:
         </section>'''
 
 
-def render_kei_comment(entry: dict, members: dict[str, dict[str, str]]) -> str:
+def render_kei_comment(
+    entry: dict,
+    members: dict[str, dict[str, str]],
+    *,
+    prefix: str = "",
+) -> str:
     kei = members.get("MMC-009", {})
     image_html = (
-        f'<img src="{esc(kei["image"])}" alt="{esc(kei.get("name", "ケイ"))}" loading="lazy" />'
+        f'<img src="{esc(prefixed_path(kei["image"], prefix))}" alt="{esc(kei.get("name", "ケイ"))}" loading="lazy" />'
         if kei.get("image")
         else ""
     )
@@ -370,14 +415,21 @@ def render_basic_info(entry: dict) -> str:
         </section>'''
 
 
-def render_entry(entry: dict, members: dict[str, dict[str, str]], target_date: date) -> str:
+def render_entry(
+    entry: dict,
+    members: dict[str, dict[str, str]],
+    target_date: date,
+    *,
+    prefix: str = "",
+    entry_label: str = "今日のひとつ",
+) -> str:
     return f'''      <article class="today-one-entry" aria-labelledby="today-one-entry-name">
         <header class="today-one-entry-header">
           <div class="today-one-entry-meta">
             <time datetime="{esc(entry["date"])}">{esc(display_date(target_date))}</time>
             <span>{esc(entry.get("category", ""))}</span>
           </div>
-          <p class="today-one-entry-label">今日のひとつ</p>
+          <p class="today-one-entry-label">{esc(entry_label)}</p>
           <h2 id="today-one-entry-name">{esc(entry.get("name", ""))}</h2>
           <p class="today-one-summary-label">一言でいうと</p>
           <p class="today-one-summary">{esc(entry.get("summary", ""))}</p>
@@ -394,8 +446,8 @@ def render_entry(entry: dict, members: dict[str, dict[str, str]], target_date: d
             <h2 id="today-one-use-title">何に使える？</h2>
             <p>{esc(entry.get("useFor", ""))}</p>
           </section>
-          {render_member(entry, members)}
-          {render_kei_comment(entry, members)}
+          {render_member(entry, members, prefix=prefix)}
+          {render_kei_comment(entry, members, prefix=prefix)}
           {render_basic_info(entry)}
         </div>
       </article>'''
@@ -421,19 +473,167 @@ def render_empty(members: dict[str, dict[str, str]], target_date: date) -> str:
       </section>'''
 
 
-def render_previous(entry: dict | None) -> str:
-    if not entry:
-        return ""
-    return f'''      <aside class="today-one-previous" aria-label="昨日以前のひとつ">
-        <p><span>前回のひとつ</span><time datetime="{esc(entry.get("date", ""))}">{esc(entry.get("date", "").replace("-", "."))}</time></p>
-        <strong>{esc(entry.get("name", ""))}</strong>
-        <p>{esc(entry.get("summary", ""))}</p>
-      </aside>'''
+def render_archive_promo(entries: list[dict], target_date: date) -> str:
+    previous = next(
+        (entry for entry in entries if entry["date"] < target_date.isoformat()),
+        None,
+    )
+    if previous:
+        previous_html = f'''        <a class="today-one-archive-latest" href="today-one/archive/{esc(archive_filename(previous))}">
+          <time datetime="{esc(previous["date"])}">{esc(previous["date"].replace("-", "."))}</time>
+          <strong>{esc(previous["name"])}</strong>
+          <span>この日のひとつを見る →</span>
+        </a>'''
+    else:
+        previous_html = '        <p class="today-one-archive-empty">過去のひとつは、ここへ少しずつ増えていきます。</p>'
+    return f'''      <section class="today-one-archive-promo" aria-labelledby="today-one-archive-promo-title">
+        <div>
+          <p class="section-kicker">Archive</p>
+          <h2 id="today-one-archive-promo-title">これまでのひとつ。</h2>
+        </div>
+{previous_html}
+        <a class="today-one-archive-index-link" href="today-one/archive/index.html">アーカイブを見る <span aria-hidden="true">→</span></a>
+      </section>'''
+
+
+def render_archive_card(entry: dict) -> str:
+    return f'''          <a class="today-one-archive-card" href="{esc(archive_filename(entry))}">
+            <div class="today-one-archive-card-meta">
+              <time datetime="{esc(entry["date"])}">{esc(entry["date"].replace("-", "."))}</time>
+              <span>{esc(entry["category"])}</span>
+            </div>
+            <h2>{esc(entry["name"])}</h2>
+            <p>{esc(entry["summary"])}</p>
+            <strong>この日のひとつを見る <span aria-hidden="true">→</span></strong>
+          </a>'''
+
+
+def render_archive_index_page(entries: list[dict]) -> str:
+    title = "これまでのひとつ。｜今日ひとつ。アーカイブ｜毎日見る株式会社"
+    description = "毎日見る株式会社が一日ひとつ選んだ、AIと働くための仕事道具のアーカイブです。"
+    cards = "\n".join(render_archive_card(entry) for entry in entries)
+    archive_body = (
+        f'        <div class="today-one-archive-grid">\n{cards}\n        </div>'
+        if cards
+        else '        <p class="today-one-archive-page-empty">アーカイブは、これから少しずつ増えていきます。</p>'
+    )
+    structured_data = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "これまでのひとつ。",
+        "description": description,
+        "url": f"{BASE_URL}/today-one/archive",
+        "inLanguage": "ja-JP",
+    }
+    return f'''<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{esc(title)}</title>
+    <meta name="description" content="{esc(description)}" />
+    <link rel="canonical" href="{BASE_URL}/today-one/archive" />
+    <meta property="og:title" content="{esc(title)}" />
+    <meta property="og:description" content="{esc(description)}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{BASE_URL}/today-one/archive" />
+    <meta property="og:site_name" content="毎日見る株式会社" />
+    <meta property="og:image" content="{BASE_URL}/image/top009.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../../favicon.ico" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <script type="application/ld+json">{json.dumps(structured_data, ensure_ascii=False)}</script>
+  </head>
+  <body class="subpage today-one-page today-one-archive-page">
+    <header class="site-header" aria-label="サイトヘッダー"></header>
+    <main class="today-one-main">
+      <nav class="profile-breadcrumb today-one-breadcrumb" aria-label="パンくずリスト">
+        <a href="../../index.html">ホーム</a>
+        <a href="../../today-one.html">今日ひとつ。</a>
+        <strong>これまでのひとつ。</strong>
+      </nav>
+      <header class="today-one-archive-heading">
+        <p class="section-kicker">Archive</p>
+        <h1>これまでのひとつ。</h1>
+        <p>今日ひとつだけ選んだ仕事道具を、日付ごとに残しています。</p>
+      </header>
+{archive_body}
+    </main>
+    <footer class="site-footer"></footer>
+  </body>
+</html>
+'''
+
+
+def render_archive_detail_page(
+    entry: dict,
+    members: dict[str, dict[str, str]],
+) -> str:
+    entry_date = parse_iso_date(entry["date"], label="entry.date")
+    title = f'{entry["name"]}｜{entry["date"].replace("-", ".")}の今日ひとつ。｜毎日見る株式会社'
+    description = entry["summary"]
+    canonical = archive_url(entry)
+    structured_data = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": f'{entry["date"]}の今日ひとつ。｜{entry["name"]}',
+        "description": description,
+        "url": canonical,
+        "datePublished": entry["date"],
+        "inLanguage": "ja-JP",
+        "isPartOf": {
+            "@type": "CollectionPage",
+            "name": "これまでのひとつ。",
+            "url": f"{BASE_URL}/today-one/archive",
+        },
+    }
+    return f'''<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{esc(title)}</title>
+    <meta name="description" content="{esc(description)}" />
+    <link rel="canonical" href="{canonical}" />
+    <meta property="og:title" content="{esc(title)}" />
+    <meta property="og:description" content="{esc(description)}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{canonical}" />
+    <meta property="og:site_name" content="毎日見る株式会社" />
+    <meta property="og:image" content="{BASE_URL}/image/top009.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../../favicon.ico" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <script type="application/ld+json">{json.dumps(structured_data, ensure_ascii=False)}</script>
+  </head>
+  <body class="subpage today-one-page today-one-archive-detail-page">
+    <header class="site-header" aria-label="サイトヘッダー"></header>
+    <main class="today-one-main">
+      <nav class="profile-breadcrumb today-one-breadcrumb" aria-label="パンくずリスト">
+        <a href="../../index.html">ホーム</a>
+        <a href="../../today-one.html">今日ひとつ。</a>
+        <a href="./">これまでのひとつ。</a>
+        <strong>{esc(entry["name"])}</strong>
+      </nav>
+      <header class="today-one-archive-detail-heading">
+        <p class="section-kicker">Today's One Archive</p>
+        <h1>{esc(entry["date"].replace("-", "."))}のひとつ。</h1>
+      </header>
+{render_entry(entry, members, entry_date, prefix="../../", entry_label="この日のひとつ")}
+      <nav class="today-one-archive-back" aria-label="今日ひとつ。アーカイブへの戻り先">
+        <a href="./">これまでのひとつ。へ戻る</a>
+        <a href="../../today-one.html">今日のひとつを見る</a>
+      </nav>
+    </main>
+    <footer class="site-footer"></footer>
+  </body>
+</html>
+'''
 
 
 def render_page(
     entry: dict | None,
-    previous: dict | None,
+    archive_entries: list[dict],
     members: dict[str, dict[str, str]],
     target_date: date,
 ) -> str:
@@ -486,7 +686,7 @@ def render_page(
         <p>AIと働くための道具を、毎日ひとつだけ。<br />たくさん並べる代わりに、今日はこれを見ます。</p>
       </section>
 {content}
-{render_previous(previous)}
+{render_archive_promo(archive_entries, target_date)}
     </main>
     <footer class="site-footer"></footer>
   </body>
@@ -533,13 +733,37 @@ def generate(target_date: date | None = None) -> None:
     for warning in validate_data(data, members):
         print(f"WARNING: {warning}", file=sys.stderr)
     entry = select_today_entry(data, target)
-    previous = select_previous_entry(data, target)
-    OUTPUT_PATH.write_text(render_page(entry, previous, members, target), encoding="utf-8")
+    archive_entries = published_archive_entries(data, target)
+    OUTPUT_PATH.write_text(
+        render_page(entry, archive_entries, members, target),
+        encoding="utf-8",
+    )
     update_index(entry)
-    for path in (OUTPUT_PATH, INDEX_PATH):
+
+    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+    for path in ARCHIVE_DIR.glob("*.html"):
+        path.unlink()
+    ARCHIVE_INDEX_PATH.write_text(
+        render_archive_index_page(archive_entries),
+        encoding="utf-8",
+    )
+    archive_paths: list[Path] = []
+    for archive_entry in archive_entries:
+        archive_path = ARCHIVE_DIR / archive_filename(archive_entry)
+        archive_path.write_text(
+            render_archive_detail_page(archive_entry, members),
+            encoding="utf-8",
+        )
+        archive_paths.append(archive_path)
+
+    for path in (OUTPUT_PATH, INDEX_PATH, ARCHIVE_INDEX_PATH, *archive_paths):
         apply_layout_to_file(path)
+    update_sitemap(load_logs())
     state = entry.get("name") if entry else "empty state"
-    print(f"Generated today-one.html and top teaser for {target.isoformat()}: {state}")
+    print(
+        f"Generated today-one.html, top teaser, and {len(archive_paths)} archive pages "
+        f"for {target.isoformat()}: {state}"
+    )
 
 
 if __name__ == "__main__":

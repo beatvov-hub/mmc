@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LOUNGE_LOGS_PATH = ROOT / "src" / "data" / "loungeLogs.json"
 LOUNGE_TOPICS_PATH = ROOT / "src" / "data" / "loungeCalendarTopics.json"
 WORK_STORIES_PATH = ROOT / "src" / "data" / "workStories.json"
+TODAY_ONE_DATA_PATH = ROOT / "src" / "data" / "todayOne.json"
 INDEX_HTML_PATH = ROOT / "index.html"
 LOUNGE_HTML_PATH = ROOT / "lounge.html"
 ARCHIVE_DIR = ROOT / "lounge-archive"
@@ -70,6 +71,7 @@ STATIC_SITEMAP_PATHS = [
     "lounge/events",
     "lounge-dictionary",
     "today-one",
+    "today-one/archive",
     "news",
     "contact",
     "thanks",
@@ -316,6 +318,33 @@ def load_ai_forensics_lastmods() -> dict[str, str]:
         if isinstance(article_id, str) and isinstance(published_at, str):
             lastmods[f"ai-forensics/{article_id}"] = published_at
     return lastmods
+
+
+def load_today_one_sitemap_entries() -> tuple[list[tuple[str, str]], str | None]:
+    if not TODAY_ONE_DATA_PATH.exists():
+        return [], None
+    try:
+        data = json.loads(TODAY_ONE_DATA_PATH.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return [], None
+    if not isinstance(data, dict) or not isinstance(data.get("entries"), list):
+        return [], None
+    entries: list[tuple[str, str]] = []
+    for entry in data["entries"]:
+        if not isinstance(entry, dict) or entry.get("status") != "published":
+            continue
+        entry_date = entry.get("date")
+        slug = entry.get("slug")
+        if not isinstance(entry_date, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", entry_date):
+            continue
+        if not isinstance(slug, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+            continue
+        archive_path = f"today-one/archive/{entry_date}-{slug}"
+        if not (ROOT / f"{archive_path}.html").exists():
+            continue
+        entries.append((archive_path, entry_date))
+    latest_date = max((lastmod for _, lastmod in entries), default=None)
+    return sorted(entries), latest_date
 
 
 def load_event_paths() -> list[str]:
@@ -1011,9 +1040,12 @@ def update_sitemap(logs: list[dict]) -> None:
     latest_lounge_date = logs[-1]["date"] if logs else None
     forensics_lastmods = load_ai_forensics_lastmods()
     latest_forensics_date = max(forensics_lastmods.values(), default=None)
+    today_one_entries, latest_today_one_date = load_today_one_sitemap_entries()
     static_lastmods = {
         "lounge": latest_lounge_date,
         "ai-forensics/": latest_forensics_date,
+        "today-one": latest_today_one_date,
+        "today-one/archive": latest_today_one_date,
     }
     entries: list[tuple[str, str | None]] = []
     for path in STATIC_SITEMAP_PATHS:
@@ -1026,6 +1058,10 @@ def update_sitemap(logs: list[dict]) -> None:
         for path in load_ai_forensics_paths()
     )
     entries.extend((f"{BASE_URL}/{path}", None) for path in load_event_paths())
+    entries.extend(
+        (f"{BASE_URL}/{path}", lastmod)
+        for path, lastmod in today_one_entries
+    )
     archive_dates = sorted({log["date"] for log in logs})
     entries.extend((f"{BASE_URL}/lounge-archive/{date}", date) for date in archive_dates)
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
