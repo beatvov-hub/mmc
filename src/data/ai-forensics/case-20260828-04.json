@@ -1,0 +1,172 @@
+{
+  "id": "case-20260828-04",
+  "publishedAt": "2026-08-28",
+  "title": "ChatGPTが未成年向け設定になったら？ SettingsのAccountで「Verify age」を選ぶ前に確認すること",
+  "shortTitle": "未成年向け設定になった時の確認手順",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "ChatGPTがChatGPT for Teensの対象になったと表示された人",
+    "18歳以上なのに年齢による保護が適用された人",
+    "子どものChatGPT利用で保護者設定を確認したい人"
+  ],
+  "summary": "OpenAIは、ChatGPTがアカウントの利用時刻、利用パターン、作成時期、申告年齢などの信号から、18歳未満の可能性を推定し、該当するとChatGPT for Teensの保護を自動で有効にする場合があると案内しています。アカウントは停止されず、18歳以上なのに誤って適用された場合だけ、Web版のSettingsにあるAccountからVerify ageを選び、Personaによる年齢確認を始められます。つまり、未成年向けの保護が表示された時に最初に確認すべきなのは「使えなくなったか」ではなく、自分が18歳以上で誤判定を解消したいのか、保護を維持したまま使うのか、保護者連携の設定を見直すのかです。",
+  "scenario": {
+    "headline": "普段どおりChatGPTを使っていたら、未成年向けの保護が有効になった。アカウントが使えなくなった？",
+    "description": "18歳以上の利用者が、ChatGPTで一部の敏感な話題や機能に以前と異なる制限があることに気づきました。生年月日は登録済みなので、すぐに身分証を送らなければアカウントが止まるのではと心配しています。OpenAIの案内では、年齢推定は登録時の生年月日とは別の追加的な安全確認であり、対象になってもアカウントは有効なままです。18歳以上で保護の解除を望む場合にだけ、年齢確認を始めます。",
+    "whyItMatters": "年齢推定、年齢確認、保護者による管理は別の仕組みです。これを一つの「年齢制限」として扱うと、未成年者が保護を外そうとしたり、成人が不要な不安から見知らぬ年齢確認ページへ情報を渡したり、保護者が会話内容まで読めると誤解したりします。設定画面と公式ヘルプを順に確認すれば、必要な人だけが正規の確認手続きを選べます。"
+  },
+  "question": {
+    "text": "18歳以上の人が、ChatGPT for Teensの保護が誤って適用されたと考えています。最も適切な対応はどれ？",
+    "choices": [
+      {
+        "id": "official-verify",
+        "label": "Web版のSettings > AccountからVerify ageを選び、正規のPersona手続きで年齢確認を始める",
+        "description": "成人で誤適用された場合だけ、アカウント内の公式導線から確認する。"
+      },
+      {
+        "id": "send-id-chat",
+        "label": "チャット欄へ身分証の写真を貼り、AIに年齢を判定してもらう",
+        "description": "会話相手のAIを本人確認窓口として使う。"
+      },
+      {
+        "id": "follow-message-link",
+        "label": "メールやSNSで届いた年齢確認リンクを先に開き、登録情報を入力する",
+        "description": "アカウント内の公式設定画面ではなく、外部メッセージの導線を使う。"
+      },
+      {
+        "id": "delete-account",
+        "label": "未成年向け保護が付くとアカウントは利用できないので、削除して作り直す",
+        "description": "保護の適用とアカウント停止を同じものと考える。"
+      }
+    ],
+    "recommendedAnswers": [
+      "official-verify"
+    ],
+    "explanation": "OpenAIは、18歳以上でChatGPT for Teensが誤って適用された場合、Web版のSettings > Account > Verify ageからPersonaによる年齢確認を開始できると案内しています。年齢確認は、保護を付けたままChatGPTを使い続けるためには必要ありません。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "年齢推定で保護が有効になっても、アカウントは停止されない",
+      "description": "OpenAIのヘルプでは、18歳未満の可能性があると推定された対象アカウントにはChatGPT for Teensが自動適用される一方、学習、作成、質問のためにChatGPTを使い続けられると説明しています。保護の適用と利用停止を混同しません。",
+      "priority": "high"
+    },
+    {
+      "title": "年齢確認は、18歳以上で保護の解除を望む時だけ始める",
+      "description": "未成年向けの保護を付けたまま使う人に年齢確認は必要ありません。18歳以上なのに誤って対象になり、保護を外したい場合に、Web版のSettings > Account > Verify ageを選びます。",
+      "priority": "high"
+    },
+    {
+      "title": "確認は会話やメールのリンクではなく、ログイン済みの設定画面から始める",
+      "description": "公式手順はChatGPTへログインし、Web版のSettings > AccountからVerify ageを選ぶ流れです。年齢確認を装うメール、SNS投稿、チャット内の添付依頼へ、身分証や顔写真を渡す必要はありません。",
+      "priority": "high"
+    },
+    {
+      "title": "Personaへ渡す情報と、OpenAIへ渡る情報を分けて確認する",
+      "description": "国によって、Personaはライブセルフィー、政府発行ID、または両方を求める場合があります。OpenAIはIDやセルフィー自体を受け取らず、18歳以上を確認したかや生年月日など必要な年齢情報を受け取ると説明しています。ID番号は見せる必要がなく、隠せます。",
+      "priority": "high"
+    },
+    {
+      "title": "年齢推定は、生年月日を登録済みでも別に働く追加的な安全確認",
+      "description": "OpenAIは、一般的な会話の話題、利用時刻、利用方法、アカウントの利用・作成時期など複数の信号を使うと説明しています。登録時に生年月日を入れたことだけで、年齢推定による保護の対象外になるわけではありません。",
+      "priority": "medium"
+    },
+    {
+      "title": "保護者連携は会話の閲覧権限ではない",
+      "description": "親子のアカウントを連携すると、保護者は一部設定、利用休止時間、限定的な安全通知を管理できますが、会話、履歴、リアルタイム活動は読めません。保護者設定の範囲を先に理解します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "年齢推定・年齢確認・保護者連携を別々に確認する",
+  "verificationMessage": "ChatGPT for Teensの保護が表示されたら、まず自分が18歳以上で解除を望むかを決めます。成人で誤適用なら、ログイン済みのWeb版でSettings > Account > Verify ageを開きます。未成年者や保護を維持したい人は、年齢確認を急ぐ必要はありません。保護者と連携する場合は、Settings > Parental controlsで連携と設定の範囲を確認します。",
+  "verdict": {
+    "label": "未成年向け設定はアカウント停止ではない。成人の誤判定だけ、設定画面から年齢確認を選ぶ",
+    "description": "ChatGPTの年齢推定は、18歳未満の可能性があるアカウントへ追加保護を自動で適用する安全機能です。対象になってもアカウントは有効で、保護を付けたまま利用できます。18歳以上で誤適用された場合だけ、ログイン済みのWeb版でSettings > Account > Verify ageを選び、Personaの正規手続きへ進みます。親子のアカウント連携は別機能で、保護者が会話内容を読む仕組みではありません。目的ごとに正しい設定画面を開くことが、安全で混乱の少ない対応です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "未成年向け保護が表示されたら、まずアカウントが引き続き使えるかと、解除を本当に望むかを確認する",
+      "reason": "ChatGPT for Teensは追加保護を有効にする仕組みで、OpenAIは対象アカウントも学習・作成・質問のために利用できると案内しています。"
+    },
+    {
+      "action": "18歳以上で誤適用の解除を望む場合だけ、Web版のSettings > Account > Verify ageから始める",
+      "reason": "OpenAIが案内する正規手順です。メール、SNS、チャット欄から身分証を送る必要はありません。"
+    },
+    {
+      "action": "本人確認では、表示された国別の要件を確認し、必要ならID番号など不要な情報を隠す",
+      "reason": "Personaが求めるセルフィーや政府発行IDの組み合わせは国により異なります。OpenAIはID番号を見せる必要はないと案内しています。"
+    },
+    {
+      "action": "子どもの利用を管理する場合は、Settings > Parental controlsで親子アカウントを連携し、必要な設定だけを見直す",
+      "reason": "保護者は、敏感なコンテンツの低減、保存Memory、利用休止時間などを管理できます。"
+    },
+    {
+      "action": "保護者連携の前に、会話本文・履歴・リアルタイム活動は閲覧できないことを親子で共有する",
+      "reason": "OpenAIは、保護者連携が会話の読取権限を与えないと明記しています。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "未成年向け保護が有効になっただけで、アカウントを削除・作り直す",
+      "reason": "保護の適用後もアカウントは有効で、ChatGPTを利用できます。成人の誤判定なら正規の年齢確認で対応できます。"
+    },
+    {
+      "action": "年齢確認のために、チャット欄やメール・SNSのリンク先へ身分証やセルフィーを送る",
+      "reason": "OpenAIが示す開始場所は、ログイン済みWeb版のSettings > Accountです。外部メッセージのリンクは本人確認の正規性を確認できません。"
+    },
+    {
+      "action": "未成年者にも、保護を外すために年齢確認をするよう勧める",
+      "reason": "OpenAIは、年齢確認は18歳以上で保護を外したい場合に必要だと説明しています。"
+    },
+    {
+      "action": "保護者連携をすれば、子どもの会話内容を読めると説明する",
+      "reason": "保護者連携では会話、履歴、リアルタイム活動へのアクセスは提供されません。"
+    }
+  ],
+  "positiveUse": {
+    "title": "年齢に応じた保護を、利用停止ではなく「設定を話し合う入口」にする",
+    "description": "年齢推定の表示をトラブルとだけ見る必要はありません。成人が誤適用を正規手順で解消する一方、未成年者と保護者は、敏感なコンテンツの低減、Memory、学習時間、利用休止時間などを、実際の生活に合わせて相談できます。親が会話を読む仕組みではないことも共有すれば、見守りとプライバシーを対立させずに設定を選べます。",
+    "examples": [
+      "成人の誤判定はSettings > Accountから正規の年齢確認を行う",
+      "未成年者は保護を維持したまま学習・創作・質問に使う",
+      "親子でParental controlsの対象設定を一つずつ確認する",
+      "Quiet hoursを生活リズムに合わせて設定する",
+      "保存Memoryやモデル改善の設定を、親子で理由とともに話し合う"
+    ]
+  },
+  "makotoComment": "年齢推定で私が大事だと思うのは、AIが「何歳か」を言い当てる話だけではないことです。表示が変わった時、成人なら設定画面から自分で訂正でき、未成年者なら保護を外さずに使い続けられる。そして保護者が関わる時も、会話を読むのではなく設定の範囲を一緒に決める。年齢を理由に一律で締め出すのではなく、三つの場面へ別々の導線を置いている点に、この機能の実務的な意味があります。",
+  "oneLineLesson": "成人の誤判定だけSettings > Account > Verify ageへ。未成年向け保護はアカウント停止ではない。",
+  "tags": [
+    "ChatGPT",
+    "ChatGPT for Teens",
+    "年齢推定",
+    "年齢確認",
+    "Persona",
+    "保護者設定",
+    "アカウント設定",
+    "未成年者保護"
+  ],
+  "sources": [
+    {
+      "title": "Age prediction in ChatGPT",
+      "publisher": "OpenAI Help Center",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://help.openai.com/en/articles/12652064-age-prediction-in-chatgpt"
+    },
+    {
+      "title": "Managing parental controls in ChatGPT",
+      "publisher": "OpenAI Help Center",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://help.openai.com/en/articles/12315553-parental-controls-on-chatgpt-faq"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "中央にChatGPTのSettings画面を置き、「Account > Verify age」と「Parental controls」を別々の入口として並べる。左は成人が誤適用を確認してPersonaの正規手続きへ進む流れ、右は親子が会話本文を見せずにQuiet hoursやMemoryなどの設定を選ぶ流れにする。上部に「ChatGPT for Teens = 利用停止ではない」と明示し、年齢推定・年齢確認・保護者連携を三色のカードで分ける。身分証を怖く見せる図ではなく、公式設定画面から目的別に進む安全ガイドとして描く。",
+    "cardIcon": "chatgpt-age-settings-guide",
+    "accentTone": "calm"
+  }
+}

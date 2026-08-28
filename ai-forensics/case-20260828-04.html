@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGPTが未成年向け設定になったら？ SettingsのAccountで「Verify age」を選ぶ前に確認すること｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="OpenAIは、ChatGPTがアカウントの利用時刻、利用パターン、作成時期、申告年齢などの信号から、18歳未満の可能性を推定し、該当するとChatGPT for Teensの保護を自動で有効にする場合があると案内しています。アカウントは停止されず、18歳以上なのに誤って適用された場合だけ、Web版のSettingsにあるAccountからVerify ageを選び、Personaによる年齢確認を始められます。つまり、未成年向けの保護が表示された時に最初に確認すべきなのは「使えなくなったか」ではなく、自分が18歳以上で誤判定を解消したいのか、保護を維持したまま使うのか、保護者連携の設定を見直すのかです。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260828-04" />
+<meta property="og:title" content="ChatGPTが未成年向け設定になったら？ SettingsのAccountで「Verify age」を選ぶ前に確認すること｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="OpenAIは、ChatGPTがアカウントの利用時刻、利用パターン、作成時期、申告年齢などの信号から、18歳未満の可能性を推定し、該当するとChatGPT for Teensの保護を自動で有効にする場合があると案内しています。アカウントは停止されず、18歳以上なのに誤って適用された場合だけ、Web版のSettingsにあるAccountからVerify ageを選び、Personaによる年齢確認を始められます。つまり、未成年向けの保護が表示された時に最初に確認すべきなのは「使えなくなったか」ではなく、自分が18歳以上で誤判定を解消したいのか、保護を維持したまま使うのか、保護者連携の設定を見直すのかです。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260828-04" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>未成年向け設定になった時の確認手順</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-28">2026.08.28</time>
+            </div>
+            <h1>ChatGPTが未成年向け設定になったら？ SettingsのAccountで「Verify age」を選ぶ前に確認すること</h1>
+            <p>OpenAIは、ChatGPTがアカウントの利用時刻、利用パターン、作成時期、申告年齢などの信号から、18歳未満の可能性を推定し、該当するとChatGPT for Teensの保護を自動で有効にする場合があると案内しています。アカウントは停止されず、18歳以上なのに誤って適用された場合だけ、Web版のSettingsにあるAccountからVerify ageを選び、Personaによる年齢確認を始められます。つまり、未成年向けの保護が表示された時に最初に確認すべきなのは「使えなくなったか」ではなく、自分が18歳以上で誤判定を解消したいのか、保護を維持したまま使うのか、保護者連携の設定を見直すのかです。</p>
+            <ul class="forensics-target-list"><li>ChatGPTがChatGPT for Teensの対象になったと表示された人</li><li>18歳以上なのに年齢による保護が適用された人</li><li>子どものChatGPT利用で保護者設定を確認したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>ChatGPT</li><li>ChatGPT for Teens</li><li>年齢推定</li><li>年齢確認</li><li>Persona</li><li>保護者設定</li><li>アカウント設定</li><li>未成年者保護</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>年齢推定・年齢確認・保護者連携を別々に確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>ChatGPT for Teensの保護が表示されたら、まず自分が18歳以上で解除を望むかを決めます。成人で誤適用なら、ログイン済みのWeb版でSettings &gt; Account &gt; Verify ageを開きます。未成年者や保護を維持したい人は、年齢確認を急ぐ必要はありません。保護者と連携する場合は、Settings &gt; Parental controlsで連携と設定の範囲を確認します。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>普段どおりChatGPTを使っていたら、未成年向けの保護が有効になった。アカウントが使えなくなった？</h3><p>18歳以上の利用者が、ChatGPTで一部の敏感な話題や機能に以前と異なる制限があることに気づきました。生年月日は登録済みなので、すぐに身分証を送らなければアカウントが止まるのではと心配しています。OpenAIの案内では、年齢推定は登録時の生年月日とは別の追加的な安全確認であり、対象になってもアカウントは有効なままです。18歳以上で保護の解除を望む場合にだけ、年齢確認を始めます。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>年齢推定、年齢確認、保護者による管理は別の仕組みです。これを一つの「年齢制限」として扱うと、未成年者が保護を外そうとしたり、成人が不要な不安から見知らぬ年齢確認ページへ情報を渡したり、保護者が会話内容まで読めると誤解したりします。設定画面と公式ヘルプを順に確認すれば、必要な人だけが正規の確認手続きを選べます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="official-verify">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>18歳以上の人が、ChatGPT for Teensの保護が誤って適用されたと考えています。最も適切な対応はどれ？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="official-verify" data-choice-id="official-verify" />
+                <span>
+                  <strong>Web版のSettings &gt; AccountからVerify ageを選び、正規のPersona手続きで年齢確認を始める</strong>
+                  <small>成人で誤適用された場合だけ、アカウント内の公式導線から確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="send-id-chat" data-choice-id="send-id-chat" />
+                <span>
+                  <strong>チャット欄へ身分証の写真を貼り、AIに年齢を判定してもらう</strong>
+                  <small>会話相手のAIを本人確認窓口として使う。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="follow-message-link" data-choice-id="follow-message-link" />
+                <span>
+                  <strong>メールやSNSで届いた年齢確認リンクを先に開き、登録情報を入力する</strong>
+                  <small>アカウント内の公式設定画面ではなく、外部メッセージの導線を使う。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-account" data-choice-id="delete-account" />
+                <span>
+                  <strong>未成年向け保護が付くとアカウントは利用できないので、削除して作り直す</strong>
+                  <small>保護の適用とアカウント停止を同じものと考える。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Web版のSettings &gt; AccountからVerify ageを選び、正規のPersona手続きで年齢確認を始める</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>OpenAIは、18歳以上でChatGPT for Teensが誤って適用された場合、Web版のSettings &gt; Account &gt; Verify ageからPersonaによる年齢確認を開始できると案内しています。年齢確認は、保護を付けたままChatGPTを使い続けるためには必要ありません。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>年齢推定で保護が有効になっても、アカウントは停止されない</h3>
+              <p>OpenAIのヘルプでは、18歳未満の可能性があると推定された対象アカウントにはChatGPT for Teensが自動適用される一方、学習、作成、質問のためにChatGPTを使い続けられると説明しています。保護の適用と利用停止を混同しません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>年齢確認は、18歳以上で保護の解除を望む時だけ始める</h3>
+              <p>未成年向けの保護を付けたまま使う人に年齢確認は必要ありません。18歳以上なのに誤って対象になり、保護を外したい場合に、Web版のSettings &gt; Account &gt; Verify ageを選びます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>確認は会話やメールのリンクではなく、ログイン済みの設定画面から始める</h3>
+              <p>公式手順はChatGPTへログインし、Web版のSettings &gt; AccountからVerify ageを選ぶ流れです。年齢確認を装うメール、SNS投稿、チャット内の添付依頼へ、身分証や顔写真を渡す必要はありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Personaへ渡す情報と、OpenAIへ渡る情報を分けて確認する</h3>
+              <p>国によって、Personaはライブセルフィー、政府発行ID、または両方を求める場合があります。OpenAIはIDやセルフィー自体を受け取らず、18歳以上を確認したかや生年月日など必要な年齢情報を受け取ると説明しています。ID番号は見せる必要がなく、隠せます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>年齢推定は、生年月日を登録済みでも別に働く追加的な安全確認</h3>
+              <p>OpenAIは、一般的な会話の話題、利用時刻、利用方法、アカウントの利用・作成時期など複数の信号を使うと説明しています。登録時に生年月日を入れたことだけで、年齢推定による保護の対象外になるわけではありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>保護者連携は会話の閲覧権限ではない</h3>
+              <p>親子のアカウントを連携すると、保護者は一部設定、利用休止時間、限定的な安全通知を管理できますが、会話、履歴、リアルタイム活動は読めません。保護者設定の範囲を先に理解します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>未成年向け設定はアカウント停止ではない。成人の誤判定だけ、設定画面から年齢確認を選ぶ</strong><p>ChatGPTの年齢推定は、18歳未満の可能性があるアカウントへ追加保護を自動で適用する安全機能です。対象になってもアカウントは有効で、保護を付けたまま利用できます。18歳以上で誤適用された場合だけ、ログイン済みのWeb版でSettings &gt; Account &gt; Verify ageを選び、Personaの正規手続きへ進みます。親子のアカウント連携は別機能で、保護者が会話内容を読む仕組みではありません。目的ごとに正しい設定画面を開くことが、安全で混乱の少ない対応です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>未成年向け保護が表示されたら、まずアカウントが引き続き使えるかと、解除を本当に望むかを確認する</strong><span>ChatGPT for Teensは追加保護を有効にする仕組みで、OpenAIは対象アカウントも学習・作成・質問のために利用できると案内しています。</span></li>
+            <li><strong>18歳以上で誤適用の解除を望む場合だけ、Web版のSettings &gt; Account &gt; Verify ageから始める</strong><span>OpenAIが案内する正規手順です。メール、SNS、チャット欄から身分証を送る必要はありません。</span></li>
+            <li><strong>本人確認では、表示された国別の要件を確認し、必要ならID番号など不要な情報を隠す</strong><span>Personaが求めるセルフィーや政府発行IDの組み合わせは国により異なります。OpenAIはID番号を見せる必要はないと案内しています。</span></li>
+            <li><strong>子どもの利用を管理する場合は、Settings &gt; Parental controlsで親子アカウントを連携し、必要な設定だけを見直す</strong><span>保護者は、敏感なコンテンツの低減、保存Memory、利用休止時間などを管理できます。</span></li>
+            <li><strong>保護者連携の前に、会話本文・履歴・リアルタイム活動は閲覧できないことを親子で共有する</strong><span>OpenAIは、保護者連携が会話の読取権限を与えないと明記しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>未成年向け保護が有効になっただけで、アカウントを削除・作り直す</strong><span>保護の適用後もアカウントは有効で、ChatGPTを利用できます。成人の誤判定なら正規の年齢確認で対応できます。</span></li>
+            <li><strong>年齢確認のために、チャット欄やメール・SNSのリンク先へ身分証やセルフィーを送る</strong><span>OpenAIが示す開始場所は、ログイン済みWeb版のSettings &gt; Accountです。外部メッセージのリンクは本人確認の正規性を確認できません。</span></li>
+            <li><strong>未成年者にも、保護を外すために年齢確認をするよう勧める</strong><span>OpenAIは、年齢確認は18歳以上で保護を外したい場合に必要だと説明しています。</span></li>
+            <li><strong>保護者連携をすれば、子どもの会話内容を読めると説明する</strong><span>保護者連携では会話、履歴、リアルタイム活動へのアクセスは提供されません。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>年齢に応じた保護を、利用停止ではなく「設定を話し合う入口」にする</h3>
+          <p>年齢推定の表示をトラブルとだけ見る必要はありません。成人が誤適用を正規手順で解消する一方、未成年者と保護者は、敏感なコンテンツの低減、Memory、学習時間、利用休止時間などを、実際の生活に合わせて相談できます。親が会話を読む仕組みではないことも共有すれば、見守りとプライバシーを対立させずに設定を選べます。</p>
+          <ul class="positive-example-list"><li>成人の誤判定はSettings &gt; Accountから正規の年齢確認を行う</li><li>未成年者は保護を維持したまま学習・創作・質問に使う</li><li>親子でParental controlsの対象設定を一つずつ確認する</li><li>Quiet hoursを生活リズムに合わせて設定する</li><li>保存Memoryやモデル改善の設定を、親子で理由とともに話し合う</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>年齢推定で私が大事だと思うのは、AIが「何歳か」を言い当てる話だけではないことです。表示が変わった時、成人なら設定画面から自分で訂正でき、未成年者なら保護を外さずに使い続けられる。そして保護者が関わる時も、会話を読むのではなく設定の範囲を一緒に決める。年齢を理由に一律で締め出すのではなく、三つの場面へ別々の導線を置いている点に、この機能の実務的な意味があります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>成人の誤判定だけSettings &gt; Account &gt; Verify ageへ。未成年向け保護はアカウント停止ではない。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/12652064-age-prediction-in-chatgpt" target="_blank" rel="noopener noreferrer">Age prediction in ChatGPT<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>公式発表</span>
+
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/12315553-parental-controls-on-chatgpt-faq" target="_blank" rel="noopener noreferrer">Managing parental controls in ChatGPT<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>公式発表</span>
+
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260828-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="一時チャットは「記憶なし」だけではない。開始前に選ぶパーソナライズと保存後の変化 一時チャットは開始前の設定で変わる OpenAIは2026年8月27日、ChatGPTのTemporary Chatで、開始時にパーソナライズの有無を選べるようにしたと案内しました。既定の非パーソナライズは既存Memory、Custom Instructions、Pluginsを使いませんが、パーソナライズを選ぶとそれらを参照して回答を整えられます。どちらのTemporary Chatも新しいMemoryを作らず、保存するまで履歴には出ません。ただし開始後にこの選択は変更できず、保存すると通常チャットになり、アカウントのパーソナライズやモデル改善の設定が適用されます。つまり「一時」と表示されていることだけで決めず、過去の設定や接続ツールを使う必要があるか、保存する可能性があるかを開始前に分けて選ぶ必要があります。 仕事・AI活用 はじめて ChatGPT Temporary Chat Memory Custom Instructions Plugins データ設定 一時チャット 業務利用 ChatGPTで一時的な下書きや相談をする人 過去の好み・カスタム指示・プラグインを使うか迷う人 一時チャットを後から保存することがある人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">temporary-chat-settings</span>
+              <div>
+                <p>一時チャットは開始前の設定で変わる</p>
+                <h3>一時チャットは「記憶なし」だけではない。開始前に選ぶパーソナライズと保存後の変化</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-28">2026.08.28</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年8月27日、ChatGPTのTemporary Chatで、開始時にパーソナライズの有無を選べるようにしたと案内しました。既定の非パーソナライズは既存Memory、Custom Instructions、Pluginsを使いませんが、パーソナライズを選ぶとそれらを参照して回答を整えられます。どちらのTemporary Chatも新しいMemoryを作らず、保存するまで履歴には出ません。ただし開始後にこの選択は変更できず、保存すると通常チャットになり、アカウントのパーソナライズやモデル改善の設定が適用されます。つまり「一時」と表示されていることだけで決めず、過去の設定や接続ツールを使う必要があるか、保存する可能性があるかを開始前に分けて選ぶ必要があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>開始時設定と保存後の扱いを分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTで一時的な下書きや相談をする人</li><li>過去の好み・カスタム指示・プラグインを使うか迷う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>Temporary Chat</li><li>Memory</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260826-02" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="Copilotの「Agent Blocked」、モデル故障とは限らない。Claude利用は管理者のAIプロバイダー設定で止まる Agent Blockedは権限設定も確認 Microsoftは2026年8月19日時点のMicrosoft 365 Copilot Extensibilityの既知の問題として、Copilot Studioで作成したエージェントがClaude Sonnet 4.6など第三者AIモデルを使う場合、利用者にそのAIプロバイダーへのアクセス権がなければ「Agent Blocked」と表示されることを案内しています。これは必ずしもエージェントやモデルの故障ではなく、組織のAIプロバイダー設定によって意図的に利用が止められている可能性があります。MicrosoftではAnthropicなどの第三者AI事業者を「AI Subprocessor」としてMicrosoft Copilotへ組み込む仕組みがあり、管理者はモデル単位ではなくAIプロバイダー単位で、利用できるユーザーやMicrosoft Entra IDのセキュリティグループを指定できます。AIがマルチモデル化すると、「同じCopilot画面で使えるか」だけでなく、「どの会社のモデルが処理するのか」「自社でそのプロバイダーを許可しているか」まで確認することが重要になります。 セキュリティ・権限 標準 Microsoft Copilot Copilot Studio Agent Blocked Claude Anthropic AI Subprocessor Microsoft Entra ID AIプロバイダー アクセス制御 マルチモデル Microsoft CopilotやCopilot Studioを仕事で使う人 Claudeなど複数のAIモデルを社内で使い分ける人 生成AIの社内利用を管理するIT・AI担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-provider-access-block</span>
+              <div>
+                <p>Agent Blockedは権限設定も確認</p>
+                <h3>Copilotの「Agent Blocked」、モデル故障とは限らない。Claude利用は管理者のAIプロバイダー設定で止まる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは2026年8月19日時点のMicrosoft 365 Copilot Extensibilityの既知の問題として、Copilot Studioで作成したエージェントがClaude Sonnet 4.6など第三者AIモデルを使う場合、利用者にそのAIプロバイダーへのアクセス権がなければ「Agent Blocked」と表示されることを案内しています。これは必ずしもエージェントやモデルの故障ではなく、組織のAIプロバイダー設定によって意図的に利用が止められている可能性があります。MicrosoftではAnthropicなどの第三者AI事業者を「AI Subprocessor」としてMicrosoft Copilotへ組み込む仕組みがあり、管理者はモデル単位ではなくAIプロバイダー単位で、利用できるユーザーやMicrosoft Entra IDのセキュリティグループを指定できます。AIがマルチモデル化すると、「同じCopilot画面で使えるか」だけでなく、「どの会社のモデルが処理するのか」「自社でそのプロバイダーを許可しているか」まで確認することが重要になります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>エラー表示→利用モデル→AIプロバイダー権限の順で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft CopilotやCopilot Studioを仕事で使う人</li><li>Claudeなど複数のAIモデルを社内で使い分ける人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Copilot Studio</li><li>Agent Blocked</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260826-04" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角 シャドーAI、まず利用先を棚卸しする Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。 セキュリティ・権限 はじめて シャドーAI Shadow AI 生成AI ChatGPT Claude MCP AIエージェント Microsoft 365 AIガバナンス 社内AI利用 仕事で生成AIを使っている人 社内のAI利用ルールを作る人 IT・情報システム・セキュリティ担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shadow-ai-inventory</span>
+              <div>
+                <p>シャドーAI、まず利用先を棚卸しする</p>
+                <h3>シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>使っているAIと渡している情報を一度確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>仕事で生成AIを使っている人</li><li>社内のAI利用ルールを作る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>シャドーAI</li><li>Shadow AI</li><li>生成AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260827-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260828-03">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
