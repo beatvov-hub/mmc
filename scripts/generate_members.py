@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MEMBERS_DIR = ROOT / "members"
 LOUNGE_LOGS_PATH = ROOT / "src" / "data" / "loungeLogs.json"
 CONVERSATION_HISTORY_PATH = ROOT / "src" / "data" / "memberConversationHistory.json"
+WORK_PROFILES_PATH = ROOT / "src" / "data" / "memberWorkProfiles.json"
 SOURCE_DIR = Path(
     os.environ.get(
         "MMC_PROFILE_SOURCE",
@@ -182,6 +183,7 @@ STAFF = {
 
 SECTION_GROUPS = [
     ("担当業務", ["担当業務"], "profile-work", "profile-work"),
+    ("最近の主な業務", ["最近の主な業務"], "profile-work", "profile-recent-work"),
     ("得意なこと", ["得意分野"], "profile-compact", "profile-strengths"),
     ("苦手なこと", ["苦手分野", "苦手なもの"], "profile-compact", "profile-challenges"),
     ("性格", ["性格"], "profile-wide profile-prose", "profile-personality"),
@@ -295,7 +297,7 @@ def clean_item(line: str) -> str:
     return line
 
 
-def render_lines(lines: list[str], prose: bool = False) -> str:
+def render_lines(lines: list[str], prose: bool = False, max_items: int | None = 10) -> str:
     cleaned = [clean_item(line) for line in lines if clean_item(line)]
     if not cleaned:
         return ""
@@ -312,14 +314,16 @@ def render_lines(lines: list[str], prose: bool = False) -> str:
         return "\n".join(f"          <p>{esc(paragraph)}</p>" for paragraph in paragraphs)
     bulletish = len(cleaned) >= 2 or any(line.startswith("・") for line in lines)
     if bulletish:
-        items = "\n".join(f"            <li>{esc(line)}</li>" for line in cleaned[:10])
+        visible_lines = cleaned if max_items is None else cleaned[:max_items]
+        items = "\n".join(f"            <li>{esc(line)}</li>" for line in visible_lines)
         return f"          <ul>\n{items}\n          </ul>"
     return "\n".join(f"          <p>{esc(line)}</p>" for line in cleaned)
 
 
 def render_panel(title: str, lines: list[str], extra_class: str = "", anchor_id: str = "") -> str:
     prose = "profile-prose" in extra_class.split()
-    body = render_lines(lines, prose=prose)
+    max_items = None if "profile-work" in extra_class.split() else 10
+    body = render_lines(lines, prose=prose, max_items=max_items)
     if not body:
         return ""
     cls = f' class="profile-panel {extra_class}"' if extra_class else ' class="profile-panel"'
@@ -404,6 +408,30 @@ def load_conversation_history() -> dict[str, list[str]]:
         for slug, log_ids in history.items()
         if isinstance(log_ids, list)
     }
+
+
+def load_work_profiles() -> dict[str, dict[str, list[str]]]:
+    data = json.loads(WORK_PROFILES_PATH.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError("memberWorkProfiles.json must be an object.")
+
+    profiles: dict[str, dict[str, list[str]]] = {}
+    for name, values in data.items():
+        if not isinstance(name, str) or not isinstance(values, dict):
+            continue
+        profile: dict[str, list[str]] = {}
+        for key in ("担当業務", "最近の主な業務"):
+            lines = values.get(key)
+            if isinstance(lines, list) and all(isinstance(line, str) for line in lines):
+                profile[key] = lines
+        if profile:
+            profiles[name] = profile
+    return profiles
+
+
+def apply_work_profile(sections: dict[str, list[str]], work_profile: dict[str, list[str]]) -> None:
+    for key, lines in work_profile.items():
+        sections[key] = lines
 
 
 def load_lounge_logs() -> dict[str, dict]:
@@ -597,10 +625,12 @@ def main() -> None:
     profiles = find_profiles()
     conversation_history = load_conversation_history()
     lounge_logs = load_lounge_logs()
+    work_profiles = load_work_profiles()
     for source_name, meta in STAFF.items():
         sections = profiles.get(source_name)
         if not sections:
             raise SystemExit(f"profile source not found: {source_name}")
+        apply_work_profile(sections, work_profiles.get(source_name, {}))
         path = MEMBERS_DIR / f"{meta['slug']}.html"
         page = path.read_text(encoding="utf-8")
         page = update_head(page, sections, meta)
