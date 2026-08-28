@@ -365,11 +365,17 @@ def render_kei_comment(
           <p class="section-kicker">Kei's Note</p>
           <h2 id="today-one-kei-title">ケイのひとこと</h2>
           <div class="today-one-kei-note">
-            {image_html}
-            <div>
-              <strong>{esc(byline)}</strong>
+            <div class="today-one-kei-copy">
+              <div class="today-one-kei-person">
+                {image_html}
+                <strong>{esc(byline)}</strong>
+              </div>
               <p>{esc(entry.get("keiComment", ""))}</p>
             </div>
+            <figure class="today-one-kei-visual">
+              <img src="{esc(prefixed_path('image/today-one/kei-note.webp', prefix))}" alt="メガホン、ノート、虫眼鏡のコラージュ" loading="lazy" />
+              <figcaption><span>KEI'S NOTE</span><strong>伝える前に<br />確かめる。</strong></figcaption>
+            </figure>
           </div>
         </section>'''
 
@@ -680,10 +686,13 @@ def render_page(
         <strong>今日ひとつ。</strong>
       </nav>
       <section class="today-one-intro" aria-labelledby="today-one-title">
-        <p class="section-kicker">Today's One</p>
-        <h1 id="today-one-title">今日ひとつ。</h1>
-        <p class="today-one-catch">何に使えるか。誰に持たせたいか。</p>
-        <p>AIと働くための道具を、毎日ひとつだけ。<br />たくさん並べる代わりに、今日はこれを見ます。</p>
+        <img class="today-one-hero-art" src="image/today-one/hero-workbench.webp" alt="ノート、書籍、コーヒー、ノートPCでつくる仕事机のコラージュ" fetchpriority="high" />
+        <div class="today-one-intro-copy">
+          <p class="section-kicker">Today's One / 07:30 JST</p>
+          <h1 id="today-one-title"><img src="image/today-one/today-one-logo.png" alt="今日ひとつ。" /></h1>
+          <p class="today-one-catch">何に使えるか。<br />誰に持たせたいか。</p>
+          <p>AIと働くための道具を、毎日ひとつだけ。<br />たくさん並べる代わりに、今日はこれを見ます。</p>
+        </div>
       </section>
 {content}
 {render_archive_promo(archive_entries, target_date)}
