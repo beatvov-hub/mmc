@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>一時チャットは「記憶なし」だけではない。開始前に選ぶパーソナライズと保存後の変化｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="OpenAIは2026年8月27日、ChatGPTのTemporary Chatで、開始時にパーソナライズの有無を選べるようにしたと案内しました。既定の非パーソナライズは既存Memory、Custom Instructions、Pluginsを使いませんが、パーソナライズを選ぶとそれらを参照して回答を整えられます。どちらのTemporary Chatも新しいMemoryを作らず、保存するまで履歴には出ません。ただし開始後にこの選択は変更できず、保存すると通常チャットになり、アカウントのパーソナライズやモデル改善の設定が適用されます。つまり「一時」と表示されていることだけで決めず、過去の設定や接続ツールを使う必要があるか、保存する可能性があるかを開始前に分けて選ぶ必要があります。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260828-02" />
+<meta property="og:title" content="一時チャットは「記憶なし」だけではない。開始前に選ぶパーソナライズと保存後の変化｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="OpenAIは2026年8月27日、ChatGPTのTemporary Chatで、開始時にパーソナライズの有無を選べるようにしたと案内しました。既定の非パーソナライズは既存Memory、Custom Instructions、Pluginsを使いませんが、パーソナライズを選ぶとそれらを参照して回答を整えられます。どちらのTemporary Chatも新しいMemoryを作らず、保存するまで履歴には出ません。ただし開始後にこの選択は変更できず、保存すると通常チャットになり、アカウントのパーソナライズやモデル改善の設定が適用されます。つまり「一時」と表示されていることだけで決めず、過去の設定や接続ツールを使う必要があるか、保存する可能性があるかを開始前に分けて選ぶ必要があります。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260828-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>一時チャットは開始前の設定で変わる</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-28">2026.08.28</time>
+            </div>
+            <h1>一時チャットは「記憶なし」だけではない。開始前に選ぶパーソナライズと保存後の変化</h1>
+            <p>OpenAIは2026年8月27日、ChatGPTのTemporary Chatで、開始時にパーソナライズの有無を選べるようにしたと案内しました。既定の非パーソナライズは既存Memory、Custom Instructions、Pluginsを使いませんが、パーソナライズを選ぶとそれらを参照して回答を整えられます。どちらのTemporary Chatも新しいMemoryを作らず、保存するまで履歴には出ません。ただし開始後にこの選択は変更できず、保存すると通常チャットになり、アカウントのパーソナライズやモデル改善の設定が適用されます。つまり「一時」と表示されていることだけで決めず、過去の設定や接続ツールを使う必要があるか、保存する可能性があるかを開始前に分けて選ぶ必要があります。</p>
+            <ul class="forensics-target-list"><li>ChatGPTで一時的な下書きや相談をする人</li><li>過去の好み・カスタム指示・プラグインを使うか迷う人</li><li>一時チャットを後から保存することがある人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>ChatGPT</li><li>Temporary Chat</li><li>Memory</li><li>Custom Instructions</li><li>Plugins</li><li>データ設定</li><li>一時チャット</li><li>業務利用</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>開始時設定と保存後の扱いを分けて確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Temporary Chatを開いたら、入力前に画面の選択肢でパーソナライズの有無を確認します。既存の文脈を使わないなら非パーソナライズ、既存MemoryやCustom Instructions、Pluginsが必要ならパーソナライズを選びます。途中で目的が変わったら新しい一時チャットを開き、保存する前には通常チャットへ変わることとアカウント設定を確認します。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>企画の下書きを一時チャットで始めた後、「普段の好みを使わせたい」ことにも「完全にまっさらで始めたい」ことにも気づいた</h3><p>Temporary Chatを開けば自動的に全部同じ扱いになると思い、すぐに業務の相談を書き始めました。ところが今回は、既存のMemoryやCustom Instructionsを使わない状態で考えたかった一方、別の下書きでは普段の文体設定や承認済みのPluginsを使いたい場面もあります。OpenAIの案内では、この選択はチャットを始める時だけにでき、途中から切り替えることはできません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>一時チャットを単なる「履歴に残らないボタン」と考えると、過去の設定が回答へ入るか、外部ツールが使えるか、保存後にどの設定が適用されるかを取り違えます。作業の目的に合わせて開始前に選べば、既存の文脈を活かす作業と、影響を切り離して試す作業を同じ画面でも意図的に使い分けられます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="start-nonpersonalized">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Temporary Chatで「既存の設定を使わない下書き」を始めたい時、最も適切な手順はどれ？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="start-nonpersonalized" data-choice-id="start-nonpersonalized" />
+                <span>
+                  <strong>開始前に非パーソナライズを選び、途中で必要が変わったら新しい一時チャットを作り直す</strong>
+                  <small>既存Memory、Custom Instructions、Pluginsを使わない目的に合わせ、変更不能な開始時設定を先に決める。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="switch-later" data-choice-id="switch-later" />
+                <span>
+                  <strong>一度入力してから、設定画面でパーソナライズの有無を切り替える</strong>
+                  <small>開始後にも同じ一時チャットの設定を変更できると考える。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="temporary-means-delete" data-choice-id="temporary-means-delete" />
+                <span>
+                  <strong>一時チャットなら直ちに完全消去されるので、どの設定を選んでも同じ</strong>
+                  <small>安全・不正利用防止のための限定的な保持や、設定による違いを無視する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="save-is-bookmark" data-choice-id="save-is-bookmark" />
+                <span>
+                  <strong>保存は表示用のブックマークなので、その後も一時チャットの扱いのまま</strong>
+                  <small>保存により通常チャットへ変わり、アカウント設定が適用されることを見落とす。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>開始前に非パーソナライズを選び、途中で必要が変わったら新しい一時チャットを作り直す</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>OpenAIのTemporary Chat FAQでは、非パーソナライズは既存Memory、Custom Instructions、Pluginsを使わず、パーソナライズを選んだ一時チャットはそれらを参照できると説明しています。この選択はチャット作成時だけで、開始後には変更できません。目的が変わった場合は、その会話で設定を変えようとせず、新しい一時チャットを始めます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>既定の非パーソナライズは、過去の設定を回答へ使わない</h3>
+              <p>OpenAIは、既定のTemporary ChatではMemory、Custom Instructions、Pluginsを使わないと説明しています。まっさらな観点で案を出したい時は、会話を始める前にこの状態になっているかを確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>パーソナライズを選んでも、新しいMemoryは作られない</h3>
+              <p>パーソナライズされたTemporary Chatは既存のMemory、Custom Instructions、Pluginsを参照できますが、そこで新しいMemoryを作成・更新するものではありません。既存の文脈を使うことと、会話内容を将来の記憶として追加することは別です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>選択は開始前だけ。迷ったら会話を作り直す</h3>
+              <p>パーソナライズの有無はTemporary Chatを開始する時にのみ選べ、始めた後には変更できません。入力前なら作業目的を決め、入力後に目的が変わったら新しい一時チャットを作るのが確実です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>保存すると通常チャットに変わり、アカウント設定が適用される</h3>
+              <p>Temporary Chatを保存すると、その会話は通常チャットになり、通常の履歴とアカウント単位のパーソナライズやモデル改善に関する設定が適用されます。保存前に、後で参照する価値と、通常チャットとして扱うことを分けて判断します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>「履歴に出ない」は「データが一切残らない」と同じではない</h3>
+              <p>OpenAIは、保存しないTemporary Chatは履歴に出ずモデル改善にも使われない一方、安全・不正利用防止の目的でコピーを最大30日間保持する場合があると案内しています。非パーソナライズを選んでも、社内規程やサービス上の入力禁止情報まで送ってよいという意味にはなりません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>Pluginsを使うパーソナライズでは、第三者への送信先も確認する</h3>
+              <p>OpenAIはPluginsをパーソナライズされたTemporary Chatで利用できると説明し、第三者のGPT actionへ送るデータはその第三者のポリシーに従うと案内しています。外部ツールを使う目的なら、開始前に接続先と送る内容を確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Temporary Chatは一種類ではない。開始時の選択と保存の判断で、使う既存設定とその後の扱いが変わる</strong><p>OpenAIが2026年8月27日に案内した機能では、Temporary Chatを作る時に、既存のMemory・Custom Instructions・Pluginsを使わない非パーソナライズか、それらを参照するパーソナライズかを選べます。どちらも新しいMemoryを作らず、保存するまで履歴には出ませんが、開始後の切替はできません。また保存すると通常チャットとなり、アカウントのパーソナライズやモデル改善の設定が適用されます。目的に応じて開始前に選び、会話を残す時は「一時」のままではないと理解して保存します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>新しいTemporary Chatを開く前に、「既存の好み・指示・外部ツールを使う作業か」を一文で決める</strong><span>非パーソナライズは既存Memory、Custom Instructions、Pluginsを使わず、パーソナライズはそれらを参照します。目的を先に決めると選択が作業内容と一致します。</span></li>
+            <li><strong>まっさらな検討をしたい時は非パーソナライズを選び、通常の文体設定や承認済みPluginsが必要な時だけパーソナライズを選ぶ</strong><span>一時チャットであっても、パーソナライズを選べば既存の設定やPluginsが回答に関わります。二つの使い方を目的別に分けると、意図しない文脈の持ち込みを避けられます。</span></li>
+            <li><strong>開始後に選択が違ったと気づいたら、その会話を切り替えようとせず、新しいTemporary Chatを作る</strong><span>OpenAIの案内では、パーソナライズの有無は会話を始めた後に変更できません。</span></li>
+            <li><strong>保存する直前に、通常チャットとして残す必要があるかと、自分のアカウントやワークスペースのデータ設定を確認する</strong><span>保存した会話は通常チャットになり、アカウント単位のパーソナライズとモデル改善に関する設定が適用されます。</span></li>
+            <li><strong>外部のGPT actionやPluginsを使う場合は、送信先の第三者ポリシーと送る情報を確認する</strong><span>OpenAIは、第三者のGPT actionへ渡すデータはその第三者の保持・利用ポリシーに従うと案内しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>Temporary Chatなら過去のMemoryやCustom Instructionsが必ず回答に使われないと決めつける</strong><span>パーソナライズを選んだTemporary Chatでは、既存のMemory、Custom Instructions、Pluginsを参照できます。</span></li>
+            <li><strong>途中で設定を変えられる前提で、目的を決めずに詳細な内容を書き始める</strong><span>パーソナライズの有無は開始時だけに選べ、開始後は変更できません。</span></li>
+            <li><strong>保存を単なるブックマークだと考え、通常チャットになった後のアカウント設定を確認しない</strong><span>保存したTemporary Chatは通常チャットに変わり、通常のアカウント設定に従います。</span></li>
+            <li><strong>履歴に出ないことを、即時削除や第三者サービスでの無制限の秘匿と同じ意味で使う</strong><span>OpenAIは安全目的の限定的な保持と、第三者GPT actionでは相手先ポリシーが適用されることを案内しています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>一時チャットを「まっさらな検討」と「既存の仕事環境を使う短期作業」に分ける</h3>
+          <p>Temporary Chatを単に履歴の有無で選ぶのではなく、既存の設定を使うかどうかで二つの作業場所として使い分けられます。たとえば、固定観念を避けたい企画のたたき台は非パーソナライズで作り、承認済みの文体設定や外部ツールが必要な短い作業だけはパーソナライズで始めます。残す価値が出た会話は、通常チャットへ変わることを理解したうえで保存します。</p>
+          <ul class="positive-example-list"><li>既存の指示に引っ張られないアイデア出しを非パーソナライズで始める</li><li>いつもの文章スタイルが必要な短い下書きをパーソナライズで始める</li><li>承認済みのPluginsが必要な調査だけ、接続先を確認してパーソナライズで実行する</li><li>途中で目的が変わったら、設定を変更せず別のTemporary Chatを作る</li><li>成果物として残す会話だけ、保存後の通常チャット扱いを確認して保存する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>今回の変更で大事なのは、「一時」という言葉が一つのプライバシー設定を指すのではなく、会話を始める瞬間に二つの作業机を選ぶようになったことです。普段の自分の設定を借りる机と、何も持ち込まずに考える机。しかも選んだ後には机を入れ替えられません。だからこそ、入力欄へ書き出す前の数秒で、今回の作業はどちらなのかを決める価値があります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Temporary Chatは開始前にパーソナライズを選び、保存すると通常チャットへ変わる。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/6825453-gpt-4" target="_blank" rel="noopener noreferrer">ChatGPT — Release Notes<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>公式発表</span>
+              <time datetime="2026-08-27">2026-08-27</time>
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/8914046-temporary-chat-faq" target="_blank" rel="noopener noreferrer">Temporary Chat FAQ<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>公式発表</span>
+
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-serious" href="case-20260826-04" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角 シャドーAI、まず利用先を棚卸しする Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。 セキュリティ・権限 はじめて シャドーAI Shadow AI 生成AI ChatGPT Claude MCP AIエージェント Microsoft 365 AIガバナンス 社内AI利用 仕事で生成AIを使っている人 社内のAI利用ルールを作る人 IT・情報システム・セキュリティ担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shadow-ai-inventory</span>
+              <div>
+                <p>シャドーAI、まず利用先を棚卸しする</p>
+                <h3>シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>使っているAIと渡している情報を一度確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>仕事で生成AIを使っている人</li><li>社内のAI利用ルールを作る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>シャドーAI</li><li>Shadow AI</li><li>生成AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="ex1" data-forensics-card data-category="media-literacy" data-level="1" data-difficulty="beginner" data-search-text="引用が付いていても確認終了ではない。AI検索ではリンク先を1回開く AI検索の引用を1回開く OpenAIは公式ヘルプで、ChatGPTは検索や引用を利用できても、誤った日付・事実・引用・研究・参考文献を提示する可能性があると説明しています。初心者が最初に覚えておきたいのは、引用が付いている回答を捨てることではなく、重要な情報だけリンク先を1回開き、「本当にその内容が書いてあるか」「いつの情報か」を見ることです。 情報の見極め はじめて AI検索 ChatGPT 引用 情報源 ハルシネーション 初心者 ChatGPTなどのAI検索を使い始めた人 AIの回答を学校や仕事の調べものに使う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">source-check</span>
+              <div>
+                <p>AI検索の引用を1回開く</p>
+                <h3>引用が付いていても確認終了ではない。AI検索ではリンク先を1回開く</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは公式ヘルプで、ChatGPTは検索や引用を利用できても、誤った日付・事実・引用・研究・参考文献を提示する可能性があると説明しています。初心者が最初に覚えておきたいのは、引用が付いている回答を捨てることではなく、重要な情報だけリンク先を1回開き、「本当にその内容が書いてあるか」「いつの情報か」を見ることです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 1</strong>
+              <span>引用リンクを1回開いて確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTなどのAI検索を使い始めた人</li><li>AIの回答を学校や仕事の調べものに使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI検索</li><li>ChatGPT</li><li>引用</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="ex2" data-forensics-card data-category="security" data-level="1" data-difficulty="beginner" data-search-text="Geminiの「アクティビティ保存オフ」＝即時削除ではない。72時間保持を知っておこう Geminiの保存オフと72時間 GoogleのGemini Apps Privacy Hubでは、Geminiの「アクティビティの保存」をオフにした場合や一時チャットを利用した場合でも、チャットは72時間アカウントに保持されると説明されています。一方、一時チャットはGoogleのAIモデルのトレーニングには使用されません。初心者が覚えておきたいのは、「履歴に残らない」「学習に使われない」「即座にデータが消える」は別の話だということです。 セキュリティ・権限 はじめて Gemini プライバシー アクティビティ 一時チャット データ保存 初心者 個人のGoogleアカウントでGeminiを使う人 生成AIへ入力する情報の扱いが気になる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">privacy-settings</span>
+              <div>
+                <p>Geminiの保存オフと72時間</p>
+                <h3>Geminiの「アクティビティ保存オフ」＝即時削除ではない。72時間保持を知っておこう</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">GoogleのGemini Apps Privacy Hubでは、Geminiの「アクティビティの保存」をオフにした場合や一時チャットを利用した場合でも、チャットは72時間アカウントに保持されると説明されています。一方、一時チャットはGoogleのAIモデルのトレーニングには使用されません。初心者が覚えておきたいのは、「履歴に残らない」「学習に使われない」「即座にデータが消える」は別の話だということです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 1</strong>
+              <span>使う前に保存設定を1か所確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>個人のGoogleアカウントでGeminiを使う人</li><li>生成AIへ入力する情報の扱いが気になる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>プライバシー</li><li>アクティビティ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260827-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260828-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

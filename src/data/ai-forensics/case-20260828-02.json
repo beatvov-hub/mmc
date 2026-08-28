@@ -1,0 +1,172 @@
+{
+  "id": "case-20260828-02",
+  "publishedAt": "2026-08-28",
+  "title": "一時チャットは「記憶なし」だけではない。開始前に選ぶパーソナライズと保存後の変化",
+  "shortTitle": "一時チャットは開始前の設定で変わる",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "ChatGPTで一時的な下書きや相談をする人",
+    "過去の好み・カスタム指示・プラグインを使うか迷う人",
+    "一時チャットを後から保存することがある人"
+  ],
+  "summary": "OpenAIは2026年8月27日、ChatGPTのTemporary Chatで、開始時にパーソナライズの有無を選べるようにしたと案内しました。既定の非パーソナライズは既存Memory、Custom Instructions、Pluginsを使いませんが、パーソナライズを選ぶとそれらを参照して回答を整えられます。どちらのTemporary Chatも新しいMemoryを作らず、保存するまで履歴には出ません。ただし開始後にこの選択は変更できず、保存すると通常チャットになり、アカウントのパーソナライズやモデル改善の設定が適用されます。つまり「一時」と表示されていることだけで決めず、過去の設定や接続ツールを使う必要があるか、保存する可能性があるかを開始前に分けて選ぶ必要があります。",
+  "scenario": {
+    "headline": "企画の下書きを一時チャットで始めた後、「普段の好みを使わせたい」ことにも「完全にまっさらで始めたい」ことにも気づいた",
+    "description": "Temporary Chatを開けば自動的に全部同じ扱いになると思い、すぐに業務の相談を書き始めました。ところが今回は、既存のMemoryやCustom Instructionsを使わない状態で考えたかった一方、別の下書きでは普段の文体設定や承認済みのPluginsを使いたい場面もあります。OpenAIの案内では、この選択はチャットを始める時だけにでき、途中から切り替えることはできません。",
+    "whyItMatters": "一時チャットを単なる「履歴に残らないボタン」と考えると、過去の設定が回答へ入るか、外部ツールが使えるか、保存後にどの設定が適用されるかを取り違えます。作業の目的に合わせて開始前に選べば、既存の文脈を活かす作業と、影響を切り離して試す作業を同じ画面でも意図的に使い分けられます。"
+  },
+  "question": {
+    "text": "Temporary Chatで「既存の設定を使わない下書き」を始めたい時、最も適切な手順はどれ？",
+    "choices": [
+      {
+        "id": "start-nonpersonalized",
+        "label": "開始前に非パーソナライズを選び、途中で必要が変わったら新しい一時チャットを作り直す",
+        "description": "既存Memory、Custom Instructions、Pluginsを使わない目的に合わせ、変更不能な開始時設定を先に決める。"
+      },
+      {
+        "id": "switch-later",
+        "label": "一度入力してから、設定画面でパーソナライズの有無を切り替える",
+        "description": "開始後にも同じ一時チャットの設定を変更できると考える。"
+      },
+      {
+        "id": "temporary-means-delete",
+        "label": "一時チャットなら直ちに完全消去されるので、どの設定を選んでも同じ",
+        "description": "安全・不正利用防止のための限定的な保持や、設定による違いを無視する。"
+      },
+      {
+        "id": "save-is-bookmark",
+        "label": "保存は表示用のブックマークなので、その後も一時チャットの扱いのまま",
+        "description": "保存により通常チャットへ変わり、アカウント設定が適用されることを見落とす。"
+      }
+    ],
+    "recommendedAnswers": [
+      "start-nonpersonalized"
+    ],
+    "explanation": "OpenAIのTemporary Chat FAQでは、非パーソナライズは既存Memory、Custom Instructions、Pluginsを使わず、パーソナライズを選んだ一時チャットはそれらを参照できると説明しています。この選択はチャット作成時だけで、開始後には変更できません。目的が変わった場合は、その会話で設定を変えようとせず、新しい一時チャットを始めます。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "既定の非パーソナライズは、過去の設定を回答へ使わない",
+      "description": "OpenAIは、既定のTemporary ChatではMemory、Custom Instructions、Pluginsを使わないと説明しています。まっさらな観点で案を出したい時は、会話を始める前にこの状態になっているかを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "パーソナライズを選んでも、新しいMemoryは作られない",
+      "description": "パーソナライズされたTemporary Chatは既存のMemory、Custom Instructions、Pluginsを参照できますが、そこで新しいMemoryを作成・更新するものではありません。既存の文脈を使うことと、会話内容を将来の記憶として追加することは別です。",
+      "priority": "high"
+    },
+    {
+      "title": "選択は開始前だけ。迷ったら会話を作り直す",
+      "description": "パーソナライズの有無はTemporary Chatを開始する時にのみ選べ、始めた後には変更できません。入力前なら作業目的を決め、入力後に目的が変わったら新しい一時チャットを作るのが確実です。",
+      "priority": "high"
+    },
+    {
+      "title": "保存すると通常チャットに変わり、アカウント設定が適用される",
+      "description": "Temporary Chatを保存すると、その会話は通常チャットになり、通常の履歴とアカウント単位のパーソナライズやモデル改善に関する設定が適用されます。保存前に、後で参照する価値と、通常チャットとして扱うことを分けて判断します。",
+      "priority": "high"
+    },
+    {
+      "title": "「履歴に出ない」は「データが一切残らない」と同じではない",
+      "description": "OpenAIは、保存しないTemporary Chatは履歴に出ずモデル改善にも使われない一方、安全・不正利用防止の目的でコピーを最大30日間保持する場合があると案内しています。非パーソナライズを選んでも、社内規程やサービス上の入力禁止情報まで送ってよいという意味にはなりません。",
+      "priority": "medium"
+    },
+    {
+      "title": "Pluginsを使うパーソナライズでは、第三者への送信先も確認する",
+      "description": "OpenAIはPluginsをパーソナライズされたTemporary Chatで利用できると説明し、第三者のGPT actionへ送るデータはその第三者のポリシーに従うと案内しています。外部ツールを使う目的なら、開始前に接続先と送る内容を確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "開始時設定と保存後の扱いを分けて確認する",
+  "verificationMessage": "Temporary Chatを開いたら、入力前に画面の選択肢でパーソナライズの有無を確認します。既存の文脈を使わないなら非パーソナライズ、既存MemoryやCustom Instructions、Pluginsが必要ならパーソナライズを選びます。途中で目的が変わったら新しい一時チャットを開き、保存する前には通常チャットへ変わることとアカウント設定を確認します。",
+  "verdict": {
+    "label": "Temporary Chatは一種類ではない。開始時の選択と保存の判断で、使う既存設定とその後の扱いが変わる",
+    "description": "OpenAIが2026年8月27日に案内した機能では、Temporary Chatを作る時に、既存のMemory・Custom Instructions・Pluginsを使わない非パーソナライズか、それらを参照するパーソナライズかを選べます。どちらも新しいMemoryを作らず、保存するまで履歴には出ませんが、開始後の切替はできません。また保存すると通常チャットとなり、アカウントのパーソナライズやモデル改善の設定が適用されます。目的に応じて開始前に選び、会話を残す時は「一時」のままではないと理解して保存します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "新しいTemporary Chatを開く前に、「既存の好み・指示・外部ツールを使う作業か」を一文で決める",
+      "reason": "非パーソナライズは既存Memory、Custom Instructions、Pluginsを使わず、パーソナライズはそれらを参照します。目的を先に決めると選択が作業内容と一致します。"
+    },
+    {
+      "action": "まっさらな検討をしたい時は非パーソナライズを選び、通常の文体設定や承認済みPluginsが必要な時だけパーソナライズを選ぶ",
+      "reason": "一時チャットであっても、パーソナライズを選べば既存の設定やPluginsが回答に関わります。二つの使い方を目的別に分けると、意図しない文脈の持ち込みを避けられます。"
+    },
+    {
+      "action": "開始後に選択が違ったと気づいたら、その会話を切り替えようとせず、新しいTemporary Chatを作る",
+      "reason": "OpenAIの案内では、パーソナライズの有無は会話を始めた後に変更できません。"
+    },
+    {
+      "action": "保存する直前に、通常チャットとして残す必要があるかと、自分のアカウントやワークスペースのデータ設定を確認する",
+      "reason": "保存した会話は通常チャットになり、アカウント単位のパーソナライズとモデル改善に関する設定が適用されます。"
+    },
+    {
+      "action": "外部のGPT actionやPluginsを使う場合は、送信先の第三者ポリシーと送る情報を確認する",
+      "reason": "OpenAIは、第三者のGPT actionへ渡すデータはその第三者の保持・利用ポリシーに従うと案内しています。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "Temporary Chatなら過去のMemoryやCustom Instructionsが必ず回答に使われないと決めつける",
+      "reason": "パーソナライズを選んだTemporary Chatでは、既存のMemory、Custom Instructions、Pluginsを参照できます。"
+    },
+    {
+      "action": "途中で設定を変えられる前提で、目的を決めずに詳細な内容を書き始める",
+      "reason": "パーソナライズの有無は開始時だけに選べ、開始後は変更できません。"
+    },
+    {
+      "action": "保存を単なるブックマークだと考え、通常チャットになった後のアカウント設定を確認しない",
+      "reason": "保存したTemporary Chatは通常チャットに変わり、通常のアカウント設定に従います。"
+    },
+    {
+      "action": "履歴に出ないことを、即時削除や第三者サービスでの無制限の秘匿と同じ意味で使う",
+      "reason": "OpenAIは安全目的の限定的な保持と、第三者GPT actionでは相手先ポリシーが適用されることを案内しています。"
+    }
+  ],
+  "positiveUse": {
+    "title": "一時チャットを「まっさらな検討」と「既存の仕事環境を使う短期作業」に分ける",
+    "description": "Temporary Chatを単に履歴の有無で選ぶのではなく、既存の設定を使うかどうかで二つの作業場所として使い分けられます。たとえば、固定観念を避けたい企画のたたき台は非パーソナライズで作り、承認済みの文体設定や外部ツールが必要な短い作業だけはパーソナライズで始めます。残す価値が出た会話は、通常チャットへ変わることを理解したうえで保存します。",
+    "examples": [
+      "既存の指示に引っ張られないアイデア出しを非パーソナライズで始める",
+      "いつもの文章スタイルが必要な短い下書きをパーソナライズで始める",
+      "承認済みのPluginsが必要な調査だけ、接続先を確認してパーソナライズで実行する",
+      "途中で目的が変わったら、設定を変更せず別のTemporary Chatを作る",
+      "成果物として残す会話だけ、保存後の通常チャット扱いを確認して保存する"
+    ]
+  },
+  "makotoComment": "今回の変更で大事なのは、「一時」という言葉が一つのプライバシー設定を指すのではなく、会話を始める瞬間に二つの作業机を選ぶようになったことです。普段の自分の設定を借りる机と、何も持ち込まずに考える机。しかも選んだ後には机を入れ替えられません。だからこそ、入力欄へ書き出す前の数秒で、今回の作業はどちらなのかを決める価値があります。",
+  "oneLineLesson": "Temporary Chatは開始前にパーソナライズを選び、保存すると通常チャットへ変わる。",
+  "tags": [
+    "ChatGPT",
+    "Temporary Chat",
+    "Memory",
+    "Custom Instructions",
+    "Plugins",
+    "データ設定",
+    "一時チャット",
+    "業務利用"
+  ],
+  "sources": [
+    {
+      "title": "ChatGPT — Release Notes",
+      "publisher": "OpenAI Help Center",
+      "sourceType": "official",
+      "publishedAt": "2026-08-27",
+      "url": "https://help.openai.com/en/articles/6825453-gpt-4"
+    },
+    {
+      "title": "Temporary Chat FAQ",
+      "publisher": "OpenAI Help Center",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://help.openai.com/en/articles/8914046-temporary-chat-faq"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "一つのTemporary Chat開始画面を中央に置き、左に「非パーソナライズ：Memory・Custom Instructions・Pluginsを使わない」、右に「パーソナライズ：既存設定を参照」と二つの作業机として図解する。下段は「開始前に選ぶ → 一時チャットで作業 → 保存する場合は通常チャットへ」の流れにし、開始後は矢印を戻せないことを小さな鍵で示す。恐怖を煽る監視画面ではなく、作業目的に応じて設定を選ぶ実務的なUIガイドとして描く。",
+    "cardIcon": "temporary-chat-settings",
+    "accentTone": "calm"
+  }
+}
