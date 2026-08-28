@@ -118,7 +118,7 @@ def render_index_news(data: dict) -> str:
 
 def update_index_html(data: dict) -> None:
     html_text = INDEX_HTML_PATH.read_text(encoding="utf-8")
-    section_start = html_text.index('      <section id="news"')
+    section_start = html_text.index('<section id="news"')
     list_start = html_text.index('        <div class="news-list">', section_start)
     section_end = html_text.index("      </section>", list_start)
     html_text = html_text[:list_start] + render_index_news(data) + "\n" + html_text[section_end:]
