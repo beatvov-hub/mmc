@@ -515,8 +515,8 @@ def render_archive_card(entry: dict) -> str:
 
 
 def render_archive_index_page(entries: list[dict]) -> str:
-    title = "これまでのひとつ。｜今日ひとつ。アーカイブ｜毎日見る株式会社"
-    description = "毎日見る株式会社が一日ひとつ選んだ、AIと働くための仕事道具のアーカイブです。"
+    title = "AGENT SKILLS ライブラリ｜これまでのひとつ。｜毎日見る株式会社"
+    description = "AGENT SKILLS ライブラリ「今日ひとつ。」のアーカイブ。AIと働くための仕事道具を、一日ひとつずつ記録します。"
     cards = "\n".join(render_archive_card(entry) for entry in entries)
     archive_body = (
         f'        <div class="today-one-archive-grid">\n{cards}\n        </div>'
@@ -530,6 +530,7 @@ def render_archive_index_page(entries: list[dict]) -> str:
         "description": description,
         "url": f"{BASE_URL}/today-one/archive",
         "inLanguage": "ja-JP",
+        "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", "AIエージェント", "仕事道具"],
     }
     return f'''<!doctype html>
 <html lang="ja">
@@ -538,6 +539,7 @@ def render_archive_index_page(entries: list[dict]) -> str:
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{esc(title)}</title>
     <meta name="description" content="{esc(description)}" />
+    <meta name="keywords" content="AGENT SKILLS, AGENT SKILLS ライブラリ, AIエージェント, Codex, MCP, 仕事道具" />
     <link rel="canonical" href="{BASE_URL}/today-one/archive" />
     <meta property="og:title" content="{esc(title)}" />
     <meta property="og:description" content="{esc(description)}" />
@@ -576,8 +578,8 @@ def render_archive_detail_page(
     members: dict[str, dict[str, str]],
 ) -> str:
     entry_date = parse_iso_date(entry["date"], label="entry.date")
-    title = f'{entry["name"]}｜{entry["date"].replace("-", ".")}の今日ひとつ。｜毎日見る株式会社'
-    description = entry["summary"]
+    title = f'{entry["name"]}｜AGENT SKILLS ライブラリ｜{entry["date"].replace("-", ".")}｜毎日見る株式会社'
+    description = f'AGENT SKILLS ライブラリ「今日ひとつ。」の記録。{entry["summary"]}'
     canonical = archive_url(entry)
     structured_data = {
         "@context": "https://schema.org",
@@ -587,9 +589,10 @@ def render_archive_detail_page(
         "url": canonical,
         "datePublished": entry["date"],
         "inLanguage": "ja-JP",
+        "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", entry["category"], entry["name"]],
         "isPartOf": {
             "@type": "CollectionPage",
-            "name": "これまでのひとつ。",
+            "name": "AGENT SKILLS ライブラリ｜これまでのひとつ。",
             "url": f"{BASE_URL}/today-one/archive",
         },
     }
@@ -600,6 +603,7 @@ def render_archive_detail_page(
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{esc(title)}</title>
     <meta name="description" content="{esc(description)}" />
+    <meta name="keywords" content="AGENT SKILLS, AGENT SKILLS ライブラリ, AIエージェント, Codex, MCP, 仕事道具" />
     <link rel="canonical" href="{canonical}" />
     <meta property="og:title" content="{esc(title)}" />
     <meta property="og:description" content="{esc(description)}" />
@@ -643,15 +647,21 @@ def render_page(
     members: dict[str, dict[str, str]],
     target_date: date,
 ) -> str:
-    title = "今日ひとつ。｜AIと働くための仕事道具を毎日1つ｜毎日見る株式会社"
-    description = "AIエージェント、Codex、MCP、API、OSS、AIサービスなど、AIと働くための仕事道具を毎日ひとつだけ紹介します。何に使えるか、誰に持たせたいかを毎日見る株式会社の広報部長ケイが整理します。"
+    title = "AGENT SKILLS ライブラリ｜今日ひとつ。｜毎日見る株式会社"
+    description = "AGENT SKILLS ライブラリ「今日ひとつ。」は、AIエージェントや人が仕事で使う道具を毎日1つ選び、用途と持たせたいAI社員を整理するページです。"
     structured_data = {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "今日ひとつ。",
+        "name": "AGENT SKILLS ライブラリ｜今日ひとつ。",
         "description": description,
         "url": CANONICAL_URL,
         "inLanguage": "ja-JP",
+        "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", "AIエージェント", "Codex", "MCP", "仕事道具"],
+        "about": {
+            "@type": "Thing",
+            "name": "AGENT SKILLS ライブラリ",
+            "description": "AIエージェントと人の共同作業に役立つ仕事道具を、一日ひとつずつ紹介するライブラリ。",
+        },
         "isPartOf": {
             "@type": "WebSite",
             "name": "毎日見る株式会社",
@@ -666,6 +676,7 @@ def render_page(
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{esc(title)}</title>
     <meta name="description" content="{esc(description)}" />
+    <meta name="keywords" content="AGENT SKILLS, AGENT SKILLS ライブラリ, AIエージェント, Codex, MCP, 仕事道具" />
     <link rel="canonical" href="{CANONICAL_URL}" />
     <meta property="og:title" content="{esc(title)}" />
     <meta property="og:description" content="{esc(description)}" />
@@ -688,7 +699,7 @@ def render_page(
       <section class="today-one-intro" aria-labelledby="today-one-title">
         <img class="today-one-hero-art" src="image/today-one/hero-workbench.webp" alt="ノート、書籍、コーヒー、ノートPCでつくる仕事机のコラージュ" fetchpriority="high" />
         <div class="today-one-intro-copy">
-          <p class="section-kicker">Today's One / 07:30 JST</p>
+          <p class="section-kicker">AGENT SKILLS LIBRARY / 07:30 JST</p>
           <h1 id="today-one-title"><img src="image/today-one/today-one-logo.png" alt="今日ひとつ。" /></h1>
           <p class="today-one-catch">何に使えるか。<br />誰に持たせたいか。</p>
           <p>AIと働くための道具を、毎日ひとつだけ。<br />たくさん並べる代わりに、今日はこれを見ます。</p>
