@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGPT Healthへ医療データをつなぐ前に、接続範囲と利用地域を確認する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="OpenAIは2026年7月23日、米国の対象ユーザー向けにChatGPT Healthを開始し、Apple Healthや対応する医療記録を利用者が選んで接続できるようにしたと発表しました。接続した情報は、検査結果の比較、受診前の質問整理、活動・睡眠の傾向確認などに使えますが、Healthは診断や治療の代替ではありません。接続前には、自分のアカウントが対象地域・年齢・端末の条件を満たすか、どの提供元のどのデータを渡すか、回答に使うたびの許可を残すかを確認します。日本では医療記録連携の対象外である可能性を前提に、画面上で利用可否を確かめてから進めます。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260829-03" />
+<meta property="og:title" content="ChatGPT Healthへ医療データをつなぐ前に、接続範囲と利用地域を確認する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="OpenAIは2026年7月23日、米国の対象ユーザー向けにChatGPT Healthを開始し、Apple Healthや対応する医療記録を利用者が選んで接続できるようにしたと発表しました。接続した情報は、検査結果の比較、受診前の質問整理、活動・睡眠の傾向確認などに使えますが、Healthは診断や治療の代替ではありません。接続前には、自分のアカウントが対象地域・年齢・端末の条件を満たすか、どの提供元のどのデータを渡すか、回答に使うたびの許可を残すかを確認します。日本では医療記録連携の対象外である可能性を前提に、画面上で利用可否を確かめてから進めます。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260829-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>ChatGPT Healthへつなぐ医療データを決める</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>健康・医療</span>
+              <span>標準</span>
+              <time datetime="2026-08-29">2026.08.29</time>
+            </div>
+            <h1>ChatGPT Healthへ医療データをつなぐ前に、接続範囲と利用地域を確認する</h1>
+            <p>OpenAIは2026年7月23日、米国の対象ユーザー向けにChatGPT Healthを開始し、Apple Healthや対応する医療記録を利用者が選んで接続できるようにしたと発表しました。接続した情報は、検査結果の比較、受診前の質問整理、活動・睡眠の傾向確認などに使えますが、Healthは診断や治療の代替ではありません。接続前には、自分のアカウントが対象地域・年齢・端末の条件を満たすか、どの提供元のどのデータを渡すか、回答に使うたびの許可を残すかを確認します。日本では医療記録連携の対象外である可能性を前提に、画面上で利用可否を確かめてから進めます。</p>
+            <ul class="forensics-target-list"><li>検査結果や診察履歴をChatGPTで整理したい人</li><li>Apple Healthや医療機関の患者ポータルを利用している人</li><li>健康情報をAIへ連携する前に範囲を決めたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>ChatGPT Health</li><li>医療データ</li><li>Apple Health</li><li>医療記録</li><li>プライバシー</li><li>健康AI</li><li>受診準備</li><li>データ連携</li><li>OpenAI</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>地域・接続先・回答への利用・削除手順を接続前に分けて確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Healthを開いたら、①自分のアカウントで利用できるか、②接続するのはApple Health・医療記録・対応アプリのどれか、③回答への利用を一回ごとに許可するか、④不要になった時にAccountsから連携を解除し、会話履歴も削除する必要があるか、を順に確認します。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>診察前に、検査結果とApple Healthの記録をまとめたいので、ChatGPT Healthの接続画面を開いた</h3><p>検査値の変化と睡眠・運動の記録を一緒に見て、医師へ聞くことを整理したいと考えています。画面にはApple Health、Medical Records、対応アプリの接続候補が表示されていますが、どの国・アカウント・端末で使えるのか、接続後に普段の会話へどこまで使われるのかは確認していません。OpenAIのヘルプでは、Healthは対象となる米国の18歳以上のログインユーザーへ段階的に提供され、Apple Healthの接続にはiPhoneが必要だと案内されています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>医療情報は、つなげれば自動的に正しく便利になるわけではありません。接続する提供元を選び、回答への利用を毎回確認するかを決め、接続解除後に何が削除され何が会話履歴に残るかを理解しておけば、受診準備に役立てながら、必要以上の情報連携を避けられます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-scope-and-permissions">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>ChatGPT Healthに医療データを接続する前の行動として、最も適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-scope-and-permissions" data-choice-id="check-scope-and-permissions" />
+                <span>
+                  <strong>対象地域・年齢・端末を確認し、接続する提供元と回答に使う許可の範囲を決める</strong>
+                  <small>Healthの画面で利用可否を見てから、必要なデータだけを接続する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="connect-everything" data-choice-id="connect-everything" />
+                <span>
+                  <strong>精度を上げるため、表示された医療機関と健康アプリをすべて接続する</strong>
+                  <small>質問に不要な情報や連携先を区別しない。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-global" data-choice-id="assume-global" />
+                <span>
+                  <strong>発表を見たので、どの国・端末・アカウントでも医療記録を接続できると考える</strong>
+                  <small>対象者・段階的提供・医療記録の地域条件を確認しない。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="use-as-diagnosis" data-choice-id="use-as-diagnosis" />
+                <span>
+                  <strong>接続後の回答だけで病気の診断や治療方針を決める</strong>
+                  <small>Healthが医療の補助であり、診断・治療の代替ではない点を無視する。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>対象地域・年齢・端末を確認し、接続する提供元と回答に使う許可の範囲を決める</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>OpenAIは、Healthを対象となる米国の18歳以上のログインユーザーへ段階的に提供し、Apple Healthの接続にはiPhoneが必要だと案内しています。接続後も、既定では関連するHealthデータを回答に使う前に許可を求め、SettingsのPlugins内にあるHealthで後から変更できます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>自分の地域・年齢・端末が対象かを、Health画面で確認する</h3>
+              <p>OpenAIのヘルプでは、Healthは米国の対象となる18歳以上のログインユーザーへ段階的に提供され、WebとiOSで対応すると案内されています。Apple HealthをつなぐにはiPhoneが必要です。発表だけで日本の医療記録連携が使えるとは判断しません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>何を接続するかを、質問の目的から一つずつ決める</h3>
+              <p>HealthではApple Health、対応する米国の医療機関の患者ポータル、One Medical、Function Healthなどを接続できます。受診前に検査結果を整理したいなら、まず必要な記録だけを選び、睡眠・活動データまで必要かを分けます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>回答への利用は「毎回確認」を出発点にする</h3>
+              <p>OpenAIによると、関連するHealth情報を回答へ使う前には既定で許可が求められます。一回だけ許可するか、常に許可するかは後からSettingsのPlugins内にあるHealthで変更できます。最初から常時許可にする必要はありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>接続解除と会話削除を別の操作として考える</h3>
+              <p>HealthのAccountsで連携を解除すると、その提供元から同期されたデータはOpenAIのシステムから30日以内に削除されると案内されています。一方で、会話履歴にすでに含めた情報は、その会話を削除するまで残ります。不要になった時の操作を接続前に確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>記録の古さや欠落を、診察前に元の記録と照合する</h3>
+              <p>OpenAIは、接続情報は常に完全・最新とは限らず、服薬をやめた後も記録に残る場合があると説明しています。Healthの要約をそのまま診断材料にせず、重要な日付・薬・検査値は患者ポータルや医療者に確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>接続しなくても質問できることを選択肢に残す</h3>
+              <p>OpenAIは、Health情報を接続しなくてもChatGPTへ健康に関する質問はできると案内しています。一般的な受診準備や用語の説明なら、まず連携なしで使えるかを考えます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>ChatGPT Healthは、必要な情報だけを選び、利用許可と削除手順を決めてから接続する</strong><p>ChatGPT Healthは、利用者が選んで接続した健康情報を文脈に加え、受診準備や記録の整理を助ける機能です。対象地域・年齢・端末・対応する提供元をまず確認し、質問に必要な情報だけを接続します。既定の個別許可を使い、接続解除と会話削除は別の操作であることを理解すれば、便利さと情報の扱いを両立しやすくなります。Healthは診断や治療の代替ではないため、重要な判断は医療者と元の記録で確認します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Healthの表示有無と、地域・年齢・端末の対象条件を確認する</strong><span>Healthは対象となる米国の18歳以上のログインユーザーへ段階的に提供され、Apple Healthの接続にはiPhoneが必要です。</span></li>
+            <li><strong>受診準備など目的を一つ決め、必要な提供元のデータだけを接続する</strong><span>Apple Health、対応する医療記録、対応アプリは任意で接続できます。目的と関係のない連携まで増やす必要はありません。</span></li>
+            <li><strong>Health情報を回答へ使う許可は、最初は個別に確認する</strong><span>OpenAIは既定で許可を求めると説明しており、常時許可への変更はSettingsのPlugins内にあるHealthから後で行えます。</span></li>
+            <li><strong>検査値、服薬、受診日など重要な内容は元の記録や医療者と照合する</strong><span>接続された情報は常に完全・最新とは限らず、Healthは診断・治療の代替ではありません。</span></li>
+            <li><strong>連携をやめる時はAccountsで解除し、不要な会話も個別に削除する</strong><span>同期データの削除と、会話履歴に含めた情報の削除は別の扱いです。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>日本からでも米国の患者ポータルをそのまま接続できると考える</strong><span>OpenAIはHealthを米国の対象ユーザー向けに段階的に提供し、医療記録は対応する米国の提供元を案内しています。</span></li>
+            <li><strong>正確さを求めて、使わない健康アプリや医療機関まで一括で連携する</strong><span>Healthは利用者が選んだ情報を使う機能です。質問の目的に合わせて必要な連携先を選べます。</span></li>
+            <li><strong>接続を解除すれば、過去の会話に書いた医療情報も自動で消えると考える</strong><span>OpenAIは、同期データの削除とは別に、会話履歴に含めた情報は会話を削除するまで残ると案内しています。</span></li>
+            <li><strong>Healthの回答だけで診断・服薬・治療の結論を出す</strong><span>Healthは医療の補助であり、診断や治療の代替として意図されていません。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>医療者との会話を準備するために、情報の並び替えへ使う</h3>
+          <p>Healthを使う価値は、AIに医療判断を任せることではなく、散らばった記録から自分が確認したい点を見つけることです。たとえば、前回の検査以降に変わった数値を列にし、服薬・睡眠・運動について医師に聞く質問を下書きにできます。接続した情報の要約は、患者ポータルや診察時の説明と照合して完成させます。</p>
+          <ul class="positive-example-list"><li>診察前に、前回から変化した検査項目を質問リストへ整理する</li><li>Apple Healthの睡眠・活動の傾向を、生活習慣について相談するためのメモにする</li><li>複数の患者ポータルの受診日を時系列に並べ、抜けを自分で確認する</li><li>回答にHealth情報を使うかは、質問ごとに許可する</li><li>医師へ見せる要約は、元の記録と照合してから保存する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>健康情報の連携で本当に大事なのは、「AIに何を聞くか」より一段前の、「どの記録をAIの机の上に置くか」です。検査結果だけを見たいのに、睡眠・運動・家族歴まで一度に連携すれば、便利さと引き換えに自分でも把握しにくい文脈が増えます。逆に、診察前の質問を三つ作るという目的から始めれば、接続する記録も、回答に使う許可も、やめる時の削除も具体的になります。Healthは医療判断の近道ではなく、自分の記録を医療者との会話へ持ち込むための整理棚として使うのがよいと考えます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>健康データは、接続ボタンを押す前に「何を、何の質問のために」使うか決める。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://openai.com/index/health-in-chatgpt/" target="_blank" rel="noopener noreferrer">Launching Health in ChatGPT<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI</span>
+              <span>公式発表</span>
+              <time datetime="2026-07-23">2026-07-23</time>
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/20001036-what-is-chatgpt-health" target="_blank" rel="noopener noreferrer">Health in ChatGPT<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>公式発表</span>
+              <span aria-hidden="true"></span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260828-01" data-forensics-card data-category="health-ai" data-level="2" data-difficulty="beginner" data-search-text="FDAが生成AI搭載医療機器の論点整理を公開。「新ルール決定」ではない FDA文書はまだ新ルールではない 米食品医薬品局（FDA）は2026年8月18日、生成AIを組み込んだ医療機器について、リスク評価、市販前評価、市販後監視などをどう設計するか意見を募るディスカッションペーパーを公開しました。重要なのは、これは新しい規則やガイダンスの決定ではなく、FDA自身が「draft or final guidanceではない」「政策変更を提案・実施するものではない」と明記している点です。さらにFDAが検討対象としているのは生成AIそのものではなく、米国法上のmedical deviceに該当する製品・ソフトウェア機能です。 健康・医療 はじめて FDA 生成AI 医療機器 医療AI GenAI foundation model AIエージェント 市販後監視 規制リテラシー 健康・医療分野のAIサービスを利用する人 「FDA認可」「FDA承認」と書かれたAI製品を見かけた人 医療AIのニュースを読む人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">medical-ai-lifecycle</span>
+              <div>
+                <p>FDA文書はまだ新ルールではない</p>
+                <h3>FDAが生成AI搭載医療機器の論点整理を公開。「新ルール決定」ではない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-28">2026.08.28</time>
+              <span>健康・医療</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">米食品医薬品局（FDA）は2026年8月18日、生成AIを組み込んだ医療機器について、リスク評価、市販前評価、市販後監視などをどう設計するか意見を募るディスカッションペーパーを公開しました。重要なのは、これは新しい規則やガイダンスの決定ではなく、FDA自身が「draft or final guidanceではない」「政策変更を提案・実施するものではない」と明記している点です。さらにFDAが検討対象としているのは生成AIそのものではなく、米国法上のmedical deviceに該当する製品・ソフトウェア機能です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>規制文書の段階と個別製品の許可を分ける</span>
+            </div>
+            <ul class="forensics-card-audience"><li>健康・医療分野のAIサービスを利用する人</li><li>「FDA認可」「FDA承認」と書かれたAI製品を見かけた人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>FDA</li><li>生成AI</li><li>医療機器</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260826-03" data-forensics-card data-category="media-literacy" data-level="5" data-difficulty="standard" data-search-text="専門家一覧・論文・独自指数まで揃っていた。偽シンクタンクを見抜く4つの確認先 「研究機関らしさ」は証拠にならない OpenAIは2026年8月25日、International Burke Institute（IBI）という自称「専門家コミュニティ」を宣伝していたChatGPTアカウント群を停止し、その背後にあった影響工作について調査結果を公表しました。特徴的だったのは、AI生成文章の巧妙さよりも、「研究機関らしく見える土台」が作られていたことです。OpenAIがIBIサイト上の専門家に紐づく36本の記事を抽出確認したところ34本が他サイトからの転載で、一部は著者名まで誤って付け替えられていました。サイトには著名な専門家、研究記事、独自の「sovereignty index」まで並んでいましたが、OpenAIによるとChatGPTの主な用途はサイト本文の生成ではなく、そのサイトをSNSで宣伝する投稿の作成でした。つまり「文章がAI製か」を調べるだけでは、このタイプの情報工作を十分に見抜けません。研究機関の実在性、専門家本人との関係、論文の原著者、外部機関との提携実績を外側から確認する方が有効です。 情報の見極め 標準 偽シンクタンク International Burke Institute OpenAI 影響工作 情報源確認 研究機関 論文盗用 専門家 SNS ファクトチェック 研究機関・専門家サイトを情報源として使う人 生成AIでニュースや調査レポートを作る人 SNSで専門家の解説や調査結果を共有する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">fake-thinktank-external-verification</span>
+              <div>
+                <p>「研究機関らしさ」は証拠にならない</p>
+                <h3>専門家一覧・論文・独自指数まで揃っていた。偽シンクタンクを見抜く4つの確認先</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年8月25日、International Burke Institute（IBI）という自称「専門家コミュニティ」を宣伝していたChatGPTアカウント群を停止し、その背後にあった影響工作について調査結果を公表しました。特徴的だったのは、AI生成文章の巧妙さよりも、「研究機関らしく見える土台」が作られていたことです。OpenAIがIBIサイト上の専門家に紐づく36本の記事を抽出確認したところ34本が他サイトからの転載で、一部は著者名まで誤って付け替えられていました。サイトには著名な専門家、研究記事、独自の「sovereignty index」まで並んでいましたが、OpenAIによるとChatGPTの主な用途はサイト本文の生成ではなく、そのサイトをSNSで宣伝する投稿の作成でした。つまり「文章がAI製か」を調べるだけでは、このタイプの情報工作を十分に見抜けません。研究機関の実在性、専門家本人との関係、論文の原著者、外部機関との提携実績を外側から確認する方が有効です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>サイト内ではなく「外側の一次情報」から逆引き</span>
+            </div>
+            <ul class="forensics-card-audience"><li>研究機関・専門家サイトを情報源として使う人</li><li>生成AIでニュースや調査レポートを作る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>偽シンクタンク</li><li>International Burke Institute</li><li>OpenAI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="ex2" data-forensics-card data-category="security" data-level="1" data-difficulty="beginner" data-search-text="Geminiの「アクティビティ保存オフ」＝即時削除ではない。72時間保持を知っておこう Geminiの保存オフと72時間 GoogleのGemini Apps Privacy Hubでは、Geminiの「アクティビティの保存」をオフにした場合や一時チャットを利用した場合でも、チャットは72時間アカウントに保持されると説明されています。一方、一時チャットはGoogleのAIモデルのトレーニングには使用されません。初心者が覚えておきたいのは、「履歴に残らない」「学習に使われない」「即座にデータが消える」は別の話だということです。 セキュリティ・権限 はじめて Gemini プライバシー アクティビティ 一時チャット データ保存 初心者 個人のGoogleアカウントでGeminiを使う人 生成AIへ入力する情報の扱いが気になる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">privacy-settings</span>
+              <div>
+                <p>Geminiの保存オフと72時間</p>
+                <h3>Geminiの「アクティビティ保存オフ」＝即時削除ではない。72時間保持を知っておこう</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">GoogleのGemini Apps Privacy Hubでは、Geminiの「アクティビティの保存」をオフにした場合や一時チャットを利用した場合でも、チャットは72時間アカウントに保持されると説明されています。一方、一時チャットはGoogleのAIモデルのトレーニングには使用されません。初心者が覚えておきたいのは、「履歴に残らない」「学習に使われない」「即座にデータが消える」は別の話だということです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 1</strong>
+              <span>使う前に保存設定を1か所確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>個人のGoogleアカウントでGeminiを使う人</li><li>生成AIへ入力する情報の扱いが気になる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>プライバシー</li><li>アクティビティ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260828-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260829-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
