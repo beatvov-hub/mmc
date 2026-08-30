@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGPTの強化アカウント保護、設定前に復旧キーを置く場所を決める｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="OpenAIは2026年4月30日、ChatGPTの個人アカウント向けに、Advanced Account Securityという任意の強化保護を導入しました。設定するとパスワード、メール・SMSのサインインコード、メールによるアカウント復旧が無効になり、パスキーまたはFIDO対応のセキュリティキーと復旧キーでアクセスを守ります。利用者にとって重要なのは、有効化ボタンを押す前に、端末を失っても使える二つ以上の認証手段と、復旧キーの安全な保管先を用意することです。すべての認証手段と復旧キーを失うと、通常のメール復旧やサポートによる解除には頼れません。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260830-01" />
+<meta property="og:title" content="ChatGPTの強化アカウント保護、設定前に復旧キーを置く場所を決める｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="OpenAIは2026年4月30日、ChatGPTの個人アカウント向けに、Advanced Account Securityという任意の強化保護を導入しました。設定するとパスワード、メール・SMSのサインインコード、メールによるアカウント復旧が無効になり、パスキーまたはFIDO対応のセキュリティキーと復旧キーでアクセスを守ります。利用者にとって重要なのは、有効化ボタンを押す前に、端末を失っても使える二つ以上の認証手段と、復旧キーの安全な保管先を用意することです。すべての認証手段と復旧キーを失うと、通常のメール復旧やサポートによる解除には頼れません。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260830-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>ChatGPT強化保護は復旧キーから準備する</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-08-30">2026.08.30</time>
+            </div>
+            <h1>ChatGPTの強化アカウント保護、設定前に復旧キーを置く場所を決める</h1>
+            <p>OpenAIは2026年4月30日、ChatGPTの個人アカウント向けに、Advanced Account Securityという任意の強化保護を導入しました。設定するとパスワード、メール・SMSのサインインコード、メールによるアカウント復旧が無効になり、パスキーまたはFIDO対応のセキュリティキーと復旧キーでアクセスを守ります。利用者にとって重要なのは、有効化ボタンを押す前に、端末を失っても使える二つ以上の認証手段と、復旧キーの安全な保管先を用意することです。すべての認証手段と復旧キーを失うと、通常のメール復旧やサポートによる解除には頼れません。</p>
+            <ul class="forensics-target-list"><li>ChatGPTやCodexに仕事・個人の重要な情報を保存している人</li><li>パスキーや物理セキュリティキーを使える人</li><li>アカウント乗っ取り対策を強めたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>ChatGPT</li><li>Codex</li><li>アカウントセキュリティ</li><li>パスキー</li><li>セキュリティキー</li><li>復旧キー</li><li>二段階認証</li><li>アカウント乗っ取り</li><li>OpenAI</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>二つの認証手段、復旧キーの保管先、無効になる復旧経路を確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>有効化前に、①Securityに設定が表示されるか、②端末をまたいで使えるものを含む二つの認証手段があるか、③復旧キーを認証端末と別の安全な場所へ置けるか、④メール・SMS・パスワード復旧に戻れないことを理解したか、の順で確認します。設定後は全端末で再ログインできることも試します。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>仕事用のノートPCでChatGPTを使っており、SettingsのSecurityにAdvanced Account Securityが表示された</h3><p>アカウントへの不正アクセスを心配し、すぐ有効にしようとしています。ただし、パスキーは現在のPCだけに保存されており、予備端末や物理キーはありません。復旧キーが表示されることは知っていますが、どこへ保管するかは決めていません。OpenAIの案内では、設定には少なくとも二つの安全なサインイン方法が必要で、そのうち一つは端末をまたいで使える必要があります。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>強い保護は、攻撃者だけでなく本人にとっても復旧経路を狭くします。設定前に認証手段を二系統にし、復旧キーを端末と別の安全な場所へ保管しておけば、PCの故障・紛失・機種変更があっても、強い保護を保ったまま自分のアカウントへ戻れます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="two-methods-and-recovery-keys">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Advanced Account Securityを有効にする前の準備として、最も適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="two-methods-and-recovery-keys" data-choice-id="two-methods-and-recovery-keys" />
+                <span>
+                  <strong>端末をまたいで使えるものを含む二つ以上の認証手段を用意し、復旧キーを安全な別の場所へ保管する</strong>
+                  <small>普段使う端末を失っても、別の手段でサインインまたは復旧できるようにする。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="single-device-passkey" data-choice-id="single-device-passkey" />
+                <span>
+                  <strong>今のPCだけに保存したパスキー一つで、すぐ有効化する</strong>
+                  <small>端末故障や紛失時の経路を用意しない。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="screenshot-recovery-key" data-choice-id="screenshot-recovery-key" />
+                <span>
+                  <strong>復旧キーをスクリーンショットで撮り、同じPCのデスクトップに保存する</strong>
+                  <small>認証手段と復旧キーを同じ障害や盗難の影響下に置く。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="support-will-reset" data-choice-id="support-will-reset" />
+                <span>
+                  <strong>忘れた時はメール認証かサポートに設定解除を頼めるので、復旧キーは保存しない</strong>
+                  <small>強化保護中の復旧制限を考慮しない。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>端末をまたいで使えるものを含む二つ以上の認証手段を用意し、復旧キーを安全な別の場所へ保管する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>OpenAIは、設定前に端末をまたいで使えるものを含む少なくとも二つの安全なサインイン方法と、復旧キーの保管を求めています。強化保護中は通常のSMS・メール復旧が無効で、全認証手段と復旧キーを失うとアカウントへアクセスできなくなる可能性があります。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>自分のアカウントが対象か、SettingsのSecurityで確認する</h3>
+              <p>Advanced Account Securityは対象地域の個人ChatGPTアカウント向けです。Enterprise管理下のアカウントや確認済みドメインと結び付いたアカウントでは利用できません。Securityに表示されない場合、そのアカウントではまだ利用できません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>認証手段を二つ用意し、一つは端末をまたいで使えるものにする</h3>
+              <p>OpenAIは、パスキーとFIDO対応の物理セキュリティキー、またはその組み合わせを案内しています。一台だけに保存したパスキーは要件を満たさないことがあります。同期パスキーや予備の物理キーなど、別の端末でも使える手段を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>復旧キーを認証端末とは別の安全な保管先へ置く</h3>
+              <p>復旧キーは各キーを一度だけ使え、認証手段を失った時の復旧に使います。PC内の同じ場所、メール下書き、誰でも開ける共有フォルダだけに置くのではなく、端末紛失と同時に失わない安全な保管方法を決めます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>有効化後に使えなくなる復旧経路を確認する</h3>
+              <p>有効化するとパスワードでのサインイン、メール・SMSコード、メールによるアカウント復旧が無効になります。OpenAI Supportも、通常のアクセスを戻すためにパスワードをリセットしたり、設定を解除したり、認証手段を追加・削除したりはできません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>有効化後は全端末からサインアウトされる前提で、再ログインを試す</h3>
+              <p>初期設定の後は全端末からサインアウトされます。普段使うPC・スマートフォンで、実際にパスキーまたはセキュリティキーを使って戻れることを確認し、SecurityのActive sessionsでセッションも見直します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>復旧キーに不安が出た時は、失う前に置き換える</h3>
+              <p>復旧キーを紛失した、または他者に見られた可能性がある時は、SettingsのSecurityからAdvanced Account Securityを開き、Recovery keysのManageで置き換えます。置き換えると古いキーは無効になります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>強化保護は、認証手段と復旧キーを失わない準備ができた時だけ有効にする</strong><p>Advanced Account Securityは、パスワードやメール・SMSによる弱い復旧経路を無効にして、ChatGPTとCodexのアカウントを強く守る設定です。その代わり、本人がすべての認証手段と復旧キーを失った場合にも、通常のサポート復旧には頼れません。二つの認証手段と独立した復旧キー保管を先に整え、有効化後の再ログインまで確認して初めて、保護と使い続けやすさが両立します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>SettingsのSecurityで、Advanced Account Securityが自分のアカウントに表示されるか確認する</strong><span>対象となる個人アカウントだけで利用でき、Enterprise管理下などでは利用できません。</span></li>
+            <li><strong>同期可能なパスキーと予備のFIDO対応キーなど、二つの安全な認証手段を準備する</strong><span>OpenAIは、端末をまたいで使えるものを含む二つ以上の認証手段を設定条件としています。</span></li>
+            <li><strong>復旧キーを表示された時に保存し、認証端末とは別の安全な保管先を使う</strong><span>認証手段を失った時の復旧には復旧キーが必要で、各キーは一度しか使えません。</span></li>
+            <li><strong>有効化後、全端末から再ログインできることと、Active sessionsを確認する</strong><span>初期設定の後は全端末からサインアウトされ、セッションも短くなります。</span></li>
+            <li><strong>復旧キーの紛失・漏えいが疑われたら、すぐ置き換える</strong><span>Recovery keysのManageから置き換えると、古いキーを無効にできます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>一台のPCだけにあるパスキー一つで、有効化を完了させる</strong><span>端末故障・紛失時にアクセス手段を同時に失うためです。</span></li>
+            <li><strong>復旧キーを認証端末のデスクトップや同じメールアカウントだけに保存する</strong><span>端末やメールアカウントへのアクセスを失った時、認証手段と復旧キーを同時に失うおそれがあります。</span></li>
+            <li><strong>強化保護中でも、メール・SMS・サポートで通常どおり復旧できると考える</strong><span>この設定ではこれらの復旧経路が無効になり、サポートも通常アクセスを戻すための設定操作はできません。</span></li>
+            <li><strong>知らない端末のセッションを見つけても、設定だけ有効にして放置する</strong><span>SecurityのActive sessionsで個別または全端末のセッションを終了し、既存アクセスを確認する必要があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>重要なAI作業を守りながら、端末の入れ替えにも備える</h3>
+          <p>研究メモ、顧客向けの下書き、接続したツールの文脈など、ChatGPTアカウントには時間をかけて蓄積した情報があります。強化保護を使うなら、普段のPCで使うパスキー、移動中にも使える予備手段、緊急時の復旧キーを役割ごとに分けます。これは不正ログインへの抵抗を上げるだけでなく、機種変更や故障の時に作業を止めないための準備にもなります。</p>
+          <ul class="positive-example-list"><li>同期パスキーを日常のサインインに使い、予備としてFIDO対応の物理キーを用意する</li><li>復旧キーを端末と別に保管し、保管場所を本人だけが分かる方法で管理する</li><li>設定直後にPCとスマートフォンの両方で再ログインを確認する</li><li>月に一度、SecurityのActive sessionsで利用端末を見直す</li><li>端末を売却・譲渡する前に、古い端末のパスキーとセッションを確認する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>強い認証は、鍵を増やすことではなく、「自分が鍵をなくした時にも誰が開けられるか」を先に決めることです。メールやSMSを復旧経路から外すのは、攻撃者にとっての近道を閉じる代わりに、本人にも近道を残さない選択です。だから復旧キーは単なる控えではありません。端末を壊した日、機種を替えた日、旅行先で手元のキーを失くした日に、アカウントを自分の手元へ戻すための最後の鍵になります。設定画面で最初に考えるべきは保護の強さではなく、その鍵をどこで守るかです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>強化保護は、復旧キーの保管先を決めてから有効にする。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://openai.com/index/advanced-account-security/" target="_blank" rel="noopener noreferrer">Introducing Advanced Account Security<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI</span>
+              <span>公式発表</span>
+              <time datetime="2026-04-30">2026-04-30</time>
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/20001221" target="_blank" rel="noopener noreferrer">Advanced Account Security<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>公式発表</span>
+              <span aria-hidden="true"></span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260829-03" data-forensics-card data-category="health-ai" data-level="4" data-difficulty="standard" data-search-text="ChatGPT Healthへ医療データをつなぐ前に、接続範囲と利用地域を確認する ChatGPT Healthへつなぐ医療データを決める OpenAIは2026年7月23日、米国の対象ユーザー向けにChatGPT Healthを開始し、Apple Healthや対応する医療記録を利用者が選んで接続できるようにしたと発表しました。接続した情報は、検査結果の比較、受診前の質問整理、活動・睡眠の傾向確認などに使えますが、Healthは診断や治療の代替ではありません。接続前には、自分のアカウントが対象地域・年齢・端末の条件を満たすか、どの提供元のどのデータを渡すか、回答に使うたびの許可を残すかを確認します。日本では医療記録連携の対象外である可能性を前提に、画面上で利用可否を確かめてから進めます。 健康・医療 標準 ChatGPT Health 医療データ Apple Health 医療記録 プライバシー 健康AI 受診準備 データ連携 OpenAI 検査結果や診察履歴をChatGPTで整理したい人 Apple Healthや医療機関の患者ポータルを利用している人 健康情報をAIへ連携する前に範囲を決めたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chatgpt-health-connection-scope</span>
+              <div>
+                <p>ChatGPT Healthへつなぐ医療データを決める</p>
+                <h3>ChatGPT Healthへ医療データをつなぐ前に、接続範囲と利用地域を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-29">2026.08.29</time>
+              <span>健康・医療</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年7月23日、米国の対象ユーザー向けにChatGPT Healthを開始し、Apple Healthや対応する医療記録を利用者が選んで接続できるようにしたと発表しました。接続した情報は、検査結果の比較、受診前の質問整理、活動・睡眠の傾向確認などに使えますが、Healthは診断や治療の代替ではありません。接続前には、自分のアカウントが対象地域・年齢・端末の条件を満たすか、どの提供元のどのデータを渡すか、回答に使うたびの許可を残すかを確認します。日本では医療記録連携の対象外である可能性を前提に、画面上で利用可否を確かめてから進めます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>地域・接続先・回答への利用・削除手順を接続前に分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>検査結果や診察履歴をChatGPTで整理したい人</li><li>Apple Healthや医療機関の患者ポータルを利用している人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT Health</li><li>医療データ</li><li>Apple Health</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260828-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="一時チャットは「記憶なし」だけではない。開始前に選ぶパーソナライズと保存後の変化 一時チャットは開始前の設定で変わる OpenAIは2026年8月27日、ChatGPTのTemporary Chatで、開始時にパーソナライズの有無を選べるようにしたと案内しました。既定の非パーソナライズは既存Memory、Custom Instructions、Pluginsを使いませんが、パーソナライズを選ぶとそれらを参照して回答を整えられます。どちらのTemporary Chatも新しいMemoryを作らず、保存するまで履歴には出ません。ただし開始後にこの選択は変更できず、保存すると通常チャットになり、アカウントのパーソナライズやモデル改善の設定が適用されます。つまり「一時」と表示されていることだけで決めず、過去の設定や接続ツールを使う必要があるか、保存する可能性があるかを開始前に分けて選ぶ必要があります。 仕事・AI活用 はじめて ChatGPT Temporary Chat Memory Custom Instructions Plugins データ設定 一時チャット 業務利用 ChatGPTで一時的な下書きや相談をする人 過去の好み・カスタム指示・プラグインを使うか迷う人 一時チャットを後から保存することがある人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">temporary-chat-settings</span>
+              <div>
+                <p>一時チャットは開始前の設定で変わる</p>
+                <h3>一時チャットは「記憶なし」だけではない。開始前に選ぶパーソナライズと保存後の変化</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-28">2026.08.28</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年8月27日、ChatGPTのTemporary Chatで、開始時にパーソナライズの有無を選べるようにしたと案内しました。既定の非パーソナライズは既存Memory、Custom Instructions、Pluginsを使いませんが、パーソナライズを選ぶとそれらを参照して回答を整えられます。どちらのTemporary Chatも新しいMemoryを作らず、保存するまで履歴には出ません。ただし開始後にこの選択は変更できず、保存すると通常チャットになり、アカウントのパーソナライズやモデル改善の設定が適用されます。つまり「一時」と表示されていることだけで決めず、過去の設定や接続ツールを使う必要があるか、保存する可能性があるかを開始前に分けて選ぶ必要があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>開始時設定と保存後の扱いを分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTで一時的な下書きや相談をする人</li><li>過去の好み・カスタム指示・プラグインを使うか迷う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>Temporary Chat</li><li>Memory</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260828-04" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="ChatGPTが未成年向け設定になったら？ SettingsのAccountで「Verify age」を選ぶ前に確認すること 未成年向け設定になった時の確認手順 OpenAIは、ChatGPTがアカウントの利用時刻、利用パターン、作成時期、申告年齢などの信号から、18歳未満の可能性を推定し、該当するとChatGPT for Teensの保護を自動で有効にする場合があると案内しています。アカウントは停止されず、18歳以上なのに誤って適用された場合だけ、Web版のSettingsにあるAccountからVerify ageを選び、Personaによる年齢確認を始められます。つまり、未成年向けの保護が表示された時に最初に確認すべきなのは「使えなくなったか」ではなく、自分が18歳以上で誤判定を解消したいのか、保護を維持したまま使うのか、保護者連携の設定を見直すのかです。 セキュリティ・権限 はじめて ChatGPT ChatGPT for Teens 年齢推定 年齢確認 Persona 保護者設定 アカウント設定 未成年者保護 ChatGPTがChatGPT for Teensの対象になったと表示された人 18歳以上なのに年齢による保護が適用された人 子どものChatGPT利用で保護者設定を確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chatgpt-age-settings-guide</span>
+              <div>
+                <p>未成年向け設定になった時の確認手順</p>
+                <h3>ChatGPTが未成年向け設定になったら？ SettingsのAccountで「Verify age」を選ぶ前に確認すること</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-28">2026.08.28</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは、ChatGPTがアカウントの利用時刻、利用パターン、作成時期、申告年齢などの信号から、18歳未満の可能性を推定し、該当するとChatGPT for Teensの保護を自動で有効にする場合があると案内しています。アカウントは停止されず、18歳以上なのに誤って適用された場合だけ、Web版のSettingsにあるAccountからVerify ageを選び、Personaによる年齢確認を始められます。つまり、未成年向けの保護が表示された時に最初に確認すべきなのは「使えなくなったか」ではなく、自分が18歳以上で誤判定を解消したいのか、保護を維持したまま使うのか、保護者連携の設定を見直すのかです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>年齢推定・年齢確認・保護者連携を別々に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTがChatGPT for Teensの対象になったと表示された人</li><li>18歳以上なのに年齢による保護が適用された人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>ChatGPT for Teens</li><li>年齢推定</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260829-01">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
