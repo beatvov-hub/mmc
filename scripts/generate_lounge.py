@@ -604,16 +604,16 @@ def render_log_article(log: dict, prefix: str, latest: bool = False, daily: bool
     ]
     if latest:
         lines.append(f'        <a class="lounge-log-link" href="{esc(archive_href(log))}">この会話を個別ページで読む</a>')
-        event_link = log.get("eventLink")
-        if isinstance(event_link, dict) and event_link.get("href") and event_link.get("label"):
-            href = str(event_link["href"])
-            if not href.startswith(("http://", "https://", "/")):
-                href = prefix + href
-            lines.append(f'        <a class="lounge-log-link lounge-event-log-link" href="{esc(href)}">{esc(event_link["label"])}</a>')
     elif daily:
         lines.append(f'        <a class="lounge-log-link" href="#top">この日の先頭へ戻る</a>')
     else:
         lines.append('        <a class="lounge-log-link" href="../lounge.html">ラウンジトップに戻る</a>')
+    event_link = log.get("eventLink")
+    if isinstance(event_link, dict) and event_link.get("href") and event_link.get("label"):
+        href = str(event_link["href"])
+        if not href.startswith(("http://", "https://", "/")):
+            href = prefix + href
+        lines.append(f'        <a class="lounge-log-link lounge-event-log-link" href="{esc(href)}">{esc(event_link["label"])}</a>')
     lines.append(f"      </{section_tag}>")
     return "\n".join(lines)
 
