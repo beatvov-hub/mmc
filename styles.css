@@ -3316,6 +3316,14 @@ body.subpage { padding-top: 88px; }
 .employee-event-illustration-placeholder { display: grid; place-items: center; min-height: 180px; margin-top: 10px; padding: 24px; border: 1px dashed #c9ae8c; border-radius: 8px; background: rgba(255,248,238,.68); color: var(--muted); text-align: center; }
 .employee-event-illustration-placeholder span { color: var(--coffee); font-size: .78rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
 .employee-event-illustration-placeholder p { margin: 8px 0 0; line-height: 1.75; }
+.employee-event-results { overflow-x: auto; border: 1px solid #dfc9a9; border-radius: 8px; background: #fffdf8; }
+.employee-event-results table { width: 100%; min-width: 620px; border-collapse: collapse; color: var(--ink); font-size: .93rem; }
+.employee-event-results caption { padding: 16px 18px 10px; color: var(--green); font-size: 1.05rem; font-weight: 900; text-align: left; }
+.employee-event-results th, .employee-event-results td { padding: 12px 14px; border-top: 1px solid #eadbc9; text-align: left; white-space: nowrap; }
+.employee-event-results th { color: var(--coffee); font-size: .76rem; letter-spacing: .06em; }
+.employee-event-results tbody tr:first-child { background: #fff3cf; font-weight: 900; }
+.employee-event-results tbody tr:nth-child(2) { background: rgba(230,236,239,.48); }
+.employee-event-results tbody tr:nth-child(3) { background: rgba(244,229,210,.58); }
 .employee-event-back { display: inline-flex; margin-top: 26px; color: var(--green); font-weight: 900; }
 .employee-event-back::before { content: "←"; margin-right: 8px; }
 .lounge-log-link {
