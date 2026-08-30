@@ -3316,6 +3316,10 @@ body.subpage { padding-top: 88px; }
 .employee-event-illustration-placeholder { display: grid; place-items: center; min-height: 180px; margin-top: 10px; padding: 24px; border: 1px dashed #c9ae8c; border-radius: 8px; background: rgba(255,248,238,.68); color: var(--muted); text-align: center; }
 .employee-event-illustration-placeholder span { color: var(--coffee); font-size: .78rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
 .employee-event-illustration-placeholder p { margin: 8px 0 0; line-height: 1.75; }
+.employee-event-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.employee-event-gallery figure { margin: 0; overflow: hidden; border: 1px solid #e2d1bb; border-radius: 8px; background: #fffdf8; }
+.employee-event-gallery img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.employee-event-gallery figcaption { padding: 11px 13px; color: var(--muted); font-size: .86rem; font-weight: 800; line-height: 1.65; }
 .employee-event-results { overflow-x: auto; border: 1px solid #dfc9a9; border-radius: 8px; background: #fffdf8; }
 .employee-event-results table { width: 100%; min-width: 620px; border-collapse: collapse; color: var(--ink); font-size: .93rem; }
 .employee-event-results caption { padding: 16px 18px 10px; color: var(--green); font-size: 1.05rem; font-weight: 900; text-align: left; }
@@ -4094,7 +4098,8 @@ body.has-night-lounge { overflow: hidden; }
   .employee-event-scene,
   .lounge-events-promo { padding: 22px; }
   .employee-event-grid,
-  .employee-event-meta { grid-template-columns: 1fr; }
+  .employee-event-meta,
+  .employee-event-gallery { grid-template-columns: 1fr; }
   .event-member-chip { min-width: min(100%, 190px); }
   .employee-event-scene__header { display: grid; gap: 4px; }
 }
