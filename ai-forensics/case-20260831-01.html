@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Google Meetの文字起こし、開始前に「誰のDriveへ保存され、誰が読めるか」を決める｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="GoogleはGoogle Meetの公式ヘルプで、文字起こしを有効にすると記録は会議主催者のGoogle Drive内に保存され、会議後には主催者・共同主催者・開始した人へリンクがメール送信されると案内しています。カレンダー予定の添付ファイルとしては、主催者の組織内の招待者も開ける場合があります。会議中に文字起こしを始める前に、誰のDriveへ残るか、社外参加者を含めて誰が読む必要があるかを決めておくと、AI議事録を便利に使いながら共有範囲の思い込みを減らせます。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260831-01" />
+<meta property="og:title" content="Google Meetの文字起こし、開始前に「誰のDriveへ保存され、誰が読めるか」を決める｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="GoogleはGoogle Meetの公式ヘルプで、文字起こしを有効にすると記録は会議主催者のGoogle Drive内に保存され、会議後には主催者・共同主催者・開始した人へリンクがメール送信されると案内しています。カレンダー予定の添付ファイルとしては、主催者の組織内の招待者も開ける場合があります。会議中に文字起こしを始める前に、誰のDriveへ残るか、社外参加者を含めて誰が読む必要があるかを決めておくと、AI議事録を便利に使いながら共有範囲の思い込みを減らせます。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260831-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>会議文字起こしは保存先と閲覧者を先に決める</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+              <time datetime="2026-08-31">2026.08.31</time>
+            </div>
+            <h1>Google Meetの文字起こし、開始前に「誰のDriveへ保存され、誰が読めるか」を決める</h1>
+            <p>GoogleはGoogle Meetの公式ヘルプで、文字起こしを有効にすると記録は会議主催者のGoogle Drive内に保存され、会議後には主催者・共同主催者・開始した人へリンクがメール送信されると案内しています。カレンダー予定の添付ファイルとしては、主催者の組織内の招待者も開ける場合があります。会議中に文字起こしを始める前に、誰のDriveへ残るか、社外参加者を含めて誰が読む必要があるかを決めておくと、AI議事録を便利に使いながら共有範囲の思い込みを減らせます。</p>
+            <ul class="forensics-target-list"><li>Google Meetで会議を主催する人</li><li>AI議事録や文字起こしを仕事で使い始めた人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Google Meet</li><li>文字起こし</li><li>AI議事録</li><li>会議</li><li>Google Drive</li><li>仕事術</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>開始前に保存先と閲覧者をそろえる</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AI議事録を使う前に、文字起こしの保存先、会議後に読む人、不要になった時の停止役を決めましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>取引先も参加する会議で「あとでAIに要約させよう」と文字起こしをオンにする</h3><p>会議は終わり、主催者には文字起こしへのリンクが届きました。しかし予定表には社内の多くの招待者が入っており、記録を誰が閲覧できる状態なのかを、開始前には誰も決めていませんでした。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>議事録の自動化は書く負担を減らしますが、文字起こしは会議の発言を検索・共有しやすいファイルにもします。開始ボタンを押す人、保存先、閲覧者を分けて確認すると、会議後の共有調整を減らせます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="save-share">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>社外の人もいる会議で文字起こしを始める前に、最初に決めるべきことは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="save-share" data-choice-id="save-share" />
+                <span>
+                  <strong>保存先と、誰が読む必要があるかを決める</strong>
+                  <small>会議記録の保管者と閲覧範囲を開始前にそろえる。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="start-first" data-choice-id="start-first" />
+                <span>
+                  <strong>まず開始し、終わってから必要なら消す</strong>
+                  <small>保存・共有の範囲が不明なまま記録を作る。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ai-summary" data-choice-id="ai-summary" />
+                <span>
+                  <strong>AI要約なら原文は保存されないと考える</strong>
+                  <small>要約機能と文字起こしファイルの保存を混同する。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>保存先と、誰が読む必要があるかを決める</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Google Meetでは、文字起こしは主催者のDriveへ保存され、メールやカレンダー予定を通じてアクセスされる場合があります。記録の有無だけでなく、保管者と閲覧者を会議目的に合わせて決めてから使うのが実務的です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>文字起こしを開始する人と会議主催者</h3>
+              <p>誰のDriveに保存されるかを、会議設定と合わせて確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>会議後に読む必要がある人</h3>
+              <p>共同主催者、社内招待者、社外参加者のうち、記録を共有すべき対象を決めます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>会議で扱う情報の性質</h3>
+              <p>顧客情報、契約交渉、未公開情報などを扱う場合は、組織の保存・共有ルールも確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>記録を止める役割</h3>
+              <p>話題が変わる時や不要になった時に、誰が文字起こしを停止するかを決めます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>文字起こしは便利。ただし会議の参加者リストと共有先は別に設計する</strong><p>Google Meetの文字起こしは、会議内容を後から確認しやすくする機能です。一方で、保存先と閲覧範囲は会議の参加人数だけから自動的に判断できません。開始前のひとこと確認で、記録の価値を保ちながら共有ミスを減らせます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>会議招待を送る時に、文字起こしの有無と保管者を決める</strong><span>会議中に慌てて設定するより、参加者への説明と権限確認をしやすくなります。</span></li>
+            <li><strong>会議後に文字起こしの共有先を確認する</strong><span>必要な人へ届いているか、不要な範囲に広がっていないかを見直せます。</span></li>
+            <li><strong>要約を配る前に原文との対応を確認する</strong><span>AIの要約は便利ですが、決定事項や担当を記録と照らせます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>文字起こしは会議画面だけに一時表示されると思い込む</strong><span>保存先や共有経路を確認しないと、会議後の扱いを誤るおそれがあります。</span></li>
+            <li><strong>社外参加者がいる会議で、共有範囲を決めずに開始する</strong><span>記録を誰に渡すべきかを会議後に判断すると、調整が難しくなります。</span></li>
+            <li><strong>AI要約だけを見て、重要な決定を確定する</strong><span>文字起こしや参加者の確認が必要な場合があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>会議の聞き漏らしを減らし、参加者は対話へ集中する</h3>
+          <p>保存先と共有先を整えた文字起こしは、議事録作成の負担を下げ、欠席者への説明や決定事項の確認にも役立ちます。</p>
+          <ul class="positive-example-list"><li>会議後に主催者が要点を確認する</li><li>決定事項だけを短く共有する</li><li>担当者が自分のタスクを記録で確認する</li><li>必要な範囲で要約を共有する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>会議の文字起こしは、始める瞬間より会議が終わった後の方が大事です。誰のDriveに残り、誰が読めるのかを後回しにすると、せっかくの議事録が確認しにくいファイルになります。私は「記録を作る人」と「受け取る人」を、開始前に一度分けて考えるのがおすすめです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>会議のAI文字起こしは、開始前に保存先と閲覧者を決める。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/meet/answer/12849897?hl=en-GB" target="_blank" rel="noopener noreferrer">Use Transcripts with Google Meet<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Meet Help</span>
+              <span>公式発表</span>
+              
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260829-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Gemini Notebookの利用上限に達したら？ 重い生成を後回しにする段取り Gemini Notebookの上限は生成順序で使い分ける Googleは2026年8月28日、Gemini Notebookに、作業内容に応じて消費量が変わる新しい利用上限を導入すると発表しました。プロンプトの複雑さ、会話の長さ、ソース数、使う機能が全体の上限に影響し、上限は毎日ではなく5時間ごとに更新されます。利用者にとって大切なのは、重い出力を最初に何度も試すことではなく、調査・会話・出力の順序を決め、必要ならVideo OverviewやSlide Deckを後で自動生成する選択を使い分けることです。消費者向けWeb・モバイルへの提供開始は9月2日予定で、利用できる時期や画面はアカウントによって異なる可能性があります。 仕事・AI活用 標準 Gemini Notebook 利用上限 生成AI Video Overview Slide Deck 資料作成 AI活用 通知 Google Gemini Notebookで資料や複数ソースを使っている人 AIでスライドや動画の要約を作る人 生成AIの利用上限で作業が止まった経験がある人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gemini-notebook-workflow-priority</span>
+              <div>
+                <p>Gemini Notebookの上限は生成順序で使い分ける</p>
+                <h3>Gemini Notebookの利用上限に達したら？ 重い生成を後回しにする段取り</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-29">2026.08.29</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年8月28日、Gemini Notebookに、作業内容に応じて消費量が変わる新しい利用上限を導入すると発表しました。プロンプトの複雑さ、会話の長さ、ソース数、使う機能が全体の上限に影響し、上限は毎日ではなく5時間ごとに更新されます。利用者にとって大切なのは、重い出力を最初に何度も試すことではなく、調査・会話・出力の順序を決め、必要ならVideo OverviewやSlide Deckを後で自動生成する選択を使い分けることです。消費者向けWeb・モバイルへの提供開始は9月2日予定で、利用できる時期や画面はアカウントによって異なる可能性があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>成果物の優先順位、延期の選択、更新時刻を分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Gemini Notebookで資料や複数ソースを使っている人</li><li>AIでスライドや動画の要約を作る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini Notebook</li><li>利用上限</li><li>生成AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260828-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="一時チャットは「記憶なし」だけではない。開始前に選ぶパーソナライズと保存後の変化 一時チャットは開始前の設定で変わる OpenAIは2026年8月27日、ChatGPTのTemporary Chatで、開始時にパーソナライズの有無を選べるようにしたと案内しました。既定の非パーソナライズは既存Memory、Custom Instructions、Pluginsを使いませんが、パーソナライズを選ぶとそれらを参照して回答を整えられます。どちらのTemporary Chatも新しいMemoryを作らず、保存するまで履歴には出ません。ただし開始後にこの選択は変更できず、保存すると通常チャットになり、アカウントのパーソナライズやモデル改善の設定が適用されます。つまり「一時」と表示されていることだけで決めず、過去の設定や接続ツールを使う必要があるか、保存する可能性があるかを開始前に分けて選ぶ必要があります。 仕事・AI活用 はじめて ChatGPT Temporary Chat Memory Custom Instructions Plugins データ設定 一時チャット 業務利用 ChatGPTで一時的な下書きや相談をする人 過去の好み・カスタム指示・プラグインを使うか迷う人 一時チャットを後から保存することがある人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">temporary-chat-settings</span>
+              <div>
+                <p>一時チャットは開始前の設定で変わる</p>
+                <h3>一時チャットは「記憶なし」だけではない。開始前に選ぶパーソナライズと保存後の変化</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-28">2026.08.28</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年8月27日、ChatGPTのTemporary Chatで、開始時にパーソナライズの有無を選べるようにしたと案内しました。既定の非パーソナライズは既存Memory、Custom Instructions、Pluginsを使いませんが、パーソナライズを選ぶとそれらを参照して回答を整えられます。どちらのTemporary Chatも新しいMemoryを作らず、保存するまで履歴には出ません。ただし開始後にこの選択は変更できず、保存すると通常チャットになり、アカウントのパーソナライズやモデル改善の設定が適用されます。つまり「一時」と表示されていることだけで決めず、過去の設定や接続ツールを使う必要があるか、保存する可能性があるかを開始前に分けて選ぶ必要があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>開始時設定と保存後の扱いを分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTで一時的な下書きや相談をする人</li><li>過去の好み・カスタム指示・プラグインを使うか迷う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>Temporary Chat</li><li>Memory</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-friendly" href="ex3" data-forensics-card data-category="work-use" data-level="1" data-difficulty="beginner" data-search-text="Copilotでメールを書いたら、そのまま送らない。名前・数字・日付だけ最後に見る AIメールは3点だけ送信前チェック MicrosoftはMicrosoft 365 Copilotの公式ドキュメントで、生成AIの応答は100%事実である保証はなく、他の人へ送信する前に利用者が出力を確認する必要があると説明しています。ただし、毎回全文を一から書き直す必要はありません。初心者ならまず「相手の名前」「数字・金額」「日付・期限」の3点だけを送信前に確認する習慣を付けると、AI下書きの速さを活かしながら実務上の大きなミスを減らせます。 仕事・AI活用 はじめて Microsoft 365 Copilot メール 文章作成 生成AI 仕事術 初心者 生成AIでメールや文章の下書きを作る人 Microsoft 365 Copilotを仕事で使い始めた人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">three-point-review</span>
+              <div>
+                <p>AIメールは3点だけ送信前チェック</p>
+                <h3>Copilotでメールを書いたら、そのまま送らない。名前・数字・日付だけ最後に見る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">MicrosoftはMicrosoft 365 Copilotの公式ドキュメントで、生成AIの応答は100%事実である保証はなく、他の人へ送信する前に利用者が出力を確認する必要があると説明しています。ただし、毎回全文を一から書き直す必要はありません。初心者ならまず「相手の名前」「数字・金額」「日付・期限」の3点だけを送信前に確認する習慣を付けると、AI下書きの速さを活かしながら実務上の大きなミスを減らせます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 1</strong>
+              <span>送信前に3点だけ見る</span>
+            </div>
+            <ul class="forensics-card-audience"><li>生成AIでメールや文章の下書きを作る人</li><li>Microsoft 365 Copilotを仕事で使い始めた人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft 365 Copilot</li><li>メール</li><li>文章作成</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260831-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
