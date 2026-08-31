@@ -49,7 +49,8 @@ export default async function bonusUpload(request) {
   }
 
   const store = getStore(BONUS_STORE_NAME);
-  await store.set(document.blobKey, file, {
+  const bytes = await file.arrayBuffer();
+  await store.set(document.blobKey, bytes, {
     metadata: {
       contentType: "application/pdf",
       originalFilename: file.name,
