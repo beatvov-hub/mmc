@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="googlebot" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="same-origin" />
+    <title>購入者特典ダウンロード｜毎日見る株式会社</title>
+    <link rel="stylesheet" href="bonus.css" />
+  </head>
+  <body>
+    <main class="bonus-page">
+      <section class="bonus-panel" aria-labelledby="bonus-title">
+        <p class="bonus-kicker">MMC Paid Bonus</p>
+        <h1 id="bonus-title">購入者特典ダウンロード</h1>
+        <p class="bonus-lead">有料記事内の合言葉を入力すると、対象PDFをダウンロードできます。</p>
+
+        <form class="bonus-access-form" data-bonus-form novalidate>
+          <label for="bonus-password">合言葉</label>
+          <div class="bonus-access-form__row">
+            <input id="bonus-password" name="password" type="password" autocomplete="current-password" required />
+            <button type="submit">確認する</button>
+          </div>
+          <p class="bonus-status" data-bonus-status aria-live="polite"></p>
+        </form>
+
+        <section class="bonus-documents" data-bonus-documents hidden aria-labelledby="bonus-documents-title">
+          <div>
+            <p class="bonus-kicker">Available Files</p>
+            <h2 id="bonus-documents-title">コトちゃん人格移設実験</h2>
+          </div>
+          <ul>
+            <li>
+              <span>質問プロンプト10問｜コトちゃん編｜3モデル回答比較</span>
+              <button type="button" data-bonus-file="kotocchan-3-model-comparison" data-download-name="2026-08-31_質問プロンプト10問_コトちゃん編_3モデル回答比較.pdf">PDFをダウンロード</button>
+            </li>
+            <li>
+              <span>AI人格移設実験｜事後分析レポート</span>
+              <button type="button" data-bonus-file="kotocchan-persona-transfer-post-analysis" data-download-name="2026-08-31_AI人格移設実験_事後分析レポート.pdf">PDFをダウンロード</button>
+            </li>
+            <li>
+              <span>AI社員実験室｜コトちゃん人格移植実験｜事前メモ</span>
+              <button type="button" data-bonus-file="kotocchan-persona-transfer-preliminary-memo" data-download-name="2026-08-31_AI社員実験室_コトちゃん人格移植実験_事前メモ.pdf">PDFをダウンロード</button>
+            </li>
+          </ul>
+        </section>
+
+        <p class="bonus-note">このページとファイルURLは、検索結果には掲載しません。</p>
+      </section>
+    </main>
+    <script src="bonus.js" defer></script>
+  </body>
+</html>

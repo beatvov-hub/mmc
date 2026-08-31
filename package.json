@@ -1,6 +1,9 @@
 {
   "name": "mainichi-miru-site",
   "private": true,
+  "dependencies": {
+    "@netlify/blobs": "^11.0.2"
+  },
   "scripts": {
     "generate:today-one": "python3 scripts/generate_today_one.py",
     "test:today-one": "python3 -m unittest tests.test_today_one",

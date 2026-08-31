@@ -162,6 +162,12 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 更新履歴
 --------
 
+### 2026-08-31
+
+- 購入者特典用の `bonus/` ページを追加しました。ページは `noindex`、サイトマップ・グローバルナビ非掲載です。
+- `netlify/functions/bonus-download.mjs` とNetlify Blobsを使い、PDFを静的公開せず、合言葉確認後にFunction経由で返す構成にしました。
+- PDFは公開GitHubリポジトリへ追加せず、`scripts/upload_bonus_documents.mjs` からNetlify Blobsへアップロードします。初回設定と更新手順は `docs/bonus-downloads.md` を参照してください。
+
 ### 2026-08-10
 
 - 公開前の体験型コンテンツ `music-room.html` と、専用CSS・JavaScriptを追加しました。
