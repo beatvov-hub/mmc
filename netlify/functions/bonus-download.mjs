@@ -51,7 +51,10 @@ export default async function bonusDownload(request) {
   }
 
   const store = getStore(BONUS_STORE_NAME);
-  const file = await store.get(document.blobKey, { consistency: "strong" });
+  const file = await store.get(document.blobKey, {
+    consistency: "strong",
+    type: "arrayBuffer"
+  });
   if (!file) {
     return jsonResponse(404, { error: "特典ファイルは準備中です。" });
   }
