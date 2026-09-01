@@ -8397,11 +8397,26 @@ img { max-width: 100%; }
 }
 
 .today-one-teaser {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   margin: clamp(24px, 5vw, 72px) 0 clamp(28px, 6vw, 84px);
   padding: clamp(38px, 6vw, 78px) clamp(22px, 7vw, 92px);
   border-top: 1px solid #d9ccb9;
   border-bottom: 1px solid #d9ccb9;
   background: rgba(255,255,255,.48);
+}
+
+.today-one-teaser-art {
+  position: absolute;
+  z-index: -1;
+  top: -46px;
+  right: -40px;
+  width: min(47%, 460px);
+  aspect-ratio: 13 / 9;
+  background: url("image/today-one/selection-network.svg") center / contain no-repeat;
+  opacity: .16;
+  pointer-events: none;
 }
 
 .today-one-teaser-inner {
@@ -8627,6 +8642,12 @@ img { max-width: 100%; }
   .today-one-teaser {
     margin: 24px 0 40px;
     padding: 36px 20px 40px;
+  }
+  .today-one-teaser-art {
+    top: -24px;
+    right: -82px;
+    width: 72%;
+    opacity: .07;
   }
   .today-one-teaser-inner {
     grid-template-columns: 1fr;
