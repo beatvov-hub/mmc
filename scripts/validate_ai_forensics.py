@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import re
 import shutil
@@ -230,7 +231,7 @@ def validate_generated(targets: list[tuple[Path, dict[str, Any]]]) -> list[str]:
             "情報源", *article["tags"], f'<link rel="canonical" href="{BASE_URL}/ai-forensics/{article_id}"',
         ]
         for fragment in required_fragments:
-            if fragment not in page:
+            if fragment not in page and html.escape(fragment, quote=True) not in page:
                 fail(errors, f"{page_path.relative_to(ROOT)}: generated page is missing expected content")
                 break
         for source in article["sources"]:

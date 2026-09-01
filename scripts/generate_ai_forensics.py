@@ -789,14 +789,13 @@ def update_redirects(articles: list[dict[str, Any]]) -> None:
         return
 
     redirects = REDIRECTS_PATH.read_text(encoding="utf-8")
-    old_case_routes = re.compile(
-        r"^/ai-forensics/case-[^\s]+(?:\.html)?\s+/ai-forensics/case-[^\s]+(?:\.html)?\s+(?:200|301)\r?\n?",
+    old_article_routes = re.compile(
+        r"^/ai-forensics/(?:case-[^\s]+|ex\d+)(?:\.html)?\s+/ai-forensics/(?:case-[^\s]+|ex\d+)(?:\.html)?\s+(?:200|301)\r?\n?",
         re.MULTILINE,
     )
-    redirects = old_case_routes.sub("", redirects)
+    redirects = old_article_routes.sub("", redirects)
     block = ["# AI_FORENSICS_REDIRECTS_START"]
-    case_articles = [article for article in articles if str(article.get("id", "")).startswith("case-")]
-    for article in sorted(case_articles, key=lambda item: (item["publishedAt"], item["id"])):
+    for article in sorted(articles, key=lambda item: (item["publishedAt"], item["id"])):
         article_id = article["id"]
         block.append(f"/ai-forensics/{article_id}.html /ai-forensics/{article_id} 301")
         block.append(f"/ai-forensics/{article_id} /ai-forensics/{article_id}.html 200")
