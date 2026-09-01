@@ -717,30 +717,49 @@ def render_page(
 '''
 
 
-def render_teaser(entry: dict | None) -> str:
+def render_teaser(entry: dict | None, members: dict[str, dict[str, str]]) -> str:
     if entry:
-        name_or_state = f'<strong>{esc(entry.get("name", ""))}</strong>'
-        link_label = "今日のひとつを見る"
+        recommendation = entry.get("recommendedFor") or {}
+        member = members.get(str(recommendation.get("employeeId", "")), {})
+        member_name = member.get("name", "")
+        member_role = member.get("role", "")
+        member_html = f'''          <div class="today-one-teaser-for">
+            <span class="today-one-teaser-label">For</span>
+            <strong>{esc(member_name)}</strong>
+            <small>{esc(member_role)}</small>
+          </div>''' if member_name else ""
+        selection_html = f'''          <p class="today-one-teaser-selection">Today's selection</p>
+          <h3>{esc(entry.get("name", ""))}</h3>
+          <p class="today-one-teaser-category">{esc(entry.get("category", ""))}</p>
+          <p class="today-one-teaser-summary">{esc(entry.get("summary", ""))}</p>
+{member_html}
+          <a class="today-one-teaser-link" href="today-one.html">今日のひとつを見る <span aria-hidden="true">→</span></a>'''
+        date_html = f'<time datetime="{esc(entry.get("date", ""))}">{esc(str(entry.get("date", "")).replace("-", "."))}</time>'
     else:
-        name_or_state = "<strong>本日のひとつは、まだ届いていません。</strong>"
-        link_label = "ページを見る"
+        selection_html = '''          <p class="today-one-teaser-selection">Today's selection</p>
+          <h3>本日のひとつは、まだ届いていません。</h3>
+          <p class="today-one-teaser-summary">ケイ、巡回中です。</p>
+          <a class="today-one-teaser-link" href="today-one.html">ページを見る <span aria-hidden="true">→</span></a>'''
+        date_html = '<span class="today-one-teaser-empty-date">Today</span>'
     body = f'''      <section id="today-one-teaser" class="today-one-teaser" aria-labelledby="today-one-teaser-title">
-        <div>
-          <p class="section-kicker">Today's One</p>
-          <h2 id="today-one-teaser-title">今日ひとつ。</h2>
+        <div class="today-one-teaser-inner">
+          <header class="today-one-teaser-heading">
+            <p class="today-one-teaser-eyebrow">AGENT SKILLS LIBRARY</p>
+            {date_html}
+            <h2 id="today-one-teaser-title">今日ひとつ。</h2>
+            <p class="today-one-teaser-lead">AIと働くための道具を、毎日ひとつだけ。</p>
+          </header>
+          <div class="today-one-teaser-selection">
+{selection_html}
+          </div>
         </div>
-        <div class="today-one-teaser-copy">
-          {name_or_state}
-          <p>AIと働くための道具を、毎日ひとつだけ。</p>
-        </div>
-        <a href="today-one.html">{esc(link_label)} <span aria-hidden="true">→</span></a>
       </section>'''
     return f"    {TEASER_START}\n{body}\n    {TEASER_END}\n"
 
 
-def update_index(entry: dict | None) -> None:
+def update_index(entry: dict | None, members: dict[str, dict[str, str]]) -> None:
     html_text = INDEX_PATH.read_text(encoding="utf-8")
-    teaser = render_teaser(entry)
+    teaser = render_teaser(entry, members)
     if TEASER_RE.search(html_text):
         html_text = TEASER_RE.sub(teaser, html_text, count=1)
     else:
@@ -761,7 +780,7 @@ def generate(target_date: date | None = None) -> None:
         render_page(entry, archive_entries, members, target),
         encoding="utf-8",
     )
-    update_index(entry)
+    update_index(entry, members)
 
     ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
     for path in ARCHIVE_DIR.glob("*.html"):

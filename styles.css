@@ -8397,45 +8397,139 @@ img { max-width: 100%; }
 }
 
 .today-one-teaser {
-  display: grid;
-  grid-template-columns: minmax(150px, .55fr) minmax(0, 1.45fr) auto;
-  gap: clamp(20px, 4vw, 54px);
-  align-items: center;
-  margin: 18px 0 10px;
-  padding: 24px 28px;
+  margin: clamp(24px, 5vw, 72px) 0 clamp(28px, 6vw, 84px);
+  padding: clamp(38px, 6vw, 78px) clamp(22px, 7vw, 92px);
   border-top: 1px solid #d9ccb9;
   border-bottom: 1px solid #d9ccb9;
-  background: rgba(255,255,255,.38);
+  background: rgba(255,255,255,.48);
+}
+
+.today-one-teaser-inner {
+  display: grid;
+  grid-template-columns: minmax(220px, .82fr) minmax(0, 1.18fr);
+  gap: clamp(38px, 8vw, 120px);
+  width: min(100%, 920px);
+  margin-inline: auto;
+}
+
+.today-one-teaser-heading {
+  align-self: center;
+  padding-block: 8px;
+}
+
+.today-one-teaser-eyebrow,
+.today-one-teaser-selection,
+.today-one-teaser-label {
+  margin: 0;
+  color: var(--coffee);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.today-one-teaser-heading time,
+.today-one-teaser-empty-date {
+  display: block;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: .78rem;
+  letter-spacing: .12em;
 }
 
 .today-one-teaser h2 {
-  margin: 3px 0 0;
+  margin: 14px 0 22px;
   color: var(--green);
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+  font-weight: 800;
+  letter-spacing: .02em;
 }
 
-.today-one-teaser-copy strong {
-  display: block;
-  overflow-wrap: anywhere;
-  font-size: 1.02rem;
-}
-
-.today-one-teaser-copy p {
-  margin: 4px 0 0;
+.today-one-teaser-lead {
+  max-width: 15rem;
+  margin: 0;
   color: var(--muted);
-  font-size: .88rem;
+  font-size: .93rem;
+  line-height: 1.9;
 }
 
-.today-one-teaser > a {
+.today-one-teaser-selection {
+  align-self: center;
+  padding-left: clamp(24px, 4vw, 54px);
+  border-left: 1px solid #d9ccb9;
+}
+
+.today-one-teaser-selection h3 {
+  max-width: 24rem;
+  margin: 13px 0 8px;
+  color: var(--ink);
+  font-size: clamp(1.55rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.18;
+  overflow-wrap: anywhere;
+}
+
+.today-one-teaser-category {
+  margin: 0 0 20px;
+  color: var(--coffee);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.today-one-teaser-summary {
+  max-width: 35rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.85;
+}
+
+.today-one-teaser-for {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 12px;
+  align-items: baseline;
+  max-width: 24rem;
+  margin-top: 28px;
+  padding-top: 17px;
+  border-top: 1px solid #d9ccb9;
+}
+
+.today-one-teaser-for strong {
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.today-one-teaser-for small {
+  grid-column: 2;
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.today-one-teaser-link {
   display: inline-flex;
-  align-items: center;
   gap: 10px;
-  min-height: 42px;
-  padding: 10px 15px;
-  background: var(--green);
-  color: #fff;
-  font-weight: 900;
-  white-space: nowrap;
+  align-items: center;
+  margin-top: 26px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid currentColor;
+  color: var(--green);
+  font-size: .88rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.today-one-teaser-link span {
+  transition: transform .2s ease;
+}
+
+.today-one-teaser-link:hover span,
+.today-one-teaser-link:focus-visible span {
+  transform: translateX(3px);
 }
 
 @media (max-width: 760px) {
@@ -8531,13 +8625,19 @@ img { max-width: 100%; }
     grid-template-columns: 1fr;
   }
   .today-one-teaser {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 22px 18px;
+    margin: 24px 0 40px;
+    padding: 36px 20px 40px;
   }
-  .today-one-teaser > a {
-    width: 100%;
-    justify-content: center;
-    white-space: normal;
+  .today-one-teaser-inner {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .today-one-teaser-heading {
+    padding-block: 0;
+  }
+  .today-one-teaser-selection {
+    padding: 28px 0 0;
+    border-top: 1px solid #d9ccb9;
+    border-left: 0;
   }
 }
