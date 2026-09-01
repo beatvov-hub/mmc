@@ -551,16 +551,16 @@ def render_sources(article: dict[str, Any]) -> str:
             if url
             else esc(title)
         )
-        lines.extend(
-            [
-                "            <li>",
-                f"              <strong>{link}</strong>",
-                f'              <span>{esc(source.get("publisher", ""))}</span>',
-                f'              <span>{esc(source_type_label(source.get("sourceType", "other")))}</span>',
-                f"              {date_part}",
-                "            </li>",
-            ]
-        )
+        source_lines = [
+            "            <li>",
+            f"              <strong>{link}</strong>",
+            f'              <span>{esc(source.get("publisher", ""))}</span>',
+            f'              <span>{esc(source_type_label(source.get("sourceType", "other")))}</span>',
+        ]
+        if date_part:
+            source_lines.append(f"              {date_part}")
+        source_lines.append("            </li>")
+        lines.extend(source_lines)
     lines.append("          </ul>")
     return "\n".join(lines)
 
