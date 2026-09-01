@@ -768,6 +768,14 @@ def update_sitemap(articles: list[dict[str, Any]]) -> None:
         warn("sitemap", "AI鑑識室一覧の sitemap エントリが見つからないため更新をスキップしました。")
 
     case_articles = [article for article in articles if str(article.get("id", "")).startswith("case-")]
+    current_case_ids = {article["id"] for article in case_articles}
+    case_entry_pattern = re.compile(
+        r"  <url><loc>https://mainichi-miru\.com/ai-forensics/(case-[^<]+)</loc><lastmod>[^<]*</lastmod></url>\r?\n?"
+    )
+    sitemap = case_entry_pattern.sub(
+        lambda match: match.group(0) if match.group(1) in current_case_ids else "",
+        sitemap,
+    )
     existing_case_ids = set(re.findall(r"/ai-forensics/(case-[^<]+)</loc>", sitemap))
     missing_articles = [article for article in case_articles if article["id"] not in existing_case_ids]
     if missing_articles:

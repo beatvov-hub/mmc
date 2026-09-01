@@ -39,6 +39,23 @@ VALID_SOURCE_TYPES = {
     "government", "official", "research", "news", "security", "security-guidance",
     "official-statistics", "official-consumer-guidance", "fact-check",
     "international-organization", "other",
+    "ai-provider-safety-research", "ai-provider-safety-update",
+    "financial-regulator-investor-guidance", "government-ai-risk-guidance",
+    "government-ai-security-report", "government-consumer-alert",
+    "government-consumer-guidance", "government-enforcement-case",
+    "government-enforcement-release", "government-fraud-data",
+    "government-investor-guidance", "government-regulatory-guidance",
+    "government-regulatory-update", "government-security-advisory",
+    "industry-primary-research", "industry-standard-guidance",
+    "medical-professional-guidance", "official-enterprise-case-study",
+    "official-media-literacy-guidance", "official-primary-research-explainer",
+    "official-product-documentation", "official-product-update",
+    "official-protocol-specification", "official-standard-guidance",
+    "official-technical-standard-explainer", "peer-reviewed-medical-research",
+    "peer-reviewed-perspective", "peer-reviewed-primary-research",
+    "peer-reviewed-research", "primary-research-preprint",
+    "primary-security-research", "researcher-authored-current-explainer",
+    "security-best-practice-guidance", "security-research-explainer",
 }
 STRICT_CASE_ID = re.compile(r"^case-(\d{8})-(\d{2})$")
 LEGACY_CASE_ID = re.compile(r"^case-\d{8}(?:-\d{2})?$")
@@ -136,8 +153,8 @@ def validate_article(path: Path, article: dict[str, Any], *, strict_id: bool, ex
         if not is_nonempty_string(article[key]):
             fail(errors, f"{name}: {key} must be a non-empty string")
     for key in ("targetAudience", "inspectionPoints", "safeActions", "avoidActions", "tags", "sources"):
-        if not isinstance(article[key], list) or (strict_id and not article[key]):
-            fail(errors, f"{name}: {key} must be a{' non-empty' if strict_id else ''} array")
+        if not isinstance(article[key], list) or not article[key]:
+            fail(errors, f"{name}: {key} must be a non-empty array")
 
     scenario = article["scenario"]
     if not isinstance(scenario, dict) or not all(is_nonempty_string(scenario.get(key)) for key in ("headline", "description", "whyItMatters")):
@@ -168,17 +185,20 @@ def validate_article(path: Path, article: dict[str, Any], *, strict_id: bool, ex
     visual = article["visualSuggestion"]
     if not isinstance(visual, dict) or not all(is_nonempty_string(visual.get(k)) for k in ("mainVisual", "cardIcon", "accentTone")):
         fail(errors, f"{name}: visualSuggestion requires mainVisual, cardIcon, and accentTone")
+    elif any("](" in str(visual.get(key, "")) for key in ("mainVisual", "cardIcon", "accentTone")):
+        fail(errors, f"{name}: visualSuggestion must not contain embedded link markup")
     for source in article["sources"]:
         if not isinstance(source, dict) or not all(is_nonempty_string(source.get(k)) for k in ("title", "publisher", "sourceType")):
-            if strict_id:
-                fail(errors, f"{name}: every source requires title, publisher, and sourceType")
+            fail(errors, f"{name}: every source requires title, publisher, and sourceType")
             continue
-        if strict_id and source["sourceType"] not in VALID_SOURCE_TYPES:
+        if any("](" in str(source.get(key, "")) for key in ("title", "publisher")):
+            fail(errors, f"{name}: source title and publisher must not contain embedded link markup")
+        if source["sourceType"] not in VALID_SOURCE_TYPES:
             fail(errors, f"{name}: sourceType is invalid")
-        if strict_id and not validate_url(source.get("url")):
+        if not validate_url(source.get("url")):
             fail(errors, f"{name}: source URL must be an absolute HTTPS URL")
         published = source.get("publishedAt")
-        if strict_id and published is not None and not valid_iso_date(published):
+        if published is not None and not valid_iso_date(published):
             fail(errors, f"{name}: source publishedAt must be YYYY-MM-DD or null")
     return errors
 
