@@ -742,6 +742,7 @@ def render_teaser(entry: dict | None, members: dict[str, dict[str, str]]) -> str
           <a class="today-one-teaser-link" href="today-one.html">ページを見る <span aria-hidden="true">→</span></a>'''
         date_html = '<span class="today-one-teaser-empty-date">Today</span>'
     body = f'''      <section id="today-one-teaser" class="today-one-teaser" aria-labelledby="today-one-teaser-title">
+        <div class="today-one-teaser-art today-one-teaser-art--left" aria-hidden="true"></div>
         <div class="today-one-teaser-art" aria-hidden="true"></div>
         <div class="today-one-teaser-inner">
           <header class="today-one-teaser-heading">

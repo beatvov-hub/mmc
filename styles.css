@@ -8415,8 +8415,17 @@ img { max-width: 100%; }
   width: min(47%, 460px);
   aspect-ratio: 13 / 9;
   background: url("image/today-one/selection-network.svg") center / contain no-repeat;
-  opacity: .16;
+  opacity: .32;
   pointer-events: none;
+}
+
+.today-one-teaser-art--left {
+  top: 42px;
+  right: auto;
+  left: -86px;
+  width: min(34%, 330px);
+  transform: scaleX(-1);
+  opacity: .24;
 }
 
 .today-one-teaser-inner {
@@ -8647,7 +8656,14 @@ img { max-width: 100%; }
     top: -24px;
     right: -82px;
     width: 72%;
-    opacity: .07;
+    opacity: .14;
+  }
+  .today-one-teaser-art--left {
+    top: 84px;
+    right: auto;
+    left: -128px;
+    width: 66%;
+    opacity: .1;
   }
   .today-one-teaser-inner {
     grid-template-columns: 1fr;
