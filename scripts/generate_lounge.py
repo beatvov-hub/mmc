@@ -65,8 +65,8 @@ STATIC_SITEMAP_PATHS = [
     "members/pechi",
     "ai-forensics/",
     "works",
-    "gallery",
-    "gallery/fc2-homepage-redesign",
+    "works/gallery",
+    "works/gallery/fc2-homepage-redesign",
     "lounge",
     "lounge/events",
     "lounge-dictionary",
@@ -290,7 +290,7 @@ def load_gallery_paths() -> list[str]:
     for item in items:
         detail = item.get("detailUrl")
         if isinstance(detail, str) and detail.endswith(".html"):
-            paths.append(detail.removesuffix(".html"))
+            paths.append(f"works/gallery/{detail.removesuffix('.html')}")
     return paths
 
 

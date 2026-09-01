@@ -9,7 +9,9 @@ from site_layout import apply_layout_to_file
 
 ROOT = Path(__file__).resolve().parents[1]
 GALLERY_DATA_PATH = ROOT / "src" / "data" / "galleryItems.json"
-GALLERY_HTML_PATH = ROOT / "gallery.html"
+GALLERY_DIR = ROOT / "works" / "gallery"
+GALLERY_HTML_PATH = GALLERY_DIR / "index.html"
+PUBLIC_GALLERY_PATH = "works/gallery"
 BASE_URL = "https://mainichi-miru.com"
 
 
@@ -47,7 +49,7 @@ def load_items() -> list[dict]:
 
 def gallery_url(item: dict) -> str:
     detail = item["detailUrl"].removesuffix(".html")
-    return f"{BASE_URL}/{detail}"
+    return f"{BASE_URL}/{PUBLIC_GALLERY_PATH}/{detail}"
 
 
 def render_global_nav(prefix: str, current: str) -> str:
@@ -221,23 +223,23 @@ def render_gallery_page(items: list[dict]) -> str:
             '    <meta property="og:title" content="平成AI化ギャラリー｜懐かしいホームページを現代UIで再構成｜毎日見る株式会社" />',
             '    <meta property="og:description" content="平成AI化ギャラリーは、平成初期〜2000年代前半のホームページ文化を尊重しながら、現代のUI/UXで再設計する毎日見る株式会社 広報部の実験企画です。" />',
             '    <meta property="og:type" content="website" />',
-            '    <meta property="og:url" content="https://mainichi-miru.com/gallery" />',
+            '    <meta property="og:url" content="https://mainichi-miru.com/works/gallery" />',
             '    <meta property="og:image" content="https://mainichi-miru.com/image/about003.webp" />',
             '    <meta name="twitter:card" content="summary_large_image" />',
-            '    <link rel="icon" href="favicon.ico" />',
-            '    <link rel="stylesheet" href="styles.css" />',
+            '    <link rel="icon" href="../../favicon.ico" />',
+            '    <link rel="stylesheet" href="../../styles.css" />',
             "  </head>",
             '  <body class="subpage gallery-page">',
             '    <header class="site-header" aria-label="サイトヘッダー">',
-            '      <a class="brand" href="index.html" aria-label="毎日見る株式会社 ホーム">',
+            '      <a class="brand" href="../../index.html" aria-label="毎日見る株式会社 ホーム">',
             '        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>',
             '        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>',
             "      </a>",
-            render_global_nav("", "gallery.html"),
-            '      <a class="contact-button" href="contact.html">お問い合わせ</a>',
+            render_global_nav("../../", "works.html"),
+            '      <a class="contact-button" href="../../contact.html">お問い合わせ</a>',
             "    </header>",
             render_gallery_main(items),
-            render_footer(""),
+            render_footer("../../"),
             "  </body>",
             "</html>",
             "",
@@ -270,24 +272,24 @@ def render_detail_page(item: dict) -> str:
             f'    <meta property="og:url" content="{esc(gallery_url(item))}" />',
             '    <meta property="og:image" content="https://mainichi-miru.com/image/about003.webp" />',
             '    <meta name="twitter:card" content="summary_large_image" />',
-            '    <link rel="icon" href="favicon.ico" />',
-            '    <link rel="stylesheet" href="styles.css" />',
+            '    <link rel="icon" href="../../favicon.ico" />',
+            '    <link rel="stylesheet" href="../../styles.css" />',
             "  </head>",
             '  <body class="subpage gallery-page gallery-detail-page">',
             '    <header class="site-header" aria-label="サイトヘッダー">',
-            '      <a class="brand" href="index.html" aria-label="毎日見る株式会社 ホーム">',
+            '      <a class="brand" href="../../index.html" aria-label="毎日見る株式会社 ホーム">',
             '        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>',
             '        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>',
             "      </a>",
-            render_global_nav("", "gallery.html"),
-            '      <a class="contact-button" href="contact.html">お問い合わせ</a>',
+            render_global_nav("../../", "works.html"),
+            '      <a class="contact-button" href="../../contact.html">お問い合わせ</a>',
             "    </header>",
             '    <main class="gallery-detail-main">',
             '      <nav class="profile-breadcrumb" aria-label="パンくずリスト">',
-            '        <a href="index.html">ホーム</a>',
+            '        <a href="../../index.html">ホーム</a>',
             '        <span>平成AI化ギャラリー</span>',
             f'        <strong>{esc(item["title"])}</strong>',
-            '        <a class="profile-back" href="gallery.html">ギャラリー一覧に戻る</a>',
+            '        <a class="profile-back" href="./">ギャラリー一覧に戻る</a>',
             "      </nav>",
             '      <section class="page-hero gallery-detail-hero">',
             "        <div>",
@@ -336,11 +338,11 @@ def render_detail_page(item: dict) -> str:
             "        </article>",
             "      </section>",
             '      <section class="work-detail-actions" aria-label="ギャラリー導線">',
-            '        <a class="secondary-button" href="gallery.html">ギャラリー一覧に戻る</a>',
+            '        <a class="secondary-button" href="./">ギャラリー一覧に戻る</a>',
             f'        <a class="secondary-button work-public-button" href="{esc(item["sourceUrl"])}" target="_blank" rel="noopener noreferrer">本家サイトを見る</a>',
             "      </section>",
             "    </main>",
-            render_footer(""),
+            render_footer("../../"),
             "  </body>",
             "</html>",
             "",
@@ -350,13 +352,14 @@ def render_detail_page(item: dict) -> str:
 
 def main() -> None:
     items = load_items()
+    GALLERY_DIR.mkdir(parents=True, exist_ok=True)
     GALLERY_HTML_PATH.write_text(render_gallery_page(items), encoding="utf-8")
     apply_layout_to_file(GALLERY_HTML_PATH)
     for item in items:
-        detail_path = ROOT / item["detailUrl"]
+        detail_path = GALLERY_DIR / item["detailUrl"]
         detail_path.write_text(render_detail_page(item), encoding="utf-8")
         apply_layout_to_file(detail_path)
-    print(f"Generated gallery.html and {len(items)} gallery detail pages.")
+    print(f"Generated {GALLERY_HTML_PATH.relative_to(ROOT)} and {len(items)} gallery detail pages.")
 
 
 if __name__ == "__main__":
