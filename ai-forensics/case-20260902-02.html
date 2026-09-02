@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Copilotで作ったファイル、ラベルが自動で付いても共有前にプロパティを見る｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは2026年8月のMicrosoft 365 Copilotリリースノートで、Copilotが生成したファイルには、参照元データから検出した最も高い秘密度ラベルが自動適用されると案内しています。ラベルを適用できない場合は、共有または保存の前に対応するよう通知されます。利用者にとっては、自動ラベルを付与済みの印として終わらせず、生成した資料を配る直前にファイルのプロパティと通知を確認し、必要なら正しいラベルを手動で適用することが実務上の最後の工程になります。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260902-02" />
+<meta property="og:title" content="Copilotで作ったファイル、ラベルが自動で付いても共有前にプロパティを見る｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは2026年8月のMicrosoft 365 Copilotリリースノートで、Copilotが生成したファイルには、参照元データから検出した最も高い秘密度ラベルが自動適用されると案内しています。ラベルを適用できない場合は、共有または保存の前に対応するよう通知されます。利用者にとっては、自動ラベルを付与済みの印として終わらせず、生成した資料を配る直前にファイルのプロパティと通知を確認し、必要なら正しいラベルを手動で適用することが実務上の最後の工程になります。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260902-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>生成ファイルの秘密度ラベルを確認する</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-09-02">2026.09.02</time>
+            </div>
+            <h1>Copilotで作ったファイル、ラベルが自動で付いても共有前にプロパティを見る</h1>
+            <p>Microsoftは2026年8月のMicrosoft 365 Copilotリリースノートで、Copilotが生成したファイルには、参照元データから検出した最も高い秘密度ラベルが自動適用されると案内しています。ラベルを適用できない場合は、共有または保存の前に対応するよう通知されます。利用者にとっては、自動ラベルを付与済みの印として終わらせず、生成した資料を配る直前にファイルのプロパティと通知を確認し、必要なら正しいラベルを手動で適用することが実務上の最後の工程になります。</p>
+            <ul class="forensics-target-list"><li>Microsoft 365 Copilotで資料を作る人</li><li>組織の秘密度ラベルを使って仕事のファイルを共有する人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft 365 Copilot</li><li>秘密度ラベル</li><li>情報漏えい対策</li><li>ファイル共有</li><li>仕事術</li><li>Microsoft 365</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>生成後に秘密度ラベルと通知を確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Copilotでファイルを作ったら、送信・保存の前にプロパティの秘密度ラベルと、適用失敗の通知を確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>複数の会議資料からCopilotで報告書を作り、そのまま取引先へ送ろうとしている</h3><p>参照元の一つには機密扱いの情報がありましたが、生成されたファイルのラベルはまだ確認していません。画面にラベルを適用できなかったという通知が出ていても、内容確認を急ぐあまり見逃すおそれがあります。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Copilotが参照した資料の保護水準は、生成ファイルを扱う時にも影響します。自動適用は共有ミスを減らす助けになりますが、通知が出た時の修正や、実際に付いたラベルの確認まで自動で終えるわけではありません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-label">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Copilotで生成した資料を共有する直前に、最も適切な対応は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-label" data-choice-id="check-label" />
+                <span>
+                  <strong>ファイルのプロパティとラベル関連の通知を確認し、必要なら手動で付ける</strong>
+                  <small>自動適用と例外通知の両方を確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="share-first" data-choice-id="share-first" />
+                <span>
+                  <strong>Copilotで作ったので自動的に適切な保護が済んでいると考え、すぐ共有する</strong>
+                  <small>ラベルが付かなかった場合の通知を確認しない。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="strip-label" data-choice-id="strip-label" />
+                <span>
+                  <strong>外部へ送りやすくするため、ラベルを外してから共有する</strong>
+                  <small>組織のデータ保護ルールを確認せずに保護を弱める。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>ファイルのプロパティとラベル関連の通知を確認し、必要なら手動で付ける</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Microsoftは、生成ファイルへ最高位のラベルを自動適用し、適用できない時は共有または保存の前に対応する通知を出すと説明しています。共有前にプロパティを見て、通知があれば正しいラベルを手動で適用します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>参照元に含まれる最も高いラベル</h3>
+              <p>Copilotへ渡したメール、会議資料、ファイルのうち、最も高い保護区分を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>生成ファイルのプロパティ</h3>
+              <p>自動で付いた秘密度ラベルが、資料の内容と組織ルールに合っているかを確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ラベルを適用できなかった通知</h3>
+              <p>共有・保存の前に表示される通知を見逃さず、必要なら手動適用または担当者へ相談します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>共有先と組織のポリシー</h3>
+              <p>ラベルにより外部共有、ダウンロード、転送などがどう変わるかを確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>自動ラベルは保護の出発点。共有前の確認で、例外を見逃さない</strong><p>Microsoft 365 Copilotでは、参照元データの最も高い秘密度ラベルを生成ファイルへ引き継ぐ機能が案内されています。これは便利な安全策ですが、適用できない場合には利用者の対応が必要です。生成直後ではなく共有直前にプロパティと通知を見る習慣を置くと、資料作成の速さとデータ保護を両立しやすくなります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Copilot生成ファイルのプロパティで秘密度ラベルを確認する</strong><span>参照元の保護水準が生成後の資料へどう反映されたかを確認できます。</span></li>
+            <li><strong>ラベルを適用できなかった通知があれば、共有前に正しいラベルを手動で付ける</strong><span>Microsoftは、通知で共有・保存前の対応を促すと案内しています。</span></li>
+            <li><strong>外部共有前に、ラベルに応じた組織の共有ルールを確認する</strong><span>ラベルはデータ保護の設定や取り扱いと結び付くことがあります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>生成された資料を見た目だけ確認して、そのまま共有する</strong><span>内容だけでなくラベルの適用状況と例外通知の確認が必要です。</span></li>
+            <li><strong>ラベルが付かない通知を、後で対応すればよいとして共有を先に進める</strong><span>通知は共有・保存前に保護を整えるための合図です。</span></li>
+            <li><strong>共有の都合だけでラベルを外す</strong><span>組織のデータ保護・共有ルールに反するおそれがあります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>生成の速さを保ったまま、資料ごとの保護レベルをそろえる</h3>
+          <p>生成のたびにゼロから分類するのではなく、自動ラベルを起点にして例外だけを確認すれば、共有前の確認を短く確実にできます。</p>
+          <ul class="positive-example-list"><li>会議資料から報告書を作る</li><li>複数メールを基に説明資料を作る</li><li>部署内共有の前にラベルを確認する</li><li>外部送付前に適用失敗の通知を解消する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIが資料を作ると、文章の確認だけで送信ボタンまで進みがちです。でも組織で使う資料は、何を書いたかと同じくらい、どの扱いで渡すかが大事です。自動ラベルは「確認不要」の印ではなく、最後に見る場所を教えてくれる目印です。送る直前にプロパティを一度開く手順なら、忙しい時にも続けやすいと思います。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Copilot生成ファイルは、共有前に秘密度ラベルと通知を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://learn.microsoft.com/en-gb/microsoft-365/copilot/release-notes" target="_blank" rel="noopener noreferrer">Microsoft 365 Copilot release notes<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Learn</span>
+              <span>公式発表</span>
+              <time datetime="2026-08-25">2026-08-25</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260902-01" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="GeminiがDriveの機密ラベルを付けたら、共有前に「承認か修正か」を決める AI自動ラベルは共有前に承認・修正する Googleは2026年8月28日、Geminiを使ってGoogle Driveのファイルへデータ分類ラベルを付ける機能をオープンベータで提供すると発表しました。管理者がラベル、指示、対象範囲を設定し、必要なラベル権限を持つファイル所有者・編集者は、Geminiが付けたラベルを確認して承認または修正できます。利用者にとっては、AIのラベルをそのまま共有可否の結論にせず、外部共有・保存期間・持ち出し制限へ進む前に、ファイルの実際の内容とラベルが合っているかを決める場面が増えます。 セキュリティ・権限 標準 Google Drive Gemini データ分類 情報漏えい対策 DLP Google Workspace Google WorkspaceのDriveで組織のファイルを扱う人 AIによるデータ分類を導入・利用する組織の管理者とファイル所有者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-label-review</span>
+              <div>
+                <p>AI自動ラベルは共有前に承認・修正する</p>
+                <h3>GeminiがDriveの機密ラベルを付けたら、共有前に「承認か修正か」を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-02">2026.09.02</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年8月28日、Geminiを使ってGoogle Driveのファイルへデータ分類ラベルを付ける機能をオープンベータで提供すると発表しました。管理者がラベル、指示、対象範囲を設定し、必要なラベル権限を持つファイル所有者・編集者は、Geminiが付けたラベルを確認して承認または修正できます。利用者にとっては、AIのラベルをそのまま共有可否の結論にせず、外部共有・保存期間・持ち出し制限へ進む前に、ファイルの実際の内容とラベルが合っているかを決める場面が増えます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>AIラベルを共有前に承認・修正する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google WorkspaceのDriveで組織のファイルを扱う人</li><li>AIによるデータ分類を導入・利用する組織の管理者とファイル所有者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Drive</li><li>Gemini</li><li>データ分類</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260831-01" data-forensics-card data-category="work-use" data-level="2" data-difficulty="beginner" data-search-text="Google Meetの文字起こし、開始前に「誰のDriveへ保存され、誰が読めるか」を決める 会議文字起こしは保存先と閲覧者を先に決める GoogleはGoogle Meetの公式ヘルプで、文字起こしを有効にすると記録は会議主催者のGoogle Drive内に保存され、会議後には主催者・共同主催者・開始した人へリンクがメール送信されると案内しています。カレンダー予定の添付ファイルとしては、主催者の組織内の招待者も開ける場合があります。会議中に文字起こしを始める前に、誰のDriveへ残るか、社外参加者を含めて誰が読む必要があるかを決めておくと、AI議事録を便利に使いながら共有範囲の思い込みを減らせます。 仕事・AI活用 はじめて Google Meet 文字起こし AI議事録 会議 Google Drive 仕事術 Google Meetで会議を主催する人 AI議事録や文字起こしを仕事で使い始めた人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">meeting-transcript</span>
+              <div>
+                <p>会議文字起こしは保存先と閲覧者を先に決める</p>
+                <h3>Google Meetの文字起こし、開始前に「誰のDriveへ保存され、誰が読めるか」を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-31">2026.08.31</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">GoogleはGoogle Meetの公式ヘルプで、文字起こしを有効にすると記録は会議主催者のGoogle Drive内に保存され、会議後には主催者・共同主催者・開始した人へリンクがメール送信されると案内しています。カレンダー予定の添付ファイルとしては、主催者の組織内の招待者も開ける場合があります。会議中に文字起こしを始める前に、誰のDriveへ残るか、社外参加者を含めて誰が読む必要があるかを決めておくと、AI議事録を便利に使いながら共有範囲の思い込みを減らせます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>開始前に保存先と閲覧者をそろえる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google Meetで会議を主催する人</li><li>AI議事録や文字起こしを仕事で使い始めた人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Meet</li><li>文字起こし</li><li>AI議事録</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260829-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Gemini Notebookの利用上限に達したら？ 重い生成を後回しにする段取り Gemini Notebookの上限は生成順序で使い分ける Googleは2026年8月28日、Gemini Notebookに、作業内容に応じて消費量が変わる新しい利用上限を導入すると発表しました。プロンプトの複雑さ、会話の長さ、ソース数、使う機能が全体の上限に影響し、上限は毎日ではなく5時間ごとに更新されます。利用者にとって大切なのは、重い出力を最初に何度も試すことではなく、調査・会話・出力の順序を決め、必要ならVideo OverviewやSlide Deckを後で自動生成する選択を使い分けることです。消費者向けWeb・モバイルへの提供開始は9月2日予定で、利用できる時期や画面はアカウントによって異なる可能性があります。 仕事・AI活用 標準 Gemini Notebook 利用上限 生成AI Video Overview Slide Deck 資料作成 AI活用 通知 Google Gemini Notebookで資料や複数ソースを使っている人 AIでスライドや動画の要約を作る人 生成AIの利用上限で作業が止まった経験がある人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gemini-notebook-workflow-priority</span>
+              <div>
+                <p>Gemini Notebookの上限は生成順序で使い分ける</p>
+                <h3>Gemini Notebookの利用上限に達したら？ 重い生成を後回しにする段取り</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-29">2026.08.29</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年8月28日、Gemini Notebookに、作業内容に応じて消費量が変わる新しい利用上限を導入すると発表しました。プロンプトの複雑さ、会話の長さ、ソース数、使う機能が全体の上限に影響し、上限は毎日ではなく5時間ごとに更新されます。利用者にとって大切なのは、重い出力を最初に何度も試すことではなく、調査・会話・出力の順序を決め、必要ならVideo OverviewやSlide Deckを後で自動生成する選択を使い分けることです。消費者向けWeb・モバイルへの提供開始は9月2日予定で、利用できる時期や画面はアカウントによって異なる可能性があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>成果物の優先順位、延期の選択、更新時刻を分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Gemini Notebookで資料や複数ソースを使っている人</li><li>AIでスライドや動画の要約を作る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini Notebook</li><li>利用上限</li><li>生成AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260831-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260902-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
