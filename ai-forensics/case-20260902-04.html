@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGPTの共有リンクを消しても、相手が保存した会話までは消えない。送る前と取り消す時に見る場所｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="OpenAIは、ChatGPTの共有リンクについて、個人アカウントで作成した会話リンクはリンクを知る人が閲覧でき、会話履歴・画像・アップロード済みファイルを含む場合があると案内しています。リンクを削除すれば以後そのURLからは開けなくなりますが、相手がすでに会話を自分のアカウントへ保存していた場合、そのコピーまでは消えません。また、個人アカウントの共有リンクには相手ごとの閲覧制限や有効期限の設定はありません。会話を送る時はURLを作る前にプレビューの範囲を見直し、不要になった時はSettingsのData controlsから共有リンクを個別に削除する、という二段階で扱う必要があります。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260902-04" />
+<meta property="og:title" content="ChatGPTの共有リンクを消しても、相手が保存した会話までは消えない。送る前と取り消す時に見る場所｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="OpenAIは、ChatGPTの共有リンクについて、個人アカウントで作成した会話リンクはリンクを知る人が閲覧でき、会話履歴・画像・アップロード済みファイルを含む場合があると案内しています。リンクを削除すれば以後そのURLからは開けなくなりますが、相手がすでに会話を自分のアカウントへ保存していた場合、そのコピーまでは消えません。また、個人アカウントの共有リンクには相手ごとの閲覧制限や有効期限の設定はありません。会話を送る時はURLを作る前にプレビューの範囲を見直し、不要になった時はSettingsのData controlsから共有リンクを個別に削除する、という二段階で扱う必要があります。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260902-04" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>共有リンクは送る前に範囲を見て、不要なら個別に消す</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-02">2026.09.02</time>
+            </div>
+            <h1>ChatGPTの共有リンクを消しても、相手が保存した会話までは消えない。送る前と取り消す時に見る場所</h1>
+            <p>OpenAIは、ChatGPTの共有リンクについて、個人アカウントで作成した会話リンクはリンクを知る人が閲覧でき、会話履歴・画像・アップロード済みファイルを含む場合があると案内しています。リンクを削除すれば以後そのURLからは開けなくなりますが、相手がすでに会話を自分のアカウントへ保存していた場合、そのコピーまでは消えません。また、個人アカウントの共有リンクには相手ごとの閲覧制限や有効期限の設定はありません。会話を送る時はURLを作る前にプレビューの範囲を見直し、不要になった時はSettingsのData controlsから共有リンクを個別に削除する、という二段階で扱う必要があります。</p>
+            <ul class="forensics-target-list"><li>ChatGPTの会話をURLで同僚や知人に共有する人</li><li>共有した会話に個人情報や添付ファイルが含まれていないか見直したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>ChatGPT</li><li>共有リンク</li><li>データ管理</li><li>プライバシー</li><li>情報共有</li><li>設定</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>共有前にプレビュー、不要になれば共有リンクを削除する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>会話を共有する前に見える内容をプレビューし、不要になった共有リンクはSettingsのData controlsから削除しましょう。相手が既に保存したコピーは別に残り得ます。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>同僚へ調査結果を渡すため、ChatGPT会話を共有しようとしている</h3><p>会話の後半だけを見せるつもりですが、前半には取引先名や添付した資料への言及があります。共有後に気付いてURLを削除すれば、相手側に保存された会話も消えると思っています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>共有リンクはアカウントへのログイン権限を渡すものではありませんが、リンクを開ける人には共有した内容が見えます。削除は今後のURLアクセスを止める操作であり、受け手が既に作った私的なコピーを遠隔で削除する操作ではありません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="preview-and-manage">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>個人アカウントのChatGPT会話を共有リンクで送る前に、最も適切な対応は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="preview-and-manage" data-choice-id="preview-and-manage" />
+                <span>
+                  <strong>共有プレビューで会話・画像・ファイルの範囲を確認し、不要になったリンクはData controlsで削除する</strong>
+                  <small>URLを知る人に見える範囲を送信前に確かめ、後から止める導線も把握する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="link-is-private" data-choice-id="link-is-private" />
+                <span>
+                  <strong>URLがランダムなら、受け手以外は見られないと考える</strong>
+                  <small>個人アカウントのリンクは、URLを知る人が閲覧できる。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-erases-copies" data-choice-id="delete-erases-copies" />
+                <span>
+                  <strong>後でリンクを消せば、相手が保存済みの会話も自動的に消えると考える</strong>
+                  <small>削除はリンクからのアクセスを止めるが、相手側の保存済みコピーは消さない。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>共有プレビューで会話・画像・ファイルの範囲を確認し、不要になったリンクはData controlsで削除する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>OpenAIは、共有リンクのプレビューを送信前に確認すること、個人アカウントのリンクはURLを知る人が閲覧できること、削除しても相手が既に保存した会話は消えないことを案内しています。共有前の範囲確認と、共有後のリンク管理を分けて行います。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>共有される会話の範囲</h3>
+              <p>共有画面のプレビューで、会話履歴、個別の応答、画像、アップロード済みファイルが含まれていないかを確認します。氏名、連絡先、健康・金融情報、パスワードや口座番号は共有しません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>個人アカウントか、管理されたワークスペースか</h3>
+              <p>個人アカウントの共有リンクは、リンクを知る人が閲覧できます。Business、Enterprise、Eduなどのワークスペースで作るリンクは、原則として元のワークスペースの対象メンバー向けですが、共有後に追加する内容の扱いも確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>取り消し後に残るもの</h3>
+              <p>Settings → Data controls → Shared links → Manageからリンクを個別に削除できます。ただし、受け手が既に会話を保存していた場合、その相手側のコピーは消えません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>有効期限と相手ごとの制限</h3>
+              <p>個人アカウントの共有リンクには、相手ごとの閲覧制限や設定可能な有効期限はありません。必要な期間だけにしたい場合も、不要になった時点で削除します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>共有リンクは「URLを渡す」操作。送信範囲と取り消しの限界を先に知る</strong><p>共有リンクは、アカウント自体への権限を渡す機能ではありません。しかし個人アカウントでは、リンクを知る人が共有内容を閲覧できます。リンク削除は有効な対処ですが、共有先で既に保存された会話までは取り消せません。機密情報を含めないこと、送信前にプレビューを見ること、不要になればリンクを管理画面から削除することをセットにします。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>共有ボタンを押したら、作成前に会話・画像・アップロード済みファイルをプレビューで確認する</strong><span>共有リンクには、会話の経緯や添付物が含まれる場合があります。</span></li>
+            <li><strong>個人アカウントのリンクは、URLを知る人が閲覧できる前提で、機密情報を含む会話を共有しない</strong><span>相手ごとの閲覧制限や有効期限は設定できません。</span></li>
+            <li><strong>共有が不要になったらSettings → Data controls → Shared links → Manageで該当リンクを削除する</strong><span>以後、その共有URLから会話へアクセスされることを止められます。</span></li>
+            <li><strong>相手が会話を保存している可能性がある場合は、リンク削除だけでコピーが消えるとは考えない</strong><span>受け手のアカウントに作られた会話コピーは、共有リンクの削除対象ではありません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>ランダムなURLだから実質的に非公開だと考え、会話全体を確認せずに送る</strong><span>個人アカウントの共有リンクは、URLを知る人が閲覧できます。</span></li>
+            <li><strong>共有リンクの削除を、受信者の保存済みコピーまで消す機能として扱う</strong><span>削除できるのは共有URLからの将来のアクセスであり、受信者の別会話は消えません。</span></li>
+            <li><strong>モデル改善の設定をオフにすれば、既存の共有リンクも消えると考える</strong><span>既存の共有リンクは、モデル改善設定とは別に管理・削除する必要があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>共有リンクを、やり取りを短くするための「限定した成果物」にする</h3>
+          <p>会話全体をそのまま渡すのではなく、渡す目的に必要な回答と資料だけを整えてから共有すれば、共同作業を速くしつつ情報の出し過ぎを減らせます。</p>
+          <ul class="positive-example-list"><li>共有用に新しい会話を作り、必要な結論と出典だけをまとめる</li><li>共有前に画像と添付ファイルを含むプレビューを確認する</li><li>会議終了後など、共有目的が終わった時点で共有リンクを削除する</li><li>受け手がコピーを保存する必要があるか、送る前に確認する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>共有リンクは、チャット画面の中では軽い「送る」操作に見えます。でも実際には、会話の一部をURLとして持ち出す操作です。削除ボタンがあるから安心、ではなく、どこまで見せるかをプレビューで決め、消せるのはリンクまでだと理解しておく。この二つが分かるだけで、共有の便利さを保ったまま後悔を減らせます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>ChatGPTの共有リンクは、送信前に範囲を確認し、不要になれば管理画面から消す。保存済みの相手側コピーは別物。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq/" target="_blank" rel="noopener noreferrer">ChatGPT shared links<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>公式発表</span>
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/10245791-how-to-report-content" target="_blank" rel="noopener noreferrer">Reporting Content in ChatGPT and OpenAI Platforms<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>公式発表</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260902-01" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="GeminiがDriveの機密ラベルを付けたら、共有前に「承認か修正か」を決める AI自動ラベルは共有前に承認・修正する Googleは2026年8月28日、Geminiを使ってGoogle Driveのファイルへデータ分類ラベルを付ける機能をオープンベータで提供すると発表しました。管理者がラベル、指示、対象範囲を設定し、必要なラベル権限を持つファイル所有者・編集者は、Geminiが付けたラベルを確認して承認または修正できます。利用者にとっては、AIのラベルをそのまま共有可否の結論にせず、外部共有・保存期間・持ち出し制限へ進む前に、ファイルの実際の内容とラベルが合っているかを決める場面が増えます。 セキュリティ・権限 標準 Google Drive Gemini データ分類 情報漏えい対策 DLP Google Workspace Google WorkspaceのDriveで組織のファイルを扱う人 AIによるデータ分類を導入・利用する組織の管理者とファイル所有者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-label-review</span>
+              <div>
+                <p>AI自動ラベルは共有前に承認・修正する</p>
+                <h3>GeminiがDriveの機密ラベルを付けたら、共有前に「承認か修正か」を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-02">2026.09.02</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年8月28日、Geminiを使ってGoogle Driveのファイルへデータ分類ラベルを付ける機能をオープンベータで提供すると発表しました。管理者がラベル、指示、対象範囲を設定し、必要なラベル権限を持つファイル所有者・編集者は、Geminiが付けたラベルを確認して承認または修正できます。利用者にとっては、AIのラベルをそのまま共有可否の結論にせず、外部共有・保存期間・持ち出し制限へ進む前に、ファイルの実際の内容とラベルが合っているかを決める場面が増えます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>AIラベルを共有前に承認・修正する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google WorkspaceのDriveで組織のファイルを扱う人</li><li>AIによるデータ分類を導入・利用する組織の管理者とファイル所有者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Drive</li><li>Gemini</li><li>データ分類</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260902-03" data-forensics-card data-category="media-literacy" data-level="2" data-difficulty="standard" data-search-text="自分そっくりのAI動画をYouTubeで見つけたら、コメントより先に「プライバシー申立て」を確認する AI偽動画は削除依頼の導線を確認する YouTubeは、AIで生成・改変されて本人に見える、または本人のように聞こえるコンテンツについて、本人または法定代理人がプライバシー申立てで削除を求められると案内しています。2026年には、18歳以上の対象クリエイター向けに、顔がAIで改変・生成された可能性のある動画を探して確認・申立てできるLikeness detectionも拡大されました。ただしこの機能は実験段階で、利用できない国があり、現在は顔の検出が中心です。偽動画を見つけた時は、コメント欄で本人性を争う前に、動画URL・チャンネル・公開日時を記録し、現実的に本人と誤認される内容かを確認して、YouTubeのプライバシー申立てという正式な経路を使うことが大切です。 情報の見極め 標準 AI動画 ディープフェイク YouTube なりすまし プライバシー 削除依頼 YouTube上で自分の顔や声を模したAI動画を見つけた人 顔出しでYouTubeチャンネルを運用している人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">video-likeness-report</span>
+              <div>
+                <p>AI偽動画は削除依頼の導線を確認する</p>
+                <h3>自分そっくりのAI動画をYouTubeで見つけたら、コメントより先に「プライバシー申立て」を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-02">2026.09.02</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeは、AIで生成・改変されて本人に見える、または本人のように聞こえるコンテンツについて、本人または法定代理人がプライバシー申立てで削除を求められると案内しています。2026年には、18歳以上の対象クリエイター向けに、顔がAIで改変・生成された可能性のある動画を探して確認・申立てできるLikeness detectionも拡大されました。ただしこの機能は実験段階で、利用できない国があり、現在は顔の検出が中心です。偽動画を見つけた時は、コメント欄で本人性を争う前に、動画URL・チャンネル・公開日時を記録し、現実的に本人と誤認される内容かを確認して、YouTubeのプライバシー申立てという正式な経路を使うことが大切です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>動画を記録して、公式のプライバシー申立てを確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>YouTube上で自分の顔や声を模したAI動画を見つけた人</li><li>顔出しでYouTubeチャンネルを運用している人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI動画</li><li>ディープフェイク</li><li>YouTube</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260831-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="IPAが閉域AIの実証を公開。導入判断では「外から見えない部分」を先に分けて考える 閉域AIの実証とクラウドAIの判断は分ける IPAは2026年8月31日、オンプレミスの閉域環境でAI基盤を構築し、21件のテストシナリオで安全性と技術的限界を検証した実証成果を公開しました。この実証はクラウドAIを一律に危険と結論づけたものではありません。IPAは、クラウド型生成AIではモデル内部、学習データ、運用体制の多くが利用者に開示されない場合があると説明しています。利用者にとって重要なのは「閉域AIなら安全」「クラウドAIなら危険」と名前だけで決めず、どのデータ処理・認証・監査ログを自組織で確認でき、どこから先が提供者へ委ねられるのかを用途ごとに整理することです。 セキュリティ・権限 標準 IPA 閉域AI クラウドAI AIガバナンス 監査ログ 業務利用 職場で生成AIの導入を検討する人 クラウドAIと社内AIの選び方に悩む管理者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-controls-map</span>
+              <div>
+                <p>閉域AIの実証とクラウドAIの判断は分ける</p>
+                <h3>IPAが閉域AIの実証を公開。導入判断では「外から見えない部分」を先に分けて考える</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-31">2026.08.31</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">IPAは2026年8月31日、オンプレミスの閉域環境でAI基盤を構築し、21件のテストシナリオで安全性と技術的限界を検証した実証成果を公開しました。この実証はクラウドAIを一律に危険と結論づけたものではありません。IPAは、クラウド型生成AIではモデル内部、学習データ、運用体制の多くが利用者に開示されない場合があると説明しています。利用者にとって重要なのは「閉域AIなら安全」「クラウドAIなら危険」と名前だけで決めず、どのデータ処理・認証・監査ログを自組織で確認でき、どこから先が提供者へ委ねられるのかを用途ごとに整理することです。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>用途ごとに管理できる範囲を地図にする</span>
+            </div>
+            <ul class="forensics-card-audience"><li>職場で生成AIの導入を検討する人</li><li>クラウドAIと社内AIの選び方に悩む管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>IPA</li><li>閉域AI</li><li>クラウドAI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260831-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260902-03">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
