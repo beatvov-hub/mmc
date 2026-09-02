@@ -113,7 +113,7 @@ function parseLoungeDraft(draft, now = new Date()) {
       date = normalizeDate(match[1], match[2], match[3]);
       if (/^(?:日付|日時|date)\s*[：:]/i.test(value) || value === match[0] || /^#{1,3}\s+/.test(value)) consumed.add(index);
     }
-    if (!time && (match = value.match(/(?:^|\s)([01]?\d|2[0-3])[:：時](\d{2})(?:分)?(?:\s|$)/))) {
+    if (!time && (match = value.match(/(?:^|\s|[｜|）)])([01]?\d|2[0-3])[:：時](\d{2})(?:分)?(?=\s|$|ごろ|頃)/))) {
       time = `${String(match[1]).padStart(2, "0")}:${match[2]}`;
       if (/^(?:時刻|日時|time)\s*[：:]/i.test(value) || value === match[0].trim() || /^#{1,3}\s+/.test(value)) consumed.add(index);
     }
@@ -193,6 +193,11 @@ function parseLoungeDraft(draft, now = new Date()) {
     if (consumed.has(index)) return;
     const trimmed = original.trim();
     if (!trimmed || /^[-=]{3,}$/.test(trimmed)) {
+      if (inDailyWords && /^[-=]{3,}$/.test(trimmed)) {
+        flushDaily();
+        inDailyWords = false;
+        currentSpeaker = "";
+      }
       return;
     }
     if (/^#{1,6}\s*(今日の一言|本日の一言)/.test(trimmed) || /^(今日の一言|本日の一言)\s*[：:]?$/.test(trimmed)) {

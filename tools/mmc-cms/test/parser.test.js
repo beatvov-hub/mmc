@@ -96,3 +96,34 @@ test("今日の一言はTOP用データへ移し、ラウンジ本文から外�
     { speaker: "ほのちゃん", text: "今日もゆっくり始めましょう。" }
   ]);
 });
+
+test("曜日直後の時刻とごろ表記を認識する", () => {
+  const parsed = parseLoungeDraft(`## 2026年9月3日（木）8:00ごろ｜朝の開店
+
+**ほのちゃん**
+「おはようございます。」`);
+
+  assert.equal(parsed.entry.time, "08:00");
+  assert.equal(parsed.entry.id, "2026-09-03-0800");
+  assert.equal(parsed.warnings.some((warning) => warning.includes("時刻を検出できなかった")), false);
+});
+
+test("今日の一言の後の区切り線以降は本文へ戻す", () => {
+  const parsed = parseLoungeDraft(`## 2026年9月3日（木）8:00
+
+## 今日の一言
+**ねむちゃん**
+「少し休みます。」
+
+---
+
+**ケイ**
+「俺の一言は？」`);
+  const normalized = normalizeLoungeEntry(parsed.entry);
+
+  assert.deepEqual(normalized.todayWords, [
+    { speaker: "ねむちゃん", text: "少し休みます。" }
+  ]);
+  assert.equal(normalized.content.at(-1).type, "talks");
+  assert.equal(normalized.content.at(-1).items[0].speaker, "ケイ");
+});
