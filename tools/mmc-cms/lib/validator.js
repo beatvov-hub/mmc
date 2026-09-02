@@ -44,7 +44,9 @@ function validateLounge(entry) {
   if (!validDate(entry.date)) errors.push("日付は YYYY-MM-DD 形式の実在する日付にしてください。");
   if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(String(entry.time || ""))) errors.push("時刻は HH:MM 形式にしてください。");
   if (!WEEKDAYS.includes(entry.weekday)) errors.push("曜日は 日〜土 の1文字にしてください。");
-  if (!LOUNGE_PERIODS.includes(entry.period)) errors.push("時間帯が不正です。");
+  const period = String(entry.period || "").trim();
+  const isDetailedPeriod = /^[^・\s][^・]*・\S.+$/.test(period);
+  if (!LOUNGE_PERIODS.includes(period) && !isDetailedPeriod) errors.push("時間帯が不正です。");
   const expectedId = validDate(entry.date) && /^([01]\d|2[0-3]):[0-5]\d$/.test(String(entry.time || ""))
     ? `${entry.date}-${entry.time.replace(":", "")}` : "";
   if (expectedId && entry.id !== expectedId) errors.push(`IDは日付と時刻に合わせて ${expectedId} にしてください。`);
