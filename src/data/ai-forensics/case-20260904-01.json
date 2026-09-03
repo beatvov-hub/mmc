@@ -1,0 +1,138 @@
+{
+  "id": "case-20260904-01",
+  "publishedAt": "2026-09-04",
+  "title": "Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること",
+  "shortTitle": "Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する",
+  "category": "security",
+  "difficulty": "advanced",
+  "targetAudience": [
+    "NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人",
+    "MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者"
+  ],
+  "summary": "Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。",
+  "scenario": {
+    "headline": "チームが試験導入したAIアプリを、Notion MCPの承認リストから外した",
+    "description": "管理画面のConnected toolsには、そのAIアプリ名がまだ表示されています。管理者は『止められていないのでは』と心配し、利用者ごとの接続をどう整理すべきか迷っています。",
+    "whyItMatters": "MCPはAIアプリからNotionページをリアルタイムに読み書きできる接続です。表示が残っていても未承認アプリの呼び出しは遮断される場合がありますが、トークン表示と実際のアクセス可否、全利用者を再認証させる必要がある場合を分けて扱わなければ、停止確認が曖昧になります。"
+  },
+  "question": {
+    "text": "Notion MCPで、以前接続したAIアプリを承認リストから外したのにConnected toolsに表示が残る時、適切な理解は？",
+    "choices": [
+      {
+        "id": "check-block-and-reset",
+        "label": "表示の残存と実際の呼び出し遮断を分けて確認し、必要ならDisconnect All Usersで全接続を切断する",
+        "description": "承認リスト外のツールは機能的に遮断されるが、完全な再接続整理には別の操作がある。"
+      },
+      {
+        "id": "visible-means-active",
+        "label": "一覧に表示されるので、承認解除は失敗したと判断する",
+        "description": "既存トークンを取り消せないため表示が残ることがあり、表示だけではアクセス可否を判断できない。"
+      },
+      {
+        "id": "delete-single-user",
+        "label": "特定のAIアプリだけを、全利用者から個別に一括切断できると考える",
+        "description": "現時点では特定ツールだけの全利用者切断はできず、全MCP接続を切断して再認証する手順が案内されている。"
+      }
+    ],
+    "recommendedAnswers": [
+      "check-block-and-reset"
+    ],
+    "explanation": "Notionは、承認リスト外のAIアプリからのMCP呼び出しを遮断すると説明しています。一方で既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。全利用者の接続を整理したい場合はDisconnect All Usersを使い、承認済みアプリだけで再認証します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "承認リストの設定",
+      "description": "Enterpriseのワークスペース所有者はSettings → Connections → Permissionsで、AI appsをOnly from approved listに設定し、Manage approved AI appsで許可するアプリを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "Connected toolsの表示と実際の遮断",
+      "description": "承認リストから外したアプリがConnected toolsに残ることがあります。Notionは既存トークンを取り消せないためと説明しており、未承認アプリのMCP呼び出し自体はブロックされます。",
+      "priority": "high"
+    },
+    {
+      "title": "全利用者の接続を整理する必要があるか",
+      "description": "特定のAIアプリだけを全利用者から一括切断する機能は案内されていません。全接続をやり直す必要がある時はDisconnect All Usersを使い、利用者に再認証を求めます。",
+      "priority": "high"
+    },
+    {
+      "title": "AIアプリが使う権限の範囲",
+      "description": "Notion MCPのツールは、接続した利用者のNotion権限で動きます。承認済みだからといって、利用者本人に見えないページまで読めるわけではありません。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "Notion MCPは承認解除後に、遮断状態と再認証の要否を分けて確認する",
+  "verificationMessage": "Connected toolsの表示だけで判断せず、承認リスト外のアプリが遮断されていることと、全接続を切り直す必要があるかを確認しましょう。",
+  "verdict": {
+    "label": "MCPの停止確認は『一覧から消えたか』ではなく、承認・遮断・再認証を分ける",
+    "description": "Notion MCPでは、承認リストから外したAIアプリの既存トークン表示が残る場合があります。しかしNotionは未承認アプリの呼び出しを遮断すると案内しています。停止を確実に進めるには、承認リスト、機能的な遮断、全利用者の接続を切り直すかという三つを分けて確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "MCP Governanceを使う場合は、AI appsをOnly from approved listにし、承認済みアプリを定期的に見直す",
+      "reason": "未承認のMCPクライアント・AIアプリからの接続をワークスペース単位で制限できます。"
+    },
+    {
+      "action": "承認解除後は、Connected toolsの表示ではなく、承認リスト外の呼び出しが遮断される仕様を確認する",
+      "reason": "既存トークンを取り消せないため、表示が残っても実際のMCP呼び出しはブロックされる場合があります。"
+    },
+    {
+      "action": "接続を全面的に整理する必要がある時はDisconnect All Usersを使い、承認済みアプリだけで再認証する",
+      "reason": "全ての外部AIツール・MCPクライアントを切断し、接続の出発点をそろえられます。"
+    },
+    {
+      "action": "個人用のAIアプリとNotionをつなぐ時は、AIが自分のNotion権限で動くことを前提に、まず個人用途から試す",
+      "reason": "MCPツールは、接続した利用者に許可されたNotionの内容へアクセスできます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "Connected toolsに表示が残るだけで、承認解除が失敗したと断定する",
+      "reason": "表示の残存と、未承認アプリからのMCP呼び出しが遮断されているかは別の状態です。"
+    },
+    {
+      "action": "一度つないだAIアプリのトークンを、承認リスト操作だけで必ず取り消せると考える",
+      "reason": "Notionは、以前接続したツールの既存トークンを取り消せない場合があると案内しています。"
+    },
+    {
+      "action": "承認済みのAIアプリに、誰でも同じNotion内容が見えると考える",
+      "reason": "Notion MCPは既存のNotion権限を尊重し、利用者の権限範囲で動作します。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIアプリを増やす前に、止め方まで決めた接続管理にする",
+    "description": "承認リストと全接続リセットの導線を先に決めておけば、チームは必要なAIアプリだけを使い、試験導入後の撤収も混乱なく進められます。",
+    "examples": [
+      "検証用のAIアプリを承認リストに期間限定で追加する",
+      "新しいAIアプリの導入前に、ページ読み取り・書き込みの用途を決める",
+      "承認リストから外した後は、遮断状態とConnected toolsの表示を別に記録する",
+      "全面的な棚卸し時にはDisconnect All Usersで再認証を行う"
+    ]
+  },
+  "makotoComment": "連携を止めた後に一覧へ名前が残っていると、どうしても『まだつながっている』ように見えます。でも運用では、画面上の表示、今この瞬間の呼び出し可否、利用者が持つ接続の整理を分ける方が大切です。MCPは便利な橋ですが、橋を閉じる時の標識まで決めておくと、試すこと自体を必要以上に怖がらずに済みます。",
+  "oneLineLesson": "Notion MCPは、承認解除後も表示だけで判断せず、遮断と再認証を確認する。",
+  "tags": [
+    "Notion",
+    "MCP",
+    "AIアプリ",
+    "権限管理",
+    "接続解除",
+    "ワークスペース管理"
+  ],
+  "sources": [
+    {
+      "title": "Notion MCP",
+      "publisher": "Notion Help Center",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://www.notion.com/help/notion-mcp"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Notion MCPの管理画面を模した図解。左に『Approved list』から外されたAIアプリ、中央にConnected toolsへ残る表示、右にブロックされたMCP呼び出しとDisconnect All Usersによる再認証の流れを置く。利用者が『表示』『遮断』『再接続』の三つをチェックしている構図にする。",
+    "cardIcon": "notion-mcp-access-review",
+    "accentTone": "caution"
+  }
+}

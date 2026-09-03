@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260904-01" />
+<meta property="og:title" content="Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260904-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+              <time datetime="2026-09-04">2026.09.04</time>
+            </div>
+            <h1>Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること</h1>
+            <p>Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。</p>
+            <ul class="forensics-target-list"><li>NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人</li><li>MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Notion</li><li>MCP</li><li>AIアプリ</li><li>権限管理</li><li>接続解除</li><li>ワークスペース管理</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>Notion MCPは承認解除後に、遮断状態と再認証の要否を分けて確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Connected toolsの表示だけで判断せず、承認リスト外のアプリが遮断されていることと、全接続を切り直す必要があるかを確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>チームが試験導入したAIアプリを、Notion MCPの承認リストから外した</h3><p>管理画面のConnected toolsには、そのAIアプリ名がまだ表示されています。管理者は『止められていないのでは』と心配し、利用者ごとの接続をどう整理すべきか迷っています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>MCPはAIアプリからNotionページをリアルタイムに読み書きできる接続です。表示が残っていても未承認アプリの呼び出しは遮断される場合がありますが、トークン表示と実際のアクセス可否、全利用者を再認証させる必要がある場合を分けて扱わなければ、停止確認が曖昧になります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-block-and-reset">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Notion MCPで、以前接続したAIアプリを承認リストから外したのにConnected toolsに表示が残る時、適切な理解は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-block-and-reset" data-choice-id="check-block-and-reset" />
+                <span>
+                  <strong>表示の残存と実際の呼び出し遮断を分けて確認し、必要ならDisconnect All Usersで全接続を切断する</strong>
+                  <small>承認リスト外のツールは機能的に遮断されるが、完全な再接続整理には別の操作がある。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="visible-means-active" data-choice-id="visible-means-active" />
+                <span>
+                  <strong>一覧に表示されるので、承認解除は失敗したと判断する</strong>
+                  <small>既存トークンを取り消せないため表示が残ることがあり、表示だけではアクセス可否を判断できない。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-single-user" data-choice-id="delete-single-user" />
+                <span>
+                  <strong>特定のAIアプリだけを、全利用者から個別に一括切断できると考える</strong>
+                  <small>現時点では特定ツールだけの全利用者切断はできず、全MCP接続を切断して再認証する手順が案内されている。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>表示の残存と実際の呼び出し遮断を分けて確認し、必要ならDisconnect All Usersで全接続を切断する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Notionは、承認リスト外のAIアプリからのMCP呼び出しを遮断すると説明しています。一方で既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。全利用者の接続を整理したい場合はDisconnect All Usersを使い、承認済みアプリだけで再認証します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>承認リストの設定</h3>
+              <p>Enterpriseのワークスペース所有者はSettings → Connections → Permissionsで、AI appsをOnly from approved listに設定し、Manage approved AI appsで許可するアプリを確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Connected toolsの表示と実際の遮断</h3>
+              <p>承認リストから外したアプリがConnected toolsに残ることがあります。Notionは既存トークンを取り消せないためと説明しており、未承認アプリのMCP呼び出し自体はブロックされます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>全利用者の接続を整理する必要があるか</h3>
+              <p>特定のAIアプリだけを全利用者から一括切断する機能は案内されていません。全接続をやり直す必要がある時はDisconnect All Usersを使い、利用者に再認証を求めます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>AIアプリが使う権限の範囲</h3>
+              <p>Notion MCPのツールは、接続した利用者のNotion権限で動きます。承認済みだからといって、利用者本人に見えないページまで読めるわけではありません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>MCPの停止確認は『一覧から消えたか』ではなく、承認・遮断・再認証を分ける</strong><p>Notion MCPでは、承認リストから外したAIアプリの既存トークン表示が残る場合があります。しかしNotionは未承認アプリの呼び出しを遮断すると案内しています。停止を確実に進めるには、承認リスト、機能的な遮断、全利用者の接続を切り直すかという三つを分けて確認します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>MCP Governanceを使う場合は、AI appsをOnly from approved listにし、承認済みアプリを定期的に見直す</strong><span>未承認のMCPクライアント・AIアプリからの接続をワークスペース単位で制限できます。</span></li>
+            <li><strong>承認解除後は、Connected toolsの表示ではなく、承認リスト外の呼び出しが遮断される仕様を確認する</strong><span>既存トークンを取り消せないため、表示が残っても実際のMCP呼び出しはブロックされる場合があります。</span></li>
+            <li><strong>接続を全面的に整理する必要がある時はDisconnect All Usersを使い、承認済みアプリだけで再認証する</strong><span>全ての外部AIツール・MCPクライアントを切断し、接続の出発点をそろえられます。</span></li>
+            <li><strong>個人用のAIアプリとNotionをつなぐ時は、AIが自分のNotion権限で動くことを前提に、まず個人用途から試す</strong><span>MCPツールは、接続した利用者に許可されたNotionの内容へアクセスできます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>Connected toolsに表示が残るだけで、承認解除が失敗したと断定する</strong><span>表示の残存と、未承認アプリからのMCP呼び出しが遮断されているかは別の状態です。</span></li>
+            <li><strong>一度つないだAIアプリのトークンを、承認リスト操作だけで必ず取り消せると考える</strong><span>Notionは、以前接続したツールの既存トークンを取り消せない場合があると案内しています。</span></li>
+            <li><strong>承認済みのAIアプリに、誰でも同じNotion内容が見えると考える</strong><span>Notion MCPは既存のNotion権限を尊重し、利用者の権限範囲で動作します。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIアプリを増やす前に、止め方まで決めた接続管理にする</h3>
+          <p>承認リストと全接続リセットの導線を先に決めておけば、チームは必要なAIアプリだけを使い、試験導入後の撤収も混乱なく進められます。</p>
+          <ul class="positive-example-list"><li>検証用のAIアプリを承認リストに期間限定で追加する</li><li>新しいAIアプリの導入前に、ページ読み取り・書き込みの用途を決める</li><li>承認リストから外した後は、遮断状態とConnected toolsの表示を別に記録する</li><li>全面的な棚卸し時にはDisconnect All Usersで再認証を行う</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>連携を止めた後に一覧へ名前が残っていると、どうしても『まだつながっている』ように見えます。でも運用では、画面上の表示、今この瞬間の呼び出し可否、利用者が持つ接続の整理を分ける方が大切です。MCPは便利な橋ですが、橋を閉じる時の標識まで決めておくと、試すこと自体を必要以上に怖がらずに済みます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Notion MCPは、承認解除後も表示だけで判断せず、遮断と再認証を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.notion.com/help/notion-mcp" target="_blank" rel="noopener noreferrer">Notion MCP<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Notion Help Center</span>
+              <span>公式発表</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260903-01" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める Recallは保存開始前にサイト・アプリの除外を決める Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy &amp; securityからアプリやWebサイトを除外できると案内しています。保存内容は端末内で処理・保管され、Microsoftや第三者と共有されないとされていますが、保存を始めれば画面上の情報を後から検索できるようになります。機密情報のフィルターは既定で有効でも、特定サイトの除外には対応ブラウザが必要で、除外したサイトでも埋め込み要素や非アクティブなタブの一部が写る場合があります。Recallを便利な「見たもの検索」として使うなら、オンにする前に、銀行・人事・医療・顧客管理などのサイトやアプリを除外リストへ入れることが先です。 セキュリティ・権限 標準 Windows Recall Copilot+ PC 画面保存 プライバシー 除外設定 ローカルAI Copilot+ PCでWindows Recallの利用を検討している人 画面に表示する仕事・私生活の情報をAI検索の対象にしたくない人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">recall-filter-list</span>
+              <div>
+                <p>Recallは保存開始前にサイト・アプリの除外を決める</p>
+                <h3>Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-03">2026.09.03</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy &amp; securityからアプリやWebサイトを除外できると案内しています。保存内容は端末内で処理・保管され、Microsoftや第三者と共有されないとされていますが、保存を始めれば画面上の情報を後から検索できるようになります。機密情報のフィルターは既定で有効でも、特定サイトの除外には対応ブラウザが必要で、除外したサイトでも埋め込み要素や非アクティブなタブの一部が写る場合があります。Recallを便利な「見たもの検索」として使うなら、オンにする前に、銀行・人事・医療・顧客管理などのサイトやアプリを除外リストへ入れることが先です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>保存を始める前に、Recallの対象外を設定する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Copilot+ PCでWindows Recallの利用を検討している人</li><li>画面に表示する仕事・私生活の情報をAI検索の対象にしたくない人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Windows Recall</li><li>Copilot+ PC</li><li>画面保存</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260902-01" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="GeminiがDriveの機密ラベルを付けたら、共有前に「承認か修正か」を決める AI自動ラベルは共有前に承認・修正する Googleは2026年8月28日、Geminiを使ってGoogle Driveのファイルへデータ分類ラベルを付ける機能をオープンベータで提供すると発表しました。管理者がラベル、指示、対象範囲を設定し、必要なラベル権限を持つファイル所有者・編集者は、Geminiが付けたラベルを確認して承認または修正できます。利用者にとっては、AIのラベルをそのまま共有可否の結論にせず、外部共有・保存期間・持ち出し制限へ進む前に、ファイルの実際の内容とラベルが合っているかを決める場面が増えます。 セキュリティ・権限 標準 Google Drive Gemini データ分類 情報漏えい対策 DLP Google Workspace Google WorkspaceのDriveで組織のファイルを扱う人 AIによるデータ分類を導入・利用する組織の管理者とファイル所有者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-label-review</span>
+              <div>
+                <p>AI自動ラベルは共有前に承認・修正する</p>
+                <h3>GeminiがDriveの機密ラベルを付けたら、共有前に「承認か修正か」を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-02">2026.09.02</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年8月28日、Geminiを使ってGoogle Driveのファイルへデータ分類ラベルを付ける機能をオープンベータで提供すると発表しました。管理者がラベル、指示、対象範囲を設定し、必要なラベル権限を持つファイル所有者・編集者は、Geminiが付けたラベルを確認して承認または修正できます。利用者にとっては、AIのラベルをそのまま共有可否の結論にせず、外部共有・保存期間・持ち出し制限へ進む前に、ファイルの実際の内容とラベルが合っているかを決める場面が増えます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>AIラベルを共有前に承認・修正する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google WorkspaceのDriveで組織のファイルを扱う人</li><li>AIによるデータ分類を導入・利用する組織の管理者とファイル所有者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Drive</li><li>Gemini</li><li>データ分類</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260902-04" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="ChatGPTの共有リンクを消しても、相手が保存した会話までは消えない。送る前と取り消す時に見る場所 共有リンクは送る前に範囲を見て、不要なら個別に消す OpenAIは、ChatGPTの共有リンクについて、個人アカウントで作成した会話リンクはリンクを知る人が閲覧でき、会話履歴・画像・アップロード済みファイルを含む場合があると案内しています。リンクを削除すれば以後そのURLからは開けなくなりますが、相手がすでに会話を自分のアカウントへ保存していた場合、そのコピーまでは消えません。また、個人アカウントの共有リンクには相手ごとの閲覧制限や有効期限の設定はありません。会話を送る時はURLを作る前にプレビューの範囲を見直し、不要になった時はSettingsのData controlsから共有リンクを個別に削除する、という二段階で扱う必要があります。 セキュリティ・権限 標準 ChatGPT 共有リンク データ管理 プライバシー 情報共有 設定 ChatGPTの会話をURLで同僚や知人に共有する人 共有した会話に個人情報や添付ファイルが含まれていないか見直したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shared-link-review</span>
+              <div>
+                <p>共有リンクは送る前に範囲を見て、不要なら個別に消す</p>
+                <h3>ChatGPTの共有リンクを消しても、相手が保存した会話までは消えない。送る前と取り消す時に見る場所</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-02">2026.09.02</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは、ChatGPTの共有リンクについて、個人アカウントで作成した会話リンクはリンクを知る人が閲覧でき、会話履歴・画像・アップロード済みファイルを含む場合があると案内しています。リンクを削除すれば以後そのURLからは開けなくなりますが、相手がすでに会話を自分のアカウントへ保存していた場合、そのコピーまでは消えません。また、個人アカウントの共有リンクには相手ごとの閲覧制限や有効期限の設定はありません。会話を送る時はURLを作る前にプレビューの範囲を見直し、不要になった時はSettingsのData controlsから共有リンクを個別に削除する、という二段階で扱う必要があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>共有前にプレビュー、不要になれば共有リンクを削除する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTの会話をURLで同僚や知人に共有する人</li><li>共有した会話に個人情報や添付ファイルが含まれていないか見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>共有リンク</li><li>データ管理</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260903-01">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

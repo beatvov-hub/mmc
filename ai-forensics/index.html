@@ -86,17 +86,17 @@
       <section class="card-section forensics-latest-section" id="latest-cases" aria-labelledby="latest-cases-title">
         <div class="section-heading"><div><p class="section-kicker">Latest Case</p><h2 id="latest-cases-title">最新の鑑識事例</h2></div></div>
         <div class="forensics-featured-grid">
-          <a class="forensics-card is-index-card is-featured tone-caution" href="case-20260903-01" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める Recallは保存開始前にサイト・アプリの除外を決める Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy &amp; securityからアプリやWebサイトを除外できると案内しています。保存内容は端末内で処理・保管され、Microsoftや第三者と共有されないとされていますが、保存を始めれば画面上の情報を後から検索できるようになります。機密情報のフィルターは既定で有効でも、特定サイトの除外には対応ブラウザが必要で、除外したサイトでも埋め込み要素や非アクティブなタブの一部が写る場合があります。Recallを便利な「見たもの検索」として使うなら、オンにする前に、銀行・人事・医療・顧客管理などのサイトやアプリを除外リストへ入れることが先です。 セキュリティ・権限 標準 Windows Recall Copilot+ PC 画面保存 プライバシー 除外設定 ローカルAI Copilot+ PCでWindows Recallの利用を検討している人 画面に表示する仕事・私生活の情報をAI検索の対象にしたくない人">
+          <a class="forensics-card is-index-card is-featured tone-caution" href="case-20260904-01" data-forensics-card data-category="security" data-level="2" data-difficulty="advanced" data-search-text="Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。 セキュリティ・権限 発展 Notion MCP AIアプリ 権限管理 接続解除 ワークスペース管理 NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人 MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者">
             <div class="forensics-index-card-meta">
 <span class="forensics-latest-label">Latest</span>
               <span>セキュリティ・権限</span>
-              <time datetime="2026-09-03">2026.09.03</time>
+              <time datetime="2026-09-04">2026.09.04</time>
               <small>確認 2</small>
             </div>
-            <h3>Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める</h3>
-            <p class="forensics-card-summary">Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy &amp; securityからアプリやWebサイトを除外できると案内しています。保存内容は端末内で処理・保管され、Microsoftや第三者と…</p>
+            <h3>Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること</h3>
+            <p class="forensics-card-summary">Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示…</p>
             <p class="forensics-card-lesson"><span>今回の結論</span>
-              Recallは保存前に、画面に残したくないサイト・アプリを除外する。</p>
+              Notion MCPは、承認解除後も表示だけで判断せず、遮断と再認証を確認する。</p>
             <span class="forensics-card-cta">詳しく見る</span>
           </a>
         </div>
@@ -129,6 +129,19 @@
         <p class="forensics-results-status" data-forensics-results aria-live="polite"></p>
         <p class="forensics-empty-message" data-forensics-empty hidden>該当する事例は、現在準備中です。別の条件でも探してみてください。</p>
         <div class="forensics-card-grid">
+          <a class="forensics-card is-index-card tone-caution" href="case-20260903-01" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める Recallは保存開始前にサイト・アプリの除外を決める Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy &amp; securityからアプリやWebサイトを除外できると案内しています。保存内容は端末内で処理・保管され、Microsoftや第三者と共有されないとされていますが、保存を始めれば画面上の情報を後から検索できるようになります。機密情報のフィルターは既定で有効でも、特定サイトの除外には対応ブラウザが必要で、除外したサイトでも埋め込み要素や非アクティブなタブの一部が写る場合があります。Recallを便利な「見たもの検索」として使うなら、オンにする前に、銀行・人事・医療・顧客管理などのサイトやアプリを除外リストへ入れることが先です。 セキュリティ・権限 標準 Windows Recall Copilot+ PC 画面保存 プライバシー 除外設定 ローカルAI Copilot+ PCでWindows Recallの利用を検討している人 画面に表示する仕事・私生活の情報をAI検索の対象にしたくない人">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-09-03">2026.09.03</time>
+              <small>確認 2</small>
+            </div>
+            <h3>Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める</h3>
+            <p class="forensics-card-summary">Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy &amp; securityからアプリやWebサイトを除外で…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              Recallは保存前に、画面に残したくないサイト・アプリを除外する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
           <a class="forensics-card is-index-card tone-caution" href="case-20260903-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="SlackのAI要約、「閉じれば消える」とは限らない。ワークフローで投稿する前に保存先を決める Slack AI要約は「表示だけ」と「保存される投稿」を分ける Slackは、利用者がその場で見る会話要約や検索回答は画面を閉じると消える一時的なAI応答で、端末やサーバーに保存されないと案内しています。一方、ワークフローの「Summarize public channels」ステップで作ったチャンネル要約は別で、後続の設定次第で会話へのメッセージ投稿やCanvasへの保存が行われ、組織のデータ保持設定に従って残ります。さらに、Recapの履歴は90日間保存されます。つまり、同じ『AI要約』でも、個人が今読むための応答なのか、チームの記録として投稿する自動化なのかで保存の扱いが変わります。ワークフロー化する前に、保存先・閲覧者・保持期間を決めることが必要です。 仕事・AI活用 標準 Slack AI要約 ワークフロー Canvas データ保持 業務効率化 SlackでAI要約や検索回答を使うチームメンバー Slackの要約ワークフローを作成・管理する人">
             <div class="forensics-index-card-meta">
 
