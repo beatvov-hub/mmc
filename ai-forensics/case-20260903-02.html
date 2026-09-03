@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SlackのAI要約、「閉じれば消える」とは限らない。ワークフローで投稿する前に保存先を決める｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Slackは、利用者がその場で見る会話要約や検索回答は画面を閉じると消える一時的なAI応答で、端末やサーバーに保存されないと案内しています。一方、ワークフローの「Summarize public channels」ステップで作ったチャンネル要約は別で、後続の設定次第で会話へのメッセージ投稿やCanvasへの保存が行われ、組織のデータ保持設定に従って残ります。さらに、Recapの履歴は90日間保存されます。つまり、同じ『AI要約』でも、個人が今読むための応答なのか、チームの記録として投稿する自動化なのかで保存の扱いが変わります。ワークフロー化する前に、保存先・閲覧者・保持期間を決めることが必要です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260903-02" />
+<meta property="og:title" content="SlackのAI要約、「閉じれば消える」とは限らない。ワークフローで投稿する前に保存先を決める｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Slackは、利用者がその場で見る会話要約や検索回答は画面を閉じると消える一時的なAI応答で、端末やサーバーに保存されないと案内しています。一方、ワークフローの「Summarize public channels」ステップで作ったチャンネル要約は別で、後続の設定次第で会話へのメッセージ投稿やCanvasへの保存が行われ、組織のデータ保持設定に従って残ります。さらに、Recapの履歴は90日間保存されます。つまり、同じ『AI要約』でも、個人が今読むための応答なのか、チームの記録として投稿する自動化なのかで保存の扱いが変わります。ワークフロー化する前に、保存先・閲覧者・保持期間を決めることが必要です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260903-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>Slack AI要約は「表示だけ」と「保存される投稿」を分ける</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-09-03">2026.09.03</time>
+            </div>
+            <h1>SlackのAI要約、「閉じれば消える」とは限らない。ワークフローで投稿する前に保存先を決める</h1>
+            <p>Slackは、利用者がその場で見る会話要約や検索回答は画面を閉じると消える一時的なAI応答で、端末やサーバーに保存されないと案内しています。一方、ワークフローの「Summarize public channels」ステップで作ったチャンネル要約は別で、後続の設定次第で会話へのメッセージ投稿やCanvasへの保存が行われ、組織のデータ保持設定に従って残ります。さらに、Recapの履歴は90日間保存されます。つまり、同じ『AI要約』でも、個人が今読むための応答なのか、チームの記録として投稿する自動化なのかで保存の扱いが変わります。ワークフロー化する前に、保存先・閲覧者・保持期間を決めることが必要です。</p>
+            <ul class="forensics-target-list"><li>SlackでAI要約や検索回答を使うチームメンバー</li><li>Slackの要約ワークフローを作成・管理する人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Slack</li><li>AI要約</li><li>ワークフロー</li><li>Canvas</li><li>データ保持</li><li>業務効率化</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>AI要約を投稿する前に、保存先と保持期間を確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>SlackのAI要約を自動投稿する時は、一時表示ではなく記録になる前提で、投稿先・閲覧者・データ保持設定を確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>毎朝、複数チャンネルの議論をAIで要約してチームへ流そうとしている</h3><p>個人で会話要約を開いた時は画面を閉じると見えなくなったため、同じ感覚でワークフロー要約をチャンネルへ投稿しようとしています。そこには顧客対応や人事に関わる会話も混ざる可能性があります。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>その場で表示するAI要約と、メッセージやCanvasになるAI要約は、保存される場所と期間が同じではありません。自動化の出力先を決めずに投稿すると、短期確認用だった情報がチームの記録として残ることがあります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="decide-destination-retention">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>SlackでチャンネルのAI要約を定期的にチームへ届けたい時、最初に確認することとして適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="decide-destination-retention" data-choice-id="decide-destination-retention" />
+                <span>
+                  <strong>要約を一時表示にするか、メッセージ・Canvasに保存するかを決め、保持設定と閲覧者を確認する</strong>
+                  <small>要約の出力形態によって、保存の扱いが変わる。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="all-summaries-disappear" data-choice-id="all-summaries-disappear" />
+                <span>
+                  <strong>AI要約は画面を閉じればすべて消えると考える</strong>
+                  <small>ワークフローで投稿・保存された要約は、一時的な会話要約とは異なる。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="automate-everywhere" data-choice-id="automate-everywhere" />
+                <span>
+                  <strong>要約の内容を確認せず、関係しそうな全チャンネルへ自動投稿する</strong>
+                  <small>保存先と閲覧範囲を広げる前に、用途を決める必要がある。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>要約を一時表示にするか、メッセージ・Canvasに保存するかを決め、保持設定と閲覧者を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Slackは、会話要約・検索回答を一時的なAI応答として扱う一方、ワークフローで作成してメッセージやCanvasに置くチャンネル要約は組織のデータ保持設定に従うと説明しています。自動化では、保存先と閲覧者を先に設計します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>個人が読む一時要約か、ワークフローの出力か</h3>
+              <p>会話要約や検索回答は一時的な応答です。対して、Summarize public channelsのワークフローで生成し、メッセージやCanvasへ送る要約は保存される成果物になります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>投稿先と閲覧者</h3>
+              <p>要約を送るチャンネル、Canvasの共有範囲、そこに含まれる会話の性質を確認します。日次報告として残す必要があるか、その場の把握だけでよいかを分けます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>組織のデータ保持設定</h3>
+              <p>ワークフローによるチャンネル要約がメッセージやCanvasとして保存される場合、保持期間は組織のSlackデータ保持設定に従います。Recapの履歴は90日間保存されます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>管理者によるAI機能・ファイル利用の設定</h3>
+              <p>管理者は、AI機能の利用可否だけでなく、AIワークフローでファイルを含めるか、第三者コネクターを使うかなどを管理できます。自動化を広げる前に、ワークスペースの設定を確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AI要約は、作り方ではなく『どこへ出すか』で記録になる</strong><p>SlackのAI要約には、画面を閉じれば消える一時的な応答と、ワークフローを経て会話やCanvasに残る成果物があります。便利な自動要約ほど、内容の正確さだけでなく、保存先と保持期間を仕事の設計として決めることが重要です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>まず個人用の会話要約で、必要な情報の範囲と要約品質を確かめる</strong><span>一時的な表示で、どの会話を要約対象にするかを検討できます。</span></li>
+            <li><strong>ワークフローで投稿する前に、メッセージ・Canvasのどちらへ残すかと閲覧者を決める</strong><span>ワークフロー出力は、チームの記録として保存される場合があります。</span></li>
+            <li><strong>要約を置く場所のデータ保持設定を管理者と確認する</strong><span>保存されたメッセージやCanvasは、組織の保持設定に従います。</span></li>
+            <li><strong>AIワークフローにファイルや第三者コネクターを含める前に、ワークスペースのAI設定を確認する</strong><span>Slackでは、AIワークフローのファイル利用や第三者コネクター利用を管理できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>個人で見た要約が消えたからと、ワークフローの投稿も消えると考える</strong><span>メッセージやCanvasとして出力されたチャンネル要約は、一時的な応答とは別に扱われます。</span></li>
+            <li><strong>顧客・人事・法務などを含むチャンネルの要約を、用途を決めず広いチャンネルへ自動投稿する</strong><span>投稿先によって、閲覧範囲と保存される記録が広がります。</span></li>
+            <li><strong>AI要約の導入を、機能のオン・オフだけで終える</strong><span>ワークフロー化する場合は、出力先、保持、ファイルやコネクターの利用設定も関係します。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>一時確認と正式なチーム記録を、AI要約で使い分ける</h3>
+          <p>個人のキャッチアップには一時要約を使い、合意事項や週次の決定記録だけを確認後にチームのCanvasやチャンネルへ残せば、情報を探す時間を減らしつつ記録の境界を保てます。</p>
+          <ul class="positive-example-list"><li>会議前に自分だけが読むチャンネル要約を使う</li><li>確定した決定事項だけを編集して週次Canvasへ残す</li><li>自動投稿するチャンネルを限定する</li><li>AIワークフローの出力先と保持設定を定期的に見直す</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>要約が便利なのは、情報を短くできるからだけではありません。読むだけの要約と、チームの記録になる要約を分けられるからこそ、仕事の流れを軽くできます。自動化を作る時は『何をまとめるか』の次に、『どこに残し、いつ消えるか』を決める。それだけで、後から探せる価値と残し過ぎない安心を両立しやすくなります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>SlackのAI要約は、一時表示かチーム記録かを出力先で分けて決める。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://slack.com/help/articles/28310650165907-Security-for-AI-features-in-Slack" target="_blank" rel="noopener noreferrer">Security for AI features in Slack<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Slack</span>
+              <span>公式発表</span>
+            </li>
+            <li>
+              <strong><a href="https://slack.com/help/articles/28244420881555-Manage-access-to-AI-features-in-Slack" target="_blank" rel="noopener noreferrer">Manage access to AI features in Slack<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Slack</span>
+              <span>公式発表</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260902-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="Copilotで作ったファイル、ラベルが自動で付いても共有前にプロパティを見る 生成ファイルの秘密度ラベルを確認する Microsoftは2026年8月のMicrosoft 365 Copilotリリースノートで、Copilotが生成したファイルには、参照元データから検出した最も高い秘密度ラベルが自動適用されると案内しています。ラベルを適用できない場合は、共有または保存の前に対応するよう通知されます。利用者にとっては、自動ラベルを付与済みの印として終わらせず、生成した資料を配る直前にファイルのプロパティと通知を確認し、必要なら正しいラベルを手動で適用することが実務上の最後の工程になります。 仕事・AI活用 標準 Microsoft 365 Copilot 秘密度ラベル 情報漏えい対策 ファイル共有 仕事術 Microsoft 365 Microsoft 365 Copilotで資料を作る人 組織の秘密度ラベルを使って仕事のファイルを共有する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-label-check</span>
+              <div>
+                <p>生成ファイルの秘密度ラベルを確認する</p>
+                <h3>Copilotで作ったファイル、ラベルが自動で付いても共有前にプロパティを見る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-02">2026.09.02</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは2026年8月のMicrosoft 365 Copilotリリースノートで、Copilotが生成したファイルには、参照元データから検出した最も高い秘密度ラベルが自動適用されると案内しています。ラベルを適用できない場合は、共有または保存の前に対応するよう通知されます。利用者にとっては、自動ラベルを付与済みの印として終わらせず、生成した資料を配る直前にファイルのプロパティと通知を確認し、必要なら正しいラベルを手動で適用することが実務上の最後の工程になります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>生成後に秘密度ラベルと通知を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft 365 Copilotで資料を作る人</li><li>組織の秘密度ラベルを使って仕事のファイルを共有する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft 365 Copilot</li><li>秘密度ラベル</li><li>情報漏えい対策</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260831-01" data-forensics-card data-category="work-use" data-level="2" data-difficulty="beginner" data-search-text="Google Meetの文字起こし、開始前に「誰のDriveへ保存され、誰が読めるか」を決める 会議文字起こしは保存先と閲覧者を先に決める GoogleはGoogle Meetの公式ヘルプで、文字起こしを有効にすると記録は会議主催者のGoogle Drive内に保存され、会議後には主催者・共同主催者・開始した人へリンクがメール送信されると案内しています。カレンダー予定の添付ファイルとしては、主催者の組織内の招待者も開ける場合があります。会議中に文字起こしを始める前に、誰のDriveへ残るか、社外参加者を含めて誰が読む必要があるかを決めておくと、AI議事録を便利に使いながら共有範囲の思い込みを減らせます。 仕事・AI活用 はじめて Google Meet 文字起こし AI議事録 会議 Google Drive 仕事術 Google Meetで会議を主催する人 AI議事録や文字起こしを仕事で使い始めた人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">meeting-transcript</span>
+              <div>
+                <p>会議文字起こしは保存先と閲覧者を先に決める</p>
+                <h3>Google Meetの文字起こし、開始前に「誰のDriveへ保存され、誰が読めるか」を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-31">2026.08.31</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">GoogleはGoogle Meetの公式ヘルプで、文字起こしを有効にすると記録は会議主催者のGoogle Drive内に保存され、会議後には主催者・共同主催者・開始した人へリンクがメール送信されると案内しています。カレンダー予定の添付ファイルとしては、主催者の組織内の招待者も開ける場合があります。会議中に文字起こしを始める前に、誰のDriveへ残るか、社外参加者を含めて誰が読む必要があるかを決めておくと、AI議事録を便利に使いながら共有範囲の思い込みを減らせます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>開始前に保存先と閲覧者をそろえる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google Meetで会議を主催する人</li><li>AI議事録や文字起こしを仕事で使い始めた人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Meet</li><li>文字起こし</li><li>AI議事録</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260829-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Gemini Notebookの利用上限に達したら？ 重い生成を後回しにする段取り Gemini Notebookの上限は生成順序で使い分ける Googleは2026年8月28日、Gemini Notebookに、作業内容に応じて消費量が変わる新しい利用上限を導入すると発表しました。プロンプトの複雑さ、会話の長さ、ソース数、使う機能が全体の上限に影響し、上限は毎日ではなく5時間ごとに更新されます。利用者にとって大切なのは、重い出力を最初に何度も試すことではなく、調査・会話・出力の順序を決め、必要ならVideo OverviewやSlide Deckを後で自動生成する選択を使い分けることです。消費者向けWeb・モバイルへの提供開始は9月2日予定で、利用できる時期や画面はアカウントによって異なる可能性があります。 仕事・AI活用 標準 Gemini Notebook 利用上限 生成AI Video Overview Slide Deck 資料作成 AI活用 通知 Google Gemini Notebookで資料や複数ソースを使っている人 AIでスライドや動画の要約を作る人 生成AIの利用上限で作業が止まった経験がある人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gemini-notebook-workflow-priority</span>
+              <div>
+                <p>Gemini Notebookの上限は生成順序で使い分ける</p>
+                <h3>Gemini Notebookの利用上限に達したら？ 重い生成を後回しにする段取り</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-29">2026.08.29</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年8月28日、Gemini Notebookに、作業内容に応じて消費量が変わる新しい利用上限を導入すると発表しました。プロンプトの複雑さ、会話の長さ、ソース数、使う機能が全体の上限に影響し、上限は毎日ではなく5時間ごとに更新されます。利用者にとって大切なのは、重い出力を最初に何度も試すことではなく、調査・会話・出力の順序を決め、必要ならVideo OverviewやSlide Deckを後で自動生成する選択を使い分けることです。消費者向けWeb・モバイルへの提供開始は9月2日予定で、利用できる時期や画面はアカウントによって異なる可能性があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>成果物の優先順位、延期の選択、更新時刻を分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Gemini Notebookで資料や複数ソースを使っている人</li><li>AIでスライドや動画の要約を作る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini Notebook</li><li>利用上限</li><li>生成AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260902-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260903-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
