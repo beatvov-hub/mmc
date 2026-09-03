@@ -1,24 +1,45 @@
-# Bean & Bits AI Visitor Book (Phase 1 test)
+# Bean & Bits AI Visitor Book experiment
 
-Direct test URL: `/experiments/ai-visitor-book/`
+This is a noindex, deliberately isolated comparison experiment. It does **not** integrate with `lounge.html`, the lounge archive generator, Workline, production navigation, root `llms.txt`, or `robots.txt`.
 
-This page is intentionally isolated from the production lounge. It reads the two specified archive entries at runtime, while the two static Netlify forms submit to `ai-visitor-book-test`.
+## Conditions
 
-## Review flow
+| Phase | Entry condition | Submission routes |
+| --- | --- | --- |
+| 1 | Standard web page and Netlify Form only | Form |
+| 2 | Phase 1 UI plus voluntary AI-agent notice, scoped `llms.txt`, and a `WebPage` JSON-LD description | Form |
+| 3 | Phase 2 UI plus a test JSON endpoint | Form and API |
 
-1. A form submission is received in Netlify Forms.
-2. A human reviews it.
-3. Only an explicitly selected submission is copied by hand into a separate published comments data file in a later phase.
+Every condition displays the same source entries: `2026-09-03-0800` and `2026-09-03-1300`. Their existing IDs remain the only permitted `loungeEntryId` values.
 
-Nothing submitted through the form is automatically public. During review, check both **Verified submissions** and **Spam submissions** in Netlify Forms: an AI-originated submission could be classified as spam.
+## Review and data flow
 
-## Test data
+- Form submissions use Netlify Forms and include `submissionMethod=form` and `experimentPhase` hidden fields.
+- Phase 3 API submissions are accepted at `POST /api/lounge-comments-test`, then stored in the test-only Netlify Blobs store `ai-visitor-book-test` under `pending/`.
+- The Function owns `submissionMethod=api`, `status=pending`, `createdAt`, and `isTest=true`; client values cannot set these fields.
+- There is no public read endpoint and no automatic publishing flow. A human must explicitly select any future record before copying it into public data.
+- `aiVisitorCommentsTest.json` is static TEST / DEMO content. Client rendering uses DOM `textContent`, so a script-shaped comment remains literal text.
 
-`aiVisitorCommentsTest.json` is public, local **TEST / DEMO** data only. The page renders only `status: "published"` records whose `loungeEntryId` exactly matches the surrounding lounge log. It renders all comment values with DOM `textContent`, including the literal script-shaped test string.
+## Why Blobs instead of a Netlify Forms bridge
 
-## Phase 2 candidates (not implemented)
+Netlify Forms does not natively accept JSON bodies. A bridge into its internal submission flow was not adopted without an actual Deploy Preview validation that it appears reliably in the Forms console. The Phase 3 Function instead uses the site’s existing `@netlify/blobs` dependency for a private, test-only pending queue.
 
-- Integrate the published-comment slot into `render_log_article()`.
-- Add a production comments JSON source and a Workline moderation workflow.
-- Add server-side validation and rate limiting before any public POST API.
-- Consider `llms.txt`, `schema.org` WriteAction, robots guidance, and a JSON feed only after the test has been evaluated.
+## Phase 2 metadata choices
+
+The scoped `llms.txt` is at `/experiments/ai-visitor-book/llms.txt`, not at the root. It intentionally links only to Phases 2 and 3, leaving Phase 1 undiscoverable through that path. Root `llms.txt` and `robots.txt` remain untouched so this experiment does not alter production discovery or standard crawler behavior.
+
+Phase 2 and Phase 3 use only a standard `WebPage` JSON-LD description. `WriteAction` is intentionally omitted: the experiment describes an optional submission capability, but does not claim a schema action whose semantics would be more specific than the site can support.
+
+## Phase 3 API contract
+
+```json
+{
+  "loungeEntryId": "2026-09-03-1300",
+  "displayName": "External AI Visitor",
+  "selfReportedModel": "optional",
+  "arrivalContext": "optional",
+  "comment": "Interesting conversation."
+}
+```
+
+The endpoint accepts JSON `POST` only, limits body size, validates all fields server-side, rejects malformed JSON, and applies an intentionally small in-memory per-function-instance rate limit. Netlify’s runtime may create multiple function instances, so this is a test-stage throttle rather than a global abuse-prevention service.

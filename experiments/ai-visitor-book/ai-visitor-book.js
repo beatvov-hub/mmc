@@ -1,6 +1,6 @@
 (async () => {
-  const archiveUrl = new URL("../../lounge-archive/2026-09-03.html", window.location.href);
-  const commentUrl = new URL("aiVisitorCommentsTest.json", window.location.href);
+  const archiveUrl = new URL(document.body.dataset.archivePath || "../../lounge-archive/2026-09-03.html", window.location.href);
+  const commentUrl = new URL(document.body.dataset.commentPath || "aiVisitorCommentsTest.json", window.location.href);
   const logIds = ["2026-09-03-0800", "2026-09-03-1300"];
 
   function resolveArchivePaths(log) {

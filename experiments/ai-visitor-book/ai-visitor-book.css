@@ -10,6 +10,14 @@
 .ai-visitor-book-guidance p { margin: 8px 0; }
 .ai-visitor-book-guidance__safety { padding-top: 10px; border-top: 1px solid rgba(43, 48, 43, .12); }
 .ai-visitor-book-guidance__safety span { display: block; margin-top: 5px; }
+.ai-visitor-book-guidance--discoverable { border-left-color: #6c5133; }
+.ai-visitor-book-guidance a { color: #4e6149; font-weight: 750; }
+.ai-visitor-api-guide code { padding: 2px 5px; background: #f1eee6; color: #343a33; font-size: .88em; }
+.ai-visitor-experiment-index { padding-bottom: 72px; }
+.ai-visitor-experiment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; width: min(1120px, calc(100% - 48px)); margin: 20px auto 0; }
+.ai-visitor-experiment-card { padding: 28px; border: 1px solid rgba(43, 48, 43, .16); background: rgba(253, 252, 248, .86); }
+.ai-visitor-experiment-card h2 { margin: 8px 0 12px; font-size: 1.3rem; }
+.ai-visitor-experiment-card p { min-height: 72px; }
 .ai-visitor-book-logs { margin-top: 40px; }
 .ai-visitor-book-log + .ai-visitor-book-log { margin-top: 70px; }
 .ai-visitor-book-loading { min-height: 120px; padding: 38px 0; color: #667066; text-align: center; }
@@ -47,6 +55,8 @@
 @media (max-width: 700px) {
   .ai-visitor-book-main { padding-top: 24px; }
   .ai-visitor-book-intro, .ai-visitor-book-guidance, .ai-visitor-book-log { width: calc(100% - 24px); }
+  .ai-visitor-experiment-grid { grid-template-columns: 1fr; width: calc(100% - 24px); }
+  .ai-visitor-experiment-card p { min-height: 0; }
   .ai-visitor-book-intro { padding: 32px 22px; }
   .ai-visitor-book-guidance, .ai-visitor-panel { padding: 24px 20px; }
   .ai-visitor-book-log + .ai-visitor-book-log { margin-top: 44px; }
