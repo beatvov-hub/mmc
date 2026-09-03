@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy &amp; securityからアプリやWebサイトを除外できると案内しています。保存内容は端末内で処理・保管され、Microsoftや第三者と共有されないとされていますが、保存を始めれば画面上の情報を後から検索できるようになります。機密情報のフィルターは既定で有効でも、特定サイトの除外には対応ブラウザが必要で、除外したサイトでも埋め込み要素や非アクティブなタブの一部が写る場合があります。Recallを便利な「見たもの検索」として使うなら、オンにする前に、銀行・人事・医療・顧客管理などのサイトやアプリを除外リストへ入れることが先です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260903-01" />
+<meta property="og:title" content="Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy &amp; securityからアプリやWebサイトを除外できると案内しています。保存内容は端末内で処理・保管され、Microsoftや第三者と共有されないとされていますが、保存を始めれば画面上の情報を後から検索できるようになります。機密情報のフィルターは既定で有効でも、特定サイトの除外には対応ブラウザが必要で、除外したサイトでも埋め込み要素や非アクティブなタブの一部が写る場合があります。Recallを便利な「見たもの検索」として使うなら、オンにする前に、銀行・人事・医療・顧客管理などのサイトやアプリを除外リストへ入れることが先です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260903-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>Recallは保存開始前にサイト・アプリの除外を決める</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-03">2026.09.03</time>
+            </div>
+            <h1>Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める</h1>
+            <p>Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy &amp; securityからアプリやWebサイトを除外できると案内しています。保存内容は端末内で処理・保管され、Microsoftや第三者と共有されないとされていますが、保存を始めれば画面上の情報を後から検索できるようになります。機密情報のフィルターは既定で有効でも、特定サイトの除外には対応ブラウザが必要で、除外したサイトでも埋め込み要素や非アクティブなタブの一部が写る場合があります。Recallを便利な「見たもの検索」として使うなら、オンにする前に、銀行・人事・医療・顧客管理などのサイトやアプリを除外リストへ入れることが先です。</p>
+            <ul class="forensics-target-list"><li>Copilot+ PCでWindows Recallの利用を検討している人</li><li>画面に表示する仕事・私生活の情報をAI検索の対象にしたくない人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Windows Recall</li><li>Copilot+ PC</li><li>画面保存</li><li>プライバシー</li><li>除外設定</li><li>ローカルAI</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>保存を始める前に、Recallの対象外を設定する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Recallをオンにする前に、画面に残したくないサイト・アプリをSettings → Privacy &amp; security → Recall &amp; snapshotsで除外しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>新しいCopilot+ PCでRecallを試そうとしている</h3><p>『端末内にしか保存しない』と聞き、すぐにスナップショット保存をオンにしようとしています。普段はブラウザで銀行・社内人事・診療予約を開き、仕事では顧客管理アプリも使いますが、どれを除外するかはまだ決めていません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>端末内保存と、『自分の画面に何を残すか』は別の判断です。Recallは画面上で見た情報を後から検索できる利便性があるため、保存を始める前に対象外を決め、対応ブラウザや除外の限界も確認する必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="filter-before-saving">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Copilot+ PCでRecallのスナップショット保存を有効にする前に、最も適切な対応は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="filter-before-saving" data-choice-id="filter-before-saving" />
+                <span>
+                  <strong>業務・金融・医療などのサイトやアプリを除外し、対応ブラウザと除外の限界を確認する</strong>
+                  <small>保存対象を先に狭め、必要な時だけ使える状態にする。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="local-means-no-review" data-choice-id="local-means-no-review" />
+                <span>
+                  <strong>端末内保存なので、除外設定は不要と考える</strong>
+                  <small>端末内かどうかと、画面に残したくない情報があるかは別の問題。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="sensitive-filter-perfect" data-choice-id="sensitive-filter-perfect" />
+                <span>
+                  <strong>機密情報フィルターがオンなら、個別のサイト設定は不要と考える</strong>
+                  <small>フィルターは保存を減らすための機能で、個別の対象外設定とは役割が異なる。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>業務・金融・医療などのサイトやアプリを除外し、対応ブラウザと除外の限界を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Microsoftは、Recallの保存を利用者が選択して有効化すること、アプリ・Webサイトの除外設定ができることを案内しています。サイト除外は対応ブラウザで有効になり、表示状態による限界もあるため、保存前に対象を決めるのが実践的です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>スナップショット保存がオンか</h3>
+              <p>RecallはCopilot+ PC向けのプレビュー機能です。初回設定またはSettings → Privacy &amp; security → Recall &amp; snapshotsで、Save snapshotsをオンにした時だけ保存が始まります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>先に除外するサイト・アプリ</h3>
+              <p>銀行、医療、顧客管理、人事、パスワード管理など、画面に残したくない情報を扱うサイト・アプリを挙げ、Recall &amp; snapshotsの除外リストへ追加します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Webサイト除外の対応範囲</h3>
+              <p>Webサイトの除外はEdge、Firefox、Opera、Chromeなどの対応ブラウザで機能します。除外は前面または現在開いているタブが対象で、埋め込み要素や非アクティブなタブの一部がスナップショットに現れる場合があります。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>既に保存された内容の処理</h3>
+              <p>除外していなかったサイト・アプリが保存されていた場合、Recallの検索結果やスナップショット表示から、そのサイト・アプリに関係する保存内容をまとめて削除できます。削除後は除外リストへ追加します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Recallは『クラウドへ送らない』だけで決めず、端末に残す画面を先に選ぶ</strong><p>Recallは、画面の情報を端末内で処理・保管し、Windows Helloによる本人確認と暗号化を用いる設計です。一方で、保存対象になった画面は後から検索できます。機密情報フィルターに頼り切らず、個別に避けたいサイト・アプリを保存前に除外することが、便利さと情報管理を両立する操作になります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Recallをオンにする前に、普段使う機密性の高いサイト・アプリを一覧にする</strong><span>保存対象を先に決めれば、後から個別のスナップショットを探して削除する負担を減らせます。</span></li>
+            <li><strong>Settings → Privacy &amp; security → Recall &amp; snapshotsで、サイト・アプリを除外リストへ追加する</strong><span>RecallはアプリとWebサイトをスナップショット保存から除外できます。</span></li>
+            <li><strong>Webサイトを除外する場合は、使うブラウザが対応しているかと、前面タブだけが対象になることを確認する</strong><span>サイト除外の効き方には対応ブラウザと画面状態による条件があります。</span></li>
+            <li><strong>保存済みの画面に見落としがあれば、そのサイト・アプリに関係するスナップショットを削除し、続けて除外設定を追加する</strong><span>後からの削除と将来の保存防止を分けて行えます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>『ローカル保存』という説明だけで、画面に出す情報を一律に保存対象にする</strong><span>端末内でも、保存された画面はRecallで検索対象になります。</span></li>
+            <li><strong>機密情報フィルターだけを、個別のサイト・アプリ除外の代わりにする</strong><span>フィルターは潜在的な機密情報を減らす仕組みであり、残したくない画面を指定する操作とは別です。</span></li>
+            <li><strong>除外設定をしたので、ブラウザの全タブや埋め込み表示まで必ず保存されないと考える</strong><span>Webサイト除外には対応ブラウザと前面・現在タブの条件があり、一部の画面要素が写る可能性があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>残してよい作業だけを、後から探せる個人用の作業記録にする</h3>
+          <p>除外リストを整えれば、公開情報の調査、資料作成、レシピや旅行の検討など、後で探し直したい画面をRecallで見つける用途に集中できます。</p>
+          <ul class="positive-example-list"><li>公開資料を読んだ画面を、後から言葉で探す</li><li>作業用のアプリだけを保存対象にし、金融・人事アプリは除外する</li><li>一時的に私的な作業をする間は、通知領域から保存を一時停止する</li><li>保存済みの不要なサイト分をまとめて削除してから、除外リストへ追加する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>『外へ送らない』は大事な情報ですが、画面に残るかどうかまで決めてくれる言葉ではありません。Recallのように、あとで探せる便利さがある機能ほど、何を探せる状態にしてよいかを最初に決めるのが効きます。私は設定画面を開いた時、オン・オフの前に、除外リストに何を入れるかを先に考えたいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Recallは保存前に、画面に残したくないサイト・アプリを除外する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/windows/privacy/privacy-and-control-over-your-recall-experience" target="_blank" rel="noopener noreferrer">Privacy and control over your Recall experience<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>公式発表</span>
+            </li>
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/windows/ai/ai-features/retrace-your-steps-with-recall" target="_blank" rel="noopener noreferrer">Retrace your steps with Recall<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>公式発表</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260902-01" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="GeminiがDriveの機密ラベルを付けたら、共有前に「承認か修正か」を決める AI自動ラベルは共有前に承認・修正する Googleは2026年8月28日、Geminiを使ってGoogle Driveのファイルへデータ分類ラベルを付ける機能をオープンベータで提供すると発表しました。管理者がラベル、指示、対象範囲を設定し、必要なラベル権限を持つファイル所有者・編集者は、Geminiが付けたラベルを確認して承認または修正できます。利用者にとっては、AIのラベルをそのまま共有可否の結論にせず、外部共有・保存期間・持ち出し制限へ進む前に、ファイルの実際の内容とラベルが合っているかを決める場面が増えます。 セキュリティ・権限 標準 Google Drive Gemini データ分類 情報漏えい対策 DLP Google Workspace Google WorkspaceのDriveで組織のファイルを扱う人 AIによるデータ分類を導入・利用する組織の管理者とファイル所有者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-label-review</span>
+              <div>
+                <p>AI自動ラベルは共有前に承認・修正する</p>
+                <h3>GeminiがDriveの機密ラベルを付けたら、共有前に「承認か修正か」を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-02">2026.09.02</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年8月28日、Geminiを使ってGoogle Driveのファイルへデータ分類ラベルを付ける機能をオープンベータで提供すると発表しました。管理者がラベル、指示、対象範囲を設定し、必要なラベル権限を持つファイル所有者・編集者は、Geminiが付けたラベルを確認して承認または修正できます。利用者にとっては、AIのラベルをそのまま共有可否の結論にせず、外部共有・保存期間・持ち出し制限へ進む前に、ファイルの実際の内容とラベルが合っているかを決める場面が増えます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>AIラベルを共有前に承認・修正する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google WorkspaceのDriveで組織のファイルを扱う人</li><li>AIによるデータ分類を導入・利用する組織の管理者とファイル所有者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Drive</li><li>Gemini</li><li>データ分類</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260902-03" data-forensics-card data-category="media-literacy" data-level="2" data-difficulty="standard" data-search-text="自分そっくりのAI動画をYouTubeで見つけたら、コメントより先に「プライバシー申立て」を確認する AI偽動画は削除依頼の導線を確認する YouTubeは、AIで生成・改変されて本人に見える、または本人のように聞こえるコンテンツについて、本人または法定代理人がプライバシー申立てで削除を求められると案内しています。2026年には、18歳以上の対象クリエイター向けに、顔がAIで改変・生成された可能性のある動画を探して確認・申立てできるLikeness detectionも拡大されました。ただしこの機能は実験段階で、利用できない国があり、現在は顔の検出が中心です。偽動画を見つけた時は、コメント欄で本人性を争う前に、動画URL・チャンネル・公開日時を記録し、現実的に本人と誤認される内容かを確認して、YouTubeのプライバシー申立てという正式な経路を使うことが大切です。 情報の見極め 標準 AI動画 ディープフェイク YouTube なりすまし プライバシー 削除依頼 YouTube上で自分の顔や声を模したAI動画を見つけた人 顔出しでYouTubeチャンネルを運用している人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">video-likeness-report</span>
+              <div>
+                <p>AI偽動画は削除依頼の導線を確認する</p>
+                <h3>自分そっくりのAI動画をYouTubeで見つけたら、コメントより先に「プライバシー申立て」を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-02">2026.09.02</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeは、AIで生成・改変されて本人に見える、または本人のように聞こえるコンテンツについて、本人または法定代理人がプライバシー申立てで削除を求められると案内しています。2026年には、18歳以上の対象クリエイター向けに、顔がAIで改変・生成された可能性のある動画を探して確認・申立てできるLikeness detectionも拡大されました。ただしこの機能は実験段階で、利用できない国があり、現在は顔の検出が中心です。偽動画を見つけた時は、コメント欄で本人性を争う前に、動画URL・チャンネル・公開日時を記録し、現実的に本人と誤認される内容かを確認して、YouTubeのプライバシー申立てという正式な経路を使うことが大切です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>動画を記録して、公式のプライバシー申立てを確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>YouTube上で自分の顔や声を模したAI動画を見つけた人</li><li>顔出しでYouTubeチャンネルを運用している人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI動画</li><li>ディープフェイク</li><li>YouTube</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260902-04" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="ChatGPTの共有リンクを消しても、相手が保存した会話までは消えない。送る前と取り消す時に見る場所 共有リンクは送る前に範囲を見て、不要なら個別に消す OpenAIは、ChatGPTの共有リンクについて、個人アカウントで作成した会話リンクはリンクを知る人が閲覧でき、会話履歴・画像・アップロード済みファイルを含む場合があると案内しています。リンクを削除すれば以後そのURLからは開けなくなりますが、相手がすでに会話を自分のアカウントへ保存していた場合、そのコピーまでは消えません。また、個人アカウントの共有リンクには相手ごとの閲覧制限や有効期限の設定はありません。会話を送る時はURLを作る前にプレビューの範囲を見直し、不要になった時はSettingsのData controlsから共有リンクを個別に削除する、という二段階で扱う必要があります。 セキュリティ・権限 標準 ChatGPT 共有リンク データ管理 プライバシー 情報共有 設定 ChatGPTの会話をURLで同僚や知人に共有する人 共有した会話に個人情報や添付ファイルが含まれていないか見直したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shared-link-review</span>
+              <div>
+                <p>共有リンクは送る前に範囲を見て、不要なら個別に消す</p>
+                <h3>ChatGPTの共有リンクを消しても、相手が保存した会話までは消えない。送る前と取り消す時に見る場所</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-02">2026.09.02</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは、ChatGPTの共有リンクについて、個人アカウントで作成した会話リンクはリンクを知る人が閲覧でき、会話履歴・画像・アップロード済みファイルを含む場合があると案内しています。リンクを削除すれば以後そのURLからは開けなくなりますが、相手がすでに会話を自分のアカウントへ保存していた場合、そのコピーまでは消えません。また、個人アカウントの共有リンクには相手ごとの閲覧制限や有効期限の設定はありません。会話を送る時はURLを作る前にプレビューの範囲を見直し、不要になった時はSettingsのData controlsから共有リンクを個別に削除する、という二段階で扱う必要があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>共有前にプレビュー、不要になれば共有リンクを削除する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTの会話をURLで同僚や知人に共有する人</li><li>共有した会話に個人情報や添付ファイルが含まれていないか見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>共有リンク</li><li>データ管理</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260902-01">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

@@ -1,0 +1,145 @@
+{
+  "id": "case-20260903-01",
+  "publishedAt": "2026-09-03",
+  "title": "Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める",
+  "shortTitle": "Recallは保存開始前にサイト・アプリの除外を決める",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": [
+    "Copilot+ PCでWindows Recallの利用を検討している人",
+    "画面に表示する仕事・私生活の情報をAI検索の対象にしたくない人"
+  ],
+  "summary": "Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy & securityからアプリやWebサイトを除外できると案内しています。保存内容は端末内で処理・保管され、Microsoftや第三者と共有されないとされていますが、保存を始めれば画面上の情報を後から検索できるようになります。機密情報のフィルターは既定で有効でも、特定サイトの除外には対応ブラウザが必要で、除外したサイトでも埋め込み要素や非アクティブなタブの一部が写る場合があります。Recallを便利な「見たもの検索」として使うなら、オンにする前に、銀行・人事・医療・顧客管理などのサイトやアプリを除外リストへ入れることが先です。",
+  "scenario": {
+    "headline": "新しいCopilot+ PCでRecallを試そうとしている",
+    "description": "『端末内にしか保存しない』と聞き、すぐにスナップショット保存をオンにしようとしています。普段はブラウザで銀行・社内人事・診療予約を開き、仕事では顧客管理アプリも使いますが、どれを除外するかはまだ決めていません。",
+    "whyItMatters": "端末内保存と、『自分の画面に何を残すか』は別の判断です。Recallは画面上で見た情報を後から検索できる利便性があるため、保存を始める前に対象外を決め、対応ブラウザや除外の限界も確認する必要があります。"
+  },
+  "question": {
+    "text": "Copilot+ PCでRecallのスナップショット保存を有効にする前に、最も適切な対応は？",
+    "choices": [
+      {
+        "id": "filter-before-saving",
+        "label": "業務・金融・医療などのサイトやアプリを除外し、対応ブラウザと除外の限界を確認する",
+        "description": "保存対象を先に狭め、必要な時だけ使える状態にする。"
+      },
+      {
+        "id": "local-means-no-review",
+        "label": "端末内保存なので、除外設定は不要と考える",
+        "description": "端末内かどうかと、画面に残したくない情報があるかは別の問題。"
+      },
+      {
+        "id": "sensitive-filter-perfect",
+        "label": "機密情報フィルターがオンなら、個別のサイト設定は不要と考える",
+        "description": "フィルターは保存を減らすための機能で、個別の対象外設定とは役割が異なる。"
+      }
+    ],
+    "recommendedAnswers": [
+      "filter-before-saving"
+    ],
+    "explanation": "Microsoftは、Recallの保存を利用者が選択して有効化すること、アプリ・Webサイトの除外設定ができることを案内しています。サイト除外は対応ブラウザで有効になり、表示状態による限界もあるため、保存前に対象を決めるのが実践的です。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "スナップショット保存がオンか",
+      "description": "RecallはCopilot+ PC向けのプレビュー機能です。初回設定またはSettings → Privacy & security → Recall & snapshotsで、Save snapshotsをオンにした時だけ保存が始まります。",
+      "priority": "high"
+    },
+    {
+      "title": "先に除外するサイト・アプリ",
+      "description": "銀行、医療、顧客管理、人事、パスワード管理など、画面に残したくない情報を扱うサイト・アプリを挙げ、Recall & snapshotsの除外リストへ追加します。",
+      "priority": "high"
+    },
+    {
+      "title": "Webサイト除外の対応範囲",
+      "description": "Webサイトの除外はEdge、Firefox、Opera、Chromeなどの対応ブラウザで機能します。除外は前面または現在開いているタブが対象で、埋め込み要素や非アクティブなタブの一部がスナップショットに現れる場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "既に保存された内容の処理",
+      "description": "除外していなかったサイト・アプリが保存されていた場合、Recallの検索結果やスナップショット表示から、そのサイト・アプリに関係する保存内容をまとめて削除できます。削除後は除外リストへ追加します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "保存を始める前に、Recallの対象外を設定する",
+  "verificationMessage": "Recallをオンにする前に、画面に残したくないサイト・アプリをSettings → Privacy & security → Recall & snapshotsで除外しましょう。",
+  "verdict": {
+    "label": "Recallは『クラウドへ送らない』だけで決めず、端末に残す画面を先に選ぶ",
+    "description": "Recallは、画面の情報を端末内で処理・保管し、Windows Helloによる本人確認と暗号化を用いる設計です。一方で、保存対象になった画面は後から検索できます。機密情報フィルターに頼り切らず、個別に避けたいサイト・アプリを保存前に除外することが、便利さと情報管理を両立する操作になります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Recallをオンにする前に、普段使う機密性の高いサイト・アプリを一覧にする",
+      "reason": "保存対象を先に決めれば、後から個別のスナップショットを探して削除する負担を減らせます。"
+    },
+    {
+      "action": "Settings → Privacy & security → Recall & snapshotsで、サイト・アプリを除外リストへ追加する",
+      "reason": "RecallはアプリとWebサイトをスナップショット保存から除外できます。"
+    },
+    {
+      "action": "Webサイトを除外する場合は、使うブラウザが対応しているかと、前面タブだけが対象になることを確認する",
+      "reason": "サイト除外の効き方には対応ブラウザと画面状態による条件があります。"
+    },
+    {
+      "action": "保存済みの画面に見落としがあれば、そのサイト・アプリに関係するスナップショットを削除し、続けて除外設定を追加する",
+      "reason": "後からの削除と将来の保存防止を分けて行えます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "『ローカル保存』という説明だけで、画面に出す情報を一律に保存対象にする",
+      "reason": "端末内でも、保存された画面はRecallで検索対象になります。"
+    },
+    {
+      "action": "機密情報フィルターだけを、個別のサイト・アプリ除外の代わりにする",
+      "reason": "フィルターは潜在的な機密情報を減らす仕組みであり、残したくない画面を指定する操作とは別です。"
+    },
+    {
+      "action": "除外設定をしたので、ブラウザの全タブや埋め込み表示まで必ず保存されないと考える",
+      "reason": "Webサイト除外には対応ブラウザと前面・現在タブの条件があり、一部の画面要素が写る可能性があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "残してよい作業だけを、後から探せる個人用の作業記録にする",
+    "description": "除外リストを整えれば、公開情報の調査、資料作成、レシピや旅行の検討など、後で探し直したい画面をRecallで見つける用途に集中できます。",
+    "examples": [
+      "公開資料を読んだ画面を、後から言葉で探す",
+      "作業用のアプリだけを保存対象にし、金融・人事アプリは除外する",
+      "一時的に私的な作業をする間は、通知領域から保存を一時停止する",
+      "保存済みの不要なサイト分をまとめて削除してから、除外リストへ追加する"
+    ]
+  },
+  "makotoComment": "『外へ送らない』は大事な情報ですが、画面に残るかどうかまで決めてくれる言葉ではありません。Recallのように、あとで探せる便利さがある機能ほど、何を探せる状態にしてよいかを最初に決めるのが効きます。私は設定画面を開いた時、オン・オフの前に、除外リストに何を入れるかを先に考えたいです。",
+  "oneLineLesson": "Recallは保存前に、画面に残したくないサイト・アプリを除外する。",
+  "tags": [
+    "Windows Recall",
+    "Copilot+ PC",
+    "画面保存",
+    "プライバシー",
+    "除外設定",
+    "ローカルAI"
+  ],
+  "sources": [
+    {
+      "title": "Privacy and control over your Recall experience",
+      "publisher": "Microsoft Support",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/en-us/windows/privacy/privacy-and-control-over-your-recall-experience"
+    },
+    {
+      "title": "Retrace your steps with Recall",
+      "publisher": "Microsoft Support",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/en-us/windows/ai/ai-features/retrace-your-steps-with-recall"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Copilot+ PCのRecall設定画面で、利用者が保存のオン・オフより先に、銀行、人事、医療、顧客管理を表すサイト・アプリを『除外リスト』へ入れている。画面の反対側には、公開資料やメモだけが残る検索可能なタイムラインを置き、便利な記録と除外設定が両立する様子を図解する。",
+    "cardIcon": "recall-filter-list",
+    "accentTone": "caution"
+  }
+}
