@@ -18,6 +18,18 @@ SITEMAP_PATH = ROOT / "sitemap.xml"
 REDIRECTS_PATH = ROOT / "_redirects"
 BASE_URL = "https://mainichi-miru.com"
 MAKOTO_ICON = "image/icon/icon_mmc010.jpg"
+PICKUP_ARTICLE_IDS = [
+    "case-20260826-04",
+    "case-20260825-03",
+    "case-20260824-01",
+    "case-20260822-01",
+    "case-20260820-02",
+    "case-20260820-01",
+    "case-20260819-03",
+    "case-20260818-01",
+    "case-20260814-03",
+    "case-20260813-01",
+]
 
 CATEGORY_LABELS = {
     "media-literacy": "情報の見極め",
@@ -152,6 +164,35 @@ def load_articles() -> list[dict[str, Any]]:
             article["_sourcePath"] = str(path)
             articles.append(article)
     return sorted(articles, key=lambda item: item.get("publishedAt", ""), reverse=True)
+
+
+def render_pickup_links(articles: list[dict[str, Any]]) -> str:
+    articles_by_id = {article["id"]: article for article in articles}
+    links = []
+    for article_id in PICKUP_ARTICLE_IDS:
+        article = articles_by_id.get(article_id)
+        if article is None:
+            continue
+        links.append(
+            "              "
+            f'<li><a href="{esc(article_url(article))}">{esc(article["title"])}<span aria-hidden="true">→</span></a></li>'
+        )
+
+    if not links:
+        return ""
+
+    return "\n".join(
+        [
+            '      <section class="forensics-pickup card-section" aria-labelledby="forensics-pickup-title">',
+            '        <div class="section-heading"><div><p class="section-kicker">Pickup</p><h2 id="forensics-pickup-title">まず読んでほしいAIリテラシー記事</h2></div><p>生成AIを安心して使うための、確認・判断・運用の基礎をまとめました。</p></div>',
+            '        <nav aria-label="AIリテラシーの注目記事">',
+            '          <ol class="forensics-pickup-list">',
+            *links,
+            "          </ol>",
+            "        </nav>",
+            "      </section>",
+        ]
+    )
 
 
 def category_label(value: str) -> str:
@@ -409,11 +450,9 @@ def render_index_page(articles: list[dict[str, Any]]) -> str:
             '            <a class="secondary-button" href="#about-forensics">AI鑑識室について</a>',
             "          </div>",
             "        </div>",
-            '        <div class="forensics-visual" aria-label="情報を整理して確認する図解">',
-            '          <div class="forensics-visual-card is-checked"><span>確認済み</span><strong>公式発表あり</strong><small>出どころを確認</small></div>',
-            '          <div class="forensics-visual-card is-pending"><span>要確認</span><strong>SNS投稿</strong><small>日時と元投稿を見る</small></div>',
-            '          <div class="forensics-visual-card is-guess"><span>推測</span><strong>AIの回答</strong><small>根拠を分ける</small></div>',
-            '          <div class="forensics-visual-note">Think. Check. Use.</div>',
+            '        <div class="forensics-visual forensics-hero-photo">',
+            '          <img src="../image/ai-forensics/makoto-forensics-office.webp" alt="資料とノートを確認する誠がいる、AI鑑識室のオフィス" width="1672" height="941" fetchpriority="high" />',
+            '          <div class="forensics-hero-photo__overlay"><span>AI Literacy Office</span><strong>確認の前に、<br />落ち着いて見る。</strong></div>',
             "        </div>",
             "      </section>",
             "",
@@ -469,6 +508,8 @@ def render_index_page(articles: list[dict[str, Any]]) -> str:
             "          </div>",
             "        </div>",
             "      </section>",
+            "",
+            render_pickup_links(articles),
             "",
             '      <aside class="forensics-disclaimer" aria-label="AI鑑識室の補足">',
             "        <p>AI鑑識室は、一般的な情報確認やAI活用の考え方を紹介するコンテンツです。</p>",
