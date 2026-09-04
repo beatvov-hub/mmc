@@ -1,0 +1,138 @@
+{
+  "id": "case-20260904-04",
+  "publishedAt": "2026-09-04",
+  "title": "ChatGPTの連携アプリは『毎回確認』にしても権限を取り消さない。止めたい時は切断する",
+  "shortTitle": "ChatGPTの確認設定とアプリ接続の権限は別物",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": [
+    "ChatGPTからメール、予定、クラウドファイルなどを扱う連携アプリを使う人",
+    "AIに外部サービスの操作を任せる前に、確認の出し方を整えたいチーム"
+  ],
+  "summary": "OpenAIは、ChatGPTの連携アプリに対するApp permissionsは、アプリを使う前にいつ確認を求めるかを決める設定であり、アプリに新しいアクセス権を与えるものでも、既存の接続権限を取り消すものでもないと案内しています。既定のImportant actionsでは、読み取りは自動で行える一方、メール送信・ファイルの移動や共有設定変更・削除など、外部に意味のある影響があり得る操作には確認を求めます。変更のたびに確認したい場合はAny changesを選べます。反対に、アプリのアクセスそのものを止めるにはDisconnect、またはワークスペース管理者による無効化が必要です。『毎回聞かれる設定』と『連携の権限を外す設定』を混同せず、試行時は確認の粒度を、利用停止時は接続状態を確認します。",
+  "scenario": {
+    "headline": "ChatGPTにカレンダーとクラウドストレージをつないだが、操作前に必ず確認したい",
+    "description": "連携アプリの設定をAlways askやAny changesに変更すれば、アプリが持つ閲覧権限もなくなると思っています。一方で、作成・共有変更・削除だけは都度止めて確認したい状況です。",
+    "whyItMatters": "App permissionsは、ChatGPTが既に接続されたアプリをいつ使う前に確認するかを調整する仕組みです。アクセス範囲そのものは、接続時に許可した内容、アプリの能力、ワークスペースの制御で決まります。設定の目的を分けないと、止めたつもりの接続が残ったり、必要な確認が出ない設定を選んだりします。"
+  },
+  "question": {
+    "text": "ChatGPTの連携アプリに、クラウドファイルを読む権限を今後使わせたくない時の操作として適切なのは？",
+    "choices": [
+      {
+        "id": "disconnect-access",
+        "label": "App permissionsを変えるだけでなく、対象アプリをDisconnectするか、組織の管理者に無効化を依頼する",
+        "description": "確認設定は既存アクセスを取り消さないため、接続そのものを外す必要がある。"
+      },
+      {
+        "id": "always-ask-removes-access",
+        "label": "Always askにすれば、アプリが持つ既存の閲覧権限も消えると考える",
+        "description": "App permissionsは、いつ確認するかを変える設定であり、アクセスを削除しない。"
+      },
+      {
+        "id": "important-actions-every-change",
+        "label": "Important actionsなら、下書き保存などを含むすべての変更で必ず確認が出ると考える",
+        "description": "低リスクと評価される変更は、Important actionsでは確認なしで進む場合がある。"
+      }
+    ],
+    "recommendedAnswers": [
+      "disconnect-access"
+    ],
+    "explanation": "App permissionsは、読み取りや外部への影響がある操作の前にChatGPTが確認を求める頻度を変えます。既存の接続権限を削除するものではありません。アクセスを止める時はDisconnect、またはワークスペース管理者による無効化を使います。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "App permissionsの役割",
+      "description": "App permissionsは、連携アプリを使う前にChatGPTがいつ確認するかを設定します。接続済みアプリのアクセス範囲自体を広げたり狭めたりする設定ではありません。",
+      "priority": "high"
+    },
+    {
+      "title": "自分に合う確認の粒度",
+      "description": "読み取りを自動化し、外部への影響が大きい操作だけ確認するならImportant actionsを使います。小さな変更も含めて確認したい場合はAny changesを選びます。",
+      "priority": "high"
+    },
+    {
+      "title": "重要操作の例",
+      "description": "メールや招待の送信、コンテンツの削除、ファイルのアップロード・移動・名称変更、共有設定・セキュリティ設定の変更、機微情報の共有は重要操作の例として案内されています。",
+      "priority": "high"
+    },
+    {
+      "title": "アクセスを止める時の操作",
+      "description": "今後アプリにアクセスさせたくない時はDisconnectを行います。管理対象のワークスペースでは、管理者にアプリの無効化を依頼する方法もあります。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "ChatGPTアプリの『確認設定』と『接続解除』を目的別に使い分ける",
+  "verificationMessage": "操作前の確認を増やしたいのか、アプリのアクセスを止めたいのかを分け、Settings → Appsで適切な設定を選びましょう。",
+  "verdict": {
+    "label": "確認ダイアログはブレーキ、Disconnectは接続を外す操作",
+    "description": "App permissionsは、AIが外部サービスを使う場面で人が確認するためのブレーキです。しかし、ブレーキを強くしてもアプリが持つ既存の接続権限を消すわけではありません。確認を増やす時と、連携を終える時で操作を使い分けます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "まず連携アプリごとに、読み取り・書き込み・共有変更など、使わせる操作を決める",
+      "reason": "App permissionsで確認頻度を選ぶ前に、アプリの能力と接続時に許可した範囲を理解できます。"
+    },
+    {
+      "action": "外部へ影響する操作だけを都度確認したい時は、Important actionsの内容を確認する",
+      "reason": "メール送信、削除、共有設定変更などは重要操作として確認を求める対象です。"
+    },
+    {
+      "action": "小さな変更も含めて確認したい時は、Any changesを選ぶ",
+      "reason": "Important actionsでは、低リスクと評価される変更は確認なしで進む場合があります。"
+    },
+    {
+      "action": "アプリのアクセスを今後使わせたくない時はDisconnectを行う",
+      "reason": "App permissionsを変えても、既存の接続権限は取り消されません。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "確認を毎回求める設定にすれば、アプリの閲覧権限まで消えると考える",
+      "reason": "App permissionsは確認の頻度を変える設定で、アプリに付与済みのアクセスを削除しません。"
+    },
+    {
+      "action": "Important actionsで、すべての変更前に必ず確認が出ると期待する",
+      "reason": "低リスクと扱われる下書き保存や通常の設定変更などは、確認なしで実行される場合があります。"
+    },
+    {
+      "action": "常に許可する設定を、書き込みや共有変更ができるアプリへ安易に適用する",
+      "reason": "将来の操作で確認を省く設定は、外部へ影響する行為の見落としにつながる可能性があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "確認の粒度を決めて、連携アプリを作業の補助にする",
+    "description": "読み取りや下書き作成は効率よく進めつつ、送信・共有・削除の前には自分が確認する境界を決めれば、連携アプリを安全な補助役として使えます。",
+    "examples": [
+      "情報検索用のアプリは読み取り中心で使う",
+      "メールや予定の作成は、内容を確認してから実行する",
+      "チームでは書き込み可能なアプリを管理者が限定する",
+      "利用を終える時は確認設定だけでなくDisconnectまで行う"
+    ]
+  },
+  "makotoComment": "確認を求める画面が出ると、AIに渡した権限まで縮めたように感じます。でもそれは『使う時に声をかけてもらう』設定であって、鍵を返してもらう操作ではありません。私は、普段はどこで止まって確認するかを決め、もう使わない時だけは接続を外す。この二種類の安心を混ぜないことが、連携を便利に使うコツだと思います。",
+  "oneLineLesson": "ChatGPTの確認設定は権限削除ではない。アクセス停止にはDisconnectを使う。",
+  "tags": [
+    "ChatGPT",
+    "連携アプリ",
+    "権限設定",
+    "確認ダイアログ",
+    "外部操作",
+    "業務利用"
+  ],
+  "sources": [
+    {
+      "title": "Apps in ChatGPT",
+      "publisher": "OpenAI Help Center",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://help.openai.com/en/articles/11487775-apps-in-chatgpt"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "ChatGPTの連携アプリを操作する利用者の図解。左側は『App permissions＝いつ確認するか』として確認カードを表示し、右側は『Disconnect＝接続を外す』としてプラグが外れる図を置く。送信・共有変更・削除の操作には確認マークを添える。",
+    "cardIcon": "chatgpt-app-permission-brake",
+    "accentTone": "caution"
+  }
+}

@@ -221,7 +221,12 @@ def verify_source_urls(targets: list[tuple[Path, dict[str, Any]]]) -> list[str]:
                 curl = shutil.which("curl.exe") or shutil.which("curl")
                 if curl:
                     fallback = subprocess.run(
-                        [curl, "--fail", "--location", "--silent", "--show-error", "--output", "NUL", source["url"]],
+                        [
+                            curl, "--fail", "--location", "--silent", "--show-error",
+                            "--user-agent",
+                            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+                            "--output", "NUL", source["url"],
+                        ],
                         text=True,
                         capture_output=True,
                         timeout=30,

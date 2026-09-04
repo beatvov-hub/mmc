@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGPTの連携アプリは『毎回確認』にしても権限を取り消さない。止めたい時は切断する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="OpenAIは、ChatGPTの連携アプリに対するApp permissionsは、アプリを使う前にいつ確認を求めるかを決める設定であり、アプリに新しいアクセス権を与えるものでも、既存の接続権限を取り消すものでもないと案内しています。既定のImportant actionsでは、読み取りは自動で行える一方、メール送信・ファイルの移動や共有設定変更・削除など、外部に意味のある影響があり得る操作には確認を求めます。変更のたびに確認したい場合はAny changesを選べます。反対に、アプリのアクセスそのものを止めるにはDisconnect、またはワークスペース管理者による無効化が必要です。『毎回聞かれる設定』と『連携の権限を外す設定』を混同せず、試行時は確認の粒度を、利用停止時は接続状態を確認します。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260904-04" />
+<meta property="og:title" content="ChatGPTの連携アプリは『毎回確認』にしても権限を取り消さない。止めたい時は切断する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="OpenAIは、ChatGPTの連携アプリに対するApp permissionsは、アプリを使う前にいつ確認を求めるかを決める設定であり、アプリに新しいアクセス権を与えるものでも、既存の接続権限を取り消すものでもないと案内しています。既定のImportant actionsでは、読み取りは自動で行える一方、メール送信・ファイルの移動や共有設定変更・削除など、外部に意味のある影響があり得る操作には確認を求めます。変更のたびに確認したい場合はAny changesを選べます。反対に、アプリのアクセスそのものを止めるにはDisconnect、またはワークスペース管理者による無効化が必要です。『毎回聞かれる設定』と『連携の権限を外す設定』を混同せず、試行時は確認の粒度を、利用停止時は接続状態を確認します。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260904-04" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>ChatGPTの確認設定とアプリ接続の権限は別物</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-09-04">2026.09.04</time>
+            </div>
+            <h1>ChatGPTの連携アプリは『毎回確認』にしても権限を取り消さない。止めたい時は切断する</h1>
+            <p>OpenAIは、ChatGPTの連携アプリに対するApp permissionsは、アプリを使う前にいつ確認を求めるかを決める設定であり、アプリに新しいアクセス権を与えるものでも、既存の接続権限を取り消すものでもないと案内しています。既定のImportant actionsでは、読み取りは自動で行える一方、メール送信・ファイルの移動や共有設定変更・削除など、外部に意味のある影響があり得る操作には確認を求めます。変更のたびに確認したい場合はAny changesを選べます。反対に、アプリのアクセスそのものを止めるにはDisconnect、またはワークスペース管理者による無効化が必要です。『毎回聞かれる設定』と『連携の権限を外す設定』を混同せず、試行時は確認の粒度を、利用停止時は接続状態を確認します。</p>
+            <ul class="forensics-target-list"><li>ChatGPTからメール、予定、クラウドファイルなどを扱う連携アプリを使う人</li><li>AIに外部サービスの操作を任せる前に、確認の出し方を整えたいチーム</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>ChatGPT</li><li>連携アプリ</li><li>権限設定</li><li>確認ダイアログ</li><li>外部操作</li><li>業務利用</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>ChatGPTアプリの『確認設定』と『接続解除』を目的別に使い分ける</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>操作前の確認を増やしたいのか、アプリのアクセスを止めたいのかを分け、Settings → Appsで適切な設定を選びましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>ChatGPTにカレンダーとクラウドストレージをつないだが、操作前に必ず確認したい</h3><p>連携アプリの設定をAlways askやAny changesに変更すれば、アプリが持つ閲覧権限もなくなると思っています。一方で、作成・共有変更・削除だけは都度止めて確認したい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>App permissionsは、ChatGPTが既に接続されたアプリをいつ使う前に確認するかを調整する仕組みです。アクセス範囲そのものは、接続時に許可した内容、アプリの能力、ワークスペースの制御で決まります。設定の目的を分けないと、止めたつもりの接続が残ったり、必要な確認が出ない設定を選んだりします。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="disconnect-access">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>ChatGPTの連携アプリに、クラウドファイルを読む権限を今後使わせたくない時の操作として適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="disconnect-access" data-choice-id="disconnect-access" />
+                <span>
+                  <strong>App permissionsを変えるだけでなく、対象アプリをDisconnectするか、組織の管理者に無効化を依頼する</strong>
+                  <small>確認設定は既存アクセスを取り消さないため、接続そのものを外す必要がある。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="always-ask-removes-access" data-choice-id="always-ask-removes-access" />
+                <span>
+                  <strong>Always askにすれば、アプリが持つ既存の閲覧権限も消えると考える</strong>
+                  <small>App permissionsは、いつ確認するかを変える設定であり、アクセスを削除しない。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="important-actions-every-change" data-choice-id="important-actions-every-change" />
+                <span>
+                  <strong>Important actionsなら、下書き保存などを含むすべての変更で必ず確認が出ると考える</strong>
+                  <small>低リスクと評価される変更は、Important actionsでは確認なしで進む場合がある。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>App permissionsを変えるだけでなく、対象アプリをDisconnectするか、組織の管理者に無効化を依頼する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>App permissionsは、読み取りや外部への影響がある操作の前にChatGPTが確認を求める頻度を変えます。既存の接続権限を削除するものではありません。アクセスを止める時はDisconnect、またはワークスペース管理者による無効化を使います。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>App permissionsの役割</h3>
+              <p>App permissionsは、連携アプリを使う前にChatGPTがいつ確認するかを設定します。接続済みアプリのアクセス範囲自体を広げたり狭めたりする設定ではありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>自分に合う確認の粒度</h3>
+              <p>読み取りを自動化し、外部への影響が大きい操作だけ確認するならImportant actionsを使います。小さな変更も含めて確認したい場合はAny changesを選びます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>重要操作の例</h3>
+              <p>メールや招待の送信、コンテンツの削除、ファイルのアップロード・移動・名称変更、共有設定・セキュリティ設定の変更、機微情報の共有は重要操作の例として案内されています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>アクセスを止める時の操作</h3>
+              <p>今後アプリにアクセスさせたくない時はDisconnectを行います。管理対象のワークスペースでは、管理者にアプリの無効化を依頼する方法もあります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>確認ダイアログはブレーキ、Disconnectは接続を外す操作</strong><p>App permissionsは、AIが外部サービスを使う場面で人が確認するためのブレーキです。しかし、ブレーキを強くしてもアプリが持つ既存の接続権限を消すわけではありません。確認を増やす時と、連携を終える時で操作を使い分けます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>まず連携アプリごとに、読み取り・書き込み・共有変更など、使わせる操作を決める</strong><span>App permissionsで確認頻度を選ぶ前に、アプリの能力と接続時に許可した範囲を理解できます。</span></li>
+            <li><strong>外部へ影響する操作だけを都度確認したい時は、Important actionsの内容を確認する</strong><span>メール送信、削除、共有設定変更などは重要操作として確認を求める対象です。</span></li>
+            <li><strong>小さな変更も含めて確認したい時は、Any changesを選ぶ</strong><span>Important actionsでは、低リスクと評価される変更は確認なしで進む場合があります。</span></li>
+            <li><strong>アプリのアクセスを今後使わせたくない時はDisconnectを行う</strong><span>App permissionsを変えても、既存の接続権限は取り消されません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>確認を毎回求める設定にすれば、アプリの閲覧権限まで消えると考える</strong><span>App permissionsは確認の頻度を変える設定で、アプリに付与済みのアクセスを削除しません。</span></li>
+            <li><strong>Important actionsで、すべての変更前に必ず確認が出ると期待する</strong><span>低リスクと扱われる下書き保存や通常の設定変更などは、確認なしで実行される場合があります。</span></li>
+            <li><strong>常に許可する設定を、書き込みや共有変更ができるアプリへ安易に適用する</strong><span>将来の操作で確認を省く設定は、外部へ影響する行為の見落としにつながる可能性があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>確認の粒度を決めて、連携アプリを作業の補助にする</h3>
+          <p>読み取りや下書き作成は効率よく進めつつ、送信・共有・削除の前には自分が確認する境界を決めれば、連携アプリを安全な補助役として使えます。</p>
+          <ul class="positive-example-list"><li>情報検索用のアプリは読み取り中心で使う</li><li>メールや予定の作成は、内容を確認してから実行する</li><li>チームでは書き込み可能なアプリを管理者が限定する</li><li>利用を終える時は確認設定だけでなくDisconnectまで行う</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>確認を求める画面が出ると、AIに渡した権限まで縮めたように感じます。でもそれは『使う時に声をかけてもらう』設定であって、鍵を返してもらう操作ではありません。私は、普段はどこで止まって確認するかを決め、もう使わない時だけは接続を外す。この二種類の安心を混ぜないことが、連携を便利に使うコツだと思います。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>ChatGPTの確認設定は権限削除ではない。アクセス停止にはDisconnectを使う。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/11487775-apps-in-chatgpt" target="_blank" rel="noopener noreferrer">Apps in ChatGPT<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260904-03" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="ChatGPTの連携アプリは、切断しても会話・ファイル・Memoryが消えるわけではない。止める時の3点確認 ChatGPTアプリの切断と保存データの整理は別操作 OpenAIは、ChatGPTで連携したアプリのアカウントをDisconnectすると、そのアカウント経由の今後のアクセスは止まると案内しています。ただし、別の接続済みアカウントや管理者が設定したワークスペース接続は残ることがあり、Disconnectだけで既存・アーカイブ済みの会話、保存済みファイル、Memory summary、その他の保存済みMemoryが自動削除されるわけではありません。Googleアプリについても、接続解除は個人接続からのファイルアクセスを止めますが、既存の会話・Memoryや、別に管理されたワークスペースのインデックスは別の扱いです。連携を終える時は、(1) 接続アカウントを切る、(2) 残したくない会話・ファイルを削除する、(3) Memoryを確認・削除する、という三つの操作を分けて実施します。 セキュリティ・権限 標準 ChatGPT 連携アプリ Google Drive 接続解除 Memory データ整理 ChatGPTにGoogle Drive、メール、予定表などのアカウントを連携している人 仕事用アカウントとの連携を終える際、残るデータを整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chatgpt-app-disconnect-checklist</span>
+              <div>
+                <p>ChatGPTアプリの切断と保存データの整理は別操作</p>
+                <h3>ChatGPTの連携アプリは、切断しても会話・ファイル・Memoryが消えるわけではない。止める時の3点確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-04">2026.09.04</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは、ChatGPTで連携したアプリのアカウントをDisconnectすると、そのアカウント経由の今後のアクセスは止まると案内しています。ただし、別の接続済みアカウントや管理者が設定したワークスペース接続は残ることがあり、Disconnectだけで既存・アーカイブ済みの会話、保存済みファイル、Memory summary、その他の保存済みMemoryが自動削除されるわけではありません。Googleアプリについても、接続解除は個人接続からのファイルアクセスを止めますが、既存の会話・Memoryや、別に管理されたワークスペースのインデックスは別の扱いです。連携を終える時は、(1) 接続アカウントを切る、(2) 残したくない会話・ファイルを削除する、(3) Memoryを確認・削除する、という三つの操作を分けて実施します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>ChatGPT連携を終える時は、接続・会話・Memoryを別々に片付ける</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTにGoogle Drive、メール、予定表などのアカウントを連携している人</li><li>仕事用アカウントとの連携を終える際、残るデータを整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>連携アプリ</li><li>Google Drive</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260903-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="SlackのAI要約、「閉じれば消える」とは限らない。ワークフローで投稿する前に保存先を決める Slack AI要約は「表示だけ」と「保存される投稿」を分ける Slackは、利用者がその場で見る会話要約や検索回答は画面を閉じると消える一時的なAI応答で、端末やサーバーに保存されないと案内しています。一方、ワークフローの「Summarize public channels」ステップで作ったチャンネル要約は別で、後続の設定次第で会話へのメッセージ投稿やCanvasへの保存が行われ、組織のデータ保持設定に従って残ります。さらに、Recapの履歴は90日間保存されます。つまり、同じ『AI要約』でも、個人が今読むための応答なのか、チームの記録として投稿する自動化なのかで保存の扱いが変わります。ワークフロー化する前に、保存先・閲覧者・保持期間を決めることが必要です。 仕事・AI活用 標準 Slack AI要約 ワークフロー Canvas データ保持 業務効率化 SlackでAI要約や検索回答を使うチームメンバー Slackの要約ワークフローを作成・管理する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">slack-summary-retention</span>
+              <div>
+                <p>Slack AI要約は「表示だけ」と「保存される投稿」を分ける</p>
+                <h3>SlackのAI要約、「閉じれば消える」とは限らない。ワークフローで投稿する前に保存先を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-03">2026.09.03</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Slackは、利用者がその場で見る会話要約や検索回答は画面を閉じると消える一時的なAI応答で、端末やサーバーに保存されないと案内しています。一方、ワークフローの「Summarize public channels」ステップで作ったチャンネル要約は別で、後続の設定次第で会話へのメッセージ投稿やCanvasへの保存が行われ、組織のデータ保持設定に従って残ります。さらに、Recapの履歴は90日間保存されます。つまり、同じ『AI要約』でも、個人が今読むための応答なのか、チームの記録として投稿する自動化なのかで保存の扱いが変わります。ワークフロー化する前に、保存先・閲覧者・保持期間を決めることが必要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>AI要約を投稿する前に、保存先と保持期間を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SlackでAI要約や検索回答を使うチームメンバー</li><li>Slackの要約ワークフローを作成・管理する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Slack</li><li>AI要約</li><li>ワークフロー</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260902-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="Copilotで作ったファイル、ラベルが自動で付いても共有前にプロパティを見る 生成ファイルの秘密度ラベルを確認する Microsoftは2026年8月のMicrosoft 365 Copilotリリースノートで、Copilotが生成したファイルには、参照元データから検出した最も高い秘密度ラベルが自動適用されると案内しています。ラベルを適用できない場合は、共有または保存の前に対応するよう通知されます。利用者にとっては、自動ラベルを付与済みの印として終わらせず、生成した資料を配る直前にファイルのプロパティと通知を確認し、必要なら正しいラベルを手動で適用することが実務上の最後の工程になります。 仕事・AI活用 標準 Microsoft 365 Copilot 秘密度ラベル 情報漏えい対策 ファイル共有 仕事術 Microsoft 365 Microsoft 365 Copilotで資料を作る人 組織の秘密度ラベルを使って仕事のファイルを共有する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-label-check</span>
+              <div>
+                <p>生成ファイルの秘密度ラベルを確認する</p>
+                <h3>Copilotで作ったファイル、ラベルが自動で付いても共有前にプロパティを見る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-02">2026.09.02</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは2026年8月のMicrosoft 365 Copilotリリースノートで、Copilotが生成したファイルには、参照元データから検出した最も高い秘密度ラベルが自動適用されると案内しています。ラベルを適用できない場合は、共有または保存の前に対応するよう通知されます。利用者にとっては、自動ラベルを付与済みの印として終わらせず、生成した資料を配る直前にファイルのプロパティと通知を確認し、必要なら正しいラベルを手動で適用することが実務上の最後の工程になります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>生成後に秘密度ラベルと通知を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft 365 Copilotで資料を作る人</li><li>組織の秘密度ラベルを使って仕事のファイルを共有する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft 365 Copilot</li><li>秘密度ラベル</li><li>情報漏えい対策</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260903-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260904-03">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

@@ -1,0 +1,138 @@
+{
+  "id": "case-20260904-02",
+  "publishedAt": "2026-09-04",
+  "title": "FirefoxのAI機能は、チャットだけでなく将来追加分もまとめて止められる。設定で確認する範囲",
+  "shortTitle": "FirefoxはAI機能を一括停止・個別停止で選べる",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Firefoxを日常のブラウザとして使い、搭載されるAI機能を自分で選びたい人",
+    "職場や家庭の端末で、AI機能を許可する範囲を設定したい人"
+  ],
+  "summary": "Mozillaは、デスクトップ版Firefox 148以降でAI Controlsを設け、生成AI・生成MLを使うFirefox機能を設定から確認・停止できるようにしています。ここで「Block AI enhancements」をオンにすると、現在のAI機能だけでなく、今後追加される対象機能と案内表示も既定でブロックされます。一方、翻訳、PDF画像の代替テキスト、タブグループ提案、リンクプレビューの要点、サイドバーのAIチャットなどは、機能ごとに使う・止めるを選べます。個別設定をBlockedにした場合、端末内AI用にすでにダウンロードされたモデルは削除されます。AIを使わない選択を『チャットボットを閉じること』だけで終わらせず、ブラウザが提供する生成AI機能全体を確認して、必要なものだけ残す操作です。",
+  "scenario": {
+    "headline": "ブラウザのサイドバーにあるAIチャットは使わないが、翻訳や音声入力まで止めるべきか迷っている",
+    "description": "新しいFirefoxを使い始めたところ、AIチャット、タブ整理、リンクの要点表示などが目に入ります。AI機能をまとめて非表示にしたい一方で、翻訳のように残したい機能もあります。",
+    "whyItMatters": "FirefoxのAI Controlsは、すべてを一括停止する選択と、機能ごとに設定する選択を両立させています。どの機能がこの画面の対象で、何が別の設定なのかを区別すると、必要以上に機能を失わずに利用範囲を決められます。"
+  },
+  "question": {
+    "text": "Firefoxで生成AI機能を基本的に使わず、必要な機能だけ残したい時の操作として適切なのは？",
+    "choices": [
+      {
+        "id": "block-then-allow-needed",
+        "label": "AI Controlsで一括ブロックをオンにし、必要な個別機能だけAvailableまたはEnabledへ戻す",
+        "description": "将来の対象AI機能も既定でブロックしつつ、必要なものだけ選べる。"
+      },
+      {
+        "id": "close-sidebar-only",
+        "label": "AIチャットのサイドバーだけ閉じれば、FirefoxのAI機能はすべて止まると考える",
+        "description": "サイドバーのチャット以外にも、翻訳やタブグループ提案など対象機能がある。"
+      },
+      {
+        "id": "assume-all-ai-covered",
+        "label": "AI Controlsは、検索エンジンや外部拡張機能が使うAIもすべて止めると考える",
+        "description": "FirefoxのAI Controlsの対象外となる機能や、独自に外部AIを使う拡張機能がある。"
+      }
+    ],
+    "recommendedAnswers": [
+      "block-then-allow-needed"
+    ],
+    "explanation": "Firefoxの一括ブロックは、現在および将来の対象AI機能と案内表示を止めます。その後、残したい機能を個別にAvailableまたはEnabledへ設定できます。ただし、外部AIサービスを独自に使う拡張機能や検索サービスまで一律に停止する設定ではありません。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "AI ControlsがあるFirefoxのバージョンか",
+      "description": "AI Controlsはデスクトップ版Firefox 148から案内されています。メニューからSettingsを開き、左側にAI Controlsが表示されるかを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "一括停止と個別設定のどちらが目的に合うか",
+      "description": "生成AI機能を原則使わないならBlock AI enhancementsをオンにします。翻訳などを残す場合は、対象機能ごとの設定をAvailableまたはEnabledにします。",
+      "priority": "high"
+    },
+    {
+      "title": "Blockedにした時の端末内モデル",
+      "description": "オンデバイスAIの機能をBlockedにすると、すでにダウンロードされたモデルは削除されます。単に画面上の入口を隠す設定ではありません。",
+      "priority": "medium"
+    },
+    {
+      "title": "AI Controlsの対象外",
+      "description": "従来型の機械学習を使う機能、検索エンジン、サイト側のAI、外部AIを独自に使う拡張機能には別の設定が必要です。AI Controlsだけで端末上の全AI利用が止まるわけではありません。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "Firefoxで許可する生成AI機能を、一括設定と個別設定で分けて確認する",
+  "verificationMessage": "FirefoxのSettings → AI Controlsを開き、原則停止にするか、必要な生成AI機能だけを残すかを選びましょう。",
+  "verdict": {
+    "label": "FirefoxのAI設定は、チャットの表示ではなく機能全体の許可範囲で決める",
+    "description": "Firefoxは、生成AI機能をすべて使う・すべて避けるという二択ではありません。一括ブロックで今後の追加機能も含めた基準を決め、必要な翻訳などだけを個別に許可できます。どの設定が対象外かも確認して、意図した範囲で利用を管理します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Settings → AI Controlsで、まず一括ブロックが必要かを判断する",
+      "reason": "Block AI enhancementsは、現在と将来の対象AI機能・案内表示を既定でブロックします。"
+    },
+    {
+      "action": "残したい機能がある時は、機能名ごとの設定をAvailableまたはEnabledにする",
+      "reason": "一括停止後でも、必要なAI機能を個別に利用できます。"
+    },
+    {
+      "action": "オンデバイスAIを止める前後は、Blockedが端末内モデルの削除を伴うことを理解する",
+      "reason": "個別のBlocked設定では、ダウンロード済みのオンデバイスAIモデルが削除されます。"
+    },
+    {
+      "action": "拡張機能や検索サービスについては、それぞれの設定・権限も確認する",
+      "reason": "FirefoxのAI Controlsは、外部AIを独自に使う拡張機能などを包括的に停止する設定ではありません。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "サイドバーのAIチャットを閉じただけで、Firefoxの生成AI機能全体を確認したつもりになる",
+      "reason": "AI Controlsの対象には、翻訳、タブグループ提案、リンクプレビューなども含まれます。"
+    },
+    {
+      "action": "一括停止をオンにしたら、必要な翻訳まで永久に使えないと考える",
+      "reason": "個別機能をAvailableまたはEnabledに変更すれば、必要なものを残せます。"
+    },
+    {
+      "action": "AI Controlsで外部サービスやすべての拡張機能のAI利用まで止まると考える",
+      "reason": "外部AIを利用する拡張機能などは、この設定とは別に動作する場合があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "使うAI機能だけを残し、ブラウザの便利さを自分で調整する",
+    "description": "一括停止を基準にしてから必要な機能だけを戻せば、表示や案内に流されず、自分の作業に役立つAI機能だけを選べます。",
+    "examples": [
+      "AIチャットは使わず、必要な時だけ翻訳を有効にする",
+      "タブグループ提案だけを使い、リンクの要点表示は止める",
+      "家族共用端末では一括停止を初期設定にする",
+      "拡張機能を追加する時は、その拡張機能の外部AI利用も別途確認する"
+    ]
+  },
+  "makotoComment": "AI機能を避けたい時、画面でいちばん目立つチャットだけを消して終わりにしがちです。でもブラウザには、便利さの顔をした小さなAI機能が少しずつ増えていきます。全部を怖がるよりも、まず標準を『止める』に置き、翻訳のように自分が理由を説明できる機能だけを戻す。この順番なら、設定が増えても判断を保ちやすいと思います。",
+  "oneLineLesson": "Firefoxの生成AIは、一括停止を基準に必要な機能だけを個別に戻せる。",
+  "tags": [
+    "Firefox",
+    "Mozilla",
+    "生成AI",
+    "ブラウザ設定",
+    "オンデバイスAI",
+    "プライバシー"
+  ],
+  "sources": [
+    {
+      "title": "Block generative AI features with Firefox AI controls",
+      "publisher": "Firefox Help",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.mozilla.org/en-US/kb/firefox-ai-controls"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "FirefoxのAI Controls画面を模した図解。左に一括の『Block AI enhancements』スイッチ、右に翻訳・タブグループ・AIチャットを個別にAvailable、Enabled、Blockedへ分ける選択肢を置く。Blockedの下には端末内モデルが消える小さな図を添える。",
+    "cardIcon": "firefox-ai-controls",
+    "accentTone": "caution"
+  }
+}

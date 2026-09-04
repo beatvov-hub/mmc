@@ -1,0 +1,145 @@
+{
+  "id": "case-20260904-03",
+  "publishedAt": "2026-09-04",
+  "title": "ChatGPTの連携アプリは、切断しても会話・ファイル・Memoryが消えるわけではない。止める時の3点確認",
+  "shortTitle": "ChatGPTアプリの切断と保存データの整理は別操作",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": [
+    "ChatGPTにGoogle Drive、メール、予定表などのアカウントを連携している人",
+    "仕事用アカウントとの連携を終える際、残るデータを整理したい人"
+  ],
+  "summary": "OpenAIは、ChatGPTで連携したアプリのアカウントをDisconnectすると、そのアカウント経由の今後のアクセスは止まると案内しています。ただし、別の接続済みアカウントや管理者が設定したワークスペース接続は残ることがあり、Disconnectだけで既存・アーカイブ済みの会話、保存済みファイル、Memory summary、その他の保存済みMemoryが自動削除されるわけではありません。Googleアプリについても、接続解除は個人接続からのファイルアクセスを止めますが、既存の会話・Memoryや、別に管理されたワークスペースのインデックスは別の扱いです。連携を終える時は、(1) 接続アカウントを切る、(2) 残したくない会話・ファイルを削除する、(3) Memoryを確認・削除する、という三つの操作を分けて実施します。",
+  "scenario": {
+    "headline": "試験的に仕事用Google DriveをChatGPTへつないだが、プロジェクト終了で接続を止めたい",
+    "description": "設定画面でGoogleアカウントのDisconnectを押せば、プロジェクト中に参照した会話や、Memoryに残った内容もまとめて消えると思っています。個人用アカウントも同じアプリに接続しているかもしれません。",
+    "whyItMatters": "接続の解除は将来のアクセスを止める操作であり、すでにChatGPT側へ作られた会話や保存情報を削除する操作とは別です。さらに、同じアプリへの別アカウント接続や、組織が管理する接続は個人のDisconnectだけでは止まらない場合があります。"
+  },
+  "question": {
+    "text": "ChatGPTと連携した仕事用アカウントを使わなくなった時、最も適切な整理の考え方は？",
+    "choices": [
+      {
+        "id": "disconnect-and-clean-separately",
+        "label": "接続を切った後、別アカウント・会話・保存ファイル・Memoryをそれぞれ確認して必要な削除を行う",
+        "description": "将来のアクセス停止と、すでに保存された情報の整理は別の操作である。"
+      },
+      {
+        "id": "disconnect-deletes-all",
+        "label": "Disconnectを押せば、そのアカウントに関わる会話やMemoryも自動的に消えると考える",
+        "description": "Disconnectは既存の会話、保存ファイル、Memoryを自動削除しない。"
+      },
+      {
+        "id": "remove-one-account-means-all",
+        "label": "一つのアカウントを切れば、同じアプリの他アカウントや組織の接続も必ず止まると考える",
+        "description": "別の接続済みアカウントや管理者管理の接続が残ることがある。"
+      }
+    ],
+    "recommendedAnswers": [
+      "disconnect-and-clean-separately"
+    ],
+    "explanation": "ChatGPTのDisconnectは、そのアカウントを通じた将来のアクセスを停止します。一方で、既存・アーカイブ済み会話、保存ファイル、Memory summaryや保存済みMemoryは自動で消えません。接続、会話・ファイル、Memoryを別々に確認する必要があります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "対象アプリに複数アカウントがつながっていないか",
+      "description": "SettingsのAppsまたはPluginsで、対象アプリのConnected accountsを確認します。仕事用だけでなく、個人用など別アカウントが残っていないかを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "Disconnectが止める範囲",
+      "description": "Disconnectは選んだアカウントを通じた今後のアクセスを停止します。別アカウントや管理者が設定したワークスペース接続が残る可能性は、別途確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "会話・保存ファイルの削除",
+      "description": "連携アプリを使った会話や保存したファイルは、接続解除とは別に確認します。残したくない内容は個別に削除します。",
+      "priority": "high"
+    },
+    {
+      "title": "Memoryの確認",
+      "description": "Memoryを有効にしている場合は、SettingsのPersonalizationで保存済みMemoryを確認し、不要な内容を削除します。接続解除だけではMemory summaryや保存済みMemoryは消えません。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "ChatGPT連携を終える時は、接続・会話・Memoryを別々に片付ける",
+  "verificationMessage": "アプリのDisconnect後に、Connected accounts、関連会話・ファイル、PersonalizationのMemoryを順に確認しましょう。",
+  "verdict": {
+    "label": "連携を止める操作と、残った情報を消す操作は同じではない",
+    "description": "ChatGPTのアプリ連携は、Disconnectで将来のアクセスを停止できます。しかし、過去の会話、保存ファイル、Memoryは別の保存場所・設定として残り得ます。接続をやめる時は、入口を閉じる操作と、既に残った情報を整理する操作を一続きの手順にします。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "SettingsのAppsまたはPluginsで、対象アプリに接続されたアカウントを確認してDisconnectする",
+      "reason": "Disconnectは、そのアカウントを通じた今後のアクセスを停止します。"
+    },
+    {
+      "action": "対象アプリの他のConnected accountsや、組織管理の接続が残っていないかを確認する",
+      "reason": "一つのアカウントを切っても、別アカウントや管理者管理の接続は残る場合があります。"
+    },
+    {
+      "action": "連携中に作った会話や保存ファイルを見直し、残さないものを削除する",
+      "reason": "Disconnectは既存・アーカイブ済み会話や保存ファイルを自動削除しません。"
+    },
+    {
+      "action": "Settings → PersonalizationでMemoryを確認し、不要な保存済みMemoryを削除する",
+      "reason": "Memory summaryや保存済みMemoryは、アプリ連携の解除とは別に管理されます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "Disconnectだけで、プロジェクトに関する会話やファイルがすべて消えたと判断する",
+      "reason": "接続解除は既存の会話や保存ファイルを自動削除しません。"
+    },
+    {
+      "action": "個人用アカウントを切ったことで、会社が管理する接続も止まったと決めつける",
+      "reason": "管理者が設定したワークスペース接続は、個人の接続とは別に残る場合があります。"
+    },
+    {
+      "action": "Memoryを使っているのに、連携解除後の保存内容を確認しない",
+      "reason": "接続解除だけでは、Memory summaryや保存済みMemoryは削除されません。"
+    }
+  ],
+  "positiveUse": {
+    "title": "短期プロジェクトでも、連携の終了手順を決めて安心して試す",
+    "description": "接続を切る、会話を整理する、Memoryを確認するという終了手順を最初から決めておけば、必要な時だけ連携アプリを使い、プロジェクト後に情報の置き場所を整理できます。",
+    "examples": [
+      "検証開始時に、終了時に削除する会話をプロジェクト名で管理する",
+      "仕事用と個人用のアカウントを接続する場合は、Connected accountsを定期確認する",
+      "プロジェクト終了時に、Disconnect・会話削除・Memory確認をチェックリストにする",
+      "組織の接続がある場合は、管理者に停止範囲を確認する"
+    ]
+  },
+  "makotoComment": "『連携を切る』という言葉は、全部を片付けた感じがして便利です。でも実際には、未来のアクセスを止めることと、過去に作った記録を整理することは別の仕事です。入口の鍵を閉めたあと、机の上に残った書類も確認する。その二段階を意識しておくと、必要な連携を試す時にも、終える時にも落ち着いて扱えます。",
+  "oneLineLesson": "ChatGPTのアプリ連携は、Disconnect後に会話・ファイル・Memoryも別途確認する。",
+  "tags": [
+    "ChatGPT",
+    "連携アプリ",
+    "Google Drive",
+    "接続解除",
+    "Memory",
+    "データ整理"
+  ],
+  "sources": [
+    {
+      "title": "Connecting and managing app accounts in ChatGPT",
+      "publisher": "OpenAI Help Center",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://help.openai.com/en/articles/20001494-connecting-and-managing-app-accounts-in-chatgpt"
+    },
+    {
+      "title": "Google app data controls FAQ",
+      "publisher": "OpenAI Help Center",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://help.openai.com/en/articles/10408842-google-connector-for-chatgpt-data-controls-faq"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "ChatGPTの連携終了を三つに分けた図解。左から『アカウントをDisconnect』、『関連会話・ファイルを確認して削除』、『Memoryを確認して削除』の順に置き、Disconnectだけでは後ろ二つが自動で完了しないことを明確にする。",
+    "cardIcon": "chatgpt-app-disconnect-checklist",
+    "accentTone": "caution"
+  }
+}
