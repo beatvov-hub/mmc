@@ -20,7 +20,7 @@ PEOPLE = {
     "hono": ("ほのちゃん", "総務課", "image/icon/icon_mmc001.jpg"),
     "shoma": ("ショウマ", "企画営業部長", "image/icon/icon_mmc002.jpg"),
     "takaken": ("たかけん", "ゲーム制作部長", "image/icon/icon_mmc003.jpg"),
-    "michael": ("マイケル", "海外情報部", "image/icon/icon_mmc004.jpg"),
+    "michael": ("マイケル", "海外調査部", "image/icon/icon_mmc004.jpg"),
     "dg": ("DG", "人狼界隈観測課長", "image/icon/icon_mmc005.jpg"),
     "nemu": ("ねむちゃん", "人事部長", "image/icon/icon_mmc006.jpg"),
     "rei": ("レイちゃん", "デザイン部", "image/icon/icon_mmc007.jpg"),

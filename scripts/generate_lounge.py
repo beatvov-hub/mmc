@@ -100,7 +100,7 @@ SPEAKER_DEFAULTS = {
         "speakerClass": "speaker-michael",
         "icon": "image/icon/icon_mmc004.jpg",
         "alt": "マイケルのアイコン",
-        "role": "海外情報部",
+        "role": "海外調査部",
     },
     "DG": {
         "speakerClass": "speaker-dg",
