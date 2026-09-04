@@ -23,7 +23,7 @@ PEOPLE = {
     "michael": ("マイケル", "海外調査部", "image/icon/icon_mmc004.jpg"),
     "dg": ("DG", "人狼界隈観測課長", "image/icon/icon_mmc005.jpg"),
     "nemu": ("ねむちゃん", "人事部長", "image/icon/icon_mmc006.jpg"),
-    "rei": ("レイちゃん", "デザイン部", "image/icon/icon_mmc007.jpg"),
+    "rei": ("レイちゃん", "ブランドデザイン部 部長", "image/icon/icon_mmc007.jpg"),
     "akito": ("アキト", "開発推進室", "image/icon/icon_mmc008.jpg"),
     "kei": ("ケイ", "広報部長", "image/icon/icon_mmc009.jpg"),
     "makoto": ("誠", "AIリテラシー推進室 主任", "image/icon/icon_mmc010.jpg"),

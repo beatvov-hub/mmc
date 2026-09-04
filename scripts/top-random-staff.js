@@ -39,7 +39,7 @@
     {
       number: "MMC-007",
       name: "レイちゃん",
-      summary: "会社らしさを磨くブランドデザイナー",
+      summary: "会社らしさを磨くブランドデザイン部長",
       href: "members/rei.html"
     },
     {

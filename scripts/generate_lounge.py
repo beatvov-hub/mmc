@@ -118,7 +118,7 @@ SPEAKER_DEFAULTS = {
         "speakerClass": "speaker-rei",
         "icon": "image/icon/icon_mmc007.jpg",
         "alt": "レイちゃんのアイコン",
-        "role": "デザイン部",
+        "role": "ブランドデザイン部 部長",
     },
     "アキト": {
         "speakerClass": "speaker-akito",
