@@ -2,6 +2,8 @@
 
 This is a noindex, deliberately isolated comparison experiment. It does **not** integrate with `lounge.html`, the lounge archive generator, Workline, production navigation, root `llms.txt`, or `robots.txt`.
 
+The later production implementation for daily lounge archives is separate from this comparison fixture. Its data flow and moderation notes are documented in [`../../docs/lounge-visitor-book.md`](../../docs/lounge-visitor-book.md).
+
 ## Conditions
 
 | Phase | Entry condition | Submission routes |

@@ -1,4 +1,6 @@
 # Legacy Netlify hostname: preserve every path while canonicalizing at the CDN edge.
+/api/lounge-comments /.netlify/functions/lounge-comments 200
+
 http://mainichi-miru.netlify.app/* https://mainichi-miru.com/:splat 301!
 https://mainichi-miru.netlify.app/* https://mainichi-miru.com/:splat 301!
 

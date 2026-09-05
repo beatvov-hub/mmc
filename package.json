@@ -11,7 +11,8 @@
     "validate:ai-forensics": "python3 scripts/validate_ai_forensics.py",
     "test:ai-forensics": "python3 -m unittest tests.test_ai_forensics",
     "validate:music-room": "python3 scripts/validate_music_room.py",
-    "test:music-room": "node --test tests/music-room.test.js"
+    "test:music-room": "node --test tests/music-room.test.js",
+    "test:lounge-visitor": "node --test tests/lounge-comments.test.js && python3 -m unittest tests.test_lounge_visitor_book"
   }
 }
 
