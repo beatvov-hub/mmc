@@ -84,17 +84,17 @@
       <section class="card-section forensics-latest-section" id="latest-cases" aria-labelledby="latest-cases-title">
         <div class="section-heading"><div><p class="section-kicker">Latest Case</p><h2 id="latest-cases-title">最新の鑑識事例</h2></div></div>
         <div class="forensics-featured-grid">
-          <a class="forensics-card is-index-card is-featured tone-caution" href="case-20260904-01" data-forensics-card data-category="security" data-level="2" data-difficulty="advanced" data-search-text="Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。 セキュリティ・権限 発展 Notion MCP AIアプリ 権限管理 接続解除 ワークスペース管理 NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人 MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者">
+          <a class="forensics-card is-index-card is-featured tone-caution" href="case-20260905-01" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="iPhoneのChatGPT拡張、アカウントなしで使う時とログイン後はデータの扱いが変わる Apple IntelligenceのChatGPTは、接続前にアカウント有無を決める Appleは、iPhoneのApple IntelligenceからChatGPTを使う時、ChatGPTアカウントを接続しなくても利用できると案内しています。アカウントなしの場合、ChatGPTの会話履歴に要求を保存することはできませんが、OpenAIにはApple Accountに結び付く情報は渡らず、要求と応答は原則として保存やモデル改善に使われません。一方、ChatGPTアカウントでサインインした場合は、そのChatGPTアカウントの設定とOpenAIのデータプライバシーポリシーが適用されます。SiriはChatGPT利用時に確認を求め、確認をオフにしても写真やファイルを送る前には常に確認されます。便利な連携を始める前に、履歴を残す必要があるかと、どの内容を外部サービスへ渡すかを分けて選ぶ記事です。 セキュリティ・権限 はじめて Apple Intelligence iPhone ChatGPT Siri Writing Tools プライバシー iPhoneのApple IntelligenceからChatGPTを使おうとしている人 SiriやWriting Toolsで写真・ファイルをAIに渡す前に設定を確認したい人">
             <div class="forensics-index-card-meta">
 <span class="forensics-latest-label">Latest</span>
               <span>セキュリティ・権限</span>
-              <time datetime="2026-09-04">2026.09.04</time>
+              <time datetime="2026-09-05">2026.09.05</time>
               <small>確認 2</small>
             </div>
-            <h3>Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること</h3>
-            <p class="forensics-card-summary">Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示…</p>
+            <h3>iPhoneのChatGPT拡張、アカウントなしで使う時とログイン後はデータの扱いが変わる</h3>
+            <p class="forensics-card-summary">Appleは、iPhoneのApple IntelligenceからChatGPTを使う時、ChatGPTアカウントを接続しなくても利用できると案内しています。アカウントなしの場合、ChatGPTの会話履歴に要求を保存することはできませんが、OpenAIにはApple Accountに結び付く情報は渡らず、要求と応答…</p>
             <p class="forensics-card-lesson"><span>今回の結論</span>
-              Notion MCPは、承認解除後も表示だけで判断せず、遮断と再認証を確認する。</p>
+              Apple IntelligenceのChatGPTは、アカウント接続前に履歴と送信範囲を決める。</p>
             <span class="forensics-card-cta">詳しく見る</span>
           </a>
         </div>
@@ -127,6 +127,58 @@
         <p class="forensics-results-status" data-forensics-results aria-live="polite"></p>
         <p class="forensics-empty-message" data-forensics-empty hidden>該当する事例は、現在準備中です。別の条件でも探してみてください。</p>
         <div class="forensics-card-grid">
+          <a class="forensics-card is-index-card tone-caution" href="case-20260905-02" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="Gemini Liveで画面共有する前に。Keep Activityをオフにしても会話は最長72時間残る Gemini Liveは画面共有前に、Keep Activityと72時間保存を確認する Googleは、Gemini AppsのKeep Activityがオンの場合、Gemini Liveで共有した音声、ファイル、画像、YouTube動画、カメラ映像、画面共有の動画フレームがGemini Apps Activityに保存されると案内しています。Keep Activityをオフにしても、サービス提供とフィードバック処理のため、会話はアカウントに最長72時間保存され、この活動はGemini Apps Activityには表示されません。また、Gemini Apps ActivityでGemとの会話を削除してもGem自体は削除されず、Liveの活動を削除した場合は関連する音声・文字起こし・動画・画面共有も削除されます。Liveを始める前に、共有する画面、Keep Activity、後で消す対象を一緒に決める記事です。 セキュリティ・権限 標準 Gemini Gemini Live 画面共有 Keep Activity 音声AI プライバシー Gemini Liveで音声・カメラ・画面共有を使う人 Gemini Appsの履歴と共有データを自分で整理したい人">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-09-05">2026.09.05</time>
+              <small>確認 2</small>
+            </div>
+            <h3>Gemini Liveで画面共有する前に。Keep Activityをオフにしても会話は最長72時間残る</h3>
+            <p class="forensics-card-summary">Googleは、Gemini AppsのKeep Activityがオンの場合、Gemini Liveで共有した音声、ファイル、画像、YouTube動画、カメラ映像、画面共有の動画フレームがGemini Apps Activityに保…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              Gemini Liveは、Keep Activityをオフにしても最長72時間保存される前提で共有する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-caution" href="case-20260905-03" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="Microsoft Copilotの履歴を消しても、保存済みのWord・PowerPoint本文は消えない Copilot履歴の削除と保存済みファイルの削除は別操作 Microsoftは、仕事・学校アカウントでのMicrosoft Copilot activity historyをMy AccountのData and Privacyから削除できると案内しています。ただし、削除はMicrosoftへの削除リクエストであり、完了まで時間がかかる場合があります。開いているアプリでは、閉じて再度開くまで以前の活動履歴が見えることもあります。さらに重要なのは、Copilotが手伝ってWordやPowerPointなどのファイルへ保存した本文・変更は、活動履歴を削除しても消えないことです。履歴の一括削除はExcel、Outlook、Teams、Wordなど複数アプリを対象にし、Wordだけのようなアプリ単位の選択削除はできません。履歴を消す操作と、成果物を残す・削除する判断を分ける記事です。 仕事・AI活用 標準 Microsoft Copilot Microsoft 365 活動履歴 PowerPoint Word データ整理 仕事・学校アカウントでMicrosoft Copilotを使う人 Copilotの利用後に履歴と成果物を整理したい人">
+            <div class="forensics-index-card-meta">
+
+              <span>仕事・AI活用</span>
+              <time datetime="2026-09-05">2026.09.05</time>
+              <small>確認 2</small>
+            </div>
+            <h3>Microsoft Copilotの履歴を消しても、保存済みのWord・PowerPoint本文は消えない</h3>
+            <p class="forensics-card-summary">Microsoftは、仕事・学校アカウントでのMicrosoft Copilot activity historyをMy AccountのData and Privacyから削除できると案内しています。ただし、削除はMicrosoft…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              Copilotの活動履歴を消しても、保存済みのOffice文書は別に残る。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-calm" href="case-20260905-04" data-forensics-card data-category="scam" data-level="3" data-difficulty="beginner" data-search-text="家族の声でも送金しない。AI音声クローンの『緊急電話』は知っている番号へかけ直す AI音声クローンの緊急電話は、声ではなく既知の連絡先で確かめる 米連邦取引委員会（FTC）は、詐欺師がネット上の短い音声を使って家族・友人の声をAIで複製し、事故・逮捕などを理由に送金を急がせる可能性を注意喚起しています。声が本人そっくりでも、声だけを証拠にしません。FTCが示す対応は、いったん電話を切り、本人だと分かっている電話番号へ自分からかけ直すことです。連絡が取れなければ、別の家族や友人を通じて確認します。電信送金、暗号資産、ギフトカードの番号やPINを求める要求は、取り戻しにくい支払い方法を選ばせる危険信号です。緊急性を利用する電話では、声の鑑定ではなく『いつもの連絡先で確認する』という手順を先に決めておく記事です。 詐欺・なりすまし はじめて AI音声クローン なりすまし 緊急電話 送金詐欺 ギフトカード 家族 家族や友人を名乗る緊急の電話を受ける可能性がある人 親族へAI音声クローン詐欺への対応を共有したい人">
+            <div class="forensics-index-card-meta">
+
+              <span>詐欺・なりすまし</span>
+              <time datetime="2026-09-05">2026.09.05</time>
+              <small>確認 3</small>
+            </div>
+            <h3>家族の声でも送金しない。AI音声クローンの『緊急電話』は知っている番号へかけ直す</h3>
+            <p class="forensics-card-summary">米連邦取引委員会（FTC）は、詐欺師がネット上の短い音声を使って家族・友人の声をAIで複製し、事故・逮捕などを理由に送金を急がせる可能性を注意喚起しています。声が本人そっくりでも、声だけを証拠にしません。FTCが示す対応は、いったん電…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              家族の声でも、送金前には登録済みの番号へ自分からかけ直す。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-caution" href="case-20260904-01" data-forensics-card data-category="security" data-level="2" data-difficulty="advanced" data-search-text="Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。 セキュリティ・権限 発展 Notion MCP AIアプリ 権限管理 接続解除 ワークスペース管理 NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人 MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-09-04">2026.09.04</time>
+              <small>確認 2</small>
+            </div>
+            <h3>Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること</h3>
+            <p class="forensics-card-summary">Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、N…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              Notion MCPは、承認解除後も表示だけで判断せず、遮断と再認証を確認する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
           <a class="forensics-card is-index-card tone-caution" href="case-20260904-02" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="FirefoxのAI機能は、チャットだけでなく将来追加分もまとめて止められる。設定で確認する範囲 FirefoxはAI機能を一括停止・個別停止で選べる Mozillaは、デスクトップ版Firefox 148以降でAI Controlsを設け、生成AI・生成MLを使うFirefox機能を設定から確認・停止できるようにしています。ここで「Block AI enhancements」をオンにすると、現在のAI機能だけでなく、今後追加される対象機能と案内表示も既定でブロックされます。一方、翻訳、PDF画像の代替テキスト、タブグループ提案、リンクプレビューの要点、サイドバーのAIチャットなどは、機能ごとに使う・止めるを選べます。個別設定をBlockedにした場合、端末内AI用にすでにダウンロードされたモデルは削除されます。AIを使わない選択を『チャットボットを閉じること』だけで終わらせず、ブラウザが提供する生成AI機能全体を確認して、必要なものだけ残す操作です。 セキュリティ・権限 はじめて Firefox Mozilla 生成AI ブラウザ設定 オンデバイスAI プライバシー Firefoxを日常のブラウザとして使い、搭載されるAI機能を自分で選びたい人 職場や家庭の端末で、AI機能を許可する範囲を設定したい人">
             <div class="forensics-index-card-meta">
 

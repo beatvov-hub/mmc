@@ -1,0 +1,131 @@
+{
+  "id": "case-20260905-01",
+  "publishedAt": "2026-09-05",
+  "title": "iPhoneのChatGPT拡張、アカウントなしで使う時とログイン後はデータの扱いが変わる",
+  "shortTitle": "Apple IntelligenceのChatGPTは、接続前にアカウント有無を決める",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "iPhoneのApple IntelligenceからChatGPTを使おうとしている人",
+    "SiriやWriting Toolsで写真・ファイルをAIに渡す前に設定を確認したい人"
+  ],
+  "summary": "Appleは、iPhoneのApple IntelligenceからChatGPTを使う時、ChatGPTアカウントを接続しなくても利用できると案内しています。アカウントなしの場合、ChatGPTの会話履歴に要求を保存することはできませんが、OpenAIにはApple Accountに結び付く情報は渡らず、要求と応答は原則として保存やモデル改善に使われません。一方、ChatGPTアカウントでサインインした場合は、そのChatGPTアカウントの設定とOpenAIのデータプライバシーポリシーが適用されます。SiriはChatGPT利用時に確認を求め、確認をオフにしても写真やファイルを送る前には常に確認されます。便利な連携を始める前に、履歴を残す必要があるかと、どの内容を外部サービスへ渡すかを分けて選ぶ記事です。",
+  "scenario": {
+    "headline": "Siriに資料を要約させたいが、普段のChatGPTアカウントをiPhoneへつなぐか迷っている",
+    "description": "アカウントを接続すれば普段のChatGPTを使いやすくなりそうです。しかし、写真やPDFを要約する時に、履歴やデータの扱いがどう変わるのかは確認できていません。",
+    "whyItMatters": "Apple IntelligenceのChatGPT拡張では、アカウントの有無で、履歴への保存可否と適用される設定が変わります。アカウントなし利用、アカウント接続、写真・ファイル送信の確認を一つの設定だと思わず、用途ごとに選ぶ必要があります。"
+  },
+  "question": {
+    "text": "iPhoneでApple IntelligenceのChatGPTを使い、会話履歴を残さずに試したい時の理解として適切なのは？",
+    "choices": [
+      {
+        "id": "use-without-account",
+        "label": "ChatGPTアカウントなしで有効にし、履歴保存が必要になった時だけ後からサインインを検討する",
+        "description": "アカウントなしでも利用でき、ChatGPT履歴に保存するにはサインインが必要である。"
+      },
+      {
+        "id": "account-required",
+        "label": "ChatGPTを一度でも使うには、必ずChatGPTアカウントをiPhoneへ接続する",
+        "description": "Appleは、アカウントなしでChatGPTを有効にする手順を案内している。"
+      },
+      {
+        "id": "disable-confirmation-sends-files",
+        "label": "Siriの確認をオフにすると、写真やファイルも確認なしで送られる",
+        "description": "確認設定をオフにしても、写真やファイルの送信前には常に確認される。"
+      }
+    ],
+    "recommendedAnswers": [
+      "use-without-account"
+    ],
+    "explanation": "Appleは、ChatGPTアカウントなしで拡張機能を有効にできると案内しています。ChatGPT履歴に要求を保存するにはサインインが必要です。また、SiriのChatGPT確認をオフにしても、写真やファイルを送る時には確認が求められます。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "ChatGPTをアカウントなしで使うか",
+      "description": "Settings → Apple Intelligence & Siri → ChatGPTで、まずEnable ChatGPTを選ぶか、既存のChatGPTアカウントでサインインするかを決めます。",
+      "priority": "high"
+    },
+    {
+      "title": "アカウント接続後に適用される設定",
+      "description": "ChatGPTアカウントでサインインすると、そのアカウントの設定とOpenAIのデータプライバシーポリシーが適用されます。普段のChatGPT設定も確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "Siriの確認と添付の確認",
+      "description": "SiriのChatGPT要求確認は設定からオフにできますが、写真やファイルをChatGPTへ送る前には常に確認されます。確認画面で渡す内容を見直します。",
+      "priority": "high"
+    },
+    {
+      "title": "使わない時の停止",
+      "description": "ChatGPT拡張を使わない時はUse ChatGPTをオフにします。Siriからの提案も避けたい場合は、Setup Promptsもオフにします。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "Apple IntelligenceのChatGPTは、アカウント接続と添付送信を分けて確認する",
+  "verificationMessage": "iPhoneのChatGPT設定で、履歴を残す必要があるか、サインイン後の設定を使うか、送信前に何を確認するかを決めましょう。",
+  "verdict": {
+    "label": "Apple IntelligenceのChatGPTは、便利さの前にアカウント接続の要否を選べる",
+    "description": "Apple IntelligenceのChatGPT拡張は、アカウントなしでも使え、必要になった時だけサインインできます。アカウント接続後はChatGPT側の設定が適用されるため、履歴を残す目的と、写真・ファイルを送る場面を別々に確認することが大切です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "まずアカウントなしで使うか、既存のChatGPTアカウントを接続するかを用途で決める",
+      "reason": "アカウントなしでも利用でき、会話履歴を残すにはサインインが必要です。"
+    },
+    {
+      "action": "写真・PDFなどを送る確認画面では、内容と目的を見直してから許可する",
+      "reason": "写真やファイルは、Siriの通常確認設定にかかわらず送信前の確認対象です。"
+    },
+    {
+      "action": "ChatGPTアカウントを接続する時は、ChatGPT側の履歴・データ設定も確認する",
+      "reason": "サインインすると、アカウントの設定とOpenAIのデータプライバシーポリシーが適用されます。"
+    },
+    {
+      "action": "使わない時はUse ChatGPTをオフにし、必要ならSetup Promptsもオフにする",
+      "reason": "拡張機能そのものと、SiriがChatGPTを提案する導線を分けて止められます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "履歴を残したくないのに、アカウント接続が必須だと思い込む",
+      "reason": "Appleは、ChatGPTアカウントなしで拡張機能を有効にする手順を案内しています。"
+    },
+    {
+      "action": "サインイン後も、アカウントなし利用と同じデータの扱いだと考える",
+      "reason": "サインイン後は、ChatGPTアカウントの設定とOpenAIのポリシーが適用されます。"
+    },
+    {
+      "action": "確認をオフにしたので、写真やファイルも自動送信されると考える",
+      "reason": "Appleは写真・ファイルの送信前には常に確認されると案内しています。"
+    }
+  ],
+  "positiveUse": {
+    "title": "必要な時だけ、iPhoneからChatGPTの補助を使う",
+    "description": "アカウント接続と送信前確認を自分で選べば、Siriの調べものやWriting Toolsの下書き支援を、用途に応じた範囲で使えます。",
+    "examples": [
+      "一般的な質問はアカウントなしで試す",
+      "長期の執筆支援が必要な時だけChatGPTアカウントを接続する",
+      "写真やPDFを送る前に、必要な範囲だけを選ぶ",
+      "子どもが使う端末ではScreen Timeの制限も検討する"
+    ]
+  },
+  "makotoComment": "iPhoneの中にChatGPTが現れると、いつものアプリを使う感覚でアカウントをつなぎたくなります。でも、この拡張機能は最初に『つながない』選択もできます。私は、履歴が必要な仕事か、単発の調べものかを分けてから決めたいです。便利な連携ほど、最初の一回を軽く始められることに価値があります。",
+  "oneLineLesson": "Apple IntelligenceのChatGPTは、アカウント接続前に履歴と送信範囲を決める。",
+  "tags": ["Apple Intelligence", "iPhone", "ChatGPT", "Siri", "Writing Tools", "プライバシー"],
+  "sources": [
+    {
+      "title": "Use ChatGPT with Apple Intelligence on iPhone",
+      "publisher": "Apple Support",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.apple.com/en-ie/guide/iphone/iph00fd3c8c2/26/ios/26"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "iPhoneのChatGPT設定を二つに分けた図解。左は『アカウントなしで有効化』、右は『ChatGPTアカウントにサインイン』。下には写真・PDF送信時だけ必ず確認するカードを置き、利用者が送る内容を選んでいる。",
+    "cardIcon": "iphone-chatgpt-account-choice",
+    "accentTone": "caution"
+  }
+}

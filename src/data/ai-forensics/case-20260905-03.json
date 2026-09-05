@@ -1,0 +1,39 @@
+{
+  "id": "case-20260905-03",
+  "publishedAt": "2026-09-05",
+  "title": "Microsoft Copilotの履歴を消しても、保存済みのWord・PowerPoint本文は消えない",
+  "shortTitle": "Copilot履歴の削除と保存済みファイルの削除は別操作",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["仕事・学校アカウントでMicrosoft Copilotを使う人", "Copilotの利用後に履歴と成果物を整理したい人"],
+  "summary": "Microsoftは、仕事・学校アカウントでのMicrosoft Copilot activity historyをMy AccountのData and Privacyから削除できると案内しています。ただし、削除はMicrosoftへの削除リクエストであり、完了まで時間がかかる場合があります。開いているアプリでは、閉じて再度開くまで以前の活動履歴が見えることもあります。さらに重要なのは、Copilotが手伝ってWordやPowerPointなどのファイルへ保存した本文・変更は、活動履歴を削除しても消えないことです。履歴の一括削除はExcel、Outlook、Teams、Wordなど複数アプリを対象にし、Wordだけのようなアプリ単位の選択削除はできません。履歴を消す操作と、成果物を残す・削除する判断を分ける記事です。",
+  "scenario": {"headline": "プロジェクト終了後、Copilotに入力した指示と作成途中の資料を整理したい", "description": "活動履歴を削除すれば、Copilotが編集を手伝ったPowerPointの本文も消えると思っています。履歴だけを消したいアプリと、残す資料が混ざっています。", "whyItMatters": "Copilotの活動履歴はプロンプトと応答の記録であり、ユーザーがファイルに保存した成果物とは別です。削除の対象は複数アプリにまたがる一方、保存済み文書の扱いはファイル側で決める必要があります。"},
+  "question": {"text": "仕事用Copilotの活動履歴を削除する時、保存済みPowerPointを残したい場合の理解として適切なのは？", "choices": [{"id": "separate-history-and-files", "label": "活動履歴を削除しても保存済みPowerPointは消えないため、ファイルは別に残す・削除する判断をする", "description": "活動履歴とファイルに保存した本文・変更は別の対象である。"}, {"id": "delete-history-deletes-files", "label": "活動履歴を削除すれば、Copilotが手伝った保存済みPowerPointも自動で消える", "description": "Microsoftは保存済みファイルの内容は削除されないと案内している。"}, {"id": "delete-word-only", "label": "WordだけのCopilot活動履歴を選んで削除できる", "description": "Microsoft Copilotを選ぶ削除は、対象アプリ全体に及び、アプリ単位の選択削除はできない。"}], "recommendedAnswers": ["separate-history-and-files"], "explanation": "活動履歴の削除は、プロンプトと応答の記録を対象とします。Copilotが支援して保存したファイル本文は削除されません。残す資料と削除する資料は、ファイル側で別に整理します。"},
+  "inspectionPoints": [
+    {"title": "対象アカウント", "description": "この削除手順は仕事・学校アカウント向けです。個人のMicrosoftアカウントの場合はPrivacy Dashboardの案内を確認します。", "priority": "high"},
+    {"title": "活動履歴の削除場所", "description": "My Account → Data and Privacy → Data options → Copilot activity historyでDeleteを選び、削除リクエストを送ります。", "priority": "high"},
+    {"title": "削除の反映タイミング", "description": "完全な削除まで時間がかかる場合があります。アプリを開いている時は、閉じて再度開くまで以前の活動履歴が表示されることがあります。", "priority": "medium"},
+    {"title": "履歴と保存済み成果物", "description": "Word、PowerPointなどのファイルに保存した本文・変更は、履歴削除では消えません。ファイルの保管・削除は別に判断します。", "priority": "high"}
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "Copilotの活動履歴と、保存済みファイルを別々に整理する",
+  "verificationMessage": "削除前に、Copilotの履歴だけを消すのか、作成・編集したファイルも片付けるのかを分けて確認しましょう。",
+  "verdict": {"label": "Copilotの履歴削除は、成果物の削除ではない", "description": "Microsoft Copilotの活動履歴を削除しても、利用者が保存した文書・スライドの内容は残ります。複数アプリの履歴をまとめて消す操作と、残す・削除する成果物を選ぶ作業を分ければ、プロジェクト終了時の整理を誤りにくくなります。", "confidence": "high"},
+  "safeActions": [
+    {"action": "削除対象が仕事・学校アカウントのCopilot履歴かを確認する", "reason": "Microsoftの手順は仕事・学校アカウント向けで、個人アカウントは別の管理画面を使います。"},
+    {"action": "活動履歴を削除する前に、必要な成果物がファイルとして保存されているか確認する", "reason": "活動履歴と保存済みファイルは別で、履歴削除ではファイル本文は消えません。"},
+    {"action": "削除リクエスト後は、アプリを閉じて再度開き表示を確認する", "reason": "削除完了まで時間がかかり、開いているアプリには旧履歴が表示される場合があります。"},
+    {"action": "残さない資料は、Word・PowerPointなどのファイル側で別に削除・保管判断をする", "reason": "保存済みの本文・変更は活動履歴削除の対象外です。"}
+  ],
+  "avoidActions": [
+    {"action": "活動履歴の削除だけで、Copilotが支援した保存済みファイルまで消えると考える", "reason": "保存したファイル内容は削除されません。"},
+    {"action": "WordやPowerPointなど特定アプリだけの活動履歴を選択削除できると考える", "reason": "Microsoft Copilotを選ぶ削除は対象アプリ全体に適用され、アプリ単位の選択削除はできません。"},
+    {"action": "削除を押した直後に画面表示が残っているだけで、削除に失敗したと断定する", "reason": "削除処理には時間がかかり、開いているアプリは再起動まで履歴を表示する場合があります。"}
+  ],
+  "positiveUse": {"title": "プロジェクトの記録を、履歴と正式な成果物に分けて残す", "description": "一時的な指示・応答は活動履歴として整理し、残す価値がある資料はファイルへ確定して管理すれば、Copilotを使った仕事の記録を分かりやすく保てます。", "examples": ["会議準備で使った一時プロンプトをプロジェクト終了後に整理する", "確定版のPowerPointはチームの保管場所へ移す", "不要な下書きはファイル側で削除する", "履歴削除後にアプリを開き直して確認する"]},
+  "makotoComment": "AIに頼んだ時の履歴と、そこから作った資料は、同じ作業から生まれても役割が違います。履歴は思考の途中経過、保存したスライドはチームに渡す成果物です。片方を消す時にもう片方まで消えると思い込まないことが、仕事を軽くしながら記録を整える基本になると思います。",
+  "oneLineLesson": "Copilotの活動履歴を消しても、保存済みのOffice文書は別に残る。",
+  "tags": ["Microsoft Copilot", "Microsoft 365", "活動履歴", "PowerPoint", "Word", "データ整理"],
+  "sources": [{"title": "Delete your Microsoft Copilot activity history", "publisher": "Microsoft Support", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.microsoft.com/en-us/privacy/delete-your-microsoft-365-copilot-activity-history"}],
+  "visualSuggestion": {"mainVisual": "プロジェクト終了時の整理を二列にした図解。左はCopilotのプロンプトと応答を『活動履歴として削除』、右はWord・PowerPointの保存済み資料を『残すか削除するか別に判断』と示す。", "cardIcon": "copilot-history-versus-files", "accentTone": "caution"}
+}

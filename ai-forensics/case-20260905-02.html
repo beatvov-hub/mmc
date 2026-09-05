@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gemini Liveで画面共有する前に。Keep Activityをオフにしても会話は最長72時間残る｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Googleは、Gemini AppsのKeep Activityがオンの場合、Gemini Liveで共有した音声、ファイル、画像、YouTube動画、カメラ映像、画面共有の動画フレームがGemini Apps Activityに保存されると案内しています。Keep Activityをオフにしても、サービス提供とフィードバック処理のため、会話はアカウントに最長72時間保存され、この活動はGemini Apps Activityには表示されません。また、Gemini Apps ActivityでGemとの会話を削除してもGem自体は削除されず、Liveの活動を削除した場合は関連する音声・文字起こし・動画・画面共有も削除されます。Liveを始める前に、共有する画面、Keep Activity、後で消す対象を一緒に決める記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260905-02" />
+<meta property="og:title" content="Gemini Liveで画面共有する前に。Keep Activityをオフにしても会話は最長72時間残る｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Googleは、Gemini AppsのKeep Activityがオンの場合、Gemini Liveで共有した音声、ファイル、画像、YouTube動画、カメラ映像、画面共有の動画フレームがGemini Apps Activityに保存されると案内しています。Keep Activityをオフにしても、サービス提供とフィードバック処理のため、会話はアカウントに最長72時間保存され、この活動はGemini Apps Activityには表示されません。また、Gemini Apps ActivityでGemとの会話を削除してもGem自体は削除されず、Liveの活動を削除した場合は関連する音声・文字起こし・動画・画面共有も削除されます。Liveを始める前に、共有する画面、Keep Activity、後で消す対象を一緒に決める記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260905-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>Gemini Liveは画面共有前に、Keep Activityと72時間保存を確認する</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-05">2026.09.05</time>
+            </div>
+            <h1>Gemini Liveで画面共有する前に。Keep Activityをオフにしても会話は最長72時間残る</h1>
+            <p>Googleは、Gemini AppsのKeep Activityがオンの場合、Gemini Liveで共有した音声、ファイル、画像、YouTube動画、カメラ映像、画面共有の動画フレームがGemini Apps Activityに保存されると案内しています。Keep Activityをオフにしても、サービス提供とフィードバック処理のため、会話はアカウントに最長72時間保存され、この活動はGemini Apps Activityには表示されません。また、Gemini Apps ActivityでGemとの会話を削除してもGem自体は削除されず、Liveの活動を削除した場合は関連する音声・文字起こし・動画・画面共有も削除されます。Liveを始める前に、共有する画面、Keep Activity、後で消す対象を一緒に決める記事です。</p>
+            <ul class="forensics-target-list"><li>Gemini Liveで音声・カメラ・画面共有を使う人</li><li>Gemini Appsの履歴と共有データを自分で整理したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Gemini</li><li>Gemini Live</li><li>画面共有</li><li>Keep Activity</li><li>音声AI</li><li>プライバシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>Gemini Liveの共有前に、Keep Activity・最長72時間保存・削除対象を確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>画面共有を始める前にActivity設定を開き、何を共有するか、いつ削除するかを決めましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Gemini Liveで画面を見せながら、資料の操作方法を聞こうとしている</h3><p>画面共有をオンにする前にKeep Activityをオフへ切り替えたので、内容はどこにも残らないと思っています。過去に作ったGemもあるため、会話履歴とGemの設定をどう整理すべきか迷っています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Liveでは音声だけでなく、共有した画面・カメラ映像・添付などが活動履歴の対象になり得ます。Keep Activityのオフは『一切保存しない』設定ではなく、Gemの削除やLive活動の削除も別の操作です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="review-before-live-and-delete-activity">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Gemini Liveで画面共有を使い、後から残したくない内容を減らしたい時の理解として適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="review-before-live-and-delete-activity" data-choice-id="review-before-live-and-delete-activity" />
+                <span>
+                  <strong>共有前にKeep Activityを確認し、必要ならLiveの活動を個別に削除する。オフでも最長72時間の保存は別に理解する</strong>
+                  <small>Keep Activity、Live活動の削除、Gem自体の削除は別の仕組みである。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="off-means-never-retained" data-choice-id="off-means-never-retained" />
+                <span>
+                  <strong>Keep Activityをオフにすれば、会話は一切保存されず、共有内容も完全に残らないと考える</strong>
+                  <small>Googleは、オフでも会話を最長72時間保存すると案内している。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-chat-deletes-gem" data-choice-id="delete-chat-deletes-gem" />
+                <span>
+                  <strong>Gemとの会話を削除すれば、そのGem自体も自動的に消えると考える</strong>
+                  <small>会話の削除とGemの削除は別の操作である。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>共有前にKeep Activityを確認し、必要ならLiveの活動を個別に削除する。オフでも最長72時間の保存は別に理解する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Gemini Liveでの共有内容はKeep ActivityがオンならGemini Apps Activityに保存されます。Keep Activityがオフでも会話は最長72時間保存されます。Liveの活動を削除すると関連する音声・文字起こし・動画・画面共有は削除されますが、Gem自体の削除は別途必要です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Liveで何を共有するか</h3>
+              <p>Gemini Liveでは音声、ファイル、画像、動画、カメラ映像、画面共有を扱えます。機密情報や通知が映る画面を共有する前に、見せる範囲を絞ります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Keep Activityの状態</h3>
+              <p>Gemini AppsのMenu → Settings &amp; help → ActivityでKeep Activityを確認します。個人アカウントと、管理者設定がある仕事・学校アカウントは扱いが異なります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>オフにした後の最長72時間保存</h3>
+              <p>Keep Activityをオフにしても、サービス提供とフィードバック処理のため会話は最長72時間保存され、Activityには表示されません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>削除する対象</h3>
+              <p>Live活動を削除すると関連する音声・文字起こし・動画・画面共有は削除されます。Gemとの会話を削除してもGemそのものは残るため、必要に応じて別途削除します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Gemini Liveのプライバシー設定は、オフにするだけでなく共有範囲と削除を組み合わせる</strong><p>Keep Activityは重要な設定ですが、オフでも最長72時間の保存があり、GemやLive活動の削除も別々です。画面共有を使う時は、表示してよい内容を先に選び、終わった後に削除する対象まで決めておくと管理しやすくなります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Gemini Liveを始める前に、画面共有で通知や機密情報が映らない状態を作る</strong><span>Keep Activityがオンなら、共有した画面・音声・添付などが活動履歴に保存され得ます。</span></li>
+            <li><strong>Gemini Apps ActivityでKeep Activityと個別削除の場所を確認する</strong><span>活動は時間・日・個別項目などの単位で削除できます。</span></li>
+            <li><strong>Keep Activityをオフにする時は、最長72時間の保存があることを理解して共有範囲を決める</strong><span>オフでもサービス提供とフィードバック処理のため会話は最長72時間保存されます。</span></li>
+            <li><strong>不要なLive活動と不要なGemを、それぞれ別に削除する</strong><span>Live活動の削除とGem自体の削除は別の操作です。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>Keep Activityをオフにしたので、画面共有の内容は一切保存されないと考える</strong><span>会話はActivityに表示されなくても最長72時間保存されます。</span></li>
+            <li><strong>Liveの活動を削除した後、作成したGemまで消えたと思い込む</strong><span>Gemとの会話を削除してもGem自体は削除されません。</span></li>
+            <li><strong>通知や他人の情報が映る画面を、準備なしで共有する</strong><span>共有した画面の動画フレームは、Keep Activityがオンの場合に活動履歴へ保存され得ます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>画面共有を、見せてよい範囲だけの相談に使う</h3>
+          <p>設定画面の案内や公開資料の読み方など、画面を見せると早い相談に対象を絞れば、Gemini Liveを効率的な補助にできます。</p>
+          <ul class="positive-example-list"><li>公開サイトの操作を見せながら質問する</li><li>共有前に通知をオフにする</li><li>一時的な相談後は関連するLive活動を削除する</li><li>用途別にGemを作り、不要になったGemも見直す</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>Liveで話しながら画面を見せると、ただの会話より『その場限り』に感じます。でも実際には、話した音声だけでなく画面の断片も扱う機能です。私はLiveを始める前に、閉じるべき通知と、終わった後に片付ける履歴を先に考えたいです。そうしておけば、画面共有を便利な相談の道具として使いやすくなります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Gemini Liveは、Keep Activityをオフにしても最長72時間保存される前提で共有する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/gemini/answer/13278892" target="_blank" rel="noopener noreferrer">Manage &amp; delete your activity in Gemini Apps<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Gemini Apps Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260905-01" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="iPhoneのChatGPT拡張、アカウントなしで使う時とログイン後はデータの扱いが変わる Apple IntelligenceのChatGPTは、接続前にアカウント有無を決める Appleは、iPhoneのApple IntelligenceからChatGPTを使う時、ChatGPTアカウントを接続しなくても利用できると案内しています。アカウントなしの場合、ChatGPTの会話履歴に要求を保存することはできませんが、OpenAIにはApple Accountに結び付く情報は渡らず、要求と応答は原則として保存やモデル改善に使われません。一方、ChatGPTアカウントでサインインした場合は、そのChatGPTアカウントの設定とOpenAIのデータプライバシーポリシーが適用されます。SiriはChatGPT利用時に確認を求め、確認をオフにしても写真やファイルを送る前には常に確認されます。便利な連携を始める前に、履歴を残す必要があるかと、どの内容を外部サービスへ渡すかを分けて選ぶ記事です。 セキュリティ・権限 はじめて Apple Intelligence iPhone ChatGPT Siri Writing Tools プライバシー iPhoneのApple IntelligenceからChatGPTを使おうとしている人 SiriやWriting Toolsで写真・ファイルをAIに渡す前に設定を確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">iphone-chatgpt-account-choice</span>
+              <div>
+                <p>Apple IntelligenceのChatGPTは、接続前にアカウント有無を決める</p>
+                <h3>iPhoneのChatGPT拡張、アカウントなしで使う時とログイン後はデータの扱いが変わる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-05">2026.09.05</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Appleは、iPhoneのApple IntelligenceからChatGPTを使う時、ChatGPTアカウントを接続しなくても利用できると案内しています。アカウントなしの場合、ChatGPTの会話履歴に要求を保存することはできませんが、OpenAIにはApple Accountに結び付く情報は渡らず、要求と応答は原則として保存やモデル改善に使われません。一方、ChatGPTアカウントでサインインした場合は、そのChatGPTアカウントの設定とOpenAIのデータプライバシーポリシーが適用されます。SiriはChatGPT利用時に確認を求め、確認をオフにしても写真やファイルを送る前には常に確認されます。便利な連携を始める前に、履歴を残す必要があるかと、どの内容を外部サービスへ渡すかを分けて選ぶ記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Apple IntelligenceのChatGPTは、アカウント接続と添付送信を分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhoneのApple IntelligenceからChatGPTを使おうとしている人</li><li>SiriやWriting Toolsで写真・ファイルをAIに渡す前に設定を確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>iPhone</li><li>ChatGPT</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260904-01" data-forensics-card data-category="security" data-level="2" data-difficulty="advanced" data-search-text="Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。 セキュリティ・権限 発展 Notion MCP AIアプリ 権限管理 接続解除 ワークスペース管理 NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人 MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">notion-mcp-access-review</span>
+              <div>
+                <p>Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する</p>
+                <h3>Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-04">2026.09.04</time>
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Notion MCPは承認解除後に、遮断状態と再認証の要否を分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人</li><li>MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Notion</li><li>MCP</li><li>AIアプリ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260904-02" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="FirefoxのAI機能は、チャットだけでなく将来追加分もまとめて止められる。設定で確認する範囲 FirefoxはAI機能を一括停止・個別停止で選べる Mozillaは、デスクトップ版Firefox 148以降でAI Controlsを設け、生成AI・生成MLを使うFirefox機能を設定から確認・停止できるようにしています。ここで「Block AI enhancements」をオンにすると、現在のAI機能だけでなく、今後追加される対象機能と案内表示も既定でブロックされます。一方、翻訳、PDF画像の代替テキスト、タブグループ提案、リンクプレビューの要点、サイドバーのAIチャットなどは、機能ごとに使う・止めるを選べます。個別設定をBlockedにした場合、端末内AI用にすでにダウンロードされたモデルは削除されます。AIを使わない選択を『チャットボットを閉じること』だけで終わらせず、ブラウザが提供する生成AI機能全体を確認して、必要なものだけ残す操作です。 セキュリティ・権限 はじめて Firefox Mozilla 生成AI ブラウザ設定 オンデバイスAI プライバシー Firefoxを日常のブラウザとして使い、搭載されるAI機能を自分で選びたい人 職場や家庭の端末で、AI機能を許可する範囲を設定したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">firefox-ai-controls</span>
+              <div>
+                <p>FirefoxはAI機能を一括停止・個別停止で選べる</p>
+                <h3>FirefoxのAI機能は、チャットだけでなく将来追加分もまとめて止められる。設定で確認する範囲</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-04">2026.09.04</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Mozillaは、デスクトップ版Firefox 148以降でAI Controlsを設け、生成AI・生成MLを使うFirefox機能を設定から確認・停止できるようにしています。ここで「Block AI enhancements」をオンにすると、現在のAI機能だけでなく、今後追加される対象機能と案内表示も既定でブロックされます。一方、翻訳、PDF画像の代替テキスト、タブグループ提案、リンクプレビューの要点、サイドバーのAIチャットなどは、機能ごとに使う・止めるを選べます。個別設定をBlockedにした場合、端末内AI用にすでにダウンロードされたモデルは削除されます。AIを使わない選択を『チャットボットを閉じること』だけで終わらせず、ブラウザが提供する生成AI機能全体を確認して、必要なものだけ残す操作です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Firefoxで許可する生成AI機能を、一括設定と個別設定で分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Firefoxを日常のブラウザとして使い、搭載されるAI機能を自分で選びたい人</li><li>職場や家庭の端末で、AI機能を許可する範囲を設定したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Firefox</li><li>Mozilla</li><li>生成AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260905-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260905-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

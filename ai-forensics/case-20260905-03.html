@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Microsoft Copilotの履歴を消しても、保存済みのWord・PowerPoint本文は消えない｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは、仕事・学校アカウントでのMicrosoft Copilot activity historyをMy AccountのData and Privacyから削除できると案内しています。ただし、削除はMicrosoftへの削除リクエストであり、完了まで時間がかかる場合があります。開いているアプリでは、閉じて再度開くまで以前の活動履歴が見えることもあります。さらに重要なのは、Copilotが手伝ってWordやPowerPointなどのファイルへ保存した本文・変更は、活動履歴を削除しても消えないことです。履歴の一括削除はExcel、Outlook、Teams、Wordなど複数アプリを対象にし、Wordだけのようなアプリ単位の選択削除はできません。履歴を消す操作と、成果物を残す・削除する判断を分ける記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260905-03" />
+<meta property="og:title" content="Microsoft Copilotの履歴を消しても、保存済みのWord・PowerPoint本文は消えない｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは、仕事・学校アカウントでのMicrosoft Copilot activity historyをMy AccountのData and Privacyから削除できると案内しています。ただし、削除はMicrosoftへの削除リクエストであり、完了まで時間がかかる場合があります。開いているアプリでは、閉じて再度開くまで以前の活動履歴が見えることもあります。さらに重要なのは、Copilotが手伝ってWordやPowerPointなどのファイルへ保存した本文・変更は、活動履歴を削除しても消えないことです。履歴の一括削除はExcel、Outlook、Teams、Wordなど複数アプリを対象にし、Wordだけのようなアプリ単位の選択削除はできません。履歴を消す操作と、成果物を残す・削除する判断を分ける記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260905-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>Copilot履歴の削除と保存済みファイルの削除は別操作</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-09-05">2026.09.05</time>
+            </div>
+            <h1>Microsoft Copilotの履歴を消しても、保存済みのWord・PowerPoint本文は消えない</h1>
+            <p>Microsoftは、仕事・学校アカウントでのMicrosoft Copilot activity historyをMy AccountのData and Privacyから削除できると案内しています。ただし、削除はMicrosoftへの削除リクエストであり、完了まで時間がかかる場合があります。開いているアプリでは、閉じて再度開くまで以前の活動履歴が見えることもあります。さらに重要なのは、Copilotが手伝ってWordやPowerPointなどのファイルへ保存した本文・変更は、活動履歴を削除しても消えないことです。履歴の一括削除はExcel、Outlook、Teams、Wordなど複数アプリを対象にし、Wordだけのようなアプリ単位の選択削除はできません。履歴を消す操作と、成果物を残す・削除する判断を分ける記事です。</p>
+            <ul class="forensics-target-list"><li>仕事・学校アカウントでMicrosoft Copilotを使う人</li><li>Copilotの利用後に履歴と成果物を整理したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft Copilot</li><li>Microsoft 365</li><li>活動履歴</li><li>PowerPoint</li><li>Word</li><li>データ整理</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>Copilotの活動履歴と、保存済みファイルを別々に整理する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>削除前に、Copilotの履歴だけを消すのか、作成・編集したファイルも片付けるのかを分けて確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>プロジェクト終了後、Copilotに入力した指示と作成途中の資料を整理したい</h3><p>活動履歴を削除すれば、Copilotが編集を手伝ったPowerPointの本文も消えると思っています。履歴だけを消したいアプリと、残す資料が混ざっています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Copilotの活動履歴はプロンプトと応答の記録であり、ユーザーがファイルに保存した成果物とは別です。削除の対象は複数アプリにまたがる一方、保存済み文書の扱いはファイル側で決める必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="separate-history-and-files">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>仕事用Copilotの活動履歴を削除する時、保存済みPowerPointを残したい場合の理解として適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="separate-history-and-files" data-choice-id="separate-history-and-files" />
+                <span>
+                  <strong>活動履歴を削除しても保存済みPowerPointは消えないため、ファイルは別に残す・削除する判断をする</strong>
+                  <small>活動履歴とファイルに保存した本文・変更は別の対象である。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-history-deletes-files" data-choice-id="delete-history-deletes-files" />
+                <span>
+                  <strong>活動履歴を削除すれば、Copilotが手伝った保存済みPowerPointも自動で消える</strong>
+                  <small>Microsoftは保存済みファイルの内容は削除されないと案内している。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-word-only" data-choice-id="delete-word-only" />
+                <span>
+                  <strong>WordだけのCopilot活動履歴を選んで削除できる</strong>
+                  <small>Microsoft Copilotを選ぶ削除は、対象アプリ全体に及び、アプリ単位の選択削除はできない。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>活動履歴を削除しても保存済みPowerPointは消えないため、ファイルは別に残す・削除する判断をする</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>活動履歴の削除は、プロンプトと応答の記録を対象とします。Copilotが支援して保存したファイル本文は削除されません。残す資料と削除する資料は、ファイル側で別に整理します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象アカウント</h3>
+              <p>この削除手順は仕事・学校アカウント向けです。個人のMicrosoftアカウントの場合はPrivacy Dashboardの案内を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>活動履歴の削除場所</h3>
+              <p>My Account → Data and Privacy → Data options → Copilot activity historyでDeleteを選び、削除リクエストを送ります。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>削除の反映タイミング</h3>
+              <p>完全な削除まで時間がかかる場合があります。アプリを開いている時は、閉じて再度開くまで以前の活動履歴が表示されることがあります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>履歴と保存済み成果物</h3>
+              <p>Word、PowerPointなどのファイルに保存した本文・変更は、履歴削除では消えません。ファイルの保管・削除は別に判断します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Copilotの履歴削除は、成果物の削除ではない</strong><p>Microsoft Copilotの活動履歴を削除しても、利用者が保存した文書・スライドの内容は残ります。複数アプリの履歴をまとめて消す操作と、残す・削除する成果物を選ぶ作業を分ければ、プロジェクト終了時の整理を誤りにくくなります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>削除対象が仕事・学校アカウントのCopilot履歴かを確認する</strong><span>Microsoftの手順は仕事・学校アカウント向けで、個人アカウントは別の管理画面を使います。</span></li>
+            <li><strong>活動履歴を削除する前に、必要な成果物がファイルとして保存されているか確認する</strong><span>活動履歴と保存済みファイルは別で、履歴削除ではファイル本文は消えません。</span></li>
+            <li><strong>削除リクエスト後は、アプリを閉じて再度開き表示を確認する</strong><span>削除完了まで時間がかかり、開いているアプリには旧履歴が表示される場合があります。</span></li>
+            <li><strong>残さない資料は、Word・PowerPointなどのファイル側で別に削除・保管判断をする</strong><span>保存済みの本文・変更は活動履歴削除の対象外です。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>活動履歴の削除だけで、Copilotが支援した保存済みファイルまで消えると考える</strong><span>保存したファイル内容は削除されません。</span></li>
+            <li><strong>WordやPowerPointなど特定アプリだけの活動履歴を選択削除できると考える</strong><span>Microsoft Copilotを選ぶ削除は対象アプリ全体に適用され、アプリ単位の選択削除はできません。</span></li>
+            <li><strong>削除を押した直後に画面表示が残っているだけで、削除に失敗したと断定する</strong><span>削除処理には時間がかかり、開いているアプリは再起動まで履歴を表示する場合があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>プロジェクトの記録を、履歴と正式な成果物に分けて残す</h3>
+          <p>一時的な指示・応答は活動履歴として整理し、残す価値がある資料はファイルへ確定して管理すれば、Copilotを使った仕事の記録を分かりやすく保てます。</p>
+          <ul class="positive-example-list"><li>会議準備で使った一時プロンプトをプロジェクト終了後に整理する</li><li>確定版のPowerPointはチームの保管場所へ移す</li><li>不要な下書きはファイル側で削除する</li><li>履歴削除後にアプリを開き直して確認する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIに頼んだ時の履歴と、そこから作った資料は、同じ作業から生まれても役割が違います。履歴は思考の途中経過、保存したスライドはチームに渡す成果物です。片方を消す時にもう片方まで消えると思い込まないことが、仕事を軽くしながら記録を整える基本になると思います。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Copilotの活動履歴を消しても、保存済みのOffice文書は別に残る。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/privacy/delete-your-microsoft-365-copilot-activity-history" target="_blank" rel="noopener noreferrer">Delete your Microsoft Copilot activity history<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260904-03" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="ChatGPTの連携アプリは、切断しても会話・ファイル・Memoryが消えるわけではない。止める時の3点確認 ChatGPTアプリの切断と保存データの整理は別操作 OpenAIは、ChatGPTで連携したアプリのアカウントをDisconnectすると、そのアカウント経由の今後のアクセスは止まると案内しています。ただし、別の接続済みアカウントや管理者が設定したワークスペース接続は残ることがあり、Disconnectだけで既存・アーカイブ済みの会話、保存済みファイル、Memory summary、その他の保存済みMemoryが自動削除されるわけではありません。Googleアプリについても、接続解除は個人接続からのファイルアクセスを止めますが、既存の会話・Memoryや、別に管理されたワークスペースのインデックスは別の扱いです。連携を終える時は、(1) 接続アカウントを切る、(2) 残したくない会話・ファイルを削除する、(3) Memoryを確認・削除する、という三つの操作を分けて実施します。 セキュリティ・権限 標準 ChatGPT 連携アプリ Google Drive 接続解除 Memory データ整理 ChatGPTにGoogle Drive、メール、予定表などのアカウントを連携している人 仕事用アカウントとの連携を終える際、残るデータを整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chatgpt-app-disconnect-checklist</span>
+              <div>
+                <p>ChatGPTアプリの切断と保存データの整理は別操作</p>
+                <h3>ChatGPTの連携アプリは、切断しても会話・ファイル・Memoryが消えるわけではない。止める時の3点確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-04">2026.09.04</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは、ChatGPTで連携したアプリのアカウントをDisconnectすると、そのアカウント経由の今後のアクセスは止まると案内しています。ただし、別の接続済みアカウントや管理者が設定したワークスペース接続は残ることがあり、Disconnectだけで既存・アーカイブ済みの会話、保存済みファイル、Memory summary、その他の保存済みMemoryが自動削除されるわけではありません。Googleアプリについても、接続解除は個人接続からのファイルアクセスを止めますが、既存の会話・Memoryや、別に管理されたワークスペースのインデックスは別の扱いです。連携を終える時は、(1) 接続アカウントを切る、(2) 残したくない会話・ファイルを削除する、(3) Memoryを確認・削除する、という三つの操作を分けて実施します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>ChatGPT連携を終える時は、接続・会話・Memoryを別々に片付ける</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTにGoogle Drive、メール、予定表などのアカウントを連携している人</li><li>仕事用アカウントとの連携を終える際、残るデータを整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>連携アプリ</li><li>Google Drive</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260904-04" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="ChatGPTの連携アプリは『毎回確認』にしても権限を取り消さない。止めたい時は切断する ChatGPTの確認設定とアプリ接続の権限は別物 OpenAIは、ChatGPTの連携アプリに対するApp permissionsは、アプリを使う前にいつ確認を求めるかを決める設定であり、アプリに新しいアクセス権を与えるものでも、既存の接続権限を取り消すものでもないと案内しています。既定のImportant actionsでは、読み取りは自動で行える一方、メール送信・ファイルの移動や共有設定変更・削除など、外部に意味のある影響があり得る操作には確認を求めます。変更のたびに確認したい場合はAny changesを選べます。反対に、アプリのアクセスそのものを止めるにはDisconnect、またはワークスペース管理者による無効化が必要です。『毎回聞かれる設定』と『連携の権限を外す設定』を混同せず、試行時は確認の粒度を、利用停止時は接続状態を確認します。 仕事・AI活用 標準 ChatGPT 連携アプリ 権限設定 確認ダイアログ 外部操作 業務利用 ChatGPTからメール、予定、クラウドファイルなどを扱う連携アプリを使う人 AIに外部サービスの操作を任せる前に、確認の出し方を整えたいチーム">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chatgpt-app-permission-brake</span>
+              <div>
+                <p>ChatGPTの確認設定とアプリ接続の権限は別物</p>
+                <h3>ChatGPTの連携アプリは『毎回確認』にしても権限を取り消さない。止めたい時は切断する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-04">2026.09.04</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは、ChatGPTの連携アプリに対するApp permissionsは、アプリを使う前にいつ確認を求めるかを決める設定であり、アプリに新しいアクセス権を与えるものでも、既存の接続権限を取り消すものでもないと案内しています。既定のImportant actionsでは、読み取りは自動で行える一方、メール送信・ファイルの移動や共有設定変更・削除など、外部に意味のある影響があり得る操作には確認を求めます。変更のたびに確認したい場合はAny changesを選べます。反対に、アプリのアクセスそのものを止めるにはDisconnect、またはワークスペース管理者による無効化が必要です。『毎回聞かれる設定』と『連携の権限を外す設定』を混同せず、試行時は確認の粒度を、利用停止時は接続状態を確認します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>ChatGPTアプリの『確認設定』と『接続解除』を目的別に使い分ける</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTからメール、予定、クラウドファイルなどを扱う連携アプリを使う人</li><li>AIに外部サービスの操作を任せる前に、確認の出し方を整えたいチーム</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>連携アプリ</li><li>権限設定</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260903-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="SlackのAI要約、「閉じれば消える」とは限らない。ワークフローで投稿する前に保存先を決める Slack AI要約は「表示だけ」と「保存される投稿」を分ける Slackは、利用者がその場で見る会話要約や検索回答は画面を閉じると消える一時的なAI応答で、端末やサーバーに保存されないと案内しています。一方、ワークフローの「Summarize public channels」ステップで作ったチャンネル要約は別で、後続の設定次第で会話へのメッセージ投稿やCanvasへの保存が行われ、組織のデータ保持設定に従って残ります。さらに、Recapの履歴は90日間保存されます。つまり、同じ『AI要約』でも、個人が今読むための応答なのか、チームの記録として投稿する自動化なのかで保存の扱いが変わります。ワークフロー化する前に、保存先・閲覧者・保持期間を決めることが必要です。 仕事・AI活用 標準 Slack AI要約 ワークフロー Canvas データ保持 業務効率化 SlackでAI要約や検索回答を使うチームメンバー Slackの要約ワークフローを作成・管理する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">slack-summary-retention</span>
+              <div>
+                <p>Slack AI要約は「表示だけ」と「保存される投稿」を分ける</p>
+                <h3>SlackのAI要約、「閉じれば消える」とは限らない。ワークフローで投稿する前に保存先を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-03">2026.09.03</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Slackは、利用者がその場で見る会話要約や検索回答は画面を閉じると消える一時的なAI応答で、端末やサーバーに保存されないと案内しています。一方、ワークフローの「Summarize public channels」ステップで作ったチャンネル要約は別で、後続の設定次第で会話へのメッセージ投稿やCanvasへの保存が行われ、組織のデータ保持設定に従って残ります。さらに、Recapの履歴は90日間保存されます。つまり、同じ『AI要約』でも、個人が今読むための応答なのか、チームの記録として投稿する自動化なのかで保存の扱いが変わります。ワークフロー化する前に、保存先・閲覧者・保持期間を決めることが必要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>AI要約を投稿する前に、保存先と保持期間を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SlackでAI要約や検索回答を使うチームメンバー</li><li>Slackの要約ワークフローを作成・管理する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Slack</li><li>AI要約</li><li>ワークフロー</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260905-04">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260905-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
