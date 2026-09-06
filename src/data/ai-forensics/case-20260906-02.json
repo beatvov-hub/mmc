@@ -1,0 +1,129 @@
+{
+  "id": "case-20260906-02",
+  "publishedAt": "2026-09-06",
+  "title": "TeamsのCopilotを『会議中のみ』にしても、組織の保持設定は別に確認する",
+  "shortTitle": "Teams Copilotの会議中利用と保持ポリシーは別に確認する",
+  "category": "work-use",
+  "difficulty": "advanced",
+  "targetAudience": [
+    "Microsoft Teams会議でCopilotを使う主催者・参加者",
+    "録画・文字起こしを避けつつAIメモを使いたいチーム"
+  ],
+  "summary": "Microsoftは、Teams会議で録画や文字起こしをオンにせず、Copilotを会議中だけ使ってメモやタスク整理を行う方法を案内しています。主催者は会議前のMeeting optionsでCopilot and other AIをOnly during the meetingに設定し、参加者が会議中にCopilotを開始します。この設定で文字起こしは自動開始せず、会議後はCopilotのRecapで利用できません。ただし、録画と文字起こしをオフにしても、Copilotへのプロンプトと応答は組織のMicrosoft Purview保持ポリシーに従って保持・eDiscoveryの対象になり得ます。『会議後に見えない』ことと『組織内に残らない』ことを混同せず、会議設定と組織のコンプライアンス設定を分けて確認する記事です。",
+  "scenario": {
+    "headline": "機密性のある打合せで、録画・文字起こしは残さずCopilotにタスクだけ整理させたい",
+    "description": "主催者はOnly during the meetingを選び、終了後にRecapでCopilotが開けないことを確認しました。これで会議中に入力した質問やCopilotの回答も組織に残らないと思っています。",
+    "whyItMatters": "Only during the meetingは、会議後にCopilotを利用できなくする設定ですが、組織の保持・監査方針とは別です。会議を運営する人は、録画・文字起こし・Copilotの会議後利用・組織における記録保持を別々に扱う必要があります。"
+  },
+  "question": {
+    "text": "TeamsでCopilotをOnly during the meetingに設定し、録画・文字起こしをオフにした時の理解として適切なのは？",
+    "choices": [
+      {
+        "id": "check-retention-separately",
+        "label": "会議後のCopilot利用は制限されるが、プロンプト・応答の保持は組織のPurviewポリシーを別に確認する",
+        "description": "会議中だけの利用設定と、組織のコンプライアンス保持は別の仕組みである。"
+      },
+      {
+        "id": "no-transcript-means-no-record", 
+        "label": "文字起こしがないので、Copilotへの質問や回答も組織には一切残らないと考える",
+        "description": "Microsoftは、保持ポリシーによりプロンプト・応答が保持される場合があると案内している。"
+      },
+      {
+        "id": "automatic-copilot", 
+        "label": "Only during the meetingを選ぶと、会議開始と同時にCopilotが自動で起動する",
+        "description": "参加者が会議中にCopilotを選んで開始する必要がある。"
+      }
+    ],
+    "recommendedAnswers": ["check-retention-separately"],
+    "explanation": "Only during the meetingでは、録画・文字起こしを有効にしなくても会議中にCopilotを使え、会議後のRecapでは使えません。一方、プロンプトと応答はMicrosoft Purviewの保持・eDiscovery対象になり得るため、組織ポリシーを別に確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "会議前のCopilot設定",
+      "description": "主催者はCalendarから会議を開き、OptionsでCopilot and other AIをOnly during the meetingに設定します。設定が見えない場合はIT管理者へ確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "録画・文字起こしの状態",
+      "description": "Only during the meetingを選んでも、Copilotが始まっただけで文字起こしが自動開始するわけではありません。録画・文字起こしを途中でオンにした場合は、以降の会議内容の扱いが変わります。",
+      "priority": "high"
+    },
+    {
+      "title": "会議後に使える範囲",
+      "description": "文字起こしや録画をオンにしなければ、会議後にRecapからCopilotを使うことはできません。残したい内容があれば、会議終了前に適切な場所へ転記します。",
+      "priority": "medium"
+    },
+    {
+      "title": "組織の保持・監査方針",
+      "description": "Copilotのプロンプト・応答は、録画・文字起こしをオフにしてもMicrosoft Purviewの保持ポリシーやeDiscoveryの対象になる場合があります。管理者に確認します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "Teams Copilotは、会議中利用の設定と組織の保持方針を分けて確認する",
+  "verificationMessage": "Only during the meetingを選ぶ前に、会議後の利用可否と、組織がプロンプト・応答をどう保持するかを確認しましょう。",
+  "verdict": {
+    "label": "『会議後に見えない』は、『組織に残らない』という意味ではない",
+    "description": "Teams CopilotのOnly during the meetingは、録画・文字起こしを避けながら会議中にAI支援を使う選択肢です。しかし、組織の保持・監査設定は別に働きます。会議の設定画面だけで記録の扱いを結論づけず、Purviewの方針も確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "機密会議では、会議前にCopilot and other AIをOnly during the meetingへ設定する",
+      "reason": "録画・文字起こしを有効にせず、会議中にCopilotを使う方法として案内されています。"
+    },
+    {
+      "action": "会議中に誰がCopilotを開始し、どの質問をするかを決める",
+      "reason": "Copilotは会議開始と同時に自動起動せず、参加者が開始する操作です。"
+    },
+    {
+      "action": "会議終了後に残す必要がある内容は、会議中に承認した議事メモへ転記する",
+      "reason": "文字起こし・録画を使わない場合、会議後にRecapのCopilotは使えません。"
+    },
+    {
+      "action": "組織のPurview保持・eDiscovery方針を管理者へ確認する",
+      "reason": "Copilotのプロンプト・応答は、録画・文字起こしの有無とは別に保持対象となる場合があります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "文字起こしをオフにしただけで、Copilotへのプロンプト・応答も一切残らないと断定する",
+      "reason": "組織の保持ポリシーにより、Copilotのやり取りが保持される場合があります。"
+    },
+    {
+      "action": "Only during the meetingなら、会議後にもRecapで同じようにCopilotを使えると考える",
+      "reason": "録画・文字起こしがなければ、会議後のRecapでCopilotは利用できません。"
+    },
+    {
+      "action": "会議中のCopilotを、参加者への説明なしに機密情報の整理へ使う",
+      "reason": "会議の記録・保持に関する組織方針と、参加者間の合意を先に確認する必要があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "会議中の整理だけをAIに任せ、正式な記録はチームで確定する",
+    "description": "会議中だけのCopilotを使えば、論点・タスクの聞き漏らしを減らせます。終了前に内容を確認して正式な議事メモへ残す運用にすれば、利便性と記録管理を両立できます。",
+    "examples": [
+      "会議中に未決事項と担当者をCopilotへ整理させる",
+      "終了前に人が確認したアクション一覧を共有する",
+      "録画・文字起こしが不要な短い打合せで使う",
+      "会議設定とPurview保持方針を定期的に見直す"
+    ]
+  },
+  "makotoComment": "会議が終わった後に画面から見えなくなると、情報も消えたように感じます。でも仕事のツールでは、利用画面と組織の記録は別の層です。会議中だけ使う設定は便利な境界線ですが、それだけで『記録ゼロ』を約束するものではありません。私は会議前に、便利さの設定と会社の保持ルールを並べて確認したいです。",
+  "oneLineLesson": "Teams Copilotを会議中だけ使っても、組織の保持方針は別に確認する。",
+  "tags": ["Microsoft Teams", "Microsoft Copilot", "会議AI", "文字起こし", "Purview", "データ保持"],
+  "sources": [
+    {
+      "title": "Use Copilot without transcribing or recording a Teams meeting or call",
+      "publisher": "Microsoft Support",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/en-us/teams/copilot/use-copilot-without-transcribing-or-recording-a-teams-meeting-or-call"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Teams会議の設定画面から『Only during the meeting』を選ぶ主催者。左に録画・文字起こしなしの会議中Copilot、右に別レイヤーとしてPurview保持ポリシーの書庫を置き、画面で見えないことと保持されないことが別であると図解する。",
+    "cardIcon": "teams-copilot-meeting-only-retention",
+    "accentTone": "caution"
+  }
+}

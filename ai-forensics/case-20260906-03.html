@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>対面の打合せをCopilot Recordで録る前に。音声の保存先と参加者への説明を決める｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは、Microsoft CopilotのRecord機能で対面会話や自分の音声メモを録音し、文字起こし・要約をCopilot Chatで扱う方法を案内しています。Recordは企業向け機能で、音声、文字起こし、要約は組織のMicrosoft 365テナント内に保管され、具体的には利用者自身のOneDrive for Businessに保存されます。既存の保持、eDiscovery、Information Protection、感度ラベル、DLPポリシーが適用されます。録音中は別アプリへ切り替えてもバックグラウンドで収録が続きます。一方、参加者へ録音を通知したり同意を取ったりする責任は利用者にあり、Copilotが代わりに通知することはありません。対面会議を始める前に、保存先・共有範囲・同意を決める記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260906-03" />
+<meta property="og:title" content="対面の打合せをCopilot Recordで録る前に。音声の保存先と参加者への説明を決める｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは、Microsoft CopilotのRecord機能で対面会話や自分の音声メモを録音し、文字起こし・要約をCopilot Chatで扱う方法を案内しています。Recordは企業向け機能で、音声、文字起こし、要約は組織のMicrosoft 365テナント内に保管され、具体的には利用者自身のOneDrive for Businessに保存されます。既存の保持、eDiscovery、Information Protection、感度ラベル、DLPポリシーが適用されます。録音中は別アプリへ切り替えてもバックグラウンドで収録が続きます。一方、参加者へ録音を通知したり同意を取ったりする責任は利用者にあり、Copilotが代わりに通知することはありません。対面会議を始める前に、保存先・共有範囲・同意を決める記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260906-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>Copilot Recordは開始前にOneDrive保存と録音同意を確認する</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-09-06">2026.09.06</time>
+            </div>
+            <h1>対面の打合せをCopilot Recordで録る前に。音声の保存先と参加者への説明を決める</h1>
+            <p>Microsoftは、Microsoft CopilotのRecord機能で対面会話や自分の音声メモを録音し、文字起こし・要約をCopilot Chatで扱う方法を案内しています。Recordは企業向け機能で、音声、文字起こし、要約は組織のMicrosoft 365テナント内に保管され、具体的には利用者自身のOneDrive for Businessに保存されます。既存の保持、eDiscovery、Information Protection、感度ラベル、DLPポリシーが適用されます。録音中は別アプリへ切り替えてもバックグラウンドで収録が続きます。一方、参加者へ録音を通知したり同意を取ったりする責任は利用者にあり、Copilotが代わりに通知することはありません。対面会議を始める前に、保存先・共有範囲・同意を決める記事です。</p>
+            <ul class="forensics-target-list"><li>Microsoft Copilotのモバイルアプリで対面会議や音声メモを録ろうとしている人</li><li>社外の相手を含む打合せをAIで文字起こし・要約したいチーム</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft Copilot</li><li>Copilot Record</li><li>対面会議</li><li>OneDrive</li><li>録音同意</li><li>文字起こし</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>Copilot Recordは、録音同意とOneDrive保存を開始前に確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Recordを押す前に、参加者への説明、保存先、共有範囲、終了操作を確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>顧客訪問後の廊下での短い打合せを、スマホで録音して要約したい</h3><p>Teams会議ではないので気軽にRecordを押そうとしています。録音がどこへ保存されるのか、他の参加者へどう説明するのか、途中で別アプリを開いた時に録音が続くのかを確認していません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Recordは単なるボイスメモではなく、組織のOneDrive for Businessへ音声をアップロードして文字起こし・要約する機能です。保存・共有・コンプライアンスの範囲と、参加者への説明責任を開始前に明確にする必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="consent-and-storage-first">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Copilot Recordで対面打合せを録音する前の対応として、最も適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="consent-and-storage-first" data-choice-id="consent-and-storage-first" />
+                <span>
+                  <strong>参加者へ録音を説明して同意を得てから開始し、OneDrive for Businessの保存・共有・保持設定も確認する</strong>
+                  <small>録音の通知は利用者の責任であり、音声・文字起こし・要約は組織内の保存対象になる。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="copilot-notifies" data-choice-id="copilot-notifies" />
+                <span>
+                  <strong>Copilotが参加者へ自動で通知するので、利用者から録音を説明しなくてよい</strong>
+                  <small>Microsoftは、録音同意の取得は利用者の責任で、Copilotは代行しないと案内している。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="local-only" data-choice-id="local-only" />
+                <span>
+                  <strong>音声はスマホの中だけに残るため、組織のOneDriveや保持ポリシーは関係ない</strong>
+                  <small>Recordは音声をOneDrive for Businessへアップロードして文字起こしを行い、組織のポリシーが適用される。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>参加者へ録音を説明して同意を得てから開始し、OneDrive for Businessの保存・共有・保持設定も確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Copilot Recordの音声、文字起こし、要約は利用者のOneDrive for Businessを含む組織テナント内に保存され、既存の保持・eDiscovery・感度ラベル・DLPポリシーに従います。録音を開始する前の参加者への説明と同意取得は、利用者自身の責任です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>Recordを使えるアカウント・端末か</h3>
+              <p>Microsoft 365 Copilotのライセンスが付いた仕事・学校アカウント、対応するCopilotモバイルアプリ、マイク権限、インターネット接続が必要です。表示されない場合はIT管理者が無効化している可能性があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>音声の保存先と組織ポリシー</h3>
+              <p>Recordの音声、文字起こし、要約は組織のMicrosoft 365テナント内、具体的には利用者自身のOneDrive for Businessに保存されます。保持、eDiscovery、感度ラベル、DLPが適用されます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>参加者への説明と同意</h3>
+              <p>地域や組織によっては全参加者への通知・同意が必要です。MicrosoftはCopilotが代わりに通知しないとしており、開始前に利用者が説明します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>バックグラウンド収録</h3>
+              <p>Record中にアプリを切り替えても、バックグラウンドで録音は続きます。録音終了の操作と、不要な音声を残さない確認を明確にします。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Copilot Recordは『その場のメモ』ではなく、組織の記録になる録音機能</strong><p>Copilot Recordは、対面での会話を要約できる便利な機能ですが、音声はOneDrive for Businessへ保存され、組織のコンプライアンス設定に従います。開始前に参加者へ説明し、保存・共有の範囲を決めることで、安心して使えます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>録音前に、参加者へ目的・保存先・共有予定を説明して同意を得る</strong><span>Microsoftは、録音同意の取得は利用者の責任で、Copilotは参加者へ通知しないと案内しています。</span></li>
+            <li><strong>自分のOneDrive for Businessと、組織の保持・感度ラベル・DLP設定を確認する</strong><span>音声・文字起こし・要約は組織テナント内に保存され、既存のコンプライアンス設定に従います。</span></li>
+            <li><strong>録音中はバックグラウンド収録が続くことを前提に、終了操作を確認する</strong><span>アプリを切り替えてもRecordは継続して音声を収録します。</span></li>
+            <li><strong>要約を共有する前に、文字起こしと音声の内容を人が確認する</strong><span>対面会話の要約には聞き違い・文脈不足があり得るため、共有前の確認が必要です。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>対面会議だからと、参加者への説明なしで録音を始める</strong><span>地域や組織のルールによっては同意が必要で、通知は利用者の責任です。</span></li>
+            <li><strong>Recordの音声はスマホの一時データだけだと考える</strong><span>Recordは音声をOneDrive for Businessへアップロードし、文字起こし・要約を保存します。</span></li>
+            <li><strong>アプリを切り替えた時点で録音が止まったと考える</strong><span>Recordはバックグラウンドで収録を継続します。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>対面の短い相談を、合意済みの記録として次の仕事へつなぐ</h3>
+          <p>参加者と保存範囲に合意した上で使えば、顧客訪問や現場確認の短い相談から、タスクやフォローアップを取りこぼしにくくできます。</p>
+          <ul class="positive-example-list"><li>現場訪問後の合意事項を要約して担当者へ確認する</li><li>自分だけの音声メモからタスク一覧を作る</li><li>感度ラベルに従って、共有先を限定する</li><li>不要になった音声・要約は組織のルールに沿って整理する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>会議URLがない対面の相談ほど、録音は『自分のメモ』のように始めやすいものです。でも要約まで作る機能では、音声は組織の記録になります。私はRecordを押す前に、相手に一言説明し、どこへ残るかを確認したいです。その数十秒があるだけで、あとから使える記録と、相手への敬意を両立できます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Copilot Recordは、録音前に同意とOneDrive保存を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-record" target="_blank" rel="noopener noreferrer">Get started with Record in Microsoft Copilot<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260906-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="advanced" data-search-text="TeamsのCopilotを『会議中のみ』にしても、組織の保持設定は別に確認する Teams Copilotの会議中利用と保持ポリシーは別に確認する Microsoftは、Teams会議で録画や文字起こしをオンにせず、Copilotを会議中だけ使ってメモやタスク整理を行う方法を案内しています。主催者は会議前のMeeting optionsでCopilot and other AIをOnly during the meetingに設定し、参加者が会議中にCopilotを開始します。この設定で文字起こしは自動開始せず、会議後はCopilotのRecapで利用できません。ただし、録画と文字起こしをオフにしても、Copilotへのプロンプトと応答は組織のMicrosoft Purview保持ポリシーに従って保持・eDiscoveryの対象になり得ます。『会議後に見えない』ことと『組織内に残らない』ことを混同せず、会議設定と組織のコンプライアンス設定を分けて確認する記事です。 仕事・AI活用 発展 Microsoft Teams Microsoft Copilot 会議AI 文字起こし Purview データ保持 Microsoft Teams会議でCopilotを使う主催者・参加者 録画・文字起こしを避けつつAIメモを使いたいチーム">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">teams-copilot-meeting-only-retention</span>
+              <div>
+                <p>Teams Copilotの会議中利用と保持ポリシーは別に確認する</p>
+                <h3>TeamsのCopilotを『会議中のみ』にしても、組織の保持設定は別に確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-06">2026.09.06</time>
+              <span>仕事・AI活用</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、Teams会議で録画や文字起こしをオンにせず、Copilotを会議中だけ使ってメモやタスク整理を行う方法を案内しています。主催者は会議前のMeeting optionsでCopilot and other AIをOnly during the meetingに設定し、参加者が会議中にCopilotを開始します。この設定で文字起こしは自動開始せず、会議後はCopilotのRecapで利用できません。ただし、録画と文字起こしをオフにしても、Copilotへのプロンプトと応答は組織のMicrosoft Purview保持ポリシーに従って保持・eDiscoveryの対象になり得ます。『会議後に見えない』ことと『組織内に残らない』ことを混同せず、会議設定と組織のコンプライアンス設定を分けて確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Teams Copilotは、会議中利用の設定と組織の保持方針を分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft Teams会議でCopilotを使う主催者・参加者</li><li>録画・文字起こしを避けつつAIメモを使いたいチーム</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Teams</li><li>Microsoft Copilot</li><li>会議AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260905-03" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="Microsoft Copilotの履歴を消しても、保存済みのWord・PowerPoint本文は消えない Copilot履歴の削除と保存済みファイルの削除は別操作 Microsoftは、仕事・学校アカウントでのMicrosoft Copilot activity historyをMy AccountのData and Privacyから削除できると案内しています。ただし、削除はMicrosoftへの削除リクエストであり、完了まで時間がかかる場合があります。開いているアプリでは、閉じて再度開くまで以前の活動履歴が見えることもあります。さらに重要なのは、Copilotが手伝ってWordやPowerPointなどのファイルへ保存した本文・変更は、活動履歴を削除しても消えないことです。履歴の一括削除はExcel、Outlook、Teams、Wordなど複数アプリを対象にし、Wordだけのようなアプリ単位の選択削除はできません。履歴を消す操作と、成果物を残す・削除する判断を分ける記事です。 仕事・AI活用 標準 Microsoft Copilot Microsoft 365 活動履歴 PowerPoint Word データ整理 仕事・学校アカウントでMicrosoft Copilotを使う人 Copilotの利用後に履歴と成果物を整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-history-versus-files</span>
+              <div>
+                <p>Copilot履歴の削除と保存済みファイルの削除は別操作</p>
+                <h3>Microsoft Copilotの履歴を消しても、保存済みのWord・PowerPoint本文は消えない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-05">2026.09.05</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、仕事・学校アカウントでのMicrosoft Copilot activity historyをMy AccountのData and Privacyから削除できると案内しています。ただし、削除はMicrosoftへの削除リクエストであり、完了まで時間がかかる場合があります。開いているアプリでは、閉じて再度開くまで以前の活動履歴が見えることもあります。さらに重要なのは、Copilotが手伝ってWordやPowerPointなどのファイルへ保存した本文・変更は、活動履歴を削除しても消えないことです。履歴の一括削除はExcel、Outlook、Teams、Wordなど複数アプリを対象にし、Wordだけのようなアプリ単位の選択削除はできません。履歴を消す操作と、成果物を残す・削除する判断を分ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Copilotの活動履歴と、保存済みファイルを別々に整理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>仕事・学校アカウントでMicrosoft Copilotを使う人</li><li>Copilotの利用後に履歴と成果物を整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Microsoft 365</li><li>活動履歴</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260904-04" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="ChatGPTの連携アプリは『毎回確認』にしても権限を取り消さない。止めたい時は切断する ChatGPTの確認設定とアプリ接続の権限は別物 OpenAIは、ChatGPTの連携アプリに対するApp permissionsは、アプリを使う前にいつ確認を求めるかを決める設定であり、アプリに新しいアクセス権を与えるものでも、既存の接続権限を取り消すものでもないと案内しています。既定のImportant actionsでは、読み取りは自動で行える一方、メール送信・ファイルの移動や共有設定変更・削除など、外部に意味のある影響があり得る操作には確認を求めます。変更のたびに確認したい場合はAny changesを選べます。反対に、アプリのアクセスそのものを止めるにはDisconnect、またはワークスペース管理者による無効化が必要です。『毎回聞かれる設定』と『連携の権限を外す設定』を混同せず、試行時は確認の粒度を、利用停止時は接続状態を確認します。 仕事・AI活用 標準 ChatGPT 連携アプリ 権限設定 確認ダイアログ 外部操作 業務利用 ChatGPTからメール、予定、クラウドファイルなどを扱う連携アプリを使う人 AIに外部サービスの操作を任せる前に、確認の出し方を整えたいチーム">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chatgpt-app-permission-brake</span>
+              <div>
+                <p>ChatGPTの確認設定とアプリ接続の権限は別物</p>
+                <h3>ChatGPTの連携アプリは『毎回確認』にしても権限を取り消さない。止めたい時は切断する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-04">2026.09.04</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは、ChatGPTの連携アプリに対するApp permissionsは、アプリを使う前にいつ確認を求めるかを決める設定であり、アプリに新しいアクセス権を与えるものでも、既存の接続権限を取り消すものでもないと案内しています。既定のImportant actionsでは、読み取りは自動で行える一方、メール送信・ファイルの移動や共有設定変更・削除など、外部に意味のある影響があり得る操作には確認を求めます。変更のたびに確認したい場合はAny changesを選べます。反対に、アプリのアクセスそのものを止めるにはDisconnect、またはワークスペース管理者による無効化が必要です。『毎回聞かれる設定』と『連携の権限を外す設定』を混同せず、試行時は確認の粒度を、利用停止時は接続状態を確認します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>ChatGPTアプリの『確認設定』と『接続解除』を目的別に使い分ける</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTからメール、予定、クラウドファイルなどを扱う連携アプリを使う人</li><li>AIに外部サービスの操作を任せる前に、確認の出し方を整えたいチーム</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>連携アプリ</li><li>権限設定</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260905-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260906-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

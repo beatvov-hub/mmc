@@ -1,0 +1,136 @@
+{
+  "id": "case-20260906-01",
+  "publishedAt": "2026-09-06",
+  "title": "Content Credentialsは『AIか本物か』の二択ではない。画像・動画の来歴を確認する手順",
+  "shortTitle": "Content Credentialsは画像・動画の来歴を確認する手がかり",
+  "category": "media-literacy",
+  "difficulty": "standard",
+  "targetAudience": [
+    "SNSで見かけた画像や動画の作られ方を確かめたい人",
+    "生成AIの表示・透かし・来歴情報を混同せずに読みたい人"
+  ],
+  "summary": "Content AuthenticityのInspectは、画像・動画・音声・PDFなどのファイル、またはURLを使って、利用できるContent Credentialsを確認するC2PA準拠の検査ツールです。表示できる場合は、作成者、使用ツール、来歴などの情報を確認できます。Googleも、Content Credentialsはコンテンツの由来や編集履歴、AIツールの利用情報を確認する手がかりになる一方、画像・動画・音声がAI生成だと確定するものではないと説明しています。Content CredentialsはC2PAの業界標準に基づく来歴情報で、署名した提供元を確認できます。検査結果を『本物・偽物の判定』で終わらせず、誰がどのような情報を署名し、何が分からないままかを読む手順を扱います。",
+  "scenario": {
+    "headline": "ニュースのように見える動画をSNSで見つけ、AI製かどうかを確かめたい",
+    "description": "投稿にはAIラベルが見当たりませんが、動画ファイルまたは元投稿のスクリーンショットは入手できます。来歴情報が出た場合に何を見ればよいか、何も出なかった時にどう扱うかが分かりません。",
+    "whyItMatters": "Content Credentialsは、利用可能な来歴情報を暗号的に確認する仕組みであって、画面上の映像が現実の出来事を表すという保証ではありません。検査できた情報と、別の一次情報で確認すべき事実を分ける必要があります。"
+  },
+  "question": {
+    "text": "画像や動画のContent Credentialsを確認できた時、最も適切な読み方は？",
+    "choices": [
+      {
+        "id": "read-provenance-and-limits",
+        "label": "作成・編集の来歴やAI利用情報を確認しつつ、映像が示す出来事の真偽は別の情報で確かめる",
+        "description": "Credentialsは来歴を読む手がかりであり、事実関係まで自動的に保証するものではない。"
+      },
+      {
+        "id": "credentials-prove-event",
+        "label": "Credentialsが表示されたので、映像の内容も事実だと確定する",
+        "description": "来歴情報と、映像が示す出来事・説明文の正しさは別に確認する必要がある。"
+      },
+      {
+        "id": "no-label-proves-real",
+        "label": "crアイコンや来歴情報が見つからないので、AIとは無関係の本物だと確定する",
+        "description": "利用できるCredentialsがないことだけでは、作成方法や事実関係を確定できない。"
+      }
+    ],
+    "recommendedAnswers": ["read-provenance-and-limits"],
+    "explanation": "Content Credentialsは、メディアの由来・履歴・利用ツールに関する情報を確認するための仕組みです。Googleは、CredentialsがAI生成かどうかを確定するものではないと案内しています。来歴情報と、映像の主張を裏付ける一次情報を分けて確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "元ファイルか、投稿のスクリーンショットか",
+      "description": "Content Authenticity Inspectでは、ファイルまたはURLを使って、利用できるContent Credentialsを調べられます。元ファイルがある場合は、投稿画面だけより優先します。",
+      "priority": "high"
+    },
+    {
+      "title": "誰がどの情報を署名したか",
+      "description": "Credentialsが表示されたら、作成者・提供元、作成や編集に使われたツール、来歴を確認します。複数の会社・ツールが表示される場合もあります。",
+      "priority": "high"
+    },
+    {
+      "title": "改変の検出と、事実確認を分ける",
+      "description": "Content Credentialsは、提供元が署名した来歴情報を確認する仕組みです。ただし、映像に写る出来事や説明文の正しさは、投稿元・日時・公的発表などで別に確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "AI判定の限界",
+      "description": "Content Credentialsがある時は来歴・AI利用の情報を読めますが、GoogleはこれだけでAI生成を確定するものではないと案内しています。情報がない場合も、作成方法を断定しません。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "Content Credentialsは、来歴情報と事実確認を分けて読む",
+  "verificationMessage": "画像・動画の来歴を調べた後も、誰がいつどこで何を撮影・発表したのかは、投稿元や一次情報で確認しましょう。",
+  "verdict": {
+    "label": "Content Credentialsは『判定スタンプ』ではなく、来歴をたどる入口",
+    "description": "Content Credentialsがあれば、制作者・編集履歴・AI利用に関する情報を確認できます。暗号署名により来歴の改変も検出できますが、コンテンツが伝える出来事まで真実だと保証するものではありません。来歴を読み、事実は別経路で確かめる二段階が有効です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "気になる画像・動画は、可能なら元ファイルまたは元URLでContent Credentialsを確認する",
+      "reason": "InspectではファイルやURLから、利用できる来歴情報を調べられます。"
+    },
+    {
+      "action": "Credentialsが見つかったら、作成・編集ツールと署名した提供元を読む",
+      "reason": "来歴には、どの会社・アプリ・デバイスが情報を提供したかが示される場合があります。"
+    },
+    {
+      "action": "映像の主張は、投稿元・撮影日時・公的発表などで別に確認する",
+      "reason": "Content Credentialsは来歴の手がかりであり、映像が示す出来事そのものの真偽を保証しません。"
+    },
+    {
+      "action": "Credentialsがない時は、AI利用や事実関係を即断せず、出典調査へ進む",
+      "reason": "利用できる来歴情報がないことだけでは、作成方法を確定できません。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "Content Credentialsが表示されたことだけで、投稿内容まで正しいと判断する",
+      "reason": "確認できるのは来歴情報であり、映像が示す出来事や説明文の真偽は別の問題です。"
+    },
+    {
+      "action": "crアイコンがないことだけで、AI生成ではない・改変されていないと断定する",
+      "reason": "Credentialsが利用できない場合もあり、情報がないことだけでは作成方法を確定できません。"
+    },
+    {
+      "action": "切り抜き画面だけを見て、元投稿・元ファイルを確認しない",
+      "reason": "来歴や編集履歴を確認するには、より元に近いファイル・投稿を探す方が有効です。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIラベル探しを、コンテンツの来歴を読む習慣に広げる",
+    "description": "来歴情報を読み、元の発信者・編集過程・AI利用の有無を分けて確認すれば、生成AI時代の画像や動画を落ち着いて評価できます。",
+    "examples": [
+      "SNSで広がる画像をInspectで調べる",
+      "制作物を公開する時に、自分でもContent Credentialsを残す",
+      "ニュース映像は発信元の公式アカウント・報道機関の元記事へ戻る",
+      "検査結果の画面を、判断の根拠の一部として保存する"
+    ]
+  },
+  "makotoComment": "『AIか、本物か』と聞かれると、ひとつの判定マークを探したくなります。でも画像や動画には、作り方、編集の過程、映っている出来事の三つが混ざっています。Content Credentialsは、そのうち来歴を見せてくれる便利な手がかりです。私は判定の終点ではなく、元の発信者を探しに行くための入口として使いたいです。",
+  "oneLineLesson": "Content Credentialsで来歴を読み、映像の事実は別の一次情報で確かめる。",
+  "tags": ["Content Credentials", "C2PA", "画像検証", "動画検証", "生成AI", "メディアリテラシー"],
+  "sources": [
+    {
+      "title": "Using the inspect tool on Adobe Content Authenticity (Beta)",
+      "publisher": "Open-source tools for content authenticity and provenance",
+      "sourceType": "official-standard-guidance",
+      "publishedAt": null,
+      "url": "https://opensource.contentauthenticity.org/docs/getting-started/inspect/"
+    },
+    {
+      "title": "Verify AI-generated images, videos, and audio",
+      "publisher": "Gemini Apps Help",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/gemini/answer/16722517"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "画像・動画を調べる人の前に、Content Credentialsの『作成者・編集ツール・来歴』カードを置く。横には投稿元・公的発表・日時を確認する虫眼鏡を置き、『来歴確認』と『事実確認』が別のステップであることを示す。",
+    "cardIcon": "content-credentials-provenance",
+    "accentTone": "calm"
+  }
+}
