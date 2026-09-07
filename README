@@ -162,6 +162,27 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 更新履歴
 --------
 
+### 2026-09-07：今日ひとつ。既存11記事の具体化
+
+- ユーザー依頼による一括改稿として `src/data/todayOne.json` の既存11件へ、小さな活用例、成果物、推薦社員へ任せたい仕事、無料範囲と準備条件を反映しました。日次タスクによる過去記事の自動改稿ではありません。
+- 掲載日・slug・公式URL・社員ID・status・件数・並び順は維持し、`verifiedAt` を再確認日に更新しました。`notes` に追記日と想定例（実機未検証）であることを明記しています。
+- `scripts/generate_today_one.py` を実行し、`today-one.html`、トップの紹介枠、`today-one/archive/` の一覧と11詳細を再生成しました。サイトマップは生成後も差分なし。schema・生成コード・CSS・画像は変更していません。
+- 専用unittest 12件、全記事のschema・社員ID・重複・掲載日とURLの保持を検証しました。
+- ブラウザで現行ページ・一覧・11詳細の計13ページを幅1440pxと390pxで確認し、本文の反映、画像、ローカルリンク、横はみ出し・文字切れを検証しました。Docling詳細は両幅のスクリーンショットも目視確認しています。
+- 料金は2026-09-07時点の公式情報です。無料のソフトウェアと外部AI/API・サーバーの費用を区別し、n8nの利用条件や個別スキル・モデルのライセンスも一律に無料とは扱いません。
+- 確認元（機能・手順／料金・利用条件）：
+  - Context7：[概要](https://context7.com/docs/overview)、[料金](https://context7.com/plans)
+  - n8n：[公式リポジトリ](https://github.com/n8n-io/n8n)、[RSS Read](https://raw.githubusercontent.com/n8n-io/n8n-docs/main/docs/integrations/builtin/core-nodes/n8n-nodes-base.rssfeedread.md)、[If](https://raw.githubusercontent.com/n8n-io/n8n-docs/main/docs/integrations/builtin/core-nodes/n8n-nodes-base.if.md)、[Community edition](https://raw.githubusercontent.com/n8n-io/n8n-docs/main/docs/deploy/host-n8n/community-edition-features.md)、[ライセンス](https://github.com/n8n-io/n8n/blob/master/LICENSE.md)
+  - Tavily：[Quickstart](https://docs.tavily.com/documentation/quickstart)、[APIと料金](https://docs.tavily.com/documentation/api-credits)
+  - Playwright：[導入](https://playwright.dev/docs/intro)、[公式リポジトリ・ライセンス](https://github.com/microsoft/playwright)
+  - Langfuse：[記録の導入](https://langfuse.com/docs/observability/get-started)、[料金](https://langfuse.com/pricing)
+  - Skills：[ドキュメント](https://www.skills.sh/docs)、[CLI・ライセンス](https://github.com/vercel-labs/skills)
+  - Mermaid：[概要](https://mermaid.js.org/intro/)、[分岐図](https://mermaid.js.org/syntax/flowchart.html)、[ライセンス](https://github.com/mermaid-js/mermaid)
+  - Dify：[知識ベース](https://docs.dify.ai/en/cloud/use-dify/knowledge/readme)、[料金](https://dify.ai/pricing)
+  - Docling：[Quickstart](https://docling-project.github.io/docling/getting_started/quickstart/)、[コードとモデルのライセンス](https://github.com/docling-project/docling)
+  - Promptfoo：[導入と比較手順](https://www.promptfoo.dev/docs/getting-started/)、[料金](https://www.promptfoo.dev/pricing/)
+  - Penpot：[部品](https://help.penpot.app/user-guide/design-systems/components/)、[Dev tools](https://help.penpot.app/user-guide/dev-tools/)、[料金](https://penpot.app/pricing)、[ライセンス](https://github.com/penpot/penpot)
+
 ### 2026-08-31
 
 - 購入者特典用の `bonus/` ページを追加しました。ページは `noindex`、サイトマップ・グローバルナビ非掲載です。

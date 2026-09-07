@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tavily｜AGENT SKILLS ライブラリ｜2026.08.30｜毎日見る株式会社</title>
-    <meta name="description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。AIエージェントが、いまのWeb情報を検索・抽出・調査するためのAPIです。" />
+    <meta name="description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。Web検索の結果や指定ページの本文を取得し、AIの調査材料に渡すためのAPIです。" />
         <link rel="canonical" href="https://mainichi-miru.com/today-one/archive/2026-08-30-tavily" />
 <meta name="keywords" content="AGENT SKILLS, AGENT SKILLS ライブラリ, AIエージェント, Codex, MCP, 仕事道具" />
 <meta property="og:title" content="Tavily｜AGENT SKILLS ライブラリ｜2026.08.30｜毎日見る株式会社" />
-    <meta property="og:description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。AIエージェントが、いまのWeb情報を検索・抽出・調査するためのAPIです。" />
+    <meta property="og:description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。Web検索の結果や指定ページの本文を取得し、AIの調査材料に渡すためのAPIです。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/today-one/archive/2026-08-30-tavily" />
 <meta property="og:site_name" content="毎日見る株式会社" />
@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
     <link rel="stylesheet" href="../../styles.css" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "2026-08-30の今日ひとつ。｜Tavily", "description": "AGENT SKILLS ライブラリ「今日ひとつ。」の記録。AIエージェントが、いまのWeb情報を検索・抽出・調査するためのAPIです。", "url": "https://mainichi-miru.com/today-one/archive/2026-08-30-tavily", "datePublished": "2026-08-30", "inLanguage": "ja-JP", "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", "API", "Tavily"], "isPartOf": {"@type": "CollectionPage", "name": "AGENT SKILLS ライブラリ｜これまでのひとつ。", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "2026-08-30の今日ひとつ。｜Tavily", "description": "AGENT SKILLS ライブラリ「今日ひとつ。」の記録。Web検索の結果や指定ページの本文を取得し、AIの調査材料に渡すためのAPIです。", "url": "https://mainichi-miru.com/today-one/archive/2026-08-30-tavily", "datePublished": "2026-08-30", "inLanguage": "ja-JP", "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", "API", "Tavily"], "isPartOf": {"@type": "CollectionPage", "name": "AGENT SKILLS ライブラリ｜これまでのひとつ。", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
     <!-- GOOGLE_TAG_START -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
@@ -74,19 +74,19 @@
           <p class="today-one-entry-label">この日のひとつ</p>
           <h2 id="today-one-entry-name">Tavily</h2>
           <p class="today-one-summary-label">一言でいうと</p>
-          <p class="today-one-summary">AIエージェントが、いまのWeb情報を検索・抽出・調査するためのAPIです。</p>
+          <p class="today-one-summary">Web検索の結果や指定ページの本文を取得し、AIの調査材料に渡すためのAPIです。</p>
           <a class="today-one-official-link" href="https://www.tavily.com/" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
-            <p>AIに調査を頼むときは、答えの巧さだけでなく、いつの情報を、どのページから持ってきたかまで確認できることが大切です。調査の入口を仕事の流れへ組み込む道具として、今日はこれを見ます。</p>
+            <p>海外発表を記事にするとき、検索結果の短い説明だけでは、提供開始と予告の違いを読み落としかねません。検索から本文取得へ進めるTavilyを、要約前の根拠集めに使う視点で選びます。</p>
           </section>
           <section class="today-one-section" aria-labelledby="today-one-use-title">
             <p class="section-kicker">Use For</p>
             <h2 id="today-one-use-title">何に使える？</h2>
-            <p>海外の公式発表や新しい技術情報を調べ、記事の下調べに使いたい場面で役立ちます。検索結果だけで済ませず、必要なページの内容を取得して、AIが要約する前の根拠をそろえる流れを作れます。</p>
+            <p>例えば、海外サービス1件の提供開始を調べる下準備に。アカウントとAPI keyを用意し、公式SDKでサービス名と調べたい項目を検索します。結果から開発元のURLを人が選び、Extractで本文を取得した後、別のAIへ「開始時期・対象者・未確認事項を整理して」と依頼します。成果物は、出典URL付きの確認メモです。最初は検索1回と公式ページ1件で試し、発表日と実際の開始日が区別されているか、取得本文に必要な段落が含まれるかを原文で照合します。</p>
           </section>
                   <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
           <p class="section-kicker">Recommended For</p>
@@ -97,7 +97,7 @@
               <small>MMC-004</small>
               <h3>マイケル</h3>
               <p class="today-one-member-role">海外調査部 主任 <span>海外調査部</span></p>
-              <p>世界の動きを日本の文脈へ翻訳するマイケルに。海外情報を扱う前に、一次情報の所在と更新時点をたどれる調査フローを持たせると、記事の確認を進めやすくなります。</p>
+              <p>海外調査のマイケルに、公式発表1件の確認メモを任せたいです。原文で分かったことと未確認事項を分けて受け取れれば、日本向けの解説へ進む判断がしやすくなります。</p>
               <a class="today-one-profile-link" href="../../members/michael">プロフィールを見る</a>
             </div>
           </div>
@@ -111,7 +111,7 @@
                 <img src="../../image/staff/mmc-009.jpg" alt="ケイ" loading="lazy" />
                 <strong>ケイ｜広報部長</strong>
               </div>
-              <p>検索が速くなっても、出典の読み違いまで防いでくれるわけではないですね。読者へ届ける前に、引用するページと日付を人が見るところは残しておきたいです。</p>
+              <p>検索で見つかった日が、サービスの始まった日とは限らないですね。「発表したこと」と「もう使えること」を分けたメモなら、告知文にも安心してつなげられそうです。</p>
             </div>
             <figure class="today-one-kei-visual">
               <img src="../../image/today-one/kei-note.webp" alt="メガホン、ノート、虫眼鏡のコラージュ" loading="lazy" />
@@ -122,7 +122,7 @@
                   <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
           <p class="section-kicker">Basic Information</p>
           <h2 id="today-one-basic-title">基本情報</h2>
-          <dl><div><dt>種別</dt><dd>API</dd></div><div><dt>公式サイト</dt><dd><a href="https://www.tavily.com/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-08-30">2026-08-30</time></dd></div><div><dt>利用条件</dt><dd>API keyが必要</dd></div></dl>
+          <dl><div><dt>種別</dt><dd>API</dd></div><div><dt>公式サイト</dt><dd><a href="https://www.tavily.com/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-09-07">2026-09-07</time></dd></div><div><dt>料金</dt><dd>毎月1,000 API creditsの無料枠があります。検索や本文抽出の方式によって消費量が異なります。</dd></div><div><dt>利用条件</dt><dd>アカウントとAPI key、APIを呼び出す環境が必要です。別のAIへ要約を頼む場合の利用料は含まれません。</dd></div><div><dt>補足</dt><dd>2026-09-07に活用例と利用条件を追記・再確認しました。活用例は公式情報に基づく想定で、実機検証は未実施です。</dd></div></dl>
         </section>
         </div>
       </article>
