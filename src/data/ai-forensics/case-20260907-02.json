@@ -1,0 +1,129 @@
+{
+  "id": "case-20260907-02",
+  "publishedAt": "2026-09-07",
+  "title": "Apple Intelligenceは「端末内だけ」とは限らない。Private Cloud Computeの利用履歴を確認する",
+  "shortTitle": "Apple IntelligenceのPrivate Cloud Compute利用を確認する",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": [
+    "iPhoneでApple Intelligenceを使い、処理場所を確認したい人",
+    "AI機能のクラウド利用を設定と記録から確かめたい人"
+  ],
+  "summary": "Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」からApple Intelligence Reportを作成し、Private Cloud Computeへ送られた要求のレポートを確認できます。期間は直近15分間または7日間から選び、出力すると`Apple_Intelligence_Report.json`として保存されます。『オンデバイスAI』という説明だけで処理場所を一律に決めつけず、端末で確認できる記録と、機能の利用可否・出力の正確さを分けて見る手順を扱います。",
+  "scenario": {
+    "headline": "iPhoneのApple Intelligenceを使っているが、クラウド処理が使われたか確認したい",
+    "description": "端末内処理を重視してApple Intelligenceを使っています。複雑な依頼をした時も常に端末だけで終わると思っており、Private Cloud Computeへ要求が送られたかをどこで見られるのか知りません。",
+    "whyItMatters": "Apple Intelligenceは要求に応じて端末内処理かPrivate Cloud Computeかを選びます。利用者が確認できるレポートを使えば、処理場所に関する理解を説明文だけに頼らず、対象期間の記録から点検できます。"
+  },
+  "question": {
+    "text": "Apple Intelligenceの処理場所を確認したい時、最も適切な対応は？",
+    "choices": [
+      {
+        "id": "export-pcc-report",
+        "label": "設定のApple Intelligence Reportで対象期間を選び、Private Cloud Computeへ送られた要求のレポートを出力して確認する",
+        "description": "Appleは、直近15分または7日間のレポートを作成し、JSONとして出力できると案内している。"
+      },
+      {
+        "id": "assume-on-device",
+        "label": "Apple Intelligenceは端末内処理が基盤なので、複雑な依頼も常に端末だけで処理されたと考える",
+        "description": "Appleは、より大きな計算能力が必要な要求でPrivate Cloud Computeを利用できると説明している。"
+      },
+      {
+        "id": "report-proves-output",
+        "label": "レポートが確認できれば、AIの回答内容も正しいと判断する",
+        "description": "処理先に関するレポートと、生成された内容の正確さは別に確認する必要がある。"
+      }
+    ],
+    "recommendedAnswers": ["export-pcc-report"],
+    "explanation": "Appleは、より大きな計算能力が必要な要求にPrivate Cloud Computeを利用できると案内しています。iPhoneの設定からApple Intelligence Reportを作成し、期間を選んで活動をエクスポートすると、Private Cloud Computeへ送られた要求を記したJSONファイルを確認できます。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "Private Cloud Computeはどんな時に使われるか",
+      "description": "Apple Intelligenceは要求を分析し、端末だけでは大きな計算能力が必要な場合にPrivate Cloud Computeを利用できます。すべての要求が必ず端末内で処理されるとは限りません。",
+      "priority": "high"
+    },
+    {
+      "title": "レポートの作成場所と対象期間",
+      "description": "iPhoneの「設定」から「プライバシーとセキュリティ」を開き、Apple Intelligence Reportで直近15分間または7日間を選びます。利用できない端末・地域・言語もあります。",
+      "priority": "high"
+    },
+    {
+      "title": "エクスポートしたファイルの扱い",
+      "description": "活動をエクスポートすると、レポートは`Apple_Intelligence_Report.json`として保存されます。共有する場合は、記録に含まれる情報を確認してからにします。",
+      "priority": "medium"
+    },
+    {
+      "title": "処理場所と回答の正しさを分ける",
+      "description": "レポートはPrivate Cloud Computeへの要求を確認するためのものです。重要な回答は、処理場所にかかわらず元資料や公式情報で検証します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "Apple Intelligenceのクラウド利用は、設定のレポートで確認できる",
+  "verificationMessage": "処理場所が気になる時は、説明文だけで終わらせず、Apple Intelligence Reportの対象期間と出力ファイルを確認しましょう。",
+  "verdict": {
+    "label": "Apple Intelligenceの処理先は、端末内かクラウドかを一律に決めつけない",
+    "description": "Apple Intelligenceは端末内処理を基盤としつつ、複雑な要求ではPrivate Cloud Computeを利用できます。対応するiPhoneでは利用記録を出力できるため、プライバシーの判断を『オンデバイス』という一語だけで済ませず、実際の利用状況と用途を確認できます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Apple Intelligence Reportで直近15分または7日間を選び、必要な時だけ活動をエクスポートする",
+      "reason": "Appleは、Private Cloud Computeへ送られた要求のレポートをこの期間で作成できると案内しています。"
+    },
+    {
+      "action": "レポートを共有する前に、JSONファイルの内容と共有先を確認する",
+      "reason": "活動レポートは端末にファイルとして保存されるため、不要な共有を避ける必要があります。"
+    },
+    {
+      "action": "対応端末・言語・地域かを先に確認する",
+      "reason": "Apple IntelligenceはすべてのiPhone、言語、地域で利用できるわけではありません。"
+    },
+    {
+      "action": "重要な回答は、元資料や公式情報で別に確認する",
+      "reason": "処理場所の確認は、生成内容の正確さを保証するものではありません。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "Apple Intelligenceは常に端末内で処理されると決めつける",
+      "reason": "より大きな計算能力が必要な要求ではPrivate Cloud Computeが利用される場合があります。"
+    },
+    {
+      "action": "レポートが空だったことだけで、すべての期間・機能でクラウド処理がなかったと断定する",
+      "reason": "選択した期間にPrivate Cloud Computeへの要求がなければ、レポートが空の場合があります。"
+    },
+    {
+      "action": "AIの回答内容を、処理先の表示だけで正しいと判断する",
+      "reason": "Private Cloud Computeの利用記録と、回答の事実性・適切性は別の問題です。"
+    }
+  ],
+  "positiveUse": {
+    "title": "処理場所への不安を、確認可能な設定と記録へ置き換える",
+    "description": "クラウド利用を想像だけで不安視するのではなく、対応端末で利用記録を確認し、必要な用途かを判断すれば、AI機能を納得して使い分けられます。",
+    "examples": [
+      "新しいApple Intelligence機能を試した後に利用記録を確認する",
+      "端末の管理ルールを考える際に、対応状況を確かめる",
+      "クラウド処理が気になる利用者へ設定画面を案内する",
+      "重要な情報は処理先にかかわらず別の資料で確認する"
+    ]
+  },
+  "makotoComment": "『端末内処理』という言葉は安心材料になりますが、便利な機能ほど一つの処理場所だけでは動かないことがあります。Apple Intelligenceのレポートは、白黒を判定するためではなく、自分が何を確かめられるかを具体的にしてくれる道具です。私は設定を見て、用途に合うかを判断したいです。",
+  "oneLineLesson": "Apple Intelligenceの処理場所は一律ではない。対応端末ではPrivate Cloud Computeの利用記録を確認する。",
+  "tags": ["Apple Intelligence", "iPhone", "Private Cloud Compute", "プライバシー", "オンデバイスAI", "利用記録"],
+  "sources": [
+    {
+      "title": "Apple Intelligence and privacy on iPhone",
+      "publisher": "Apple Support",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.apple.com/guide/iphone/apple-intelligence-and-privacy-iphe3f499e0e/26/ios/26"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "iPhoneのプライバシー設定でApple Intelligence Reportの期間を15分・7日から選び、端末内処理とPrivate Cloud Computeの二つの経路を確認する人物。JSONレポートのファイルアイコンを小さく添える。",
+    "cardIcon": "apple-intelligence-private-cloud-report",
+    "accentTone": "calm"
+  }
+}

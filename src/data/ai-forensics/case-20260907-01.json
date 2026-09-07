@@ -1,0 +1,129 @@
+{
+  "id": "case-20260907-01",
+  "publishedAt": "2026-09-07",
+  "title": "Geminiに通知を読ませる前に。Keep Activityとは別の「通知アクセス」を確認する",
+  "shortTitle": "Geminiの通知アクセスと端末操作権限を分けて確認する",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": [
+    "AndroidでGeminiを日常のアシスタントとして使う人",
+    "通知の読み上げや返信をAIに任せる前に、端末権限を見直したい人"
+  ],
+  "summary": "Googleは、Android版GeminiがDevice assistance（旧Utilities）という接続アプリを通じて、アラーム、アプリ、通知、端末設定などを操作できると案内しています。通知に出るメッセージを読んだり返信したりする機能には、Geminiを提供するGoogleアプリへの通知アクセスが必要です。Googleアプリを既定のデジタルアシスタントにすると、Wi-FiやBluetoothなどの設定変更、写真・スクリーンショットの撮影、電源オフといった操作も可能になります。Device assistanceはKeep Activityをオフにしていても動作し得るため、会話履歴の設定だけでなく、通知アクセス・既定アシスタント・Connected Appsを別々に確認する手順を扱います。",
+  "scenario": {
+    "headline": "Geminiに『新着メッセージを読んで、返信して』と頼めるようにしたい",
+    "description": "Android端末でGeminiを使っています。Keep Activityはオフにしているため、通知に表示される連絡先や本文までGeminiが扱えるとは考えていません。端末の設定を音声で変えられることも、どの許可が関係するのか分かりません。",
+    "whyItMatters": "会話を保存する設定と、端末の通知・設定をGeminiが扱える権限は別です。通知の中には認証コード、私信、業務連絡が表示されることがあるため、便利な操作を有効にする前に、必要な権限だけを選ぶ必要があります。"
+  },
+  "question": {
+    "text": "Android版Geminiに通知のメッセージを読ませたり返信させたりする前の理解として、適切なのは？",
+    "choices": [
+      {
+        "id": "review-notification-and-assistant-permissions",
+        "label": "Keep Activityとは別に、Googleアプリの通知アクセスと既定アシスタントの設定を確認し、不要ならDevice assistanceを切断する",
+        "description": "通知の読み上げ・返信には通知アクセスが必要で、端末操作の範囲には既定アシスタント設定も関係する。"
+      },
+      {
+        "id": "keep-activity-controls-everything",
+        "label": "Keep Activityをオフにすれば、Geminiは通知にも端末設定にも触れられないと考える",
+        "description": "Device assistanceはKeep Activityをオフにしていても利用でき、通知アクセスや端末設定の権限は別に確認する必要がある。"
+      },
+      {
+        "id": "grant-all-for-convenience",
+        "label": "便利に使うため、通知・連絡先・既定アシスタントをまとめて許可してから必要性を考える",
+        "description": "必要な機能ごとに権限を確認し、不要な接続や許可は有効にしない方が安全である。"
+      }
+    ],
+    "recommendedAnswers": ["review-notification-and-assistant-permissions"],
+    "explanation": "Googleは、Geminiが通知を読んだり返信したりするにはGoogleアプリへの通知アクセスが必要だと案内しています。また、Googleアプリを既定のデジタルアシスタントにすると、端末設定の変更や写真撮影などの操作範囲が広がります。Keep Activityとこれらの権限・接続は別に見直します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "通知アクセスがGoogleアプリに許可されているか",
+      "description": "通知のメッセージを読む・返信する機能には、Geminiを提供するGoogleアプリへの通知アクセスが必要です。認証コードや私的な通知まで扱わせる必要があるかを考えます。",
+      "priority": "high"
+    },
+    {
+      "title": "Googleアプリが既定のデジタルアシスタントか",
+      "description": "既定のアシスタントにすると、Wi-Fi、Bluetooth、機内モードなどの設定変更、写真・スクリーンショット撮影、電源オフをGeminiに頼める場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "Device assistanceの接続状態",
+      "description": "Device assistanceはAndroid版Geminiで自動的に動く設計ですが、Connected Apps設定からいつでも切断できます。使わないなら切断後に通知操作ができないことを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "Keep Activityと端末権限を混同していないか",
+      "description": "Device assistanceはKeep Activityをオフにしていても利用できます。会話履歴の設定を変えた後も、通知アクセスや既定アシスタントの状態を別に確認します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "Geminiの会話履歴、通知アクセス、端末操作権限を分けて確認する",
+  "verificationMessage": "『通知を読んで』を初めて頼む前に、Googleアプリの通知アクセスとGeminiのConnected Appsを確認しましょう。",
+  "verdict": {
+    "label": "Keep Activityをオフにしていても、通知・端末操作の権限は別に残り得る",
+    "description": "Android版Geminiの便利な端末支援は、会話履歴の保存設定とは別の通知アクセスや既定アシスタント設定によって動きます。通知の内容と、音声で変更できる端末設定の範囲を確認してから、必要な機能だけを有効にするのが安全です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "通知を読ませる前に、Googleアプリの通知アクセスを確認する",
+      "reason": "通知の読み上げ・返信には、Googleアプリへの通知アクセスが必要です。"
+    },
+    {
+      "action": "Geminiを既定アシスタントにする前に、使える端末操作の範囲を確認する",
+      "reason": "既定アシスタントにすると、設定変更、写真撮影、電源オフなどが可能になる場合があります。"
+    },
+    {
+      "action": "使わない時はConnected AppsからDevice assistanceを切断する",
+      "reason": "GoogleはDevice assistanceをConnected Apps設定からいつでも切断できると案内しています。"
+    },
+    {
+      "action": "Keep Activityをオフにした後も、端末権限を別に点検する",
+      "reason": "Device assistanceはKeep Activityをオフにしていても動作する設計です。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "Keep Activityをオフにしたことだけで、通知の内容もGeminiに渡らないと判断する",
+      "reason": "通知アクセスとConnected Appsの設定は、会話履歴の保存設定とは別です。"
+    },
+    {
+      "action": "認証コードや機密連絡が通知に出る端末で、必要性を考えず通知アクセスを許可する",
+      "reason": "Geminiが通知のメッセージを読んだり返信したりするには、通知アクセスが使われます。"
+    },
+    {
+      "action": "音声操作が便利だからと、端末設定変更の範囲を確認せず既定アシスタントにする",
+      "reason": "既定アシスタント設定は、単なるチャット利用より広い端末操作に関係します。"
+    }
+  ],
+  "positiveUse": {
+    "title": "必要な通知だけを、手が離せない時の補助に使う",
+    "description": "通知アクセスと端末操作の範囲を理解して選べば、運転中ではない移動時や料理中など、画面を開きにくい場面での確認・返信補助に活用できます。",
+    "examples": [
+      "予定のリマインダーだけを声で確認する",
+      "端末を操作できない時に、通知を読む前に内容の種類を確認する",
+      "必要な時だけDevice assistanceを接続する",
+      "家族共用端末では通知アクセスを特に慎重に見直す"
+    ]
+  },
+  "makotoComment": "『履歴を残さない』と決めると、AIが扱う情報も減ったように感じます。でもスマホでは、会話の保存と、画面に届く通知・端末を動かす権限は別の扉です。私は通知を一度読ませる前に、その扉を誰にどこまで開けるのかを設定画面で確認したいです。",
+  "oneLineLesson": "Keep Activityと通知アクセスは別物。Geminiに通知を読ませる前に端末権限を確認する。",
+  "tags": ["Gemini", "Android", "通知アクセス", "Device assistance", "Connected Apps", "権限管理"],
+  "sources": [
+    {
+      "title": "Control your Android mobile device & apps with Device assistance",
+      "publisher": "Gemini Apps Help",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/gemini/answer/15235441?hl=en"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Android端末のGemini設定を前に、通知アクセス、既定アシスタント、Connected Appsの三つの扉を別々に確認する人物。通知カードには私信と認証コードの記号、端末操作にはWi-Fiとカメラの記号を添える。",
+    "cardIcon": "gemini-notification-device-permissions",
+    "accentTone": "caution"
+  }
+}

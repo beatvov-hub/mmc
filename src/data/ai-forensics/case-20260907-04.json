@@ -1,0 +1,129 @@
+{
+  "id": "case-20260907-04",
+  "publishedAt": "2026-09-07",
+  "title": "Copilot Pagesを共有すると何が見える？「チャット全体」ではなくページ単位で渡す",
+  "shortTitle": "Copilot Pagesは共有方法で見える範囲と同期の仕方が変わる",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": [
+    "Microsoft Copilot PagesでAIの下書きをチームへ渡す人",
+    "Copilotの会話と共有する成果物の境界を整理したい人"
+  ],
+  "summary": "Microsoftは、Copilot Pagesを共有した相手はページとその内容にアクセスして共同編集できる一方、元のCopilotチャットセッションにはアクセスしないと案内しています。共有時にPage linkを選ぶと、相手はLoopでその一つのページだけを開きます。Copy componentを選んでTeams、Outlook、OneNoteなどへ貼ると、貼り付けたコンポーネントへの変更はページへリアルタイムで反映されます。AIとの会話全体を渡すのか、確認済みのページだけを渡すのか、リアルタイム同期が必要かを共有前に選ぶ手順を扱います。",
+  "scenario": {
+    "headline": "Copilotで作った提案の下書きを同僚に見せたいが、会話の途中経過は見せたくない",
+    "description": "Copilot Pagesに要点をまとめました。チャットには未確認の案や個人的なメモも残っているため、共有リンクを送った時に会話全体まで相手が読めるのか、Teamsに貼った後の編集がどこまで同期するのかが不安です。",
+    "whyItMatters": "Copilotでの会話と、Pagesに切り出した成果物は同じではありません。共有方法によって相手が開く範囲と編集の同期が変わるため、AIの下書きを確認済みのページへ整えてから、目的に合う共有形式を選ぶ必要があります。"
+  },
+  "question": {
+    "text": "Copilot Pagesで確認済みの提案だけを同僚に渡し、元のCopilotチャットは共有したくない時の理解として適切なのは？",
+    "choices": [
+      {
+        "id": "share-page-not-chat",
+        "label": "Page linkでページを共有する。相手はそのページと内容を扱えるが、元のCopilotチャットセッションにはアクセスしない",
+        "description": "Microsoftは、Pagesの共有相手がCopilotチャットセッションにはアクセスしないと案内している。"
+      },
+      {
+        "id": "page-link-shares-chat",
+        "label": "Page linkを送ると、ページの元になったCopilotチャット全体も自動的に共有される",
+        "description": "ページの共有とCopilotチャットセッションへのアクセスは別である。"
+      },
+      {
+        "id": "component-static-copy",
+        "label": "Copy componentでTeamsなどへ貼った内容は、その後に誰が編集しても元ページへ反映されない",
+        "description": "Microsoftは、Microsoft 365アプリ内のコンポーネントへの変更がページにリアルタイム更新されると案内している。"
+      }
+    ],
+    "recommendedAnswers": ["share-page-not-chat"],
+    "explanation": "Microsoftによると、Copilot Pagesの共有相手はページとその内容を共同編集できますが、Copilotチャットセッションにはアクセスしません。Page linkは一つのページをLoopで開く共有方法です。Copy componentでMicrosoft 365アプリへ貼った場合は、コンポーネントへの変更がページへリアルタイムで更新されます。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "共有したいのはチャットではなく、どのページか",
+      "description": "Copilot Pagesの共有相手はページと内容にアクセスしますが、元のCopilotチャットセッションにはアクセスしません。共有前に、ページへ残す内容を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "Page linkが開く範囲",
+      "description": "Page linkを選ぶと、相手はLoopで当該ページだけを開きます。リンクを送る前に、ページのタイトル・本文・共有相手を見直します。",
+      "priority": "high"
+    },
+    {
+      "title": "Copy componentのリアルタイム同期",
+      "description": "Teams、Outlook、OneNoteなどへコンポーネントとして貼った場合、Microsoft 365アプリ内での変更はページへリアルタイムで更新されます。固定版のつもりで使わないようにします。",
+      "priority": "high"
+    },
+    {
+      "title": "AIの下書きを共有前に人が確定したか",
+      "description": "共有範囲がチャット全体でなくても、ページに残したAIの文章は共同作業の材料になります。事実、宛先、未確認の案を確認してから渡します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "Copilot Pagesは、チャットとページを分け、同期する共有形式を確認する",
+  "verificationMessage": "リンクを送る前に、共有するページの内容と、コンポーネントがリアルタイム同期するかを確認しましょう。",
+  "verdict": {
+    "label": "Copilot Pagesの共有は、会話全部を渡さず成果物だけを共同編集する方法になる",
+    "description": "Copilot Pagesは、元のチャットを共有せず、切り出したページをチームへ渡せる仕組みです。ただし、Copy componentで他のMicrosoft 365アプリへ貼った内容はリアルタイムに同期します。共有範囲だけでなく、後からどこで編集されるかを決めて使います。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "共有前に、ページへ残すAIの下書き・リンク・宛先を人が確認する",
+      "reason": "共有相手はページとその内容にアクセスできるため、会話から切り出した後のページを確認する必要があります。"
+    },
+    {
+      "action": "一つのページだけを渡す時はPage linkを選ぶ",
+      "reason": "Page linkでは、相手はLoopで当該ページだけを開きます。"
+    },
+    {
+      "action": "Copy componentを使う時は、貼り付け先でも変更がリアルタイム同期すると参加者へ伝える",
+      "reason": "Microsoft 365アプリ内のコンポーネントへの変更はページへ反映されます。"
+    },
+    {
+      "action": "未確定のメモと確定版を別ページに分ける",
+      "reason": "会話全体を共有しなくても、ページに書いた内容は共同編集の対象になります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "Page linkを送ると元のCopilotチャットまで共有されると誤解して、必要なページ共有を避ける",
+      "reason": "Microsoftは、ページの共有相手がCopilotチャットセッションにはアクセスしないと案内しています。"
+    },
+    {
+      "action": "Copy componentをメールやTeamsへ貼った後、内容が固定されたと考える",
+      "reason": "コンポーネントへの変更は元のページにリアルタイムで更新されます。"
+    },
+    {
+      "action": "AIの未確認案を含むページを、そのまま社外・広範囲へ共有する",
+      "reason": "チャット全体ではなくても、ページに含めた文章とリンクは共有されます。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIとの試行錯誤を、確認済みの共同編集ページへ整える",
+    "description": "会話で考えを広げた後に、必要な部分だけをCopilot Pagesへまとめれば、途中の試行錯誤を混ぜずにチームでレビューできます。同期の特性を理解すれば、会議中の共同編集にも使えます。",
+    "examples": [
+      "提案のたたき台をページに整理してからチームレビューへ回す",
+      "会議前の論点だけをPage linkで共有する",
+      "Teamsに貼ったコンポーネントを会議中に共同編集する",
+      "確定版は別の承認済みページとして管理する"
+    ]
+  },
+  "makotoComment": "AIとの会話には、考え途中の言い回しや、採用しなかった案も混ざります。Pagesは、それをそのまま渡すのではなく、誰と何を一緒に直すかを切り出すための場所だと感じます。私はリンクを送る前に、ページに残した一文と、後で同期する編集先を確認したいです。",
+  "oneLineLesson": "Copilot Pagesは会話全体ではなくページを共有する。同期する共有形式かも確認する。",
+  "tags": ["Microsoft Copilot", "Copilot Pages", "Loop", "Teams", "共同編集", "共有設定"],
+  "sources": [
+    {
+      "title": "Share a Microsoft Copilot Page",
+      "publisher": "Microsoft Support",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/share-a-microsoft-365-copilot-page"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Copilotチャットの試行錯誤から、確認済みのCopilot Pageだけを切り出して同僚へ共有する画面。Page linkは一枚のページ、Teamsへ貼ったLoopコンポーネントは双方向の同期矢印で表す。",
+    "cardIcon": "copilot-pages-share-boundary",
+    "accentTone": "calm"
+  }
+}

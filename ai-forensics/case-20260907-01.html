@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Geminiに通知を読ませる前に。Keep Activityとは別の「通知アクセス」を確認する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Googleは、Android版GeminiがDevice assistance（旧Utilities）という接続アプリを通じて、アラーム、アプリ、通知、端末設定などを操作できると案内しています。通知に出るメッセージを読んだり返信したりする機能には、Geminiを提供するGoogleアプリへの通知アクセスが必要です。Googleアプリを既定のデジタルアシスタントにすると、Wi-FiやBluetoothなどの設定変更、写真・スクリーンショットの撮影、電源オフといった操作も可能になります。Device assistanceはKeep Activityをオフにしていても動作し得るため、会話履歴の設定だけでなく、通知アクセス・既定アシスタント・Connected Appsを別々に確認する手順を扱います。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260907-01" />
+<meta property="og:title" content="Geminiに通知を読ませる前に。Keep Activityとは別の「通知アクセス」を確認する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Googleは、Android版GeminiがDevice assistance（旧Utilities）という接続アプリを通じて、アラーム、アプリ、通知、端末設定などを操作できると案内しています。通知に出るメッセージを読んだり返信したりする機能には、Geminiを提供するGoogleアプリへの通知アクセスが必要です。Googleアプリを既定のデジタルアシスタントにすると、Wi-FiやBluetoothなどの設定変更、写真・スクリーンショットの撮影、電源オフといった操作も可能になります。Device assistanceはKeep Activityをオフにしていても動作し得るため、会話履歴の設定だけでなく、通知アクセス・既定アシスタント・Connected Appsを別々に確認する手順を扱います。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260907-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>Geminiの通知アクセスと端末操作権限を分けて確認する</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-07">2026.09.07</time>
+            </div>
+            <h1>Geminiに通知を読ませる前に。Keep Activityとは別の「通知アクセス」を確認する</h1>
+            <p>Googleは、Android版GeminiがDevice assistance（旧Utilities）という接続アプリを通じて、アラーム、アプリ、通知、端末設定などを操作できると案内しています。通知に出るメッセージを読んだり返信したりする機能には、Geminiを提供するGoogleアプリへの通知アクセスが必要です。Googleアプリを既定のデジタルアシスタントにすると、Wi-FiやBluetoothなどの設定変更、写真・スクリーンショットの撮影、電源オフといった操作も可能になります。Device assistanceはKeep Activityをオフにしていても動作し得るため、会話履歴の設定だけでなく、通知アクセス・既定アシスタント・Connected Appsを別々に確認する手順を扱います。</p>
+            <ul class="forensics-target-list"><li>AndroidでGeminiを日常のアシスタントとして使う人</li><li>通知の読み上げや返信をAIに任せる前に、端末権限を見直したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Gemini</li><li>Android</li><li>通知アクセス</li><li>Device assistance</li><li>Connected Apps</li><li>権限管理</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>Geminiの会話履歴、通知アクセス、端末操作権限を分けて確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>『通知を読んで』を初めて頼む前に、Googleアプリの通知アクセスとGeminiのConnected Appsを確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Geminiに『新着メッセージを読んで、返信して』と頼めるようにしたい</h3><p>Android端末でGeminiを使っています。Keep Activityはオフにしているため、通知に表示される連絡先や本文までGeminiが扱えるとは考えていません。端末の設定を音声で変えられることも、どの許可が関係するのか分かりません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>会話を保存する設定と、端末の通知・設定をGeminiが扱える権限は別です。通知の中には認証コード、私信、業務連絡が表示されることがあるため、便利な操作を有効にする前に、必要な権限だけを選ぶ必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="review-notification-and-assistant-permissions">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Android版Geminiに通知のメッセージを読ませたり返信させたりする前の理解として、適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="review-notification-and-assistant-permissions" data-choice-id="review-notification-and-assistant-permissions" />
+                <span>
+                  <strong>Keep Activityとは別に、Googleアプリの通知アクセスと既定アシスタントの設定を確認し、不要ならDevice assistanceを切断する</strong>
+                  <small>通知の読み上げ・返信には通知アクセスが必要で、端末操作の範囲には既定アシスタント設定も関係する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="keep-activity-controls-everything" data-choice-id="keep-activity-controls-everything" />
+                <span>
+                  <strong>Keep Activityをオフにすれば、Geminiは通知にも端末設定にも触れられないと考える</strong>
+                  <small>Device assistanceはKeep Activityをオフにしていても利用でき、通知アクセスや端末設定の権限は別に確認する必要がある。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="grant-all-for-convenience" data-choice-id="grant-all-for-convenience" />
+                <span>
+                  <strong>便利に使うため、通知・連絡先・既定アシスタントをまとめて許可してから必要性を考える</strong>
+                  <small>必要な機能ごとに権限を確認し、不要な接続や許可は有効にしない方が安全である。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Keep Activityとは別に、Googleアプリの通知アクセスと既定アシスタントの設定を確認し、不要ならDevice assistanceを切断する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Googleは、Geminiが通知を読んだり返信したりするにはGoogleアプリへの通知アクセスが必要だと案内しています。また、Googleアプリを既定のデジタルアシスタントにすると、端末設定の変更や写真撮影などの操作範囲が広がります。Keep Activityとこれらの権限・接続は別に見直します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>通知アクセスがGoogleアプリに許可されているか</h3>
+              <p>通知のメッセージを読む・返信する機能には、Geminiを提供するGoogleアプリへの通知アクセスが必要です。認証コードや私的な通知まで扱わせる必要があるかを考えます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Googleアプリが既定のデジタルアシスタントか</h3>
+              <p>既定のアシスタントにすると、Wi-Fi、Bluetooth、機内モードなどの設定変更、写真・スクリーンショット撮影、電源オフをGeminiに頼める場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Device assistanceの接続状態</h3>
+              <p>Device assistanceはAndroid版Geminiで自動的に動く設計ですが、Connected Apps設定からいつでも切断できます。使わないなら切断後に通知操作ができないことを確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Keep Activityと端末権限を混同していないか</h3>
+              <p>Device assistanceはKeep Activityをオフにしていても利用できます。会話履歴の設定を変えた後も、通知アクセスや既定アシスタントの状態を別に確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Keep Activityをオフにしていても、通知・端末操作の権限は別に残り得る</strong><p>Android版Geminiの便利な端末支援は、会話履歴の保存設定とは別の通知アクセスや既定アシスタント設定によって動きます。通知の内容と、音声で変更できる端末設定の範囲を確認してから、必要な機能だけを有効にするのが安全です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>通知を読ませる前に、Googleアプリの通知アクセスを確認する</strong><span>通知の読み上げ・返信には、Googleアプリへの通知アクセスが必要です。</span></li>
+            <li><strong>Geminiを既定アシスタントにする前に、使える端末操作の範囲を確認する</strong><span>既定アシスタントにすると、設定変更、写真撮影、電源オフなどが可能になる場合があります。</span></li>
+            <li><strong>使わない時はConnected AppsからDevice assistanceを切断する</strong><span>GoogleはDevice assistanceをConnected Apps設定からいつでも切断できると案内しています。</span></li>
+            <li><strong>Keep Activityをオフにした後も、端末権限を別に点検する</strong><span>Device assistanceはKeep Activityをオフにしていても動作する設計です。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>Keep Activityをオフにしたことだけで、通知の内容もGeminiに渡らないと判断する</strong><span>通知アクセスとConnected Appsの設定は、会話履歴の保存設定とは別です。</span></li>
+            <li><strong>認証コードや機密連絡が通知に出る端末で、必要性を考えず通知アクセスを許可する</strong><span>Geminiが通知のメッセージを読んだり返信したりするには、通知アクセスが使われます。</span></li>
+            <li><strong>音声操作が便利だからと、端末設定変更の範囲を確認せず既定アシスタントにする</strong><span>既定アシスタント設定は、単なるチャット利用より広い端末操作に関係します。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>必要な通知だけを、手が離せない時の補助に使う</h3>
+          <p>通知アクセスと端末操作の範囲を理解して選べば、運転中ではない移動時や料理中など、画面を開きにくい場面での確認・返信補助に活用できます。</p>
+          <ul class="positive-example-list"><li>予定のリマインダーだけを声で確認する</li><li>端末を操作できない時に、通知を読む前に内容の種類を確認する</li><li>必要な時だけDevice assistanceを接続する</li><li>家族共用端末では通知アクセスを特に慎重に見直す</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>『履歴を残さない』と決めると、AIが扱う情報も減ったように感じます。でもスマホでは、会話の保存と、画面に届く通知・端末を動かす権限は別の扉です。私は通知を一度読ませる前に、その扉を誰にどこまで開けるのかを設定画面で確認したいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Keep Activityと通知アクセスは別物。Geminiに通知を読ませる前に端末権限を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/gemini/answer/15235441?hl=en" target="_blank" rel="noopener noreferrer">Control your Android mobile device &amp; apps with Device assistance<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Gemini Apps Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260907-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Apple Intelligenceは「端末内だけ」とは限らない。Private Cloud Computeの利用履歴を確認する Apple IntelligenceのPrivate Cloud Compute利用を確認する Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」からApple Intelligence Reportを作成し、Private Cloud Computeへ送られた要求のレポートを確認できます。期間は直近15分間または7日間から選び、出力すると`Apple_Intelligence_Report.json`として保存されます。『オンデバイスAI』という説明だけで処理場所を一律に決めつけず、端末で確認できる記録と、機能の利用可否・出力の正確さを分けて見る手順を扱います。 セキュリティ・権限 標準 Apple Intelligence iPhone Private Cloud Compute プライバシー オンデバイスAI 利用記録 iPhoneでApple Intelligenceを使い、処理場所を確認したい人 AI機能のクラウド利用を設定と記録から確かめたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">apple-intelligence-private-cloud-report</span>
+              <div>
+                <p>Apple IntelligenceのPrivate Cloud Compute利用を確認する</p>
+                <h3>Apple Intelligenceは「端末内だけ」とは限らない。Private Cloud Computeの利用履歴を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-07">2026.09.07</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」からApple Intelligence Reportを作成し、Private Cloud Computeへ送られた要求のレポートを確認できます。期間は直近15分間または7日間から選び、出力すると`Apple_Intelligence_Report.json`として保存されます。『オンデバイスAI』という説明だけで処理場所を一律に決めつけず、端末で確認できる記録と、機能の利用可否・出力の正確さを分けて見る手順を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Apple Intelligenceのクラウド利用は、設定のレポートで確認できる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhoneでApple Intelligenceを使い、処理場所を確認したい人</li><li>AI機能のクラウド利用を設定と記録から確かめたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>iPhone</li><li>Private Cloud Compute</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260907-03" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="Galaxy AIの「端末内のみで処理」は万能ではない。止まる機能を確認してから切り替える Galaxy AIを端末内処理に限定する前に機能差を確認する Samsungは、Galaxy AIの機能には端末内で処理されるものと、ネットワーク接続を使うものがあると案内しています。多くの翻訳やGalleryのEdit Suggestionsは端末内処理の例ですが、自動整形、要約、自動修正、画像編集などはクラウドを利用します。対応端末では「設定」からGalaxy AIを開き、「Process data only on device」を有効にしてクラウド処理を止められます。ただし、この切り替えにより利用できなくなる機能があり、機種やOSの違いでも機能は変わります。機密情報を扱う前に、処理場所の希望と必要な機能を照らし合わせる記事です。 セキュリティ・権限 はじめて Galaxy AI Samsung オンデバイスAI クラウド処理 スマホ設定 プライバシー GalaxyスマートフォンやタブレットのAI機能を使う人 AIへの入力をクラウドへ送る範囲を設定から見直したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">galaxy-ai-on-device-processing</span>
+              <div>
+                <p>Galaxy AIを端末内処理に限定する前に機能差を確認する</p>
+                <h3>Galaxy AIの「端末内のみで処理」は万能ではない。止まる機能を確認してから切り替える</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-07">2026.09.07</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Samsungは、Galaxy AIの機能には端末内で処理されるものと、ネットワーク接続を使うものがあると案内しています。多くの翻訳やGalleryのEdit Suggestionsは端末内処理の例ですが、自動整形、要約、自動修正、画像編集などはクラウドを利用します。対応端末では「設定」からGalaxy AIを開き、「Process data only on device」を有効にしてクラウド処理を止められます。ただし、この切り替えにより利用できなくなる機能があり、機種やOSの違いでも機能は変わります。機密情報を扱う前に、処理場所の希望と必要な機能を照らし合わせる記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Galaxy AIは、端末内処理の希望と使える機能を一緒に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>GalaxyスマートフォンやタブレットのAI機能を使う人</li><li>AIへの入力をクラウドへ送る範囲を設定から見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Galaxy AI</li><li>Samsung</li><li>オンデバイスAI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260905-01" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="iPhoneのChatGPT拡張、アカウントなしで使う時とログイン後はデータの扱いが変わる Apple IntelligenceのChatGPTは、接続前にアカウント有無を決める Appleは、iPhoneのApple IntelligenceからChatGPTを使う時、ChatGPTアカウントを接続しなくても利用できると案内しています。アカウントなしの場合、ChatGPTの会話履歴に要求を保存することはできませんが、OpenAIにはApple Accountに結び付く情報は渡らず、要求と応答は原則として保存やモデル改善に使われません。一方、ChatGPTアカウントでサインインした場合は、そのChatGPTアカウントの設定とOpenAIのデータプライバシーポリシーが適用されます。SiriはChatGPT利用時に確認を求め、確認をオフにしても写真やファイルを送る前には常に確認されます。便利な連携を始める前に、履歴を残す必要があるかと、どの内容を外部サービスへ渡すかを分けて選ぶ記事です。 セキュリティ・権限 はじめて Apple Intelligence iPhone ChatGPT Siri Writing Tools プライバシー iPhoneのApple IntelligenceからChatGPTを使おうとしている人 SiriやWriting Toolsで写真・ファイルをAIに渡す前に設定を確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">iphone-chatgpt-account-choice</span>
+              <div>
+                <p>Apple IntelligenceのChatGPTは、接続前にアカウント有無を決める</p>
+                <h3>iPhoneのChatGPT拡張、アカウントなしで使う時とログイン後はデータの扱いが変わる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-05">2026.09.05</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Appleは、iPhoneのApple IntelligenceからChatGPTを使う時、ChatGPTアカウントを接続しなくても利用できると案内しています。アカウントなしの場合、ChatGPTの会話履歴に要求を保存することはできませんが、OpenAIにはApple Accountに結び付く情報は渡らず、要求と応答は原則として保存やモデル改善に使われません。一方、ChatGPTアカウントでサインインした場合は、そのChatGPTアカウントの設定とOpenAIのデータプライバシーポリシーが適用されます。SiriはChatGPT利用時に確認を求め、確認をオフにしても写真やファイルを送る前には常に確認されます。便利な連携を始める前に、履歴を残す必要があるかと、どの内容を外部サービスへ渡すかを分けて選ぶ記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Apple IntelligenceのChatGPTは、アカウント接続と添付送信を分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhoneのApple IntelligenceからChatGPTを使おうとしている人</li><li>SiriやWriting Toolsで写真・ファイルをAIに渡す前に設定を確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>iPhone</li><li>ChatGPT</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260907-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

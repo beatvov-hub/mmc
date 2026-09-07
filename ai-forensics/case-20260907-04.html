@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TeamsのCopilotを『会議中のみ』にしても、組織の保持設定は別に確認する｜AI鑑識室｜毎日見る株式会社</title>
-    <meta name="description" content="Microsoftは、Teams会議で録画や文字起こしをオンにせず、Copilotを会議中だけ使ってメモやタスク整理を行う方法を案内しています。主催者は会議前のMeeting optionsでCopilot and other AIをOnly during the meetingに設定し、参加者が会議中にCopilotを開始します。この設定で文字起こしは自動開始せず、会議後はCopilotのRecapで利用できません。ただし、録画と文字起こしをオフにしても、Copilotへのプロンプトと応答は組織のMicrosoft Purview保持ポリシーに従って保持・eDiscoveryの対象になり得ます。『会議後に見えない』ことと『組織内に残らない』ことを混同せず、会議設定と組織のコンプライアンス設定を分けて確認する記事です。" />
-    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260906-02" />
-<meta property="og:title" content="TeamsのCopilotを『会議中のみ』にしても、組織の保持設定は別に確認する｜AI鑑識室｜毎日見る株式会社" />
-    <meta property="og:description" content="Microsoftは、Teams会議で録画や文字起こしをオンにせず、Copilotを会議中だけ使ってメモやタスク整理を行う方法を案内しています。主催者は会議前のMeeting optionsでCopilot and other AIをOnly during the meetingに設定し、参加者が会議中にCopilotを開始します。この設定で文字起こしは自動開始せず、会議後はCopilotのRecapで利用できません。ただし、録画と文字起こしをオフにしても、Copilotへのプロンプトと応答は組織のMicrosoft Purview保持ポリシーに従って保持・eDiscoveryの対象になり得ます。『会議後に見えない』ことと『組織内に残らない』ことを混同せず、会議設定と組織のコンプライアンス設定を分けて確認する記事です。" />
+    <title>Copilot Pagesを共有すると何が見える？「チャット全体」ではなくページ単位で渡す｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは、Copilot Pagesを共有した相手はページとその内容にアクセスして共同編集できる一方、元のCopilotチャットセッションにはアクセスしないと案内しています。共有時にPage linkを選ぶと、相手はLoopでその一つのページだけを開きます。Copy componentを選んでTeams、Outlook、OneNoteなどへ貼ると、貼り付けたコンポーネントへの変更はページへリアルタイムで反映されます。AIとの会話全体を渡すのか、確認済みのページだけを渡すのか、リアルタイム同期が必要かを共有前に選ぶ手順を扱います。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260907-04" />
+<meta property="og:title" content="Copilot Pagesを共有すると何が見える？「チャット全体」ではなくページ単位で渡す｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは、Copilot Pagesを共有した相手はページとその内容にアクセスして共同編集できる一方、元のCopilotチャットセッションにはアクセスしないと案内しています。共有時にPage linkを選ぶと、相手はLoopでその一つのページだけを開きます。Copy componentを選んでTeams、Outlook、OneNoteなどへ貼ると、貼り付けたコンポーネントへの変更はページへリアルタイムで反映されます。AIとの会話全体を渡すのか、確認済みのページだけを渡すのか、リアルタイム同期が必要かを共有前に選ぶ手順を扱います。" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260906-02" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260907-04" />
 <meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../favicon.ico" />
@@ -56,7 +56,7 @@
       <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
         <a href="../">ホーム</a>
         <a href="/">AI鑑識室</a>
-        <strong>Teams Copilotの会議中利用と保持ポリシーは別に確認する</strong>
+        <strong>Copilot Pagesは共有方法で見える範囲と同期の仕方が変わる</strong>
         <a class="profile-back" href="/">記事一覧へ戻る</a>
       </nav>
 
@@ -65,18 +65,18 @@
           <div>
             <div class="forensics-article-meta">
               <span>仕事・AI活用</span>
-              <span>発展</span>
-              <time datetime="2026-09-06">2026.09.06</time>
+              <span>標準</span>
+              <time datetime="2026-09-07">2026.09.07</time>
             </div>
-            <h1>TeamsのCopilotを『会議中のみ』にしても、組織の保持設定は別に確認する</h1>
-            <p>Microsoftは、Teams会議で録画や文字起こしをオンにせず、Copilotを会議中だけ使ってメモやタスク整理を行う方法を案内しています。主催者は会議前のMeeting optionsでCopilot and other AIをOnly during the meetingに設定し、参加者が会議中にCopilotを開始します。この設定で文字起こしは自動開始せず、会議後はCopilotのRecapで利用できません。ただし、録画と文字起こしをオフにしても、Copilotへのプロンプトと応答は組織のMicrosoft Purview保持ポリシーに従って保持・eDiscoveryの対象になり得ます。『会議後に見えない』ことと『組織内に残らない』ことを混同せず、会議設定と組織のコンプライアンス設定を分けて確認する記事です。</p>
-            <ul class="forensics-target-list"><li>Microsoft Teams会議でCopilotを使う主催者・参加者</li><li>録画・文字起こしを避けつつAIメモを使いたいチーム</li></ul>
-            <ul class="pill-list forensics-article-tags"><li>Microsoft Teams</li><li>Microsoft Copilot</li><li>会議AI</li><li>文字起こし</li><li>Purview</li><li>データ保持</li></ul>
+            <h1>Copilot Pagesを共有すると何が見える？「チャット全体」ではなくページ単位で渡す</h1>
+            <p>Microsoftは、Copilot Pagesを共有した相手はページとその内容にアクセスして共同編集できる一方、元のCopilotチャットセッションにはアクセスしないと案内しています。共有時にPage linkを選ぶと、相手はLoopでその一つのページだけを開きます。Copy componentを選んでTeams、Outlook、OneNoteなどへ貼ると、貼り付けたコンポーネントへの変更はページへリアルタイムで反映されます。AIとの会話全体を渡すのか、確認済みのページだけを渡すのか、リアルタイム同期が必要かを共有前に選ぶ手順を扱います。</p>
+            <ul class="forensics-target-list"><li>Microsoft Copilot PagesでAIの下書きをチームへ渡す人</li><li>Copilotの会話と共有する成果物の境界を整理したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft Copilot</li><li>Copilot Pages</li><li>Loop</li><li>Teams</li><li>共同編集</li><li>共有設定</li></ul>
           </div>
           <div class="forensics-level" aria-label="確認レベル">
             <div class="forensics-level-head">
               <strong>確認レベル 2</strong>
-              <span>Teams Copilotは、会議中利用の設定と組織の保持方針を分けて確認する</span>
+              <span>Copilot Pagesは、チャットとページを分け、同期する共有形式を確認する</span>
             </div>
             <div class="forensics-level-meter" aria-hidden="true">
               <span class="forensics-level-dot is-active">1</span>
@@ -86,43 +86,43 @@
               <span class="forensics-level-dot">5</span>
             </div>
             <small>危険度ではなく、必要な確認の程度を表しています。</small>
-            <p>Only during the meetingを選ぶ前に、会議後の利用可否と、組織がプロンプト・応答をどう保持するかを確認しましょう。</p>
+            <p>リンクを送る前に、共有するページの内容と、コンポーネントがリアルタイム同期するかを確認しましょう。</p>
           </div>
         </header>
 
         <section class="forensics-article-section">
           <div class="forensics-step-label">Step 1</div>
           <h2>身近な事例を知る</h2>
-          <article class="scenario-card"><h3>機密性のある打合せで、録画・文字起こしは残さずCopilotにタスクだけ整理させたい</h3><p>主催者はOnly during the meetingを選び、終了後にRecapでCopilotが開けないことを確認しました。これで会議中に入力した質問やCopilotの回答も組織に残らないと思っています。</p></article>
+          <article class="scenario-card"><h3>Copilotで作った提案の下書きを同僚に見せたいが、会話の途中経過は見せたくない</h3><p>Copilot Pagesに要点をまとめました。チャットには未確認の案や個人的なメモも残っているため、共有リンクを送った時に会話全体まで相手が読めるのか、Teamsに貼った後の編集がどこまで同期するのかが不安です。</p></article>
 
-          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Only during the meetingは、会議後にCopilotを利用できなくする設定ですが、組織の保持・監査方針とは別です。会議を運営する人は、録画・文字起こし・Copilotの会議後利用・組織における記録保持を別々に扱う必要があります。</p></aside>
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Copilotでの会話と、Pagesに切り出した成果物は同じではありません。共有方法によって相手が開く範囲と編集の同期が変わるため、AIの下書きを確認済みのページへ整えてから、目的に合う共有形式を選ぶ必要があります。</p></aside>
         </section>
 
-        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-retention-separately">
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="share-page-not-chat">
           <div class="forensics-step-label">Step 2</div>
           <h2>あなたならどうする？</h2>
           <fieldset>
-            <legend>TeamsでCopilotをOnly during the meetingに設定し、録画・文字起こしをオフにした時の理解として適切なのは？</legend>
+            <legend>Copilot Pagesで確認済みの提案だけを同僚に渡し、元のCopilotチャットは共有したくない時の理解として適切なのは？</legend>
             <div class="forensics-choice-grid">
               <label class="forensics-choice-card" data-choice-card>
-                <input type="checkbox" value="check-retention-separately" data-choice-id="check-retention-separately" />
+                <input type="checkbox" value="share-page-not-chat" data-choice-id="share-page-not-chat" />
                 <span>
-                  <strong>会議後のCopilot利用は制限されるが、プロンプト・応答の保持は組織のPurviewポリシーを別に確認する</strong>
-                  <small>会議中だけの利用設定と、組織のコンプライアンス保持は別の仕組みである。</small>
+                  <strong>Page linkでページを共有する。相手はそのページと内容を扱えるが、元のCopilotチャットセッションにはアクセスしない</strong>
+                  <small>Microsoftは、Pagesの共有相手がCopilotチャットセッションにはアクセスしないと案内している。</small>
                 </span>
               </label>
               <label class="forensics-choice-card" data-choice-card>
-                <input type="checkbox" value="no-transcript-means-no-record" data-choice-id="no-transcript-means-no-record" />
+                <input type="checkbox" value="page-link-shares-chat" data-choice-id="page-link-shares-chat" />
                 <span>
-                  <strong>文字起こしがないので、Copilotへの質問や回答も組織には一切残らないと考える</strong>
-                  <small>Microsoftは、保持ポリシーによりプロンプト・応答が保持される場合があると案内している。</small>
+                  <strong>Page linkを送ると、ページの元になったCopilotチャット全体も自動的に共有される</strong>
+                  <small>ページの共有とCopilotチャットセッションへのアクセスは別である。</small>
                 </span>
               </label>
               <label class="forensics-choice-card" data-choice-card>
-                <input type="checkbox" value="automatic-copilot" data-choice-id="automatic-copilot" />
+                <input type="checkbox" value="component-static-copy" data-choice-id="component-static-copy" />
                 <span>
-                  <strong>Only during the meetingを選ぶと、会議開始と同時にCopilotが自動で起動する</strong>
-                  <small>参加者が会議中にCopilotを選んで開始する必要がある。</small>
+                  <strong>Copy componentでTeamsなどへ貼った内容は、その後に誰が編集しても元ページへ反映されない</strong>
+                  <small>Microsoftは、Microsoft 365アプリ内のコンポーネントへの変更がページにリアルタイム更新されると案内している。</small>
                 </span>
               </label>
             </div>
@@ -131,9 +131,9 @@
           <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
             <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
             <strong>推奨される行動</strong>
-<ul><li>会議後のCopilot利用は制限されるが、プロンプト・応答の保持は組織のPurviewポリシーを別に確認する</li></ul>
+<ul><li>Page linkでページを共有する。相手はそのページと内容を扱えるが、元のCopilotチャットセッションにはアクセスしない</li></ul>
             <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
-            <p>Only during the meetingでは、録画・文字起こしを有効にしなくても会議中にCopilotを使え、会議後のRecapでは使えません。一方、プロンプトと応答はMicrosoft Purviewの保持・eDiscovery対象になり得るため、組織ポリシーを別に確認します。</p>
+            <p>Microsoftによると、Copilot Pagesの共有相手はページとその内容を共同編集できますが、Copilotチャットセッションにはアクセスしません。Page linkは一つのページをLoopで開く共有方法です。Copy componentでMicrosoft 365アプリへ貼った場合は、コンポーネントへの変更がページへリアルタイムで更新されます。</p>
           </div>
         </section>
 
@@ -143,23 +143,23 @@
           <div class="inspection-grid">
             <article class="inspection-card priority-high">
               <span>優先して確認</span>
-              <h3>会議前のCopilot設定</h3>
-              <p>主催者はCalendarから会議を開き、OptionsでCopilot and other AIをOnly during the meetingに設定します。設定が見えない場合はIT管理者へ確認します。</p>
+              <h3>共有したいのはチャットではなく、どのページか</h3>
+              <p>Copilot Pagesの共有相手はページと内容にアクセスしますが、元のCopilotチャットセッションにはアクセスしません。共有前に、ページへ残す内容を確認します。</p>
             </article>
             <article class="inspection-card priority-high">
               <span>優先して確認</span>
-              <h3>録画・文字起こしの状態</h3>
-              <p>Only during the meetingを選んでも、Copilotが始まっただけで文字起こしが自動開始するわけではありません。録画・文字起こしを途中でオンにした場合は、以降の会議内容の扱いが変わります。</p>
+              <h3>Page linkが開く範囲</h3>
+              <p>Page linkを選ぶと、相手はLoopで当該ページだけを開きます。リンクを送る前に、ページのタイトル・本文・共有相手を見直します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Copy componentのリアルタイム同期</h3>
+              <p>Teams、Outlook、OneNoteなどへコンポーネントとして貼った場合、Microsoft 365アプリ内での変更はページへリアルタイムで更新されます。固定版のつもりで使わないようにします。</p>
             </article>
             <article class="inspection-card priority-medium">
               <span>できれば確認</span>
-              <h3>会議後に使える範囲</h3>
-              <p>文字起こしや録画をオンにしなければ、会議後にRecapからCopilotを使うことはできません。残したい内容があれば、会議終了前に適切な場所へ転記します。</p>
-            </article>
-            <article class="inspection-card priority-high">
-              <span>優先して確認</span>
-              <h3>組織の保持・監査方針</h3>
-              <p>Copilotのプロンプト・応答は、録画・文字起こしをオフにしてもMicrosoft Purviewの保持ポリシーやeDiscoveryの対象になる場合があります。管理者に確認します。</p>
+              <h3>AIの下書きを共有前に人が確定したか</h3>
+              <p>共有範囲がチャット全体でなくても、ページに残したAIの文章は共同作業の材料になります。事実、宛先、未確認の案を確認してから渡します。</p>
             </article>
           </div>
         </section>
@@ -167,7 +167,7 @@
         <section class="forensics-article-section verdict-section">
           <div class="forensics-step-label">Step 4</div>
           <h2>現時点での見立て</h2>
-          <div class="verdict-card"><span>確度は高め</span><strong>『会議後に見えない』は、『組織に残らない』という意味ではない</strong><p>Teams CopilotのOnly during the meetingは、録画・文字起こしを避けながら会議中にAI支援を使う選択肢です。しかし、組織の保持・監査設定は別に働きます。会議の設定画面だけで記録の扱いを結論づけず、Purviewの方針も確認します。</p></div>
+          <div class="verdict-card"><span>確度は高め</span><strong>Copilot Pagesの共有は、会話全部を渡さず成果物だけを共同編集する方法になる</strong><p>Copilot Pagesは、元のチャットを共有せず、切り出したページをチームへ渡せる仕組みです。ただし、Copy componentで他のMicrosoft 365アプリへ貼った内容はリアルタイムに同期します。共有範囲だけでなく、後からどこで編集されるかを決めて使います。</p></div>
         </section>
 
         <section class="forensics-article-section action-section">
@@ -175,15 +175,15 @@
           <h2>安全な対処方法</h2>
           <div class="action-grid">
             <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
-            <li><strong>機密会議では、会議前にCopilot and other AIをOnly during the meetingへ設定する</strong><span>録画・文字起こしを有効にせず、会議中にCopilotを使う方法として案内されています。</span></li>
-            <li><strong>会議中に誰がCopilotを開始し、どの質問をするかを決める</strong><span>Copilotは会議開始と同時に自動起動せず、参加者が開始する操作です。</span></li>
-            <li><strong>会議終了後に残す必要がある内容は、会議中に承認した議事メモへ転記する</strong><span>文字起こし・録画を使わない場合、会議後にRecapのCopilotは使えません。</span></li>
-            <li><strong>組織のPurview保持・eDiscovery方針を管理者へ確認する</strong><span>Copilotのプロンプト・応答は、録画・文字起こしの有無とは別に保持対象となる場合があります。</span></li>
+            <li><strong>共有前に、ページへ残すAIの下書き・リンク・宛先を人が確認する</strong><span>共有相手はページとその内容にアクセスできるため、会話から切り出した後のページを確認する必要があります。</span></li>
+            <li><strong>一つのページだけを渡す時はPage linkを選ぶ</strong><span>Page linkでは、相手はLoopで当該ページだけを開きます。</span></li>
+            <li><strong>Copy componentを使う時は、貼り付け先でも変更がリアルタイム同期すると参加者へ伝える</strong><span>Microsoft 365アプリ内のコンポーネントへの変更はページへ反映されます。</span></li>
+            <li><strong>未確定のメモと確定版を別ページに分ける</strong><span>会話全体を共有しなくても、ページに書いた内容は共同編集の対象になります。</span></li>
             </ul></div>
             <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
-            <li><strong>文字起こしをオフにしただけで、Copilotへのプロンプト・応答も一切残らないと断定する</strong><span>組織の保持ポリシーにより、Copilotのやり取りが保持される場合があります。</span></li>
-            <li><strong>Only during the meetingなら、会議後にもRecapで同じようにCopilotを使えると考える</strong><span>録画・文字起こしがなければ、会議後のRecapでCopilotは利用できません。</span></li>
-            <li><strong>会議中のCopilotを、参加者への説明なしに機密情報の整理へ使う</strong><span>会議の記録・保持に関する組織方針と、参加者間の合意を先に確認する必要があります。</span></li>
+            <li><strong>Page linkを送ると元のCopilotチャットまで共有されると誤解して、必要なページ共有を避ける</strong><span>Microsoftは、ページの共有相手がCopilotチャットセッションにはアクセスしないと案内しています。</span></li>
+            <li><strong>Copy componentをメールやTeamsへ貼った後、内容が固定されたと考える</strong><span>コンポーネントへの変更は元のページにリアルタイムで更新されます。</span></li>
+            <li><strong>AIの未確認案を含むページを、そのまま社外・広範囲へ共有する</strong><span>チャット全体ではなくても、ページに含めた文章とリンクは共有されます。</span></li>
             </ul></div>
           </div>
         </section>
@@ -191,9 +191,9 @@
         <section class="forensics-article-section positive-use-section">
           <div class="forensics-step-label">Step 6</div>
           <h2>AIの前向きな活用</h2>
-          <h3>会議中の整理だけをAIに任せ、正式な記録はチームで確定する</h3>
-          <p>会議中だけのCopilotを使えば、論点・タスクの聞き漏らしを減らせます。終了前に内容を確認して正式な議事メモへ残す運用にすれば、利便性と記録管理を両立できます。</p>
-          <ul class="positive-example-list"><li>会議中に未決事項と担当者をCopilotへ整理させる</li><li>終了前に人が確認したアクション一覧を共有する</li><li>録画・文字起こしが不要な短い打合せで使う</li><li>会議設定とPurview保持方針を定期的に見直す</li></ul>
+          <h3>AIとの試行錯誤を、確認済みの共同編集ページへ整える</h3>
+          <p>会話で考えを広げた後に、必要な部分だけをCopilot Pagesへまとめれば、途中の試行錯誤を混ぜずにチームでレビューできます。同期の特性を理解すれば、会議中の共同編集にも使えます。</p>
+          <ul class="positive-example-list"><li>提案のたたき台をページに整理してからチームレビューへ回す</li><li>会議前の論点だけをPage linkで共有する</li><li>Teamsに貼ったコンポーネントを会議中に共同編集する</li><li>確定版は別の承認済みページとして管理する</li></ul>
         </section>
 
         <section class="makoto-comment-section">
@@ -202,20 +202,20 @@
           </figure>
           <div>
             <h2>誠主任からひとこと</h2>
-            <blockquote>会議が終わった後に画面から見えなくなると、情報も消えたように感じます。でも仕事のツールでは、利用画面と組織の記録は別の層です。会議中だけ使う設定は便利な境界線ですが、それだけで『記録ゼロ』を約束するものではありません。私は会議前に、便利さの設定と会社の保持ルールを並べて確認したいです。</blockquote>
+            <blockquote>AIとの会話には、考え途中の言い回しや、採用しなかった案も混ざります。Pagesは、それをそのまま渡すのではなく、誰と何を一緒に直すかを切り出すための場所だと感じます。私はリンクを送る前に、ページに残した一文と、後で同期する編集先を確認したいです。</blockquote>
           </div>
         </section>
 
         <section class="one-line-lesson">
           <h2>今回、覚えておきたいこと</h2>
-          <p>Teams Copilotを会議中だけ使っても、組織の保持方針は別に確認する。</p>
+          <p>Copilot Pagesは会話全体ではなくページを共有する。同期する共有形式かも確認する。</p>
         </section>
 
         <section class="forensics-article-section sources-section">
           <h2>情報源</h2>
           <ul class="forensics-source-list">
             <li>
-              <strong><a href="https://support.microsoft.com/en-us/teams/copilot/use-copilot-without-transcribing-or-recording-a-teams-meeting-or-call" target="_blank" rel="noopener noreferrer">Use Copilot without transcribing or recording a Teams meeting or call<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <strong><a href="https://support.microsoft.com/en-us/microsoft-365-copilot/share-a-microsoft-365-copilot-page" target="_blank" rel="noopener noreferrer">Share a Microsoft Copilot Page<span class="visually-hidden">（外部リンク）</span></a></strong>
               <span>Microsoft Support</span>
               <span>その他</span>
             </li>
@@ -224,26 +224,26 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-calm" href="case-20260907-04" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="Copilot Pagesを共有すると何が見える？「チャット全体」ではなくページ単位で渡す Copilot Pagesは共有方法で見える範囲と同期の仕方が変わる Microsoftは、Copilot Pagesを共有した相手はページとその内容にアクセスして共同編集できる一方、元のCopilotチャットセッションにはアクセスしないと案内しています。共有時にPage linkを選ぶと、相手はLoopでその一つのページだけを開きます。Copy componentを選んでTeams、Outlook、OneNoteなどへ貼ると、貼り付けたコンポーネントへの変更はページへリアルタイムで反映されます。AIとの会話全体を渡すのか、確認済みのページだけを渡すのか、リアルタイム同期が必要かを共有前に選ぶ手順を扱います。 仕事・AI活用 標準 Microsoft Copilot Copilot Pages Loop Teams 共同編集 共有設定 Microsoft Copilot PagesでAIの下書きをチームへ渡す人 Copilotの会話と共有する成果物の境界を整理したい人">
+          <a class="forensics-card tone-caution" href="case-20260906-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="advanced" data-search-text="TeamsのCopilotを『会議中のみ』にしても、組織の保持設定は別に確認する Teams Copilotの会議中利用と保持ポリシーは別に確認する Microsoftは、Teams会議で録画や文字起こしをオンにせず、Copilotを会議中だけ使ってメモやタスク整理を行う方法を案内しています。主催者は会議前のMeeting optionsでCopilot and other AIをOnly during the meetingに設定し、参加者が会議中にCopilotを開始します。この設定で文字起こしは自動開始せず、会議後はCopilotのRecapで利用できません。ただし、録画と文字起こしをオフにしても、Copilotへのプロンプトと応答は組織のMicrosoft Purview保持ポリシーに従って保持・eDiscoveryの対象になり得ます。『会議後に見えない』ことと『組織内に残らない』ことを混同せず、会議設定と組織のコンプライアンス設定を分けて確認する記事です。 仕事・AI活用 発展 Microsoft Teams Microsoft Copilot 会議AI 文字起こし Purview データ保持 Microsoft Teams会議でCopilotを使う主催者・参加者 録画・文字起こしを避けつつAIメモを使いたいチーム">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">copilot-pages-share-boundary</span>
+              <span class="forensics-card-icon" aria-hidden="true">teams-copilot-meeting-only-retention</span>
               <div>
-                <p>Copilot Pagesは共有方法で見える範囲と同期の仕方が変わる</p>
-                <h3>Copilot Pagesを共有すると何が見える？「チャット全体」ではなくページ単位で渡す</h3>
+                <p>Teams Copilotの会議中利用と保持ポリシーは別に確認する</p>
+                <h3>TeamsのCopilotを『会議中のみ』にしても、組織の保持設定は別に確認する</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-07">2026.09.07</time>
+              <time datetime="2026-09-06">2026.09.06</time>
               <span>仕事・AI活用</span>
-              <span>標準</span>
+              <span>発展</span>
             </div>
-            <p class="forensics-card-summary">Microsoftは、Copilot Pagesを共有した相手はページとその内容にアクセスして共同編集できる一方、元のCopilotチャットセッションにはアクセスしないと案内しています。共有時にPage linkを選ぶと、相手はLoopでその一つのページだけを開きます。Copy componentを選んでTeams、Outlook、OneNoteなどへ貼ると、貼り付けたコンポーネントへの変更はページへリアルタイムで反映されます。AIとの会話全体を渡すのか、確認済みのページだけを渡すのか、リアルタイム同期が必要かを共有前に選ぶ手順を扱います。</p>
+            <p class="forensics-card-summary">Microsoftは、Teams会議で録画や文字起こしをオンにせず、Copilotを会議中だけ使ってメモやタスク整理を行う方法を案内しています。主催者は会議前のMeeting optionsでCopilot and other AIをOnly during the meetingに設定し、参加者が会議中にCopilotを開始します。この設定で文字起こしは自動開始せず、会議後はCopilotのRecapで利用できません。ただし、録画と文字起こしをオフにしても、Copilotへのプロンプトと応答は組織のMicrosoft Purview保持ポリシーに従って保持・eDiscoveryの対象になり得ます。『会議後に見えない』ことと『組織内に残らない』ことを混同せず、会議設定と組織のコンプライアンス設定を分けて確認する記事です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 2</strong>
-              <span>Copilot Pagesは、チャットとページを分け、同期する共有形式を確認する</span>
+              <span>Teams Copilotは、会議中利用の設定と組織の保持方針を分けて確認する</span>
             </div>
-            <ul class="forensics-card-audience"><li>Microsoft Copilot PagesでAIの下書きをチームへ渡す人</li><li>Copilotの会話と共有する成果物の境界を整理したい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Copilot Pages</li><li>Loop</li></ul>
+            <ul class="forensics-card-audience"><li>Microsoft Teams会議でCopilotを使う主催者・参加者</li><li>録画・文字起こしを避けつつAIメモを使いたいチーム</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Teams</li><li>Microsoft Copilot</li><li>会議AI</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           <a class="forensics-card tone-caution" href="case-20260906-03" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="対面の打合せをCopilot Recordで録る前に。音声の保存先と参加者への説明を決める Copilot Recordは開始前にOneDrive保存と録音同意を確認する Microsoftは、Microsoft CopilotのRecord機能で対面会話や自分の音声メモを録音し、文字起こし・要約をCopilot Chatで扱う方法を案内しています。Recordは企業向け機能で、音声、文字起こし、要約は組織のMicrosoft 365テナント内に保管され、具体的には利用者自身のOneDrive for Businessに保存されます。既存の保持、eDiscovery、Information Protection、感度ラベル、DLPポリシーが適用されます。録音中は別アプリへ切り替えてもバックグラウンドで収録が続きます。一方、参加者へ録音を通知したり同意を取ったりする責任は利用者にあり、Copilotが代わりに通知することはありません。対面会議を始める前に、保存先・共有範囲・同意を決める記事です。 仕事・AI活用 標準 Microsoft Copilot Copilot Record 対面会議 OneDrive 録音同意 文字起こし Microsoft Copilotのモバイルアプリで対面会議や音声メモを録ろうとしている人 社外の相手を含む打合せをAIで文字起こし・要約したいチーム">
@@ -294,8 +294,8 @@
         </section>
         <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
           <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
-<a class="mini-button mini-button-secondary" href="case-20260906-03">前の記事</a>
-<a class="mini-button mini-button-secondary" href="case-20260906-01">次の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260906-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260907-03">次の記事</a>
         </nav>
       </article>
     </main>

@@ -1,0 +1,129 @@
+{
+  "id": "case-20260907-03",
+  "publishedAt": "2026-09-07",
+  "title": "Galaxy AIの「端末内のみで処理」は万能ではない。止まる機能を確認してから切り替える",
+  "shortTitle": "Galaxy AIを端末内処理に限定する前に機能差を確認する",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "GalaxyスマートフォンやタブレットのAI機能を使う人",
+    "AIへの入力をクラウドへ送る範囲を設定から見直したい人"
+  ],
+  "summary": "Samsungは、Galaxy AIの機能には端末内で処理されるものと、ネットワーク接続を使うものがあると案内しています。多くの翻訳やGalleryのEdit Suggestionsは端末内処理の例ですが、自動整形、要約、自動修正、画像編集などはクラウドを利用します。対応端末では「設定」からGalaxy AIを開き、「Process data only on device」を有効にしてクラウド処理を止められます。ただし、この切り替えにより利用できなくなる機能があり、機種やOSの違いでも機能は変わります。機密情報を扱う前に、処理場所の希望と必要な機能を照らし合わせる記事です。",
+  "scenario": {
+    "headline": "会議メモや写真編集にGalaxy AIを使いたいが、クラウド送信は減らしたい",
+    "description": "Galaxy AIに要約や画像編集を頼むことがあります。『端末内のみで処理』をオンにすれば全機能をそのまま安全に使えると思っていますが、どの機能が止まるのか、端末による違いがあるのか把握していません。",
+    "whyItMatters": "AI機能の処理場所と利用可能な機能は同じではありません。クラウド処理を止める設定は有効な選択肢ですが、必要な機能を先に把握しないと、必要な時に要約や編集が使えない、またはクラウド利用を意図せず再開することがあります。"
+  },
+  "question": {
+    "text": "Galaxy AIの入力をなるべく端末内だけで処理したい時の対応として適切なのは？",
+    "choices": [
+      {
+        "id": "check-features-then-enable",
+        "label": "Galaxy AI設定で端末内のみの処理を有効にし、使えなくなる機能と機種・OSごとの差を確認する",
+        "description": "クラウドを使う機能があり、設定変更で利用可能な機能に影響するためである。"
+      },
+      {
+        "id": "all-features-on-device",
+        "label": "Galaxy AIはすべて端末内で動くので、設定を確認せず機密情報も要約へ入力する",
+        "description": "Samsungは、要約や画像編集などにクラウドを使う機能があると案内している。"
+      },
+      {
+        "id": "privacy-switch-no-impact",
+        "label": "端末内のみの処理を有効にしても、機能の利用可否には影響しないと考える",
+        "description": "この設定はクラウド処理を止めるため、利用できるAI機能に影響する場合がある。"
+      }
+    ],
+    "recommendedAnswers": ["check-features-then-enable"],
+    "explanation": "Samsungは、翻訳や一部の編集提案を端末内処理の例とし、自動整形、要約、自動修正、画像編集などにはクラウド利用があると説明しています。対応端末では「設定」からGalaxy AIを開き、「Process data only on device」を有効にできますが、機能の利用可否は端末・ソフトウェアで異なります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "使いたい機能が端末内処理かクラウド利用か",
+      "description": "Samsungは、翻訳やGalleryのEdit Suggestionsを端末内処理の例に挙げる一方、自動整形、要約、自動修正、画像編集などはクラウドを利用すると案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "端末内のみの処理を有効にする場所",
+      "description": "対応端末では「設定」からGalaxy AIを開き、「Process data only on device」をオンにします。端末によっては設定メニューの名称や場所が異なります。",
+      "priority": "high"
+    },
+    {
+      "title": "機能が制限される前提で試す",
+      "description": "クラウド処理を止める切り替えは、利用できるAI機能に影響します。機密情報を扱う本番前に、普段使う要約・編集・翻訳がどう変わるかを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "機種・OS・地域の差",
+      "description": "Galaxy AIの機能は端末、ソフトウェアのバージョン、地域などによって異なります。別の機種の手順や画面をそのまま当てはめません。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "Galaxy AIは、端末内処理の希望と使える機能を一緒に確認する",
+  "verificationMessage": "「端末内のみで処理」をオンにする前に、普段使うAI機能がクラウド処理を必要とするか確認しましょう。",
+  "verdict": {
+    "label": "端末内処理への限定は、便利さとの交換条件を確認して選ぶ設定",
+    "description": "Galaxy AIには端末内処理の機能とクラウドを利用する機能が混在します。「Process data only on device」はクラウド処理を避けたい時の有効な選択肢ですが、すべてのAI機能を同じように使える設定ではありません。機能ごとの違いを確認して選びます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "機密情報を入力する前に、そのAI機能が端末内処理かクラウド利用かを確認する",
+      "reason": "Galaxy AIには処理場所が異なる機能があり、要約や画像編集などはクラウド利用の例として案内されています。"
+    },
+    {
+      "action": "必要に応じて「Process data only on device」を有効にする",
+      "reason": "Samsungは、Galaxy AI設定からクラウド処理を止める切り替えを案内しています。"
+    },
+    {
+      "action": "設定変更後に、日常的に使う翻訳・要約・編集を機密情報なしで試す",
+      "reason": "端末内のみの処理にすると、利用可能なAI機能に影響する場合があります。"
+    },
+    {
+      "action": "端末とOSの更新後に、AI設定と利用可能な機能を再確認する",
+      "reason": "機能の提供状況は端末やソフトウェアのバージョンで異なります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "Galaxy AIのすべての要約・編集が端末内で完結すると考える",
+      "reason": "Samsungは、要約や画像編集などでクラウドを利用する機能があると案内しています。"
+    },
+    {
+      "action": "端末内のみの処理を有効にした後、機能制限を確認せず業務で使い始める",
+      "reason": "クラウド処理を止める設定は、利用できるAI機能に影響する場合があります。"
+    },
+    {
+      "action": "別のGalaxy端末の画面や説明だけで、自分の端末でも同じ機能が使えると決めつける",
+      "reason": "提供されるAI機能は端末とソフトウェアのバージョンによって異なります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "入力内容に応じて、AI機能の便利さと処理場所を選ぶ",
+    "description": "端末内で使える機能とクラウドを必要とする機能を知っておけば、急ぎの翻訳は端末内で、機密性の低い下書きや画像編集は必要に応じて使う、といった選択ができます。",
+    "examples": [
+      "外出先での短い翻訳に端末内処理の機能を使う",
+      "会議メモを要約する前に、入力してよい範囲を決める",
+      "写真編集の前にクラウド利用の要否を確認する",
+      "端末の更新後にAI機能の説明と設定を見直す"
+    ]
+  },
+  "makotoComment": "『端末内のみ』は強い安心感のある言葉ですが、そこには使えなくなる便利さもあります。私はオンかオフかを先に決めず、要約したい内容なのか、翻訳だけで足りるのかを考えてから設定を選びたいです。AIの設定は、機能表と一緒に見るとずっと分かりやすくなります。",
+  "oneLineLesson": "Galaxy AIの端末内処理設定は、止まる機能を確認してから選ぶ。",
+  "tags": ["Galaxy AI", "Samsung", "オンデバイスAI", "クラウド処理", "スマホ設定", "プライバシー"],
+  "sources": [
+    {
+      "title": "Use features with Galaxy AI on your Galaxy phone and tablet",
+      "publisher": "Samsung Support",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://www.samsung.com/us/support/answer/ANS10000753/"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "GalaxyスマートフォンのGalaxy AI設定で『端末内のみで処理』の切り替えを前に、翻訳は端末アイコン、要約と画像編集はクラウドアイコンとして並べ、機能ごとの違いを確認する人物。",
+    "cardIcon": "galaxy-ai-on-device-processing",
+    "accentTone": "calm"
+  }
+}
