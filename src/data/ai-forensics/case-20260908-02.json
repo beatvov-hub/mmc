@@ -1,0 +1,129 @@
+{
+  "id": "case-20260908-02",
+  "publishedAt": "2026-09-08",
+  "title": "Pinterestに保存・投稿したデータをAI学習へ使わせない。Canvasの設定を見直す",
+  "shortTitle": "Pinterest Canvasの学習利用はPrivacy and dataで選べる",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Pinterestへ画像やアイデアを保存・投稿する人",
+    "SNSサービスによる投稿データのAI改善利用を設定から確認したい人"
+  ],
+  "summary": "Pinterestは、利用者が保存またはアップロードしたコンテンツを、画像生成基盤モデルPinterest Canvasの精度、安全性、全体的な性能の改善に使う場合があると説明しています。利用者はPinterestのPrivacy and data設定から「Use your data to train Pinterest Canvas」をオフにでき、いつでも変更できます。18歳未満の利用者はこの設定が自動でオプトアウトされ、オンに戻すことはできません。Pinterestでの閲覧頻度を減らす設定と、投稿・保存データをモデル改善へ使うことを許可する設定を混同せず、自分のコンテンツについて選べる項目を確認する記事です。",
+  "scenario": {
+    "headline": "Pinterestに趣味の画像や仕事の参考資料を保存しているが、AI改善に使われる範囲が気になる",
+    "description": "Pinterestのおすすめを調整したことはありますが、保存・アップロードしたデータをPinterest Canvasの改善に使うかを決める設定があることは知りません。投稿を削除するほどではないものの、学習利用は止めたいと考えています。",
+    "whyItMatters": "おすすめの量を調整する機能と、保存・投稿データのAIモデル改善利用を選ぶ機能は別です。自分の目的に合わせて設定を確認すれば、サービスの利用を続けながら、モデル改善への利用について意思表示できます。"
+  },
+  "question": {
+    "text": "Pinterestに保存・アップロードしたデータをPinterest Canvasの改善に使わせたくない時の対応として適切なのは？",
+    "choices": [
+      {
+        "id": "turn-off-canvas-training",
+        "label": "Privacy and dataで「Use your data to train Pinterest Canvas」をオフにして保存する",
+        "description": "Pinterestは、この設定からモデル改善へのデータ利用をいつでもオプトアウトできると案内している。"
+      },
+      {
+        "id": "hide-pins-only",
+        "label": "ホームフィードでAIコンテンツを減らす設定だけを変えれば、Canvasの学習利用も止まると考える",
+        "description": "フィードの推薦調整と、Pinterest Canvasのモデル改善へのデータ利用は別の設定である。"
+      },
+      {
+        "id": "delete-everything-first",
+        "label": "学習利用を避けるには、Pinterestの保存・投稿をすべて削除するしかないと考える",
+        "description": "Pinterestは、Privacy and dataからデータ利用をオプトアウトできると案内している。"
+      }
+    ],
+    "recommendedAnswers": ["turn-off-canvas-training"],
+    "explanation": "Pinterestは、保存またはアップロードしたコンテンツをPinterest Canvasの性能改善に使う場合があると説明しています。Privacy and dataで「Use your data to train Pinterest Canvas」をオフにすると、この利用をオプトアウトできます。18歳未満の利用者は自動的にオプトアウトされています。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "対象はおすすめ表示ではなく、Canvasの改善利用",
+      "description": "Pinterest Canvasは画像生成基盤モデルです。フィードでAIコンテンツを減らす設定とは別に、保存・アップロードしたデータをモデル改善へ使う設定があります。",
+      "priority": "high"
+    },
+    {
+      "title": "設定の場所",
+      "description": "WebではMore optionsからSettings、Privacy and dataへ進み、「Use your data to train Pinterest Canvas」のチェックを変更して保存します。アプリではPrivacy and dataのトグルを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "年齢による初期状態",
+      "description": "18歳未満の利用者は、この設定が自動的にオプトアウトされ、オンに戻すことはできません。家族のアカウントでは本人ごとに状態を確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "設定を変える目的",
+      "description": "この設定はPinterest Canvasの改善利用についての選択です。投稿の公開範囲、ボードの公開・非公開、広告の推薦設定とは別に確認します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "Pinterest Canvasの学習利用は、投稿公開設定とは別に選べる",
+  "verificationMessage": "Pinterestへ新しい画像を保存・投稿する前に、Privacy and dataのCanvas設定を確認しましょう。",
+  "verdict": {
+    "label": "Pinterestの利用を続けながら、Canvas改善へのデータ利用は設定で選べる",
+    "description": "Pinterestは、保存・アップロードしたデータをPinterest Canvasの改善に使う場合があると説明し、利用者にオプトアウト設定を用意しています。フィードの表示調整だけで判断せず、Privacy and dataからモデル改善への利用を自分で確認することが大切です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Privacy and dataでPinterest Canvasへのデータ利用設定を確認する",
+      "reason": "Pinterestは、保存・アップロードしたデータをCanvasの精度や安全性の改善に使う場合があると案内しています。"
+    },
+    {
+      "action": "モデル改善に使わせたくない場合は「Use your data to train Pinterest Canvas」をオフにして保存する",
+      "reason": "Pinterestは、この設定からいつでもオプトアウトできると案内しています。"
+    },
+    {
+      "action": "フィードのおすすめ調整と、学習利用の設定を別々に見直す",
+      "reason": "AIコンテンツを少なく表示する設定と、Canvasへのデータ利用設定は目的が異なります。"
+    },
+    {
+      "action": "家族ごとのアカウントで年齢に応じた設定状態を確認する",
+      "reason": "18歳未満の利用者は自動的にオプトアウトされ、オンに戻すことはできません。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "AIコンテンツをフィードで減らす設定だけで、投稿データのCanvas利用も止まったと考える",
+      "reason": "フィード推薦の調整と、Canvasのモデル改善へのデータ利用は別の設定です。"
+    },
+    {
+      "action": "Pinterestを使うなら、投稿データのモデル改善利用を必ず受け入れるしかないと考える",
+      "reason": "PinterestはPrivacy and dataからオプトアウトできると案内しています。"
+    },
+    {
+      "action": "一つのアカウントの設定だけを見て、家族の全アカウントにも同じ状態だと考える",
+      "reason": "設定はアカウント単位で確認する必要があり、未成年には異なる扱いがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "投稿データの使われ方を選びながら、Pinterestを楽しむ",
+    "description": "画像の収集やアイデア探しを続けつつ、モデル改善への利用を希望しない場合は設定で意思表示できます。表示の好みとデータ利用を分けて整えると、自分に合った使い方を選べます。",
+    "examples": [
+      "新しいボードを作る前にPrivacy and dataを見直す",
+      "家族のアカウントごとに設定を確認する",
+      "フィードのAIコンテンツ表示とCanvasの学習利用を別々に調整する",
+      "投稿の公開範囲もあわせて見直す"
+    ]
+  },
+  "makotoComment": "SNSのAI設定は、見たくないものを減らす話だけではありません。自分が保存したものを、サービスが次のAIを良くするために使うかどうかも、別の設定に隠れています。私は『何が画面に出るか』と『自分のデータがどう使われるか』を、同じ設定だと思わずに見ています。",
+  "oneLineLesson": "Pinterest Canvasへの学習利用は、Privacy and dataで投稿公開設定とは別に選べる。",
+  "tags": ["Pinterest", "Pinterest Canvas", "生成AI", "データ利用", "オプトアウト", "SNS設定"],
+  "sources": [
+    {
+      "title": "Manage GenAI settings",
+      "publisher": "Pinterest help",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://help.pinterest.com/en/article/manage-genai-settings"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "PinterestのPrivacy and data画面で、フィードのおすすめ調整とは別に『Pinterest Canvasの学習利用』のトグルを確認する人物。保存した画像がモデル改善へ向かう矢印をオン・オフで表す。",
+    "cardIcon": "pinterest-canvas-training-data-control",
+    "accentTone": "calm"
+  }
+}

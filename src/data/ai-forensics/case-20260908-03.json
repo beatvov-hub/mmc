@@ -1,0 +1,129 @@
+{
+  "id": "case-20260908-03",
+  "publishedAt": "2026-09-08",
+  "title": "ChromeのGeminiは新しい会話でも現在のタブを共有する。既定共有と位置情報を確認する",
+  "shortTitle": "Gemini in Chromeのタブ共有・位置情報・自動操作を確認する",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": [
+    "パソコンのChromeでGeminiを使う人",
+    "WebページをAIに要約させる前に共有範囲を確認したい人"
+  ],
+  "summary": "Googleは、Gemini in Chromeが回答のために現在のブラウザタブの内容を使い、追加で最大10個の開いているタブを共有できると案内しています。新しいチャットを始める時も現在のタブは既定で共有されますが、Chromeの設定からこの既定共有をオフにできます。同じGemini in Chrome設定には、正確な位置情報、マイク、Geminiによるブラウズの許可もあります。正確な位置情報をオフにしてもIPアドレスから概算の位置は推定され得ます。タブ要約を一度使った後も、共有中のタブ、次回チャットの既定共有、位置情報・マイク・自動ブラウズを別々に見直す記事です。",
+  "scenario": {
+    "headline": "Chromeで開いている資料をGeminiに要約させたいが、別タブは見せたくない",
+    "description": "仕事用のWeb資料と私用サイトを同じChromeで開いています。Gemini in Chromeのサイドパネルを開くと、どのタブが共有されるのか、新しい会話でも共有が続くのか、位置情報や自動操作を許可しているのかが分かりません。",
+    "whyItMatters": "Gemini in Chromeでは、現在のタブが回答に使われ、追加のタブを共有できます。ブラウザの表示中ページはログイン中のサービスや機密な業務情報を含むことがあるため、会話履歴だけでなく、共有タブとブラウザ権限を確認する必要があります。"
+  },
+  "question": {
+    "text": "Gemini in Chromeでページを要約する前に、最も適切な確認は？",
+    "choices": [
+      {
+        "id": "review-tabs-and-permissions",
+        "label": "共有中のタブを確認して不要なものを外し、次回チャットの既定共有と位置情報・マイク・自動ブラウズの許可を見直す",
+        "description": "現在のタブは既定で共有され、追加タブやブラウザ権限は設定から管理できる。"
+      },
+      {
+        "id": "sidebar-isolated",
+        "label": "Geminiのサイドパネルはブラウザの表示内容と切り離されているので、共有タブを確認しなくてよい",
+        "description": "Gemini in Chromeは現在のタブの内容を使って回答し、追加のタブも共有できる。"
+      },
+      {
+        "id": "off-location-means-none",
+        "label": "正確な位置情報をオフにすれば、位置に関する情報はGeminiへ一切渡らないと考える",
+        "description": "正確な位置情報をオフにしても、IPアドレスから概算の位置が推定される場合がある。"
+      }
+    ],
+    "recommendedAnswers": ["review-tabs-and-permissions"],
+    "explanation": "Googleは、Gemini in Chromeが現在のタブの内容を既定で使い、追加で最大10タブを共有できると案内しています。共有タブは会話画面から外せ、Chrome設定では現在のタブを既定で共有する設定、正確な位置情報、マイク、Geminiによるブラウズを個別に管理できます。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "現在共有されているタブ",
+      "description": "Gemini in Chromeを開くと、現在のタブ内容が既定で共有されます。Show shared tabsから、要約に不要なタブをRemove tabで外します。",
+      "priority": "high"
+    },
+    {
+      "title": "追加で共有するタブの数と内容",
+      "description": "追加で最大10個の開いているタブを共有できます。複数タブを比較させる時ほど、ログイン済みページや私用タブを選ばないよう確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "新しいチャットの既定共有",
+      "description": "新しいチャットでも現在のタブは既定で共有されます。ChromeのSettings、AI innovations、Gemini in ChromeからShare current tab by defaultをオフにできます。",
+      "priority": "high"
+    },
+    {
+      "title": "位置情報・マイク・自動ブラウズ",
+      "description": "同じ設定画面で正確な位置情報、マイク、Geminiによるブラウズを個別にオン・オフできます。正確な位置情報をオフにしても、IPアドレスから概算の位置が使われる場合があります。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "Gemini in Chromeは、会話履歴だけでなく共有タブとブラウザ権限を確認する",
+  "verificationMessage": "Geminiに要約を頼む前に、共有中のタブと、次回も現在のタブを共有する設定を確認しましょう。",
+  "verdict": {
+    "label": "Gemini in Chromeの便利さは、今見ているページを共有することから始まる",
+    "description": "Gemini in Chromeは現在のタブの内容を使い、追加タブも共有できます。新しい会話での既定共有、位置情報、マイク、自動ブラウズの許可は別々に管理できるため、要約を頼むページと、AIに渡してよいブラウザ権限を意識して使うことが重要です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Gemini in Chromeを開いたら、共有中のタブを確認して不要なタブを外す",
+      "reason": "現在のタブは既定で共有され、会話画面から共有タブを削除できます。"
+    },
+    {
+      "action": "新しい会話で現在のタブを毎回共有したくない場合は、Share current tab by defaultをオフにする",
+      "reason": "GoogleはChrome設定からこの既定共有を変更できると案内しています。"
+    },
+    {
+      "action": "正確な位置情報、マイク、Geminiによるブラウズを必要な時だけ許可する",
+      "reason": "これらはGemini in Chrome設定で個別に管理できます。"
+    },
+    {
+      "action": "要約に使うページを一つずつ選び、ログイン済みの不要なタブを追加しない",
+      "reason": "Geminiは共有したタブのページ内容を回答に使います。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "新しいチャットなら、現在のタブは共有されないと思い込む",
+      "reason": "Gemini in Chromeでは、新しいチャットでも現在のタブが既定で共有されます。"
+    },
+    {
+      "action": "複数タブをまとめて共有する前に、タブの内容を確認しない",
+      "reason": "追加で最大10個の開いているタブを共有でき、共有内容はGeminiの回答に使われます。"
+    },
+    {
+      "action": "正確な位置情報をオフにしただけで、位置の推定も完全に止まると考える",
+      "reason": "正確な位置情報をオフにしても、IPアドレスから概算の位置が推定される場合があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "必要なページだけを選び、ブラウザ上の調査を速くする",
+    "description": "共有するタブを選び、既定共有や権限を整えれば、複数の公開資料を比較したり、長い記事の論点をつかんだりする作業を、共有範囲を把握しながら効率化できます。",
+    "examples": [
+      "公開されている規約ページだけを共有して比較する",
+      "一時的にタブを共有し、要約後にRemove tabで外す",
+      "位置情報が不要な調査では正確な位置情報をオフにする",
+      "自動ブラウズを使う前に対象サイトと操作内容を確認する"
+    ]
+  },
+  "makotoComment": "ブラウザで使うAIは、文章を入力するだけのチャットより、今見ているページに近いところで働きます。だから私は、履歴を消す前に『今どのタブを渡しているか』を見ます。便利な要約ほど、共有したページを自分で選んだ感覚を残して使いたいです。",
+  "oneLineLesson": "Gemini in Chromeは現在のタブを既定共有する。タブとブラウザ権限を別々に確認する。",
+  "tags": ["Gemini", "Google Chrome", "タブ共有", "ブラウザ権限", "位置情報", "自動ブラウズ"],
+  "sources": [
+    {
+      "title": "Use Gemini in Chrome",
+      "publisher": "Gemini Apps Help",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/gemini/answer/16283624?hl=en-4"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "ChromeのGeminiサイドパネルで、現在のタブと追加タブを選別する人物。設定の『Share current tab by default』『正確な位置情報』『マイク』『自動ブラウズ』を個別のスイッチとして描く。",
+    "cardIcon": "gemini-chrome-tab-sharing-permissions",
+    "accentTone": "caution"
+  }
+}

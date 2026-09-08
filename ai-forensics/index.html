@@ -84,17 +84,17 @@
       <section class="card-section forensics-latest-section" id="latest-cases" aria-labelledby="latest-cases-title">
         <div class="section-heading"><div><p class="section-kicker">Latest Case</p><h2 id="latest-cases-title">最新の鑑識事例</h2></div></div>
         <div class="forensics-featured-grid">
-          <a class="forensics-card is-index-card is-featured tone-caution" href="case-20260907-01" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="Geminiに通知を読ませる前に。Keep Activityとは別の「通知アクセス」を確認する Geminiの通知アクセスと端末操作権限を分けて確認する Googleは、Android版GeminiがDevice assistance（旧Utilities）という接続アプリを通じて、アラーム、アプリ、通知、端末設定などを操作できると案内しています。通知に出るメッセージを読んだり返信したりする機能には、Geminiを提供するGoogleアプリへの通知アクセスが必要です。Googleアプリを既定のデジタルアシスタントにすると、Wi-FiやBluetoothなどの設定変更、写真・スクリーンショットの撮影、電源オフといった操作も可能になります。Device assistanceはKeep Activityをオフにしていても動作し得るため、会話履歴の設定だけでなく、通知アクセス・既定アシスタント・Connected Appsを別々に確認する手順を扱います。 セキュリティ・権限 標準 Gemini Android 通知アクセス Device assistance Connected Apps 権限管理 AndroidでGeminiを日常のアシスタントとして使う人 通知の読み上げや返信をAIに任せる前に、端末権限を見直したい人">
+          <a class="forensics-card is-index-card is-featured tone-caution" href="case-20260908-01" data-forensics-card data-category="work-use" data-level="2" data-difficulty="advanced" data-search-text="Zoom AI要約は止めても配布済みコピーまで消えない。自動削除と共有先を分けて確認する Zoom AI要約は自動削除と配布済みコピーを分けて管理する Zoomは、AIによるMeeting Summaryを指定日数後に自動削除する設定を、アカウント、グループ、個人の各段階で用意しています。上位の管理者は設定をロックでき、利用者側で変更できない場合があります。一方、主催者が共有を有効にした要約はメールやZoom Chatで参加者へ届き、受信者は保存・他者への共有を行えます。会議中にAI要約を停止しても、その時点までに生成された要約は残り得ます。要約の生成、会議内の削除、自動削除、参加者へ配布済みのコピーを同じ「削除」と考えず、会議前に保存期間と送付範囲を分けて決める記事です。 仕事・AI活用 発展 Zoom Zoom AI Meeting Summary 会議要約 自動削除 データ保持 Zoom AIのMeeting Summaryを業務会議で使う主催者 AI要約の保存期間と参加者への共有範囲を整えたい管理者・チーム">
             <div class="forensics-index-card-meta">
 <span class="forensics-latest-label">Latest</span>
-              <span>セキュリティ・権限</span>
-              <time datetime="2026-09-07">2026.09.07</time>
+              <span>仕事・AI活用</span>
+              <time datetime="2026-09-08">2026.09.08</time>
               <small>確認 2</small>
             </div>
-            <h3>Geminiに通知を読ませる前に。Keep Activityとは別の「通知アクセス」を確認する</h3>
-            <p class="forensics-card-summary">Googleは、Android版GeminiがDevice assistance（旧Utilities）という接続アプリを通じて、アラーム、アプリ、通知、端末設定などを操作できると案内しています。通知に出るメッセージを読んだり返信したりする機能には、Geminiを提供するGoogleアプリへの通知アクセスが必要です。…</p>
+            <h3>Zoom AI要約は止めても配布済みコピーまで消えない。自動削除と共有先を分けて確認する</h3>
+            <p class="forensics-card-summary">Zoomは、AIによるMeeting Summaryを指定日数後に自動削除する設定を、アカウント、グループ、個人の各段階で用意しています。上位の管理者は設定をロックでき、利用者側で変更できない場合があります。一方、主催者が共有を有効にした要約はメールやZoom Chatで参加者へ届き、受信者は保存・他者への共有を行え…</p>
             <p class="forensics-card-lesson"><span>今回の結論</span>
-              Keep Activityと通知アクセスは別物。Geminiに通知を読ませる前に端末権限を確認する。</p>
+              Zoom AI要約は、保存期間と配布済みコピーを別々に管理する。</p>
             <span class="forensics-card-cta">詳しく見る</span>
           </a>
         </div>
@@ -127,6 +127,45 @@
         <p class="forensics-results-status" data-forensics-results aria-live="polite"></p>
         <p class="forensics-empty-message" data-forensics-empty hidden>該当する事例は、現在準備中です。別の条件でも探してみてください。</p>
         <div class="forensics-card-grid">
+          <a class="forensics-card is-index-card tone-calm" href="case-20260908-02" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="Pinterestに保存・投稿したデータをAI学習へ使わせない。Canvasの設定を見直す Pinterest Canvasの学習利用はPrivacy and dataで選べる Pinterestは、利用者が保存またはアップロードしたコンテンツを、画像生成基盤モデルPinterest Canvasの精度、安全性、全体的な性能の改善に使う場合があると説明しています。利用者はPinterestのPrivacy and data設定から「Use your data to train Pinterest Canvas」をオフにでき、いつでも変更できます。18歳未満の利用者はこの設定が自動でオプトアウトされ、オンに戻すことはできません。Pinterestでの閲覧頻度を減らす設定と、投稿・保存データをモデル改善へ使うことを許可する設定を混同せず、自分のコンテンツについて選べる項目を確認する記事です。 セキュリティ・権限 はじめて Pinterest Pinterest Canvas 生成AI データ利用 オプトアウト SNS設定 Pinterestへ画像やアイデアを保存・投稿する人 SNSサービスによる投稿データのAI改善利用を設定から確認したい人">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-09-08">2026.09.08</time>
+              <small>確認 2</small>
+            </div>
+            <h3>Pinterestに保存・投稿したデータをAI学習へ使わせない。Canvasの設定を見直す</h3>
+            <p class="forensics-card-summary">Pinterestは、利用者が保存またはアップロードしたコンテンツを、画像生成基盤モデルPinterest Canvasの精度、安全性、全体的な性能の改善に使う場合があると説明しています。利用者はPinterestのPrivacy a…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              Pinterest Canvasへの学習利用は、Privacy and dataで投稿公開設定とは別に選べる。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-caution" href="case-20260908-03" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="ChromeのGeminiは新しい会話でも現在のタブを共有する。既定共有と位置情報を確認する Gemini in Chromeのタブ共有・位置情報・自動操作を確認する Googleは、Gemini in Chromeが回答のために現在のブラウザタブの内容を使い、追加で最大10個の開いているタブを共有できると案内しています。新しいチャットを始める時も現在のタブは既定で共有されますが、Chromeの設定からこの既定共有をオフにできます。同じGemini in Chrome設定には、正確な位置情報、マイク、Geminiによるブラウズの許可もあります。正確な位置情報をオフにしてもIPアドレスから概算の位置は推定され得ます。タブ要約を一度使った後も、共有中のタブ、次回チャットの既定共有、位置情報・マイク・自動ブラウズを別々に見直す記事です。 セキュリティ・権限 標準 Gemini Google Chrome タブ共有 ブラウザ権限 位置情報 自動ブラウズ パソコンのChromeでGeminiを使う人 WebページをAIに要約させる前に共有範囲を確認したい人">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-09-08">2026.09.08</time>
+              <small>確認 2</small>
+            </div>
+            <h3>ChromeのGeminiは新しい会話でも現在のタブを共有する。既定共有と位置情報を確認する</h3>
+            <p class="forensics-card-summary">Googleは、Gemini in Chromeが回答のために現在のブラウザタブの内容を使い、追加で最大10個の開いているタブを共有できると案内しています。新しいチャットを始める時も現在のタブは既定で共有されますが、Chromeの設定…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              Gemini in Chromeは現在のタブを既定共有する。タブとブラウザ権限を別々に確認する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-caution" href="case-20260907-01" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="Geminiに通知を読ませる前に。Keep Activityとは別の「通知アクセス」を確認する Geminiの通知アクセスと端末操作権限を分けて確認する Googleは、Android版GeminiがDevice assistance（旧Utilities）という接続アプリを通じて、アラーム、アプリ、通知、端末設定などを操作できると案内しています。通知に出るメッセージを読んだり返信したりする機能には、Geminiを提供するGoogleアプリへの通知アクセスが必要です。Googleアプリを既定のデジタルアシスタントにすると、Wi-FiやBluetoothなどの設定変更、写真・スクリーンショットの撮影、電源オフといった操作も可能になります。Device assistanceはKeep Activityをオフにしていても動作し得るため、会話履歴の設定だけでなく、通知アクセス・既定アシスタント・Connected Appsを別々に確認する手順を扱います。 セキュリティ・権限 標準 Gemini Android 通知アクセス Device assistance Connected Apps 権限管理 AndroidでGeminiを日常のアシスタントとして使う人 通知の読み上げや返信をAIに任せる前に、端末権限を見直したい人">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-09-07">2026.09.07</time>
+              <small>確認 2</small>
+            </div>
+            <h3>Geminiに通知を読ませる前に。Keep Activityとは別の「通知アクセス」を確認する</h3>
+            <p class="forensics-card-summary">Googleは、Android版GeminiがDevice assistance（旧Utilities）という接続アプリを通じて、アラーム、アプリ、通知、端末設定などを操作できると案内しています。通知に出るメッセージを読んだり返信した…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              Keep Activityと通知アクセスは別物。Geminiに通知を読ませる前に端末権限を確認する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
           <a class="forensics-card is-index-card tone-calm" href="case-20260907-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Apple Intelligenceは「端末内だけ」とは限らない。Private Cloud Computeの利用履歴を確認する Apple IntelligenceのPrivate Cloud Compute利用を確認する Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」からApple Intelligence Reportを作成し、Private Cloud Computeへ送られた要求のレポートを確認できます。期間は直近15分間または7日間から選び、出力すると`Apple_Intelligence_Report.json`として保存されます。『オンデバイスAI』という説明だけで処理場所を一律に決めつけず、端末で確認できる記録と、機能の利用可否・出力の正確さを分けて見る手順を扱います。 セキュリティ・権限 標準 Apple Intelligence iPhone Private Cloud Compute プライバシー オンデバイスAI 利用記録 iPhoneでApple Intelligenceを使い、処理場所を確認したい人 AI機能のクラウド利用を設定と記録から確かめたい人">
             <div class="forensics-index-card-meta">
 

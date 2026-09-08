@@ -1,0 +1,136 @@
+{
+  "id": "case-20260908-01",
+  "publishedAt": "2026-09-08",
+  "title": "Zoom AI要約は止めても配布済みコピーまで消えない。自動削除と共有先を分けて確認する",
+  "shortTitle": "Zoom AI要約は自動削除と配布済みコピーを分けて管理する",
+  "category": "work-use",
+  "difficulty": "advanced",
+  "targetAudience": [
+    "Zoom AIのMeeting Summaryを業務会議で使う主催者",
+    "AI要約の保存期間と参加者への共有範囲を整えたい管理者・チーム"
+  ],
+  "summary": "Zoomは、AIによるMeeting Summaryを指定日数後に自動削除する設定を、アカウント、グループ、個人の各段階で用意しています。上位の管理者は設定をロックでき、利用者側で変更できない場合があります。一方、主催者が共有を有効にした要約はメールやZoom Chatで参加者へ届き、受信者は保存・他者への共有を行えます。会議中にAI要約を停止しても、その時点までに生成された要約は残り得ます。要約の生成、会議内の削除、自動削除、参加者へ配布済みのコピーを同じ「削除」と考えず、会議前に保存期間と送付範囲を分けて決める記事です。",
+  "scenario": {
+    "headline": "会議のAI要約は便利だが、長期間残したくない",
+    "description": "ZoomのMeeting Summaryを使うチームです。会議後に主催者が要約を削除すれば、参加者へ届いたメールやChatの要約も消えると思っています。管理者が保存期間を設定しているか、個人で変えられるかも分かりません。",
+    "whyItMatters": "AI要約には、生成を止める操作、会議中の資産を削除する操作、Zoom内の自動削除、すでに参加者へ届いたコピーがあります。保存期間だけを決めても、配布先とコピーの扱いを決めなければ、記録の範囲を把握できません。"
+  },
+  "question": {
+    "text": "Zoom AIのMeeting Summaryを短期間だけ使いたい会議主催者が、最初に確認すべきことは？",
+    "choices": [
+      {
+        "id": "retention-and-distribution",
+        "label": "自動削除の日数と管理者ロックを確認し、メール・Chatへ共有する範囲を会議前に決める",
+        "description": "Zoom内の自動削除と、参加者に配布されたコピーは別に扱う必要がある。"
+      },
+      {
+        "id": "delete-means-everywhere",
+        "label": "主催者が会議後に要約を削除すれば、受信者のメールや保存済みコピーも必ず消えると考える",
+        "description": "共有された要約は受信者が保存・共有できるため、Zoom内の削除だけで配布済みコピーまで消えるとは限らない。"
+      },
+      {
+        "id": "stop-means-nothing-created",
+        "label": "会議の途中でAI要約を停止すれば、その時点までの会話から要約は生成されないと考える",
+        "description": "有効だった区間の会話については、停止後も要約が生成される場合がある。"
+      }
+    ],
+    "recommendedAnswers": ["retention-and-distribution"],
+    "explanation": "ZoomはMeeting Summaryの自動削除を日数指定で設定でき、アカウントやグループの管理者がロックできます。また、共有された要約はメールやZoom Chatで参加者に届き、受信者は保存・共有できます。保存期間と共有先を分けて確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "自動削除の設定場所と日数",
+      "description": "Zoom Web PortalのAI Companion設定で、Meeting Summaryの自動削除を有効にし、要約を利用可能にする日数を設定できます。",
+      "priority": "high"
+    },
+    {
+      "title": "アカウント・グループによるロック",
+      "description": "上位の管理者は自動削除設定をロックできます。個人設定が灰色なら、グループまたはアカウントの管理者へ確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "会議後の送付先",
+      "description": "主催者が共有を有効にすると、要約はメールで送られ、会議前後のChatを許可している場合はZoom Chatにも投稿されます。",
+      "priority": "high"
+    },
+    {
+      "title": "停止・削除の効く範囲",
+      "description": "会議中にMeeting Summaryを停止しても、有効だった区間の要約は生成され得ます。会議資産の削除と、すでに受信者が保存したコピーは別に扱います。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "Zoom AI要約は、保存期間と配布済みコピーを別に確認する",
+  "verificationMessage": "Meeting Summaryを使う前に、何日残すかだけでなく、誰のメール・Chatへ届くかを確認しましょう。",
+  "verdict": {
+    "label": "Zoom内で消す設定と、参加者へ渡った要約を消すことは同じではない",
+    "description": "Meeting Summaryには自動削除を設定できますが、共有を有効にした要約はメールやZoom Chatへ配布され、受信者は保存・共有できます。会議前に保存期間、共有先、会議中に扱わない話題の区間を決めることで、便利さと記録管理を両立できます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Meeting Summaryを有効にする前に、自動削除の日数と設定のロック状態を確認する",
+      "reason": "自動削除はアカウント・グループ・個人で設定でき、上位の管理者がロックできます。"
+    },
+    {
+      "action": "要約をメール・Zoom Chatのどちらへ送るかを会議前に決める",
+      "reason": "共有を有効にした要約はメールで届き、設定によってはZoom Chatにも投稿されます。"
+    },
+    {
+      "action": "機密の話題に入る前に、主催者がAI要約を停止する",
+      "reason": "Meeting Summaryは有効だった区間の音声認識データを参照して要約を生成します。"
+    },
+    {
+      "action": "削除時は、Zoom内の要約と参加者へ配布したコピーを別々に確認する",
+      "reason": "受信者は共有された要約を保存・他者へ共有できます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "自動削除をオンにしただけで、すべての受信者のメールや保存済みファイルも消えると考える",
+      "reason": "Zoom内の要約の保存期間と、受信者が保存・共有したコピーは別です。"
+    },
+    {
+      "action": "会議中にAI要約を止めれば、すでに扱った会話の要約も存在しないと判断する",
+      "reason": "有効だった区間の会話については、停止後も要約が生成される場合があります。"
+    },
+    {
+      "action": "個人設定だけを見て、組織の保持・ロック設定を確認しない",
+      "reason": "アカウントまたはグループの管理者が設定をロックしていることがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "短い保存期間と限定共有で、会議の振り返りを効率化する",
+    "description": "要約の共有先と保存期間を会議目的に合わせて決めれば、出席できなかった人への要点共有やタスク確認を、必要以上に記録を広げずに行えます。",
+    "examples": [
+      "週次会議の要約を関係者だけへ共有する",
+      "会議終了前に、機密議題ではAI要約を停止する",
+      "チーム単位で削除日数を統一する",
+      "共有メールの宛先を会議ごとに見直す"
+    ]
+  },
+  "makotoComment": "AI要約は『会議を短くする道具』であると同時に、『会議の外へ記録を運ぶ道具』でもあります。削除日数だけを設定して安心するより、どこへ送るかを先に決める方が、会議の空気も後始末もずっと整います。私は開始ボタンの前に、共有先を一行で決めたいです。",
+  "oneLineLesson": "Zoom AI要約は、保存期間と配布済みコピーを別々に管理する。",
+  "tags": ["Zoom", "Zoom AI", "Meeting Summary", "会議要約", "自動削除", "データ保持"],
+  "sources": [
+    {
+      "title": "Enabling auto-deletion of meeting summaries",
+      "publisher": "Zoom Support",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.zoom.com/hc/en/article/KB0075089"
+    },
+    {
+      "title": "Using Meeting Summary with AI",
+      "publisher": "Zoom Support",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.zoom.com/hc/en/article/KB0058013"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Zoom会議のAI要約から、Zoom内の自動削除カレンダー、参加者のメール、Zoom Chatへ別々の矢印が伸びる図。主催者が共有先と削除日数を会議前に確認している。",
+    "cardIcon": "zoom-ai-summary-retention-sharing",
+    "accentTone": "caution"
+  }
+}

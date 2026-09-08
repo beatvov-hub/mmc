@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zoom AI要約は止めても配布済みコピーまで消えない。自動削除と共有先を分けて確認する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Zoomは、AIによるMeeting Summaryを指定日数後に自動削除する設定を、アカウント、グループ、個人の各段階で用意しています。上位の管理者は設定をロックでき、利用者側で変更できない場合があります。一方、主催者が共有を有効にした要約はメールやZoom Chatで参加者へ届き、受信者は保存・他者への共有を行えます。会議中にAI要約を停止しても、その時点までに生成された要約は残り得ます。要約の生成、会議内の削除、自動削除、参加者へ配布済みのコピーを同じ「削除」と考えず、会議前に保存期間と送付範囲を分けて決める記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260908-01" />
+<meta property="og:title" content="Zoom AI要約は止めても配布済みコピーまで消えない。自動削除と共有先を分けて確認する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Zoomは、AIによるMeeting Summaryを指定日数後に自動削除する設定を、アカウント、グループ、個人の各段階で用意しています。上位の管理者は設定をロックでき、利用者側で変更できない場合があります。一方、主催者が共有を有効にした要約はメールやZoom Chatで参加者へ届き、受信者は保存・他者への共有を行えます。会議中にAI要約を停止しても、その時点までに生成された要約は残り得ます。要約の生成、会議内の削除、自動削除、参加者へ配布済みのコピーを同じ「削除」と考えず、会議前に保存期間と送付範囲を分けて決める記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260908-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="/">AI鑑識室</a>
+        <strong>Zoom AI要約は自動削除と配布済みコピーを分けて管理する</strong>
+        <a class="profile-back" href="/">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>発展</span>
+              <time datetime="2026-09-08">2026.09.08</time>
+            </div>
+            <h1>Zoom AI要約は止めても配布済みコピーまで消えない。自動削除と共有先を分けて確認する</h1>
+            <p>Zoomは、AIによるMeeting Summaryを指定日数後に自動削除する設定を、アカウント、グループ、個人の各段階で用意しています。上位の管理者は設定をロックでき、利用者側で変更できない場合があります。一方、主催者が共有を有効にした要約はメールやZoom Chatで参加者へ届き、受信者は保存・他者への共有を行えます。会議中にAI要約を停止しても、その時点までに生成された要約は残り得ます。要約の生成、会議内の削除、自動削除、参加者へ配布済みのコピーを同じ「削除」と考えず、会議前に保存期間と送付範囲を分けて決める記事です。</p>
+            <ul class="forensics-target-list"><li>Zoom AIのMeeting Summaryを業務会議で使う主催者</li><li>AI要約の保存期間と参加者への共有範囲を整えたい管理者・チーム</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Zoom</li><li>Zoom AI</li><li>Meeting Summary</li><li>会議要約</li><li>自動削除</li><li>データ保持</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>Zoom AI要約は、保存期間と配布済みコピーを別に確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Meeting Summaryを使う前に、何日残すかだけでなく、誰のメール・Chatへ届くかを確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>会議のAI要約は便利だが、長期間残したくない</h3><p>ZoomのMeeting Summaryを使うチームです。会議後に主催者が要約を削除すれば、参加者へ届いたメールやChatの要約も消えると思っています。管理者が保存期間を設定しているか、個人で変えられるかも分かりません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AI要約には、生成を止める操作、会議中の資産を削除する操作、Zoom内の自動削除、すでに参加者へ届いたコピーがあります。保存期間だけを決めても、配布先とコピーの扱いを決めなければ、記録の範囲を把握できません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="retention-and-distribution">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Zoom AIのMeeting Summaryを短期間だけ使いたい会議主催者が、最初に確認すべきことは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="retention-and-distribution" data-choice-id="retention-and-distribution" />
+                <span>
+                  <strong>自動削除の日数と管理者ロックを確認し、メール・Chatへ共有する範囲を会議前に決める</strong>
+                  <small>Zoom内の自動削除と、参加者に配布されたコピーは別に扱う必要がある。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-means-everywhere" data-choice-id="delete-means-everywhere" />
+                <span>
+                  <strong>主催者が会議後に要約を削除すれば、受信者のメールや保存済みコピーも必ず消えると考える</strong>
+                  <small>共有された要約は受信者が保存・共有できるため、Zoom内の削除だけで配布済みコピーまで消えるとは限らない。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="stop-means-nothing-created" data-choice-id="stop-means-nothing-created" />
+                <span>
+                  <strong>会議の途中でAI要約を停止すれば、その時点までの会話から要約は生成されないと考える</strong>
+                  <small>有効だった区間の会話については、停止後も要約が生成される場合がある。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>自動削除の日数と管理者ロックを確認し、メール・Chatへ共有する範囲を会議前に決める</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>ZoomはMeeting Summaryの自動削除を日数指定で設定でき、アカウントやグループの管理者がロックできます。また、共有された要約はメールやZoom Chatで参加者に届き、受信者は保存・共有できます。保存期間と共有先を分けて確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>自動削除の設定場所と日数</h3>
+              <p>Zoom Web PortalのAI Companion設定で、Meeting Summaryの自動削除を有効にし、要約を利用可能にする日数を設定できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>アカウント・グループによるロック</h3>
+              <p>上位の管理者は自動削除設定をロックできます。個人設定が灰色なら、グループまたはアカウントの管理者へ確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>会議後の送付先</h3>
+              <p>主催者が共有を有効にすると、要約はメールで送られ、会議前後のChatを許可している場合はZoom Chatにも投稿されます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>停止・削除の効く範囲</h3>
+              <p>会議中にMeeting Summaryを停止しても、有効だった区間の要約は生成され得ます。会議資産の削除と、すでに受信者が保存したコピーは別に扱います。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Zoom内で消す設定と、参加者へ渡った要約を消すことは同じではない</strong><p>Meeting Summaryには自動削除を設定できますが、共有を有効にした要約はメールやZoom Chatへ配布され、受信者は保存・共有できます。会議前に保存期間、共有先、会議中に扱わない話題の区間を決めることで、便利さと記録管理を両立できます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Meeting Summaryを有効にする前に、自動削除の日数と設定のロック状態を確認する</strong><span>自動削除はアカウント・グループ・個人で設定でき、上位の管理者がロックできます。</span></li>
+            <li><strong>要約をメール・Zoom Chatのどちらへ送るかを会議前に決める</strong><span>共有を有効にした要約はメールで届き、設定によってはZoom Chatにも投稿されます。</span></li>
+            <li><strong>機密の話題に入る前に、主催者がAI要約を停止する</strong><span>Meeting Summaryは有効だった区間の音声認識データを参照して要約を生成します。</span></li>
+            <li><strong>削除時は、Zoom内の要約と参加者へ配布したコピーを別々に確認する</strong><span>受信者は共有された要約を保存・他者へ共有できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>自動削除をオンにしただけで、すべての受信者のメールや保存済みファイルも消えると考える</strong><span>Zoom内の要約の保存期間と、受信者が保存・共有したコピーは別です。</span></li>
+            <li><strong>会議中にAI要約を止めれば、すでに扱った会話の要約も存在しないと判断する</strong><span>有効だった区間の会話については、停止後も要約が生成される場合があります。</span></li>
+            <li><strong>個人設定だけを見て、組織の保持・ロック設定を確認しない</strong><span>アカウントまたはグループの管理者が設定をロックしていることがあります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>短い保存期間と限定共有で、会議の振り返りを効率化する</h3>
+          <p>要約の共有先と保存期間を会議目的に合わせて決めれば、出席できなかった人への要点共有やタスク確認を、必要以上に記録を広げずに行えます。</p>
+          <ul class="positive-example-list"><li>週次会議の要約を関係者だけへ共有する</li><li>会議終了前に、機密議題ではAI要約を停止する</li><li>チーム単位で削除日数を統一する</li><li>共有メールの宛先を会議ごとに見直す</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AI要約は『会議を短くする道具』であると同時に、『会議の外へ記録を運ぶ道具』でもあります。削除日数だけを設定して安心するより、どこへ送るかを先に決める方が、会議の空気も後始末もずっと整います。私は開始ボタンの前に、共有先を一行で決めたいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Zoom AI要約は、保存期間と配布済みコピーを別々に管理する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.zoom.com/hc/en/article/KB0075089" target="_blank" rel="noopener noreferrer">Enabling auto-deletion of meeting summaries<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Zoom Support</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://support.zoom.com/hc/en/article/KB0058013" target="_blank" rel="noopener noreferrer">Using Meeting Summary with AI<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Zoom Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260907-04" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="Copilot Pagesを共有すると何が見える？「チャット全体」ではなくページ単位で渡す Copilot Pagesは共有方法で見える範囲と同期の仕方が変わる Microsoftは、Copilot Pagesを共有した相手はページとその内容にアクセスして共同編集できる一方、元のCopilotチャットセッションにはアクセスしないと案内しています。共有時にPage linkを選ぶと、相手はLoopでその一つのページだけを開きます。Copy componentを選んでTeams、Outlook、OneNoteなどへ貼ると、貼り付けたコンポーネントへの変更はページへリアルタイムで反映されます。AIとの会話全体を渡すのか、確認済みのページだけを渡すのか、リアルタイム同期が必要かを共有前に選ぶ手順を扱います。 仕事・AI活用 標準 Microsoft Copilot Copilot Pages Loop Teams 共同編集 共有設定 Microsoft Copilot PagesでAIの下書きをチームへ渡す人 Copilotの会話と共有する成果物の境界を整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-pages-share-boundary</span>
+              <div>
+                <p>Copilot Pagesは共有方法で見える範囲と同期の仕方が変わる</p>
+                <h3>Copilot Pagesを共有すると何が見える？「チャット全体」ではなくページ単位で渡す</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-07">2026.09.07</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、Copilot Pagesを共有した相手はページとその内容にアクセスして共同編集できる一方、元のCopilotチャットセッションにはアクセスしないと案内しています。共有時にPage linkを選ぶと、相手はLoopでその一つのページだけを開きます。Copy componentを選んでTeams、Outlook、OneNoteなどへ貼ると、貼り付けたコンポーネントへの変更はページへリアルタイムで反映されます。AIとの会話全体を渡すのか、確認済みのページだけを渡すのか、リアルタイム同期が必要かを共有前に選ぶ手順を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Copilot Pagesは、チャットとページを分け、同期する共有形式を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft Copilot PagesでAIの下書きをチームへ渡す人</li><li>Copilotの会話と共有する成果物の境界を整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Copilot Pages</li><li>Loop</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260906-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="advanced" data-search-text="TeamsのCopilotを『会議中のみ』にしても、組織の保持設定は別に確認する Teams Copilotの会議中利用と保持ポリシーは別に確認する Microsoftは、Teams会議で録画や文字起こしをオンにせず、Copilotを会議中だけ使ってメモやタスク整理を行う方法を案内しています。主催者は会議前のMeeting optionsでCopilot and other AIをOnly during the meetingに設定し、参加者が会議中にCopilotを開始します。この設定で文字起こしは自動開始せず、会議後はCopilotのRecapで利用できません。ただし、録画と文字起こしをオフにしても、Copilotへのプロンプトと応答は組織のMicrosoft Purview保持ポリシーに従って保持・eDiscoveryの対象になり得ます。『会議後に見えない』ことと『組織内に残らない』ことを混同せず、会議設定と組織のコンプライアンス設定を分けて確認する記事です。 仕事・AI活用 発展 Microsoft Teams Microsoft Copilot 会議AI 文字起こし Purview データ保持 Microsoft Teams会議でCopilotを使う主催者・参加者 録画・文字起こしを避けつつAIメモを使いたいチーム">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">teams-copilot-meeting-only-retention</span>
+              <div>
+                <p>Teams Copilotの会議中利用と保持ポリシーは別に確認する</p>
+                <h3>TeamsのCopilotを『会議中のみ』にしても、組織の保持設定は別に確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-06">2026.09.06</time>
+              <span>仕事・AI活用</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、Teams会議で録画や文字起こしをオンにせず、Copilotを会議中だけ使ってメモやタスク整理を行う方法を案内しています。主催者は会議前のMeeting optionsでCopilot and other AIをOnly during the meetingに設定し、参加者が会議中にCopilotを開始します。この設定で文字起こしは自動開始せず、会議後はCopilotのRecapで利用できません。ただし、録画と文字起こしをオフにしても、Copilotへのプロンプトと応答は組織のMicrosoft Purview保持ポリシーに従って保持・eDiscoveryの対象になり得ます。『会議後に見えない』ことと『組織内に残らない』ことを混同せず、会議設定と組織のコンプライアンス設定を分けて確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Teams Copilotは、会議中利用の設定と組織の保持方針を分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft Teams会議でCopilotを使う主催者・参加者</li><li>録画・文字起こしを避けつつAIメモを使いたいチーム</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Teams</li><li>Microsoft Copilot</li><li>会議AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260906-03" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="対面の打合せをCopilot Recordで録る前に。音声の保存先と参加者への説明を決める Copilot Recordは開始前にOneDrive保存と録音同意を確認する Microsoftは、Microsoft CopilotのRecord機能で対面会話や自分の音声メモを録音し、文字起こし・要約をCopilot Chatで扱う方法を案内しています。Recordは企業向け機能で、音声、文字起こし、要約は組織のMicrosoft 365テナント内に保管され、具体的には利用者自身のOneDrive for Businessに保存されます。既存の保持、eDiscovery、Information Protection、感度ラベル、DLPポリシーが適用されます。録音中は別アプリへ切り替えてもバックグラウンドで収録が続きます。一方、参加者へ録音を通知したり同意を取ったりする責任は利用者にあり、Copilotが代わりに通知することはありません。対面会議を始める前に、保存先・共有範囲・同意を決める記事です。 仕事・AI活用 標準 Microsoft Copilot Copilot Record 対面会議 OneDrive 録音同意 文字起こし Microsoft Copilotのモバイルアプリで対面会議や音声メモを録ろうとしている人 社外の相手を含む打合せをAIで文字起こし・要約したいチーム">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-record-consent-storage</span>
+              <div>
+                <p>Copilot Recordは開始前にOneDrive保存と録音同意を確認する</p>
+                <h3>対面の打合せをCopilot Recordで録る前に。音声の保存先と参加者への説明を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-06">2026.09.06</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、Microsoft CopilotのRecord機能で対面会話や自分の音声メモを録音し、文字起こし・要約をCopilot Chatで扱う方法を案内しています。Recordは企業向け機能で、音声、文字起こし、要約は組織のMicrosoft 365テナント内に保管され、具体的には利用者自身のOneDrive for Businessに保存されます。既存の保持、eDiscovery、Information Protection、感度ラベル、DLPポリシーが適用されます。録音中は別アプリへ切り替えてもバックグラウンドで収録が続きます。一方、参加者へ録音を通知したり同意を取ったりする責任は利用者にあり、Copilotが代わりに通知することはありません。対面会議を始める前に、保存先・共有範囲・同意を決める記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Copilot Recordは、録音同意とOneDrive保存を開始前に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft Copilotのモバイルアプリで対面会議や音声メモを録ろうとしている人</li><li>社外の相手を含む打合せをAIで文字起こし・要約したいチーム</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Copilot Record</li><li>対面会議</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="/">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260908-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
