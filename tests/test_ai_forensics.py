@@ -10,6 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import validate_ai_forensics as validator
+import generate_ai_forensics as generator
+import site_layout
 
 
 class AiForensicsValidatorTest(unittest.TestCase):
@@ -41,6 +43,14 @@ class AiForensicsValidatorTest(unittest.TestCase):
         article["question"]["recommendedAnswers"] = ["not-a-choice"]
         errors = validator.validate_article(self.path, article, strict_id=True, expected_date="2026-08-27")
         self.assertTrue(any("recommendedAnswers" in error for error in errors))
+
+    def test_article_list_links_stay_inside_ai_forensics_after_link_normalization(self) -> None:
+        rendered = generator.render_article_page(self.article, [self.article])
+        normalized = site_layout.normalize_internal_links(rendered)
+        self.assertIn('<a href="./">AI鑑識室</a>', normalized)
+        self.assertIn('<a class="profile-back" href="./">記事一覧へ戻る</a>', normalized)
+        self.assertIn('<a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>', normalized)
+        self.assertNotIn('href="/">AI鑑識室の記事一覧へ戻る</a>', normalized)
 
 
 if __name__ == "__main__":
