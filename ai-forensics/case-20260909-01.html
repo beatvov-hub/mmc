@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTubeの「Made with AI」は説明欄で由来まで見る。ラベルの3つの付き方｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="YouTubeは、動画の詳細説明にある「How this content was made」で、動画がAIで大幅に改変・生成されたことを示す「Made with AI」などの情報を表示する場合があります。この情報は、投稿者がYouTube Studioで申告した場合、YouTubeの生成AIツールを使った場合、有効なContent Credentialsが動画全体のAI生成を示す場合などに引き継がれます。署名した主体が分かる場合は「Info from」も表示されます。一方、「Captured with a camera」の表示がないことだけで、映像が改変されたとは判断できません。ラベルを見つけたら、表示の有無だけで本物・偽物を決めず、説明欄を開いて何の情報が表示されているかを読む手順を扱います。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260909-01" />
+<meta property="og:title" content="YouTubeの「Made with AI」は説明欄で由来まで見る。ラベルの3つの付き方｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="YouTubeは、動画の詳細説明にある「How this content was made」で、動画がAIで大幅に改変・生成されたことを示す「Made with AI」などの情報を表示する場合があります。この情報は、投稿者がYouTube Studioで申告した場合、YouTubeの生成AIツールを使った場合、有効なContent Credentialsが動画全体のAI生成を示す場合などに引き継がれます。署名した主体が分かる場合は「Info from」も表示されます。一方、「Captured with a camera」の表示がないことだけで、映像が改変されたとは判断できません。ラベルを見つけたら、表示の有無だけで本物・偽物を決めず、説明欄を開いて何の情報が表示されているかを読む手順を扱います。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260909-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>YouTubeのAIラベルは説明欄で由来まで確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+              <time datetime="2026-09-09">2026.09.09</time>
+            </div>
+            <h1>YouTubeの「Made with AI」は説明欄で由来まで見る。ラベルの3つの付き方</h1>
+            <p>YouTubeは、動画の詳細説明にある「How this content was made」で、動画がAIで大幅に改変・生成されたことを示す「Made with AI」などの情報を表示する場合があります。この情報は、投稿者がYouTube Studioで申告した場合、YouTubeの生成AIツールを使った場合、有効なContent Credentialsが動画全体のAI生成を示す場合などに引き継がれます。署名した主体が分かる場合は「Info from」も表示されます。一方、「Captured with a camera」の表示がないことだけで、映像が改変されたとは判断できません。ラベルを見つけたら、表示の有無だけで本物・偽物を決めず、説明欄を開いて何の情報が表示されているかを読む手順を扱います。</p>
+            <ul class="forensics-target-list"><li>YouTubeで見た動画がAIで作られたものか、どこを見ればよいか知りたい人</li><li>動画のAIラベルを見ても、どこまで判断材料にしてよいか迷う人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>YouTube</li><li>Made with AI</li><li>動画AI</li><li>Content Credentials</li><li>動画検証</li><li>メディアリテラシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>YouTubeのAI表示は、詳細説明と情報の提供元まで読む</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>ラベルの有無だけで結論を出さず、詳細説明の「How this content was made」と元の発信者を確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>SNSで話題のYouTube動画に、AIの表示があるか確かめたい</h3><p>動画の再生画面だけではAIラベルが見当たりません。説明欄を開くと「How this content was made」が表示される動画もあり、Made with AIという表示や、情報の提供元が何を意味するのか分かりません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>YouTube上の表示は、動画の作られ方についての手がかりです。ラベルを付けた経路や情報の提供元を読まずに、ラベルの有無だけから映像の内容や出来事まで結論づけると、判断を誤るおそれがあります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="open-description-and-read-context">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>YouTube動画のAI利用が気になる時、最初に行う確認として適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="open-description-and-read-context" data-choice-id="open-description-and-read-context" />
+                <span>
+                  <strong>詳細説明を開き、「How this content was made」と表示があれば「Info from」を確認する</strong>
+                  <small>ラベルがどの経路の情報に基づくかを読み、映像が主張する出来事は別の出典でも確認する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="no-label-means-real" data-choice-id="no-label-means-real" />
+                <span>
+                  <strong>再生画面にラベルがないので、AIによる生成・改変は一切ないと判断する</strong>
+                  <small>表示がないことだけでは、動画の作られ方や内容の正しさを確定できない。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="label-means-event-is-true" data-choice-id="label-means-event-is-true" />
+                <span>
+                  <strong>Made with AIの表示があるので、動画で説明される出来事も正しいと判断する</strong>
+                  <small>作られ方の表示と、映像が示す出来事・説明の真偽は別に確認する必要がある。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>詳細説明を開き、「How this content was made」と表示があれば「Info from」を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>YouTubeの「How this content was made」には、投稿者の申告、YouTubeの生成AIツール、有効なContent Credentialsなどをもとにした情報が表示される場合があります。表示の由来を読み、出来事の事実関係は公式発表や元の発信者などで別に確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>詳細説明の「How this content was made」</h3>
+              <p>再生画面だけで判断せず、動画の詳細説明を開きます。YouTubeは、この欄に作られ方や大幅な改変についての情報を表示する場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Made with AIが表示される経路</h3>
+              <p>投稿者のYouTube Studioでの申告、YouTubeの生成AIツールの利用、動画全体がAIで作られたことを示す有効なContent Credentialsなどで、情報が表示される場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Info fromの提供元</h3>
+              <p>Content Credentialsに署名した主体がある場合、「Info from」で情報を検証した提供元を確認できます。これは映像の出来事そのものの証明ではなく、来歴情報の提供元です。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>表示がない時の扱い</h3>
+              <p>「Captured with a camera」は、対応する技術で撮影・来歴情報が維持された動画に表示される仕組みです。表示がないだけで、音声や映像が改変されたと決めつけません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>YouTubeのAIラベルは、動画の作られ方を読む入口であって、出来事の真偽を決める印ではない</strong><p>YouTubeでは、自己申告、生成AIツール、Content Credentialsなどをもとに作られ方の情報が表示される場合があります。詳細説明とInfo fromを読めば、どの情報を手がかりにできるかが分かります。ただし、映像が伝える事件・発言・日時は、公式発表や元の投稿などで別に確かめます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>気になる動画は、詳細説明を開いて「How this content was made」を確認する</strong><span>YouTubeは、動画の作られ方に関する情報を動画プレーヤーや詳細説明に表示する場合があります。</span></li>
+            <li><strong>Info fromが表示されたら、情報を検証した提供元を確認する</strong><span>Content Credentialsに署名した主体がある場合、提供元を確認できます。</span></li>
+            <li><strong>映像内の出来事は、公式アカウント・公的発表・元の発信元で確認する</strong><span>動画の作られ方に関する表示だけでは、映像が伝える出来事の事実関係までは確定しません。</span></li>
+            <li><strong>表示が見つからない時も、AI利用の有無を即断しない</strong><span>来歴情報の表示には対応ツールや情報の維持などの条件があり、表示がないことだけでは判断できません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AIラベルが見当たらないことだけで、映像が無加工の事実だと判断する</strong><span>表示の有無は、映像の作られ方や出来事の正しさを完全に示すものではありません。</span></li>
+            <li><strong>Made with AIの表示だけを見て、動画の説明やニュース内容まで信じる</strong><span>ラベルは作られ方の情報であり、映像が主張する日時・場所・出来事は別に確認が必要です。</span></li>
+            <li><strong>Info fromを、映像内の人物や出来事を保証する機関名だと考える</strong><span>Info fromは、Content Credentials内の情報を検証した提供元を示すものです。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>YouTubeの表示を、動画の背景を知るための入口にする</h3>
+          <p>詳細説明の作られ方の情報と、元の発信者・公式資料を組み合わせれば、動画を一律に疑うのではなく、どこまで確かめられたかを整理できます。</p>
+          <ul class="positive-example-list"><li>災害や事件の動画では、投稿元の公式アカウントも開く</li><li>Info fromがあれば、来歴情報を提供した主体を控える</li><li>再投稿の切り抜きでは、元の動画と投稿日を探す</li><li>動画を共有する時は、確認できたことと未確認のことを分けて書く</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>動画のラベルは、答えを一語で渡してくれる印ではありません。私は説明欄を一段開いて、誰が何を示しているのかを見るようにしています。そこから元の発信者へ戻ると、映像の派手さに引っ張られず、確認できた範囲を自分で言えるようになります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>YouTubeのAI表示は、詳細説明とInfo fromまで読んでから判断する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/youtube/answer/15447836?hl=en-uk" target="_blank" rel="noopener noreferrer">Understanding &#x27;How this content was made&#x27; disclosures on YouTube<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>YouTube Help</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://support.google.com/youtube/answer/15446725?hl=en" target="_blank" rel="noopener noreferrer">Building trust on YouTube: &#x27;Captured with a camera&#x27; disclosure<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>YouTube Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260909-03" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="standard" data-search-text="Instagram・Facebookの「AI info」は投稿上にないことがある。メニューを開いて意味を読む MetaのAI infoは投稿メニューで表示の根拠を確認する MetaはFacebook、Instagram、Threadsで、業界標準のAI情報を検出した場合や投稿者がAI生成を申告した場合に「AI info」ラベルを表示する方針を案内しています。ただし、AIツールで編集・加工されたことだけを検出した投稿では、AI利用の程度をより正確に示すため、ラベルを投稿のメニューへ移すと説明しています。そのため、投稿上に目立つ表示がないことや、AI infoという一語だけで、画像・動画が全てAI生成か、内容が誤りかを結論づけられません。重要な事項で人を大きく誤認させるおそれがある場合は、より目立つラベルが追加される場合もあります。投稿メニューを開き、AI infoが何を示しているかを読み、事実確認は別に行う手順を扱います。 情報の見極め 標準 Instagram Facebook Threads Meta AI info 画像リテラシー InstagramやFacebookで見かけるAI関連ラベルの意味を正しく読みたい人 AIで少し編集した投稿と、AIが作った投稿を同じものとして扱いたくない人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">meta-ai-info-menu</span>
+              <div>
+                <p>MetaのAI infoは投稿メニューで表示の根拠を確認する</p>
+                <h3>Instagram・Facebookの「AI info」は投稿上にないことがある。メニューを開いて意味を読む</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-09">2026.09.09</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">MetaはFacebook、Instagram、Threadsで、業界標準のAI情報を検出した場合や投稿者がAI生成を申告した場合に「AI info」ラベルを表示する方針を案内しています。ただし、AIツールで編集・加工されたことだけを検出した投稿では、AI利用の程度をより正確に示すため、ラベルを投稿のメニューへ移すと説明しています。そのため、投稿上に目立つ表示がないことや、AI infoという一語だけで、画像・動画が全てAI生成か、内容が誤りかを結論づけられません。重要な事項で人を大きく誤認させるおそれがある場合は、より目立つラベルが追加される場合もあります。投稿メニューを開き、AI infoが何を示しているかを読み、事実確認は別に行う手順を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>MetaのAI infoは、投稿メニューと表示の範囲を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>InstagramやFacebookで見かけるAI関連ラベルの意味を正しく読みたい人</li><li>AIで少し編集した投稿と、AIが作った投稿を同じものとして扱いたくない人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Instagram</li><li>Facebook</li><li>Threads</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-friendly" href="case-20260909-04" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="写真を「AIっぽい」で終わらせない。Googleの「この画像について」で初出と使われ方を確認する Googleの「この画像について」で初出と使用先を確認する Google Searchの「About this image（この画像について）」では、Googleが画像または視覚的に似た画像を最初に確認した時期、同じ・似た画像を使う他のページ、より早い時期に現れたページなどを確認できる場合があります。画像ビューアーで「About」から「Learn more about an image」を選ぶ操作で使えますが、利用できる地域は限られます。画像に付随する情報から、カメラで撮影されたか、AIで生成されたかに関する文脈が表示される場合もあります。ただしGoogleは、クレジットやデジタルソース種別のメタデータは画像生成・編集ツールで変更できるため、他の情報源も確認するよう案内しています。AIらしさを見た目で推測して終わらせず、初出と利用文脈をたどる操作を扱います。 情報の見極め はじめて Google Search Google画像検索 画像検証 逆画像検索 誤情報 メディアリテラシー SNSやメッセージで見た写真が、古い画像の転用ではないか確かめたい人 画像がAI生成かどうかだけでなく、いつ・どこで使われたかを調べたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">google-about-this-image-context</span>
+              <div>
+                <p>Googleの「この画像について」で初出と使用先を確認する</p>
+                <h3>写真を「AIっぽい」で終わらせない。Googleの「この画像について」で初出と使われ方を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-09">2026.09.09</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Google Searchの「About this image（この画像について）」では、Googleが画像または視覚的に似た画像を最初に確認した時期、同じ・似た画像を使う他のページ、より早い時期に現れたページなどを確認できる場合があります。画像ビューアーで「About」から「Learn more about an image」を選ぶ操作で使えますが、利用できる地域は限られます。画像に付随する情報から、カメラで撮影されたか、AIで生成されたかに関する文脈が表示される場合もあります。ただしGoogleは、クレジットやデジタルソース種別のメタデータは画像生成・編集ツールで変更できるため、他の情報源も確認するよう案内しています。AIらしさを見た目で推測して終わらせず、初出と利用文脈をたどる操作を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Googleの「この画像について」で、初出と利用文脈をたどる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSやメッセージで見た写真が、古い画像の転用ではないか確かめたい人</li><li>画像がAI生成かどうかだけでなく、いつ・どこで使われたかを調べたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Search</li><li>Google画像検索</li><li>画像検証</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260906-01" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="standard" data-search-text="Content Credentialsは『AIか本物か』の二択ではない。画像・動画の来歴を確認する手順 Content Credentialsは画像・動画の来歴を確認する手がかり Content AuthenticityのInspectは、画像・動画・音声・PDFなどのファイル、またはURLを使って、利用できるContent Credentialsを確認するC2PA準拠の検査ツールです。表示できる場合は、作成者、使用ツール、来歴などの情報を確認できます。Googleも、Content Credentialsはコンテンツの由来や編集履歴、AIツールの利用情報を確認する手がかりになる一方、画像・動画・音声がAI生成だと確定するものではないと説明しています。Content CredentialsはC2PAの業界標準に基づく来歴情報で、署名した提供元を確認できます。検査結果を『本物・偽物の判定』で終わらせず、誰がどのような情報を署名し、何が分からないままかを読む手順を扱います。 情報の見極め 標準 Content Credentials C2PA 画像検証 動画検証 生成AI メディアリテラシー SNSで見かけた画像や動画の作られ方を確かめたい人 生成AIの表示・透かし・来歴情報を混同せずに読みたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">content-credentials-provenance</span>
+              <div>
+                <p>Content Credentialsは画像・動画の来歴を確認する手がかり</p>
+                <h3>Content Credentialsは『AIか本物か』の二択ではない。画像・動画の来歴を確認する手順</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-06">2026.09.06</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Content AuthenticityのInspectは、画像・動画・音声・PDFなどのファイル、またはURLを使って、利用できるContent Credentialsを確認するC2PA準拠の検査ツールです。表示できる場合は、作成者、使用ツール、来歴などの情報を確認できます。Googleも、Content Credentialsはコンテンツの由来や編集履歴、AIツールの利用情報を確認する手がかりになる一方、画像・動画・音声がAI生成だと確定するものではないと説明しています。Content CredentialsはC2PAの業界標準に基づく来歴情報で、署名した提供元を確認できます。検査結果を『本物・偽物の判定』で終わらせず、誰がどのような情報を署名し、何が分からないままかを読む手順を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Content Credentialsは、来歴情報と事実確認を分けて読む</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSで見かけた画像や動画の作られ方を確かめたい人</li><li>生成AIの表示・透かし・来歴情報を混同せずに読みたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Content Credentials</li><li>C2PA</li><li>画像検証</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260909-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

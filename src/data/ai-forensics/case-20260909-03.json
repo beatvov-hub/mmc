@@ -1,0 +1,129 @@
+{
+  "id": "case-20260909-03",
+  "publishedAt": "2026-09-09",
+  "title": "Instagram・Facebookの「AI info」は投稿上にないことがある。メニューを開いて意味を読む",
+  "shortTitle": "MetaのAI infoは投稿メニューで表示の根拠を確認する",
+  "category": "media-literacy",
+  "difficulty": "standard",
+  "targetAudience": [
+    "InstagramやFacebookで見かけるAI関連ラベルの意味を正しく読みたい人",
+    "AIで少し編集した投稿と、AIが作った投稿を同じものとして扱いたくない人"
+  ],
+  "summary": "MetaはFacebook、Instagram、Threadsで、業界標準のAI情報を検出した場合や投稿者がAI生成を申告した場合に「AI info」ラベルを表示する方針を案内しています。ただし、AIツールで編集・加工されたことだけを検出した投稿では、AI利用の程度をより正確に示すため、ラベルを投稿のメニューへ移すと説明しています。そのため、投稿上に目立つ表示がないことや、AI infoという一語だけで、画像・動画が全てAI生成か、内容が誤りかを結論づけられません。重要な事項で人を大きく誤認させるおそれがある場合は、より目立つラベルが追加される場合もあります。投稿メニューを開き、AI infoが何を示しているかを読み、事実確認は別に行う手順を扱います。",
+  "scenario": {
+    "headline": "Instagramで見た写真にAI infoの表示があるが、全てAI生成なのか分からない",
+    "description": "写真は実写のように見えますが、投稿上には大きなAIラベルがありません。投稿メニューにAI infoがあるという話を聞き、単なる補正と生成画像のどちらなのか、どう扱えばよいか迷っています。",
+    "whyItMatters": "MetaのAI infoは、AI利用に関する手がかりを提供するための表示です。検出された情報が編集なのか生成なのか、自己申告なのかを読まずに、ラベルを事実判定や作者への非難の根拠にすると、表示の範囲を超えた判断になります。"
+  },
+  "question": {
+    "text": "InstagramやFacebookで、AIによる編集の可能性がある投稿を見た時の確認として適切なのは？",
+    "choices": [
+      {
+        "id": "open-menu-and-read-ai-info",
+        "label": "投稿メニューにAI infoがあるか確認し、表示が示すAI利用の範囲と、投稿内容の根拠を分けて読む",
+        "description": "AI infoは作られ方の手がかりであり、投稿内容の事実確認は別に行う。"
+      },
+      {
+        "id": "assume-fully-generated",
+        "label": "AI infoがあれば、画像・動画の全てが文章入力だけで生成されたと断定する",
+        "description": "AIによる編集・加工に関する情報でも表示される場合があり、表示だけで利用の程度は決められない。"
+      },
+      {
+        "id": "no-visible-label-is-proof",
+        "label": "投稿上に目立つラベルがなければ、AIは使われていないと判断する",
+        "description": "AIで編集された投稿の表示は、投稿メニューへ移される場合がある。"
+      }
+    ],
+    "recommendedAnswers": ["open-menu-and-read-ai-info"],
+    "explanation": "Metaは、AIで編集・加工されたことだけを検出した投稿では、AI infoを投稿メニューへ移す方針を案内しています。AI infoが示す範囲を読み、投稿が伝える商品・事件・人物に関する事実は、元の発信元や他の根拠で別に確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "投稿メニューのAI info",
+      "description": "投稿上に目立つ表示がない場合も、投稿メニューにAI infoが表示されることがあります。気になる投稿ではメニューを開いて情報を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "検出情報か、投稿者の自己申告か",
+      "description": "Metaは、業界標準のAI情報を検出した場合や、投稿者がAI生成を申告した場合にAI infoを表示すると案内しています。表示の背景を読みます。",
+      "priority": "high"
+    },
+    {
+      "title": "編集と全体生成を混同しない",
+      "description": "AIによる編集・加工に関する情報でもラベルが付くことがあります。AI infoがあるだけで、投稿全体がAI生成だと断定しません。",
+      "priority": "high"
+    },
+    {
+      "title": "重要な主張は別に確かめる",
+      "description": "商品効果、災害、選挙、人物の発言など重要な主張は、投稿のラベルではなく公式発表・一次資料・信頼できる報道で確認します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "MetaのAI infoは、投稿メニューと表示の範囲を確認する",
+  "verificationMessage": "AI infoを見つけたら、AIを使った範囲と投稿内容の真偽を同じ判断にしないようにしましょう。",
+  "verdict": {
+    "label": "MetaのAI infoは『全てAI生成』の判定ではなく、作られ方を読むための追加情報",
+    "description": "MetaのAI infoは、検出された業界標準の情報や投稿者の申告をもとに表示されます。AIで編集された投稿の情報はメニューに表示される場合があるため、目立つラベルの有無だけで判断しません。表示の範囲を読み、投稿が伝える重要な事実は別の根拠で確かめます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "気になる投稿では、投稿メニューを開いてAI infoがあるかを確認する",
+      "reason": "Metaは、AIで編集・加工された投稿のAI infoを投稿メニューへ移す方針を案内しています。"
+    },
+    {
+      "action": "AI infoがあれば、全体生成か軽微な編集かを表示だけで断定しない",
+      "reason": "AI infoは、AIツールによる編集・加工に関する情報でも表示される場合があります。"
+    },
+    {
+      "action": "投稿者の自己申告や検出情報と、投稿内容の事実確認を分ける",
+      "reason": "作られ方の情報は、投稿が主張する出来事・商品効果・発言の真偽を保証しません。"
+    },
+    {
+      "action": "重要な主張は、公式発表・一次資料・元の発信元へ戻って確認する",
+      "reason": "AIラベルはコンテキストの一部であり、事実確認を代替するものではありません。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "AI infoを見て、画像や動画の全てがAI生成だと決めつける",
+      "reason": "AIによる編集・加工だけが検出された場合にも、情報が表示されることがあります。"
+    },
+    {
+      "action": "目立つAI表示がないことだけで、AI利用がないと判断する",
+      "reason": "編集に関するAI infoは、投稿メニューに表示される場合があります。"
+    },
+    {
+      "action": "AI infoの有無だけで、投稿内容を共有・批判する",
+      "reason": "表示は作られ方の手がかりであり、主張の真偽や意図を単独では確定できません。"
+    }
+  ],
+  "positiveUse": {
+    "title": "ラベルをきっかけに、投稿の読み方を少し丁寧にする",
+    "description": "AI infoを見つけた時に、投稿を即座に否定・拡散する代わりに、何が表示され、何を別に確認すべきかを整理すれば、創作や写真編集を尊重しながら誤情報にも慎重に向き合えます。",
+    "examples": [
+      "話題の画像では投稿メニューのAI infoを開く",
+      "商品広告の加工と価格・性能の主張を分けて確認する",
+      "災害や事件の投稿は公式機関の発表へ戻る",
+      "画像のAI利用について、表示の範囲を添えて家族・友人と共有する"
+    ]
+  },
+  "makotoComment": "AI infoという短い言葉を見た時ほど、私はその言葉が何を言っていて、何を言っていないかを分けたくなります。少しの編集と、ゼロから作った映像と、投稿の主張が正しいかは、同じ一問ではありません。メニューを一度開く手間は、その三つをほどく小さな習慣になります。",
+  "oneLineLesson": "MetaのAI infoは、投稿メニューで表示の範囲を読み、事実確認は別に行う。",
+  "tags": ["Instagram", "Facebook", "Threads", "Meta", "AI info", "画像リテラシー"],
+  "sources": [
+    {
+      "title": "Our Approach to Labeling AI-Generated Content and Manipulated Media",
+      "publisher": "Meta",
+      "sourceType": "official-product-update",
+      "publishedAt": "2024-04-05",
+      "url": "https://about.fb.com/news/2024/04/metas-approach-to-labeling-ai-generated-content-and-manipulated-media/"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "InstagramとFacebookの投稿カードに、上ではなく三点メニュー内にAI infoがあることを示す図。『AIで編集』と『全体をAI生成』と『内容の事実確認』を別々のカードに分ける。",
+    "cardIcon": "meta-ai-info-menu",
+    "accentTone": "caution"
+  }
+}

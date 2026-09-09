@@ -1,0 +1,136 @@
+{
+  "id": "case-20260909-01",
+  "publishedAt": "2026-09-09",
+  "title": "YouTubeの「Made with AI」は説明欄で由来まで見る。ラベルの3つの付き方",
+  "shortTitle": "YouTubeのAIラベルは説明欄で由来まで確認する",
+  "category": "media-literacy",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "YouTubeで見た動画がAIで作られたものか、どこを見ればよいか知りたい人",
+    "動画のAIラベルを見ても、どこまで判断材料にしてよいか迷う人"
+  ],
+  "summary": "YouTubeは、動画の詳細説明にある「How this content was made」で、動画がAIで大幅に改変・生成されたことを示す「Made with AI」などの情報を表示する場合があります。この情報は、投稿者がYouTube Studioで申告した場合、YouTubeの生成AIツールを使った場合、有効なContent Credentialsが動画全体のAI生成を示す場合などに引き継がれます。署名した主体が分かる場合は「Info from」も表示されます。一方、「Captured with a camera」の表示がないことだけで、映像が改変されたとは判断できません。ラベルを見つけたら、表示の有無だけで本物・偽物を決めず、説明欄を開いて何の情報が表示されているかを読む手順を扱います。",
+  "scenario": {
+    "headline": "SNSで話題のYouTube動画に、AIの表示があるか確かめたい",
+    "description": "動画の再生画面だけではAIラベルが見当たりません。説明欄を開くと「How this content was made」が表示される動画もあり、Made with AIという表示や、情報の提供元が何を意味するのか分かりません。",
+    "whyItMatters": "YouTube上の表示は、動画の作られ方についての手がかりです。ラベルを付けた経路や情報の提供元を読まずに、ラベルの有無だけから映像の内容や出来事まで結論づけると、判断を誤るおそれがあります。"
+  },
+  "question": {
+    "text": "YouTube動画のAI利用が気になる時、最初に行う確認として適切なのは？",
+    "choices": [
+      {
+        "id": "open-description-and-read-context",
+        "label": "詳細説明を開き、「How this content was made」と表示があれば「Info from」を確認する",
+        "description": "ラベルがどの経路の情報に基づくかを読み、映像が主張する出来事は別の出典でも確認する。"
+      },
+      {
+        "id": "no-label-means-real",
+        "label": "再生画面にラベルがないので、AIによる生成・改変は一切ないと判断する",
+        "description": "表示がないことだけでは、動画の作られ方や内容の正しさを確定できない。"
+      },
+      {
+        "id": "label-means-event-is-true",
+        "label": "Made with AIの表示があるので、動画で説明される出来事も正しいと判断する",
+        "description": "作られ方の表示と、映像が示す出来事・説明の真偽は別に確認する必要がある。"
+      }
+    ],
+    "recommendedAnswers": ["open-description-and-read-context"],
+    "explanation": "YouTubeの「How this content was made」には、投稿者の申告、YouTubeの生成AIツール、有効なContent Credentialsなどをもとにした情報が表示される場合があります。表示の由来を読み、出来事の事実関係は公式発表や元の発信者などで別に確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "詳細説明の「How this content was made」",
+      "description": "再生画面だけで判断せず、動画の詳細説明を開きます。YouTubeは、この欄に作られ方や大幅な改変についての情報を表示する場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "Made with AIが表示される経路",
+      "description": "投稿者のYouTube Studioでの申告、YouTubeの生成AIツールの利用、動画全体がAIで作られたことを示す有効なContent Credentialsなどで、情報が表示される場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "Info fromの提供元",
+      "description": "Content Credentialsに署名した主体がある場合、「Info from」で情報を検証した提供元を確認できます。これは映像の出来事そのものの証明ではなく、来歴情報の提供元です。",
+      "priority": "high"
+    },
+    {
+      "title": "表示がない時の扱い",
+      "description": "「Captured with a camera」は、対応する技術で撮影・来歴情報が維持された動画に表示される仕組みです。表示がないだけで、音声や映像が改変されたと決めつけません。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "YouTubeのAI表示は、詳細説明と情報の提供元まで読む",
+  "verificationMessage": "ラベルの有無だけで結論を出さず、詳細説明の「How this content was made」と元の発信者を確認しましょう。",
+  "verdict": {
+    "label": "YouTubeのAIラベルは、動画の作られ方を読む入口であって、出来事の真偽を決める印ではない",
+    "description": "YouTubeでは、自己申告、生成AIツール、Content Credentialsなどをもとに作られ方の情報が表示される場合があります。詳細説明とInfo fromを読めば、どの情報を手がかりにできるかが分かります。ただし、映像が伝える事件・発言・日時は、公式発表や元の投稿などで別に確かめます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "気になる動画は、詳細説明を開いて「How this content was made」を確認する",
+      "reason": "YouTubeは、動画の作られ方に関する情報を動画プレーヤーや詳細説明に表示する場合があります。"
+    },
+    {
+      "action": "Info fromが表示されたら、情報を検証した提供元を確認する",
+      "reason": "Content Credentialsに署名した主体がある場合、提供元を確認できます。"
+    },
+    {
+      "action": "映像内の出来事は、公式アカウント・公的発表・元の発信元で確認する",
+      "reason": "動画の作られ方に関する表示だけでは、映像が伝える出来事の事実関係までは確定しません。"
+    },
+    {
+      "action": "表示が見つからない時も、AI利用の有無を即断しない",
+      "reason": "来歴情報の表示には対応ツールや情報の維持などの条件があり、表示がないことだけでは判断できません。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "AIラベルが見当たらないことだけで、映像が無加工の事実だと判断する",
+      "reason": "表示の有無は、映像の作られ方や出来事の正しさを完全に示すものではありません。"
+    },
+    {
+      "action": "Made with AIの表示だけを見て、動画の説明やニュース内容まで信じる",
+      "reason": "ラベルは作られ方の情報であり、映像が主張する日時・場所・出来事は別に確認が必要です。"
+    },
+    {
+      "action": "Info fromを、映像内の人物や出来事を保証する機関名だと考える",
+      "reason": "Info fromは、Content Credentials内の情報を検証した提供元を示すものです。"
+    }
+  ],
+  "positiveUse": {
+    "title": "YouTubeの表示を、動画の背景を知るための入口にする",
+    "description": "詳細説明の作られ方の情報と、元の発信者・公式資料を組み合わせれば、動画を一律に疑うのではなく、どこまで確かめられたかを整理できます。",
+    "examples": [
+      "災害や事件の動画では、投稿元の公式アカウントも開く",
+      "Info fromがあれば、来歴情報を提供した主体を控える",
+      "再投稿の切り抜きでは、元の動画と投稿日を探す",
+      "動画を共有する時は、確認できたことと未確認のことを分けて書く"
+    ]
+  },
+  "makotoComment": "動画のラベルは、答えを一語で渡してくれる印ではありません。私は説明欄を一段開いて、誰が何を示しているのかを見るようにしています。そこから元の発信者へ戻ると、映像の派手さに引っ張られず、確認できた範囲を自分で言えるようになります。",
+  "oneLineLesson": "YouTubeのAI表示は、詳細説明とInfo fromまで読んでから判断する。",
+  "tags": ["YouTube", "Made with AI", "動画AI", "Content Credentials", "動画検証", "メディアリテラシー"],
+  "sources": [
+    {
+      "title": "Understanding 'How this content was made' disclosures on YouTube",
+      "publisher": "YouTube Help",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/youtube/answer/15447836?hl=en-uk"
+    },
+    {
+      "title": "Building trust on YouTube: 'Captured with a camera' disclosure",
+      "publisher": "YouTube Help",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/youtube/answer/15446725?hl=en"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "YouTube動画の詳細説明を開いた画面を模した図。『How this content was made』『Made with AI』『Info from』を順に見る虫眼鏡と、横に公式発表を確認する別のカードを置く。",
+    "cardIcon": "youtube-ai-disclosure-context",
+    "accentTone": "calm"
+  }
+}

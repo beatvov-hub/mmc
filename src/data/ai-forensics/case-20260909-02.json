@@ -1,0 +1,129 @@
+{
+  "id": "case-20260909-02",
+  "publishedAt": "2026-09-09",
+  "title": "TikTokのAI動画、ラベルだけで終わらせない。怪しい投稿は「Deepfakes」で通報する",
+  "shortTitle": "TikTokのAIなりすまし動画はDeepfakesとして通報する",
+  "category": "scam",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "TikTokで家族・著名人・公的機関になりすましたように見えるAI動画を見かける人",
+    "AI生成の可能性がある投稿を、拡散せずに報告する操作を知りたい人"
+  ],
+  "summary": "TikTokは、AIで完全に生成または大幅に編集された投稿について、投稿者による「creator labeled as AI-generated」と、自動で付く「AI-generated」という複数のラベルを案内しています。自動ラベルは、TikTokのAI効果や、Content Credentialsを含む投稿などに付く場合があり、付いた後は投稿者が外せません。ただし、ラベルがあっても、実在の私的な人物の肖像・声を無断で使うことや、人を害する誤認を招く内容が許されるわけではありません。TikTokで問題のあるAIなりすまし動画を見つけた時は、共有メニューから「Report」→「Misinformation」→「Deepfakes, synthetic media, and manipulated media」を選んで報告できます。ラベルの有無を眺めるだけで終わらせず、拡散前に報告先を選ぶ手順を扱います。",
+  "scenario": {
+    "headline": "知人が言っていないはずのことを話す、リアルなTikTok動画が流れてきた",
+    "description": "投稿にはAI生成と書かれていないか、ラベルの意味が分かりません。コメントで広がっているため、真偽が分かるまで拡散はしたくありませんが、どの通報理由を選べばよいか迷っています。",
+    "whyItMatters": "AIラベルは投稿の作られ方を知らせる仕組みですが、ラベルが付いていることは、肖像や発言の利用許可、人をだます内容の安全性を保証しません。通報の手順を知っておけば、投稿の再共有で被害を広げずに対応できます。"
+  },
+  "question": {
+    "text": "TikTokで、実在の人が言っていない発言をしているように見えるAI動画を見つけた時の対応として適切なのは？",
+    "choices": [
+      {
+        "id": "report-as-deepfake",
+        "label": "再共有を止め、共有メニューからReport → Misinformation → Deepfakes, synthetic media, and manipulated mediaを選ぶ",
+        "description": "ラベルの有無とは別に、AIなりすまし・改変メディアとして報告できる。"
+      },
+      {
+        "id": "label-makes-it-allowed",
+        "label": "AI生成ラベルが付いていれば、本人の肖像や発言を使っていても問題ないと考える",
+        "description": "ラベルは許可証ではなく、害を及ぼす誤認や無断の肖像利用が許されるわけではない。"
+      },
+      {
+        "id": "repost-for-verification",
+        "label": "本物かどうかを知るため、まず自分でも再投稿して反応を見る",
+        "description": "拡散が先行すると、訂正前に被害を広げるおそれがある。"
+      }
+    ],
+    "recommendedAnswers": ["report-as-deepfake"],
+    "explanation": "TikTokは、問題のあるAI生成・改変メディアを報告する手順として、ReportからMisinformation、Deepfakes, synthetic media, and manipulated mediaを選ぶ方法を案内しています。共有や再投稿をせず、元の投稿から報告します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "投稿者ラベルと自動ラベルの違い",
+      "description": "投稿者自身が付けるラベルと、TikTokが検出して付ける自動ラベルがあります。自動ラベルは、AI効果やContent Credentialsを含む投稿に付く場合があります。",
+      "priority": "medium"
+    },
+    {
+      "title": "ラベルは利用許可ではない",
+      "description": "実在人物が言っていないことを言ったように見せる投稿や、無断で私的な人物の肖像を使う投稿は、ラベルがあっても問題になり得ます。",
+      "priority": "high"
+    },
+    {
+      "title": "通報する時の選択肢",
+      "description": "問題の投稿の共有メニューからReportを選び、Misinformation、Deepfakes, synthetic media, and manipulated mediaへ進みます。",
+      "priority": "high"
+    },
+    {
+      "title": "再共有を先にしない",
+      "description": "検証目的でも、動画のダウンロードや再投稿は拡散につながります。通報は元の投稿から行い、必要なら投稿URLや画面を記録します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "TikTokのAIなりすましは、再共有せずDeepfakesとして通報する",
+  "verificationMessage": "本人が言っていない発言や出来事を示すように見える投稿は、共有より先に通報画面を開きましょう。",
+  "verdict": {
+    "label": "AIラベルは安全証明ではない。なりすましが疑われる時は報告先を選ぶ",
+    "description": "TikTokには投稿者ラベルと自動ラベルがありますが、ラベルが付いていても、他人の肖像・声の無断利用や害を及ぼす誤認が許されるわけではありません。疑わしい投稿は再共有せず、Deepfakes, synthetic media, and manipulated mediaとして報告することで、投稿を広げずに対応できます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "なりすましが疑われる動画は再共有せず、元投稿の共有メニューから通報する",
+      "reason": "TikTokは、AI生成・改変メディアの問題を報告する手順を案内しています。"
+    },
+    {
+      "action": "Report → Misinformation → Deepfakes, synthetic media, and manipulated mediaを選ぶ",
+      "reason": "TikTokの案内にある、問題のあるAI生成コンテンツを報告する選択手順です。"
+    },
+    {
+      "action": "ラベルがある時も、誰の肖像・声か、何を事実のように見せているかを確認する",
+      "reason": "ラベルは作られ方の情報であり、肖像利用や内容の安全性を許可するものではありません。"
+    },
+    {
+      "action": "本人・組織の公式アカウントや公式発表で、発言・出来事を別に確認する",
+      "reason": "投稿内の映像・音声は、現実の発言や出来事を正確に示しているとは限りません。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "AI生成ラベルが付いているから、投稿内容まで問題ないと判断する",
+      "reason": "ラベルは透明性のための表示であり、無断の肖像利用や害を及ぼす誤認を正当化しません。"
+    },
+    {
+      "action": "真偽を聞く目的で、疑わしい動画を先に再投稿する",
+      "reason": "訂正される前に動画を広げ、なりすましの影響を大きくするおそれがあります。"
+    },
+    {
+      "action": "AIラベルがないことだけで、本物の発言・映像だと決める",
+      "reason": "ラベルの有無だけでは、作られ方や内容の真偽を確定できません。"
+    }
+  ],
+  "positiveUse": {
+    "title": "通報手順を知り、AI動画を落ち着いて楽しむ",
+    "description": "AIを使った創作動画と、人を害するなりすましを分けて考え、問題が疑われる時だけ適切に報告すれば、作品を一律に排除せずに安全な視聴環境づくりに参加できます。",
+    "examples": [
+      "本人の発言のように見える動画は公式発表を確認する",
+      "問題が疑われる動画は再投稿せず元投稿から通報する",
+      "家族へDeepfakesの通報経路を共有する",
+      "創作のAI動画は、投稿者の説明とラベルを読んで楽しむ"
+    ]
+  },
+  "makotoComment": "ラベルは親切な情報ですが、通報ボタンの代わりにはなりません。誰かが言っていないことを言ったように見せる動画は、面白半分の再共有でも本人の時間を奪います。私は、疑わしい時ほど『広める』より先に、元投稿で報告先を選べるようにしておきたいです。",
+  "oneLineLesson": "TikTokのAIなりすましは、再共有せずDeepfakesとして通報する。",
+  "tags": ["TikTok", "ディープフェイク", "AI動画", "なりすまし", "通報", "誤情報"],
+  "sources": [
+    {
+      "title": "About AI-generated content",
+      "publisher": "TikTok Support",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.tiktok.com/en/using-tiktok/creating-videos/ai-generated-content"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "TikTokの怪しい動画を見た人が、再共有ボタンを押さずに共有メニューからReport、Misinformation、Deepfakesへ進む3段階の図。横にAIラベルは許可証ではないという注意を添える。",
+    "cardIcon": "tiktok-deepfake-report",
+    "accentTone": "serious"
+  }
+}

@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>写真を「AIっぽい」で終わらせない。Googleの「この画像について」で初出と使われ方を確認する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Google Searchの「About this image（この画像について）」では、Googleが画像または視覚的に似た画像を最初に確認した時期、同じ・似た画像を使う他のページ、より早い時期に現れたページなどを確認できる場合があります。画像ビューアーで「About」から「Learn more about an image」を選ぶ操作で使えますが、利用できる地域は限られます。画像に付随する情報から、カメラで撮影されたか、AIで生成されたかに関する文脈が表示される場合もあります。ただしGoogleは、クレジットやデジタルソース種別のメタデータは画像生成・編集ツールで変更できるため、他の情報源も確認するよう案内しています。AIらしさを見た目で推測して終わらせず、初出と利用文脈をたどる操作を扱います。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260909-04" />
+<meta property="og:title" content="写真を「AIっぽい」で終わらせない。Googleの「この画像について」で初出と使われ方を確認する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Google Searchの「About this image（この画像について）」では、Googleが画像または視覚的に似た画像を最初に確認した時期、同じ・似た画像を使う他のページ、より早い時期に現れたページなどを確認できる場合があります。画像ビューアーで「About」から「Learn more about an image」を選ぶ操作で使えますが、利用できる地域は限られます。画像に付随する情報から、カメラで撮影されたか、AIで生成されたかに関する文脈が表示される場合もあります。ただしGoogleは、クレジットやデジタルソース種別のメタデータは画像生成・編集ツールで変更できるため、他の情報源も確認するよう案内しています。AIらしさを見た目で推測して終わらせず、初出と利用文脈をたどる操作を扱います。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260909-04" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Googleの「この画像について」で初出と使用先を確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+              <time datetime="2026-09-09">2026.09.09</time>
+            </div>
+            <h1>写真を「AIっぽい」で終わらせない。Googleの「この画像について」で初出と使われ方を確認する</h1>
+            <p>Google Searchの「About this image（この画像について）」では、Googleが画像または視覚的に似た画像を最初に確認した時期、同じ・似た画像を使う他のページ、より早い時期に現れたページなどを確認できる場合があります。画像ビューアーで「About」から「Learn more about an image」を選ぶ操作で使えますが、利用できる地域は限られます。画像に付随する情報から、カメラで撮影されたか、AIで生成されたかに関する文脈が表示される場合もあります。ただしGoogleは、クレジットやデジタルソース種別のメタデータは画像生成・編集ツールで変更できるため、他の情報源も確認するよう案内しています。AIらしさを見た目で推測して終わらせず、初出と利用文脈をたどる操作を扱います。</p>
+            <ul class="forensics-target-list"><li>SNSやメッセージで見た写真が、古い画像の転用ではないか確かめたい人</li><li>画像がAI生成かどうかだけでなく、いつ・どこで使われたかを調べたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Google Search</li><li>Google画像検索</li><li>画像検証</li><li>逆画像検索</li><li>誤情報</li><li>メディアリテラシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>Googleの「この画像について」で、初出と利用文脈をたどる</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>画像の見た目だけで決めず、いつからどこで使われていたかと、元の発信者を確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>災害現場だという写真が送られてきたが、以前の別の出来事の画像かもしれない</h3><p>画像には説明文しかなく、投稿者も撮影者も分かりません。加工やAI生成の可能性だけでなく、同じ画像がいつからどのような文脈で使われていたかを調べたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>誤情報はAIで作られた画像だけで広がるわけではありません。古い写真や別の場所の画像が新しい出来事として添えられることもあります。初出・早期の利用例・他サイトでの使われ方を調べると、画像の見た目だけでは分からない転用を見つけられる場合があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-about-this-image">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>SNSで見た写真が、今起きた出来事のものか疑わしい時の確認として適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-about-this-image" data-choice-id="check-about-this-image" />
+                <span>
+                  <strong>Google画像検索で画像を開き、利用できる場合はAboutから「Learn more about an image」を選び、初出・早期の利用例・他サイトでの使われ方を確認する</strong>
+                  <small>画像の見た目だけでなく、過去の利用文脈を手がかりにする。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="judge-by-ai-look" data-choice-id="judge-by-ai-look" />
+                <span>
+                  <strong>AIらしい見た目かどうかだけで、写真が現在の出来事を示すかを決める</strong>
+                  <small>実写の古い写真や別の場所の写真が、現在の出来事として転用される場合もある。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="metadata-alone-proves" data-choice-id="metadata-alone-proves" />
+                <span>
+                  <strong>表示された画像メタデータだけで、撮影日時や作成方法を確定する</strong>
+                  <small>Googleは、クレジットやデジタルソース種別のメタデータは変更される場合があると案内している。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Google画像検索で画像を開き、利用できる場合はAboutから「Learn more about an image」を選び、初出・早期の利用例・他サイトでの使われ方を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>GoogleのAbout this imageでは、似た画像をGoogleが最初に確認した時期、他サイトでの利用、より早期に現れたページを確認できる場合があります。メタデータだけに頼らず、元の発信者や公的発表なども合わせて調べます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>機能を開く操作と利用地域</h3>
+              <p>Google画像検索で画像を開き、Image ViewerのAboutからLearn more about an imageを選びます。この機能は一部の地域でのみ利用可能です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Googleが最初に確認した時期</h3>
+              <p>画像または視覚的に似た画像をGoogleが最初に確認した時期は、画像が想定より古くないかを考える手がかりになります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Early usesと他サイトでの利用</h3>
+              <p>より早く現れたページや、同じ・似た画像を使うページを確認し、元の撮影者・投稿者・利用文脈をたどります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>メタデータの限界</h3>
+              <p>画像の作られ方・編集に関する情報が表示される場合もありますが、クレジットやデジタルソース種別のメタデータは変更され得ます。他の根拠と組み合わせます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>画像の信頼性はAI判定だけでなく、初出と使われ方を確かめて考える</strong><p>GoogleのAbout this imageは、類似画像の初出時期、早期の利用例、他サイトでの使われ方を確認する手がかりになります。機能が利用できる地域であれば、画像ビューアーから確認できます。メタデータや表示だけを最終判断にせず、元の投稿者・公式発表・他の信頼できる情報源へ進みます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>気になる画像をGoogle画像検索で開き、利用できる場合はAboutから詳細情報を確認する</strong><span>Googleは、画像の初出時期や他サイトでの使われ方を確認する機能を案内しています。</span></li>
+            <li><strong>Googleが最初に確認した時期とEarly usesを見て、古い画像の転用がないか考える</strong><span>画像が想定より古い時期に使われていれば、現在の出来事を示すという説明を再確認する必要があります。</span></li>
+            <li><strong>画像を使う他のページから、元の投稿者・撮影者・利用文脈を探す</strong><span>他サイトでの使われ方をたどると、画像が別の出来事で使われていたことを確認できる場合があります。</span></li>
+            <li><strong>画像のメタデータは一つの手がかりとして扱い、公式発表など別の根拠と照合する</strong><span>Googleは、クレジットやデジタルソース種別のメタデータが変更される場合があると案内しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AIらしく見えないことだけで、現在の出来事を示す写真だと判断する</strong><span>実写でも、古い写真や別の場所の画像が現在の文脈で転用される場合があります。</span></li>
+            <li><strong>画像のメタデータだけで、撮影日時・場所・作成方法を確定する</strong><span>クレジットやデジタルソース種別のメタデータは、生成・編集ツールで変更され得ます。</span></li>
+            <li><strong>写真の出典が分からないまま、災害・事件の情報として共有する</strong><span>初出と利用文脈を確認しないと、古い写真や別の出来事の画像を広げるおそれがあります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>画像の背景をたどり、SNSの写真を役立つ情報として読み解く</h3>
+          <p>画像の初出や使われ方を確認する習慣があれば、AI生成かどうかだけに偏らず、写真がいつ・誰によって・どんな文脈で使われたかを手がかりにできます。</p>
+          <ul class="positive-example-list"><li>災害の写真を共有する前に初出時期を確認する</li><li>商品の写真が別サイトでどう使われているかを見る</li><li>昔の写真が現在の事件として転用されていないか調べる</li><li>確認できた元の発信者を添えて画像を共有する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>画像を見てAIらしさを探すと、目だけが疲れてしまいます。私は『この写真はいつから、どんな場所で使われてきたのだろう』と順番を変えるのが好きです。初出をたどると、合成ではなく古い写真の転用だった、ということも見えてきます。画像の背景を探す方が、判断を急がせない助けになります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>画像はAI判定だけでなく、初出と利用文脈をたどって確かめる。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/websearch/answer/14177408?hl=en" target="_blank" rel="noopener noreferrer">Learn more about an image<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Search Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260909-01" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="YouTubeの「Made with AI」は説明欄で由来まで見る。ラベルの3つの付き方 YouTubeのAIラベルは説明欄で由来まで確認する YouTubeは、動画の詳細説明にある「How this content was made」で、動画がAIで大幅に改変・生成されたことを示す「Made with AI」などの情報を表示する場合があります。この情報は、投稿者がYouTube Studioで申告した場合、YouTubeの生成AIツールを使った場合、有効なContent Credentialsが動画全体のAI生成を示す場合などに引き継がれます。署名した主体が分かる場合は「Info from」も表示されます。一方、「Captured with a camera」の表示がないことだけで、映像が改変されたとは判断できません。ラベルを見つけたら、表示の有無だけで本物・偽物を決めず、説明欄を開いて何の情報が表示されているかを読む手順を扱います。 情報の見極め はじめて YouTube Made with AI 動画AI Content Credentials 動画検証 メディアリテラシー YouTubeで見た動画がAIで作られたものか、どこを見ればよいか知りたい人 動画のAIラベルを見ても、どこまで判断材料にしてよいか迷う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">youtube-ai-disclosure-context</span>
+              <div>
+                <p>YouTubeのAIラベルは説明欄で由来まで確認する</p>
+                <h3>YouTubeの「Made with AI」は説明欄で由来まで見る。ラベルの3つの付き方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-09">2026.09.09</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeは、動画の詳細説明にある「How this content was made」で、動画がAIで大幅に改変・生成されたことを示す「Made with AI」などの情報を表示する場合があります。この情報は、投稿者がYouTube Studioで申告した場合、YouTubeの生成AIツールを使った場合、有効なContent Credentialsが動画全体のAI生成を示す場合などに引き継がれます。署名した主体が分かる場合は「Info from」も表示されます。一方、「Captured with a camera」の表示がないことだけで、映像が改変されたとは判断できません。ラベルを見つけたら、表示の有無だけで本物・偽物を決めず、説明欄を開いて何の情報が表示されているかを読む手順を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>YouTubeのAI表示は、詳細説明と情報の提供元まで読む</span>
+            </div>
+            <ul class="forensics-card-audience"><li>YouTubeで見た動画がAIで作られたものか、どこを見ればよいか知りたい人</li><li>動画のAIラベルを見ても、どこまで判断材料にしてよいか迷う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube</li><li>Made with AI</li><li>動画AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260909-02" data-forensics-card data-category="scam" data-level="4" data-difficulty="beginner" data-search-text="TikTokのAI動画、ラベルだけで終わらせない。怪しい投稿は「Deepfakes」で通報する TikTokのAIなりすまし動画はDeepfakesとして通報する TikTokは、AIで完全に生成または大幅に編集された投稿について、投稿者による「creator labeled as AI-generated」と、自動で付く「AI-generated」という複数のラベルを案内しています。自動ラベルは、TikTokのAI効果や、Content Credentialsを含む投稿などに付く場合があり、付いた後は投稿者が外せません。ただし、ラベルがあっても、実在の私的な人物の肖像・声を無断で使うことや、人を害する誤認を招く内容が許されるわけではありません。TikTokで問題のあるAIなりすまし動画を見つけた時は、共有メニューから「Report」→「Misinformation」→「Deepfakes, synthetic media, and manipulated media」を選んで報告できます。ラベルの有無を眺めるだけで終わらせず、拡散前に報告先を選ぶ手順を扱います。 詐欺・なりすまし はじめて TikTok ディープフェイク AI動画 なりすまし 通報 誤情報 TikTokで家族・著名人・公的機関になりすましたように見えるAI動画を見かける人 AI生成の可能性がある投稿を、拡散せずに報告する操作を知りたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">tiktok-deepfake-report</span>
+              <div>
+                <p>TikTokのAIなりすまし動画はDeepfakesとして通報する</p>
+                <h3>TikTokのAI動画、ラベルだけで終わらせない。怪しい投稿は「Deepfakes」で通報する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-09">2026.09.09</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">TikTokは、AIで完全に生成または大幅に編集された投稿について、投稿者による「creator labeled as AI-generated」と、自動で付く「AI-generated」という複数のラベルを案内しています。自動ラベルは、TikTokのAI効果や、Content Credentialsを含む投稿などに付く場合があり、付いた後は投稿者が外せません。ただし、ラベルがあっても、実在の私的な人物の肖像・声を無断で使うことや、人を害する誤認を招く内容が許されるわけではありません。TikTokで問題のあるAIなりすまし動画を見つけた時は、共有メニューから「Report」→「Misinformation」→「Deepfakes, synthetic media, and manipulated media」を選んで報告できます。ラベルの有無を眺めるだけで終わらせず、拡散前に報告先を選ぶ手順を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>TikTokのAIなりすましは、再共有せずDeepfakesとして通報する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>TikTokで家族・著名人・公的機関になりすましたように見えるAI動画を見かける人</li><li>AI生成の可能性がある投稿を、拡散せずに報告する操作を知りたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>TikTok</li><li>ディープフェイク</li><li>AI動画</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260909-03" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="standard" data-search-text="Instagram・Facebookの「AI info」は投稿上にないことがある。メニューを開いて意味を読む MetaのAI infoは投稿メニューで表示の根拠を確認する MetaはFacebook、Instagram、Threadsで、業界標準のAI情報を検出した場合や投稿者がAI生成を申告した場合に「AI info」ラベルを表示する方針を案内しています。ただし、AIツールで編集・加工されたことだけを検出した投稿では、AI利用の程度をより正確に示すため、ラベルを投稿のメニューへ移すと説明しています。そのため、投稿上に目立つ表示がないことや、AI infoという一語だけで、画像・動画が全てAI生成か、内容が誤りかを結論づけられません。重要な事項で人を大きく誤認させるおそれがある場合は、より目立つラベルが追加される場合もあります。投稿メニューを開き、AI infoが何を示しているかを読み、事実確認は別に行う手順を扱います。 情報の見極め 標準 Instagram Facebook Threads Meta AI info 画像リテラシー InstagramやFacebookで見かけるAI関連ラベルの意味を正しく読みたい人 AIで少し編集した投稿と、AIが作った投稿を同じものとして扱いたくない人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">meta-ai-info-menu</span>
+              <div>
+                <p>MetaのAI infoは投稿メニューで表示の根拠を確認する</p>
+                <h3>Instagram・Facebookの「AI info」は投稿上にないことがある。メニューを開いて意味を読む</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-09">2026.09.09</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">MetaはFacebook、Instagram、Threadsで、業界標準のAI情報を検出した場合や投稿者がAI生成を申告した場合に「AI info」ラベルを表示する方針を案内しています。ただし、AIツールで編集・加工されたことだけを検出した投稿では、AI利用の程度をより正確に示すため、ラベルを投稿のメニューへ移すと説明しています。そのため、投稿上に目立つ表示がないことや、AI infoという一語だけで、画像・動画が全てAI生成か、内容が誤りかを結論づけられません。重要な事項で人を大きく誤認させるおそれがある場合は、より目立つラベルが追加される場合もあります。投稿メニューを開き、AI infoが何を示しているかを読み、事実確認は別に行う手順を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>MetaのAI infoは、投稿メニューと表示の範囲を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>InstagramやFacebookで見かけるAI関連ラベルの意味を正しく読みたい人</li><li>AIで少し編集した投稿と、AIが作った投稿を同じものとして扱いたくない人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Instagram</li><li>Facebook</li><li>Threads</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260908-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260909-03">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
