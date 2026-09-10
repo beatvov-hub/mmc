@@ -80,17 +80,17 @@ const DEFAULT_DEPARTMENTS = [
 ];
 
 const DEFAULT_EMPLOYEES = [
-  { id: "hono", name: "ほのちゃん", role: "総務課長", departmentId: "general-affairs", iconPath: "image/staff/hono-item.png", isActive: true },
-  { id: "shoma", name: "ショウマ", role: "企画営業部長", departmentId: "planning-sales", iconPath: "image/staff/shoma-item.png", isActive: true },
-  { id: "michael", name: "マイケル", role: "主任", departmentId: "overseas-ai", iconPath: "image/staff/michael-item.png", isActive: true },
-  { id: "takaken", name: "たかけん", role: "ゲーム制作部長", departmentId: "game-production", iconPath: "image/staff/takaken-item.png", isActive: true },
-  { id: "dg", name: "DG", role: "人狼界隈観測課長", departmentId: "game-production", iconPath: "image/staff/dg-item.png", isActive: true },
-  { id: "rei", name: "レイちゃん", role: "部長", departmentId: "design", iconPath: "image/staff/rei-item.png", isActive: true },
-  { id: "akito", name: "アキト", role: "主任", departmentId: "development", iconPath: "image/staff/akito-item.png", isActive: true },
-  { id: "kei", name: "ケイ", role: "広報部長", departmentId: "public-relations", iconPath: "image/staff/kei-item.png", isActive: true },
-  { id: "nemu", name: "ねむちゃん", role: "人事部長", departmentId: "hr", iconPath: "image/staff/nemu-item.png", isActive: true },
-  { id: "makoto", name: "誠", role: "主任", departmentId: "literacy", iconPath: "image/staff/makoto-item.png", isActive: true },
-  { id: "pechi", name: "ペチ", role: "開発犬", departmentId: "external", iconPath: "image/staff/pechi-item.png", isActive: true }
+  { id: "hono", name: "ほのちゃん", role: "総務課長", departmentId: "general-affairs", iconPath: "image/icon/icon_mmc001.jpg", isActive: true },
+  { id: "shoma", name: "ショウマ", role: "企画営業部長", departmentId: "planning-sales", iconPath: "image/icon/icon_mmc002.jpg", isActive: true },
+  { id: "michael", name: "マイケル", role: "主任", departmentId: "overseas-ai", iconPath: "image/icon/icon_mmc004.jpg", isActive: true },
+  { id: "takaken", name: "たかけん", role: "ゲーム制作部長", departmentId: "game-production", iconPath: "image/icon/icon_mmc003.jpg", isActive: true },
+  { id: "dg", name: "DG", role: "人狼界隈観測課長", departmentId: "game-production", iconPath: "image/icon/icon_mmc005.jpg", isActive: true },
+  { id: "rei", name: "レイちゃん", role: "部長", departmentId: "design", iconPath: "image/icon/icon_mmc007.jpg", isActive: true },
+  { id: "akito", name: "アキト", role: "主任", departmentId: "development", iconPath: "image/icon/icon_mmc008.jpg", isActive: true },
+  { id: "kei", name: "ケイ", role: "広報部長", departmentId: "public-relations", iconPath: "image/icon/icon_mmc009.jpg", isActive: true },
+  { id: "nemu", name: "ねむちゃん", role: "人事部長", departmentId: "hr", iconPath: "image/icon/icon_mmc006.jpg", isActive: true },
+  { id: "makoto", name: "誠", role: "主任", departmentId: "literacy", iconPath: "image/icon/icon_mmc010.jpg", isActive: true },
+  { id: "pechi", name: "ペチ", role: "開発犬", departmentId: "external", iconPath: "image/icon/icon_cc001.jpg", isActive: true }
 ];
 
 const DEFAULT_SETTINGS = {
@@ -422,14 +422,36 @@ function normalizeDepartment(payload, existing = null) {
 }
 
 function normalizeEmployee(payload, existing = null) {
+  const rawLines = payload.officeLines ?? existing?.officeLines;
+  const officeLines = Array.isArray(rawLines)
+    ? rawLines.map(normalizeString).filter(Boolean).slice(0, 12)
+    : normalizeString(rawLines).split(/\r?\n/).map(normalizeString).filter(Boolean).slice(0, 12);
   return {
     id: existing?.id || normalizeString(payload.id) || makeId("emp"),
     name: normalizeString(payload.name),
     role: normalizeString(payload.role),
     departmentId: normalizeString(payload.departmentId) || null,
     iconPath: normalizeString(payload.iconPath) || null,
+    chatUrl: normalizeString(payload.chatUrl ?? existing?.chatUrl) || null,
+    officeLines,
     isActive: payload.isActive !== false
   };
+}
+
+function validateEmployee(employee, all) {
+  const errors = [];
+  if (!employee.name) errors.push("社員名は必須です。");
+  if (employee.departmentId && !all.departments.some((department) => department.id === employee.departmentId)) errors.push("存在しない部署IDです。");
+  if (employee.chatUrl) {
+    try {
+      const url = new URL(employee.chatUrl);
+      if (!['http:', 'https:'].includes(url.protocol)) errors.push("相談リンクはhttpまたはhttpsのみ利用できます。");
+    } catch {
+      errors.push("相談リンクのURL形式が不正です。");
+    }
+  }
+  if ((employee.officeLines || []).some((line) => line.length > 80)) errors.push("オフィスの吹き出しは1行80文字以内にしてください。");
+  return errors;
 }
 
 function normalizeEvaluation(payload, existing = null, all = null) {
@@ -725,6 +747,7 @@ module.exports = {
   normalizeLink,
   normalizeTask,
   validateDecisionLog,
+  validateEmployee,
   validateEvaluation,
   validateLink,
   validateTask,

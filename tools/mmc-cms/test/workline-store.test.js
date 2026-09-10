@@ -14,9 +14,11 @@ const {
   normalizeEvaluation,
   normalizeLink,
   normalizeTask,
+  normalizeEmployee,
   validateDecisionLog,
   validateEvaluation,
   validateLink,
+  validateEmployee,
   validateTask,
   writeJson
 } = require("../lib/workline-store");
@@ -154,6 +156,21 @@ test("URLはhttp/httpsだけ許可する", async (context) => {
   const bad = normalizeLink({ type: "web", label: "危険", value: "javascript:alert(1)" });
   assert.deepEqual(validateLink(good, root, all.settings), []);
   assert.ok(validateLink(bad, root, all.settings).some((message) => message.includes("http")));
+});
+
+test("社員マスタに相談リンクとオフィス用の吹き出しを安全に保存できる", async (context) => {
+  const root = await tempRoot(context);
+  const all = await loadAll(root);
+  const employee = normalizeEmployee({
+    id: "hono",
+    name: "ほのちゃん",
+    departmentId: "general-affairs",
+    chatUrl: "https://chatgpt.com/",
+    officeLines: "コーヒーありますよ☕\n今日も整えていきます。"
+  }, all.employees.find((item) => item.id === "hono"));
+  assert.deepEqual(validateEmployee(employee, all), []);
+  assert.deepEqual(employee.officeLines, ["コーヒーありますよ☕", "今日も整えていきます。"]);
+  assert.ok(validateEmployee({ ...employee, chatUrl: "javascript:alert(1)" }, all).some((message) => message.includes("http")));
 });
 
 test("リポジトリ外パスを拒否する", async (context) => {

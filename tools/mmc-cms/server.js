@@ -40,11 +40,13 @@ const {
   normalizeLink,
   normalizeTask,
   validateDecisionLog,
+  validateEmployee,
   validateEvaluation,
   validateLink,
   validateTask,
   writeJson: writeWorklineJson
 } = require("./lib/workline-store");
+const { deriveVirtualOffice } = require("./lib/office-state");
 
 const ROOT = path.resolve(process.env.MMC_REPO_ROOT || path.resolve(__dirname, "..", ".."));
 const PUBLIC_DIR = path.join(__dirname, "public");
@@ -361,6 +363,28 @@ function worklineCollection(pathname) {
 }
 
 async function handleWorklineApi(request, response, url) {
+  if (request.method === "GET" && url.pathname === "/api/workline/office") {
+    const all = await loadWorkline(ROOT);
+    const office = deriveVirtualOffice(all);
+    office.employees = office.employees.map((employee) => ({
+      ...employee,
+      avatarUrl: `/api/workline/employees/${encodeURIComponent(employee.id)}/avatar`
+    }));
+    return sendJson(response, 200, { ok: true, office });
+  }
+  const avatarMatch = url.pathname.match(/^\/api\/workline\/employees\/([^/]+)\/avatar$/);
+  if (request.method === "GET" && avatarMatch) {
+    const employeeId = decodeURIComponent(avatarMatch[1]);
+    const all = await loadWorkline(ROOT);
+    const employee = all.employees.find((item) => item.id === employeeId);
+    const relativePath = employee?.iconPath || "";
+    if (!employee || !relativePath || !/\.(png|jpe?g|webp|gif)$/i.test(relativePath)) return sendJson(response, 404, { ok: false, errors: ["社員画像が見つかりません。"] });
+    const file = safePath(ROOT, relativePath);
+    if (!fs.existsSync(file)) return sendJson(response, 404, { ok: false, errors: ["社員画像が見つかりません。"] });
+    const extension = path.extname(file).toLowerCase();
+    const mime = { ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".gif": "image/gif" }[extension];
+    return sendText(response, 200, mime, await fsp.readFile(file));
+  }
   if (request.method === "GET" && url.pathname === "/api/workline/dashboard") {
     return sendJson(response, 200, { ok: true, dashboard: await worklineDashboard(ROOT) });
   }
@@ -432,8 +456,7 @@ async function handleWorklineApi(request, response, url) {
     if (!item.name) errors.push("部署名は必須です。");
   } else if (collectionKey === "employees") {
     item = normalizeEmployee({ ...payload, id: route.id || payload.id }, existing);
-    if (!item.name) errors.push("社員名は必須です。");
-    if (item.departmentId && !all.departments.some((dept) => dept.id === item.departmentId)) errors.push("存在しない部署IDです。");
+    errors = validateEmployee(item, all);
   }
   if (errors.length) return sendJson(response, 422, { ok: false, errors });
   const completedNow = collectionKey === "tasks" && item.status === "completed" && existing?.status !== "completed";

@@ -4,7 +4,7 @@ const fs = require("node:fs");
 const fsp = require("node:fs/promises");
 const http = require("node:http");
 const path = require("node:path");
-const { app, BrowserWindow, dialog } = require("electron");
+const { app, BrowserWindow, dialog, shell } = require("electron");
 const { findMmcRepoRoot, isMmcRepoRoot } = require("./lib/repo-locator");
 
 const PORT = Number(process.env.MMC_CMS_PORT || 4310);
@@ -116,7 +116,10 @@ function createWindow(repoRoot) {
     }
   });
   mainWindow.removeMenu();
-  mainWindow.webContents.setWindowOpenHandler(() => ({ action: "deny" }));
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    if (/^https?:\/\//i.test(url)) shell.openExternal(url);
+    return { action: "deny" };
+  });
   mainWindow.webContents.on("will-navigate", (event, targetUrl) => {
     if (!targetUrl.startsWith(LOCAL_URL)) event.preventDefault();
   });

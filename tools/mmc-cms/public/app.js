@@ -726,6 +726,7 @@ $$("[data-tab]").forEach((button) => {
   button.addEventListener("click", () => {
     $$("[data-tab]").forEach((item) => item.classList.toggle("is-active", item === button));
     $$("[data-panel]").forEach((panel) => panel.classList.toggle("is-active", panel.dataset.panel === button.dataset.tab));
+    window.dispatchEvent(new CustomEvent("workline-tab-change", { detail: { tab: button.dataset.tab } }));
   });
 });
 

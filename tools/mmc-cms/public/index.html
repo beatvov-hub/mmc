@@ -23,21 +23,58 @@
 
     <nav class="section-tabs app-sidebar" aria-label="MMC Workline">
       <div class="sidebar-heading">WORKSPACE</div>
-      <button class="is-active" data-tab="dashboard" type="button">ダッシュボード</button>
-      <button data-tab="board" type="button">進行ボード</button>
+      <button class="is-active" data-tab="office" type="button">🏢 OFFICE</button>
+      <button data-tab="dashboard" type="button">ダッシュボード</button>
+      <button data-tab="board" type="button">📋 BOARD</button>
       <button data-tab="evaluations" type="button">業務振り返り</button>
-      <button data-tab="timeline" type="button">タイムライン</button>
+      <button data-tab="timeline" type="button">🕒 TIMELINE</button>
       <div class="nav-group-label">サイト更新室</div>
       <button data-tab="lounge" type="button">MMCラウンジ</button>
       <button data-tab="forensics" type="button">AI鑑識室</button>
-      <button data-tab="artifacts" type="button">成果物</button>
+      <button data-tab="artifacts" type="button">📦 ASSETS</button>
       <button data-tab="people" type="button">社員・部署</button>
       <button data-tab="archive" type="button">完了アーカイブ</button>
       <button data-tab="settings" type="button">設定・復元</button>
     </nav>
 
     <main>
-      <section class="workspace is-active" id="panel-dashboard" data-panel="dashboard">
+      <section class="workspace is-active office-workspace" id="panel-office" data-panel="office">
+        <div class="office-heading">
+          <div>
+            <p class="eyebrow">MMC VIRTUAL OFFICE</p>
+            <h2>今日の MMC</h2>
+            <p>社員の今いる場所は、担当タスク・活動・成果物から自動で映しています。</p>
+          </div>
+          <div class="office-heading-actions">
+            <span class="office-clock" id="office-clock" aria-live="polite"></span>
+            <button class="button secondary" id="office-refresh" type="button">オフィスを更新</button>
+          </div>
+        </div>
+        <section class="virtual-office" id="virtual-office" aria-label="MMCのバーチャルオフィス">
+          <div class="office-sunlight" aria-hidden="true"></div>
+          <div class="office-sign office-sign--title">MAINICHI MIRU COMPANY</div>
+          <div class="office-zone office-zone--general" data-zone="general-affairs"><span>総務課</span><i>⌘</i></div>
+          <div class="office-zone office-zone--planning" data-zone="planning-sales"><span>企画営業部</span><i>✎</i></div>
+          <div class="office-zone office-zone--overseas" data-zone="overseas-ai"><span>海外AI研究室</span><i>◎</i></div>
+          <div class="office-zone office-zone--game" data-zone="game-production"><span>ゲーム制作部</span><i>◆</i></div>
+          <div class="office-zone office-zone--design" data-zone="design"><span>BEAT ANIMALS<br>デザイン部</span><i>✦</i></div>
+          <div class="office-zone office-zone--development" data-zone="development"><span>開発推進室</span><i>⌨</i></div>
+          <div class="office-zone office-zone--public" data-zone="public-relations"><span>広報部</span><i>◌</i></div>
+          <div class="office-zone office-zone--hr" data-zone="hr"><span>人事部</span><i>♡</i></div>
+          <div class="office-zone office-zone--literacy" data-zone="literacy"><span>AIリテラシー<br>推進室</span><i>✓</i></div>
+          <div class="office-zone office-zone--external" data-zone="external"><span>協力者席</span><i>♧</i></div>
+          <div class="office-feature office-feature--meeting"><b>MEETING</b><span>相談テーブル</span></div>
+          <div class="office-feature office-feature--review"><b>所長デスク</b><span>確認待ち</span></div>
+          <div class="office-feature office-feature--lounge"><b>Bean &amp; Bits</b><span>☕ 社員ラウンジ</span></div>
+          <div class="office-feature office-feature--board"><b>社内掲示板</b><span>今日も営業中</span></div>
+          <div class="office-plant office-plant--one" aria-hidden="true">♣</div>
+          <div class="office-plant office-plant--two" aria-hidden="true">♣</div>
+          <div class="office-people" id="office-people" aria-live="polite"></div>
+        </section>
+        <p class="office-legend"><span class="office-dot working"></span>作業中 <span class="office-dot meeting"></span>会議・相談中 <span class="office-dot review"></span>確認待ち <span class="office-dot idle"></span>待機中</p>
+      </section>
+
+      <section class="workspace" id="panel-dashboard" data-panel="dashboard">
         <div class="workspace-heading">
           <div>
             <span class="step-mark">01</span>
@@ -479,5 +516,6 @@
     </footer>
     <script src="app.js"></script>
     <script src="workline.js"></script>
+    <script src="virtual-office.js"></script>
   </body>
 </html>

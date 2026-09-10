@@ -56,7 +56,10 @@ async function worklineRequest(endpoint, options = {}) {
 
 async function loadWorkline() {
   const result = await worklineRequest("/api/workline/all");
-  if (result.ok) workline = result.workline;
+  if (result.ok) {
+    workline = result.workline;
+    window.dispatchEvent(new CustomEvent("workline-data-updated"));
+  }
   renderAllWorkline();
 }
 
@@ -404,7 +407,7 @@ function blankItem(type) {
   if (type === "task") return { title: "", description: "", type: "task", workflowType: "general", visibility: "internal", nextAction: "", departmentId: "", primaryAssigneeId: "", supportAssigneeIds: [], reviewerIds: [], employeeIds: [], startDate: "", endDate: "", status: "idea", priority: "normal", progress: 0, parentTaskId: "", tags: [], notes: "", codexInstruction: "", external: {} };
   if (type === "artifact") return { title: "", description: "", type: "other", taskId: "", pathOrUrl: "" };
   if (type === "evaluation") return { taskId: "", workItemId: "", evaluationType: "final", revision: 1, status: "evaluated", evaluationStatus: "evaluated", reviewMode: "quick", aiUsed: false, aiTools: [], aiTasks: "", humanChecks: "", actors: [], aiWorkLevel: "", completionLevel: "completed", humanRevisionLevel: "none", reworkCount: 0, specificationChangeCount: 0, humanMinutes: "", estimatedMinutesWithoutAI: "", humanWorkMinutes: "", estimatedManualMinutes: "", goodPoints: "", problems: "", reusability: "unknown", adoption: "pending", artifactIds: [], nextImprovement: "", needsImprovement: false, evaluatedBy: "", evaluatedAt: "" };
-  if (type === "employee") return { name: "", role: "", departmentId: "", iconPath: "", isActive: true };
+  if (type === "employee") return { name: "", role: "", departmentId: "", iconPath: "", chatUrl: "", officeLines: [], isActive: true };
   if (type === "department") return { name: "", description: "", sortOrder: 100, isActive: true };
   return { taskId: "", type: "web", label: "", value: "" };
 }
@@ -710,6 +713,8 @@ function employeeForm(item) {
   return `<div class="form-grid">${input("name", "名前", item.name)}${input("role", "役職", item.role)}
     <label class="field"><span>部署</span><select name="departmentId">${options(workline.departments.map((dept) => [dept.id, dept.name]), item.departmentId, "未設定")}</select></label>
     ${input("iconPath", "アイコンパス", item.iconPath || "")}
+    ${input("chatUrl", "相談リンク（任意）", item.chatUrl || "", "full", "url")}
+    ${textarea("officeLines", "オフィスの吹き出し（1行ごと・任意）", (item.officeLines || []).join("\n"), "full", 3)}
     <label class="confirm-row"><input type="checkbox" name="isActive" ${item.isActive !== false ? "checked" : ""} /><span>有効</span></label></div>`;
 }
 
@@ -766,6 +771,9 @@ function collectDrawer() {
     ["externalClientName", "externalProjectName", "externalProposedAmount", "externalTaxType", "externalProposedAt", "externalDesiredDueDate", "externalDeliverables", "externalInvoiceStatus", "externalPaymentStatus"].forEach((key) => delete item[key]);
     item.employeeIds = [...new Set([item.primaryAssigneeId, ...(item.supportAssigneeIds || []), ...(item.reviewerIds || [])].filter(Boolean))];
     if (item.parentTaskId && item.type === "project") item.type = "task";
+  }
+  if (drawer.type === "employee") {
+    item.officeLines = String(item.officeLines || "").split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
   }
   if (drawer.type === "evaluation") {
     item.status = item.evaluationStatus || item.status;
@@ -998,3 +1006,18 @@ document.addEventListener("change", async (event) => {
 });
 
 setTimeout(loadWorkline, 300);
+
+// Small public bridge for optional views such as Virtual Office.  The task
+// drawer itself remains the single implementation used by the Workline UI.
+window.worklineUi = {
+  getData: () => workline,
+  openTask: (taskId) => {
+    const task = workline.tasks.find((item) => item.id === taskId);
+    if (task) openDrawer("task", task);
+  },
+  openEmployee: (employeeId) => {
+    const employee = workline.employees.find((item) => item.id === employeeId);
+    if (employee) openDrawer("employee", employee);
+  },
+  goTo: (tab) => document.querySelector(`[data-tab="${CSS.escape(tab)}"]`)?.click()
+};
