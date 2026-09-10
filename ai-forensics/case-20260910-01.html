@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Windows Recallは「端末内保存」でも除外設定を過信しない。保存前後の確認手順｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは、Copilot+ PC向けのRecallで画面のスナップショット保存を利用者ごとのオプトインとして案内しています。保存したスナップショットと関連データは端末内に保存され、Microsoftや第三者へ共有されないと説明されています。一方、アプリ・サイトの除外には確認すべき範囲があります。サイト除外は対応ブラウザの前面タブなどで働く仕組みで、埋め込み内容、ブラウザ履歴、前面ではないタブの一部がスナップショットに現れる場合があります。機密情報フィルタは既定で有効ですが、完全な保証ではありません。Recallを有効にする前に除外リストを決め、除外前に保存されたアプリ・サイトの内容はまとめて削除する操作まで確認する記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260910-01" />
+<meta property="og:title" content="Windows Recallは「端末内保存」でも除外設定を過信しない。保存前後の確認手順｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは、Copilot+ PC向けのRecallで画面のスナップショット保存を利用者ごとのオプトインとして案内しています。保存したスナップショットと関連データは端末内に保存され、Microsoftや第三者へ共有されないと説明されています。一方、アプリ・サイトの除外には確認すべき範囲があります。サイト除外は対応ブラウザの前面タブなどで働く仕組みで、埋め込み内容、ブラウザ履歴、前面ではないタブの一部がスナップショットに現れる場合があります。機密情報フィルタは既定で有効ですが、完全な保証ではありません。Recallを有効にする前に除外リストを決め、除外前に保存されたアプリ・サイトの内容はまとめて削除する操作まで確認する記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260910-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Windows Recallは除外範囲と既存記録を分けて確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-10">2026.09.10</time>
+            </div>
+            <h1>Windows Recallは「端末内保存」でも除外設定を過信しない。保存前後の確認手順</h1>
+            <p>Microsoftは、Copilot+ PC向けのRecallで画面のスナップショット保存を利用者ごとのオプトインとして案内しています。保存したスナップショットと関連データは端末内に保存され、Microsoftや第三者へ共有されないと説明されています。一方、アプリ・サイトの除外には確認すべき範囲があります。サイト除外は対応ブラウザの前面タブなどで働く仕組みで、埋め込み内容、ブラウザ履歴、前面ではないタブの一部がスナップショットに現れる場合があります。機密情報フィルタは既定で有効ですが、完全な保証ではありません。Recallを有効にする前に除外リストを決め、除外前に保存されたアプリ・サイトの内容はまとめて削除する操作まで確認する記事です。</p>
+            <ul class="forensics-target-list"><li>Copilot+ PCでWindows Recallを使うか検討している人</li><li>Recallに残る画面記録から、仕事や個人情報を守りたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Windows Recall</li><li>Copilot+ PC</li><li>スナップショット</li><li>画面記録</li><li>プライバシー</li><li>Windows</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>Recallは除外設定の範囲と、保存済み記録の削除を分けて確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>端末内保存でも、画面に出した情報は記録になります。Recallを有効にする前後で、除外リストと保存済みスナップショットを確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>仕事用PCでRecallを試したいが、社内サイトや個人情報を画面記録に残したくない</h3><p>Recallはクラウドへ送らず端末内で処理すると聞きました。サイトを除外すれば安全だと思う一方、すでに開いたページやブラウザの周辺情報がどこまで残るのか、保存後にどう消すのか分かりません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>端末内保存であっても、スナップショットは画面に出た情報を検索可能な記録として残します。除外設定の働く条件と、既存の記録を削除する操作を別々に理解しないと、意図しない情報が残るおそれがあります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="filter-before-and-delete-old">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Windows Recallを使い始める前に、機密情報を残しにくくする確認として適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="filter-before-and-delete-old" data-choice-id="filter-before-and-delete-old" />
+                <span>
+                  <strong>Recall とスナップショットで保存をオンにする前にアプリ・サイトの除外を設定し、すでに保存した分は対象ごとに削除する</strong>
+                  <small>今後の保存を減らす設定と、過去に保存された記録の削除を分けて行う。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="local-means-no-review" data-choice-id="local-means-no-review" />
+                <span>
+                  <strong>端末内保存なので、除外設定や保存済みスナップショットを確認しない</strong>
+                  <small>端末内でも、画面の記録は端末上で検索できる状態になります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="filter-is-perfect" data-choice-id="filter-is-perfect" />
+                <span>
+                  <strong>サイトを除外すれば、ブラウザ上の関連情報は一切スナップショットに現れないと考える</strong>
+                  <small>対応ブラウザや前面タブなどの条件があり、埋め込み内容や履歴などが現れる場合があります。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Recall とスナップショットで保存をオンにする前にアプリ・サイトの除外を設定し、すでに保存した分は対象ごとに削除する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Recallでは、Settings → Privacy &amp; security → Recall &amp; snapshotsから保存、アプリ・サイトの除外、削除を管理できます。除外設定は万能ではなく、すでに保存された対象の記録は検索結果またはスナップショット表示から削除する選択肢があります。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>保存はユーザーごとのオプトインか</h3>
+              <p>Recallのスナップショット保存は、利用者が選んで有効にする仕組みです。まず、保存する必要がある端末・利用者かを判断します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>アプリ・サイトの除外リスト</h3>
+              <p>Settings → Privacy &amp; security → Recall &amp; snapshotsで、残したくないアプリやサイトを除外します。サイト除外は対応ブラウザで働きます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>除外が効く条件と限界</h3>
+              <p>除外サイトは前面または現在開いているタブで判断されます。埋め込み内容、履歴、前面でないタブの一部が残る場合があるため、機密作業ではアプリ単位の除外も検討します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>すでに保存された記録</h3>
+              <p>除外前に保存されたアプリ・サイトの内容は、Recallの検索結果またはスナップショット表示から対象ごとに削除できます。設定変更だけで過去分が消えたと決めつけません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Recallの安全性は「ローカルだから」だけでなく、何を保存しないかと過去分をどう消すかで決まる</strong><p>Recallはスナップショットを端末内に暗号化して保存し、Microsoftや第三者と共有しないと案内されています。しかしサイト除外には対応ブラウザ・前面タブなどの条件があります。保存前の除外、機密情報フィルタの確認、保存済み対象の削除を組み合わせて使います。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Recallをオンにする前に、残したくないアプリ・サイトを除外する</strong><span>SettingsのRecall &amp; snapshotsで、アプリ・サイトの除外を設定できます。</span></li>
+            <li><strong>機密作業では、サイト除外だけでなくブラウザをアプリとして除外する選択肢も検討する</strong><span>サイト除外には対応ブラウザや前面タブなどの条件があり、周辺情報が残る場合があります。</span></li>
+            <li><strong>除外前に保存した記録は、対象アプリ・サイトごとに削除する</strong><span>Recallには、検索結果やスナップショット表示から対象の保存内容を削除する選択肢があります。</span></li>
+            <li><strong>保存中かどうかは、システムトレイのRecallアイコンとフィルタ表示で確認する</strong><span>Microsoftは、除外中のアプリ・サイトやプライベートブラウズ時にフィルタバッジで確認できると案内しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>端末内に保存されるからと、Recallの除外設定を確認しない</strong><span>端末内でも、画面の情報はスナップショットとして検索できる状態になります。</span></li>
+            <li><strong>サイト除外を一度設定すれば、ブラウザの周辺情報も必ず残らないと考える</strong><span>埋め込み内容、履歴、前面ではないタブの一部がスナップショットに現れる場合があります。</span></li>
+            <li><strong>除外設定を追加しただけで、過去のスナップショットも自動的に消えたと判断する</strong><span>すでに保存された対象の内容は、別途削除する必要があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>必要な画面だけを自分の端末で探し直せるようにする</h3>
+          <p>保存しない対象と保存期間を先に決めれば、Recallを作業の振り返りに使いながら、見せたくない情報を記録に残しにくくできます。</p>
+          <ul class="positive-example-list"><li>業務用ブラウザをRecallの除外対象にする</li><li>個人情報を扱うアプリを作業前に除外する</li><li>試用後に保存済みスナップショットを見直す</li><li>必要な時だけ保存をオンにして、終わったら停止する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>『クラウドへ送らない』という説明は安心材料ですが、画面に出したものが端末で検索できる記録になる点は変わりません。私は、設定をオンにする前に除外する対象を書き出し、試した後には実際に何が残ったかを確認したいです。便利な記憶ほど、残さない範囲を先に決めるのが大切だと思います。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Recallは、除外設定と保存済みスナップショットの削除を別々に確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/windows/privacy/privacy-and-control-over-your-recall-experience" target="_blank" rel="noopener noreferrer">Privacy and control over your Recall experience<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260910-03" data-forensics-card data-category="security" data-level="4" data-difficulty="advanced" data-search-text="Notion AIコネクタは、設定した担当者が退職しても止まらない。切断場所を決める Notion AIコネクタは設定者が離れても継続する Notionは、Notion AI Connectorsがワークスペースに導入される仕組みであり、設定したワークスペース所有者が離れても接続はそのまま継続すると案内しています。不要になった連携は、ワークスペース所有者が接続先の第三者アプリでアンインストールするか、Settings → Notion AIでDisconnectするまで止まりません。接続を解除すると、その連携データは検索不能になり、一部のコネクタでは反映に最長1時間、データ削除に1日以内かかる場合があります。Notion AIは既存権限を尊重し、一般には設定時点から1年分の情報にアクセスできるとしています。『設定者の退職＝連携の停止』と考えず、連携一覧と切断手順を引き継ぎ項目にする記事です。 セキュリティ・権限 発展 Notion AI Notion AI Connectors 外部連携 Google Drive Slack 権限管理 Notion AIへSlackやGoogle Driveなどを接続するワークスペース所有者 外部サービスとのAI連携を退職・異動時に見直したい管理者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">notion-ai-connector-disconnect</span>
+              <div>
+                <p>Notion AIコネクタは設定者が離れても継続する</p>
+                <h3>Notion AIコネクタは、設定した担当者が退職しても止まらない。切断場所を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-10">2026.09.10</time>
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">Notionは、Notion AI Connectorsがワークスペースに導入される仕組みであり、設定したワークスペース所有者が離れても接続はそのまま継続すると案内しています。不要になった連携は、ワークスペース所有者が接続先の第三者アプリでアンインストールするか、Settings → Notion AIでDisconnectするまで止まりません。接続を解除すると、その連携データは検索不能になり、一部のコネクタでは反映に最長1時間、データ削除に1日以内かかる場合があります。Notion AIは既存権限を尊重し、一般には設定時点から1年分の情報にアクセスできるとしています。『設定者の退職＝連携の停止』と考えず、連携一覧と切断手順を引き継ぎ項目にする記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Notion AIコネクタは設定者の在籍状況ではなく、接続一覧とDisconnectで管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Notion AIへSlackやGoogle Driveなどを接続するワークスペース所有者</li><li>外部サービスとのAI連携を退職・異動時に見直したい管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Notion AI</li><li>Notion AI Connectors</li><li>外部連携</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260910-04" data-forensics-card data-category="security" data-level="4" data-difficulty="advanced" data-search-text="Notion MCPは「自分に見えるもの全部」で動く。外部AIアプリの許可リストを確認する Notion MCPは外部AIアプリの許可リストで管理する Notionは、Notion MCPを通じて接続した外部AIアプリのツールが、利用者本人のNotion権限で動作し、利用者がアクセスできるものにアクセスできると案内しています。Enterpriseでは、管理者がSettings → Connections → PermissionsのAI appsから、メンバーが接続できる外部AIアプリを許可リスト方式で制限できます。許可リストから外したAIアプリは、過去に接続されていて一覧に残る場合でも、Notionは呼び出しを機能的にブロックすると説明しています。一方、既存トークンを自動で取り消す仕組みではないため、全利用者の接続を切る必要がある時はDisconnect All Usersを使い、利用者は再認証が必要になります。『MCPは便利な検索連携』だけで済ませず、本人権限・許可リスト・一括切断を別々に確認する記事です。 セキュリティ・権限 発展 Notion MCP MCP 外部AIアプリ ChatGPT Cursor 権限管理 NotionをChatGPTやCursorなど外部AIアプリとMCP接続する人 Notion Enterpriseで外部AIアプリを統制する管理者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">notion-mcp-approved-apps</span>
+              <div>
+                <p>Notion MCPは外部AIアプリの許可リストで管理する</p>
+                <h3>Notion MCPは「自分に見えるもの全部」で動く。外部AIアプリの許可リストを確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-10">2026.09.10</time>
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">Notionは、Notion MCPを通じて接続した外部AIアプリのツールが、利用者本人のNotion権限で動作し、利用者がアクセスできるものにアクセスできると案内しています。Enterpriseでは、管理者がSettings → Connections → PermissionsのAI appsから、メンバーが接続できる外部AIアプリを許可リスト方式で制限できます。許可リストから外したAIアプリは、過去に接続されていて一覧に残る場合でも、Notionは呼び出しを機能的にブロックすると説明しています。一方、既存トークンを自動で取り消す仕組みではないため、全利用者の接続を切る必要がある時はDisconnect All Usersを使い、利用者は再認証が必要になります。『MCPは便利な検索連携』だけで済ませず、本人権限・許可リスト・一括切断を別々に確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Notion MCPは本人権限・許可リスト・一括切断を分けて管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>NotionをChatGPTやCursorなど外部AIアプリとMCP接続する人</li><li>Notion Enterpriseで外部AIアプリを統制する管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Notion MCP</li><li>MCP</li><li>外部AIアプリ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260908-02" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="Pinterestに保存・投稿したデータをAI学習へ使わせない。Canvasの設定を見直す Pinterest Canvasの学習利用はPrivacy and dataで選べる Pinterestは、利用者が保存またはアップロードしたコンテンツを、画像生成基盤モデルPinterest Canvasの精度、安全性、全体的な性能の改善に使う場合があると説明しています。利用者はPinterestのPrivacy and data設定から「Use your data to train Pinterest Canvas」をオフにでき、いつでも変更できます。18歳未満の利用者はこの設定が自動でオプトアウトされ、オンに戻すことはできません。Pinterestでの閲覧頻度を減らす設定と、投稿・保存データをモデル改善へ使うことを許可する設定を混同せず、自分のコンテンツについて選べる項目を確認する記事です。 セキュリティ・権限 はじめて Pinterest Pinterest Canvas 生成AI データ利用 オプトアウト SNS設定 Pinterestへ画像やアイデアを保存・投稿する人 SNSサービスによる投稿データのAI改善利用を設定から確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">pinterest-canvas-training-data-control</span>
+              <div>
+                <p>Pinterest Canvasの学習利用はPrivacy and dataで選べる</p>
+                <h3>Pinterestに保存・投稿したデータをAI学習へ使わせない。Canvasの設定を見直す</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-08">2026.09.08</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Pinterestは、利用者が保存またはアップロードしたコンテンツを、画像生成基盤モデルPinterest Canvasの精度、安全性、全体的な性能の改善に使う場合があると説明しています。利用者はPinterestのPrivacy and data設定から「Use your data to train Pinterest Canvas」をオフにでき、いつでも変更できます。18歳未満の利用者はこの設定が自動でオプトアウトされ、オンに戻すことはできません。Pinterestでの閲覧頻度を減らす設定と、投稿・保存データをモデル改善へ使うことを許可する設定を混同せず、自分のコンテンツについて選べる項目を確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Pinterest Canvasの学習利用は、投稿公開設定とは別に選べる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Pinterestへ画像やアイデアを保存・投稿する人</li><li>SNSサービスによる投稿データのAI改善利用を設定から確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Pinterest</li><li>Pinterest Canvas</li><li>生成AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260910-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

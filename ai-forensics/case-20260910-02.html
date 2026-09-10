@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Slack AIの回答は閉じれば消える。でもワークフロー要約をCanvasへ残すと保持設定が効く｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Slackは、通常の会話要約とAI検索の回答を、画面を閉じる・別の場所へ移動するなどで消えていく一時的なAI応答として案内しています。一方、Recapの履歴は90日間保存されます。また、ワークフローの「Summarize public channels」で作ったチャンネル要約は一時回答ではなく、後続の手順により会話へのメッセージやCanvasとして保存できます。この場合、AI要約を含むメッセージやCanvasは組織のデータ保持設定に従います。Slack AIは通常の検索で見えない内容をAI検索で表示しないとされますが、回答が示す引用元は必ず開いて確認する必要があります。『AI回答を閉じた』ことと、『要約を保存していない』ことを混同しない運用を扱います。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260910-02" />
+<meta property="og:title" content="Slack AIの回答は閉じれば消える。でもワークフロー要約をCanvasへ残すと保持設定が効く｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Slackは、通常の会話要約とAI検索の回答を、画面を閉じる・別の場所へ移動するなどで消えていく一時的なAI応答として案内しています。一方、Recapの履歴は90日間保存されます。また、ワークフローの「Summarize public channels」で作ったチャンネル要約は一時回答ではなく、後続の手順により会話へのメッセージやCanvasとして保存できます。この場合、AI要約を含むメッセージやCanvasは組織のデータ保持設定に従います。Slack AIは通常の検索で見えない内容をAI検索で表示しないとされますが、回答が示す引用元は必ず開いて確認する必要があります。『AI回答を閉じた』ことと、『要約を保存していない』ことを混同しない運用を扱います。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260910-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Slack AIは一時回答と保存される要約を分けて扱う</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-09-10">2026.09.10</time>
+            </div>
+            <h1>Slack AIの回答は閉じれば消える。でもワークフロー要約をCanvasへ残すと保持設定が効く</h1>
+            <p>Slackは、通常の会話要約とAI検索の回答を、画面を閉じる・別の場所へ移動するなどで消えていく一時的なAI応答として案内しています。一方、Recapの履歴は90日間保存されます。また、ワークフローの「Summarize public channels」で作ったチャンネル要約は一時回答ではなく、後続の手順により会話へのメッセージやCanvasとして保存できます。この場合、AI要約を含むメッセージやCanvasは組織のデータ保持設定に従います。Slack AIは通常の検索で見えない内容をAI検索で表示しないとされますが、回答が示す引用元は必ず開いて確認する必要があります。『AI回答を閉じた』ことと、『要約を保存していない』ことを混同しない運用を扱います。</p>
+            <ul class="forensics-target-list"><li>Slack AIの検索や要約をチームで使う人</li><li>SlackのAI出力がどこに残るかを運用で決めたい管理者・チームリーダー</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Slack AI</li><li>Slack</li><li>Canvas</li><li>AI要約</li><li>データ保持</li><li>ワークフロー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>Slack AIは一時回答・Recap・保存された要約で保持の扱いが異なる</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>要約を共有・保存する前に、それが一時表示か、組織の保持設定が効くメッセージやCanvasかを確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Slack AIで要約した会話を、後でチームが見られるCanvasに残したい</h3><p>普段のAI検索回答は画面を閉じると消えるため、情報は残らないと思っています。重要なチャンネル要約をワークフローで定期作成し、Canvasに置く案が出ましたが、保存期間と元メッセージの関係が分かりません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>SlackではAIが作るものでも、一時的な回答、Recap、メッセージ・Canvasへ保存されたワークフロー出力で扱いが異なります。保存先を決めずに自動要約を残すと、組織の保持ルールに沿った記録として扱われることを見落とします。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-retention-and-source">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Slackのチャンネル要約をワークフローでCanvasに保存する前に、確認すべきことは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-retention-and-source" data-choice-id="check-retention-and-source" />
+                <span>
+                  <strong>Canvasに保存した要約は組織の保持設定に従うことを確認し、要約の引用から元メッセージも確認する</strong>
+                  <small>一時的なAI回答と、保存されたメッセージ・Canvasを分けて扱う。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="workflow-summary-is-ephemeral" data-choice-id="workflow-summary-is-ephemeral" />
+                <span>
+                  <strong>AIが作った要約なので、Canvasに保存しても画面を閉じれば消えると考える</strong>
+                  <small>ワークフローで作成して保存した要約は、一時的なAI応答ではありません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="summary-needs-no-source" data-choice-id="summary-needs-no-source" />
+                <span>
+                  <strong>Slack AIの要約は正確に整理されるため、引用元のメッセージを確認しない</strong>
+                  <small>Slackは回答に引用を付ける場合があり、元のメッセージを開いて確認できます。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Canvasに保存した要約は組織の保持設定に従うことを確認し、要約の引用から元メッセージも確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>通常のAI検索回答・会話要約は一時的な応答ですが、ワークフローで作った要約をメッセージやCanvasへ保存した場合は、組織のデータ保持設定に従います。回答内の引用から元メッセージを開き、要約が意図どおりかも確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>一時的なAI回答か</h3>
+              <p>通常の会話要約とAI検索の回答は、画面を閉じる・別の場所へ移動するなどで消える一時的なAI応答です。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>Recapの保存期間</h3>
+              <p>SlackはRecapの履歴を90日保存すると案内しています。通常の検索回答と同じ扱いにはしません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ワークフロー要約の保存先</h3>
+              <p>Summarize public channelsのワークフロー出力は、メッセージやCanvasへ保存できます。保存された出力は組織のデータ保持設定に従います。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>要約の引用元</h3>
+              <p>Slack AIの回答には元メッセージへの引用が付く場合があります。重要な決定・数字・担当者は引用を開いて確かめます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Slack AIの出力は、どこへ保存するかで記録の扱いが変わる</strong><p>AI検索や通常の会話要約が一時的に消えるとしても、Recapには保存期間があり、ワークフローからメッセージ・Canvasへ保存した要約には組織の保持設定が適用されます。保存先と保持ルールを決め、重要な要約は引用元で確認することが安全です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>ワークフローで要約を保存する前に、メッセージ・Canvasの保持設定を確認する</strong><span>保存されたワークフロー要約は、一時的なAI回答ではなく、組織のデータ保持設定に従います。</span></li>
+            <li><strong>Recapと通常のAI検索回答を同じ保存期間だと考えない</strong><span>SlackはRecapの履歴を90日保存し、通常の検索回答・会話要約は一時的な応答として案内しています。</span></li>
+            <li><strong>重要な要約では、引用を開いて元メッセージを確認する</strong><span>Slack AIの回答には、根拠となった元メッセージへの引用が付く場合があります。</span></li>
+            <li><strong>定期要約は、残すチャンネル・保存先・削除ルールをチームで決める</strong><span>メッセージやCanvasに保存されたAI要約は、通常の組織記録として保持されます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AIが作った内容なら、Canvasに保存しても一時的に消えると考える</strong><span>ワークフローで作りメッセージ・Canvasへ保存した要約は、保持設定に従って残ります。</span></li>
+            <li><strong>Slack AIの要約を、引用元を見ずに議事録や決定事項として確定する</strong><span>要約は元メッセージを参照して作られるため、重要な内容は引用元で確認が必要です。</span></li>
+            <li><strong>一時回答が消えることを理由に、Recapの保存期間や保存済み要約を確認しない</strong><span>Recapや保存されたワークフロー要約には別の保持の扱いがあります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>残す要約と、その場で使う要約を使い分ける</h3>
+          <p>一時回答は調べ物に使い、チームで残すべき決定だけを確認済みのCanvasへ保存すれば、Slack AIを便利に使いながら記録も整理できます。</p>
+          <ul class="positive-example-list"><li>日々の質問はAI検索の一時回答で解く</li><li>週次の決定事項だけを確認後にCanvasへ残す</li><li>Recapの見直しタイミングを90日より前に決める</li><li>要約に引用元を添えてチームへ共有する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIが作った文章は、どこか軽いメモのように感じることがあります。でもCanvasに残した瞬間、その文章はチームの記録になります。私は『要約を作る』より先に、『これは後で誰が読んで、いつ消えるのか』を決めておきたいです。引用元へ戻れる仕組みも、記録として残す時ほど役立ちます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Slack AIは、一時回答と保存された要約を分け、保存先の保持設定を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://slack.com/help/articles/28310650165907-Security-for-AI-features-in-Slack" target="_blank" rel="noopener noreferrer">Security for AI features in Slack<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Slack</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260910-03" data-forensics-card data-category="security" data-level="4" data-difficulty="advanced" data-search-text="Notion AIコネクタは、設定した担当者が退職しても止まらない。切断場所を決める Notion AIコネクタは設定者が離れても継続する Notionは、Notion AI Connectorsがワークスペースに導入される仕組みであり、設定したワークスペース所有者が離れても接続はそのまま継続すると案内しています。不要になった連携は、ワークスペース所有者が接続先の第三者アプリでアンインストールするか、Settings → Notion AIでDisconnectするまで止まりません。接続を解除すると、その連携データは検索不能になり、一部のコネクタでは反映に最長1時間、データ削除に1日以内かかる場合があります。Notion AIは既存権限を尊重し、一般には設定時点から1年分の情報にアクセスできるとしています。『設定者の退職＝連携の停止』と考えず、連携一覧と切断手順を引き継ぎ項目にする記事です。 セキュリティ・権限 発展 Notion AI Notion AI Connectors 外部連携 Google Drive Slack 権限管理 Notion AIへSlackやGoogle Driveなどを接続するワークスペース所有者 外部サービスとのAI連携を退職・異動時に見直したい管理者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">notion-ai-connector-disconnect</span>
+              <div>
+                <p>Notion AIコネクタは設定者が離れても継続する</p>
+                <h3>Notion AIコネクタは、設定した担当者が退職しても止まらない。切断場所を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-10">2026.09.10</time>
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">Notionは、Notion AI Connectorsがワークスペースに導入される仕組みであり、設定したワークスペース所有者が離れても接続はそのまま継続すると案内しています。不要になった連携は、ワークスペース所有者が接続先の第三者アプリでアンインストールするか、Settings → Notion AIでDisconnectするまで止まりません。接続を解除すると、その連携データは検索不能になり、一部のコネクタでは反映に最長1時間、データ削除に1日以内かかる場合があります。Notion AIは既存権限を尊重し、一般には設定時点から1年分の情報にアクセスできるとしています。『設定者の退職＝連携の停止』と考えず、連携一覧と切断手順を引き継ぎ項目にする記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Notion AIコネクタは設定者の在籍状況ではなく、接続一覧とDisconnectで管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Notion AIへSlackやGoogle Driveなどを接続するワークスペース所有者</li><li>外部サービスとのAI連携を退職・異動時に見直したい管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Notion AI</li><li>Notion AI Connectors</li><li>外部連携</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260908-01" data-forensics-card data-category="work-use" data-level="2" data-difficulty="advanced" data-search-text="Zoom AI要約は止めても配布済みコピーまで消えない。自動削除と共有先を分けて確認する Zoom AI要約は自動削除と配布済みコピーを分けて管理する Zoomは、AIによるMeeting Summaryを指定日数後に自動削除する設定を、アカウント、グループ、個人の各段階で用意しています。上位の管理者は設定をロックでき、利用者側で変更できない場合があります。一方、主催者が共有を有効にした要約はメールやZoom Chatで参加者へ届き、受信者は保存・他者への共有を行えます。会議中にAI要約を停止しても、その時点までに生成された要約は残り得ます。要約の生成、会議内の削除、自動削除、参加者へ配布済みのコピーを同じ「削除」と考えず、会議前に保存期間と送付範囲を分けて決める記事です。 仕事・AI活用 発展 Zoom Zoom AI Meeting Summary 会議要約 自動削除 データ保持 Zoom AIのMeeting Summaryを業務会議で使う主催者 AI要約の保存期間と参加者への共有範囲を整えたい管理者・チーム">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">zoom-ai-summary-retention-sharing</span>
+              <div>
+                <p>Zoom AI要約は自動削除と配布済みコピーを分けて管理する</p>
+                <h3>Zoom AI要約は止めても配布済みコピーまで消えない。自動削除と共有先を分けて確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-08">2026.09.08</time>
+              <span>仕事・AI活用</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">Zoomは、AIによるMeeting Summaryを指定日数後に自動削除する設定を、アカウント、グループ、個人の各段階で用意しています。上位の管理者は設定をロックでき、利用者側で変更できない場合があります。一方、主催者が共有を有効にした要約はメールやZoom Chatで参加者へ届き、受信者は保存・他者への共有を行えます。会議中にAI要約を停止しても、その時点までに生成された要約は残り得ます。要約の生成、会議内の削除、自動削除、参加者へ配布済みのコピーを同じ「削除」と考えず、会議前に保存期間と送付範囲を分けて決める記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Zoom AI要約は、保存期間と配布済みコピーを別に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Zoom AIのMeeting Summaryを業務会議で使う主催者</li><li>AI要約の保存期間と参加者への共有範囲を整えたい管理者・チーム</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Zoom</li><li>Zoom AI</li><li>Meeting Summary</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260907-04" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="Copilot Pagesを共有すると何が見える？「チャット全体」ではなくページ単位で渡す Copilot Pagesは共有方法で見える範囲と同期の仕方が変わる Microsoftは、Copilot Pagesを共有した相手はページとその内容にアクセスして共同編集できる一方、元のCopilotチャットセッションにはアクセスしないと案内しています。共有時にPage linkを選ぶと、相手はLoopでその一つのページだけを開きます。Copy componentを選んでTeams、Outlook、OneNoteなどへ貼ると、貼り付けたコンポーネントへの変更はページへリアルタイムで反映されます。AIとの会話全体を渡すのか、確認済みのページだけを渡すのか、リアルタイム同期が必要かを共有前に選ぶ手順を扱います。 仕事・AI活用 標準 Microsoft Copilot Copilot Pages Loop Teams 共同編集 共有設定 Microsoft Copilot PagesでAIの下書きをチームへ渡す人 Copilotの会話と共有する成果物の境界を整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-pages-share-boundary</span>
+              <div>
+                <p>Copilot Pagesは共有方法で見える範囲と同期の仕方が変わる</p>
+                <h3>Copilot Pagesを共有すると何が見える？「チャット全体」ではなくページ単位で渡す</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-07">2026.09.07</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、Copilot Pagesを共有した相手はページとその内容にアクセスして共同編集できる一方、元のCopilotチャットセッションにはアクセスしないと案内しています。共有時にPage linkを選ぶと、相手はLoopでその一つのページだけを開きます。Copy componentを選んでTeams、Outlook、OneNoteなどへ貼ると、貼り付けたコンポーネントへの変更はページへリアルタイムで反映されます。AIとの会話全体を渡すのか、確認済みのページだけを渡すのか、リアルタイム同期が必要かを共有前に選ぶ手順を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Copilot Pagesは、チャットとページを分け、同期する共有形式を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft Copilot PagesでAIの下書きをチームへ渡す人</li><li>Copilotの会話と共有する成果物の境界を整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Copilot Pages</li><li>Loop</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260910-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260910-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
