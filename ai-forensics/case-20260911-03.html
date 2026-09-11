@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Copilotの会話リンクは誰でも見られる。共有する範囲をプレビューで絞る｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは、個人向けMicrosoft Copilotで会話全体または一つの回答を共有リンクにできると案内しています。リンク作成時には共有内容を確認するプレビューが表示され、受信者にはリンクを作った時点の会話のコピーが見えます。会話を続けても、その後の内容は共有済みのコピーに追加されません。一方、リンクを知る人なら誰でもアクセスできるため、機密・個人情報を含む共有リンクを作らないようMicrosoftは注意を促しています。会話を共有したい時に、全部を渡すのではなく必要な一回答へ絞り、プレビューを確認して送る手順を扱います。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260911-03" />
+<meta property="og:title" content="Copilotの会話リンクは誰でも見られる。共有する範囲をプレビューで絞る｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは、個人向けMicrosoft Copilotで会話全体または一つの回答を共有リンクにできると案内しています。リンク作成時には共有内容を確認するプレビューが表示され、受信者にはリンクを作った時点の会話のコピーが見えます。会話を続けても、その後の内容は共有済みのコピーに追加されません。一方、リンクを知る人なら誰でもアクセスできるため、機密・個人情報を含む共有リンクを作らないようMicrosoftは注意を促しています。会話を共有したい時に、全部を渡すのではなく必要な一回答へ絞り、プレビューを確認して送る手順を扱います。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260911-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Copilotの会話リンクは共有前に範囲をプレビューで確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-09-11">2026.09.11</time>
+            </div>
+            <h1>Copilotの会話リンクは誰でも見られる。共有する範囲をプレビューで絞る</h1>
+            <p>Microsoftは、個人向けMicrosoft Copilotで会話全体または一つの回答を共有リンクにできると案内しています。リンク作成時には共有内容を確認するプレビューが表示され、受信者にはリンクを作った時点の会話のコピーが見えます。会話を続けても、その後の内容は共有済みのコピーに追加されません。一方、リンクを知る人なら誰でもアクセスできるため、機密・個人情報を含む共有リンクを作らないようMicrosoftは注意を促しています。会話を共有したい時に、全部を渡すのではなく必要な一回答へ絞り、プレビューを確認して送る手順を扱います。</p>
+            <ul class="forensics-target-list"><li>Microsoft Copilotの回答を同僚や家族に送る人</li><li>会話に個人情報・仕事の検討内容を含めることがある人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft Copilot</li><li>会話共有</li><li>共有リンク</li><li>プレビュー</li><li>個人情報</li><li>情報共有</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>Copilotの共有リンクは、必要な一回答だけをプレビューして渡す</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>会話リンクはリンクを知る人が見られます。共有前にプレビューを開き、会話全体ではなく必要な回答だけを選びましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Copilotで作った説明文を同僚へ渡したいが、その前の会話には仕事の事情も書いてある</h3><p>Copilotの回答だけを共有したい一方、同じ会話には相談の経緯、顧客名、個人の予定などが入っているかもしれません。共有ボタンを押すとどこまで見えるのか、送った後の会話がどうなるのかを確認したい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>共有リンクは宛先を個別に指定して渡す文書ではなく、リンクを知る人がアクセスできるコピーです。会話全体を共有するか一回答だけにするか、プレビューで何が表示されるかを確かめないと、説明に不要な背景まで渡す可能性があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="share-one-and-preview">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Copilotの回答だけを人に渡したい時、適切な共有方法は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="share-one-and-preview" data-choice-id="share-one-and-preview" />
+                <span>
+                  <strong>必要な一回答の共有を選び、プレビューで内容を確認してからリンクを送る</strong>
+                  <small>会話全体ではなく、渡す必要がある範囲に絞る。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="share-whole-chat" data-choice-id="share-whole-chat" />
+                <span>
+                  <strong>会話の背景も役立つかもしれないので、確認せず会話全体のリンクを送る</strong>
+                  <small>リンクを知る人は共有されたコピーを閲覧でき、不要な内容まで含まれるおそれがある。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="future-messages-visible" data-choice-id="future-messages-visible" />
+                <span>
+                  <strong>リンクを送った後に会話を追記すれば、受信者のコピーも自動で更新されると考える</strong>
+                  <small>受信者に見えるのはリンク作成時点のコピーで、その後の内容は追加されない。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>必要な一回答の共有を選び、プレビューで内容を確認してからリンクを送る</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Microsoft Copilotでは会話全体と一回答のどちらも共有できます。共有前にプレビューで内容を確認し、必要な一回答だけを選ぶと範囲を絞れます。共有リンクはリンクを知る人がアクセスできるため、機密・個人情報を含めないことが必要です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>会話全体か一回答か</h3>
+              <p>Copilotは会話ページから会話全体、各回答から一回答を共有できます。目的に必要な最小範囲を選びます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>共有前プレビュー</h3>
+              <p>共有ボタンを押すと、何が共有されるかを確認するプレビューが表示されます。本文だけでなく前後の文脈を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>リンクを知る人のアクセス</h3>
+              <p>共有リンクは、リンクを知る人ならアクセスできます。機密情報、個人情報、公開したくない検討内容を含めないようにします。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>共有後の会話との関係</h3>
+              <p>受信者に見えるのはリンク作成時点のコピーです。その後の会話は自動で追加されません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Copilotの会話共有は『リンクを知る人向けのコピー』として、範囲を最小化する</strong><p>Copilotは会話全体と一回答を別々に共有できます。共有リンクの受信者には作成時点のコピーが見え、その後の会話は追加されませんが、リンクを知る人はアクセスできます。共有範囲を一回答へ絞り、プレビューで実際の内容を確認してから送ることが安全です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>共有したい内容が一回答で足りるかを先に確認する</strong><span>Copilotでは会話全体だけでなく、一つの回答だけを共有できます。</span></li>
+            <li><strong>共有前のプレビューで、実際に渡る内容を確認する</strong><span>Microsoftは共有ボタンの後に表示されるプレビューで、共有内容を確認できると案内しています。</span></li>
+            <li><strong>共有リンクには、機密・個人情報・公開したくない経緯を含めない</strong><span>共有リンクはリンクを知る人ならアクセスできるためです。</span></li>
+            <li><strong>送付後に追加した会話は共有相手へ自動反映されないと理解する</strong><span>受信者が見るのはリンク作成時点の会話のコピーです。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>共有範囲を確認せず、会話全体のリンクを送る</strong><span>会話の背景に含めた個人情報や仕事上の検討内容まで共有されるおそれがあります。</span></li>
+            <li><strong>リンクを送る相手だけが必ず見られると考える</strong><span>Microsoftは、リンクを知る人なら誰でもアクセスできると注意しています。</span></li>
+            <li><strong>リンク送付後の追記で、相手のコピーも更新されると考える</strong><span>共有リンクの受信者には、リンクを作成した時点のコピーだけが表示されます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>確認済みの一回答だけを、説明資料のたたき台として渡す</h3>
+          <p>内容をプレビューした一回答だけを共有すれば、会話の背景を広く渡さずに、作成した説明や手順を家族・同僚と共有できます。</p>
+          <ul class="positive-example-list"><li>操作手順の一回答だけを共有する</li><li>共有前に固有名詞や個人情報がないか確認する</li><li>会話の経緯が必要なら別途要約して渡す</li><li>共有リンクではなく社内の指定保管先へ移すかも検討する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIとの会話は、考えがまとまるまでの下書きも一緒に残りがちです。誰かに渡したいのが最後の回答だけなら、会話全体を渡す理由はほとんどありません。私は共有ボタンを押した後のプレビューを、送信前の最後の確認場所にしたいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Copilotの共有リンクは、必要な一回答をプレビュー確認してから送る。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/microsoft-copilot/conversation-history-in-microsoft-copilot" target="_blank" rel="noopener noreferrer">Conversation history in Microsoft Copilot<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260911-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Geminiに画面操作を任せる前に。スクリーンショットの扱いと止め方を確認する Geminiの画面操作はスクリーンショットと停止操作を確認する Googleは、Gemini Appsの画面自動操作について、実行中にアプリ画面のスクリーンショットを取得することがあり、画面に表示された情報を含み得ると案内しています。Keep Activityをオンにしている場合、スクリーンショットは訓練済みレビュアーにより確認され、Googleサービスの改善に使われることがあります。Googleは利用者が操作を監督し、停止・進行確認・手動操作への切替を行えると説明し、ログイン情報や支払情報をGeminiのチャットへ入れないよう求めています。買い物や予約の操作を便利に任せる前に、画面に何を表示するか、Keep Activity、途中で止める場所を決める記事です。 セキュリティ・権限 標準 Gemini 画面自動操作 スクリーンショット Keep Activity スマートフォン プライバシー Androidアプリ上の操作をGeminiに手伝わせようとしている人 画面に仕事・決済・個人情報が表示されるスマートフォンを使う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gemini-screen-automation-control</span>
+              <div>
+                <p>Geminiの画面操作はスクリーンショットと停止操作を確認する</p>
+                <h3>Geminiに画面操作を任せる前に。スクリーンショットの扱いと止め方を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-11">2026.09.11</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは、Gemini Appsの画面自動操作について、実行中にアプリ画面のスクリーンショットを取得することがあり、画面に表示された情報を含み得ると案内しています。Keep Activityをオンにしている場合、スクリーンショットは訓練済みレビュアーにより確認され、Googleサービスの改善に使われることがあります。Googleは利用者が操作を監督し、停止・進行確認・手動操作への切替を行えると説明し、ログイン情報や支払情報をGeminiのチャットへ入れないよう求めています。買い物や予約の操作を便利に任せる前に、画面に何を表示するか、Keep Activity、途中で止める場所を決める記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Geminiの画面自動操作は、見せる画面と停止・確認の責任を利用者が持つ</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Androidアプリ上の操作をGeminiに手伝わせようとしている人</li><li>画面に仕事・決済・個人情報が表示されるスマートフォンを使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>画面自動操作</li><li>スクリーンショット</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260910-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Windows Recallは「端末内保存」でも除外設定を過信しない。保存前後の確認手順 Windows Recallは除外範囲と既存記録を分けて確認する Microsoftは、Copilot+ PC向けのRecallで画面のスナップショット保存を利用者ごとのオプトインとして案内しています。保存したスナップショットと関連データは端末内に保存され、Microsoftや第三者へ共有されないと説明されています。一方、アプリ・サイトの除外には確認すべき範囲があります。サイト除外は対応ブラウザの前面タブなどで働く仕組みで、埋め込み内容、ブラウザ履歴、前面ではないタブの一部がスナップショットに現れる場合があります。機密情報フィルタは既定で有効ですが、完全な保証ではありません。Recallを有効にする前に除外リストを決め、除外前に保存されたアプリ・サイトの内容はまとめて削除する操作まで確認する記事です。 セキュリティ・権限 標準 Windows Recall Copilot+ PC スナップショット 画面記録 プライバシー Windows Copilot+ PCでWindows Recallを使うか検討している人 Recallに残る画面記録から、仕事や個人情報を守りたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">windows-recall-filter-delete</span>
+              <div>
+                <p>Windows Recallは除外範囲と既存記録を分けて確認する</p>
+                <h3>Windows Recallは「端末内保存」でも除外設定を過信しない。保存前後の確認手順</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-10">2026.09.10</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、Copilot+ PC向けのRecallで画面のスナップショット保存を利用者ごとのオプトインとして案内しています。保存したスナップショットと関連データは端末内に保存され、Microsoftや第三者へ共有されないと説明されています。一方、アプリ・サイトの除外には確認すべき範囲があります。サイト除外は対応ブラウザの前面タブなどで働く仕組みで、埋め込み内容、ブラウザ履歴、前面ではないタブの一部がスナップショットに現れる場合があります。機密情報フィルタは既定で有効ですが、完全な保証ではありません。Recallを有効にする前に除外リストを決め、除外前に保存されたアプリ・サイトの内容はまとめて削除する操作まで確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Recallは除外設定の範囲と、保存済み記録の削除を分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Copilot+ PCでWindows Recallを使うか検討している人</li><li>Recallに残る画面記録から、仕事や個人情報を守りたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Windows Recall</li><li>Copilot+ PC</li><li>スナップショット</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260910-03" data-forensics-card data-category="security" data-level="4" data-difficulty="advanced" data-search-text="Notion AIコネクタは、設定した担当者が退職しても止まらない。切断場所を決める Notion AIコネクタは設定者が離れても継続する Notionは、Notion AI Connectorsがワークスペースに導入される仕組みであり、設定したワークスペース所有者が離れても接続はそのまま継続すると案内しています。不要になった連携は、ワークスペース所有者が接続先の第三者アプリでアンインストールするか、Settings → Notion AIでDisconnectするまで止まりません。接続を解除すると、その連携データは検索不能になり、一部のコネクタでは反映に最長1時間、データ削除に1日以内かかる場合があります。Notion AIは既存権限を尊重し、一般には設定時点から1年分の情報にアクセスできるとしています。『設定者の退職＝連携の停止』と考えず、連携一覧と切断手順を引き継ぎ項目にする記事です。 セキュリティ・権限 発展 Notion AI Notion AI Connectors 外部連携 Google Drive Slack 権限管理 Notion AIへSlackやGoogle Driveなどを接続するワークスペース所有者 外部サービスとのAI連携を退職・異動時に見直したい管理者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">notion-ai-connector-disconnect</span>
+              <div>
+                <p>Notion AIコネクタは設定者が離れても継続する</p>
+                <h3>Notion AIコネクタは、設定した担当者が退職しても止まらない。切断場所を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-10">2026.09.10</time>
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">Notionは、Notion AI Connectorsがワークスペースに導入される仕組みであり、設定したワークスペース所有者が離れても接続はそのまま継続すると案内しています。不要になった連携は、ワークスペース所有者が接続先の第三者アプリでアンインストールするか、Settings → Notion AIでDisconnectするまで止まりません。接続を解除すると、その連携データは検索不能になり、一部のコネクタでは反映に最長1時間、データ削除に1日以内かかる場合があります。Notion AIは既存権限を尊重し、一般には設定時点から1年分の情報にアクセスできるとしています。『設定者の退職＝連携の停止』と考えず、連携一覧と切断手順を引き継ぎ項目にする記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Notion AIコネクタは設定者の在籍状況ではなく、接続一覧とDisconnectで管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Notion AIへSlackやGoogle Driveなどを接続するワークスペース所有者</li><li>外部サービスとのAI連携を退職・異動時に見直したい管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Notion AI</li><li>Notion AI Connectors</li><li>外部連携</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260911-04">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260911-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

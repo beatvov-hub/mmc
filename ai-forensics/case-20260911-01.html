@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Geminiに画面操作を任せる前に。スクリーンショットの扱いと止め方を確認する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Googleは、Gemini Appsの画面自動操作について、実行中にアプリ画面のスクリーンショットを取得することがあり、画面に表示された情報を含み得ると案内しています。Keep Activityをオンにしている場合、スクリーンショットは訓練済みレビュアーにより確認され、Googleサービスの改善に使われることがあります。Googleは利用者が操作を監督し、停止・進行確認・手動操作への切替を行えると説明し、ログイン情報や支払情報をGeminiのチャットへ入れないよう求めています。買い物や予約の操作を便利に任せる前に、画面に何を表示するか、Keep Activity、途中で止める場所を決める記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260911-01" />
+<meta property="og:title" content="Geminiに画面操作を任せる前に。スクリーンショットの扱いと止め方を確認する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Googleは、Gemini Appsの画面自動操作について、実行中にアプリ画面のスクリーンショットを取得することがあり、画面に表示された情報を含み得ると案内しています。Keep Activityをオンにしている場合、スクリーンショットは訓練済みレビュアーにより確認され、Googleサービスの改善に使われることがあります。Googleは利用者が操作を監督し、停止・進行確認・手動操作への切替を行えると説明し、ログイン情報や支払情報をGeminiのチャットへ入れないよう求めています。買い物や予約の操作を便利に任せる前に、画面に何を表示するか、Keep Activity、途中で止める場所を決める記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260911-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Geminiの画面操作はスクリーンショットと停止操作を確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-11">2026.09.11</time>
+            </div>
+            <h1>Geminiに画面操作を任せる前に。スクリーンショットの扱いと止め方を確認する</h1>
+            <p>Googleは、Gemini Appsの画面自動操作について、実行中にアプリ画面のスクリーンショットを取得することがあり、画面に表示された情報を含み得ると案内しています。Keep Activityをオンにしている場合、スクリーンショットは訓練済みレビュアーにより確認され、Googleサービスの改善に使われることがあります。Googleは利用者が操作を監督し、停止・進行確認・手動操作への切替を行えると説明し、ログイン情報や支払情報をGeminiのチャットへ入れないよう求めています。買い物や予約の操作を便利に任せる前に、画面に何を表示するか、Keep Activity、途中で止める場所を決める記事です。</p>
+            <ul class="forensics-target-list"><li>Androidアプリ上の操作をGeminiに手伝わせようとしている人</li><li>画面に仕事・決済・個人情報が表示されるスマートフォンを使う人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Gemini</li><li>画面自動操作</li><li>スクリーンショット</li><li>Keep Activity</li><li>スマートフォン</li><li>プライバシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>Geminiの画面自動操作は、見せる画面と停止・確認の責任を利用者が持つ</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>画面に出る情報を確認し、機微情報・決済・緊急時は任せない。実行中はいつでも止めて自分で確定しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Geminiにアプリ上の注文や予約を手伝わせたいが、画面には住所や支払い情報も出る</h3><p>スマートフォンで表示中の画面をGeminiに読ませ、手続きを進めてもらえると便利そうです。一方で、途中の画面に住所、注文履歴、ログイン状態、カード情報が現れることがあります。どこまで任せ、異常時にはどう止めるべきかを判断したい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>画面自動操作は、チャットに自分で入力した文章だけでなく、操作対象アプリに表示された情報を扱います。画面に出る内容、活動保存の設定、最終確認を分けて考えないと、利便性のために不要な情報を見せたり、誤った操作を確定したりするおそれがあります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="supervise-and-stop">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Geminiの画面自動操作を使う前の確認として適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="supervise-and-stop" data-choice-id="supervise-and-stop" />
+                <span>
+                  <strong>機微情報や決済の画面では使わず、進行を見ながら必要なら停止・手動操作へ切り替える</strong>
+                  <small>画面操作中にはスクリーンショットが取得され得るため、任せる範囲を限定する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="enter-payment-in-chat" data-choice-id="enter-payment-in-chat" />
+                <span>
+                  <strong>支払いを急ぐため、カード番号やログイン情報をGeminiのチャットに入力する</strong>
+                  <small>Googleはログイン情報や支払情報をGeminiのチャットに入力しないよう案内している。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="automation-is-error-free" data-choice-id="automation-is-error-free" />
+                <span>
+                  <strong>自動操作は正確なので、注文内容や宛先を見直さずに完了させる</strong>
+                  <small>GoogleはGeminiが誤ることがあるため、利用者が監督するよう案内している。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>機微情報や決済の画面では使わず、進行を見ながら必要なら停止・手動操作へ切り替える</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Geminiの画面自動操作では、実行中にスクリーンショットが取得され、画面上の情報を含むことがあります。機微情報や緊急性の高い操作には使わず、進行を確認して、必要ならStopまたは手動操作へ切り替えることが重要です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>画面に機微情報が出ない手順か</h3>
+              <p>画面自動操作では、表示中の情報を含むスクリーンショットが取得されることがあります。住所、認証情報、支払い情報が出る手順は任せないようにします。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Keep Activityの状態</h3>
+              <p>Keep Activityがオンの場合、画面自動操作中のスクリーンショットは訓練済みレビュアーにより確認され、サービス改善に使われることがあります。設定と用途を対応させます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>停止と手動操作への切替</h3>
+              <p>Googleは、利用者が操作を停止し、進行を見て手動で引き継げると案内しています。確定前に止める担当を利用者側に残します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>任せない用途を決める</h3>
+              <p>Googleは、緊急時や機微情報を含む作業への画面自動操作の利用を避けるよう案内しています。注文・送信の確定は自分で見直します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>画面自動操作は『チャットの外』も扱うため、任せる画面を狭くして監督する</strong><p>Geminiは画面自動操作中にスクリーンショットを取得し、画面に表示された情報を扱うことがあります。Keep Activityがオンなら、スクリーンショットはサービス改善に使われ得ます。任せるのは機微情報を含まない途中作業にとどめ、ログイン・支払い・最終確定は画面を自分で見て行うのが安全です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>自動操作を始める前に、画面に表示される情報を確認する</strong><span>スクリーンショットには、操作対象アプリに表示された情報が含まれることがあります。</span></li>
+            <li><strong>Keep Activityの状態を確認し、用途に応じて設定する</strong><span>オンの場合、画面自動操作中のスクリーンショットは訓練済みレビュアーにより確認され、サービス改善に使われることがあります。</span></li>
+            <li><strong>実行中は進行を確認し、必要なら停止して手動で引き継ぐ</strong><span>Googleは利用者が操作を停止、進行確認、手動操作できると案内しています。</span></li>
+            <li><strong>注文確定・送信・支払い前は、自分で宛先と内容を確認する</strong><span>Geminiが誤ることがあり、利用者が自分の代わりに行われる操作を監督する必要があります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>カード番号、パスワード、ワンタイムコードをGeminiのチャットへ入力する</strong><span>GoogleはGeminiのチャットへログイン情報や支払情報を入力しないよう案内しています。</span></li>
+            <li><strong>緊急時や機微情報を含む操作を、画面自動操作に任せる</strong><span>Googleはこれらの作業での画面自動操作の利用を避けるよう案内しています。</span></li>
+            <li><strong>自動操作の結果を見ずに、購入や送信を確定する</strong><span>画面自動操作は誤ることがあり、最終的な操作の責任は利用者にあります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>定型的な途中作業だけを任せ、確認が必要な場面は自分で担う</h3>
+          <p>画面に機微情報が出ない検索や候補比較などに範囲を絞れば、Geminiの画面操作を時間短縮に使いながら、確定や認証を自分で管理できます。</p>
+          <ul class="positive-example-list"><li>候補の店舗や商品の検索までを手伝わせる</li><li>支払い画面に進む前に停止して自分で確認する</li><li>配送先や予約日時の確定は手動で行う</li><li>作業後にKeep Activityの設定を見直す</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>画面を見て動くAIは、こちらが入力した一文より広い範囲を扱います。私は『ここまでは探してよい、ここからは自分で確認する』という境目を、決済画面が出る前に決めたいです。便利な自動操作ほど、止める位置を先に決めておくと落ち着いて使えます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Geminiの画面自動操作は、画面に出す情報を絞り、止めて自分で確定する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/gemini/answer/13594961?hl=en" target="_blank" rel="noopener noreferrer">Gemini Apps Privacy Hub<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260911-03" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="Copilotの会話リンクは誰でも見られる。共有する範囲をプレビューで絞る Copilotの会話リンクは共有前に範囲をプレビューで確認する Microsoftは、個人向けMicrosoft Copilotで会話全体または一つの回答を共有リンクにできると案内しています。リンク作成時には共有内容を確認するプレビューが表示され、受信者にはリンクを作った時点の会話のコピーが見えます。会話を続けても、その後の内容は共有済みのコピーに追加されません。一方、リンクを知る人なら誰でもアクセスできるため、機密・個人情報を含む共有リンクを作らないようMicrosoftは注意を促しています。会話を共有したい時に、全部を渡すのではなく必要な一回答へ絞り、プレビューを確認して送る手順を扱います。 セキュリティ・権限 はじめて Microsoft Copilot 会話共有 共有リンク プレビュー 個人情報 情報共有 Microsoft Copilotの回答を同僚や家族に送る人 会話に個人情報・仕事の検討内容を含めることがある人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-conversation-link-preview</span>
+              <div>
+                <p>Copilotの会話リンクは共有前に範囲をプレビューで確認する</p>
+                <h3>Copilotの会話リンクは誰でも見られる。共有する範囲をプレビューで絞る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-11">2026.09.11</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、個人向けMicrosoft Copilotで会話全体または一つの回答を共有リンクにできると案内しています。リンク作成時には共有内容を確認するプレビューが表示され、受信者にはリンクを作った時点の会話のコピーが見えます。会話を続けても、その後の内容は共有済みのコピーに追加されません。一方、リンクを知る人なら誰でもアクセスできるため、機密・個人情報を含む共有リンクを作らないようMicrosoftは注意を促しています。会話を共有したい時に、全部を渡すのではなく必要な一回答へ絞り、プレビューを確認して送る手順を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Copilotの共有リンクは、必要な一回答だけをプレビューして渡す</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft Copilotの回答を同僚や家族に送る人</li><li>会話に個人情報・仕事の検討内容を含めることがある人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>会話共有</li><li>共有リンク</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260910-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Windows Recallは「端末内保存」でも除外設定を過信しない。保存前後の確認手順 Windows Recallは除外範囲と既存記録を分けて確認する Microsoftは、Copilot+ PC向けのRecallで画面のスナップショット保存を利用者ごとのオプトインとして案内しています。保存したスナップショットと関連データは端末内に保存され、Microsoftや第三者へ共有されないと説明されています。一方、アプリ・サイトの除外には確認すべき範囲があります。サイト除外は対応ブラウザの前面タブなどで働く仕組みで、埋め込み内容、ブラウザ履歴、前面ではないタブの一部がスナップショットに現れる場合があります。機密情報フィルタは既定で有効ですが、完全な保証ではありません。Recallを有効にする前に除外リストを決め、除外前に保存されたアプリ・サイトの内容はまとめて削除する操作まで確認する記事です。 セキュリティ・権限 標準 Windows Recall Copilot+ PC スナップショット 画面記録 プライバシー Windows Copilot+ PCでWindows Recallを使うか検討している人 Recallに残る画面記録から、仕事や個人情報を守りたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">windows-recall-filter-delete</span>
+              <div>
+                <p>Windows Recallは除外範囲と既存記録を分けて確認する</p>
+                <h3>Windows Recallは「端末内保存」でも除外設定を過信しない。保存前後の確認手順</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-10">2026.09.10</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、Copilot+ PC向けのRecallで画面のスナップショット保存を利用者ごとのオプトインとして案内しています。保存したスナップショットと関連データは端末内に保存され、Microsoftや第三者へ共有されないと説明されています。一方、アプリ・サイトの除外には確認すべき範囲があります。サイト除外は対応ブラウザの前面タブなどで働く仕組みで、埋め込み内容、ブラウザ履歴、前面ではないタブの一部がスナップショットに現れる場合があります。機密情報フィルタは既定で有効ですが、完全な保証ではありません。Recallを有効にする前に除外リストを決め、除外前に保存されたアプリ・サイトの内容はまとめて削除する操作まで確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Recallは除外設定の範囲と、保存済み記録の削除を分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Copilot+ PCでWindows Recallを使うか検討している人</li><li>Recallに残る画面記録から、仕事や個人情報を守りたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Windows Recall</li><li>Copilot+ PC</li><li>スナップショット</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260910-03" data-forensics-card data-category="security" data-level="4" data-difficulty="advanced" data-search-text="Notion AIコネクタは、設定した担当者が退職しても止まらない。切断場所を決める Notion AIコネクタは設定者が離れても継続する Notionは、Notion AI Connectorsがワークスペースに導入される仕組みであり、設定したワークスペース所有者が離れても接続はそのまま継続すると案内しています。不要になった連携は、ワークスペース所有者が接続先の第三者アプリでアンインストールするか、Settings → Notion AIでDisconnectするまで止まりません。接続を解除すると、その連携データは検索不能になり、一部のコネクタでは反映に最長1時間、データ削除に1日以内かかる場合があります。Notion AIは既存権限を尊重し、一般には設定時点から1年分の情報にアクセスできるとしています。『設定者の退職＝連携の停止』と考えず、連携一覧と切断手順を引き継ぎ項目にする記事です。 セキュリティ・権限 発展 Notion AI Notion AI Connectors 外部連携 Google Drive Slack 権限管理 Notion AIへSlackやGoogle Driveなどを接続するワークスペース所有者 外部サービスとのAI連携を退職・異動時に見直したい管理者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">notion-ai-connector-disconnect</span>
+              <div>
+                <p>Notion AIコネクタは設定者が離れても継続する</p>
+                <h3>Notion AIコネクタは、設定した担当者が退職しても止まらない。切断場所を決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-10">2026.09.10</time>
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">Notionは、Notion AI Connectorsがワークスペースに導入される仕組みであり、設定したワークスペース所有者が離れても接続はそのまま継続すると案内しています。不要になった連携は、ワークスペース所有者が接続先の第三者アプリでアンインストールするか、Settings → Notion AIでDisconnectするまで止まりません。接続を解除すると、その連携データは検索不能になり、一部のコネクタでは反映に最長1時間、データ削除に1日以内かかる場合があります。Notion AIは既存権限を尊重し、一般には設定時点から1年分の情報にアクセスできるとしています。『設定者の退職＝連携の停止』と考えず、連携一覧と切断手順を引き継ぎ項目にする記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Notion AIコネクタは設定者の在籍状況ではなく、接続一覧とDisconnectで管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Notion AIへSlackやGoogle Driveなどを接続するワークスペース所有者</li><li>外部サービスとのAI連携を退職・異動時に見直したい管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Notion AI</li><li>Notion AI Connectors</li><li>外部連携</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260911-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

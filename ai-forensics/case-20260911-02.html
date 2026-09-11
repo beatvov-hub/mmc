@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LinkedInのプロフィールや投稿を生成AI学習に使わせない。設定オフの効く範囲｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="LinkedInは、コンテンツ生成に使う生成AIモデルの学習・改善について、会員のデータ利用を「Data for Generative AI Improvement」設定で制御できると案内しています。この設定は既定でオンで、オフにすると以後、LinkedInとその関連会社が提供したデータ・コンテンツをコンテンツ生成AIモデルの学習に使わないとされています。ただし、過去に済んだ学習には遡及せず、投稿やメッセージの提案以外のパーソナライズ・安全対策モデルには適用されません。さらに、オフにしていても、評価ボタンや自由記述で送るフィードバック内の情報は学習に使われ得ます。職歴を公開するか、AI機能を使うかの二択ではなく、設定とフィードバックを分けて管理する記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260911-02" />
+<meta property="og:title" content="LinkedInのプロフィールや投稿を生成AI学習に使わせない。設定オフの効く範囲｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="LinkedInは、コンテンツ生成に使う生成AIモデルの学習・改善について、会員のデータ利用を「Data for Generative AI Improvement」設定で制御できると案内しています。この設定は既定でオンで、オフにすると以後、LinkedInとその関連会社が提供したデータ・コンテンツをコンテンツ生成AIモデルの学習に使わないとされています。ただし、過去に済んだ学習には遡及せず、投稿やメッセージの提案以外のパーソナライズ・安全対策モデルには適用されません。さらに、オフにしていても、評価ボタンや自由記述で送るフィードバック内の情報は学習に使われ得ます。職歴を公開するか、AI機能を使うかの二択ではなく、設定とフィードバックを分けて管理する記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260911-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>LinkedInの生成AI学習設定は未来分とフィードバックを分けて確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+              <time datetime="2026-09-11">2026.09.11</time>
+            </div>
+            <h1>LinkedInのプロフィールや投稿を生成AI学習に使わせない。設定オフの効く範囲</h1>
+            <p>LinkedInは、コンテンツ生成に使う生成AIモデルの学習・改善について、会員のデータ利用を「Data for Generative AI Improvement」設定で制御できると案内しています。この設定は既定でオンで、オフにすると以後、LinkedInとその関連会社が提供したデータ・コンテンツをコンテンツ生成AIモデルの学習に使わないとされています。ただし、過去に済んだ学習には遡及せず、投稿やメッセージの提案以外のパーソナライズ・安全対策モデルには適用されません。さらに、オフにしていても、評価ボタンや自由記述で送るフィードバック内の情報は学習に使われ得ます。職歴を公開するか、AI機能を使うかの二択ではなく、設定とフィードバックを分けて管理する記事です。</p>
+            <ul class="forensics-target-list"><li>LinkedInに職歴・実績・投稿を載せている人</li><li>仕事用プロフィールの情報を生成AI学習に使う範囲を自分で決めたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>LinkedIn</li><li>生成AI</li><li>AI学習</li><li>プロフィール</li><li>データ設定</li><li>フィードバック</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>LinkedInのAI学習設定は、対象モデル・将来分・フィードバックを分けて読む</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>設定をオフにする前後で、何のAIモデルに効くのかを確認し、評価欄には学習させたくない情報を書かないようにしましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>LinkedInを転職・営業に使うためプロフィールは公開したいが、AI学習の範囲は決めたい</h3><p>LinkedInには職歴、資格、仕事で得た知見を載せています。文章作成のAI機能も試したい一方、プロフィールや投稿がコンテンツ生成AIモデルの学習に使われるか、設定をオフにした後に何が変わるかを知りたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>プロフィールの公開範囲と、公開済み情報をコンテンツ生成AIモデルの学習に使うことは別の判断です。設定がどのモデルに効くのか、過去分には遡らないこと、評価時の情報は別扱いになり得ることを知らないと、期待と実際の範囲がずれます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="turn-off-and-watch-feedback">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>LinkedInのコンテンツ生成AIモデルの学習利用を抑えたいとき、適切な確認は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="turn-off-and-watch-feedback" data-choice-id="turn-off-and-watch-feedback" />
+                <span>
+                  <strong>Data for Generative AI Improvementをオフにし、評価・自由記述のフィードバックには学習させたくない情報を書かない</strong>
+                  <small>将来のコンテンツ生成AI学習の設定と、任意に送るフィードバックを分けて扱う。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="retroactive-delete" data-choice-id="retroactive-delete" />
+                <span>
+                  <strong>設定をオフにすれば、過去の学習にも必ず遡って反映されると考える</strong>
+                  <small>LinkedInは、オプトアウトは既に行われた学習に影響しないと案内している。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="all-ai-use-stops" data-choice-id="all-ai-use-stops" />
+                <span>
+                  <strong>設定をオフにすると、パーソナライズや安全対策を含む全てのAI利用が止まると考える</strong>
+                  <small>この設定はコンテンツを生成するAIモデルの学習・改善を対象としている。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Data for Generative AI Improvementをオフにし、評価・自由記述のフィードバックには学習させたくない情報を書かない</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Data for Generative AI Improvementをオフにすると、以後のコンテンツ生成AIモデルの学習利用を制御できます。ただし過去の学習には遡らず、コンテンツ生成以外のAIモデルには適用されません。評価・フィードバックに含めた情報は別途利用され得ます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>設定がオンかオフか</h3>
+              <p>Data for Generative AI Improvementは既定でオンと案内されています。プロフィールの扱いを見直す際に現在値を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>設定が効く対象</h3>
+              <p>対象は、投稿やメッセージ提案などのコンテンツ生成AIモデルの学習・改善です。パーソナライズ、安全、濫用防止向けのAIモデルとは区別します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>過去の学習と今後の学習</h3>
+              <p>オフにしても、既に行われた学習には影響しません。今後の利用に対する選択だと理解します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>評価・自由記述の内容</h3>
+              <p>設定をオフにしていても、任意に送る評価やテキストのフィードバックは学習に使われ得ます。フィードバック欄に機微情報を書かないようにします。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>プロフィール公開を続けながら、コンテンツ生成AI学習の将来分は設定で選べる</strong><p>LinkedInの設定は、コンテンツ生成AIモデルの学習・改善に対する将来の選択です。AI機能の利用自体は続けられますが、過去の学習には遡及せず、パーソナライズや安全目的のAIには同じ設定が適用されません。評価時に自分から送る情報も含めて管理することが重要です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>プロフィールや投稿の扱いを見直す際に、Data for Generative AI Improvementの値を確認する</strong><span>LinkedInはこの設定で、コンテンツ生成AIモデルの学習・改善へのデータ利用を制御できると案内しています。</span></li>
+            <li><strong>オフにした後も、過去の学習は別であることを理解する</strong><span>LinkedInは、オプトアウトは既に行われた学習に影響しないと説明しています。</span></li>
+            <li><strong>評価や自由記述のフィードバックには、不要な個人情報や社外秘を書かない</strong><span>設定をオフにしていても、フィードバックに含めた情報はコンテンツ生成AIモデルの学習に使われ得ます。</span></li>
+            <li><strong>コンテンツ生成AIの学習設定と、公開範囲・広告・パーソナライズの設定を別々に確認する</strong><span>この設定の対象はコンテンツ生成AIモデルであり、他の目的のAI利用まで一括して制御するものではありません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AI学習設定をオフにすれば、過去に使われたデータも自動的に取り消されると考える</strong><span>オプトアウトは既に行われた学習には影響しません。</span></li>
+            <li><strong>設定がオフなら、評価欄に機微情報を書いても学習には使われないと考える</strong><span>LinkedInは、任意に送るフィードバックの情報は学習に使われ得ると案内しています。</span></li>
+            <li><strong>この設定だけで、LinkedIn上の全てのAI処理を止められると考える</strong><span>対象はコンテンツを生成するAIモデルの学習・改善であり、パーソナライズや安全対策向けモデルには適用されません。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>仕事用プロフィールを活用しながら、学習利用の選択を自分で管理する</h3>
+          <p>プロフィール公開や文章作成支援を利用しつつ、コンテンツ生成AIの学習利用を望まない場合は設定を見直せます。評価を送る際も、改善に役立つ範囲で情報を絞れば、仕事上の情報を扱いやすくなります。</p>
+          <ul class="positive-example-list"><li>転職活動の開始時に設定を確認する</li><li>職務経歴の更新後にAI学習設定を見直す</li><li>AI文章支援の評価に顧客名や案件名を書かない</li><li>公開範囲の設定とAI学習設定を別々に記録する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>職歴や実績は、仕事を知ってもらうために載せる情報です。ただ、公開することと、将来のコンテンツ生成モデルの学習に使うことは同じではありません。私はプロフィールを更新する時に、文章そのものだけでなく、設定とフィードバック欄まで一緒に見直したいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>LinkedInのAI学習設定は、将来分に効く範囲とフィードバックを分けて管理する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.linkedin.com/help/linkedin/answer/a6278444" target="_blank" rel="noopener noreferrer">Control whether LinkedIn uses your data to improve generative AI (GAI) models that are used for content creation on LinkedIn<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>LinkedIn Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260911-04" data-forensics-card data-category="scam" data-level="5" data-difficulty="beginner" data-search-text="ビデオ通話でも本人確認にならない。AIなりすましを前提にロマンス詐欺の送金を止める AIなりすましのロマンス詐欺はビデオ通話でも送金しない 警察庁のSOS47は、SNSやマッチングアプリで直接会わないまま関係を深め、投資・結婚費用・旅費などの名目で送金を求めるSNS型ロマンス詐欺を注意喚起しています。翻訳アプリや生成AIを使えば、誰でも他人になりすまし、本人の音声や動画を作れてしまうため、チャット、電話、ビデオ通話で親しくなっても本人だとは限らないと案内しています。早い段階でLINEへ誘導されることも警戒ポイントです。警察庁は、会ったことのない相手からお金の話が出たら、振り込む前に警察相談専用電話#9110などへ相談するよう呼びかけています。AI動画を見抜こうとするより前に、送金しない判断を置く記事です。 詐欺・なりすまし はじめて ロマンス詐欺 SNS型詐欺 生成AI ディープフェイク ビデオ通話 #9110 SNSやマッチングアプリで知り合った人と連絡を取っている人 相手の写真・声・ビデオ通話を本人確認の根拠にしそうな人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">romance-scam-video-call-stop</span>
+              <div>
+                <p>AIなりすましのロマンス詐欺はビデオ通話でも送金しない</p>
+                <h3>ビデオ通話でも本人確認にならない。AIなりすましを前提にロマンス詐欺の送金を止める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-11">2026.09.11</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">警察庁のSOS47は、SNSやマッチングアプリで直接会わないまま関係を深め、投資・結婚費用・旅費などの名目で送金を求めるSNS型ロマンス詐欺を注意喚起しています。翻訳アプリや生成AIを使えば、誰でも他人になりすまし、本人の音声や動画を作れてしまうため、チャット、電話、ビデオ通話で親しくなっても本人だとは限らないと案内しています。早い段階でLINEへ誘導されることも警戒ポイントです。警察庁は、会ったことのない相手からお金の話が出たら、振り込む前に警察相談専用電話#9110などへ相談するよう呼びかけています。AI動画を見抜こうとするより前に、送金しない判断を置く記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>会ったことのない相手の映像・声と、送金判断を結び付けない</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSやマッチングアプリで知り合った人と連絡を取っている人</li><li>相手の写真・声・ビデオ通話を本人確認の根拠にしそうな人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ロマンス詐欺</li><li>SNS型詐欺</li><li>生成AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260910-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Slack AIの回答は閉じれば消える。でもワークフロー要約をCanvasへ残すと保持設定が効く Slack AIは一時回答と保存される要約を分けて扱う Slackは、通常の会話要約とAI検索の回答を、画面を閉じる・別の場所へ移動するなどで消えていく一時的なAI応答として案内しています。一方、Recapの履歴は90日間保存されます。また、ワークフローの「Summarize public channels」で作ったチャンネル要約は一時回答ではなく、後続の手順により会話へのメッセージやCanvasとして保存できます。この場合、AI要約を含むメッセージやCanvasは組織のデータ保持設定に従います。Slack AIは通常の検索で見えない内容をAI検索で表示しないとされますが、回答が示す引用元は必ず開いて確認する必要があります。『AI回答を閉じた』ことと、『要約を保存していない』ことを混同しない運用を扱います。 仕事・AI活用 標準 Slack AI Slack Canvas AI要約 データ保持 ワークフロー Slack AIの検索や要約をチームで使う人 SlackのAI出力がどこに残るかを運用で決めたい管理者・チームリーダー">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">slack-ai-retention-canvas</span>
+              <div>
+                <p>Slack AIは一時回答と保存される要約を分けて扱う</p>
+                <h3>Slack AIの回答は閉じれば消える。でもワークフロー要約をCanvasへ残すと保持設定が効く</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-10">2026.09.10</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Slackは、通常の会話要約とAI検索の回答を、画面を閉じる・別の場所へ移動するなどで消えていく一時的なAI応答として案内しています。一方、Recapの履歴は90日間保存されます。また、ワークフローの「Summarize public channels」で作ったチャンネル要約は一時回答ではなく、後続の手順により会話へのメッセージやCanvasとして保存できます。この場合、AI要約を含むメッセージやCanvasは組織のデータ保持設定に従います。Slack AIは通常の検索で見えない内容をAI検索で表示しないとされますが、回答が示す引用元は必ず開いて確認する必要があります。『AI回答を閉じた』ことと、『要約を保存していない』ことを混同しない運用を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Slack AIは一時回答・Recap・保存された要約で保持の扱いが異なる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Slack AIの検索や要約をチームで使う人</li><li>SlackのAI出力がどこに残るかを運用で決めたい管理者・チームリーダー</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Slack AI</li><li>Slack</li><li>Canvas</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260908-01" data-forensics-card data-category="work-use" data-level="2" data-difficulty="advanced" data-search-text="Zoom AI要約は止めても配布済みコピーまで消えない。自動削除と共有先を分けて確認する Zoom AI要約は自動削除と配布済みコピーを分けて管理する Zoomは、AIによるMeeting Summaryを指定日数後に自動削除する設定を、アカウント、グループ、個人の各段階で用意しています。上位の管理者は設定をロックでき、利用者側で変更できない場合があります。一方、主催者が共有を有効にした要約はメールやZoom Chatで参加者へ届き、受信者は保存・他者への共有を行えます。会議中にAI要約を停止しても、その時点までに生成された要約は残り得ます。要約の生成、会議内の削除、自動削除、参加者へ配布済みのコピーを同じ「削除」と考えず、会議前に保存期間と送付範囲を分けて決める記事です。 仕事・AI活用 発展 Zoom Zoom AI Meeting Summary 会議要約 自動削除 データ保持 Zoom AIのMeeting Summaryを業務会議で使う主催者 AI要約の保存期間と参加者への共有範囲を整えたい管理者・チーム">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">zoom-ai-summary-retention-sharing</span>
+              <div>
+                <p>Zoom AI要約は自動削除と配布済みコピーを分けて管理する</p>
+                <h3>Zoom AI要約は止めても配布済みコピーまで消えない。自動削除と共有先を分けて確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-08">2026.09.08</time>
+              <span>仕事・AI活用</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">Zoomは、AIによるMeeting Summaryを指定日数後に自動削除する設定を、アカウント、グループ、個人の各段階で用意しています。上位の管理者は設定をロックでき、利用者側で変更できない場合があります。一方、主催者が共有を有効にした要約はメールやZoom Chatで参加者へ届き、受信者は保存・他者への共有を行えます。会議中にAI要約を停止しても、その時点までに生成された要約は残り得ます。要約の生成、会議内の削除、自動削除、参加者へ配布済みのコピーを同じ「削除」と考えず、会議前に保存期間と送付範囲を分けて決める記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Zoom AI要約は、保存期間と配布済みコピーを別に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Zoom AIのMeeting Summaryを業務会議で使う主催者</li><li>AI要約の保存期間と参加者への共有範囲を整えたい管理者・チーム</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Zoom</li><li>Zoom AI</li><li>Meeting Summary</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260911-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260911-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
