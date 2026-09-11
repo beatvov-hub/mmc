@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11T09:11:12+09:00",
+  "updatedAt": "2026-09-12T07:31:35+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -308,6 +308,27 @@
       "license": "GNU Affero General Public License v3.0",
       "notes": "活用例は公式ドキュメントに基づく想定で、実機検証は未実施です。",
       "verifiedAt": "2026-09-11",
+      "status": "published"
+    },
+    {
+      "date": "2026-09-12",
+      "slug": "github-cli",
+      "name": "GitHub CLI",
+      "category": "Developer Tool",
+      "officialUrl": "https://cli.github.com/",
+      "summary": "GitHubのIssue、プルリクエスト、Actionsなどを、コードを置いたターミナルから確認・操作する公式コマンドラインツールです。",
+      "whyToday": "AIへ実装を頼む前に、何を直すのかがIssue本文とずれていれば、コードだけ整っても仕事は終わりません。GitHub CLIならリポジトリの近くで未完了の課題を取り出せるため、今日着手する1件と完了条件を先にそろえられます。",
+      "useFor": "例えば、サイト改修で残っている確認を朝に整理する場面に。GitHub CLIを導入し、対象リポジトリで「gh issue list --state open --limit 10 --json number,title,labels,updatedAt,url」を実行します。出力から今日見る1件を人が選び、本文と関連するプルリクエストをWebで読んで、次の作業と完了条件をメモにします。成果物は、URL付きの着手候補と完了条件です。最初は一覧取得だけで始め、Issueの作成・編集・クローズは権限と公開範囲を確認してから行います。",
+      "recommendedFor": {
+        "employeeId": "MMC-008",
+        "reason": "開発推進のアキトに、未完了Issueから今日着手する1件と完了条件を選ぶ役を任せたいです。実装へ進む前に本文・関連リンク・終わりの条件をそろえて受け取れれば、作業の取り違えを減らせます。"
+      },
+      "keiComment": "タイトルだけ見て「たぶんこれ」と進めると、あとから別の人に説明しにくいですね。最初は一件の本文まで開いて、何ができたら終わりかを自分の言葉で言える状態にしたいです。",
+      "pricing": "GitHub CLIはMITライセンスのOSSで、無償で利用できます。紹介したIssue一覧の取得に、GitHub CLI自体の利用料はかかりません。",
+      "conditions": "GitHub CLIの導入と、対象リポジトリを読む権限・認証が必要です。非公開リポジトリの内容は表示先やログへ不用意に共有せず、Issueを変更するコマンドは実行前に権限と影響範囲を確認します。GitHubの契約プランや外部AIの料金は別です。",
+      "license": "MIT License",
+      "notes": "活用例は公式マニュアルに基づく想定で、実機検証は未実施です。",
+      "verifiedAt": "2026-09-12",
       "status": "published"
     }
   ]
