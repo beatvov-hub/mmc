@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-12T07:31:35+09:00",
+  "updatedAt": "2026-09-13T07:31:27+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -329,6 +329,27 @@
       "license": "MIT License",
       "notes": "活用例は公式マニュアルに基づく想定で、実機検証は未実施です。",
       "verifiedAt": "2026-09-12",
+      "status": "published"
+    },
+    {
+      "date": "2026-09-13",
+      "slug": "lighthouse",
+      "name": "Lighthouse",
+      "category": "Developer Tool",
+      "officialUrl": "https://developer.chrome.com/docs/lighthouse/overview",
+      "summary": "Webページの読み込み、アクセシビリティ、SEOなどを計測し、改善の手がかりをレポートで示すオープンソースの品質確認ツールです。",
+      "whyToday": "ページを毎日更新すると、見た目が整っていても画像や導線の変化が読み込みや読みやすさへ影響していないかは分かりません。Lighthouseは同じページを計測して改善候補を示すため、感覚だけで直す前に確認の基準を一つ置けます。",
+      "useFor": "例えば、「今日ひとつ。」のアーカイブ1ページを公開前に見直す場面に。Chromeでローカルプレビューを開き、DevToolsのLighthouseタブでPerformanceとAccessibilityを選んでAnalyze page loadを実行します。レポートから改善候補を1つだけ選び、該当する画像やHTMLを開いて原因と直す案をメモします。成果物は、計測したページURL、レポート、直す候補1件の確認メモです。最初はデスクトップの1ページに絞り、表示が壊れていないことを画面で見てから再計測します。",
+      "recommendedFor": {
+        "employeeId": "MMC-009",
+        "reason": "広報部長のケイに、アーカイブ1ページの品質確認メモを任せたいです。読み込みと読みやすさの改善候補を一件だけ受け取れれば、ページの世界観を保ちながら直す優先順位を決めやすくなります。"
+      },
+      "keiComment": "点数が上がっただけでは、読者が迷わず読めるとは言えませんね。レポートの一番上から全部直そうとせず、画像や見出しのように実際の読み心地へつながる一件を選びたいです。",
+      "pricing": "LighthouseはApache License 2.0のOSSです。Chrome DevToolsでページを計測するこの例に、Lighthouse自体の利用料はかかりません。",
+      "conditions": "Google Chromeと、計測対象のURLまたはローカルプレビューが必要です。結果は端末の負荷、拡張機能、ネットワークなどの影響を受けるため、1回のスコアだけで公開可否を決めず、同じ条件で見比べます。外部AIの利用料はこの例に含みません。",
+      "license": "Apache License 2.0",
+      "notes": "活用例は公式ドキュメントに基づく想定で、実機検証は未実施です。",
+      "verifiedAt": "2026-09-13",
       "status": "published"
     }
   ]
