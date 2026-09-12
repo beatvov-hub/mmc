@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIブラウザは社内用と社外用を分ける。閲覧履歴とログイン状態をまとめて渡さない｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="IPAは2026年4月公開のAI利用者向け資料で、チャットAIを内蔵するAIブラウザは、閲覧中のページや過去の閲覧履歴などを生成AIと共有することになると説明しています。AIブラウザはページの翻訳・要約、商品検索、発注代行などを頼める一方、Webページに含まれた悪意ある指示を利用者の依頼と誤認し、情報漏えいや不正送金を行う可能性があります。IPAは不正プロンプトへの対策はまだ不完全であり、常用のAIブラウザでは社内ポータルなど重要情報へアクセスしないよう、社内用と社外用を使い分けるよう案内しています。AI機能の便利さではなく、ログイン状態と閲覧範囲を分ける運用を扱う記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260912-04" />
+<meta property="og:title" content="AIブラウザは社内用と社外用を分ける。閲覧履歴とログイン状態をまとめて渡さない｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="IPAは2026年4月公開のAI利用者向け資料で、チャットAIを内蔵するAIブラウザは、閲覧中のページや過去の閲覧履歴などを生成AIと共有することになると説明しています。AIブラウザはページの翻訳・要約、商品検索、発注代行などを頼める一方、Webページに含まれた悪意ある指示を利用者の依頼と誤認し、情報漏えいや不正送金を行う可能性があります。IPAは不正プロンプトへの対策はまだ不完全であり、常用のAIブラウザでは社内ポータルなど重要情報へアクセスしないよう、社内用と社外用を使い分けるよう案内しています。AI機能の便利さではなく、ログイン状態と閲覧範囲を分ける運用を扱う記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260912-04" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>AIブラウザは重要な社内アカウントと分けて使う</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-12">2026.09.12</time>
+            </div>
+            <h1>AIブラウザは社内用と社外用を分ける。閲覧履歴とログイン状態をまとめて渡さない</h1>
+            <p>IPAは2026年4月公開のAI利用者向け資料で、チャットAIを内蔵するAIブラウザは、閲覧中のページや過去の閲覧履歴などを生成AIと共有することになると説明しています。AIブラウザはページの翻訳・要約、商品検索、発注代行などを頼める一方、Webページに含まれた悪意ある指示を利用者の依頼と誤認し、情報漏えいや不正送金を行う可能性があります。IPAは不正プロンプトへの対策はまだ不完全であり、常用のAIブラウザでは社内ポータルなど重要情報へアクセスしないよう、社内用と社外用を使い分けるよう案内しています。AI機能の便利さではなく、ログイン状態と閲覧範囲を分ける運用を扱う記事です。</p>
+            <ul class="forensics-target-list"><li>AI機能を内蔵したブラウザで要約・検索・作業代行を使う人</li><li>社内ポータルや業務SaaSへ同じブラウザでログインする人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AIブラウザ</li><li>プロンプトインジェクション</li><li>閲覧履歴</li><li>社内ポータル</li><li>ブラウザ分離</li><li>情報漏えい</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>AIブラウザは、外部サイトを扱う環境と社内ログイン環境を分離する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>外部サイトでAI機能を使うブラウザから、社内ポータルへ入らない。ログイン環境を分け、確定操作は自分で確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>同じAIブラウザで、社内ポータルも外部サイトの要約・比較も行っている</h3><p>AIブラウザで外部サイトを要約したり、商品の比較を頼んだりしています。そのまま同じブラウザで社内ポータル、経費システム、業務メールにもログインしています。便利な反面、外部のページを開いた時に、社内情報へアクセスできる状態をどこまで分けるべきか迷っています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIブラウザでは、利用者が読むページだけでなく、閲覧履歴やログイン済みの操作環境がAIの処理に関わり得ます。外部ページの不正な指示が混ざるリスクを、閲覧時の注意だけで防ぐのは難しいため、重要な情報へアクセスできる環境を最初から分けることが有効です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="separate-browser-contexts">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>AIブラウザで外部サイトを要約・操作させる時、社内情報を守るために適切な運用は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="separate-browser-contexts" data-choice-id="separate-browser-contexts" />
+                <span>
+                  <strong>社内ポータル用のブラウザ環境と、外部サイトでAI機能を使う環境を分ける</strong>
+                  <small>外部ページの内容をAIが扱う場面と、重要な社内情報にアクセスできる状態を分離する。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="one-browser-all" data-choice-id="one-browser-all" />
+                <span>
+                  <strong>履歴が便利なので、社内ポータルも外部サイトも同じAIブラウザで使い続ける</strong>
+                  <small>AIブラウザでは閲覧中ページや履歴を生成AIと共有することがあります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="page-is-trusted" data-choice-id="page-is-trusted" />
+                <span>
+                  <strong>見た目が普通のページなら、AIが実行する操作を確認しなくてよい</strong>
+                  <small>ページ内の悪意ある指示を利用者の依頼と誤認し、AIが不正動作する可能性があります。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>社内ポータル用のブラウザ環境と、外部サイトでAI機能を使う環境を分ける</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>IPAは、AIブラウザで閲覧中ページや履歴をAIと共有すること、不正プロンプト対策が不完全であることを踏まえ、社内ポータルなど重要情報へアクセスしないよう社内用と社外用を使い分けるよう案内しています。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AIブラウザへ渡る閲覧情報</h3>
+              <p>AIブラウザでは、閲覧中のページや過去の閲覧履歴などを生成AIと共有することがあります。要約や作業代行を頼む前に、扱う範囲を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>社内用と社外用の分離</h3>
+              <p>社内ポータル、経費、業務メールなど重要情報へアクセスする環境と、外部サイトでAI機能を使う環境を分けます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>外部ページ内の不正な指示</h3>
+              <p>Webページに悪意ある指示が含まれると、AIが利用者の依頼と誤認し、情報漏えいや不正送金を行う可能性があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AIへ任せる操作の確定</h3>
+              <p>発注や送信などの操作は、AIに任せきりにせず、内容と宛先を利用者が確認して確定します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AIブラウザの安全性は、ページの見た目より『何にログインした環境か』で決まる</strong><p>AIブラウザは閲覧ページや履歴を生成AIと共有し、外部ページに含まれた悪意ある指示を誤認する可能性があります。対策が不完全な段階では、社内ポータルや業務SaaSにアクセスするブラウザ環境を、外部サイトのAI要約・操作に使う環境から分けることが重要です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>社内ポータル・業務SaaS用と、外部サイトでAI機能を使うブラウザ環境を分ける</strong><span>IPAは、常用のAIブラウザで社内ポータルなど重要な情報へアクセスしないよう使い分けることを案内しています。</span></li>
+            <li><strong>外部ページの要約や作業代行では、AIに渡るページ・履歴の範囲を確認する</strong><span>AIブラウザでは閲覧中のページや過去の閲覧履歴などを生成AIと共有することがあります。</span></li>
+            <li><strong>発注・送信・支払いの前に、内容と宛先を自分で確認する</strong><span>ページ内の不正な指示をAIが利用者の依頼と誤認し、不正送金などにつながる可能性があります。</span></li>
+            <li><strong>業務上の利用ルールで、AIブラウザを使う対象サイトと使わない対象を決める</strong><span>不正プロンプト対策はまだ不完全であり、利用環境の分離が有効な対策になります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>社内ポータルと外部サイトのAI操作を、同じログイン済みAIブラウザで行う</strong><span>外部ページの内容をAIが扱う環境と、重要な社内情報へアクセスできる状態が同居します。</span></li>
+            <li><strong>外部サイトに表示された内容を信頼し、AIの作業代行を監督しない</strong><span>悪意ある指示をAIが利用者の依頼と誤認する可能性があります。</span></li>
+            <li><strong>AIブラウザの不正プロンプト対策が完全だと考え、重要情報へのアクセスを続ける</strong><span>IPAは不正プロンプト対策がまだ不完全であると案内しています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>用途ごとにブラウザ環境を分け、AIの要約・比較を安全に活用する</h3>
+          <p>AIブラウザを外部情報の下調べや比較に限定し、社内業務は別環境で行えば、便利な要約・検索支援を使いながら、重要なログイン状態を外部ページから切り離せます。</p>
+          <ul class="positive-example-list"><li>外部調査専用のブラウザプロファイルを用意する</li><li>社内ポータルはAI機能を使わないブラウザで開く</li><li>発注や送信は別画面で自分が確定する</li><li>業務で使う対象サイトをチームで決める</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIブラウザは、ページを読むだけの道具ではなく、こちらのログイン状態の近くで動く道具です。だから私は、怪しいページを見抜く努力だけに頼らず、そもそも社内情報へ届かない環境で外部サイトを扱うようにしたいです。使い分けは少し手間でも、守る範囲をはっきりさせてくれます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>AIブラウザは社内用と社外用を分け、外部ページと重要なログイン状態を同居させない。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.ipa.go.jp/digital/ai/security/ai_security_tips.html" target="_blank" rel="noopener noreferrer">AI利用者のためのセキュリティ豆知識<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>独立行政法人情報処理推進機構（IPA）</span>
+              <span>その他</span>
+              <time datetime="2026-04-02">2026-04-02</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260912-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Gemini Canvasの公開アプリは、リンク共有だけでは終わらない。データが見える範囲を確認する Gemini Canvasの公開アプリは共有データの範囲を確認する Googleは、Gemini Canvasで複数の利用者間でデータを共有するアプリを作ると、関連データは公開データベースに置かれ、公開リンクを知る人が閲覧・編集できると案内しています。共有しないアプリではデータベースは利用者だけが扱える非公開のものになります。公開Canvasアプリを受け取った利用者についても、入力した情報はアプリ作成者に見え得るほか、公開リンクを知る人にも見える場合があるため、パスワードや支払情報を入れないようGoogleは注意を促しています。AIが生成したミニアプリを便利に共有する前に、単独利用か複数人共有か、保存するデータは何かを確認する記事です。 セキュリティ・権限 標準 Gemini Canvas AIアプリ 公開リンク Firestore データ共有 権限 Gemini Canvasで簡単なWebアプリを作って共有したい人 公開リンクで使えるAI生成アプリへ情報を入力する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gemini-canvas-public-data</span>
+              <div>
+                <p>Gemini Canvasの公開アプリは共有データの範囲を確認する</p>
+                <h3>Gemini Canvasの公開アプリは、リンク共有だけでは終わらない。データが見える範囲を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-12">2026.09.12</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは、Gemini Canvasで複数の利用者間でデータを共有するアプリを作ると、関連データは公開データベースに置かれ、公開リンクを知る人が閲覧・編集できると案内しています。共有しないアプリではデータベースは利用者だけが扱える非公開のものになります。公開Canvasアプリを受け取った利用者についても、入力した情報はアプリ作成者に見え得るほか、公開リンクを知る人にも見える場合があるため、パスワードや支払情報を入れないようGoogleは注意を促しています。AIが生成したミニアプリを便利に共有する前に、単独利用か複数人共有か、保存するデータは何かを確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Canvasアプリは、公開リンクとデータ共有の有無をセットで確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Gemini Canvasで簡単なWebアプリを作って共有したい人</li><li>公開リンクで使えるAI生成アプリへ情報を入力する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini Canvas</li><li>AIアプリ</li><li>公開リンク</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260911-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Geminiに画面操作を任せる前に。スクリーンショットの扱いと止め方を確認する Geminiの画面操作はスクリーンショットと停止操作を確認する Googleは、Gemini Appsの画面自動操作について、実行中にアプリ画面のスクリーンショットを取得することがあり、画面に表示された情報を含み得ると案内しています。Keep Activityをオンにしている場合、スクリーンショットは訓練済みレビュアーにより確認され、Googleサービスの改善に使われることがあります。Googleは利用者が操作を監督し、停止・進行確認・手動操作への切替を行えると説明し、ログイン情報や支払情報をGeminiのチャットへ入れないよう求めています。買い物や予約の操作を便利に任せる前に、画面に何を表示するか、Keep Activity、途中で止める場所を決める記事です。 セキュリティ・権限 標準 Gemini 画面自動操作 スクリーンショット Keep Activity スマートフォン プライバシー Androidアプリ上の操作をGeminiに手伝わせようとしている人 画面に仕事・決済・個人情報が表示されるスマートフォンを使う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gemini-screen-automation-control</span>
+              <div>
+                <p>Geminiの画面操作はスクリーンショットと停止操作を確認する</p>
+                <h3>Geminiに画面操作を任せる前に。スクリーンショットの扱いと止め方を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-11">2026.09.11</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは、Gemini Appsの画面自動操作について、実行中にアプリ画面のスクリーンショットを取得することがあり、画面に表示された情報を含み得ると案内しています。Keep Activityをオンにしている場合、スクリーンショットは訓練済みレビュアーにより確認され、Googleサービスの改善に使われることがあります。Googleは利用者が操作を監督し、停止・進行確認・手動操作への切替を行えると説明し、ログイン情報や支払情報をGeminiのチャットへ入れないよう求めています。買い物や予約の操作を便利に任せる前に、画面に何を表示するか、Keep Activity、途中で止める場所を決める記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Geminiの画面自動操作は、見せる画面と停止・確認の責任を利用者が持つ</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Androidアプリ上の操作をGeminiに手伝わせようとしている人</li><li>画面に仕事・決済・個人情報が表示されるスマートフォンを使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>画面自動操作</li><li>スクリーンショット</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260911-03" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="Copilotの会話リンクは誰でも見られる。共有する範囲をプレビューで絞る Copilotの会話リンクは共有前に範囲をプレビューで確認する Microsoftは、個人向けMicrosoft Copilotで会話全体または一つの回答を共有リンクにできると案内しています。リンク作成時には共有内容を確認するプレビューが表示され、受信者にはリンクを作った時点の会話のコピーが見えます。会話を続けても、その後の内容は共有済みのコピーに追加されません。一方、リンクを知る人なら誰でもアクセスできるため、機密・個人情報を含む共有リンクを作らないようMicrosoftは注意を促しています。会話を共有したい時に、全部を渡すのではなく必要な一回答へ絞り、プレビューを確認して送る手順を扱います。 セキュリティ・権限 はじめて Microsoft Copilot 会話共有 共有リンク プレビュー 個人情報 情報共有 Microsoft Copilotの回答を同僚や家族に送る人 会話に個人情報・仕事の検討内容を含めることがある人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-conversation-link-preview</span>
+              <div>
+                <p>Copilotの会話リンクは共有前に範囲をプレビューで確認する</p>
+                <h3>Copilotの会話リンクは誰でも見られる。共有する範囲をプレビューで絞る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-11">2026.09.11</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、個人向けMicrosoft Copilotで会話全体または一つの回答を共有リンクにできると案内しています。リンク作成時には共有内容を確認するプレビューが表示され、受信者にはリンクを作った時点の会話のコピーが見えます。会話を続けても、その後の内容は共有済みのコピーに追加されません。一方、リンクを知る人なら誰でもアクセスできるため、機密・個人情報を含む共有リンクを作らないようMicrosoftは注意を促しています。会話を共有したい時に、全部を渡すのではなく必要な一回答へ絞り、プレビューを確認して送る手順を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Copilotの共有リンクは、必要な一回答だけをプレビューして渡す</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft Copilotの回答を同僚や家族に送る人</li><li>会話に個人情報・仕事の検討内容を含めることがある人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>会話共有</li><li>共有リンク</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260911-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260912-03">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Copilotの「記憶」をオフにしても、保存済みの内容は消えない。削除まで確認する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260912-02" />
+<meta property="og:title" content="Copilotの「記憶」をオフにしても、保存済みの内容は消えない。削除まで確認する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260912-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Copilotの記憶はオフと削除を別々に確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-09-12">2026.09.12</time>
+            </div>
+            <h1>Copilotの「記憶」をオフにしても、保存済みの内容は消えない。削除まで確認する</h1>
+            <p>Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。</p>
+            <ul class="forensics-target-list"><li>Microsoft 365 Copilot Chatで仕事の好みや役割を記憶させる人</li><li>異動・退職・担当変更に合わせてAIの記憶を整理したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft 365 Copilot</li><li>Copilot Memory</li><li>Saved memories</li><li>個人設定</li><li>会話履歴</li><li>業務利用</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>Copilotの記憶は、今後の保存を止める操作と既存分の削除を分ける</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>記憶をオフにしただけでは過去分は残ります。異動・担当変更の際はSaved memoriesを開き、不要な内容を削除しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>担当替え後も、Copilotが以前の役割や好みに合わせた提案をしてくる</h3><p>Microsoft 365 Copilot Chatに、担当業務、よく使う資料、好みの報告形式などを伝えてきました。設定で記憶をオフにしたものの、以前の内容がまだ残っているのではないか、どこで見直して消すのかを確認したい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>新しい記憶を作らせないことと、既に保存された記憶を削除することは別の操作です。役割や担当が変わった時に古い前提が残ると、AIの提案が不正確になるだけでなく、必要以上に以前の業務情報を持たせ続けることにもなります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="turn-off-and-delete">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Microsoft 365 Copilot Chatに保存された記憶を整理したい時、適切な操作は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="turn-off-and-delete" data-choice-id="turn-off-and-delete" />
+                <span>
+                  <strong>Saved memoriesをオフにした上で、Manage saved memoriesから不要な記憶を個別または全件削除する</strong>
+                  <small>オフは今後の保存を止める操作で、既存の記憶を消すには削除操作が必要です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="off-deletes-all" data-choice-id="off-deletes-all" />
+                <span>
+                  <strong>Saved memoriesをオフにするだけで、過去の記憶も自動的に消えると考える</strong>
+                  <small>Microsoftは、オフにしても既に保存された記憶は自動削除されないと案内しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-chat-is-enough" data-choice-id="delete-chat-is-enough" />
+                <span>
+                  <strong>会話履歴を削除すれば、保存済みの記憶も必ず消えると考える</strong>
+                  <small>Copilot Memoryの管理と、会話履歴の管理は別に案内されています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Saved memoriesをオフにした上で、Manage saved memoriesから不要な記憶を個別または全件削除する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Saved memoriesをオフにしても、過去に保存された記憶は残ります。Copilot ChatのSettings and more → Chat settings → Personalization → Manage saved memoriesから、不要な項目を削除するか、Delete all memoriesを選びます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>記憶がオンか</h3>
+              <p>Microsoft 365 CopilotのSaved memoriesは既定でオンです。役割や好みを記憶させる必要があるか、現在の設定を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>既存の記憶</h3>
+              <p>オフにしても、既に保存された記憶は自動削除されません。Manage saved memoriesで項目ごとに確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>個別削除か全件削除か</h3>
+              <p>古くなった役割や好みだけを個別削除でき、すべて不要ならDelete all memoriesでまとめて削除できます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>削除結果の確認</h3>
+              <p>Microsoftは、削除後に『What do you know about me?』と尋ね、記憶の変更を確かめる方法を案内しています。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Copilotの記憶はオフにするだけでなく、保存済みの項目を削除して初めて整理できる</strong><p>Microsoft 365 CopilotのSaved memoriesは、会話から得た役割や好みを以後の回答に使います。オフは新たな記憶の保存を止めますが、既存の項目を消す操作ではありません。担当変更や不要になった前提がある時は、管理画面で個別または全件削除し、結果を確認します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>担当変更や退職・異動の前後にSaved memoriesを確認する</strong><span>Copilotは役割やよく行う作業などを記憶として保存し、以後の回答の文脈に使います。</span></li>
+            <li><strong>今後記憶させたくない場合は、Saved memoriesをオフにする</strong><span>設定をオフにすると、Copilot Memoryが新しい情報を保存しないようにできます。</span></li>
+            <li><strong>既に保存された不要な内容は、個別または全件で削除する</strong><span>オフにしても既存の記憶は自動削除されず、Manage saved memoriesから削除が必要です。</span></li>
+            <li><strong>削除後はCopilotに何を記憶しているか尋ねて確認する</strong><span>Microsoftは『What do you know about me?』で変更を確認する方法を案内しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>Saved memoriesをオフにすれば、既に保存された記憶も消えたと考える</strong><span>オフにしても、既存の記憶は自動的に削除されません。</span></li>
+            <li><strong>会話履歴の削除とCopilot Memoryの削除を同じ操作だと考える</strong><span>Microsoftは、保存済みメモリーと過去会話の情報について別々の管理方法を案内しています。</span></li>
+            <li><strong>異動後も古い担当・顧客・好みの記憶を見直さない</strong><span>古い前提が残ると、以後の回答に不要または不正確な文脈が使われるおそれがあります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>今の役割に必要な好みだけを、Copilotの支援に使う</h3>
+          <p>記憶の対象を定期的に整理すれば、不要な過去情報を残さず、現在の業務に必要な形式や優先事項だけをCopilotの提案へ反映できます。</p>
+          <ul class="positive-example-list"><li>異動前に古い役割の記憶を削除する</li><li>報告書の形式が変わったら古い好みを見直す</li><li>一時的な案件情報を記憶させない</li><li>定期的に全件削除が必要か判断する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIの記憶は便利ですが、仕事の役割が変われば古い前提にもなります。私は『もう覚えないで』と止めるだけでなく、『今まで何を覚えていたか』を一度開くようにしたいです。記憶を整理するのは、AIの回答を今の自分に合わせ直す作業でもあります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Copilotの記憶は、オフにするだけでなく保存済み項目を削除して整理する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/microsoft-365-copilot/manage-copilot-memory-in-microsoft-365-copilot" target="_blank" rel="noopener noreferrer">Manage Copilot Memory in Microsoft Copilot<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260911-02" data-forensics-card data-category="work-use" data-level="4" data-difficulty="beginner" data-search-text="LinkedInのプロフィールや投稿を生成AI学習に使わせない。設定オフの効く範囲 LinkedInの生成AI学習設定は未来分とフィードバックを分けて確認する LinkedInは、コンテンツ生成に使う生成AIモデルの学習・改善について、会員のデータ利用を「Data for Generative AI Improvement」設定で制御できると案内しています。この設定は既定でオンで、オフにすると以後、LinkedInとその関連会社が提供したデータ・コンテンツをコンテンツ生成AIモデルの学習に使わないとされています。ただし、過去に済んだ学習には遡及せず、投稿やメッセージの提案以外のパーソナライズ・安全対策モデルには適用されません。さらに、オフにしていても、評価ボタンや自由記述で送るフィードバック内の情報は学習に使われ得ます。職歴を公開するか、AI機能を使うかの二択ではなく、設定とフィードバックを分けて管理する記事です。 仕事・AI活用 はじめて LinkedIn 生成AI AI学習 プロフィール データ設定 フィードバック LinkedInに職歴・実績・投稿を載せている人 仕事用プロフィールの情報を生成AI学習に使う範囲を自分で決めたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">linkedin-ai-training-setting</span>
+              <div>
+                <p>LinkedInの生成AI学習設定は未来分とフィードバックを分けて確認する</p>
+                <h3>LinkedInのプロフィールや投稿を生成AI学習に使わせない。設定オフの効く範囲</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-11">2026.09.11</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">LinkedInは、コンテンツ生成に使う生成AIモデルの学習・改善について、会員のデータ利用を「Data for Generative AI Improvement」設定で制御できると案内しています。この設定は既定でオンで、オフにすると以後、LinkedInとその関連会社が提供したデータ・コンテンツをコンテンツ生成AIモデルの学習に使わないとされています。ただし、過去に済んだ学習には遡及せず、投稿やメッセージの提案以外のパーソナライズ・安全対策モデルには適用されません。さらに、オフにしていても、評価ボタンや自由記述で送るフィードバック内の情報は学習に使われ得ます。職歴を公開するか、AI機能を使うかの二択ではなく、設定とフィードバックを分けて管理する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>LinkedInのAI学習設定は、対象モデル・将来分・フィードバックを分けて読む</span>
+            </div>
+            <ul class="forensics-card-audience"><li>LinkedInに職歴・実績・投稿を載せている人</li><li>仕事用プロフィールの情報を生成AI学習に使う範囲を自分で決めたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>LinkedIn</li><li>生成AI</li><li>AI学習</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260910-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Slack AIの回答は閉じれば消える。でもワークフロー要約をCanvasへ残すと保持設定が効く Slack AIは一時回答と保存される要約を分けて扱う Slackは、通常の会話要約とAI検索の回答を、画面を閉じる・別の場所へ移動するなどで消えていく一時的なAI応答として案内しています。一方、Recapの履歴は90日間保存されます。また、ワークフローの「Summarize public channels」で作ったチャンネル要約は一時回答ではなく、後続の手順により会話へのメッセージやCanvasとして保存できます。この場合、AI要約を含むメッセージやCanvasは組織のデータ保持設定に従います。Slack AIは通常の検索で見えない内容をAI検索で表示しないとされますが、回答が示す引用元は必ず開いて確認する必要があります。『AI回答を閉じた』ことと、『要約を保存していない』ことを混同しない運用を扱います。 仕事・AI活用 標準 Slack AI Slack Canvas AI要約 データ保持 ワークフロー Slack AIの検索や要約をチームで使う人 SlackのAI出力がどこに残るかを運用で決めたい管理者・チームリーダー">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">slack-ai-retention-canvas</span>
+              <div>
+                <p>Slack AIは一時回答と保存される要約を分けて扱う</p>
+                <h3>Slack AIの回答は閉じれば消える。でもワークフロー要約をCanvasへ残すと保持設定が効く</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-10">2026.09.10</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Slackは、通常の会話要約とAI検索の回答を、画面を閉じる・別の場所へ移動するなどで消えていく一時的なAI応答として案内しています。一方、Recapの履歴は90日間保存されます。また、ワークフローの「Summarize public channels」で作ったチャンネル要約は一時回答ではなく、後続の手順により会話へのメッセージやCanvasとして保存できます。この場合、AI要約を含むメッセージやCanvasは組織のデータ保持設定に従います。Slack AIは通常の検索で見えない内容をAI検索で表示しないとされますが、回答が示す引用元は必ず開いて確認する必要があります。『AI回答を閉じた』ことと、『要約を保存していない』ことを混同しない運用を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Slack AIは一時回答・Recap・保存された要約で保持の扱いが異なる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Slack AIの検索や要約をチームで使う人</li><li>SlackのAI出力がどこに残るかを運用で決めたい管理者・チームリーダー</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Slack AI</li><li>Slack</li><li>Canvas</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260908-01" data-forensics-card data-category="work-use" data-level="2" data-difficulty="advanced" data-search-text="Zoom AI要約は止めても配布済みコピーまで消えない。自動削除と共有先を分けて確認する Zoom AI要約は自動削除と配布済みコピーを分けて管理する Zoomは、AIによるMeeting Summaryを指定日数後に自動削除する設定を、アカウント、グループ、個人の各段階で用意しています。上位の管理者は設定をロックでき、利用者側で変更できない場合があります。一方、主催者が共有を有効にした要約はメールやZoom Chatで参加者へ届き、受信者は保存・他者への共有を行えます。会議中にAI要約を停止しても、その時点までに生成された要約は残り得ます。要約の生成、会議内の削除、自動削除、参加者へ配布済みのコピーを同じ「削除」と考えず、会議前に保存期間と送付範囲を分けて決める記事です。 仕事・AI活用 発展 Zoom Zoom AI Meeting Summary 会議要約 自動削除 データ保持 Zoom AIのMeeting Summaryを業務会議で使う主催者 AI要約の保存期間と参加者への共有範囲を整えたい管理者・チーム">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">zoom-ai-summary-retention-sharing</span>
+              <div>
+                <p>Zoom AI要約は自動削除と配布済みコピーを分けて管理する</p>
+                <h3>Zoom AI要約は止めても配布済みコピーまで消えない。自動削除と共有先を分けて確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-08">2026.09.08</time>
+              <span>仕事・AI活用</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">Zoomは、AIによるMeeting Summaryを指定日数後に自動削除する設定を、アカウント、グループ、個人の各段階で用意しています。上位の管理者は設定をロックでき、利用者側で変更できない場合があります。一方、主催者が共有を有効にした要約はメールやZoom Chatで参加者へ届き、受信者は保存・他者への共有を行えます。会議中にAI要約を停止しても、その時点までに生成された要約は残り得ます。要約の生成、会議内の削除、自動削除、参加者へ配布済みのコピーを同じ「削除」と考えず、会議前に保存期間と送付範囲を分けて決める記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>Zoom AI要約は、保存期間と配布済みコピーを別に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Zoom AIのMeeting Summaryを業務会議で使う主催者</li><li>AI要約の保存期間と参加者への共有範囲を整えたい管理者・チーム</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Zoom</li><li>Zoom AI</li><li>Meeting Summary</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260912-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260912-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
