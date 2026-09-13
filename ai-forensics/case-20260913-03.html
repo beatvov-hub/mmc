@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GitHub Copilot CLIの「このリポジトリでは許可」を放置しない。保存済み権限を戻す｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="GitHub Copilot CLIは、ファイルの読み取りや検索などの読み取り専用操作を自動で許可する一方、ファイル編集、破壊的なシェルコマンド、URLアクセスなどは明示的な許可を求めます。作業中に「このリポジトリでは今後確認しない」などを選ぶと、許可は既定でpermissions-config.jsonに保存され、リポジトリのルートまたは作業フォルダに適用されます。URLの恒久許可はsettings.jsonに保存され、全セッションに適用されます。GitHubは、すべてを許可する--allow-allや--yoloを隔離環境以外で使わないよう強く勧めています。AIに任せる作業の終了時に、残った許可をリセットする運用を扱う記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260913-03" />
+<meta property="og:title" content="GitHub Copilot CLIの「このリポジトリでは許可」を放置しない。保存済み権限を戻す｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="GitHub Copilot CLIは、ファイルの読み取りや検索などの読み取り専用操作を自動で許可する一方、ファイル編集、破壊的なシェルコマンド、URLアクセスなどは明示的な許可を求めます。作業中に「このリポジトリでは今後確認しない」などを選ぶと、許可は既定でpermissions-config.jsonに保存され、リポジトリのルートまたは作業フォルダに適用されます。URLの恒久許可はsettings.jsonに保存され、全セッションに適用されます。GitHubは、すべてを許可する--allow-allや--yoloを隔離環境以外で使わないよう強く勧めています。AIに任せる作業の終了時に、残った許可をリセットする運用を扱う記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260913-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Copilot CLIの保存済み権限は作業後に戻す</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>発展</span>
+              <time datetime="2026-09-13">2026.09.13</time>
+            </div>
+            <h1>GitHub Copilot CLIの「このリポジトリでは許可」を放置しない。保存済み権限を戻す</h1>
+            <p>GitHub Copilot CLIは、ファイルの読み取りや検索などの読み取り専用操作を自動で許可する一方、ファイル編集、破壊的なシェルコマンド、URLアクセスなどは明示的な許可を求めます。作業中に「このリポジトリでは今後確認しない」などを選ぶと、許可は既定でpermissions-config.jsonに保存され、リポジトリのルートまたは作業フォルダに適用されます。URLの恒久許可はsettings.jsonに保存され、全セッションに適用されます。GitHubは、すべてを許可する--allow-allや--yoloを隔離環境以外で使わないよう強く勧めています。AIに任せる作業の終了時に、残った許可をリセットする運用を扱う記事です。</p>
+            <ul class="forensics-target-list"><li>GitHub Copilot CLIでコード作成や調査をする人</li><li>AIエージェントにシェル実行・ファイル編集・URLアクセスを許可する開発者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>GitHub Copilot</li><li>Copilot CLI</li><li>AIエージェント</li><li>権限管理</li><li>シェル操作</li><li>開発環境</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>Copilot CLIの許可は、作業後に保存先と適用範囲まで戻す</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>確認を省いた権限は作業後にリセットし、リポジトリ単位と全セッションのURL許可を分けて見直しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>急ぎの開発でCopilot CLIの確認を省いたが、そのリポジトリで後から何が許可されたか心配</h3><p>AIに繰り返し同じ確認をさせないため、シェル操作やファイル編集を『このリポジトリでは常に許可』にしました。作業は終わりましたが、次のセッションでも同じ権限が残るのか、どこまで戻すべきかを知りたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIエージェントのシェル操作は、利用者のアカウントでパッケージ導入、ファイル削除、push、ネットワーク接続まで行えます。一時的な効率化の許可が作業場所や全セッションに残るなら、終了時に見直す必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="reset-and-review">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Copilot CLIで一時的に広い権限を与えた作業の後、適切な対応は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="reset-and-review" data-choice-id="reset-and-review" />
+                <span>
+                  <strong>保存された許可の範囲を確認し、/reset-allowed-toolsで作業中の許可を既定状態へ戻す</strong>
+                  <small>リポジトリ単位の許可と、全セッションに効くURL許可を分けて見直します。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="keep-for-convenience" data-choice-id="keep-for-convenience" />
+                <span>
+                  <strong>次回も速く作業できるよう、広い許可を残したままにする</strong>
+                  <small>保存済みの許可は、次のセッションでも意図しない変更の範囲を広げることがあります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="always-use-yolo" data-choice-id="always-use-yolo" />
+                <span>
+                  <strong>毎回--yoloを付け、確認なしで全操作を実行させる</strong>
+                  <small>GitHubは、全許可オプションを隔離環境以外で常用しないよう強く勧めています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>保存された許可の範囲を確認し、/reset-allowed-toolsで作業中の許可を既定状態へ戻す</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Copilot CLIの許可は保存される場合があり、/reset-allowed-toolsは現在の対話中に付与した許可を既定状態または起動時オプションの状態へ戻します。永続のURL許可は別のsettings.jsonに保存されるため、範囲を分けて確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>書込み・シェル・URLの許可</h3>
+              <p>編集、破壊的コマンド、URLアクセスは明示的許可が必要な操作です。何を許可したかを確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>リポジトリ単位の保存</h3>
+              <p>作業場所で許可したツール・パスは、既定でpermissions-config.jsonに保存され、リポジトリルートまたは作業フォルダに適用されます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>全セッションに効くURL許可</h3>
+              <p>URLを恒久許可すると、allowedUrlsとしてsettings.jsonに保存され、場所に限られず適用されます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>全許可オプション</h3>
+              <p>--allow-allや--yoloはすべてのツール・パス・URLを許可します。GitHubは隔離環境以外での常用を勧めていません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AIエージェントの許可は、作業を速くする設定ではなく、実行できる範囲を決める設定である</strong><p>Copilot CLIでは、一部の許可がファイルに保存され、次の作業にも適用されます。書込みやシェル操作を安全に使うには、必要な作業にだけ限定して許可し、終了時に/reset-allowed-toolsと保存済み設定を確認する運用が重要です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>危険性のある操作は、必要な時だけ一回限りで許可する</strong><span>Copilot CLIは編集、破壊的シェル操作、URLアクセスに明示承認を求めます。</span></li>
+            <li><strong>作業後に/reset-allowed-toolsで対話中の許可を戻す</strong><span>このコマンドは、対話中に許可したツールと保存済みの場所単位の許可をリセットします。</span></li>
+            <li><strong>permissions-config.jsonとsettings.jsonの対象を分けて確認する</strong><span>リポジトリ・作業場所の許可と、全セッションに効くURL許可は保存先と適用範囲が異なります。</span></li>
+            <li><strong>広い許可が必要な作業は、可能なら隔離環境で行う</strong><span>GitHubは全許可オプションを隔離環境以外で使わないよう案内しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>『このリポジトリでは常に許可』を、内容を確認せず選ぶ</strong><span>許可はリポジトリまたは作業フォルダに保存され、後のセッションにも影響します。</span></li>
+            <li><strong>--allow-allや--yoloを通常の開発環境で常用する</strong><span>全ツール・パス・URLが許可され、意図しない操作の範囲が広がります。</span></li>
+            <li><strong>URLの恒久許可をリポジトリだけに効く設定だと考える</strong><span>恒久URL許可はsettings.jsonに保存され、全セッションに適用されます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>最小限の許可で、Copilot CLIを定型作業の補助に使う</h3>
+          <p>読み取り中心の調査や、対象ファイルを限定した編集に絞れば、Copilot CLIの支援を活かしながら、アカウントで実行できる範囲を必要以上に広げずに済みます。</p>
+          <ul class="positive-example-list"><li>読み取り専用の調査から始める</li><li>書込み許可は対象ファイルを限定する</li><li>pushは自分で最終実行する</li><li>作業終了時に許可をリセットする</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIに『この場所ではずっと許可』を渡す時、私は未来の自分にも同じ鍵を渡していると考えます。急ぐ作業ほど設定が残りやすいので、終わりに一度リセットする手順を、テストやコミットと同じくらい自然な作業にしたいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Copilot CLIの保存済み権限は、作業後にリセットして適用範囲を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools" target="_blank" rel="noopener noreferrer">Allowing and denying tool use<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>GitHub Docs</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260912-02" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="Copilotの「記憶」をオフにしても、保存済みの内容は消えない。削除まで確認する Copilotの記憶はオフと削除を別々に確認する Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。 仕事・AI活用 標準 Microsoft 365 Copilot Copilot Memory Saved memories 個人設定 会話履歴 業務利用 Microsoft 365 Copilot Chatで仕事の好みや役割を記憶させる人 異動・退職・担当変更に合わせてAIの記憶を整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-memory-delete</span>
+              <div>
+                <p>Copilotの記憶はオフと削除を別々に確認する</p>
+                <h3>Copilotの「記憶」をオフにしても、保存済みの内容は消えない。削除まで確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-12">2026.09.12</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Copilotの記憶は、今後の保存を止める操作と既存分の削除を分ける</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft 365 Copilot Chatで仕事の好みや役割を記憶させる人</li><li>異動・退職・担当変更に合わせてAIの記憶を整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft 365 Copilot</li><li>Copilot Memory</li><li>Saved memories</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260911-02" data-forensics-card data-category="work-use" data-level="4" data-difficulty="beginner" data-search-text="LinkedInのプロフィールや投稿を生成AI学習に使わせない。設定オフの効く範囲 LinkedInの生成AI学習設定は未来分とフィードバックを分けて確認する LinkedInは、コンテンツ生成に使う生成AIモデルの学習・改善について、会員のデータ利用を「Data for Generative AI Improvement」設定で制御できると案内しています。この設定は既定でオンで、オフにすると以後、LinkedInとその関連会社が提供したデータ・コンテンツをコンテンツ生成AIモデルの学習に使わないとされています。ただし、過去に済んだ学習には遡及せず、投稿やメッセージの提案以外のパーソナライズ・安全対策モデルには適用されません。さらに、オフにしていても、評価ボタンや自由記述で送るフィードバック内の情報は学習に使われ得ます。職歴を公開するか、AI機能を使うかの二択ではなく、設定とフィードバックを分けて管理する記事です。 仕事・AI活用 はじめて LinkedIn 生成AI AI学習 プロフィール データ設定 フィードバック LinkedInに職歴・実績・投稿を載せている人 仕事用プロフィールの情報を生成AI学習に使う範囲を自分で決めたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">linkedin-ai-training-setting</span>
+              <div>
+                <p>LinkedInの生成AI学習設定は未来分とフィードバックを分けて確認する</p>
+                <h3>LinkedInのプロフィールや投稿を生成AI学習に使わせない。設定オフの効く範囲</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-11">2026.09.11</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">LinkedInは、コンテンツ生成に使う生成AIモデルの学習・改善について、会員のデータ利用を「Data for Generative AI Improvement」設定で制御できると案内しています。この設定は既定でオンで、オフにすると以後、LinkedInとその関連会社が提供したデータ・コンテンツをコンテンツ生成AIモデルの学習に使わないとされています。ただし、過去に済んだ学習には遡及せず、投稿やメッセージの提案以外のパーソナライズ・安全対策モデルには適用されません。さらに、オフにしていても、評価ボタンや自由記述で送るフィードバック内の情報は学習に使われ得ます。職歴を公開するか、AI機能を使うかの二択ではなく、設定とフィードバックを分けて管理する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>LinkedInのAI学習設定は、対象モデル・将来分・フィードバックを分けて読む</span>
+            </div>
+            <ul class="forensics-card-audience"><li>LinkedInに職歴・実績・投稿を載せている人</li><li>仕事用プロフィールの情報を生成AI学習に使う範囲を自分で決めたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>LinkedIn</li><li>生成AI</li><li>AI学習</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260910-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Slack AIの回答は閉じれば消える。でもワークフロー要約をCanvasへ残すと保持設定が効く Slack AIは一時回答と保存される要約を分けて扱う Slackは、通常の会話要約とAI検索の回答を、画面を閉じる・別の場所へ移動するなどで消えていく一時的なAI応答として案内しています。一方、Recapの履歴は90日間保存されます。また、ワークフローの「Summarize public channels」で作ったチャンネル要約は一時回答ではなく、後続の手順により会話へのメッセージやCanvasとして保存できます。この場合、AI要約を含むメッセージやCanvasは組織のデータ保持設定に従います。Slack AIは通常の検索で見えない内容をAI検索で表示しないとされますが、回答が示す引用元は必ず開いて確認する必要があります。『AI回答を閉じた』ことと、『要約を保存していない』ことを混同しない運用を扱います。 仕事・AI活用 標準 Slack AI Slack Canvas AI要約 データ保持 ワークフロー Slack AIの検索や要約をチームで使う人 SlackのAI出力がどこに残るかを運用で決めたい管理者・チームリーダー">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">slack-ai-retention-canvas</span>
+              <div>
+                <p>Slack AIは一時回答と保存される要約を分けて扱う</p>
+                <h3>Slack AIの回答は閉じれば消える。でもワークフロー要約をCanvasへ残すと保持設定が効く</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-10">2026.09.10</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Slackは、通常の会話要約とAI検索の回答を、画面を閉じる・別の場所へ移動するなどで消えていく一時的なAI応答として案内しています。一方、Recapの履歴は90日間保存されます。また、ワークフローの「Summarize public channels」で作ったチャンネル要約は一時回答ではなく、後続の手順により会話へのメッセージやCanvasとして保存できます。この場合、AI要約を含むメッセージやCanvasは組織のデータ保持設定に従います。Slack AIは通常の検索で見えない内容をAI検索で表示しないとされますが、回答が示す引用元は必ず開いて確認する必要があります。『AI回答を閉じた』ことと、『要約を保存していない』ことを混同しない運用を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Slack AIは一時回答・Recap・保存された要約で保持の扱いが異なる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Slack AIの検索や要約をチームで使う人</li><li>SlackのAI出力がどこに残るかを運用で決めたい管理者・チームリーダー</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Slack AI</li><li>Slack</li><li>Canvas</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260913-04">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260913-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

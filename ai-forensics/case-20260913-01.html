@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SnapchatのMy AIは会話を消すだけでは終わらない。1対1とグループを分けて削除する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Snapchatは、My AIへ共有した内容を利用者が削除するまで保持すると案内しています。直近24時間の1対1チャットはメッセージを長押しして削除でき、過去の内容は設定の「Delete My AI Data」または「Clear My AI Data」からまとめて削除できます。ただし、この操作が消すのはMy AIとの1対1チャットであり、My AIが入ったグループチャットのメッセージは削除されません。Snapchatのサーバーから関連データを削除するには最大30日かかる場合もあります。会話を消したつもりで終わらせず、どの場所の投稿を消したかを分けて確認する記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260913-01" />
+<meta property="og:title" content="SnapchatのMy AIは会話を消すだけでは終わらない。1対1とグループを分けて削除する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Snapchatは、My AIへ共有した内容を利用者が削除するまで保持すると案内しています。直近24時間の1対1チャットはメッセージを長押しして削除でき、過去の内容は設定の「Delete My AI Data」または「Clear My AI Data」からまとめて削除できます。ただし、この操作が消すのはMy AIとの1対1チャットであり、My AIが入ったグループチャットのメッセージは削除されません。Snapchatのサーバーから関連データを削除するには最大30日かかる場合もあります。会話を消したつもりで終わらせず、どの場所の投稿を消したかを分けて確認する記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260913-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>My AIの削除は1対1の会話とグループ投稿を分けて確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-09-13">2026.09.13</time>
+            </div>
+            <h1>SnapchatのMy AIは会話を消すだけでは終わらない。1対1とグループを分けて削除する</h1>
+            <p>Snapchatは、My AIへ共有した内容を利用者が削除するまで保持すると案内しています。直近24時間の1対1チャットはメッセージを長押しして削除でき、過去の内容は設定の「Delete My AI Data」または「Clear My AI Data」からまとめて削除できます。ただし、この操作が消すのはMy AIとの1対1チャットであり、My AIが入ったグループチャットのメッセージは削除されません。Snapchatのサーバーから関連データを削除するには最大30日かかる場合もあります。会話を消したつもりで終わらせず、どの場所の投稿を消したかを分けて確認する記事です。</p>
+            <ul class="forensics-target-list"><li>SnapchatでMy AIと会話したり、My AI入りのグループチャットを使う人</li><li>AIに送った内容を後から整理・削除したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Snapchat</li><li>My AI</li><li>チャット削除</li><li>グループチャット</li><li>プライバシー</li><li>AIデータ</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>My AIの削除は、個別チャットとグループチャットを別の対象として確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>My AIデータを削除したら、My AI入りグループの投稿も別に確認しましょう。削除処理には時間がかかる場合があります。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>My AIに送った内容を消したが、グループでMy AIが読んだ会話も消えているか不安</h3><p>My AIとの個別チャットで相談や画像の話をした後、設定からMy AIのデータを削除しました。一方、友人とのグループチャットにもMy AIを追加しており、その中の会話まで同じ操作で消えるのか分かりません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>My AIとの1対1会話と、My AIが参加したグループチャットは、削除の対象が異なります。削除場所を取り違えると、残したくない投稿がグループ側に残ったままになるおそれがあります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="separate-private-and-group-deletion">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>My AIに渡した内容を整理する時、適切な確認は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="separate-private-and-group-deletion" data-choice-id="separate-private-and-group-deletion" />
+                <span>
+                  <strong>My AIデータを削除した後、My AI入りグループの投稿はグループ側で別に確認・削除する</strong>
+                  <small>Clear My AI Dataは1対1の会話を対象にし、グループチャットのメッセージは消しません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="one-delete-clears-everything" data-choice-id="one-delete-clears-everything" />
+                <span>
+                  <strong>My AIデータの削除だけで、すべてのグループ会話も消えると考える</strong>
+                  <small>Snapchatは、グループチャット内のメッセージはこの操作で削除されないと案内しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="wait-without-checking" data-choice-id="wait-without-checking" />
+                <span>
+                  <strong>表示が消えたら、削除場所や処理期間を確認しない</strong>
+                  <small>関連データのサーバー削除には最大30日かかる場合があります。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>My AIデータを削除した後、My AI入りグループの投稿はグループ側で別に確認・削除する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>My AIデータの削除は個別チャットの整理に使えますが、My AI入りグループのメッセージは別に削除する必要があります。削除した場所を確認し、処理中の期間も見込んでおきます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>削除したい場所は1対1かグループか</h3>
+              <p>Clear My AI DataはMy AIとの1対1チャットを対象にします。My AIが入ったグループのメッセージは、グループ側で確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>直近24時間の会話</h3>
+              <p>直近24時間にMy AIへ送った内容は、対象メッセージを長押しして削除できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>過去のMy AIデータ</h3>
+              <p>iOSでは設定のPrivacy Controls、AndroidではAccount Actionsから、My AIデータの一括削除を選べます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>削除処理の期間</h3>
+              <p>Snapchatは、関連するMy AIデータのサーバー削除に最大30日かかる場合があると案内しています。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>My AIの『データ削除』は、すべてのMy AI関連メッセージを自動で消す操作ではない</strong><p>Snapchatは、My AIに共有した内容を削除まで保持すると説明しています。設定のMy AIデータ削除は1対1チャットの整理に使えますが、グループチャットの投稿は対象外です。個別チャット、グループ投稿、サーバー上の処理期間を分けて管理することが大切です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>My AIとの個別会話は、設定のMy AIデータ削除で整理する</strong><span>Snapchatは、過去のMy AIとの1対1の内容を設定から削除できると案内しています。</span></li>
+            <li><strong>My AI入りグループの投稿は、グループ側で別に確認・削除する</strong><span>Clear My AI Dataでは、グループチャット内のメッセージは削除されません。</span></li>
+            <li><strong>削除した直後は、最大30日の処理期間を見込む</strong><span>関連するMy AIデータのサーバー削除には最大30日かかる場合があります。</span></li>
+            <li><strong>今後渡さない内容を決め、相談内容や個人情報を送る前に見直す</strong><span>My AIに共有した内容は、利用者が削除するまで保持されます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>My AIデータを削除しただけで、グループ内の投稿も消えたと思い込む</strong><span>My AI入りグループのメッセージは別の対象です。</span></li>
+            <li><strong>削除後すぐに、サーバー上の処理も完了したと決めつける</strong><span>削除に最大30日かかる場合があります。</span></li>
+            <li><strong>AIとの会話だから軽い内容だと考え、個人情報や他人の情報を気軽に送る</strong><span>共有した内容は削除するまで保持されます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>会話場所ごとに残す・消すを決めて、My AIを気軽な下調べに使う</h3>
+          <p>個別会話とグループ会話の違いを理解しておけば、My AIをアイデア出しや言葉の説明に使いながら、残したくない内容を後で整理できます。</p>
+          <ul class="positive-example-list"><li>個別会話で渡した内容を月ごとに見直す</li><li>グループにMy AIを追加する前に参加者と用途を確認する</li><li>個人情報を含む相談は送らない</li><li>削除対象をメモしてから設定を操作する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>削除ボタンの名前が同じでも、会話の場所まで同じとは限りません。私はMy AIとの1対1を片付けた後、グループ側に残る投稿がないかをもう一度見るようにしたいです。『どこで話したか』をたどるだけで、削除漏れを減らせます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>My AIの削除は、個別チャットとグループ投稿を分けて確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://help.snapchat.com/hc/en-us/articles/18937378754324-How-do-I-delete-my-data-with-My-AI" target="_blank" rel="noopener noreferrer">How do I delete my data with My AI?<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Snapchat Support</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://help.snapchat.com/hc/en-us/articles/15682296562836-Does-Snap-save-content-shared-with-My-AI" target="_blank" rel="noopener noreferrer">Does Snap save content shared with My AI?<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Snapchat Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260913-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Grokの学習設定・会話削除・非公開化は別の操作。Xで見直す3か所 Grokは学習設定・履歴削除・非公開化を分けて設定する Xは、公開投稿、Grokへの入力、応答結果が、xAIの生成AIモデルの学習・調整に使われ得ると案内しています。Xの「Privacy &amp; Safety」から「Data sharing and personalization」「Grok &amp; Third-party Collaborators」へ進むと、学習利用とGrokのパーソナライズを別々に設定できます。会話履歴の削除も別の操作で、削除した会話はセキュリティまたは法的理由を除き、最大30日以内にシステムから削除されます。また、アカウントを非公開にすると、投稿をGrok・xAIのモデル学習や回答表示に使わせない設定になります。目的ごとに設定を分けて扱う記事です。 セキュリティ・権限 標準 Grok X 学習設定 会話履歴 プライバシー データ共有 XでGrokを使う人 公開投稿やGrokとの会話を、AIの学習・履歴・公開範囲ごとに整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">grok-data-controls-separation</span>
+              <div>
+                <p>Grokは学習設定・履歴削除・非公開化を分けて設定する</p>
+                <h3>Grokの学習設定・会話削除・非公開化は別の操作。Xで見直す3か所</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-13">2026.09.13</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Xは、公開投稿、Grokへの入力、応答結果が、xAIの生成AIモデルの学習・調整に使われ得ると案内しています。Xの「Privacy &amp; Safety」から「Data sharing and personalization」「Grok &amp; Third-party Collaborators」へ進むと、学習利用とGrokのパーソナライズを別々に設定できます。会話履歴の削除も別の操作で、削除した会話はセキュリティまたは法的理由を除き、最大30日以内にシステムから削除されます。また、アカウントを非公開にすると、投稿をGrok・xAIのモデル学習や回答表示に使わせない設定になります。目的ごとに設定を分けて扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Grokでは、学習・個別化・履歴・投稿公開範囲を別々に設定する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>XでGrokを使う人</li><li>公開投稿やGrokとの会話を、AIの学習・履歴・公開範囲ごとに整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Grok</li><li>X</li><li>学習設定</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260912-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Gemini Canvasの公開アプリは、リンク共有だけでは終わらない。データが見える範囲を確認する Gemini Canvasの公開アプリは共有データの範囲を確認する Googleは、Gemini Canvasで複数の利用者間でデータを共有するアプリを作ると、関連データは公開データベースに置かれ、公開リンクを知る人が閲覧・編集できると案内しています。共有しないアプリではデータベースは利用者だけが扱える非公開のものになります。公開Canvasアプリを受け取った利用者についても、入力した情報はアプリ作成者に見え得るほか、公開リンクを知る人にも見える場合があるため、パスワードや支払情報を入れないようGoogleは注意を促しています。AIが生成したミニアプリを便利に共有する前に、単独利用か複数人共有か、保存するデータは何かを確認する記事です。 セキュリティ・権限 標準 Gemini Canvas AIアプリ 公開リンク Firestore データ共有 権限 Gemini Canvasで簡単なWebアプリを作って共有したい人 公開リンクで使えるAI生成アプリへ情報を入力する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gemini-canvas-public-data</span>
+              <div>
+                <p>Gemini Canvasの公開アプリは共有データの範囲を確認する</p>
+                <h3>Gemini Canvasの公開アプリは、リンク共有だけでは終わらない。データが見える範囲を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-12">2026.09.12</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは、Gemini Canvasで複数の利用者間でデータを共有するアプリを作ると、関連データは公開データベースに置かれ、公開リンクを知る人が閲覧・編集できると案内しています。共有しないアプリではデータベースは利用者だけが扱える非公開のものになります。公開Canvasアプリを受け取った利用者についても、入力した情報はアプリ作成者に見え得るほか、公開リンクを知る人にも見える場合があるため、パスワードや支払情報を入れないようGoogleは注意を促しています。AIが生成したミニアプリを便利に共有する前に、単独利用か複数人共有か、保存するデータは何かを確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Canvasアプリは、公開リンクとデータ共有の有無をセットで確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Gemini Canvasで簡単なWebアプリを作って共有したい人</li><li>公開リンクで使えるAI生成アプリへ情報を入力する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini Canvas</li><li>AIアプリ</li><li>公開リンク</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260912-04" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="AIブラウザは社内用と社外用を分ける。閲覧履歴とログイン状態をまとめて渡さない AIブラウザは重要な社内アカウントと分けて使う IPAは2026年4月公開のAI利用者向け資料で、チャットAIを内蔵するAIブラウザは、閲覧中のページや過去の閲覧履歴などを生成AIと共有することになると説明しています。AIブラウザはページの翻訳・要約、商品検索、発注代行などを頼める一方、Webページに含まれた悪意ある指示を利用者の依頼と誤認し、情報漏えいや不正送金を行う可能性があります。IPAは不正プロンプトへの対策はまだ不完全であり、常用のAIブラウザでは社内ポータルなど重要情報へアクセスしないよう、社内用と社外用を使い分けるよう案内しています。AI機能の便利さではなく、ログイン状態と閲覧範囲を分ける運用を扱う記事です。 セキュリティ・権限 標準 AIブラウザ プロンプトインジェクション 閲覧履歴 社内ポータル ブラウザ分離 情報漏えい AI機能を内蔵したブラウザで要約・検索・作業代行を使う人 社内ポータルや業務SaaSへ同じブラウザでログインする人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-browser-context-separation</span>
+              <div>
+                <p>AIブラウザは重要な社内アカウントと分けて使う</p>
+                <h3>AIブラウザは社内用と社外用を分ける。閲覧履歴とログイン状態をまとめて渡さない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-12">2026.09.12</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">IPAは2026年4月公開のAI利用者向け資料で、チャットAIを内蔵するAIブラウザは、閲覧中のページや過去の閲覧履歴などを生成AIと共有することになると説明しています。AIブラウザはページの翻訳・要約、商品検索、発注代行などを頼める一方、Webページに含まれた悪意ある指示を利用者の依頼と誤認し、情報漏えいや不正送金を行う可能性があります。IPAは不正プロンプトへの対策はまだ不完全であり、常用のAIブラウザでは社内ポータルなど重要情報へアクセスしないよう、社内用と社外用を使い分けるよう案内しています。AI機能の便利さではなく、ログイン状態と閲覧範囲を分ける運用を扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AIブラウザは、外部サイトを扱う環境と社内ログイン環境を分離する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AI機能を内蔵したブラウザで要約・検索・作業代行を使う人</li><li>社内ポータルや業務SaaSへ同じブラウザでログインする人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIブラウザ</li><li>プロンプトインジェクション</li><li>閲覧履歴</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260913-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
