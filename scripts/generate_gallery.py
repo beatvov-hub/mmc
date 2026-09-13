@@ -101,7 +101,12 @@ def render_footer(prefix: str) -> str:
     return "\n".join(lines)
 
 
-def render_compare_shot(title: str, image: str, cls: str) -> str:
+def render_compare_shot(title: str, image: str | None, cls: str) -> str:
+    if not image:
+        message = "本家サイトの比較画像は準備中です。" if cls == "gallery-shot-original" else "リデザインの比較画像は制作後に掲載します。"
+        return (f'<figure class="gallery-shot gallery-shot-pending">'
+                f'<figcaption>{esc(title)}</figcaption>'
+                f'<div class="gallery-placeholder"><strong>準備中</strong><p>{message}</p></div></figure>')
     return "\n".join(
         [
             f'              <figure class="gallery-shot {cls}">',
@@ -134,6 +139,7 @@ def render_gallery_card(item: dict) -> str:
             f'              <span class="tag">{esc(item["category"])}</span>',
             "            </div>",
             f'            <h3>{esc(item["title"])}</h3>',
+            *([f'            <p class="gallery-status">{esc(item["status"])}</p>'] if item.get("status") else []),
             f'            <p class="gallery-card-subtitle">{esc(item["subtitle"])}</p>',
             f'            <p class="gallery-card-summary">{esc(item["summary"])}</p>',
             '            <div class="gallery-compare">',
@@ -152,7 +158,7 @@ def render_gallery_main(items: list[dict]) -> str:
         '      <section class="page-hero gallery-hero">',
         "        <div>",
         '          <p class="section-kicker">Heisei AI Gallery</p>',
-        "          <h1>平成AI化ギャラリー</h1>",
+        "          <h1><span>平成AI化</span><wbr /><span>ギャラリー</span></h1>",
         "          <p class=\"page-lead\">懐かしいホームページ文化を、現代のUI/UXで再構成する広報部の実験企画です。古いサイトを笑うのではなく、当時の良さを残しながら、今の人にも伝わる形へ翻訳します。</p>",
         "        </div>",
         '        <aside class="page-note gallery-hero-note">',
@@ -257,6 +263,7 @@ def render_list(items: list[str], class_name: str) -> str:
 
 def render_detail_page(item: dict) -> str:
     concept = item.get("concept", {})
+    detail_title = item.get("detailTitle", f'{item["title"]}をAI化してみた')
     return "\n".join(
         [
             "<!doctype html>",
@@ -264,9 +271,9 @@ def render_detail_page(item: dict) -> str:
             "  <head>",
             '    <meta charset="utf-8" />',
             '    <meta name="viewport" content="width=device-width, initial-scale=1" />',
-            f'    <title>{esc(item["title"])}をAI化してみた｜平成AI化ギャラリー｜毎日見る株式会社</title>',
+            f'    <title>{esc(detail_title)}｜平成AI化ギャラリー｜毎日見る株式会社</title>',
             f'    <meta name="description" content="{esc(item["summary"])}" />',
-            f'    <meta property="og:title" content="{esc(item["title"])}をAI化してみた｜平成AI化ギャラリー｜毎日見る株式会社" />',
+            f'    <meta property="og:title" content="{esc(detail_title)}｜平成AI化ギャラリー｜毎日見る株式会社" />',
             f'    <meta property="og:description" content="{esc(item["summary"])}" />',
             '    <meta property="og:type" content="article" />',
             f'    <meta property="og:url" content="{esc(gallery_url(item))}" />',
@@ -294,8 +301,9 @@ def render_detail_page(item: dict) -> str:
             '      <section class="page-hero gallery-detail-hero">',
             "        <div>",
             f'          <p class="section-kicker">Gallery {esc(item["number"])}</p>',
-            f'          <h1>{esc(item["title"])}をAI化してみた</h1>',
+            f'          <h1>{esc(detail_title)}</h1>',
             f'          <p class="page-lead">{esc(item["subtitle"])}</p>',
+            *([f'          <p class="gallery-status">{esc(item["status"])}</p>'] if item.get("status") else []),
             "        </div>",
             '        <aside class="page-note gallery-hero-note">',
             "          <strong>本家への敬意</strong>",
@@ -327,7 +335,7 @@ def render_detail_page(item: dict) -> str:
             "          </div>",
             "        </article>",
             '        <article class="gallery-detail-card gallery-detail-wide gallery-concept-card">',
-            "          <h2>新しくなったページはこうだ</h2>",
+            "          <h2>リデザインコンセプト（案）</h2>" if item.get("status") else "          <h2>新しくなったページはこうだ</h2>",
             f'          <strong>{esc(concept.get("name", ""))}</strong>',
             f'          <p class="gallery-concept-copy">{esc(concept.get("catchcopy", ""))}</p>',
             f'          <p>{esc(concept.get("description", ""))}</p>',
@@ -339,6 +347,7 @@ def render_detail_page(item: dict) -> str:
             "      </section>",
             '      <section class="work-detail-actions" aria-label="ギャラリー導線">',
             '        <a class="secondary-button" href="./">ギャラリー一覧に戻る</a>',
+            *([f'<a class="secondary-button work-public-button" href="{esc(item["redesignUrl"])}">リデザインページを見る</a>'] if item.get("redesignUrl") else []),
             f'        <a class="secondary-button work-public-button" href="{esc(item["sourceUrl"])}" target="_blank" rel="noopener noreferrer">本家サイトを見る</a>',
             "      </section>",
             "    </main>",

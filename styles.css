@@ -2540,6 +2540,14 @@ body.subpage { padding-top: 88px; }
 .gallery-hero {
   align-items: stretch;
 }
+.page-hero.gallery-hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.35;
+}
+.gallery-hero h1 span {
+  display: inline-block;
+  white-space: nowrap;
+}
 .gallery-hero-note {
   display: grid;
   align-content: center;
@@ -2630,6 +2638,27 @@ body.subpage { padding-top: 88px; }
   aspect-ratio: 16 / 10;
   object-fit: cover;
   background: linear-gradient(135deg, #ead7c0, #d4e2dd);
+}
+.gallery-status {
+  color: var(--coffee);
+  font-size: .85rem;
+  font-weight: 700;
+}
+.gallery-placeholder {
+  display: flex;
+  min-height: 180px;
+  aspect-ratio: 16 / 10;
+  padding: 24px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--coffee);
+  background: linear-gradient(135deg, #f2e7d9, #e2ebe6);
+}
+.gallery-placeholder p {
+  margin: 10px 0 0;
+  font-size: .9rem;
 }
 .gallery-shot-original img {
   filter: saturate(.78) contrast(.92);
