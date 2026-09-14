@@ -673,6 +673,9 @@ def render_archive_page(
         ]
     )
     log_articles = "\n\n".join(render_log_article(log, "../", daily=True) for log in logs)
+    morning_words = render_daily_words(
+        {"title": "今日の一言", "items": first_log.get("todayWords", [])}
+    ) if first_log.get("todayWords") else ""
     return f"""<!doctype html>
 <html lang="ja">
   <head>
@@ -731,6 +734,8 @@ def render_archive_page(
 {log_nav}
         </nav>
       </section>
+
+{morning_words}
 
 {log_articles}
     </main>
