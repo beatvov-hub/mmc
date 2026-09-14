@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Copilotのブラウズ代行は、ログイン済みCookieと会話スクリーンショットを分けて片付ける｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは、EdgeのBrowse with Copilotについて、Copilotが現在のブラウザウィンドウで作業し、ページのクリック、入力、タブ移動を行えると案内しています。Copilotは対象ウィンドウのCookieにアクセスできるため、利用者がログイン済みのサイトでは同じログイン状態で作業できます。Microsoftは、Cookieを削除するか新しいブラウザプロファイルから始める方法を案内しています。また、作業したページのスクリーンショットは会話履歴に保存され、会話を削除すると関連スクリーンショットも削除されますが、削除しない場合は最大30日保存されます。ブラウズ代行を始める前のログイン環境と、終了後の会話履歴をセットで扱う記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260914-04" />
+<meta property="og:title" content="Copilotのブラウズ代行は、ログイン済みCookieと会話スクリーンショットを分けて片付ける｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは、EdgeのBrowse with Copilotについて、Copilotが現在のブラウザウィンドウで作業し、ページのクリック、入力、タブ移動を行えると案内しています。Copilotは対象ウィンドウのCookieにアクセスできるため、利用者がログイン済みのサイトでは同じログイン状態で作業できます。Microsoftは、Cookieを削除するか新しいブラウザプロファイルから始める方法を案内しています。また、作業したページのスクリーンショットは会話履歴に保存され、会話を削除すると関連スクリーンショットも削除されますが、削除しない場合は最大30日保存されます。ブラウズ代行を始める前のログイン環境と、終了後の会話履歴をセットで扱う記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260914-04" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Copilotのブラウズ代行はCookieと会話履歴を作業後に整理する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+              <time datetime="2026-09-14">2026.09.14</time>
+            </div>
+            <h1>Copilotのブラウズ代行は、ログイン済みCookieと会話スクリーンショットを分けて片付ける</h1>
+            <p>Microsoftは、EdgeのBrowse with Copilotについて、Copilotが現在のブラウザウィンドウで作業し、ページのクリック、入力、タブ移動を行えると案内しています。Copilotは対象ウィンドウのCookieにアクセスできるため、利用者がログイン済みのサイトでは同じログイン状態で作業できます。Microsoftは、Cookieを削除するか新しいブラウザプロファイルから始める方法を案内しています。また、作業したページのスクリーンショットは会話履歴に保存され、会話を削除すると関連スクリーンショットも削除されますが、削除しない場合は最大30日保存されます。ブラウズ代行を始める前のログイン環境と、終了後の会話履歴をセットで扱う記事です。</p>
+            <ul class="forensics-target-list"><li>Microsoft EdgeでBrowse with Copilotを使う人</li><li>AIにWebサイトの検索・入力・クリックを代行させる前に、ログイン状態を分けたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft Copilot</li><li>Edge</li><li>AIブラウザ</li><li>Cookie</li><li>スクリーンショット</li><li>会話履歴</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>Copilotのブラウズ代行は、開始前のCookieと終了後の会話履歴を確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>ログイン状態を分けたプロファイルから始め、終了後は会話を確認して不要なスクリーンショットを残さないようにしましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Copilotにサイト比較を任せたいが、同じEdgeウィンドウで買い物や業務サービスにもログインしている</h3><p>複数サイトを開いて商品比較や予約の下調べをCopilotに任せると便利そうです。しかし、同じブラウザには保存済みのログイン状態があり、作業画面が会話履歴に残ることも後から知りました。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>ブラウズ代行は、画面の要約だけでなく、現在のブラウザウィンドウのCookie、開いているタブ、作業対象ページのスクリーンショットに関わります。開始するプロファイルと、終わった後に削除する会話を決めておかないと、必要以上のログイン状態や作業記録を残します。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="new-profile-and-delete-history">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>CopilotにWeb操作を任せる前後の対応として適切なのは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="new-profile-and-delete-history" data-choice-id="new-profile-and-delete-history" />
+                <span>
+                  <strong>ログイン状態を分けた新しいブラウザプロファイルで始め、作業後は会話履歴を確認して不要なら削除する</strong>
+                  <small>Cookieによるログイン状態と、会話に残るスクリーンショットを分けて管理します。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="use-main-profile-for-everything" data-choice-id="use-main-profile-for-everything" />
+                <span>
+                  <strong>普段のログイン済みプロファイルのまま、金融・医療・業務サイトも代行させる</strong>
+                  <small>Microsoftは金融活動、本人確認情報、医療記録、高度な機密情報に注意を促しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="screenshots-are-never-saved" data-choice-id="screenshots-are-never-saved" />
+                <span>
+                  <strong>画面を見せても、作業スクリーンショットは会話に残らないと考える</strong>
+                  <small>作業対象ページのスクリーンショットは会話履歴に保存され、削除しない場合は最大30日保持されます。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>ログイン状態を分けた新しいブラウザプロファイルで始め、作業後は会話履歴を確認して不要なら削除する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Browse with Copilotでは、Cookieによりログイン済みサイトを同じアカウントとして扱い得ます。新しいプロファイルやCookie整理で開始し、作業後は会話を確認・削除して関連スクリーンショットも整理します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>現在のブラウザプロファイル</h3>
+              <p>Copilotは現在のブラウザウィンドウで動きます。業務・決済用と分けたプロファイルから始めるかを確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Cookieによるログイン状態</h3>
+              <p>CopilotはCookieを使えるため、対象サイトへログイン済みなら同じログイン状態で作業できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>作業対象のスクリーンショット</h3>
+              <p>Copilotは作業するページのスクリーンショットを取得し、会話履歴に保存します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>会話履歴の削除</h3>
+              <p>会話を削除すると関連スクリーンショットも削除されます。削除しない場合は最大30日保存されます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>ブラウズ代行の安全性は、任せる指示だけでなく、どのブラウザ状態から始めて何を残すかで決まる</strong><p>Browse with Copilotは、現在のウィンドウのCookie、開いているタブ、作業ページのスクリーンショットを扱います。金融・医療・高度な機密情報を伴う用途を避け、ログイン状態を分けたプロファイルから開始し、終わった後は会話履歴を整理することが安全です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>新しいブラウザプロファイルまたはCookieを整理した状態から開始する</strong><span>Cookieにより、ログイン済みサイトではCopilotも同じログイン状態で作業できます。</span></li>
+            <li><strong>金融、本人確認、医療、高度な機密情報を伴う用途には使わない</strong><span>Microsoftはこれらの情報を伴う作業に注意を促しています。</span></li>
+            <li><strong>作業中はタブの表示と操作を監督し、必要なら停止して引き継ぐ</strong><span>Copilotは隠れた悪意ある指示を誤解する場合があり、Microsoftは監督を勧めています。</span></li>
+            <li><strong>作業後に会話を削除し、関連スクリーンショットも整理する</strong><span>会話を削除すると関連スクリーンショットも削除され、削除しない場合は最大30日保存されます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>日常用のログイン済みプロファイルで、機密サービスを含めてブラウズ代行する</strong><span>Copilotは対象ウィンドウのCookieを使い、ログイン済みサイトで同じアカウントとして動き得ます。</span></li>
+            <li><strong>作業ページのスクリーンショットが保存されないと思い込む</strong><span>スクリーンショットは会話履歴に保存されます。</span></li>
+            <li><strong>AIが操作するページの指示を監督せず、購入や送信を確定する</strong><span>隠れた悪意ある指示や意図しない操作の可能性があり、Microsoftは監督を勧めています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>低リスクの比較・下調べに限定し、ブラウズ代行を時間短縮に使う</h3>
+          <p>新しいプロファイルで公開情報の比較や候補探しに用途を絞れば、Copilotのブラウズ代行を活用しながら、重要なログイン状態と作業履歴を分けられます。</p>
+          <ul class="positive-example-list"><li>公開されている商品仕様の比較だけを任せる</li><li>支払い・送信の直前に停止して自分で確認する</li><li>作業専用プロファイルを用意する</li><li>会話履歴を作業後に削除する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>ブラウザのログイン状態は、画面にはあまり見えないのに、代行できる範囲を大きく変えます。私はAIに任せる前に新しいプロファイルを開き、終わったら会話を片付けるところまでを一つの作業にしたいです。始める時と終える時の二回の確認で、便利さを安全に使いやすくなります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Copilotのブラウズ代行は、ログイン状態を分け、作業後に会話履歴を整理する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/microsoft-copilot/browse-with-copilot" target="_blank" rel="noopener noreferrer">Browse with Copilot in Microsoft Edge<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260914-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Apple IntelligenceでChatGPTに渡す時は、アカウント接続の有無を分けて決める AppleのChatGPT連携はアカウント接続の有無を確認する Appleは、Apple IntelligenceのChatGPT拡張機能を初期状態ではオフにしており、Siri、作文ツール、ビジュアルインテリジェンスなどで使う際に、送信する内容を利用者が選べると案内しています。ChatGPTアカウントを接続せずに使う場合、Apple Accountに結び付く情報はOpenAIへ送られず、OpenAIは依頼を処理する目的以外に情報や応答を保存・モデル学習に使わないとAppleは説明します。一方、ChatGPTアカウントでサインインした場合は、そのアカウントの設定とデータプライバシー方針が適用されます。便利な連携を使う前に、拡張機能のオン・オフだけでなく、アカウント接続の状態を確認する記事です。 セキュリティ・権限 標準 Apple Intelligence ChatGPT Siri 作文ツール アカウント接続 プライバシー iPhone、iPad、MacのApple IntelligenceからChatGPTを使う人 Siriや作文ツールに文書・写真を扱わせる前に、データの扱いを確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">apple-chatgpt-account-state</span>
+              <div>
+                <p>AppleのChatGPT連携はアカウント接続の有無を確認する</p>
+                <h3>Apple IntelligenceでChatGPTに渡す時は、アカウント接続の有無を分けて決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-14">2026.09.14</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Appleは、Apple IntelligenceのChatGPT拡張機能を初期状態ではオフにしており、Siri、作文ツール、ビジュアルインテリジェンスなどで使う際に、送信する内容を利用者が選べると案内しています。ChatGPTアカウントを接続せずに使う場合、Apple Accountに結び付く情報はOpenAIへ送られず、OpenAIは依頼を処理する目的以外に情報や応答を保存・モデル学習に使わないとAppleは説明します。一方、ChatGPTアカウントでサインインした場合は、そのアカウントの設定とデータプライバシー方針が適用されます。便利な連携を使う前に、拡張機能のオン・オフだけでなく、アカウント接続の状態を確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AppleのChatGPT連携は、送る内容とアカウント接続の状態をセットで確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhone、iPad、MacのApple IntelligenceからChatGPTを使う人</li><li>Siriや作文ツールに文書・写真を扱わせる前に、データの扱いを確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>ChatGPT</li><li>Siri</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260913-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="SnapchatのMy AIは会話を消すだけでは終わらない。1対1とグループを分けて削除する My AIの削除は1対1の会話とグループ投稿を分けて確認する Snapchatは、My AIへ共有した内容を利用者が削除するまで保持すると案内しています。直近24時間の1対1チャットはメッセージを長押しして削除でき、過去の内容は設定の「Delete My AI Data」または「Clear My AI Data」からまとめて削除できます。ただし、この操作が消すのはMy AIとの1対1チャットであり、My AIが入ったグループチャットのメッセージは削除されません。Snapchatのサーバーから関連データを削除するには最大30日かかる場合もあります。会話を消したつもりで終わらせず、どの場所の投稿を消したかを分けて確認する記事です。 セキュリティ・権限 はじめて Snapchat My AI チャット削除 グループチャット プライバシー AIデータ SnapchatでMy AIと会話したり、My AI入りのグループチャットを使う人 AIに送った内容を後から整理・削除したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">snapchat-my-ai-separate-deletion</span>
+              <div>
+                <p>My AIの削除は1対1の会話とグループ投稿を分けて確認する</p>
+                <h3>SnapchatのMy AIは会話を消すだけでは終わらない。1対1とグループを分けて削除する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-13">2026.09.13</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Snapchatは、My AIへ共有した内容を利用者が削除するまで保持すると案内しています。直近24時間の1対1チャットはメッセージを長押しして削除でき、過去の内容は設定の「Delete My AI Data」または「Clear My AI Data」からまとめて削除できます。ただし、この操作が消すのはMy AIとの1対1チャットであり、My AIが入ったグループチャットのメッセージは削除されません。Snapchatのサーバーから関連データを削除するには最大30日かかる場合もあります。会話を消したつもりで終わらせず、どの場所の投稿を消したかを分けて確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>My AIの削除は、個別チャットとグループチャットを別の対象として確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SnapchatでMy AIと会話したり、My AI入りのグループチャットを使う人</li><li>AIに送った内容を後から整理・削除したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Snapchat</li><li>My AI</li><li>チャット削除</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260913-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Grokの学習設定・会話削除・非公開化は別の操作。Xで見直す3か所 Grokは学習設定・履歴削除・非公開化を分けて設定する Xは、公開投稿、Grokへの入力、応答結果が、xAIの生成AIモデルの学習・調整に使われ得ると案内しています。Xの「Privacy &amp; Safety」から「Data sharing and personalization」「Grok &amp; Third-party Collaborators」へ進むと、学習利用とGrokのパーソナライズを別々に設定できます。会話履歴の削除も別の操作で、削除した会話はセキュリティまたは法的理由を除き、最大30日以内にシステムから削除されます。また、アカウントを非公開にすると、投稿をGrok・xAIのモデル学習や回答表示に使わせない設定になります。目的ごとに設定を分けて扱う記事です。 セキュリティ・権限 標準 Grok X 学習設定 会話履歴 プライバシー データ共有 XでGrokを使う人 公開投稿やGrokとの会話を、AIの学習・履歴・公開範囲ごとに整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">grok-data-controls-separation</span>
+              <div>
+                <p>Grokは学習設定・履歴削除・非公開化を分けて設定する</p>
+                <h3>Grokの学習設定・会話削除・非公開化は別の操作。Xで見直す3か所</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-13">2026.09.13</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Xは、公開投稿、Grokへの入力、応答結果が、xAIの生成AIモデルの学習・調整に使われ得ると案内しています。Xの「Privacy &amp; Safety」から「Data sharing and personalization」「Grok &amp; Third-party Collaborators」へ進むと、学習利用とGrokのパーソナライズを別々に設定できます。会話履歴の削除も別の操作で、削除した会話はセキュリティまたは法的理由を除き、最大30日以内にシステムから削除されます。また、アカウントを非公開にすると、投稿をGrok・xAIのモデル学習や回答表示に使わせない設定になります。目的ごとに設定を分けて扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Grokでは、学習・個別化・履歴・投稿公開範囲を別々に設定する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>XでGrokを使う人</li><li>公開投稿やGrokとの会話を、AIの学習・履歴・公開範囲ごとに整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Grok</li><li>X</li><li>学習設定</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260913-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260914-03">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
