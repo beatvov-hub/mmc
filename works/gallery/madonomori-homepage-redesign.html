@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>窓の杜 現代風リデザイン案｜非公開デザインスタディ</title>
+  <meta name="description" content="窓の杜の情報量と速報性を、現代的な編集レイアウトで再構成した非公開デザインスタディです。" />
+  <link rel="icon" href="../../favicon.ico" />
+  <link rel="stylesheet" href="madonomori-homepage-redesign.css" />
+  <script src="madonomori-homepage-redesign.js" defer></script>
+</head>
+<body>
+  <div class="study-bar"><span>MMC DESIGN STUDY <b>003</b> · PRIVATE PREVIEW</span><a href="gallery003-madonomori.html">AI化の詳細へ</a></div>
+  <header class="forest-header">
+    <div class="header-main wrap">
+      <a class="forest-logo" href="#top" aria-label="窓の杜 トップ"><strong>窓の杜</strong><small>WINDOWS FOREST</small></a>
+      <div class="header-copy"><strong>Windowsを、もっと便利に、もっと楽しく。</strong><span>フリーソフト・シェアウェア・Windowsの最新情報をお届け</span></div>
+      <form class="site-search" role="search"><label class="sr-only" for="site-query">記事を検索</label><input id="site-query" type="search" placeholder="キーワードで検索" /><button>検索</button></form>
+    </div>
+    <nav class="category-nav" aria-label="記事カテゴリ"><div class="wrap"><button class="active" data-category="all">トップ</button><button data-category="windows">Windows</button><button data-category="ai">AI</button><button data-category="internet">インターネット</button><button data-category="development">開発</button><button data-category="utility">ユーティリティ</button><button data-category="office">Office</button><button data-category="security">セキュリティ</button></div></nav>
+  </header>
+
+  <main id="top">
+    <section class="update-bar wrap"><div><span class="pulse" aria-hidden="true"></span><strong>窓の杜</strong> XX月XX日（X）21:27 更新</div><span>今日も役立つソフトと最新ニュースを、わかりやすく。</span></section>
+
+    <section class="news-layout wrap" aria-label="本日のソフトウェアニュース">
+      <article class="lead-story" data-article data-category="windows utility">
+        <div class="lead-image"><img src="gallery-image/madonomori-hero.png" alt="Windows 11の画面とユーティリティソフトを表示したノートパソコン" /><span>特集</span></div>
+        <p class="article-meta"><b>Windows</b><time>20:10</time></p>
+        <h1>「Microsoft PowerToys」最新版が公開<br />作業を速くする新機能をまとめて紹介</h1>
+        <p>Windowsの操作をより快適にする定番ユーティリティ。追加された機能と、今日から使える設定を編集部が試しました。</p>
+        <a href="#latest">記事のポイントを見る <span>→</span></a>
+      </article>
+
+      <section class="latest-panel" id="latest" aria-labelledby="latest-title">
+        <div class="section-title"><h2 id="latest-title">新着記事</h2><button id="show-all">一覧を見る</button></div>
+        <div class="article-list" id="article-list">
+          <article data-article data-category="ai"><img src="gallery-image/madonomori-ai.png" alt="青紫に光るAIの抽象的なイメージ" /><div><p class="article-meta"><b>AI</b><time>19:45</time></p><h3>「Gemini」アプリのWindows版が登場、ショートカットですぐ起動</h3></div></article>
+          <article data-article data-category="development security"><div class="software-mark gitlab">GL</div><div><p class="article-meta"><b>開発</b><time>18:32</time></p><h3>「GitLab」緊急アップデート、重要な脆弱性を修正</h3></div></article>
+          <article data-article data-category="internet"><div class="software-mark edge">e</div><div><p class="article-meta"><b>ブラウザー</b><time>17:20</time></p><h3>「Microsoft Edge」安定版が公開、表示速度と安全性を改善</h3></div></article>
+          <article data-article data-category="utility"><div class="software-mark zip">7z</div><div><p class="article-meta"><b>ユーティリティ</b><time>15:48</time></p><h3>高圧縮・高性能な解凍ソフト「7-Zip」がアップデート</h3></div></article>
+          <article class="extra-article" data-article data-category="office"><img src="gallery-image/madonomori-tools.png" alt="ノートパソコンと周辺機器を並べたデスク" /><div><p class="article-meta"><b>Office</b><time>13:14</time></p><h3>仕事環境を整える、編集部おすすめの周辺ツール5選</h3></div></article>
+        </div>
+        <p class="empty-state" id="empty-state" hidden>該当する記事はまだありません。</p>
+      </section>
+
+      <aside class="side-column">
+        <section class="ad-slot"><span>ADVERTISEMENT</span><strong>毎日の仕事を、<br />もう少し軽やかに。</strong><small>広告掲載スペース</small></section>
+        <section class="ranking" aria-labelledby="ranking-title">
+          <div class="section-title"><h2 id="ranking-title">アクセスランキング</h2></div>
+          <div class="ranking-tabs" role="tablist"><button class="active" data-period="hour">1時間</button><button data-period="day">24時間</button><button data-period="week">1週間</button></div>
+          <ol id="ranking-list"></ol>
+        </section>
+      </aside>
+    </section>
+
+    <section class="pickup wrap" aria-labelledby="pickup-title">
+      <div class="section-title"><h2 id="pickup-title">注目記事</h2><a href="#latest">新着へ戻る</a></div>
+      <div class="pickup-grid"><article><img src="gallery-image/madonomori-tools.png" alt="ノートパソコンと周辺機器" /><b>PC</b><h3>作業環境を整える小さな道具</h3><p>デスクで長く使える、実用重視のツールを紹介。</p></article><article><img src="gallery-image/madonomori-ai.png" alt="AI技術を表す抽象的な光" /><b>AI</b><h3>話題のAIツールを使ってみた</h3><p>導入方法から使いどころまで、編集部が確認。</p></article></div>
+    </section>
+  </main>
+  <footer><div class="wrap"><div><strong>窓の杜</strong><span>Unofficial redesign study</span></div><p>毎日見る株式会社による非公式デザイン案です。窓の杜・インプレス公式とは関係ありません。</p><a href="https://forest.watch.impress.co.jp/" target="_blank" rel="noopener noreferrer">本家サイトへ ↗</a></div></footer>
+</body>
+</html>

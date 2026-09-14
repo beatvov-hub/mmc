@@ -2,7 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { deriveVirtualOffice, inferOfficeStatus } = require("../lib/office-state");
+const { DEFAULT_OFFICE_LINES, deriveVirtualOffice, inferOfficeStatus } = require("../lib/office-state");
 
 const employees = [
   { id: "hono", name: "ほのちゃん", role: "総務課長", departmentId: "general-affairs", isActive: true },
@@ -14,6 +14,29 @@ const employees = [
 function task(id, status, employeeIds, updatedAt = "2026-09-10T01:00:00.000Z") {
   return { id, title: id, status, employeeIds, updatedAt };
 }
+
+test("全12名に重複のない短い標準吹き出しを12種類ずつ用意する", () => {
+  const master = require("../data/workline-employees.json");
+  assert.deepEqual(Object.keys(DEFAULT_OFFICE_LINES).sort(), master.map(employee => employee.id).sort());
+  for (const [id, lines] of Object.entries(DEFAULT_OFFICE_LINES)) {
+    assert.equal(lines.length, 12, id);
+    assert.equal(new Set(lines).size, lines.length, id);
+    assert.ok(lines.every(line => typeof line === "string" && line.trim() === line && line.length > 0 && line.length <= 80 && !/[\r\n<>]/.test(line)), id);
+  }
+});
+
+test("手動設定の吹き出しを優先し、未設定なら標準候補を使う", () => {
+  const custom = ["手動で登録した一言です。"];
+  const roster = deriveVirtualOffice({ employees: [
+    { ...employees[0], officeLines: custom },
+    { ...employees[1], officeLines: [] },
+    { id: "new-employee", isActive: true }
+  ] }).employees;
+  assert.deepEqual(roster[0].officeLines, custom);
+  assert.deepEqual(roster[1].officeLines, DEFAULT_OFFICE_LINES.akito);
+  assert.deepEqual(roster[2].officeLines, ["少しずつ進めています。"]);
+  assert.deepEqual(custom, ["手動で登録した一言です。"]);
+});
 
 test("既存タスクから作業・確認待ち・会議・待機を導出する", () => {
   const working = task("work", "inProgress", ["hono"]);

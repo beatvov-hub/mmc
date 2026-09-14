@@ -273,6 +273,7 @@ def render_detail_page(item: dict) -> str:
             '    <meta name="viewport" content="width=device-width, initial-scale=1" />',
             f'    <title>{esc(detail_title)}｜平成AI化ギャラリー｜毎日見る株式会社</title>',
             f'    <meta name="description" content="{esc(item["summary"])}" />',
+            *(['    <meta name="robots" content="noindex, nofollow" />'] if item.get("private") else []),
             f'    <meta property="og:title" content="{esc(detail_title)}｜平成AI化ギャラリー｜毎日見る株式会社" />',
             f'    <meta property="og:description" content="{esc(item["summary"])}" />',
             '    <meta property="og:type" content="article" />',
@@ -361,8 +362,9 @@ def render_detail_page(item: dict) -> str:
 
 def main() -> None:
     items = load_items()
+    public_items = [item for item in items if not item.get("private")]
     GALLERY_DIR.mkdir(parents=True, exist_ok=True)
-    GALLERY_HTML_PATH.write_text(render_gallery_page(items), encoding="utf-8")
+    GALLERY_HTML_PATH.write_text(render_gallery_page(public_items), encoding="utf-8")
     apply_layout_to_file(GALLERY_HTML_PATH)
     for item in items:
         detail_path = GALLERY_DIR / item["detailUrl"]
