@@ -172,6 +172,25 @@
         </div>
       </section>
     <!-- TODAY_ONE_TEASER_END -->
+      <section id="today-game" class="today-game" aria-labelledby="today-game-heading" hidden>
+        <div class="section-heading today-game-heading">
+          <div>
+            <p class="section-kicker">Daily Play</p>
+            <h2 id="today-game-heading">今日のゲーム</h2>
+            <p class="today-game-lead">毎日ひとつ、MMCのゲームを紹介します。</p>
+          </div>
+          <a href="works#works-games" class="text-link">ゲームをすべて見る →</a>
+        </div>
+        <article class="today-game-card">
+          <div class="today-game-card__body">
+            <p class="today-game-card__label">Today's game</p>
+            <p class="today-game-card__category" data-today-game-category></p>
+            <h3 data-today-game-title></h3>
+            <p class="today-game-card__summary" data-today-game-summary></p>
+          </div>
+          <a class="today-game-card__cta" data-today-game-link href="works#works-games">遊んでみる <span aria-hidden="true">→</span></a>
+        </article>
+      </section>
 <section id="news" class="news-section" aria-labelledby="news-heading">
         <div class="section-heading">
           <div>
@@ -288,6 +307,7 @@
     </footer>
     <script src="scripts/site-nav.js"></script>
     <script src="scripts/top-random-staff.js"></script>
+    <script src="scripts/today-game.js"></script>
     <!-- SITE_FOOTER_END -->
   </body>
 </html>

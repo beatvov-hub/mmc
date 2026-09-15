@@ -8823,6 +8823,90 @@ img { max-width: 100%; }
   transform: translateX(3px);
 }
 
+.today-game {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 0 0 56px;
+}
+
+.today-game-heading {
+  align-items: end;
+}
+
+.today-game-lead {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.today-game-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: end;
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid #e1ccb0;
+  border-radius: 8px;
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 14px 36px rgba(54,35,20,.07);
+}
+
+.today-game-card__body {
+  min-width: 0;
+}
+
+.today-game-card__label,
+.today-game-card__category {
+  margin: 0;
+  color: var(--coffee);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.today-game-card__category {
+  margin-top: 16px;
+  letter-spacing: .04em;
+}
+
+.today-game-card h3 {
+  margin: 10px 0 12px;
+  color: var(--green);
+  font-size: clamp(1.55rem, 3vw, 2.45rem);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.today-game-card__summary {
+  max-width: 46rem;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.today-game-card__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 11px 18px;
+  border: 1px solid var(--green);
+  border-radius: 999px;
+  color: var(--green);
+  font-size: .9rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.today-game-card__cta:hover,
+.today-game-card__cta:focus-visible {
+  background: var(--green);
+  color: #fff;
+}
+
 @media (max-width: 760px) {
   .today-one-main {
     width: calc(100% - 28px);
@@ -8943,5 +9027,20 @@ img { max-width: 100%; }
     padding: 28px 0 0;
     border-top: 1px solid #d9ccb9;
     border-left: 0;
+  }
+  .today-game {
+    width: calc(100% - 28px);
+    padding-bottom: 40px;
+  }
+  .today-game-heading {
+    align-items: start;
+  }
+  .today-game-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 22px;
+  }
+  .today-game-card__cta {
+    width: 100%;
   }
 }
