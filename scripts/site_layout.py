@@ -91,8 +91,11 @@ def render_header(prefix: str, current: str) -> str:
     return render_partial("header.html", prefix=prefix, current=current)
 
 
-def render_footer(prefix: str) -> str:
-    return render_partial("footer.html", prefix=prefix, current="")
+def render_footer(prefix: str, current: str) -> str:
+    footer = render_partial("footer.html", prefix=prefix, current="")
+    if current == "home" and not prefix:
+        footer += '\n<script src="scripts/today-game.js"></script>'
+    return footer
 
 
 def render_google_tag() -> str:
@@ -274,7 +277,7 @@ def apply_layout_to_html(html_text: str, *, prefix: str, current: str) -> str:
         html_text,
         marked_re=FOOTER_BLOCK_RE,
         tag_re=FOOTER_TAG_RE,
-        replacement=marked_block(FOOTER_START, render_footer(prefix), FOOTER_END),
+        replacement=marked_block(FOOTER_START, render_footer(prefix, current), FOOTER_END),
         label="site footer",
     )
 
