@@ -67,7 +67,7 @@ STATIC_SITEMAP_PATHS = [
     "ai-forensics/",
     "works",
     "works/gallery",
-    "works/gallery/fc2-homepage-redesign",
+    "lounge/events/summer-river-bbq-2026",
     "lounge",
     "lounge/events",
     "lounge-dictionary",
@@ -75,7 +75,6 @@ STATIC_SITEMAP_PATHS = [
     "today-one/archive",
     "news",
     "contact",
-    "thanks",
 ]
 
 SPEAKER_DEFAULTS = {
@@ -289,9 +288,14 @@ def load_gallery_paths() -> list[str]:
         return []
     paths: list[str] = []
     for item in items:
+        if item.get("private"):
+            continue
         detail = item.get("detailUrl")
         if isinstance(detail, str) and detail.endswith(".html"):
             paths.append(f"works/gallery/{detail.removesuffix('.html')}")
+        redesign = item.get("redesignUrl")
+        if isinstance(redesign, str) and redesign.endswith(".html"):
+            paths.append(f"works/gallery/{redesign.removesuffix('.html')}")
     return paths
 
 
