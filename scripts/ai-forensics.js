@@ -44,10 +44,31 @@
       pagination.appendChild(button);
     }
 
-    addButton("前へ", Math.max(1, currentPage - 1), { disabled: currentPage === 1 });
-    for (let page = 1; page <= totalPages; page += 1) {
-      addButton(String(page), page, { current: page === currentPage });
+    function addEllipsis() {
+      const ellipsis = document.createElement("span");
+      ellipsis.className = "forensics-page-ellipsis";
+      ellipsis.textContent = "…";
+      ellipsis.setAttribute("aria-hidden", "true");
+      pagination.appendChild(ellipsis);
     }
+
+    function pageItems() {
+      if (totalPages <= 7) {
+        return Array.from({ length: totalPages }, function (_, index) { return index + 1; });
+      }
+      const pages = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
+      return Array.from(pages)
+        .filter(function (page) { return page >= 1 && page <= totalPages; })
+        .sort(function (left, right) { return left - right; });
+    }
+
+    addButton("前へ", Math.max(1, currentPage - 1), { disabled: currentPage === 1 });
+    let previousPage = 0;
+    pageItems().forEach(function (page) {
+      if (page - previousPage > 1) addEllipsis();
+      addButton(String(page), page, { current: page === currentPage });
+      previousPage = page;
+    });
     addButton("次へ", Math.min(totalPages, currentPage + 1), { disabled: currentPage === totalPages });
   }
 
