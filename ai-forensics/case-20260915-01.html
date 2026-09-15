@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PinterestのAIラベルは「本物判定」ではない。表示位置とおすすめ調整を知る｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Pinterestは、2026年9月時点で、画像PinがAIで生成・改変された可能性を示すGen AIラベルを、投稿者の申告、IPTCメタデータ、独自の検出によって表示すると案内しています。通常の画像Pinでは詳細表示の左下、広告では「…」メニューから表示を確認できます。また、設定で特定カテゴリのAIコンテンツをフィードに表示する量を減らせます。ラベルを絶対的な真偽判定に使うのではなく、出どころや商品・健康情報を確かめる前に、画像の作られ方を知る文脈として扱う記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260915-01" />
+<meta property="og:title" content="PinterestのAIラベルは「本物判定」ではない。表示位置とおすすめ調整を知る｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Pinterestは、2026年9月時点で、画像PinがAIで生成・改変された可能性を示すGen AIラベルを、投稿者の申告、IPTCメタデータ、独自の検出によって表示すると案内しています。通常の画像Pinでは詳細表示の左下、広告では「…」メニューから表示を確認できます。また、設定で特定カテゴリのAIコンテンツをフィードに表示する量を減らせます。ラベルを絶対的な真偽判定に使うのではなく、出どころや商品・健康情報を確かめる前に、画像の作られ方を知る文脈として扱う記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260915-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>PinterestのAIラベルとおすすめ調整を確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+              <time datetime="2026-09-15">2026.09.15</time>
+            </div>
+            <h1>PinterestのAIラベルは「本物判定」ではない。表示位置とおすすめ調整を知る</h1>
+            <p>Pinterestは、2026年9月時点で、画像PinがAIで生成・改変された可能性を示すGen AIラベルを、投稿者の申告、IPTCメタデータ、独自の検出によって表示すると案内しています。通常の画像Pinでは詳細表示の左下、広告では「…」メニューから表示を確認できます。また、設定で特定カテゴリのAIコンテンツをフィードに表示する量を減らせます。ラベルを絶対的な真偽判定に使うのではなく、出どころや商品・健康情報を確かめる前に、画像の作られ方を知る文脈として扱う記事です。</p>
+            <ul class="forensics-target-list"><li>Pinterestで画像や商品を探す人</li><li>AIで作られた画像を見分ける手掛かりと、表示を減らす設定を知りたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Pinterest</li><li>AIラベル</li><li>生成AI画像</li><li>IPTC</li><li>おすすめ</li><li>メディアリテラシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>PinterestのAIラベルは、画像の作られ方を読むための手掛かりとして使う</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>画像Pinは詳細表示、広告は「…」を開いてラベルを確認し、重要な判断は投稿元にも進みましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Pinterestで見つけた商品の画像や部屋の写真が、実在のものか判断しにくい</h3><p>魅力的な画像を見つけたものの、実際の商品ページや投稿元を開く前に、AIで作られた・編集された画像なのかを確認したい状況です。AI画像ばかりの提案が続いて疲れるため、フィードの表示も調整したいと考えています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIラベルは、画像の内容が真実だと保証したり、虚偽だと断定したりする表示ではありません。表示の意味を理解し、購入・予約・健康に関わる判断では投稿元や公式情報へ進むことで、画像を便利な発想の入口として使えます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-context">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Pinterestで気になる画像を見つけた時、AIラベルはどう使う？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-context" data-choice-id="check-context" />
+                <span>
+                  <strong>ラベルを画像の作られ方の手掛かりとして確認し、重要な判断は投稿元や公式情報も開く</strong>
+                  <small>ラベルはAI生成・改変の可能性に関する文脈であり、内容の真偽を単独で保証するものではありません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="believe-all" data-choice-id="believe-all" />
+                <span>
+                  <strong>ラベルがなければ、画像は実在をそのまま写したものだと決める</strong>
+                  <small>ラベルがないことは、実在性や商品・場所の正確さの証明ではありません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="hide-everything" data-choice-id="hide-everything" />
+                <span>
+                  <strong>AI画像を見たくないので、内容を確認せず全てのPinを報告する</strong>
+                  <small>PinterestはフィードでAIコンテンツを減らす設定を案内しています。規約違反と考える場合に報告します。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>ラベルを画像の作られ方の手掛かりとして確認し、重要な判断は投稿元や公式情報も開く</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>画像の詳細表示や広告のメニューでAIラベルを確認し、ラベルは内容の真偽ではなく作成・改変の文脈として使います。購入などの判断では投稿元や公式情報も確認し、表示量が多ければ設定から調整します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>画像Pinの詳細表示を開く</h3>
+              <p>通常の画像Pinでは、AI生成・改変を示すラベルは詳細表示の左下に出ます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>広告では「…」を開く</h3>
+              <p>広告のラベルはPinを開いた画面ではなく、Pin横の「…」から広告の詳細として確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ラベルの根拠を混同しない</h3>
+              <p>投稿者の申告、IPTCメタデータの検出、Pinterestの分類器という複数の経路があり、いずれも内容の真偽そのものを保証するものではありません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>フィードの量を設定で調整する</h3>
+              <p>設定から、特定カテゴリでAIコンテンツを少なく表示する推薦の調整ができます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AIラベルは真偽の判定印ではなく、次に確認する情報源を選ぶための文脈である</strong><p>Pinterestのラベルは、AIによる生成・改変の可能性を伝えるものです。ラベルの有無だけで画像の実在性を決めず、商品、場所、医療・健康に関する内容では公式サイトや一次情報を確認します。AIコンテンツの量が合わない時は、無差別な報告ではなくフィード設定を調整できます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>通常の画像Pinは詳細表示を開き、左下のラベルを確認する</strong><span>Pinterestは通常の画像Pinでこの位置にAI生成・改変のラベルを出すと案内しています。</span></li>
+            <li><strong>広告はPin横の「…」から詳細を確認する</strong><span>広告のAIラベルは、広告の詳細画面で表示されます。</span></li>
+            <li><strong>購入や予約につながる画像は投稿元・販売元の公式情報を開く</strong><span>AIラベルは作成・改変の文脈であり、商品や場所が実在することを保証するものではありません。</span></li>
+            <li><strong>AI Pinが多すぎるカテゴリは、推薦設定で表示を減らす</strong><span>Pinterestは特定カテゴリでAIコンテンツを少なく表示する設定を案内しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>ラベルがないことだけで、写真が無加工・実在だと断定する</strong><span>ラベルの有無は画像内容の真偽を保証しません。</span></li>
+            <li><strong>ラベル付きの画像を、内容を確認せず虚偽だと断定して拡散する</strong><span>ラベルはAIによる生成・改変の可能性を伝えるもので、内容の正誤を示すものではありません。</span></li>
+            <li><strong>AI画像が好みに合わないだけで、規約違反として報告する</strong><span>表示量の調整にはフィード設定が使え、報告は問題のあるコンテンツを見つけた時に行います。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>画像を発想の入口にし、判断材料は別に確かめる</h3>
+          <p>画像の作られ方を示すラベルを読めると、AI画像からもアイデアを得ながら、商品選びや訪問先の判断を投稿元・公式情報で確かめる習慣を作れます。</p>
+          <ul class="positive-example-list"><li>インテリア案の雰囲気を集める</li><li>商品の公式販売ページを開く</li><li>旅行先の公式サイトで営業情報を確認する</li><li>フィードのAI表示量を自分向けに調整する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>画像にラベルがあると、つい『本物か偽物か』の二択で見てしまいます。でも私が受け取りたいのは、画像の作られ方に関するヒントです。ひらめきをもらう段階と、お金や予定を決める段階を分ければ、AI画像が混ざるフィードもずっと扱いやすくなります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>PinterestのAIラベルは、画像の真偽を決める印ではなく、次の確認先を選ぶ手掛かりにする。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://help.pinterest.com/en/article/gen-ai-labels" target="_blank" rel="noopener noreferrer">Gen AI labels<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Pinterest Help</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://help.pinterest.com/en/article/ai-at-pinterest" target="_blank" rel="noopener noreferrer">AI at Pinterest<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Pinterest Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-serious" href="case-20260914-02" data-forensics-card data-category="media-literacy" data-level="4" data-difficulty="standard" data-search-text="YouTubeのAIなりすましは、ラベル確認で終わらせない。本人の削除申立てへ進む条件 YouTubeのAIなりすましは本人の削除申立て条件を確認する YouTubeは、AIで作成・改変され、自分の外見や声に見える・聞こえるコンテンツについて、Privacy Complaint Processを通じた削除申立てを案内しています。削除の検討対象になるには、現実的に改変・合成された本人の肖像であることが必要で、本人または法定代理人が申し立てます。YouTubeは、AI生成・改変か、視聴者への表示、本人を特定できるか、現実的か、パロディー・風刺・公益性があるかなどを考慮します。AIラベルの有無を眺めるだけで終わらせず、被害を受けた本人が行える手続きと条件を整理する記事です。 情報の見極め 標準 YouTube AIなりすまし ディープフェイク 肖像 音声 削除申立て 自分の顔や声を模したAI動画をYouTubeで見つけた人 家族や所属組織になりすます動画への対応を知りたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">youtube-ai-likeness-removal</span>
+              <div>
+                <p>YouTubeのAIなりすましは本人の削除申立て条件を確認する</p>
+                <h3>YouTubeのAIなりすましは、ラベル確認で終わらせない。本人の削除申立てへ進む条件</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-14">2026.09.14</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeは、AIで作成・改変され、自分の外見や声に見える・聞こえるコンテンツについて、Privacy Complaint Processを通じた削除申立てを案内しています。削除の検討対象になるには、現実的に改変・合成された本人の肖像であることが必要で、本人または法定代理人が申し立てます。YouTubeは、AI生成・改変か、視聴者への表示、本人を特定できるか、現実的か、パロディー・風刺・公益性があるかなどを考慮します。AIラベルの有無を眺めるだけで終わらせず、被害を受けた本人が行える手続きと条件を整理する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AIなりすまし動画は、本人の削除申立て条件を確認して対応する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>自分の顔や声を模したAI動画をYouTubeで見つけた人</li><li>家族や所属組織になりすます動画への対応を知りたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube</li><li>AIなりすまし</li><li>ディープフェイク</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260909-01" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="YouTubeの「Made with AI」は説明欄で由来まで見る。ラベルの3つの付き方 YouTubeのAIラベルは説明欄で由来まで確認する YouTubeは、動画の詳細説明にある「How this content was made」で、動画がAIで大幅に改変・生成されたことを示す「Made with AI」などの情報を表示する場合があります。この情報は、投稿者がYouTube Studioで申告した場合、YouTubeの生成AIツールを使った場合、有効なContent Credentialsが動画全体のAI生成を示す場合などに引き継がれます。署名した主体が分かる場合は「Info from」も表示されます。一方、「Captured with a camera」の表示がないことだけで、映像が改変されたとは判断できません。ラベルを見つけたら、表示の有無だけで本物・偽物を決めず、説明欄を開いて何の情報が表示されているかを読む手順を扱います。 情報の見極め はじめて YouTube Made with AI 動画AI Content Credentials 動画検証 メディアリテラシー YouTubeで見た動画がAIで作られたものか、どこを見ればよいか知りたい人 動画のAIラベルを見ても、どこまで判断材料にしてよいか迷う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">youtube-ai-disclosure-context</span>
+              <div>
+                <p>YouTubeのAIラベルは説明欄で由来まで確認する</p>
+                <h3>YouTubeの「Made with AI」は説明欄で由来まで見る。ラベルの3つの付き方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-09">2026.09.09</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeは、動画の詳細説明にある「How this content was made」で、動画がAIで大幅に改変・生成されたことを示す「Made with AI」などの情報を表示する場合があります。この情報は、投稿者がYouTube Studioで申告した場合、YouTubeの生成AIツールを使った場合、有効なContent Credentialsが動画全体のAI生成を示す場合などに引き継がれます。署名した主体が分かる場合は「Info from」も表示されます。一方、「Captured with a camera」の表示がないことだけで、映像が改変されたとは判断できません。ラベルを見つけたら、表示の有無だけで本物・偽物を決めず、説明欄を開いて何の情報が表示されているかを読む手順を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>YouTubeのAI表示は、詳細説明と情報の提供元まで読む</span>
+            </div>
+            <ul class="forensics-card-audience"><li>YouTubeで見た動画がAIで作られたものか、どこを見ればよいか知りたい人</li><li>動画のAIラベルを見ても、どこまで判断材料にしてよいか迷う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube</li><li>Made with AI</li><li>動画AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260909-03" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="standard" data-search-text="Instagram・Facebookの「AI info」は投稿上にないことがある。メニューを開いて意味を読む MetaのAI infoは投稿メニューで表示の根拠を確認する MetaはFacebook、Instagram、Threadsで、業界標準のAI情報を検出した場合や投稿者がAI生成を申告した場合に「AI info」ラベルを表示する方針を案内しています。ただし、AIツールで編集・加工されたことだけを検出した投稿では、AI利用の程度をより正確に示すため、ラベルを投稿のメニューへ移すと説明しています。そのため、投稿上に目立つ表示がないことや、AI infoという一語だけで、画像・動画が全てAI生成か、内容が誤りかを結論づけられません。重要な事項で人を大きく誤認させるおそれがある場合は、より目立つラベルが追加される場合もあります。投稿メニューを開き、AI infoが何を示しているかを読み、事実確認は別に行う手順を扱います。 情報の見極め 標準 Instagram Facebook Threads Meta AI info 画像リテラシー InstagramやFacebookで見かけるAI関連ラベルの意味を正しく読みたい人 AIで少し編集した投稿と、AIが作った投稿を同じものとして扱いたくない人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">meta-ai-info-menu</span>
+              <div>
+                <p>MetaのAI infoは投稿メニューで表示の根拠を確認する</p>
+                <h3>Instagram・Facebookの「AI info」は投稿上にないことがある。メニューを開いて意味を読む</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-09">2026.09.09</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">MetaはFacebook、Instagram、Threadsで、業界標準のAI情報を検出した場合や投稿者がAI生成を申告した場合に「AI info」ラベルを表示する方針を案内しています。ただし、AIツールで編集・加工されたことだけを検出した投稿では、AI利用の程度をより正確に示すため、ラベルを投稿のメニューへ移すと説明しています。そのため、投稿上に目立つ表示がないことや、AI infoという一語だけで、画像・動画が全てAI生成か、内容が誤りかを結論づけられません。重要な事項で人を大きく誤認させるおそれがある場合は、より目立つラベルが追加される場合もあります。投稿メニューを開き、AI infoが何を示しているかを読み、事実確認は別に行う手順を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>MetaのAI infoは、投稿メニューと表示の範囲を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>InstagramやFacebookで見かけるAI関連ラベルの意味を正しく読みたい人</li><li>AIで少し編集した投稿と、AIが作った投稿を同じものとして扱いたくない人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Instagram</li><li>Facebook</li><li>Threads</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260915-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

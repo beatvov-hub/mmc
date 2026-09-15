@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apple Intelligenceは端末完結と決めつけない。PCC Reportで外部処理を確認する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Appleは2026年9月14日更新の説明で、Apple Intelligenceの多くの処理は端末上で行う一方、端末だけでは計算能力が足りない依頼ではPrivate Cloud Compute（PCC）へ送る場合があると案内しています。iPhone、iPad、visionOSでは「設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」、Macでは「システム設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」から記録期間を選び、リクエスト後にファイルを出力できます。端末内処理という印象だけで判断せず、実際の外部処理を記録で確認する記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260915-02" />
+<meta property="og:title" content="Apple Intelligenceは端末完結と決めつけない。PCC Reportで外部処理を確認する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Appleは2026年9月14日更新の説明で、Apple Intelligenceの多くの処理は端末上で行う一方、端末だけでは計算能力が足りない依頼ではPrivate Cloud Compute（PCC）へ送る場合があると案内しています。iPhone、iPad、visionOSでは「設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」、Macでは「システム設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」から記録期間を選び、リクエスト後にファイルを出力できます。端末内処理という印象だけで判断せず、実際の外部処理を記録で確認する記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260915-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Apple IntelligenceのPCC Reportで外部処理を確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-15">2026.09.15</time>
+            </div>
+            <h1>Apple Intelligenceは端末完結と決めつけない。PCC Reportで外部処理を確認する</h1>
+            <p>Appleは2026年9月14日更新の説明で、Apple Intelligenceの多くの処理は端末上で行う一方、端末だけでは計算能力が足りない依頼ではPrivate Cloud Compute（PCC）へ送る場合があると案内しています。iPhone、iPad、visionOSでは「設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」、Macでは「システム設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」から記録期間を選び、リクエスト後にファイルを出力できます。端末内処理という印象だけで判断せず、実際の外部処理を記録で確認する記事です。</p>
+            <ul class="forensics-target-list"><li>Apple IntelligenceをiPhone、iPad、Macで使う人</li><li>生成AIの処理が端末外へ送られる場面を設定画面から確認したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Apple Intelligence</li><li>Private Cloud Compute</li><li>PCC</li><li>プライバシー</li><li>透明性ログ</li><li>iPhone</li><li>Mac</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>Apple Intelligenceの端末外処理は、PCC Reportを設定して確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>端末のプライバシー設定からApple Intelligence &amp; PCC Reportを開き、利用後に記録を出力して確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Apple Intelligenceで画像生成やSiriを使うが、どの依頼が端末外へ出たのかを知りたい</h3><p>メール要約は端末内で動くと聞いた一方、Image Playgroundなどではより大きな計算能力が必要になることがあります。業務や私生活の情報を扱う前に、端末外の処理が発生する機能を確認し、必要に応じて設定を見直したい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AppleはPCCで処理したデータを保存・閲覧可能にしないと説明していますが、オンデバイス処理とPCC処理は同じではありません。実際の要求をレポートで見れば、用途に応じて入力内容や機能の使い方を選べます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="enable-report">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Apple Intelligenceの処理が端末外へ出るか確認したい時、最初にすることは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="enable-report" data-choice-id="enable-report" />
+                <span>
+                  <strong>Apple Intelligence &amp; PCC Reportを有効にし、記録期間を選んで利用後にレポートを出力する</strong>
+                  <small>PCCへ送られた要求を確認するための透明性ログです。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-local" data-choice-id="assume-local" />
+                <span>
+                  <strong>Apple製の機能なので、全ての処理が常に端末内だけで完了すると考える</strong>
+                  <small>Appleは、端末の計算能力だけでは足りない依頼ではPCCを使う場合があると説明しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="send-secrets" data-choice-id="send-secrets" />
+                <span>
+                  <strong>PCCの説明を読んだので、認証情報や社外秘資料をそのまま入力する</strong>
+                  <small>処理方式の確認と、入力してよい情報の判断は別です。必要最小限の情報で使います。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Apple Intelligence &amp; PCC Reportを有効にし、記録期間を選んで利用後にレポートを出力する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Apple Intelligence &amp; PCC Reportを設定し、利用後に記録を出力して、PCCに送られた要求があったかを確認します。レポートは入力内容を無制限に送ってよいという許可ではなく、機能と入力を選ぶための確認材料です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>端末内処理とPCC処理を分ける</h3>
+              <p>Appleは多くの処理を端末上で行う一方、より大きな計算能力が必要な一部の依頼ではPCCを使うと案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>PCC Reportの設定場所</h3>
+              <p>iPhone、iPad、visionOSは設定、Macはシステム設定のプライバシーとセキュリティから、Apple Intelligence &amp; PCC Reportを開きます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>記録期間と出力</h3>
+              <p>記録する期間を選び、要求が行われた後にレポートファイルを出力します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>レポートに出る範囲</h3>
+              <p>PCCへ送られた要求のほか、対応機能で使ったApple Intelligence Extensionsへの要求も記録対象です。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>オンデバイス処理とPCC処理を区別し、実際の記録を見てから入力範囲を決める</strong><p>Apple Intelligenceは常に端末内だけで処理するわけではありません。PCC Reportを使えば、PCCに送られた要求を確認できます。Appleのデータ保護の説明を読みつつ、機微な内容は必要最小限にし、機能ごとの処理経路を把握して使います。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Apple Intelligence &amp; PCC Reportを有効にし、記録期間を選ぶ</strong><span>Appleはこの透明性ログで、PCCへ送られた要求を確認できると案内しています。</span></li>
+            <li><strong>Apple Intelligenceを使った後にレポートを出力する</strong><span>要求が行われた後、レポートファイルを出力して外部処理を確認できます。</span></li>
+            <li><strong>PCCを使う機能でも、入力する情報を必要最小限にする</strong><span>PCCの保護説明と、認証情報・社外秘情報を入力する判断は別の問題です。</span></li>
+            <li><strong>Face IDやTouch IDが一時的に無効だった時は、レポートが直近の要求を反映しない可能性を考慮する</strong><span>Appleはこの場合、Apple Intelligence &amp; PCC Reportが最近の要求を反映しないことがあると案内しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>Apple Intelligenceの全機能が常に端末内だけで動くと決めつける</strong><span>より大きな計算能力が必要な依頼ではPCCを使う場合があります。</span></li>
+            <li><strong>レポートを見ずに、端末外へ出る処理は一切ない・必ずあると断定する</strong><span>機能や依頼によって処理経路が異なります。</span></li>
+            <li><strong>PCCの保護説明を理由に、パスワードや認証情報を生成AIへ入力する</strong><span>処理方式にかかわらず、認証情報などは入力しないという基本的な情報管理が必要です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>処理の記録を、安心して機能を選ぶために使う</h3>
+          <p>レポートで端末外処理を確認できれば、Apple Intelligenceを一律に避けるのではなく、入力内容と使う機能を分けて、要約や画像作成などを活用できます。</p>
+          <ul class="positive-example-list"><li>画像作成の前後でレポートを確認する</li><li>業務端末の利用ルールを見直す</li><li>入力を一般化してから下書き支援を使う</li><li>使わない機能を設定から無効にする</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>『端末で使うAI』という言葉は、処理場所まで端末内だと思わせがちです。私は説明を信じるだけで終わらせず、レポートを一度出して、自分が使う機能の実際の経路を見ておきたいです。確認できる記録があるなら、それを使って入力の線引きを具体的にしたいですね。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Apple Intelligenceは、PCC Reportで端末外処理を確認してから入力範囲を決める。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.apple.com/legal/privacy/data/en/intelligence-engine/" target="_blank" rel="noopener noreferrer">Apple Intelligence &amp; Privacy<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Apple</span>
+              <span>その他</span>
+              <time datetime="2026-09-14">2026-09-14</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260914-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Apple IntelligenceでChatGPTに渡す時は、アカウント接続の有無を分けて決める AppleのChatGPT連携はアカウント接続の有無を確認する Appleは、Apple IntelligenceのChatGPT拡張機能を初期状態ではオフにしており、Siri、作文ツール、ビジュアルインテリジェンスなどで使う際に、送信する内容を利用者が選べると案内しています。ChatGPTアカウントを接続せずに使う場合、Apple Accountに結び付く情報はOpenAIへ送られず、OpenAIは依頼を処理する目的以外に情報や応答を保存・モデル学習に使わないとAppleは説明します。一方、ChatGPTアカウントでサインインした場合は、そのアカウントの設定とデータプライバシー方針が適用されます。便利な連携を使う前に、拡張機能のオン・オフだけでなく、アカウント接続の状態を確認する記事です。 セキュリティ・権限 標準 Apple Intelligence ChatGPT Siri 作文ツール アカウント接続 プライバシー iPhone、iPad、MacのApple IntelligenceからChatGPTを使う人 Siriや作文ツールに文書・写真を扱わせる前に、データの扱いを確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">apple-chatgpt-account-state</span>
+              <div>
+                <p>AppleのChatGPT連携はアカウント接続の有無を確認する</p>
+                <h3>Apple IntelligenceでChatGPTに渡す時は、アカウント接続の有無を分けて決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-14">2026.09.14</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Appleは、Apple IntelligenceのChatGPT拡張機能を初期状態ではオフにしており、Siri、作文ツール、ビジュアルインテリジェンスなどで使う際に、送信する内容を利用者が選べると案内しています。ChatGPTアカウントを接続せずに使う場合、Apple Accountに結び付く情報はOpenAIへ送られず、OpenAIは依頼を処理する目的以外に情報や応答を保存・モデル学習に使わないとAppleは説明します。一方、ChatGPTアカウントでサインインした場合は、そのアカウントの設定とデータプライバシー方針が適用されます。便利な連携を使う前に、拡張機能のオン・オフだけでなく、アカウント接続の状態を確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AppleのChatGPT連携は、送る内容とアカウント接続の状態をセットで確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhone、iPad、MacのApple IntelligenceからChatGPTを使う人</li><li>Siriや作文ツールに文書・写真を扱わせる前に、データの扱いを確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>ChatGPT</li><li>Siri</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260914-04" data-forensics-card data-category="security" data-level="4" data-difficulty="advanced" data-search-text="Copilotのブラウズ代行は、ログイン済みCookieと会話スクリーンショットを分けて片付ける Copilotのブラウズ代行はCookieと会話履歴を作業後に整理する Microsoftは、EdgeのBrowse with Copilotについて、Copilotが現在のブラウザウィンドウで作業し、ページのクリック、入力、タブ移動を行えると案内しています。Copilotは対象ウィンドウのCookieにアクセスできるため、利用者がログイン済みのサイトでは同じログイン状態で作業できます。Microsoftは、Cookieを削除するか新しいブラウザプロファイルから始める方法を案内しています。また、作業したページのスクリーンショットは会話履歴に保存され、会話を削除すると関連スクリーンショットも削除されますが、削除しない場合は最大30日保存されます。ブラウズ代行を始める前のログイン環境と、終了後の会話履歴をセットで扱う記事です。 セキュリティ・権限 発展 Microsoft Copilot Edge AIブラウザ Cookie スクリーンショット 会話履歴 Microsoft EdgeでBrowse with Copilotを使う人 AIにWebサイトの検索・入力・クリックを代行させる前に、ログイン状態を分けたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-browse-cookie-history</span>
+              <div>
+                <p>Copilotのブラウズ代行はCookieと会話履歴を作業後に整理する</p>
+                <h3>Copilotのブラウズ代行は、ログイン済みCookieと会話スクリーンショットを分けて片付ける</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-14">2026.09.14</time>
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、EdgeのBrowse with Copilotについて、Copilotが現在のブラウザウィンドウで作業し、ページのクリック、入力、タブ移動を行えると案内しています。Copilotは対象ウィンドウのCookieにアクセスできるため、利用者がログイン済みのサイトでは同じログイン状態で作業できます。Microsoftは、Cookieを削除するか新しいブラウザプロファイルから始める方法を案内しています。また、作業したページのスクリーンショットは会話履歴に保存され、会話を削除すると関連スクリーンショットも削除されますが、削除しない場合は最大30日保存されます。ブラウズ代行を始める前のログイン環境と、終了後の会話履歴をセットで扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Copilotのブラウズ代行は、開始前のCookieと終了後の会話履歴を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft EdgeでBrowse with Copilotを使う人</li><li>AIにWebサイトの検索・入力・クリックを代行させる前に、ログイン状態を分けたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Edge</li><li>AIブラウザ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260913-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="SnapchatのMy AIは会話を消すだけでは終わらない。1対1とグループを分けて削除する My AIの削除は1対1の会話とグループ投稿を分けて確認する Snapchatは、My AIへ共有した内容を利用者が削除するまで保持すると案内しています。直近24時間の1対1チャットはメッセージを長押しして削除でき、過去の内容は設定の「Delete My AI Data」または「Clear My AI Data」からまとめて削除できます。ただし、この操作が消すのはMy AIとの1対1チャットであり、My AIが入ったグループチャットのメッセージは削除されません。Snapchatのサーバーから関連データを削除するには最大30日かかる場合もあります。会話を消したつもりで終わらせず、どの場所の投稿を消したかを分けて確認する記事です。 セキュリティ・権限 はじめて Snapchat My AI チャット削除 グループチャット プライバシー AIデータ SnapchatでMy AIと会話したり、My AI入りのグループチャットを使う人 AIに送った内容を後から整理・削除したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">snapchat-my-ai-separate-deletion</span>
+              <div>
+                <p>My AIの削除は1対1の会話とグループ投稿を分けて確認する</p>
+                <h3>SnapchatのMy AIは会話を消すだけでは終わらない。1対1とグループを分けて削除する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-13">2026.09.13</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Snapchatは、My AIへ共有した内容を利用者が削除するまで保持すると案内しています。直近24時間の1対1チャットはメッセージを長押しして削除でき、過去の内容は設定の「Delete My AI Data」または「Clear My AI Data」からまとめて削除できます。ただし、この操作が消すのはMy AIとの1対1チャットであり、My AIが入ったグループチャットのメッセージは削除されません。Snapchatのサーバーから関連データを削除するには最大30日かかる場合もあります。会話を消したつもりで終わらせず、どの場所の投稿を消したかを分けて確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>My AIの削除は、個別チャットとグループチャットを別の対象として確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SnapchatでMy AIと会話したり、My AI入りのグループチャットを使う人</li><li>AIに送った内容を後から整理・削除したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Snapchat</li><li>My AI</li><li>チャット削除</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260914-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260915-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
