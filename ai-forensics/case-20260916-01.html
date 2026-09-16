@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FirefoxのAI機能は一括で止めても、必要な機能だけ戻せる｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Mozillaは、Firefox 148以降のデスクトップ版で、生成AI機能を管理するAI Controlsを案内しています。設定の「Block AI enhancements」をオンにすると、現在および今後のFirefoxのAI機能と案内表示をまとめて止められ、必要な機能だけは個別にAvailableまたはEnabledへ戻せます。ただし、この設定で止まるのはFirefoxが提供するAIであり、拡張機能が独自に外部AIを使うことまでは止まりません。便利な機能を残しながら、何をブラウザに任せるかを自分で決める記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260916-01" />
+<meta property="og:title" content="FirefoxのAI機能は一括で止めても、必要な機能だけ戻せる｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Mozillaは、Firefox 148以降のデスクトップ版で、生成AI機能を管理するAI Controlsを案内しています。設定の「Block AI enhancements」をオンにすると、現在および今後のFirefoxのAI機能と案内表示をまとめて止められ、必要な機能だけは個別にAvailableまたはEnabledへ戻せます。ただし、この設定で止まるのはFirefoxが提供するAIであり、拡張機能が独自に外部AIを使うことまでは止まりません。便利な機能を残しながら、何をブラウザに任せるかを自分で決める記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260916-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>FirefoxのAI機能を一括停止して必要分だけ戻す</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-09-16">2026.09.16</time>
+            </div>
+            <h1>FirefoxのAI機能は一括で止めても、必要な機能だけ戻せる</h1>
+            <p>Mozillaは、Firefox 148以降のデスクトップ版で、生成AI機能を管理するAI Controlsを案内しています。設定の「Block AI enhancements」をオンにすると、現在および今後のFirefoxのAI機能と案内表示をまとめて止められ、必要な機能だけは個別にAvailableまたはEnabledへ戻せます。ただし、この設定で止まるのはFirefoxが提供するAIであり、拡張機能が独自に外部AIを使うことまでは止まりません。便利な機能を残しながら、何をブラウザに任せるかを自分で決める記事です。</p>
+            <ul class="forensics-target-list"><li>Firefoxに追加されるAI機能を自分で選びたい人</li><li>ブラウザのAIサイドバーや要約機能を必要な範囲だけ使いたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Firefox</li><li>AI Controls</li><li>ブラウザAI</li><li>拡張機能</li><li>生成AI</li><li>権限</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>FirefoxのAIは、まとめて止めてから必要な機能を選ぶ</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AI ControlsでFirefox提供AIの状態を確認し、拡張機能の外部AI利用は別に確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>FirefoxのAIチャットやリンク要約は使いたいが、新しいAI機能が自動で増えるのは避けたい</h3><p>サイドバーのAIチャットや、リンクを長押しした時の要点表示などは便利に思える一方、どの機能が有効なのかをまとめて把握できません。必要な機能だけを残し、将来追加される機能はまず止めておきたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>一括停止と個別の有効化を組み合わせれば、ブラウザのAIを全面的に避けるか、全て受け入れるかの二択にしなくて済みます。ただし外部拡張機能は別に確認する必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="block-then-allow">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>FirefoxのAI機能を必要なものだけに絞るには？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="block-then-allow" data-choice-id="block-then-allow" />
+                <span>
+                  <strong>AI Controlsで一括ブロックを有効にし、必要な機能だけ個別にAvailableまたはEnabledへ戻す</strong>
+                  <small>将来のFirefox提供AIも初期状態でブロックしつつ、必要な機能だけ選べます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-all-blocked" data-choice-id="assume-all-blocked" />
+                <span>
+                  <strong>一括ブロックすれば、全てのブラウザ拡張機能による外部AI利用も止まると考える</strong>
+                  <small>Firefoxの設定は、拡張機能が独自に使う外部AIサービスまでは止めません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="allow-everything" data-choice-id="allow-everything" />
+                <span>
+                  <strong>設定を見ず、表示されるAI機能を全て有効にする</strong>
+                  <small>利用目的に応じて機能ごとの状態を確認できます。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>AI Controlsで一括ブロックを有効にし、必要な機能だけ個別にAvailableまたはEnabledへ戻す</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>AI Controlsでは一括ブロック後に、使いたい機能だけを個別に戻せます。外部AIを使う拡張機能は別の設定・権限として確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Firefoxのバージョン</h3>
+              <p>MozillaはAI ControlsをFirefox 148以降のデスクトップ版で案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>一括ブロック</h3>
+              <p>SettingsからAI Controlsを開き、Block AI enhancementsをオンにすると、現在と今後のFirefox提供AIをまとめて止められます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>個別の戻し方</h3>
+              <p>必要な機能はドロップダウンでAvailableまたはEnabledに戻せます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>拡張機能の独自AI</h3>
+              <p>Firefoxの一括ブロックでは、拡張機能が独自に外部AIサービスを使うことまでは止まりません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>一括ブロックは出発点であり、外部AI拡張まで止まったとは限らない</strong><p>FirefoxのAI Controlsは、ブラウザ標準の生成AI機能を選ぶための便利な設定です。必要な機能だけ戻す一方、拡張機能が独自に使う外部AIは別の権限・データ送信として確認します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>SettingsからAI Controlsを開き、現在のAI機能を確認する</strong><span>AIチャット、リンクプレビュー、タブグループなどの管理対象を確認できます。</span></li>
+            <li><strong>まずBlock AI enhancementsをオンにする</strong><span>現在および今後のFirefox提供AIを初期状態でブロックできます。</span></li>
+            <li><strong>使う機能だけAvailableまたはEnabledへ戻す</strong><span>一括ブロック後でも必要な機能を個別に利用できます。</span></li>
+            <li><strong>拡張機能の権限と接続先も別に確認する</strong><span>拡張機能が独自に使う外部AIはFirefoxの一括ブロックでは止まりません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>FirefoxのAI一括ブロックで、全ての外部AI通信が止まると決めつける</strong><span>Mozillaは、拡張機能が独自に使う外部AIは対象外だと案内しています。</span></li>
+            <li><strong>必要性を確認せず、全てのAI機能を有効にする</strong><span>AI Controlsで用途ごとに選べます。</span></li>
+            <li><strong>将来追加される機能も現在と同じ状態のままだと考える</strong><span>一括ブロックを使うと、将来のFirefox提供AIも初期状態でブロックできます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>ブラウザAIを、用途ごとに小さく使い始める</h3>
+          <p>一括ブロックを基準にすると、必要な翻訳・アクセシビリティ補助・チャットだけを選び、増え続ける機能を自分の仕事や生活に合わせて取り入れられます。</p>
+          <ul class="positive-example-list"><li>必要なAIチャットだけ有効にする</li><li>PDF画像の代替テキスト提案を試す</li><li>AIタブグループを必要な時だけ使う</li><li>新しい拡張機能は接続先を確認してから入れる</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>機能が増えるたびに全部読むのは大変です。私はまず新しいものを止める基準を置き、便利だと分かったものだけ戻したいです。AIを使わないための設定ではなく、何を任せるかを自分で選び続けるための設定だと感じます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>FirefoxのAIは、まず一括で止め、必要な機能だけを戻して使う。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.mozilla.org/en-US/kb/firefox-ai-controls" target="_blank" rel="noopener noreferrer">Block generative AI features with Firefox AI controls<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Firefox Help</span>
+              <span>その他</span>
+              <time datetime="2026-08-11">2026-08-11</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260915-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Apple Intelligenceは端末完結と決めつけない。PCC Reportで外部処理を確認する Apple IntelligenceのPCC Reportで外部処理を確認する Appleは2026年9月14日更新の説明で、Apple Intelligenceの多くの処理は端末上で行う一方、端末だけでは計算能力が足りない依頼ではPrivate Cloud Compute（PCC）へ送る場合があると案内しています。iPhone、iPad、visionOSでは「設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」、Macでは「システム設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」から記録期間を選び、リクエスト後にファイルを出力できます。端末内処理という印象だけで判断せず、実際の外部処理を記録で確認する記事です。 セキュリティ・権限 標準 Apple Intelligence Private Cloud Compute PCC プライバシー 透明性ログ iPhone Mac Apple IntelligenceをiPhone、iPad、Macで使う人 生成AIの処理が端末外へ送られる場面を設定画面から確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">apple-intelligence-pcc-report</span>
+              <div>
+                <p>Apple IntelligenceのPCC Reportで外部処理を確認する</p>
+                <h3>Apple Intelligenceは端末完結と決めつけない。PCC Reportで外部処理を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-15">2026.09.15</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Appleは2026年9月14日更新の説明で、Apple Intelligenceの多くの処理は端末上で行う一方、端末だけでは計算能力が足りない依頼ではPrivate Cloud Compute（PCC）へ送る場合があると案内しています。iPhone、iPad、visionOSでは「設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」、Macでは「システム設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」から記録期間を選び、リクエスト後にファイルを出力できます。端末内処理という印象だけで判断せず、実際の外部処理を記録で確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Apple Intelligenceの端末外処理は、PCC Reportを設定して確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Apple IntelligenceをiPhone、iPad、Macで使う人</li><li>生成AIの処理が端末外へ送られる場面を設定画面から確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>Private Cloud Compute</li><li>PCC</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260914-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Apple IntelligenceでChatGPTに渡す時は、アカウント接続の有無を分けて決める AppleのChatGPT連携はアカウント接続の有無を確認する Appleは、Apple IntelligenceのChatGPT拡張機能を初期状態ではオフにしており、Siri、作文ツール、ビジュアルインテリジェンスなどで使う際に、送信する内容を利用者が選べると案内しています。ChatGPTアカウントを接続せずに使う場合、Apple Accountに結び付く情報はOpenAIへ送られず、OpenAIは依頼を処理する目的以外に情報や応答を保存・モデル学習に使わないとAppleは説明します。一方、ChatGPTアカウントでサインインした場合は、そのアカウントの設定とデータプライバシー方針が適用されます。便利な連携を使う前に、拡張機能のオン・オフだけでなく、アカウント接続の状態を確認する記事です。 セキュリティ・権限 標準 Apple Intelligence ChatGPT Siri 作文ツール アカウント接続 プライバシー iPhone、iPad、MacのApple IntelligenceからChatGPTを使う人 Siriや作文ツールに文書・写真を扱わせる前に、データの扱いを確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">apple-chatgpt-account-state</span>
+              <div>
+                <p>AppleのChatGPT連携はアカウント接続の有無を確認する</p>
+                <h3>Apple IntelligenceでChatGPTに渡す時は、アカウント接続の有無を分けて決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-14">2026.09.14</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Appleは、Apple IntelligenceのChatGPT拡張機能を初期状態ではオフにしており、Siri、作文ツール、ビジュアルインテリジェンスなどで使う際に、送信する内容を利用者が選べると案内しています。ChatGPTアカウントを接続せずに使う場合、Apple Accountに結び付く情報はOpenAIへ送られず、OpenAIは依頼を処理する目的以外に情報や応答を保存・モデル学習に使わないとAppleは説明します。一方、ChatGPTアカウントでサインインした場合は、そのアカウントの設定とデータプライバシー方針が適用されます。便利な連携を使う前に、拡張機能のオン・オフだけでなく、アカウント接続の状態を確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AppleのChatGPT連携は、送る内容とアカウント接続の状態をセットで確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhone、iPad、MacのApple IntelligenceからChatGPTを使う人</li><li>Siriや作文ツールに文書・写真を扱わせる前に、データの扱いを確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>ChatGPT</li><li>Siri</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260914-03" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="YouTubeの生成AIで作った下書きは、削除後も最大30日。活動履歴と他のGoogle履歴を分けて整理する YouTube AI機能の活動履歴は他のGoogle履歴と分けて削除する YouTubeは、Veo、Gemini Omni、Dream Track、Edit with AIなどのYouTube AI機能について、プロンプト、出力、関連コンテンツをYouTube AI Feature Activityとして扱うと案内しています。この活動は既定でオンで、Googleアカウントと結び付くプロンプト・出力・関連コンテンツは最大18か月保存されます。利用者が活動履歴から削除しても、サービス提供とフィードバック処理のため最大30日保存される場合があります。また、YouTube AI Feature Activityを削除しても、YouTube履歴、Webとアプリのアクティビティ、ロケーション履歴などの設定は変わりません。AI下書きの削除と他のGoogle履歴を一つの操作だと思わず、対象ごとに整理する記事です。 仕事・AI活用 標準 YouTube 生成AI プロンプト 活動履歴 データ削除 動画制作 YouTubeのAI機能で動画、画像、音楽、文章の下書きを作る人 生成に使ったプロンプトや出力を後から整理したい投稿者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">youtube-ai-activity-separate-history</span>
+              <div>
+                <p>YouTube AI機能の活動履歴は他のGoogle履歴と分けて削除する</p>
+                <h3>YouTubeの生成AIで作った下書きは、削除後も最大30日。活動履歴と他のGoogle履歴を分けて整理する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-14">2026.09.14</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeは、Veo、Gemini Omni、Dream Track、Edit with AIなどのYouTube AI機能について、プロンプト、出力、関連コンテンツをYouTube AI Feature Activityとして扱うと案内しています。この活動は既定でオンで、Googleアカウントと結び付くプロンプト・出力・関連コンテンツは最大18か月保存されます。利用者が活動履歴から削除しても、サービス提供とフィードバック処理のため最大30日保存される場合があります。また、YouTube AI Feature Activityを削除しても、YouTube履歴、Webとアプリのアクティビティ、ロケーション履歴などの設定は変わりません。AI下書きの削除と他のGoogle履歴を一つの操作だと思わず、対象ごとに整理する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>YouTubeのAI下書きは、活動履歴と他のGoogle履歴を別々に整理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>YouTubeのAI機能で動画、画像、音楽、文章の下書きを作る人</li><li>生成に使ったプロンプトや出力を後から整理したい投稿者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube</li><li>生成AI</li><li>プロンプト</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260916-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
