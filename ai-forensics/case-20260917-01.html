@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ZoomのAI議事録は「停止」だけで終わらせない。要約・文字起こしを分けて削除する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Zoomは、AI CompanionのMeeting Summaryが会議の音声を文字にしたデータを参照して要約を作ると案内しています。主催者は会議中に機能を停止でき、その際には関連する要約・文字起こしを削除する選択肢を選べます。終了後も主催者はSummaries画面から要約を共有・編集・削除できますが、共有された要約はメールやZoom Chatで参加者へ届き、受信者は保存・再共有できます。会議中の停止と、会議後の生成物・共有範囲の確認を分ける記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260917-01" />
+<meta property="og:title" content="ZoomのAI議事録は「停止」だけで終わらせない。要約・文字起こしを分けて削除する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Zoomは、AI CompanionのMeeting Summaryが会議の音声を文字にしたデータを参照して要約を作ると案内しています。主催者は会議中に機能を停止でき、その際には関連する要約・文字起こしを削除する選択肢を選べます。終了後も主催者はSummaries画面から要約を共有・編集・削除できますが、共有された要約はメールやZoom Chatで参加者へ届き、受信者は保存・再共有できます。会議中の停止と、会議後の生成物・共有範囲の確認を分ける記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260917-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>ZoomのAI議事録は停止後の要約・文字起こしも確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-09-17">2026.09.17</time>
+            </div>
+            <h1>ZoomのAI議事録は「停止」だけで終わらせない。要約・文字起こしを分けて削除する</h1>
+            <p>Zoomは、AI CompanionのMeeting Summaryが会議の音声を文字にしたデータを参照して要約を作ると案内しています。主催者は会議中に機能を停止でき、その際には関連する要約・文字起こしを削除する選択肢を選べます。終了後も主催者はSummaries画面から要約を共有・編集・削除できますが、共有された要約はメールやZoom Chatで参加者へ届き、受信者は保存・再共有できます。会議中の停止と、会議後の生成物・共有範囲の確認を分ける記事です。</p>
+            <ul class="forensics-target-list"><li>Zoom AI Companionで会議要約を使う主催者</li><li>会議の文字起こしや要約の共有範囲を管理したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Zoom</li><li>AI Companion</li><li>議事録</li><li>会議要約</li><li>文字起こし</li><li>共有</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>ZoomのAI議事録は、停止時と終了後に生成物・共有範囲を確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>会議中に止める時は削除項目を確認し、終了後はSummariesで要約と共有先を見直しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>打合せ途中で機微な話題に移るため、AI議事録を止めたい</h3><p>会議要約を使っていたところ、顧客情報や人事の相談へ移ることになりました。停止すれば途中までの要約や文字起こしがどうなるか、終了後にどこから確認・削除できるかを知りたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AI議事録を止めても、すでに作られた要約や文字起こし、メール・チャットで共有されたコピーは別に考える必要があります。主催者が止める時と終わった後の両方で確認すると、会議の運用を整理できます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="stop-and-review">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Zoom AI Companionの会議要約を途中で止める時、適切な対応は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="stop-and-review" data-choice-id="stop-and-review" />
+                <span>
+                  <strong>停止時に関連アセットの削除を確認し、終了後もSummariesで要約の共有・削除を確認する</strong>
+                  <small>会議中の停止と、会議後の生成物管理を分けて行います。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="stop-only" data-choice-id="stop-only" />
+                <span>
+                  <strong>停止ボタンを押せば、途中までの要約や文字起こしも必ず全て消えると考える</strong>
+                  <small>削除には確認項目があり、会議後の要約も別に管理します。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="share-freely" data-choice-id="share-freely" />
+                <span>
+                  <strong>参加者に届いた要約は再共有されないので、共有範囲を確認しない</strong>
+                  <small>受信者は要約を保存・他者と共有できます。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>停止時に関連アセットの削除を確認し、終了後もSummariesで要約の共有・削除を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>停止時には関連アセット削除の選択肢を確認し、会議後も主催者として要約を管理します。共有されたコピーは別の管理対象です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>会議中の停止</h3>
+              <p>主催者・共同主催者だけが会議内コントロールからMeeting Summaryを開始・停止できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>関連アセットの削除</h3>
+              <p>停止時に要約・文字起こしを削除する選択肢がありますが、参加者がMy notesで完成させた文字起こしには適用されません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>会議後の要約</h3>
+              <p>主催者はSummariesのMy Summariesから、要約を共有・編集・削除できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>共有経路</h3>
+              <p>共有が有効なら要約はメールやZoom Chatで参加者に届き、受信者は保存・共有できます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AI議事録は、停止操作と生成済みの会議資産の管理を分けて考える</strong><p>AI Companionを止めるだけでは、会議中に生成された要約や文字起こし、共有済みのメール・チャットまで一律に管理できるとは限りません。主催者は停止時の削除選択と、終了後の要約管理を組み合わせます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>機微な議題の前にAI Companionを停止する</strong><span>主催者は会議内コントロールからMeeting Summaryを停止できます。</span></li>
+            <li><strong>停止確認でDelete meeting assetsを必要に応じて選ぶ</strong><span>関連する要約・文字起こしを削除する選択肢です。</span></li>
+            <li><strong>会議後にSummariesのMy Summariesを確認する</strong><span>主催者は要約を共有・編集・削除できます。</span></li>
+            <li><strong>参加者へ共有する前に、要約の内容と宛先を確認する</strong><span>受信者は届いた要約を保存・再共有できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>停止操作だけで、すべての会議資産が消えると決めつける</strong><span>停止時には別途削除項目の確認が必要で、会議後の要約も管理対象です。</span></li>
+            <li><strong>共有した要約は受信者が保存・共有できないと考える</strong><span>Zoomは受信者が要約を保存・共有できると案内しています。</span></li>
+            <li><strong>主催者以外が会議要約を削除できると考える</strong><span>要約の削除は主催者のみが行えます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>会議の記録を、議題ごとに使い分ける</h3>
+          <p>定例の進捗確認では要約を使い、機微な議題では停止と削除を選べば、議事録作成の手間を減らしながら会議の情報管理を整えられます。</p>
+          <ul class="positive-example-list"><li>定例会の要点を共有する</li><li>機微な議題の前に停止する</li><li>会議後に要約を編集する</li><li>共有先を必要な参加者に絞る</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>会議で止めたいのはAIそのものより、記録が残る範囲です。私は停止ボタンを押した後に、途中まで何ができているか、誰へ届くかまで確認したいです。会議後の整理まで含めて初めて、安心して要約を任せられます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>ZoomのAI議事録は、停止時の削除と終了後の要約管理を分けて確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.zoom.com/hc/en/article?sysparm_article=KB0058013" target="_blank" rel="noopener noreferrer">Using Meeting Summary with AI Companion<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Zoom Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260916-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Claudeのメモリ移行は「全部を渡す」前に、取り込む内容を削る Claudeへメモリを移す前に内容を選別する Claudeは、他のAIサービスから出したメモリを取り込む機能を、WebとClaude DesktopのFree、Pro、Max、Team向けに案内しています。新しいメモリ画面ではSettings &gt; Memory &gt; Start importから始め、貼り付けた内容からClaudeが個別のメモリ項目を作ります。Anthropicは、移行前の内容から機微情報を除けること、機能は実験的で期待どおりに取り込まれない場合があることも明記しています。過去の会話を丸ごと移すのではなく、これからも必要な仕事上の前提だけを選ぶ記事です。 仕事・AI活用 標準 Claude メモリ データ移行 プロンプト プライバシー 仕事 AIサービスを乗り換える時に過去の設定を引き継ぎたい人 長期的な指示や仕事の文脈をClaudeのメモリへ入れる前に整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">claude-memory-import-review</span>
+              <div>
+                <p>Claudeへメモリを移す前に内容を選別する</p>
+                <h3>Claudeのメモリ移行は「全部を渡す」前に、取り込む内容を削る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-16">2026.09.16</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Claudeは、他のAIサービスから出したメモリを取り込む機能を、WebとClaude DesktopのFree、Pro、Max、Team向けに案内しています。新しいメモリ画面ではSettings &gt; Memory &gt; Start importから始め、貼り付けた内容からClaudeが個別のメモリ項目を作ります。Anthropicは、移行前の内容から機微情報を除けること、機能は実験的で期待どおりに取り込まれない場合があることも明記しています。過去の会話を丸ごと移すのではなく、これからも必要な仕事上の前提だけを選ぶ記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>移行するメモリは、取り込む前と後に内容を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIサービスを乗り換える時に過去の設定を引き継ぎたい人</li><li>長期的な指示や仕事の文脈をClaudeのメモリへ入れる前に整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Claude</li><li>メモリ</li><li>データ移行</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260914-03" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="YouTubeの生成AIで作った下書きは、削除後も最大30日。活動履歴と他のGoogle履歴を分けて整理する YouTube AI機能の活動履歴は他のGoogle履歴と分けて削除する YouTubeは、Veo、Gemini Omni、Dream Track、Edit with AIなどのYouTube AI機能について、プロンプト、出力、関連コンテンツをYouTube AI Feature Activityとして扱うと案内しています。この活動は既定でオンで、Googleアカウントと結び付くプロンプト・出力・関連コンテンツは最大18か月保存されます。利用者が活動履歴から削除しても、サービス提供とフィードバック処理のため最大30日保存される場合があります。また、YouTube AI Feature Activityを削除しても、YouTube履歴、Webとアプリのアクティビティ、ロケーション履歴などの設定は変わりません。AI下書きの削除と他のGoogle履歴を一つの操作だと思わず、対象ごとに整理する記事です。 仕事・AI活用 標準 YouTube 生成AI プロンプト 活動履歴 データ削除 動画制作 YouTubeのAI機能で動画、画像、音楽、文章の下書きを作る人 生成に使ったプロンプトや出力を後から整理したい投稿者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">youtube-ai-activity-separate-history</span>
+              <div>
+                <p>YouTube AI機能の活動履歴は他のGoogle履歴と分けて削除する</p>
+                <h3>YouTubeの生成AIで作った下書きは、削除後も最大30日。活動履歴と他のGoogle履歴を分けて整理する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-14">2026.09.14</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeは、Veo、Gemini Omni、Dream Track、Edit with AIなどのYouTube AI機能について、プロンプト、出力、関連コンテンツをYouTube AI Feature Activityとして扱うと案内しています。この活動は既定でオンで、Googleアカウントと結び付くプロンプト・出力・関連コンテンツは最大18か月保存されます。利用者が活動履歴から削除しても、サービス提供とフィードバック処理のため最大30日保存される場合があります。また、YouTube AI Feature Activityを削除しても、YouTube履歴、Webとアプリのアクティビティ、ロケーション履歴などの設定は変わりません。AI下書きの削除と他のGoogle履歴を一つの操作だと思わず、対象ごとに整理する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>YouTubeのAI下書きは、活動履歴と他のGoogle履歴を別々に整理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>YouTubeのAI機能で動画、画像、音楽、文章の下書きを作る人</li><li>生成に使ったプロンプトや出力を後から整理したい投稿者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube</li><li>生成AI</li><li>プロンプト</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260913-03" data-forensics-card data-category="work-use" data-level="4" data-difficulty="advanced" data-search-text="GitHub Copilot CLIの「このリポジトリでは許可」を放置しない。保存済み権限を戻す Copilot CLIの保存済み権限は作業後に戻す GitHub Copilot CLIは、ファイルの読み取りや検索などの読み取り専用操作を自動で許可する一方、ファイル編集、破壊的なシェルコマンド、URLアクセスなどは明示的な許可を求めます。作業中に「このリポジトリでは今後確認しない」などを選ぶと、許可は既定でpermissions-config.jsonに保存され、リポジトリのルートまたは作業フォルダに適用されます。URLの恒久許可はsettings.jsonに保存され、全セッションに適用されます。GitHubは、すべてを許可する--allow-allや--yoloを隔離環境以外で使わないよう強く勧めています。AIに任せる作業の終了時に、残った許可をリセットする運用を扱う記事です。 仕事・AI活用 発展 GitHub Copilot Copilot CLI AIエージェント 権限管理 シェル操作 開発環境 GitHub Copilot CLIでコード作成や調査をする人 AIエージェントにシェル実行・ファイル編集・URLアクセスを許可する開発者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-cli-permission-reset</span>
+              <div>
+                <p>Copilot CLIの保存済み権限は作業後に戻す</p>
+                <h3>GitHub Copilot CLIの「このリポジトリでは許可」を放置しない。保存済み権限を戻す</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-13">2026.09.13</time>
+              <span>仕事・AI活用</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">GitHub Copilot CLIは、ファイルの読み取りや検索などの読み取り専用操作を自動で許可する一方、ファイル編集、破壊的なシェルコマンド、URLアクセスなどは明示的な許可を求めます。作業中に「このリポジトリでは今後確認しない」などを選ぶと、許可は既定でpermissions-config.jsonに保存され、リポジトリのルートまたは作業フォルダに適用されます。URLの恒久許可はsettings.jsonに保存され、全セッションに適用されます。GitHubは、すべてを許可する--allow-allや--yoloを隔離環境以外で使わないよう強く勧めています。AIに任せる作業の終了時に、残った許可をリセットする運用を扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Copilot CLIの許可は、作業後に保存先と適用範囲まで戻す</span>
+            </div>
+            <ul class="forensics-card-audience"><li>GitHub Copilot CLIでコード作成や調査をする人</li><li>AIエージェントにシェル実行・ファイル編集・URLアクセスを許可する開発者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>GitHub Copilot</li><li>Copilot CLI</li><li>AIエージェント</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260917-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

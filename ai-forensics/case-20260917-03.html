@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Geminiの連携アプリは、切断と活動削除を別々に行う｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Googleは、GeminiのPersonal IntelligenceでGoogle Photos、YouTube、Workspace、検索サービスなどを連携でき、メール、ファイル、写真、位置情報などが個人向けの応答に使われ得ると案内しています。連携アプリを切断したり連携元でデータを消したりしても、Gemini Apps Activityからは自動削除されません。Keep Activityがオンなら、連携アプリ由来の情報を含む活動はGoogleサービス改善・生成AIモデルの改善に使われ得ます。連携を止める操作と、残った活動を削除する操作を分ける記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260917-03" />
+<meta property="og:title" content="Geminiの連携アプリは、切断と活動削除を別々に行う｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Googleは、GeminiのPersonal IntelligenceでGoogle Photos、YouTube、Workspace、検索サービスなどを連携でき、メール、ファイル、写真、位置情報などが個人向けの応答に使われ得ると案内しています。連携アプリを切断したり連携元でデータを消したりしても、Gemini Apps Activityからは自動削除されません。Keep Activityがオンなら、連携アプリ由来の情報を含む活動はGoogleサービス改善・生成AIモデルの改善に使われ得ます。連携を止める操作と、残った活動を削除する操作を分ける記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260917-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Geminiの連携アプリは切断後に活動も削除する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-17">2026.09.17</time>
+            </div>
+            <h1>Geminiの連携アプリは、切断と活動削除を別々に行う</h1>
+            <p>Googleは、GeminiのPersonal IntelligenceでGoogle Photos、YouTube、Workspace、検索サービスなどを連携でき、メール、ファイル、写真、位置情報などが個人向けの応答に使われ得ると案内しています。連携アプリを切断したり連携元でデータを消したりしても、Gemini Apps Activityからは自動削除されません。Keep Activityがオンなら、連携アプリ由来の情報を含む活動はGoogleサービス改善・生成AIモデルの改善に使われ得ます。連携を止める操作と、残った活動を削除する操作を分ける記事です。</p>
+            <ul class="forensics-target-list"><li>GeminiへGmail、Google Photos、Workspaceなどを連携する人</li><li>連携を外した後のGemini Apps Activityを確認したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Gemini</li><li>Connected Apps</li><li>Personal Intelligence</li><li>Gemini Apps Activity</li><li>Gmail</li><li>Google Drive</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>Gemini連携は、切断・活動削除・Keep Activityを別々に確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>連携を外した後はGemini Apps Activityを削除し、今後の扱いはKeep Activityで確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Geminiから仕事用DriveとGmailを外したが、過去に使った情報も消えたか不安</h3><p>業務資料やメールを探すためにGeminiへ連携しましたが、用途が終わったため接続を外しました。連携元のファイルを消せばGemini側の活動も消えるのか、設定をどこまで見直せばよいか知りたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>連携の切断、連携元データの削除、Gemini Apps Activityの削除、Keep Activityの設定は別の操作です。どれか一つだけで過去・今後の扱いを全て変えたと決めつけないことが重要です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="disconnect-and-delete">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Geminiの連携アプリを使い終えた時、適切な対応は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="disconnect-and-delete" data-choice-id="disconnect-and-delete" />
+                <span>
+                  <strong>連携アプリを切断し、Gemini Apps Activityを確認・削除し、Keep Activityも見直す</strong>
+                  <small>連携解除と活動削除は別の操作です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="disconnect-only" data-choice-id="disconnect-only" />
+                <span>
+                  <strong>連携アプリを切断すれば、Gemini Apps Activityも自動的に消えると考える</strong>
+                  <small>Googleは自動削除されないと案内しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-source-only" data-choice-id="delete-source-only" />
+                <span>
+                  <strong>GmailやDrive側でデータを消せば、Geminiに残る活動も消えると考える</strong>
+                  <small>連携元の削除はGemini Apps Activityの削除とは別です。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>連携アプリを切断し、Gemini Apps Activityを確認・削除し、Keep Activityも見直す</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Personal Intelligenceで連携を切り、Gemini Apps Activityで過去の活動を削除し、今後の活動をKeep Activity設定で確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>連携しているアプリ</h3>
+              <p>Photos、YouTube、Workspace、検索サービスなど、どのアプリをGeminiへ連携しているか確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Gemini Apps Activity</h3>
+              <p>アプリ切断や連携元データの削除では、この活動は自動削除されません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Keep Activity</h3>
+              <p>オンの場合、連携アプリ由来の情報を含む活動がGoogleサービス・生成AIの改善に使われ得ます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>他サービス側のデータ</h3>
+              <p>Gemini Apps Activityを削除しても、他のGoogleサービスが保存するデータは別に管理されます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Geminiの連携解除は、過去の活動を消す操作ではない</strong><p>連携を止めると今後のアクセス範囲を見直せますが、すでにGemini Apps Activityへ保存された情報は別途管理・削除が必要です。連携の目的が終わったら、切断と活動削除、Keep Activityを順に確認します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Personal Intelligenceで連携しているアプリを確認・切断する</strong><span>Geminiに連携するアプリは設定から管理できます。</span></li>
+            <li><strong>Gemini Apps Activityを確認して不要な活動を削除する</strong><span>連携解除や連携元の削除では活動は自動削除されません。</span></li>
+            <li><strong>Keep Activityを見直す</strong><span>オンの場合、今後の活動はGoogleサービス改善に使われ得ます。</span></li>
+            <li><strong>他のGoogleサービス側の履歴・データも別に確認する</strong><span>Gemini Apps Activityの削除は他サービスのデータ削除ではありません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>連携を切断しただけで、過去のGemini活動まで消えたと考える</strong><span>GoogleはGemini Apps Activityから自動削除されないと案内しています。</span></li>
+            <li><strong>連携元のメールやファイルを消せば、Gemini側にも即時反映されると考える</strong><span>Geminiでの体験に反映されるまで日数がかかる場合があります。</span></li>
+            <li><strong>Keep Activityの状態を確認せず、連携アプリを増やす</strong><span>活動の扱いはKeep Activity設定にも関係します。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>連携は、必要な期間・必要なアプリだけにする</h3>
+          <p>資料探しや予定整理が必要な期間だけアプリを連携し、終われば切断と活動確認を行えば、Geminiの個人向け機能を目的に合わせて使えます。</p>
+          <ul class="positive-example-list"><li>旅行準備中だけ予定を連携する</li><li>作業終了後にDrive連携を外す</li><li>活動履歴を定期的に見直す</li><li>Keep Activityを用途に合わせて設定する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>連携を外すと、すべて片付いた気になりやすいです。でも接続の入口と、すでに残った活動は別の場所にあります。私は『もう使わない』と決めた時こそ、切断の次に活動履歴まで確認したいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Geminiの連携アプリは、切断後にGemini Apps Activityも別に削除する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/gemini/answer/16836988?hl=en-GB" target="_blank" rel="noopener noreferrer">About personalisation with Connected Apps<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Gemini Apps Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260916-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="FirefoxのAI機能は一括で止めても、必要な機能だけ戻せる FirefoxのAI機能を一括停止して必要分だけ戻す Mozillaは、Firefox 148以降のデスクトップ版で、生成AI機能を管理するAI Controlsを案内しています。設定の「Block AI enhancements」をオンにすると、現在および今後のFirefoxのAI機能と案内表示をまとめて止められ、必要な機能だけは個別にAvailableまたはEnabledへ戻せます。ただし、この設定で止まるのはFirefoxが提供するAIであり、拡張機能が独自に外部AIを使うことまでは止まりません。便利な機能を残しながら、何をブラウザに任せるかを自分で決める記事です。 セキュリティ・権限 はじめて Firefox AI Controls ブラウザAI 拡張機能 生成AI 権限 Firefoxに追加されるAI機能を自分で選びたい人 ブラウザのAIサイドバーや要約機能を必要な範囲だけ使いたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">firefox-ai-controls</span>
+              <div>
+                <p>FirefoxのAI機能を一括停止して必要分だけ戻す</p>
+                <h3>FirefoxのAI機能は一括で止めても、必要な機能だけ戻せる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-16">2026.09.16</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Mozillaは、Firefox 148以降のデスクトップ版で、生成AI機能を管理するAI Controlsを案内しています。設定の「Block AI enhancements」をオンにすると、現在および今後のFirefoxのAI機能と案内表示をまとめて止められ、必要な機能だけは個別にAvailableまたはEnabledへ戻せます。ただし、この設定で止まるのはFirefoxが提供するAIであり、拡張機能が独自に外部AIを使うことまでは止まりません。便利な機能を残しながら、何をブラウザに任せるかを自分で決める記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>FirefoxのAIは、まとめて止めてから必要な機能を選ぶ</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Firefoxに追加されるAI機能を自分で選びたい人</li><li>ブラウザのAIサイドバーや要約機能を必要な範囲だけ使いたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Firefox</li><li>AI Controls</li><li>ブラウザAI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260915-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Apple Intelligenceは端末完結と決めつけない。PCC Reportで外部処理を確認する Apple IntelligenceのPCC Reportで外部処理を確認する Appleは2026年9月14日更新の説明で、Apple Intelligenceの多くの処理は端末上で行う一方、端末だけでは計算能力が足りない依頼ではPrivate Cloud Compute（PCC）へ送る場合があると案内しています。iPhone、iPad、visionOSでは「設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」、Macでは「システム設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」から記録期間を選び、リクエスト後にファイルを出力できます。端末内処理という印象だけで判断せず、実際の外部処理を記録で確認する記事です。 セキュリティ・権限 標準 Apple Intelligence Private Cloud Compute PCC プライバシー 透明性ログ iPhone Mac Apple IntelligenceをiPhone、iPad、Macで使う人 生成AIの処理が端末外へ送られる場面を設定画面から確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">apple-intelligence-pcc-report</span>
+              <div>
+                <p>Apple IntelligenceのPCC Reportで外部処理を確認する</p>
+                <h3>Apple Intelligenceは端末完結と決めつけない。PCC Reportで外部処理を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-15">2026.09.15</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Appleは2026年9月14日更新の説明で、Apple Intelligenceの多くの処理は端末上で行う一方、端末だけでは計算能力が足りない依頼ではPrivate Cloud Compute（PCC）へ送る場合があると案内しています。iPhone、iPad、visionOSでは「設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」、Macでは「システム設定 &gt; プライバシーとセキュリティ &gt; Apple Intelligence &amp; PCC Report」から記録期間を選び、リクエスト後にファイルを出力できます。端末内処理という印象だけで判断せず、実際の外部処理を記録で確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Apple Intelligenceの端末外処理は、PCC Reportを設定して確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Apple IntelligenceをiPhone、iPad、Macで使う人</li><li>生成AIの処理が端末外へ送られる場面を設定画面から確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>Private Cloud Compute</li><li>PCC</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260914-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Apple IntelligenceでChatGPTに渡す時は、アカウント接続の有無を分けて決める AppleのChatGPT連携はアカウント接続の有無を確認する Appleは、Apple IntelligenceのChatGPT拡張機能を初期状態ではオフにしており、Siri、作文ツール、ビジュアルインテリジェンスなどで使う際に、送信する内容を利用者が選べると案内しています。ChatGPTアカウントを接続せずに使う場合、Apple Accountに結び付く情報はOpenAIへ送られず、OpenAIは依頼を処理する目的以外に情報や応答を保存・モデル学習に使わないとAppleは説明します。一方、ChatGPTアカウントでサインインした場合は、そのアカウントの設定とデータプライバシー方針が適用されます。便利な連携を使う前に、拡張機能のオン・オフだけでなく、アカウント接続の状態を確認する記事です。 セキュリティ・権限 標準 Apple Intelligence ChatGPT Siri 作文ツール アカウント接続 プライバシー iPhone、iPad、MacのApple IntelligenceからChatGPTを使う人 Siriや作文ツールに文書・写真を扱わせる前に、データの扱いを確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">apple-chatgpt-account-state</span>
+              <div>
+                <p>AppleのChatGPT連携はアカウント接続の有無を確認する</p>
+                <h3>Apple IntelligenceでChatGPTに渡す時は、アカウント接続の有無を分けて決める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-14">2026.09.14</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Appleは、Apple IntelligenceのChatGPT拡張機能を初期状態ではオフにしており、Siri、作文ツール、ビジュアルインテリジェンスなどで使う際に、送信する内容を利用者が選べると案内しています。ChatGPTアカウントを接続せずに使う場合、Apple Accountに結び付く情報はOpenAIへ送られず、OpenAIは依頼を処理する目的以外に情報や応答を保存・モデル学習に使わないとAppleは説明します。一方、ChatGPTアカウントでサインインした場合は、そのアカウントの設定とデータプライバシー方針が適用されます。便利な連携を使う前に、拡張機能のオン・オフだけでなく、アカウント接続の状態を確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AppleのChatGPT連携は、送る内容とアカウント接続の状態をセットで確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhone、iPad、MacのApple IntelligenceからChatGPTを使う人</li><li>Siriや作文ツールに文書・写真を扱わせる前に、データの扱いを確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>ChatGPT</li><li>Siri</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260916-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260917-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

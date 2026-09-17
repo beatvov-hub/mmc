@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI画像を「検査できない＝本物」としない。Content Credentialsを確認する場所｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Adobe Content AuthenticityのInspectは、Content Credentialsに記録された作成者、作成方法、生成AIの利用有無などを確認するための検査ツールです。手元のファイルまたは公開URLを使って記録を確認できます。ただし、記録が見つからないことは画像が実写・無加工・真実である証明ではありません。来歴の記録がある時はその内容を読み、ない時は投稿元・撮影時期・一次情報を別に確かめる記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260917-02" />
+<meta property="og:title" content="AI画像を「検査できない＝本物」としない。Content Credentialsを確認する場所｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Adobe Content AuthenticityのInspectは、Content Credentialsに記録された作成者、作成方法、生成AIの利用有無などを確認するための検査ツールです。手元のファイルまたは公開URLを使って記録を確認できます。ただし、記録が見つからないことは画像が実写・無加工・真実である証明ではありません。来歴の記録がある時はその内容を読み、ない時は投稿元・撮影時期・一次情報を別に確かめる記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260917-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>AI画像はContent Credentialsを検査して来歴を確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+              <time datetime="2026-09-17">2026.09.17</time>
+            </div>
+            <h1>AI画像を「検査できない＝本物」としない。Content Credentialsを確認する場所</h1>
+            <p>Adobe Content AuthenticityのInspectは、Content Credentialsに記録された作成者、作成方法、生成AIの利用有無などを確認するための検査ツールです。手元のファイルまたは公開URLを使って記録を確認できます。ただし、記録が見つからないことは画像が実写・無加工・真実である証明ではありません。来歴の記録がある時はその内容を読み、ない時は投稿元・撮影時期・一次情報を別に確かめる記事です。</p>
+            <ul class="forensics-target-list"><li>AI生成・編集された画像の来歴を確認したい人</li><li>SNSやメッセージで受け取った画像を判断材料にする人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Content Credentials</li><li>Adobe</li><li>AI画像</li><li>来歴</li><li>生成AI</li><li>画像検証</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>Content Credentialsは、画像の来歴を読む手掛かりとして使う</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>記録があれば作成方法を読み、記録がなくても投稿元・一次情報を別に確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>SNSで広まる画像がAI生成・編集されたものか、できる範囲で確認したい</h3><p>画像には出典の説明がなく、生成AIを使ったという表示もありません。共有する前にファイルの来歴を確認したい一方、検査結果が出ない場合に何を意味するのかも知りたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Content Credentialsは、残されていれば画像の作成・編集に関する有用な手掛かりです。しかし記録の有無だけで、画像の内容や出来事の真実性まで判定することはできません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="read-and-verify">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>受け取った画像をContent Credentialsで確認した後、適切な判断は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="read-and-verify" data-choice-id="read-and-verify" />
+                <span>
+                  <strong>記録があれば作成方法を読み、記録がない時も投稿元や一次情報を別に確認する</strong>
+                  <small>記録は来歴の手掛かりであり、真偽を単独で保証するものではありません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="no-record-means-real" data-choice-id="no-record-means-real" />
+                <span>
+                  <strong>記録が表示されなければ、実写で内容も真実だと決める</strong>
+                  <small>記録がないことは、実在性や内容の正確さの証明ではありません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="credential-means-true" data-choice-id="credential-means-true" />
+                <span>
+                  <strong>記録が表示された画像なら、出来事の説明まで必ず正しいと判断する</strong>
+                  <small>記録は作成・編集に関する情報で、説明文や出来事の真偽とは別です。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>記録があれば作成方法を読み、記録がない時も投稿元や一次情報を別に確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Inspectで記録を確認しつつ、画像が示す出来事や商品・場所については投稿元や公式情報を確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Inspectを開く</h3>
+              <p>Adobe Content AuthenticityのInspectタブからファイルを選びます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>確認できる情報</h3>
+              <p>Content Credentialsは作成者、作成方法、生成AIの利用有無などを示し得ます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>確認する対象</h3>
+              <p>Inspectでは手元のファイルに加え、公開されCORSを許可するURLのコンテンツも確認できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>記録がない場合</h3>
+              <p>記録が見つからないことを、実写や真実性の証明にしません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Content Credentialsは有用な来歴情報だが、画像内容の真偽判定印ではない</strong><p>記録が残る画像では、生成AIや編集の利用を知る手掛かりになります。一方、記録がない画像を本物と決めつけず、重要な判断では元投稿、撮影者、公式発表を確認します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Adobe Content AuthenticityのInspectでファイルを選択する</strong><span>手元のファイルのContent Credentialsを確認できます。</span></li>
+            <li><strong>作成者・作成方法・生成AI利用の記録を読む</strong><span>Content Credentialsが示し得る来歴情報です。</span></li>
+            <li><strong>記録がない画像は投稿元・公式情報を確認する</strong><span>記録の不在は内容の真偽を保証しません。</span></li>
+            <li><strong>検査結果と画像の説明文を別に扱う</strong><span>来歴情報と、出来事の説明が正しいかは別問題です。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>検査できないことを実写・無加工の証明にする</strong><span>記録がないことだけでは画像の来歴を断定できません。</span></li>
+            <li><strong>Content Credentialsがあるだけで説明文まで真実と考える</strong><span>記録は作成・編集に関する情報で、出来事の真偽を保証しません。</span></li>
+            <li><strong>重要な画像を出典確認なしに再共有する</strong><span>画像の作られ方と、示す情報の正確さを分けて確かめます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>画像の来歴を確かめ、共有の前に立ち止まる</h3>
+          <p>来歴情報を読む習慣があれば、AI画像を一律に怖がるのではなく、創作・広告・報道らしき画像を目的に応じて落ち着いて扱えます。</p>
+          <ul class="positive-example-list"><li>共有前に画像の来歴を確認する</li><li>投稿元のプロフィールを確認する</li><li>公式発表を探す</li><li>画像をアイデアと事実確認に分けて使う</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>来歴が見えると少し安心しますが、私はそれを『真実のスタンプ』にはしたくありません。画像がどう作られたかを知り、次にどの情報を確かめるか決める。そんな使い方なら、検査の結果を判断の助けにできます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Content Credentialsは、画像の真偽を決める印ではなく、来歴を読む手掛かりにする。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://opensource.contentauthenticity.org/docs/getting-started/inspect/" target="_blank" rel="noopener noreferrer">Using the inspect tool on Adobe Content Authenticity (Beta)<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Content Authenticity Initiative</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260916-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="FirefoxのAI機能は一括で止めても、必要な機能だけ戻せる FirefoxのAI機能を一括停止して必要分だけ戻す Mozillaは、Firefox 148以降のデスクトップ版で、生成AI機能を管理するAI Controlsを案内しています。設定の「Block AI enhancements」をオンにすると、現在および今後のFirefoxのAI機能と案内表示をまとめて止められ、必要な機能だけは個別にAvailableまたはEnabledへ戻せます。ただし、この設定で止まるのはFirefoxが提供するAIであり、拡張機能が独自に外部AIを使うことまでは止まりません。便利な機能を残しながら、何をブラウザに任せるかを自分で決める記事です。 セキュリティ・権限 はじめて Firefox AI Controls ブラウザAI 拡張機能 生成AI 権限 Firefoxに追加されるAI機能を自分で選びたい人 ブラウザのAIサイドバーや要約機能を必要な範囲だけ使いたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">firefox-ai-controls</span>
+              <div>
+                <p>FirefoxのAI機能を一括停止して必要分だけ戻す</p>
+                <h3>FirefoxのAI機能は一括で止めても、必要な機能だけ戻せる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-16">2026.09.16</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Mozillaは、Firefox 148以降のデスクトップ版で、生成AI機能を管理するAI Controlsを案内しています。設定の「Block AI enhancements」をオンにすると、現在および今後のFirefoxのAI機能と案内表示をまとめて止められ、必要な機能だけは個別にAvailableまたはEnabledへ戻せます。ただし、この設定で止まるのはFirefoxが提供するAIであり、拡張機能が独自に外部AIを使うことまでは止まりません。便利な機能を残しながら、何をブラウザに任せるかを自分で決める記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>FirefoxのAIは、まとめて止めてから必要な機能を選ぶ</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Firefoxに追加されるAI機能を自分で選びたい人</li><li>ブラウザのAIサイドバーや要約機能を必要な範囲だけ使いたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Firefox</li><li>AI Controls</li><li>ブラウザAI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260915-01" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="PinterestのAIラベルは「本物判定」ではない。表示位置とおすすめ調整を知る PinterestのAIラベルとおすすめ調整を確認する Pinterestは、2026年9月時点で、画像PinがAIで生成・改変された可能性を示すGen AIラベルを、投稿者の申告、IPTCメタデータ、独自の検出によって表示すると案内しています。通常の画像Pinでは詳細表示の左下、広告では「…」メニューから表示を確認できます。また、設定で特定カテゴリのAIコンテンツをフィードに表示する量を減らせます。ラベルを絶対的な真偽判定に使うのではなく、出どころや商品・健康情報を確かめる前に、画像の作られ方を知る文脈として扱う記事です。 情報の見極め はじめて Pinterest AIラベル 生成AI画像 IPTC おすすめ メディアリテラシー Pinterestで画像や商品を探す人 AIで作られた画像を見分ける手掛かりと、表示を減らす設定を知りたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">pinterest-ai-label-controls</span>
+              <div>
+                <p>PinterestのAIラベルとおすすめ調整を確認する</p>
+                <h3>PinterestのAIラベルは「本物判定」ではない。表示位置とおすすめ調整を知る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-15">2026.09.15</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Pinterestは、2026年9月時点で、画像PinがAIで生成・改変された可能性を示すGen AIラベルを、投稿者の申告、IPTCメタデータ、独自の検出によって表示すると案内しています。通常の画像Pinでは詳細表示の左下、広告では「…」メニューから表示を確認できます。また、設定で特定カテゴリのAIコンテンツをフィードに表示する量を減らせます。ラベルを絶対的な真偽判定に使うのではなく、出どころや商品・健康情報を確かめる前に、画像の作られ方を知る文脈として扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>PinterestのAIラベルは、画像の作られ方を読むための手掛かりとして使う</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Pinterestで画像や商品を探す人</li><li>AIで作られた画像を見分ける手掛かりと、表示を減らす設定を知りたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Pinterest</li><li>AIラベル</li><li>生成AI画像</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260914-02" data-forensics-card data-category="media-literacy" data-level="4" data-difficulty="standard" data-search-text="YouTubeのAIなりすましは、ラベル確認で終わらせない。本人の削除申立てへ進む条件 YouTubeのAIなりすましは本人の削除申立て条件を確認する YouTubeは、AIで作成・改変され、自分の外見や声に見える・聞こえるコンテンツについて、Privacy Complaint Processを通じた削除申立てを案内しています。削除の検討対象になるには、現実的に改変・合成された本人の肖像であることが必要で、本人または法定代理人が申し立てます。YouTubeは、AI生成・改変か、視聴者への表示、本人を特定できるか、現実的か、パロディー・風刺・公益性があるかなどを考慮します。AIラベルの有無を眺めるだけで終わらせず、被害を受けた本人が行える手続きと条件を整理する記事です。 情報の見極め 標準 YouTube AIなりすまし ディープフェイク 肖像 音声 削除申立て 自分の顔や声を模したAI動画をYouTubeで見つけた人 家族や所属組織になりすます動画への対応を知りたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">youtube-ai-likeness-removal</span>
+              <div>
+                <p>YouTubeのAIなりすましは本人の削除申立て条件を確認する</p>
+                <h3>YouTubeのAIなりすましは、ラベル確認で終わらせない。本人の削除申立てへ進む条件</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-14">2026.09.14</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeは、AIで作成・改変され、自分の外見や声に見える・聞こえるコンテンツについて、Privacy Complaint Processを通じた削除申立てを案内しています。削除の検討対象になるには、現実的に改変・合成された本人の肖像であることが必要で、本人または法定代理人が申し立てます。YouTubeは、AI生成・改変か、視聴者への表示、本人を特定できるか、現実的か、パロディー・風刺・公益性があるかなどを考慮します。AIラベルの有無を眺めるだけで終わらせず、被害を受けた本人が行える手続きと条件を整理する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AIなりすまし動画は、本人の削除申立て条件を確認して対応する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>自分の顔や声を模したAI動画をYouTubeで見つけた人</li><li>家族や所属組織になりすます動画への対応を知りたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube</li><li>AIなりすまし</li><li>ディープフェイク</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260917-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260917-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
