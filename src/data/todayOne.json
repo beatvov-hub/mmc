@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-18T07:31:43+09:00",
+  "updatedAt": "2026-09-19T07:30:54+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -454,6 +454,27 @@
       "license": "GNU General Public License v2.0",
       "notes": "活用例は公式ガイドに基づく想定で、実機検証は未実施です。",
       "verifiedAt": "2026-09-18",
+      "status": "published"
+    },
+    {
+      "date": "2026-09-19",
+      "slug": "pandoc",
+      "name": "Pandoc",
+      "category": "OSS",
+      "officialUrl": "https://pandoc.org/",
+      "summary": "Markdownなどの原稿をHTMLやWord文書など別の形式へ変換し、読む人に渡す前の見え方を確認しやすくする無料の文書変換ツールです。",
+      "whyToday": "AIに原稿のたたき台を作らせると、内容を直す前に「見出し・箇条書き・リンクが読む形になっているか」を確かめたい場面があります。PandocはMarkdownを単体のHTMLへ変換できるため、公開用の実装へ混ぜる前に、原稿だけの構造をブラウザで見直せます。",
+      "useFor": "例えば、AIと作った記事の構成案を編集へ渡す前に、Markdown原稿1本を読む形で確認する場面に。公開してよい内容だけをbrief.mdへ保存し、ターミナルで「pandoc brief.md -f markdown -t html -s -o brief.html」を実行します。生成されたbrief.htmlをブラウザで開き、見出しの順番、箇条書き、リンクが意図どおりに読めるかを確認します。成果物は、編集可能なbrief.mdと確認用のbrief.htmlです。最初は見出し三つと短い本文だけで試し、HTMLの見た目と本文の意図がずれていないかを直してから実装へ渡します。",
+      "recommendedFor": {
+        "employeeId": "MMC-008",
+        "reason": "AI開発推進主任のアキトに、実装前のMarkdown原稿1本をHTMLプレビューへ変換する役を任せたいです。元原稿と確認用HTMLを受け取れれば、Codexへ渡す本文の構造と画面へ載せる前の意図を分けて確認できます。"
+      },
+      "keiComment": "原稿をそのままコードへ貼るより、一度読むためだけのHTMLにすると、見出しの飛び方やリンクの多さに気づきやすいですね。きれいな装飾を足す前に、本文だけでちゃんと読めるかを見たいです。",
+      "pricing": "PandocはGPL v2以降で公開されているOSSで、無償で利用できます。この例のMarkdownからHTMLへのローカル変換に、Pandoc自体の利用料はかかりません。",
+      "conditions": "Pandocのローカル導入と、入力するMarkdownファイルが必要です。未確認のHTMLや外部リソースを含む原稿はそのまま変換・公開せず、生成物をローカルで確認してから扱います。PDF出力には別途PDFエンジンが必要になる場合があります。",
+      "license": "GNU General Public License v2.0 or later",
+      "notes": "活用例は公式ガイドに基づく想定で、実機検証は未実施です。",
+      "verifiedAt": "2026-09-19",
       "status": "published"
     }
   ]
