@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zoomの字幕と文字起こしは別物。残すなら保存・削除・閲覧権限を設定する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Zoomは2026年5月、会議中に読むための字幕と、会議後に保持する発話記録である文字起こしを分ける変更を案内しました。字幕は会議後に保存・ダウンロードできず、発話記録を残すにはMeeting transcriptを主催者または管理者が明示的に有効にする必要があります。新しいMeeting transcript設定では、自動生成の対象、削除までの日数、会議後に主催者が閲覧・削除・ダウンロードできるか、参加者の閲覧・保存範囲を設定できます。会議中の利便性と会議後の保存を混同せず、保持ルールを設定する記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260918-04" />
+<meta property="og:title" content="Zoomの字幕と文字起こしは別物。残すなら保存・削除・閲覧権限を設定する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Zoomは2026年5月、会議中に読むための字幕と、会議後に保持する発話記録である文字起こしを分ける変更を案内しました。字幕は会議後に保存・ダウンロードできず、発話記録を残すにはMeeting transcriptを主催者または管理者が明示的に有効にする必要があります。新しいMeeting transcript設定では、自動生成の対象、削除までの日数、会議後に主催者が閲覧・削除・ダウンロードできるか、参加者の閲覧・保存範囲を設定できます。会議中の利便性と会議後の保存を混同せず、保持ルールを設定する記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260918-04" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Zoomは字幕と保存用文字起こしを分けて管理する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-18">2026.09.18</time>
+            </div>
+            <h1>Zoomの字幕と文字起こしは別物。残すなら保存・削除・閲覧権限を設定する</h1>
+            <p>Zoomは2026年5月、会議中に読むための字幕と、会議後に保持する発話記録である文字起こしを分ける変更を案内しました。字幕は会議後に保存・ダウンロードできず、発話記録を残すにはMeeting transcriptを主催者または管理者が明示的に有効にする必要があります。新しいMeeting transcript設定では、自動生成の対象、削除までの日数、会議後に主催者が閲覧・削除・ダウンロードできるか、参加者の閲覧・保存範囲を設定できます。会議中の利便性と会議後の保存を混同せず、保持ルールを設定する記事です。</p>
+            <ul class="forensics-target-list"><li>Zoom会議の記録を管理する主催者・管理者</li><li>AI要約や文字起こしを使う組織の利用者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Zoom</li><li>文字起こし</li><li>字幕</li><li>会議記録</li><li>データ保持</li><li>AI Companion</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>Zoomの保存用文字起こしは、生成・削除・閲覧・保存を別々に設定する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>字幕が必要か、会議後の記録も必要かを分け、文字起こしを残す場合は保持日数と保存者を確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>会議中は字幕を使いたいが、会議後に誰が発話記録を持てるかは制限したい</h3><p>アクセシビリティのために会議中の字幕は必要です。一方で、会議後の記録を全員がダウンロードできる状態にはしたくありません。設定変更後、何を有効にし、どこで保持期間と閲覧者を決めるか確認したい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>画面上の字幕を使うことと、会議後に発話データを残すことは別の判断です。文字起こしを有効にするなら、生成する会議、削除時期、閲覧・保存できる人まで一緒に決める必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="enable-and-configure">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Zoomで会議後にも発話記録を残しつつ、保存範囲を管理したい時は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="enable-and-configure" data-choice-id="enable-and-configure" />
+                <span>
+                  <strong>Meeting transcriptを有効にし、削除日数と閲覧・保存できる人を設定する</strong>
+                  <small>保存用文字起こしは明示的な設定と権限管理が必要です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="save-captions" data-choice-id="save-captions" />
+                <span>
+                  <strong>会議中の字幕を会議後に保存すればよいと考える</strong>
+                  <small>字幕は会議後に保存・ダウンロードできないと案内されています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-default" data-choice-id="assume-default" />
+                <span>
+                  <strong>文字起こしは初期状態で常に有効だと考える</strong>
+                  <small>主催者または管理者が明示的に有効にする必要があります。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Meeting transcriptを有効にし、削除日数と閲覧・保存できる人を設定する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>字幕は会議中のアクセシビリティ、文字起こしは保存用記録として扱い、Meeting transcriptで保持と権限を設定します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>字幕と文字起こしの目的</h3>
+              <p>字幕は会議中の読みやすさ、文字起こしは会議内容を保持する記録です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>有効化の状態</h3>
+              <p>保存用の文字起こしは初期状態で有効ではなく、主催者または管理者がオンにします。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>削除時期</h3>
+              <p>Meeting transcriptでは、指定した日数後に自動削除する設定を選べます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>閲覧・保存の範囲</h3>
+              <p>主催者の会議後管理、参加者の会議中閲覧、端末への保存を許可する範囲を設定できます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Zoomの字幕は会議中の機能、文字起こしは保持と権限を要する会議記録</strong><p>字幕を有効にしても会議後の保存記録にはなりません。会議記録を残す組織は、Meeting transcriptを有効にしたうえで、削除日数と主催者・参加者の閲覧・ダウンロード範囲を設定します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>会議後の記録が必要な時だけMeeting transcriptを有効にする</strong><span>保存用文字起こしは明示的にオンにする必要があります。</span></li>
+            <li><strong>自動削除までの日数を設定する</strong><span>不要な文字起こしを指定日数後に削除する選択肢があります。</span></li>
+            <li><strong>閲覧・保存できる参加者の範囲を確認する</strong><span>主催者、共同主催者、外部参加者などで保存許可を管理できます。</span></li>
+            <li><strong>字幕だけで足りる会議は記録を残す必要があるか検討する</strong><span>字幕と保存用文字起こしは別機能です。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>字幕を会議後にも保存できる記録だと考える</strong><span>字幕は会議後に保存・ダウンロードできません。</span></li>
+            <li><strong>文字起こしを初期状態で常に有効だと考える</strong><span>主催者または管理者による明示的な有効化が必要です。</span></li>
+            <li><strong>記録を残してから保存者や削除時期を考える</strong><span>生成と同時に保持・閲覧・ダウンロードの設定を確認できます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>アクセシビリティと会議記録を、目的に合わせて両立する</h3>
+          <p>会議中に内容を追うためには字幕を使い、合意事項を残す必要がある会議だけ文字起こしを有効にすれば、参加しやすさと情報管理を目的別に整えられます。</p>
+          <ul class="positive-example-list"><li>会議中の字幕をアクセシビリティに使う</li><li>重要会議だけ文字起こしを残す</li><li>記録を期限付きで自動削除する</li><li>保存できる人を必要な範囲に絞る</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>字幕が見えていると、記録も残っているように感じます。でもZoomでは会議中に読むことと、後から発話を持ち出せることは別です。私は『残す』を選ぶ時ほど、いつ消すか、誰が持てるかを先に決めたいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Zoomは字幕と保存用文字起こしを分け、記録には削除日数と閲覧範囲を設定する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.zoom.com/hc/en/article/KB0085668" target="_blank" rel="noopener noreferrer">Frequently asked questions about meeting captions and transcript updates (May 2026)<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Zoom Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260918-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Slack AIに読ませない場所を決める。チャンネル・Canvas・リストの制限設定 Slack AIの読取対象をチャンネルごとに制限する SlackはEnterprise+組織向けに、検索回答、Canvasの内容、Slackbotの応答を作るためのAIの読取対象から、特定のチャンネル、Canvas、リストを外す設定を案内しています。チャンネルでは組織設定から「Restrict AI use」を選び、Canvas／リストでは共有の詳細設定で「Allow AI use」を外します。ただし、これはAIの読取を制限する設定であり、メンバーが制限済みチャンネルへSlackbotで投稿することまで止めるものではありません。情報を置く場所とAIが参照する場所を分けるための記事です。 セキュリティ・権限 標準 Slack Slack AI AI検索 Canvas 情報管理 権限 Slack Enterprise+でAI機能を運用する管理者 機密プロジェクトの会話をAI検索の対象から外したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">slack-ai-access-control</span>
+              <div>
+                <p>Slack AIの読取対象をチャンネルごとに制限する</p>
+                <h3>Slack AIに読ませない場所を決める。チャンネル・Canvas・リストの制限設定</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-18">2026.09.18</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">SlackはEnterprise+組織向けに、検索回答、Canvasの内容、Slackbotの応答を作るためのAIの読取対象から、特定のチャンネル、Canvas、リストを外す設定を案内しています。チャンネルでは組織設定から「Restrict AI use」を選び、Canvas／リストでは共有の詳細設定で「Allow AI use」を外します。ただし、これはAIの読取を制限する設定であり、メンバーが制限済みチャンネルへSlackbotで投稿することまで止めるものではありません。情報を置く場所とAIが参照する場所を分けるための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>SlackのAI読取対象は、会話とコンテンツごとに制限できる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Slack Enterprise+でAI機能を運用する管理者</li><li>機密プロジェクトの会話をAI検索の対象から外したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Slack</li><li>Slack AI</li><li>AI検索</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260917-01" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="ZoomのAI議事録は「停止」だけで終わらせない。要約・文字起こしを分けて削除する ZoomのAI議事録は停止後の要約・文字起こしも確認する Zoomは、AI CompanionのMeeting Summaryが会議の音声を文字にしたデータを参照して要約を作ると案内しています。主催者は会議中に機能を停止でき、その際には関連する要約・文字起こしを削除する選択肢を選べます。終了後も主催者はSummaries画面から要約を共有・編集・削除できますが、共有された要約はメールやZoom Chatで参加者へ届き、受信者は保存・再共有できます。会議中の停止と、会議後の生成物・共有範囲の確認を分ける記事です。 仕事・AI活用 標準 Zoom AI Companion 議事録 会議要約 文字起こし 共有 Zoom AI Companionで会議要約を使う主催者 会議の文字起こしや要約の共有範囲を管理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">zoom-ai-summary-assets</span>
+              <div>
+                <p>ZoomのAI議事録は停止後の要約・文字起こしも確認する</p>
+                <h3>ZoomのAI議事録は「停止」だけで終わらせない。要約・文字起こしを分けて削除する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-17">2026.09.17</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Zoomは、AI CompanionのMeeting Summaryが会議の音声を文字にしたデータを参照して要約を作ると案内しています。主催者は会議中に機能を停止でき、その際には関連する要約・文字起こしを削除する選択肢を選べます。終了後も主催者はSummaries画面から要約を共有・編集・削除できますが、共有された要約はメールやZoom Chatで参加者へ届き、受信者は保存・再共有できます。会議中の停止と、会議後の生成物・共有範囲の確認を分ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>ZoomのAI議事録は、停止時と終了後に生成物・共有範囲を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Zoom AI Companionで会議要約を使う主催者</li><li>会議の文字起こしや要約の共有範囲を管理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Zoom</li><li>AI Companion</li><li>議事録</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260917-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Geminiの連携アプリは、切断と活動削除を別々に行う Geminiの連携アプリは切断後に活動も削除する Googleは、GeminiのPersonal IntelligenceでGoogle Photos、YouTube、Workspace、検索サービスなどを連携でき、メール、ファイル、写真、位置情報などが個人向けの応答に使われ得ると案内しています。連携アプリを切断したり連携元でデータを消したりしても、Gemini Apps Activityからは自動削除されません。Keep Activityがオンなら、連携アプリ由来の情報を含む活動はGoogleサービス改善・生成AIモデルの改善に使われ得ます。連携を止める操作と、残った活動を削除する操作を分ける記事です。 セキュリティ・権限 標準 Gemini Connected Apps Personal Intelligence Gemini Apps Activity Gmail Google Drive GeminiへGmail、Google Photos、Workspaceなどを連携する人 連携を外した後のGemini Apps Activityを確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gemini-connected-apps-activity</span>
+              <div>
+                <p>Geminiの連携アプリは切断後に活動も削除する</p>
+                <h3>Geminiの連携アプリは、切断と活動削除を別々に行う</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-17">2026.09.17</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは、GeminiのPersonal IntelligenceでGoogle Photos、YouTube、Workspace、検索サービスなどを連携でき、メール、ファイル、写真、位置情報などが個人向けの応答に使われ得ると案内しています。連携アプリを切断したり連携元でデータを消したりしても、Gemini Apps Activityからは自動削除されません。Keep Activityがオンなら、連携アプリ由来の情報を含む活動はGoogleサービス改善・生成AIモデルの改善に使われ得ます。連携を止める操作と、残った活動を削除する操作を分ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Gemini連携は、切断・活動削除・Keep Activityを別々に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>GeminiへGmail、Google Photos、Workspaceなどを連携する人</li><li>連携を外した後のGemini Apps Activityを確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>Connected Apps</li><li>Personal Intelligence</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260917-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260918-03">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

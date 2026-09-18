@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Slack AIに読ませない場所を決める。チャンネル・Canvas・リストの制限設定｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="SlackはEnterprise+組織向けに、検索回答、Canvasの内容、Slackbotの応答を作るためのAIの読取対象から、特定のチャンネル、Canvas、リストを外す設定を案内しています。チャンネルでは組織設定から「Restrict AI use」を選び、Canvas／リストでは共有の詳細設定で「Allow AI use」を外します。ただし、これはAIの読取を制限する設定であり、メンバーが制限済みチャンネルへSlackbotで投稿することまで止めるものではありません。情報を置く場所とAIが参照する場所を分けるための記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260918-01" />
+<meta property="og:title" content="Slack AIに読ませない場所を決める。チャンネル・Canvas・リストの制限設定｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="SlackはEnterprise+組織向けに、検索回答、Canvasの内容、Slackbotの応答を作るためのAIの読取対象から、特定のチャンネル、Canvas、リストを外す設定を案内しています。チャンネルでは組織設定から「Restrict AI use」を選び、Canvas／リストでは共有の詳細設定で「Allow AI use」を外します。ただし、これはAIの読取を制限する設定であり、メンバーが制限済みチャンネルへSlackbotで投稿することまで止めるものではありません。情報を置く場所とAIが参照する場所を分けるための記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260918-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Slack AIの読取対象をチャンネルごとに制限する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-18">2026.09.18</time>
+            </div>
+            <h1>Slack AIに読ませない場所を決める。チャンネル・Canvas・リストの制限設定</h1>
+            <p>SlackはEnterprise+組織向けに、検索回答、Canvasの内容、Slackbotの応答を作るためのAIの読取対象から、特定のチャンネル、Canvas、リストを外す設定を案内しています。チャンネルでは組織設定から「Restrict AI use」を選び、Canvas／リストでは共有の詳細設定で「Allow AI use」を外します。ただし、これはAIの読取を制限する設定であり、メンバーが制限済みチャンネルへSlackbotで投稿することまで止めるものではありません。情報を置く場所とAIが参照する場所を分けるための記事です。</p>
+            <ul class="forensics-target-list"><li>Slack Enterprise+でAI機能を運用する管理者</li><li>機密プロジェクトの会話をAI検索の対象から外したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Slack</li><li>Slack AI</li><li>AI検索</li><li>Canvas</li><li>情報管理</li><li>権限</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>SlackのAI読取対象は、会話とコンテンツごとに制限できる</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>機微な情報はチャンネルだけでなく、関連するCanvas・リストのAI利用設定も確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>人事・法務案件のチャンネルを、Slack AIの回答対象から外したい</h3><p>社内ではSlackのAI検索や要約を利用していますが、人事相談や取引先との交渉を扱うチャンネルまで、回答の根拠として参照させる必要はありません。投稿権限を変えずに、AIの読取対象だけを狭めたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>チャンネルへの参加可否、投稿可否、AIが回答作成時に読む可否は同じ設定ではありません。制限の効果と残る操作を分けて理解すれば、必要な会話だけをAI活用の対象にできます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="restrict-and-review">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>機微なSlackチャンネルをAIの回答対象から外す時、適切な理解は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="restrict-and-review" data-choice-id="restrict-and-review" />
+                <span>
+                  <strong>Restrict AI useを設定し、投稿可否とは別にAIの読取対象を管理する</strong>
+                  <small>この設定はAIの読取を制限します。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-posting-blocked" data-choice-id="assume-posting-blocked" />
+                <span>
+                  <strong>制限すればSlackbotを使った投稿も自動的に止まると考える</strong>
+                  <small>Slackは投稿やCanvas・リストへの追加は可能だと案内しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ignore-canvas" data-choice-id="ignore-canvas" />
+                <span>
+                  <strong>チャンネルだけ設定すれば、関連Canvasやリストも自動的に対象外になると考える</strong>
+                  <small>Canvasとリストは共有の詳細設定で個別に管理します。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Restrict AI useを設定し、投稿可否とは別にAIの読取対象を管理する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>AI読取の制限を設定した後も、チャンネルへの投稿や、別に存在するCanvas・リストの設定を分けて確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象の切り分け</h3>
+              <p>AI回答の根拠にしてよい会話と、対象外にすべき会話をチャンネル単位で整理します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>チャンネルの設定</h3>
+              <p>組織設定のChannelsから対象チャンネルを選び、Restrict AI useを確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Canvas・リストの設定</h3>
+              <p>CanvasまたはリストではShareからAdvanced Settingsを開き、Allow AI useを確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>制限の範囲</h3>
+              <p>これはAIの読取制限であり、メンバーによるSlackbot投稿や内容追加を禁止する設定ではありません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Slack AIの制限は、投稿権限ではなく回答作成時の読取対象を狭める操作</strong><p>機密チャンネルをAI検索やSlackbotの回答根拠から外すには、対象チャンネルでRestrict AI useを設定します。Canvas・リストは別設定であり、制限後も投稿自体は可能なため、運用ルールも合わせて確認します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>機微なチャンネルでRestrict AI useを設定する</strong><span>AIによるチャンネル内容の読取を制限できます。</span></li>
+            <li><strong>関連Canvas・リストのAllow AI useを確認する</strong><span>Canvasとリストは個別にAI利用を許可・制限します。</span></li>
+            <li><strong>制限を変更できる役割を見直す</strong><span>組織・ワークスペース管理者への権限付与を管理できます。</span></li>
+            <li><strong>投稿ルールを別に周知する</strong><span>AI読取制限はメンバーの投稿操作を停止しません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AI制限を投稿禁止の設定だと誤解する</strong><span>Slackbotによる投稿やCanvas・リストへの追加は引き続き可能です。</span></li>
+            <li><strong>チャンネル設定だけでCanvasも対象外になると決めつける</strong><span>Canvas・リストには共有の詳細設定があります。</span></li>
+            <li><strong>機密情報を置く場所を無差別にAI対象へ残す</strong><span>回答の根拠に使う必要がある場所だけを許可する運用ができます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>参照範囲を絞り、必要な場所ではAI検索を生かす</h3>
+          <p>公開性の高いプロジェクトチャンネルではAI検索を使い、機微な案件では読取対象を外せば、情報管理と検索性を両立しやすくなります。</p>
+          <ul class="positive-example-list"><li>人事案件のチャンネルを対象外にする</li><li>案件CanvasのAI利用を個別に決める</li><li>権限を持つ管理者を限定する</li><li>公開チャンネルでは検索回答を活用する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIに読ませない設定は、会話を消す操作ではありません。だから私は、制限後に『ここでは何ができるままか』も一緒に確認します。投稿ルールと読取範囲を混同しないことが、社内の安心感につながります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>SlackのAI制限は、投稿権限とは別に、回答作成時の読取対象を絞る設定。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://slack.com/help/articles/47421816860947-Restrict-AI-access-to-certain-channels-canvases-and-lists" target="_blank" rel="noopener noreferrer">Restrict AI access to certain channels, canvases, and lists<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Slack</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260918-04" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Zoomの字幕と文字起こしは別物。残すなら保存・削除・閲覧権限を設定する Zoomは字幕と保存用文字起こしを分けて管理する Zoomは2026年5月、会議中に読むための字幕と、会議後に保持する発話記録である文字起こしを分ける変更を案内しました。字幕は会議後に保存・ダウンロードできず、発話記録を残すにはMeeting transcriptを主催者または管理者が明示的に有効にする必要があります。新しいMeeting transcript設定では、自動生成の対象、削除までの日数、会議後に主催者が閲覧・削除・ダウンロードできるか、参加者の閲覧・保存範囲を設定できます。会議中の利便性と会議後の保存を混同せず、保持ルールを設定する記事です。 セキュリティ・権限 標準 Zoom 文字起こし 字幕 会議記録 データ保持 AI Companion Zoom会議の記録を管理する主催者・管理者 AI要約や文字起こしを使う組織の利用者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">zoom-transcript-retention</span>
+              <div>
+                <p>Zoomは字幕と保存用文字起こしを分けて管理する</p>
+                <h3>Zoomの字幕と文字起こしは別物。残すなら保存・削除・閲覧権限を設定する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-18">2026.09.18</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Zoomは2026年5月、会議中に読むための字幕と、会議後に保持する発話記録である文字起こしを分ける変更を案内しました。字幕は会議後に保存・ダウンロードできず、発話記録を残すにはMeeting transcriptを主催者または管理者が明示的に有効にする必要があります。新しいMeeting transcript設定では、自動生成の対象、削除までの日数、会議後に主催者が閲覧・削除・ダウンロードできるか、参加者の閲覧・保存範囲を設定できます。会議中の利便性と会議後の保存を混同せず、保持ルールを設定する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Zoomの保存用文字起こしは、生成・削除・閲覧・保存を別々に設定する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Zoom会議の記録を管理する主催者・管理者</li><li>AI要約や文字起こしを使う組織の利用者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Zoom</li><li>文字起こし</li><li>字幕</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260917-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Geminiの連携アプリは、切断と活動削除を別々に行う Geminiの連携アプリは切断後に活動も削除する Googleは、GeminiのPersonal IntelligenceでGoogle Photos、YouTube、Workspace、検索サービスなどを連携でき、メール、ファイル、写真、位置情報などが個人向けの応答に使われ得ると案内しています。連携アプリを切断したり連携元でデータを消したりしても、Gemini Apps Activityからは自動削除されません。Keep Activityがオンなら、連携アプリ由来の情報を含む活動はGoogleサービス改善・生成AIモデルの改善に使われ得ます。連携を止める操作と、残った活動を削除する操作を分ける記事です。 セキュリティ・権限 標準 Gemini Connected Apps Personal Intelligence Gemini Apps Activity Gmail Google Drive GeminiへGmail、Google Photos、Workspaceなどを連携する人 連携を外した後のGemini Apps Activityを確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gemini-connected-apps-activity</span>
+              <div>
+                <p>Geminiの連携アプリは切断後に活動も削除する</p>
+                <h3>Geminiの連携アプリは、切断と活動削除を別々に行う</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-17">2026.09.17</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは、GeminiのPersonal IntelligenceでGoogle Photos、YouTube、Workspace、検索サービスなどを連携でき、メール、ファイル、写真、位置情報などが個人向けの応答に使われ得ると案内しています。連携アプリを切断したり連携元でデータを消したりしても、Gemini Apps Activityからは自動削除されません。Keep Activityがオンなら、連携アプリ由来の情報を含む活動はGoogleサービス改善・生成AIモデルの改善に使われ得ます。連携を止める操作と、残った活動を削除する操作を分ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Gemini連携は、切断・活動削除・Keep Activityを別々に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>GeminiへGmail、Google Photos、Workspaceなどを連携する人</li><li>連携を外した後のGemini Apps Activityを確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>Connected Apps</li><li>Personal Intelligence</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260916-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="FirefoxのAI機能は一括で止めても、必要な機能だけ戻せる FirefoxのAI機能を一括停止して必要分だけ戻す Mozillaは、Firefox 148以降のデスクトップ版で、生成AI機能を管理するAI Controlsを案内しています。設定の「Block AI enhancements」をオンにすると、現在および今後のFirefoxのAI機能と案内表示をまとめて止められ、必要な機能だけは個別にAvailableまたはEnabledへ戻せます。ただし、この設定で止まるのはFirefoxが提供するAIであり、拡張機能が独自に外部AIを使うことまでは止まりません。便利な機能を残しながら、何をブラウザに任せるかを自分で決める記事です。 セキュリティ・権限 はじめて Firefox AI Controls ブラウザAI 拡張機能 生成AI 権限 Firefoxに追加されるAI機能を自分で選びたい人 ブラウザのAIサイドバーや要約機能を必要な範囲だけ使いたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">firefox-ai-controls</span>
+              <div>
+                <p>FirefoxのAI機能を一括停止して必要分だけ戻す</p>
+                <h3>FirefoxのAI機能は一括で止めても、必要な機能だけ戻せる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-16">2026.09.16</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Mozillaは、Firefox 148以降のデスクトップ版で、生成AI機能を管理するAI Controlsを案内しています。設定の「Block AI enhancements」をオンにすると、現在および今後のFirefoxのAI機能と案内表示をまとめて止められ、必要な機能だけは個別にAvailableまたはEnabledへ戻せます。ただし、この設定で止まるのはFirefoxが提供するAIであり、拡張機能が独自に外部AIを使うことまでは止まりません。便利な機能を残しながら、何をブラウザに任せるかを自分で決める記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>FirefoxのAIは、まとめて止めてから必要な機能を選ぶ</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Firefoxに追加されるAI機能を自分で選びたい人</li><li>ブラウザのAIサイドバーや要約機能を必要な範囲だけ使いたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Firefox</li><li>AI Controls</li><li>ブラウザAI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260918-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

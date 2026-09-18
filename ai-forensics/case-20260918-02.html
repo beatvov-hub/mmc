@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Microsoft 365でAI画像を作る時、透かしを自分で有効にする｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは、職場・学校用Microsoft 365でAIにより生成・編集した画像へ、利用者自身が透かしを付ける設定を案内しています。myaccount.microsoft.comのData and Privacyから「Show watermark」を有効にすると、同じ職場・学校アカウントで使う全端末に適用され、新しく生成する画像だけでなくAIで編集する既存画像にも透かしが付きます。透かしを有効にしない場合でも、モデル、使用アプリ、生成時刻などの情報はメタデータへ追加され得ます。作り手が共有前に行う表示設定を扱う記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260918-02" />
+<meta property="og:title" content="Microsoft 365でAI画像を作る時、透かしを自分で有効にする｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは、職場・学校用Microsoft 365でAIにより生成・編集した画像へ、利用者自身が透かしを付ける設定を案内しています。myaccount.microsoft.comのData and Privacyから「Show watermark」を有効にすると、同じ職場・学校アカウントで使う全端末に適用され、新しく生成する画像だけでなくAIで編集する既存画像にも透かしが付きます。透かしを有効にしない場合でも、モデル、使用アプリ、生成時刻などの情報はメタデータへ追加され得ます。作り手が共有前に行う表示設定を扱う記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260918-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Microsoft 365のAI画像に透かしを付ける設定</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+              <time datetime="2026-09-18">2026.09.18</time>
+            </div>
+            <h1>Microsoft 365でAI画像を作る時、透かしを自分で有効にする</h1>
+            <p>Microsoftは、職場・学校用Microsoft 365でAIにより生成・編集した画像へ、利用者自身が透かしを付ける設定を案内しています。myaccount.microsoft.comのData and Privacyから「Show watermark」を有効にすると、同じ職場・学校アカウントで使う全端末に適用され、新しく生成する画像だけでなくAIで編集する既存画像にも透かしが付きます。透かしを有効にしない場合でも、モデル、使用アプリ、生成時刻などの情報はメタデータへ追加され得ます。作り手が共有前に行う表示設定を扱う記事です。</p>
+            <ul class="forensics-target-list"><li>職場・学校アカウントでMicrosoft 365のAI画像機能を使う人</li><li>AIで作成・編集した画像を誤認なく共有したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft 365</li><li>Copilot</li><li>AI画像</li><li>透かし</li><li>メタデータ</li><li>Content Credentials</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>AI画像の透かしは、職場・学校アカウントの設定から有効にできる</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>共有用のAI画像を作る前にShow watermarkを有効にし、動画・音声は管理者設定も確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>社内資料用にAIで作ったイメージ画像を、AI作成だと分かる形で配りたい</h3><p>Word、PowerPoint、Microsoft Designerで画像を作ったり編集したりしています。受け手が実写資料と取り違えないよう、毎回の作業で表示を忘れない仕組みにしたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>見た目の透かしとファイル内のメタデータは別の手掛かりです。どちらも内容の正確さを保証するものではありませんが、作成・編集にAIを使ったことを伝える選択肢になります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="enable-account-setting">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>職場・学校用Microsoft 365でAI画像を共有する前に、透かしを一貫して使いたい時は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="enable-account-setting" data-choice-id="enable-account-setting" />
+                <span>
+                  <strong>My AccountのData and PrivacyでShow watermarkを有効にする</strong>
+                  <small>同じ職場・学校アカウントで使う全端末に適用されます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-metadata-visible" data-choice-id="assume-metadata-visible" />
+                <span>
+                  <strong>メタデータがあるので、見た目の説明や透かしは不要と考える</strong>
+                  <small>メタデータと画面上で分かる透かしは別の情報です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="expect-custom-design" data-choice-id="expect-custom-design" />
+                <span>
+                  <strong>組織名や任意の文言に透かしを自由に変更できると考える</strong>
+                  <small>Microsoftは位置・文言をカスタマイズできないと案内しています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>My AccountのData and PrivacyでShow watermarkを有効にする</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>アカウント設定で画像透かしを有効にし、共有時にはAI利用の目的や画像の扱いも必要に応じて説明します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象アカウント</h3>
+              <p>この画像透かしの利用者設定は職場・学校アカウント向けです。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>設定場所</h3>
+              <p>My Account、Data and Privacy、Data options、Watermarks for AI-generated contentの順に確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>適用範囲</h3>
+              <p>同一アカウントの全端末で、新規生成画像とAI編集した既存画像に適用されます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>動画・音声</h3>
+              <p>動画と音声の透かしは利用者ではなく組織のIT管理者が管理します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AI画像の透かしは、作成者が一貫して開示するためのアカウント設定</strong><p>透かしを付けるかは画像について利用者が選べ、表示位置・文言はカスタマイズできません。透かしの有無にかかわらず追加メタデータが付き得ることも踏まえ、受け手への説明と併用します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Show watermarkを有効にする</strong><span>AIで生成または編集する画像に透かしを追加できます。</span></li>
+            <li><strong>共有前に透かしの表示を確認する</strong><span>透かしは場所やAI-Generatedという文言で表示される場合があります。</span></li>
+            <li><strong>動画・音声はIT管理者に設定を確認する</strong><span>これらの透かしは組織管理者が制御します。</span></li>
+            <li><strong>メタデータと画像内容の正確さを分けて扱う</strong><span>AI利用情報は、画像が示す出来事の真偽を保証するものではありません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>透かしがない画像をAI未使用だと断定する</strong><span>透かしの有無だけで作成方法を断定できません。</span></li>
+            <li><strong>透かしだけで画像の内容まで正確だと考える</strong><span>AI利用の開示と、内容の事実確認は別です。</span></li>
+            <li><strong>画像・動画・音声で同じ設定を自分が変更できると考える</strong><span>動画・音声の設定はIT管理者が行います。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>作り手の設定で、受け手が判断しやすい資料にする</h3>
+          <p>企画のラフ、説明用のイメージ、研修資料などでは、AIを使った画像だと分かる表示を一貫させることで、用途に応じた受け止め方を助けられます。</p>
+          <ul class="positive-example-list"><li>社内スライドのイメージを明示する</li><li>AI編集した素材を区別する</li><li>配布前に画像の扱いを説明する</li><li>動画・音声の設定を管理者へ確認する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIを使ったことは、後から説明するより、作る時に表示まで整えておく方が気持ちよく共有できます。私は透かしを『免責の印』ではなく、受け手に資料の見方を渡すための小さな案内として使いたいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Microsoft 365のAI画像は、アカウント設定で透かしを一貫して付けられる。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/privacy/watermarks-on-content-generated-or-altered-by-using-ai-in-microsoft-365-at-work-or-school" target="_blank" rel="noopener noreferrer">Watermarks on content generated or altered by using AI in Microsoft 365 at work or school<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260918-03" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Copilot Pagesの共有は、ページだけ渡すか、同期する部品にするかを選ぶ Copilot Pagesの共有単位と同期範囲を確認する MicrosoftのCopilot Pagesでは、AIとのやり取りから作ったページを共有して共同編集できます。共有時にPage linkを選ぶと、相手はLoopでその1ページだけへアクセスします。一方、Copy componentでTeams、Outlook、OneNoteなどへ貼り付けた場合は、そのコンポーネントへの変更がページへリアルタイムで反映されます。どちらの共有方法でも、共有相手に元のCopilotチャットへのアクセスが渡るわけではありません。AI出力を仕事へ渡す時に、共有単位と同期範囲を選ぶ記事です。 仕事・AI活用 標準 Microsoft Copilot Copilot Pages Microsoft 365 Teams 共同編集 共有 Microsoft 365 Copilot PagesでAI出力を共同編集する人 Copilotの回答をTeamsやOutlookへ共有する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-pages-sharing</span>
+              <div>
+                <p>Copilot Pagesの共有単位と同期範囲を確認する</p>
+                <h3>Copilot Pagesの共有は、ページだけ渡すか、同期する部品にするかを選ぶ</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-18">2026.09.18</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">MicrosoftのCopilot Pagesでは、AIとのやり取りから作ったページを共有して共同編集できます。共有時にPage linkを選ぶと、相手はLoopでその1ページだけへアクセスします。一方、Copy componentでTeams、Outlook、OneNoteなどへ貼り付けた場合は、そのコンポーネントへの変更がページへリアルタイムで反映されます。どちらの共有方法でも、共有相手に元のCopilotチャットへのアクセスが渡るわけではありません。AI出力を仕事へ渡す時に、共有単位と同期範囲を選ぶ記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Copilot Pagesは、共有単位と同期範囲を選んで共同編集できる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft 365 Copilot PagesでAI出力を共同編集する人</li><li>Copilotの回答をTeamsやOutlookへ共有する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Copilot Pages</li><li>Microsoft 365</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260917-02" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="AI画像を「検査できない＝本物」としない。Content Credentialsを確認する場所 AI画像はContent Credentialsを検査して来歴を確認する Adobe Content AuthenticityのInspectは、Content Credentialsに記録された作成者、作成方法、生成AIの利用有無などを確認するための検査ツールです。手元のファイルまたは公開URLを使って記録を確認できます。ただし、記録が見つからないことは画像が実写・無加工・真実である証明ではありません。来歴の記録がある時はその内容を読み、ない時は投稿元・撮影時期・一次情報を別に確かめる記事です。 情報の見極め はじめて Content Credentials Adobe AI画像 来歴 生成AI 画像検証 AI生成・編集された画像の来歴を確認したい人 SNSやメッセージで受け取った画像を判断材料にする人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">content-credentials-inspect</span>
+              <div>
+                <p>AI画像はContent Credentialsを検査して来歴を確認する</p>
+                <h3>AI画像を「検査できない＝本物」としない。Content Credentialsを確認する場所</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-17">2026.09.17</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Adobe Content AuthenticityのInspectは、Content Credentialsに記録された作成者、作成方法、生成AIの利用有無などを確認するための検査ツールです。手元のファイルまたは公開URLを使って記録を確認できます。ただし、記録が見つからないことは画像が実写・無加工・真実である証明ではありません。来歴の記録がある時はその内容を読み、ない時は投稿元・撮影時期・一次情報を別に確かめる記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Content Credentialsは、画像の来歴を読む手掛かりとして使う</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AI生成・編集された画像の来歴を確認したい人</li><li>SNSやメッセージで受け取った画像を判断材料にする人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Content Credentials</li><li>Adobe</li><li>AI画像</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260915-01" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="PinterestのAIラベルは「本物判定」ではない。表示位置とおすすめ調整を知る PinterestのAIラベルとおすすめ調整を確認する Pinterestは、2026年9月時点で、画像PinがAIで生成・改変された可能性を示すGen AIラベルを、投稿者の申告、IPTCメタデータ、独自の検出によって表示すると案内しています。通常の画像Pinでは詳細表示の左下、広告では「…」メニューから表示を確認できます。また、設定で特定カテゴリのAIコンテンツをフィードに表示する量を減らせます。ラベルを絶対的な真偽判定に使うのではなく、出どころや商品・健康情報を確かめる前に、画像の作られ方を知る文脈として扱う記事です。 情報の見極め はじめて Pinterest AIラベル 生成AI画像 IPTC おすすめ メディアリテラシー Pinterestで画像や商品を探す人 AIで作られた画像を見分ける手掛かりと、表示を減らす設定を知りたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">pinterest-ai-label-controls</span>
+              <div>
+                <p>PinterestのAIラベルとおすすめ調整を確認する</p>
+                <h3>PinterestのAIラベルは「本物判定」ではない。表示位置とおすすめ調整を知る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-15">2026.09.15</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Pinterestは、2026年9月時点で、画像PinがAIで生成・改変された可能性を示すGen AIラベルを、投稿者の申告、IPTCメタデータ、独自の検出によって表示すると案内しています。通常の画像Pinでは詳細表示の左下、広告では「…」メニューから表示を確認できます。また、設定で特定カテゴリのAIコンテンツをフィードに表示する量を減らせます。ラベルを絶対的な真偽判定に使うのではなく、出どころや商品・健康情報を確かめる前に、画像の作られ方を知る文脈として扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>PinterestのAIラベルは、画像の作られ方を読むための手掛かりとして使う</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Pinterestで画像や商品を探す人</li><li>AIで作られた画像を見分ける手掛かりと、表示を減らす設定を知りたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Pinterest</li><li>AIラベル</li><li>生成AI画像</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260918-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260918-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

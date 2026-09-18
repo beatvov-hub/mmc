@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Copilot Pagesの共有は、ページだけ渡すか、同期する部品にするかを選ぶ｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="MicrosoftのCopilot Pagesでは、AIとのやり取りから作ったページを共有して共同編集できます。共有時にPage linkを選ぶと、相手はLoopでその1ページだけへアクセスします。一方、Copy componentでTeams、Outlook、OneNoteなどへ貼り付けた場合は、そのコンポーネントへの変更がページへリアルタイムで反映されます。どちらの共有方法でも、共有相手に元のCopilotチャットへのアクセスが渡るわけではありません。AI出力を仕事へ渡す時に、共有単位と同期範囲を選ぶ記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260918-03" />
+<meta property="og:title" content="Copilot Pagesの共有は、ページだけ渡すか、同期する部品にするかを選ぶ｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="MicrosoftのCopilot Pagesでは、AIとのやり取りから作ったページを共有して共同編集できます。共有時にPage linkを選ぶと、相手はLoopでその1ページだけへアクセスします。一方、Copy componentでTeams、Outlook、OneNoteなどへ貼り付けた場合は、そのコンポーネントへの変更がページへリアルタイムで反映されます。どちらの共有方法でも、共有相手に元のCopilotチャットへのアクセスが渡るわけではありません。AI出力を仕事へ渡す時に、共有単位と同期範囲を選ぶ記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260918-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Copilot Pagesの共有単位と同期範囲を確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-09-18">2026.09.18</time>
+            </div>
+            <h1>Copilot Pagesの共有は、ページだけ渡すか、同期する部品にするかを選ぶ</h1>
+            <p>MicrosoftのCopilot Pagesでは、AIとのやり取りから作ったページを共有して共同編集できます。共有時にPage linkを選ぶと、相手はLoopでその1ページだけへアクセスします。一方、Copy componentでTeams、Outlook、OneNoteなどへ貼り付けた場合は、そのコンポーネントへの変更がページへリアルタイムで反映されます。どちらの共有方法でも、共有相手に元のCopilotチャットへのアクセスが渡るわけではありません。AI出力を仕事へ渡す時に、共有単位と同期範囲を選ぶ記事です。</p>
+            <ul class="forensics-target-list"><li>Microsoft 365 Copilot PagesでAI出力を共同編集する人</li><li>Copilotの回答をTeamsやOutlookへ共有する人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft Copilot</li><li>Copilot Pages</li><li>Microsoft 365</li><li>Teams</li><li>共同編集</li><li>共有</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>Copilot Pagesは、共有単位と同期範囲を選んで共同編集できる</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>ページだけを共有するか、同期するコンポーネントにするかを、共有前にチームで決めましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Copilotが下書きした企画メモを、チームに見せて一緒に直したい</h3><p>Copilotとの会話をそのまま公開するのではなく、必要な整理済みページだけを共有したい一方、Teamsで直した内容を元ページにも反映させたい場合があります。リンクとコンポーネントの違いを把握して選びたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>共有の入口が同じように見えても、渡る範囲と更新の戻り方は異なります。元の会話を見せずにページ単位で共同作業する選択肢を理解すると、AI出力を必要な範囲へ整理して渡せます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="copy-component">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Copilot Pagesの内容をTeams上でも共同編集し、元のページへ変更を反映させたい時は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="copy-component" data-choice-id="copy-component" />
+                <span>
+                  <strong>Copy componentで共有し、リアルタイム同期するコンポーネントとして扱う</strong>
+                  <small>Microsoft 365アプリ上の変更がページにリアルタイム反映されます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="page-link-sync" data-choice-id="page-link-sync" />
+                <span>
+                  <strong>Page linkでもTeams上の変更は必ず元ページへ同期すると考える</strong>
+                  <small>Page linkは単一ページへのアクセスを渡す方法です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="share-chat-history" data-choice-id="share-chat-history" />
+                <span>
+                  <strong>ページを共有すると、元のCopilotチャットも相手に見えると考える</strong>
+                  <small>Microsoftは元のCopilotチャットへのアクセスは渡らないと案内しています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Copy componentで共有し、リアルタイム同期するコンポーネントとして扱う</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>ページのみを見せるならPage link、他のMicrosoft 365アプリ内で同期編集するならCopy componentを選びます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>共有する単位</h3>
+              <p>Page linkはLoopで開く単一ページへのアクセスを共有します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>同期の有無</h3>
+              <p>Copy componentで貼ったコンポーネントへの変更はページへリアルタイムに反映されます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>元チャットの範囲</h3>
+              <p>ページ共有は元のCopilotチャットへのアクセスを共有するものではありません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>受領したページ</h3>
+              <p>受け手はMicrosoft Copilot LibraryのShared with youから共有ページを確認できます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Copilot Pagesの共有は、元チャットを開かずにページ単位で共同作業する方法</strong><p>Page linkは単一ページを渡す方法、Copy componentは他アプリに置いた編集を元ページと同期する方法です。共有前にどちらが必要かを決めることで、AI出力を会話全体ではなく必要な作業物として扱えます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>閲覧・共同編集の目的に応じて共有方法を選ぶ</strong><span>Page linkとCopy componentでは共有・同期の形が異なります。</span></li>
+            <li><strong>同期編集が必要な時はCopy componentを選ぶ</strong><span>Microsoft 365アプリ上の変更がページにリアルタイム反映されます。</span></li>
+            <li><strong>受領側はLibraryのShared with youを確認する</strong><span>共有されたCopilot Pagesを一覧で確認できます。</span></li>
+            <li><strong>共有前にページの内容を整理する</strong><span>ページ共有は元チャットを渡さず、必要な内容だけを共同作業へ持ち出せます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>リンク共有とコンポーネント共有を同じ同期仕様だと考える</strong><span>リアルタイム同期はCopy componentの説明として案内されています。</span></li>
+            <li><strong>ページを渡すと元のチャット履歴も共有されると誤解する</strong><span>ページ共有は元Copilotチャットへのアクセスを渡しません。</span></li>
+            <li><strong>共有ページの受領先を確認せずに作業を始める</strong><span>受け手はLibraryのShared with youで対象を確認できます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIの会話を、チームで扱える作業物へ整える</h3>
+          <p>会話の中の下書きを必要なページへ整理し、共有方法を選べば、AIの提案をチームで検討・更新する作業に無理なくつなげられます。</p>
+          <ul class="positive-example-list"><li>企画の骨子だけをページにする</li><li>Teamsで同期編集する</li><li>共有ページをLibraryで確認する</li><li>元チャットを見せずに下書きを渡す</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIとの会話は、考え途中のメモまで含みます。チームへ渡すなら、私は会話を丸ごと渡すより、必要なページに整えて、同期が必要かどうかも選びたいです。共有の単位を決めることは、仕事の途中経過を守ることでもあります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Copilot Pagesは、ページだけ共有するか、同期する部品として渡すかを選ぶ。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/microsoft-365-copilot/share-a-microsoft-365-copilot-page" target="_blank" rel="noopener noreferrer">Share a Microsoft Copilot Page<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/microsoft-365-copilot/find-the-microsoft-365-copilot-pages-shared-with-you" target="_blank" rel="noopener noreferrer">Find the Microsoft Copilot Pages shared with you<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260918-02" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="Microsoft 365でAI画像を作る時、透かしを自分で有効にする Microsoft 365のAI画像に透かしを付ける設定 Microsoftは、職場・学校用Microsoft 365でAIにより生成・編集した画像へ、利用者自身が透かしを付ける設定を案内しています。myaccount.microsoft.comのData and Privacyから「Show watermark」を有効にすると、同じ職場・学校アカウントで使う全端末に適用され、新しく生成する画像だけでなくAIで編集する既存画像にも透かしが付きます。透かしを有効にしない場合でも、モデル、使用アプリ、生成時刻などの情報はメタデータへ追加され得ます。作り手が共有前に行う表示設定を扱う記事です。 情報の見極め はじめて Microsoft 365 Copilot AI画像 透かし メタデータ Content Credentials 職場・学校アカウントでMicrosoft 365のAI画像機能を使う人 AIで作成・編集した画像を誤認なく共有したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">microsoft-ai-image-watermark</span>
+              <div>
+                <p>Microsoft 365のAI画像に透かしを付ける設定</p>
+                <h3>Microsoft 365でAI画像を作る時、透かしを自分で有効にする</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-18">2026.09.18</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、職場・学校用Microsoft 365でAIにより生成・編集した画像へ、利用者自身が透かしを付ける設定を案内しています。myaccount.microsoft.comのData and Privacyから「Show watermark」を有効にすると、同じ職場・学校アカウントで使う全端末に適用され、新しく生成する画像だけでなくAIで編集する既存画像にも透かしが付きます。透かしを有効にしない場合でも、モデル、使用アプリ、生成時刻などの情報はメタデータへ追加され得ます。作り手が共有前に行う表示設定を扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>AI画像の透かしは、職場・学校アカウントの設定から有効にできる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>職場・学校アカウントでMicrosoft 365のAI画像機能を使う人</li><li>AIで作成・編集した画像を誤認なく共有したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft 365</li><li>Copilot</li><li>AI画像</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260917-01" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="ZoomのAI議事録は「停止」だけで終わらせない。要約・文字起こしを分けて削除する ZoomのAI議事録は停止後の要約・文字起こしも確認する Zoomは、AI CompanionのMeeting Summaryが会議の音声を文字にしたデータを参照して要約を作ると案内しています。主催者は会議中に機能を停止でき、その際には関連する要約・文字起こしを削除する選択肢を選べます。終了後も主催者はSummaries画面から要約を共有・編集・削除できますが、共有された要約はメールやZoom Chatで参加者へ届き、受信者は保存・再共有できます。会議中の停止と、会議後の生成物・共有範囲の確認を分ける記事です。 仕事・AI活用 標準 Zoom AI Companion 議事録 会議要約 文字起こし 共有 Zoom AI Companionで会議要約を使う主催者 会議の文字起こしや要約の共有範囲を管理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">zoom-ai-summary-assets</span>
+              <div>
+                <p>ZoomのAI議事録は停止後の要約・文字起こしも確認する</p>
+                <h3>ZoomのAI議事録は「停止」だけで終わらせない。要約・文字起こしを分けて削除する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-17">2026.09.17</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Zoomは、AI CompanionのMeeting Summaryが会議の音声を文字にしたデータを参照して要約を作ると案内しています。主催者は会議中に機能を停止でき、その際には関連する要約・文字起こしを削除する選択肢を選べます。終了後も主催者はSummaries画面から要約を共有・編集・削除できますが、共有された要約はメールやZoom Chatで参加者へ届き、受信者は保存・再共有できます。会議中の停止と、会議後の生成物・共有範囲の確認を分ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>ZoomのAI議事録は、停止時と終了後に生成物・共有範囲を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Zoom AI Companionで会議要約を使う主催者</li><li>会議の文字起こしや要約の共有範囲を管理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Zoom</li><li>AI Companion</li><li>議事録</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260916-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Claudeのメモリ移行は「全部を渡す」前に、取り込む内容を削る Claudeへメモリを移す前に内容を選別する Claudeは、他のAIサービスから出したメモリを取り込む機能を、WebとClaude DesktopのFree、Pro、Max、Team向けに案内しています。新しいメモリ画面ではSettings &gt; Memory &gt; Start importから始め、貼り付けた内容からClaudeが個別のメモリ項目を作ります。Anthropicは、移行前の内容から機微情報を除けること、機能は実験的で期待どおりに取り込まれない場合があることも明記しています。過去の会話を丸ごと移すのではなく、これからも必要な仕事上の前提だけを選ぶ記事です。 仕事・AI活用 標準 Claude メモリ データ移行 プロンプト プライバシー 仕事 AIサービスを乗り換える時に過去の設定を引き継ぎたい人 長期的な指示や仕事の文脈をClaudeのメモリへ入れる前に整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">claude-memory-import-review</span>
+              <div>
+                <p>Claudeへメモリを移す前に内容を選別する</p>
+                <h3>Claudeのメモリ移行は「全部を渡す」前に、取り込む内容を削る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-16">2026.09.16</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Claudeは、他のAIサービスから出したメモリを取り込む機能を、WebとClaude DesktopのFree、Pro、Max、Team向けに案内しています。新しいメモリ画面ではSettings &gt; Memory &gt; Start importから始め、貼り付けた内容からClaudeが個別のメモリ項目を作ります。Anthropicは、移行前の内容から機微情報を除けること、機能は実験的で期待どおりに取り込まれない場合があることも明記しています。過去の会話を丸ごと移すのではなく、これからも必要な仕事上の前提だけを選ぶ記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>移行するメモリは、取り込む前と後に内容を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIサービスを乗り換える時に過去の設定を引き継ぎたい人</li><li>長期的な指示や仕事の文脈をClaudeのメモリへ入れる前に整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Claude</li><li>メモリ</li><li>データ移行</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260918-04">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260918-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
