@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-19T07:30:54+09:00",
+  "updatedAt": "2026-09-20T07:31:13+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -475,6 +475,27 @@
       "license": "GNU General Public License v2.0 or later",
       "notes": "活用例は公式ガイドに基づく想定で、実機検証は未実施です。",
       "verifiedAt": "2026-09-19",
+      "status": "published"
+    },
+    {
+      "date": "2026-09-20",
+      "slug": "textlint",
+      "name": "textlint",
+      "category": "Developer Tool",
+      "officialUrl": "https://textlint.org/",
+      "summary": "Markdownやテキストを、選んだ文章ルールに照らして確認し、公開前に読み返す場所を示してくれる無料の自然言語リンターです。",
+      "whyToday": "AIと下書きを作ると、内容が合っていても一文が長い、同じ言葉が続く、といった読みづらさは後から見つけにくくなります。textlintは文章ルールを設定してMarkdownを検査できるため、感覚だけで直す前に、読み返す候補を一つの一覧へ集められます。",
+      "useFor": "例えば、公開前の短い記事原稿を日本語の技術文書向けルールで見直す場面に。Node.js 20以上の作業ディレクトリで「npm install --save-dev textlint textlint-rule-preset-ja-technical-writing」を実行し、.textlintrc.jsonでpreset-ja-technical-writingを有効にします。次に「npx textlint draft.md」で原稿1本を検査し、表示された箇所を原稿へ戻って文脈と照らしながら読んで直すかを決めます。成果物は、検査結果と見直したdraft.mdです。最初は見出しを含む原稿1本だけで試し、固有名詞や企画名への指摘は設定の例外にする前に、本当に読みづらい箇所ではないか確認します。",
+      "recommendedFor": {
+        "employeeId": "MMC-011",
+        "reason": "編集主任のコトちゃんに、公開前の原稿1本から読み返す候補を集める役を任せたいです。検査結果と直した原稿を受け取れれば、表現を機械的にそろえず、読者へ届く言い方を選び直せます。"
+      },
+      "keiComment": "赤線が出たところを全部同じ言い方へ直すと、文章の温度まで消えてしまうかもしれませんね。まずは一文だけ読み直して、ルールのためではなく読者がつまずかないための修正かを決めたいです。",
+      "pricing": "textlintと紹介した日本語技術文書プリセットはMITライセンスのOSSです。この例のローカル検査に、ツール自体の利用料はかかりません。",
+      "conditions": "Node.js 20以上とnpmでのローカル導入が必要です。textlint本体には標準ルールがないため、検査したい文章に合うルールを明示して設定します。指摘は自動的な正誤判定ではないため、原稿の意図と固有名詞を人が確認します。",
+      "license": "MIT License",
+      "notes": "活用例は公式ドキュメントに基づく想定で、実機検証は未実施です。",
+      "verifiedAt": "2026-09-20",
       "status": "published"
     }
   ]
