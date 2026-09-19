@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Copilot会話の共有リンクは、質問文も渡る。不要になったら停止する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoft Copilotでは、会話全体または個別の応答を共有リンクにできます。個別応答の共有であっても、受け手が答えを理解するために、その応答を作った質問文もリンクへ含まれます。職場・学校アカウントでは、同じ組織でリンクを持つ人がサインインして開けます。共有後はSettingsのData controlsにあるShared linksで発行済みリンクを確認し、Stop sharingで停止できます。元会話を削除した時もリンクは使えなくなります。AI会話を渡す前の確認と、用途終了後の失効操作を扱う記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260919-02" />
+<meta property="og:title" content="Copilot会話の共有リンクは、質問文も渡る。不要になったら停止する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoft Copilotでは、会話全体または個別の応答を共有リンクにできます。個別応答の共有であっても、受け手が答えを理解するために、その応答を作った質問文もリンクへ含まれます。職場・学校アカウントでは、同じ組織でリンクを持つ人がサインインして開けます。共有後はSettingsのData controlsにあるShared linksで発行済みリンクを確認し、Stop sharingで停止できます。元会話を削除した時もリンクは使えなくなります。AI会話を渡す前の確認と、用途終了後の失効操作を扱う記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260919-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Copilot会話リンクの共有範囲と停止を確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-09-19">2026.09.19</time>
+            </div>
+            <h1>Copilot会話の共有リンクは、質問文も渡る。不要になったら停止する</h1>
+            <p>Microsoft Copilotでは、会話全体または個別の応答を共有リンクにできます。個別応答の共有であっても、受け手が答えを理解するために、その応答を作った質問文もリンクへ含まれます。職場・学校アカウントでは、同じ組織でリンクを持つ人がサインインして開けます。共有後はSettingsのData controlsにあるShared linksで発行済みリンクを確認し、Stop sharingで停止できます。元会話を削除した時もリンクは使えなくなります。AI会話を渡す前の確認と、用途終了後の失効操作を扱う記事です。</p>
+            <ul class="forensics-target-list"><li>Microsoft Copilotの回答をリンクで共有する人</li><li>共有済みのAI会話を見直したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft Copilot</li><li>共有リンク</li><li>Data controls</li><li>会話共有</li><li>権限</li><li>情報管理</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>Copilotの共有リンクは、回答と質問文を含む共有物として管理する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>送る前に質問・応答を読み、不要なリンクはShared linksで停止しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Copilotの回答だけを同僚へ送りたいが、質問に含めた背景も見せてよいか迷う</h3><p>AIがまとめた回答を同僚へ渡したい一方、質問には案件名や途中の考えが含まれています。共有した後にリンクを取り消す場所と、受け手が見える範囲を知りたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>共有リンクは回答のURLだけではなく、含まれる質問・応答を見せる共有物です。リンクを送る前と、仕事が終わった後に、共有範囲と失効を管理できます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="review-prompt-and-response">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Copilotの個別応答をリンク共有する前に、まず確認すべきことは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="review-prompt-and-response" data-choice-id="review-prompt-and-response" />
+                <span>
+                  <strong>回答だけでなく、共有リンクに含まれる質問文も確認する</strong>
+                  <small>個別応答の共有には、それを生成した質問文も含まれます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="response-only" data-choice-id="response-only" />
+                <span>
+                  <strong>個別応答のリンクなら、質問文は受け手に見えないと考える</strong>
+                  <small>質問文も文脈として含まれます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="permanent-link" data-choice-id="permanent-link" />
+                <span>
+                  <strong>一度送った共有リンクは管理画面から停止できないと考える</strong>
+                  <small>Shared linksからStop sharingを実行できます。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>回答だけでなく、共有リンクに含まれる質問文も確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>共有前に質問・応答の両方を読み、不要になったリンクはShared linksから停止します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>共有対象</h3>
+              <p>会話全体か、個別応答かを選びます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>含まれる質問文</h3>
+              <p>個別応答の共有リンクには、生成元の質問文も含まれます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>開ける人</h3>
+              <p>職場・学校アカウントでは、同じ組織でリンクを持つ人がサインインして開けます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>共有停止</h3>
+              <p>Settings、Data controls、Shared linksからStop sharingを実行できます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Copilot会話のリンク共有は、発行後も確認・停止できる</strong><p>回答だけを共有する場合でも、その回答を作った質問文が含まれます。共有範囲を確認して送信し、用途が終わればShared linksまたは元会話の削除でリンクを無効にします。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>共有前に質問文と応答を通して読む</strong><span>リンクには共有する応答と生成元の質問文が含まれます。</span></li>
+            <li><strong>組織内共有の前提を確認する</strong><span>職場・学校アカウントでは同じ組織のサインイン利用者が開けます。</span></li>
+            <li><strong>Shared linksで発行済みリンクを見直す</strong><span>再共有や停止を管理できます。</span></li>
+            <li><strong>不要なリンクはStop sharingする</strong><span>停止後は共有会話・応答へアクセスできなくなります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>個別応答のリンクに質問文は含まれないと考える</strong><span>質問文も受け手が答えを理解する文脈として含まれます。</span></li>
+            <li><strong>リンク送信後に管理できないと考える</strong><span>Shared linksから停止できます。</span></li>
+            <li><strong>リンク共有で元のMicrosoft 365ファイル権限まで渡ると考える</strong><span>参照コンテンツへのアクセスは既存のMicrosoft 365権限で制御されます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>必要な回答だけを、見せる範囲を確かめて渡す</h3>
+          <p>会話のすべてを転送せず、目的に合う応答を選び、質問も含めて確認してから共有すれば、AI出力をチームで扱いやすくできます。</p>
+          <ul class="positive-example-list"><li>回答と質問文を確認して共有する</li><li>会議後にリンクを停止する</li><li>共有済みリンクを定期的に見直す</li><li>ファイル権限は別に管理する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIの答えだけを渡したつもりでも、質問には意外と仕事の背景が入っています。私はリンクを作ったら、受け手の画面で何が読めるかを先に見ます。そして役目が終わったら、リンクも仕事の資料と同じように片付けたいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Copilotの共有リンクは質問文も含むため、共有前に読み、不要になったら停止する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/microsoft-365-copilot/share-conversations-responses-in-microsoft-copilot" target="_blank" rel="noopener noreferrer">Share conversations and responses in Microsoft Copilot<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260919-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない Copilotの活動履歴と保存済みファイルを分けて削除する Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間がかかる場合があります。開いたままのアプリには履歴が見え続けることがありますが、再起動後は以前の活動が表示されなくなります。一方、Copilotの支援を受けて保存したWordやPowerPointなどのファイル内容は削除されません。履歴と成果物を別々に片付ける記事です。 セキュリティ・権限 標準 Microsoft Copilot 活動履歴 Microsoft 365 削除 データ管理 Office 職場・学校アカウントでMicrosoft Copilotを使う人 Copilotのプロンプト履歴と作成済み資料を整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-activity-history-delete</span>
+              <div>
+                <p>Copilotの活動履歴と保存済みファイルを分けて削除する</p>
+                <h3>Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-19">2026.09.19</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間がかかる場合があります。開いたままのアプリには履歴が見え続けることがありますが、再起動後は以前の活動が表示されなくなります。一方、Copilotの支援を受けて保存したWordやPowerPointなどのファイル内容は削除されません。履歴と成果物を別々に片付ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Copilotの活動履歴と保存済みファイルは別々に管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>職場・学校アカウントでMicrosoft Copilotを使う人</li><li>Copilotのプロンプト履歴と作成済み資料を整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>活動履歴</li><li>Microsoft 365</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260919-04" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Dropbox DashのAI検索は、Webと接続アプリを切り替えて質問する Dropbox DashはWeb検索と接続アプリ検索を分ける Dropbox Dashは、接続したアプリ内のコンテンツを検索・要約して質問に答える機能を案内しています。Dash ChatではWeb searchが初期状態で有効で、All contentからチェックを切り替えると、ウェブ検索と接続アプリ・自分のコンテンツを対象にした検索を使い分けられます。質問へファイル・フォルダを添付することもできます。DropboxはDashがウェブ参照に第三者AIを使うと説明し、送信データはOpenAIモデルの学習・改善に使われず、Dropboxも生成AIモデル構築には使わないと案内しています。質問前に参照範囲を選ぶ記事です。 仕事・AI活用 標準 Dropbox Dash AI検索 Web search 接続アプリ 業務データ 情報源 Dropbox Dashで業務データを横断検索する人 AI検索の質問範囲を選びたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">dropbox-dash-search-scope</span>
+              <div>
+                <p>Dropbox DashはWeb検索と接続アプリ検索を分ける</p>
+                <h3>Dropbox DashのAI検索は、Webと接続アプリを切り替えて質問する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-19">2026.09.19</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Dropbox Dashは、接続したアプリ内のコンテンツを検索・要約して質問に答える機能を案内しています。Dash ChatではWeb searchが初期状態で有効で、All contentからチェックを切り替えると、ウェブ検索と接続アプリ・自分のコンテンツを対象にした検索を使い分けられます。質問へファイル・フォルダを添付することもできます。DropboxはDashがウェブ参照に第三者AIを使うと説明し、送信データはOpenAIモデルの学習・改善に使われず、Dropboxも生成AIモデル構築には使わないと案内しています。質問前に参照範囲を選ぶ記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Dropbox Dashは、質問ごとにWebと接続アプリの検索範囲を選べる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Dropbox Dashで業務データを横断検索する人</li><li>AI検索の質問範囲を選びたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Dropbox Dash</li><li>AI検索</li><li>Web search</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260918-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Slack AIに読ませない場所を決める。チャンネル・Canvas・リストの制限設定 Slack AIの読取対象をチャンネルごとに制限する SlackはEnterprise+組織向けに、検索回答、Canvasの内容、Slackbotの応答を作るためのAIの読取対象から、特定のチャンネル、Canvas、リストを外す設定を案内しています。チャンネルでは組織設定から「Restrict AI use」を選び、Canvas／リストでは共有の詳細設定で「Allow AI use」を外します。ただし、これはAIの読取を制限する設定であり、メンバーが制限済みチャンネルへSlackbotで投稿することまで止めるものではありません。情報を置く場所とAIが参照する場所を分けるための記事です。 セキュリティ・権限 標準 Slack Slack AI AI検索 Canvas 情報管理 権限 Slack Enterprise+でAI機能を運用する管理者 機密プロジェクトの会話をAI検索の対象から外したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">slack-ai-access-control</span>
+              <div>
+                <p>Slack AIの読取対象をチャンネルごとに制限する</p>
+                <h3>Slack AIに読ませない場所を決める。チャンネル・Canvas・リストの制限設定</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-18">2026.09.18</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">SlackはEnterprise+組織向けに、検索回答、Canvasの内容、Slackbotの応答を作るためのAIの読取対象から、特定のチャンネル、Canvas、リストを外す設定を案内しています。チャンネルでは組織設定から「Restrict AI use」を選び、Canvas／リストでは共有の詳細設定で「Allow AI use」を外します。ただし、これはAIの読取を制限する設定であり、メンバーが制限済みチャンネルへSlackbotで投稿することまで止めるものではありません。情報を置く場所とAIが参照する場所を分けるための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>SlackのAI読取対象は、会話とコンテンツごとに制限できる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Slack Enterprise+でAI機能を運用する管理者</li><li>機密プロジェクトの会話をAI検索の対象から外したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Slack</li><li>Slack AI</li><li>AI検索</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260919-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260919-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

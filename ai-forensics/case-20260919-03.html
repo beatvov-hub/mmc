@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GitHub Copilotのコード除外は、Agent modeやCLIまで守る設定ではない｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="GitHub Copilot BusinessとEnterpriseでは、リポジトリ、組織、Enterpriseの設定から、Copilotが無視するファイルやパスを指定できます。除外された内容はインライン提案、ほかのファイルでの提案、Copilotの回答、Copilot code reviewの根拠に使われません。一方で、GitHubはIDEのCopilot ChatにあるEdit・Agent mode、Copilot CLIなどではコンテンツ除外が未対応であると案内しています。設定反映済みのIDEでも最大30分かかる場合があり、除外ファイルで提案が出ないかテストできます。除外設定を有効化しただけで全AI経路をカバーしたと考えない記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260919-03" />
+<meta property="og:title" content="GitHub Copilotのコード除外は、Agent modeやCLIまで守る設定ではない｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="GitHub Copilot BusinessとEnterpriseでは、リポジトリ、組織、Enterpriseの設定から、Copilotが無視するファイルやパスを指定できます。除外された内容はインライン提案、ほかのファイルでの提案、Copilotの回答、Copilot code reviewの根拠に使われません。一方で、GitHubはIDEのCopilot ChatにあるEdit・Agent mode、Copilot CLIなどではコンテンツ除外が未対応であると案内しています。設定反映済みのIDEでも最大30分かかる場合があり、除外ファイルで提案が出ないかテストできます。除外設定を有効化しただけで全AI経路をカバーしたと考えない記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260919-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>GitHub Copilotのコンテンツ除外と対象外の機能</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+              <time datetime="2026-09-19">2026.09.19</time>
+            </div>
+            <h1>GitHub Copilotのコード除外は、Agent modeやCLIまで守る設定ではない</h1>
+            <p>GitHub Copilot BusinessとEnterpriseでは、リポジトリ、組織、Enterpriseの設定から、Copilotが無視するファイルやパスを指定できます。除外された内容はインライン提案、ほかのファイルでの提案、Copilotの回答、Copilot code reviewの根拠に使われません。一方で、GitHubはIDEのCopilot ChatにあるEdit・Agent mode、Copilot CLIなどではコンテンツ除外が未対応であると案内しています。設定反映済みのIDEでも最大30分かかる場合があり、除外ファイルで提案が出ないかテストできます。除外設定を有効化しただけで全AI経路をカバーしたと考えない記事です。</p>
+            <ul class="forensics-target-list"><li>GitHub Copilot Business・Enterpriseを管理する人</li><li>秘密情報を含むリポジトリでCopilotを使う開発チーム</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>GitHub Copilot</li><li>コンテンツ除外</li><li>Agent mode</li><li>Copilot CLI</li><li>秘密情報</li><li>開発セキュリティ</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 5</strong>
+              <span>Copilotの除外設定は、対応する利用面と未対応の利用面を分けて確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot is-active">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>除外パスを指定したらIDEでテストし、Agent mode・CLIは別の運用が必要か確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>.envや秘密設定をCopilotに読ませないルールを作りたい</h3><p>開発チームはIDEの補完やチャットを使っています。リポジトリ設定で秘密情報を含むパスを除外した後、エージェント機能やCLIにも同じ保護があるのか、何を試せば設定を確認できるのかを知りたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>コードの除外ポリシーは有力な手段ですが、すべてのCopilot利用面に同じように適用されるわけではありません。どの作業面に対応するかを確認し、対象外の機能では別の運用を考える必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="test-and-check-surfaces">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>GitHub Copilotで秘密情報を含むファイルを除外設定した後、適切な確認は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="test-and-check-surfaces" data-choice-id="test-and-check-surfaces" />
+                <span>
+                  <strong>IDEで除外をテストし、Agent modeやCLIは対象外であることを別に確認する</strong>
+                  <small>コンテンツ除外には未対応の利用面があります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-all-surfaces" data-choice-id="assume-all-surfaces" />
+                <span>
+                  <strong>リポジトリ設定をしたので、すべてのCopilot機能で除外されると考える</strong>
+                  <small>Agent modeやCopilot CLIには未対応の案内があります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="skip-test" data-choice-id="skip-test" />
+                <span>
+                  <strong>設定を保存した時点で、IDEの反映確認は不要と考える</strong>
+                  <small>反映に時間がかかる場合があり、GitHubはテスト手順を案内しています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>IDEで除外をテストし、Agent modeやCLIは対象外であることを別に確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>対象パスを指定後、通常のIDE機能で除外を確認し、Agent modeやCLIなどでは同じ除外が効かないことを前提に扱います。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>除外するパス</h3>
+              <p>リポジトリ設定のContent exclusionでファイル・ディレクトリ・パターンを指定します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>除外の効果</h3>
+              <p>除外ファイルは提案、回答、コードレビューの根拠に使われません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対応しない利用面</h3>
+              <p>Copilot ChatのEdit・Agent modeやCopilot CLIはコンテンツ除外未対応です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>反映テスト</h3>
+              <p>設定済みIDEでは反映に最大30分かかる場合があり、除外ファイルで提案が出ないことを確認できます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>GitHub Copilotのコンテンツ除外は、全機能を横断する秘密情報対策ではない</strong><p>通常の対象機能では、指定したファイルを提案・回答・レビューの根拠から外せます。しかしAgent modeやCLIには未対応のため、機能ごとの対応状況を確認し、除外設定だけに依存しない運用が必要です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>秘密情報を含むパスをContent exclusionに指定する</strong><span>Copilotが対象ファイルを無視するよう設定できます。</span></li>
+            <li><strong>通常のIDE機能で除外をテストする</strong><span>除外ファイルで提案が出ず、回答の参照にも現れないことを確認できます。</span></li>
+            <li><strong>Agent mode・CLIの利用を別に確認する</strong><span>これらはコンテンツ除外未対応です。</span></li>
+            <li><strong>反映待ちやIDE再読み込みを行う</strong><span>設定済みIDEへの反映に時間がかかる場合があります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>除外設定がすべてのCopilot機能に効くと断定する</strong><span>未対応の利用面があります。</span></li>
+            <li><strong>除外設定を保存してもテストしない</strong><span>GitHubはIDE上で確認する手順を案内しています。</span></li>
+            <li><strong>除外対象を秘密情報そのものの削除代わりにする</strong><span>除外はCopilotの参照範囲を制御する設定で、ファイルのアクセス管理とは別です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>開発補助を使いながら、参照させるコードを意図して選ぶ</h3>
+          <p>一般の実装コードではCopilotを活用し、秘密設定や不要な領域は除外しながら、対応する利用面で効果をテストすれば、開発支援の範囲を調整できます。</p>
+          <ul class="positive-example-list"><li>.envを除外する</li><li>設定ディレクトリをパターンで除外する</li><li>IDEで効果を検証する</li><li>Agent modeの利用ルールを別に決める</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>除外設定は『全部守られた』という安心を作りやすいところがあります。だから私は、設定画面を閉じる前に、どの使い方では効かないのかまで確認します。AIの入口が増えるほど、設定の届く範囲も名前でなく実際の機能で見たいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>GitHub Copilotの除外設定は、Agent modeやCLIまで自動で守るものではない。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot" target="_blank" rel="noopener noreferrer">Excluding content from GitHub Copilot<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>GitHub Docs</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://docs.github.com/en/copilot/concepts/context/content-exclusion" target="_blank" rel="noopener noreferrer">Content exclusion for GitHub Copilot<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>GitHub Docs</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260919-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない Copilotの活動履歴と保存済みファイルを分けて削除する Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間がかかる場合があります。開いたままのアプリには履歴が見え続けることがありますが、再起動後は以前の活動が表示されなくなります。一方、Copilotの支援を受けて保存したWordやPowerPointなどのファイル内容は削除されません。履歴と成果物を別々に片付ける記事です。 セキュリティ・権限 標準 Microsoft Copilot 活動履歴 Microsoft 365 削除 データ管理 Office 職場・学校アカウントでMicrosoft Copilotを使う人 Copilotのプロンプト履歴と作成済み資料を整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-activity-history-delete</span>
+              <div>
+                <p>Copilotの活動履歴と保存済みファイルを分けて削除する</p>
+                <h3>Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-19">2026.09.19</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間がかかる場合があります。開いたままのアプリには履歴が見え続けることがありますが、再起動後は以前の活動が表示されなくなります。一方、Copilotの支援を受けて保存したWordやPowerPointなどのファイル内容は削除されません。履歴と成果物を別々に片付ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Copilotの活動履歴と保存済みファイルは別々に管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>職場・学校アカウントでMicrosoft Copilotを使う人</li><li>Copilotのプロンプト履歴と作成済み資料を整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>活動履歴</li><li>Microsoft 365</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260918-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Slack AIに読ませない場所を決める。チャンネル・Canvas・リストの制限設定 Slack AIの読取対象をチャンネルごとに制限する SlackはEnterprise+組織向けに、検索回答、Canvasの内容、Slackbotの応答を作るためのAIの読取対象から、特定のチャンネル、Canvas、リストを外す設定を案内しています。チャンネルでは組織設定から「Restrict AI use」を選び、Canvas／リストでは共有の詳細設定で「Allow AI use」を外します。ただし、これはAIの読取を制限する設定であり、メンバーが制限済みチャンネルへSlackbotで投稿することまで止めるものではありません。情報を置く場所とAIが参照する場所を分けるための記事です。 セキュリティ・権限 標準 Slack Slack AI AI検索 Canvas 情報管理 権限 Slack Enterprise+でAI機能を運用する管理者 機密プロジェクトの会話をAI検索の対象から外したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">slack-ai-access-control</span>
+              <div>
+                <p>Slack AIの読取対象をチャンネルごとに制限する</p>
+                <h3>Slack AIに読ませない場所を決める。チャンネル・Canvas・リストの制限設定</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-18">2026.09.18</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">SlackはEnterprise+組織向けに、検索回答、Canvasの内容、Slackbotの応答を作るためのAIの読取対象から、特定のチャンネル、Canvas、リストを外す設定を案内しています。チャンネルでは組織設定から「Restrict AI use」を選び、Canvas／リストでは共有の詳細設定で「Allow AI use」を外します。ただし、これはAIの読取を制限する設定であり、メンバーが制限済みチャンネルへSlackbotで投稿することまで止めるものではありません。情報を置く場所とAIが参照する場所を分けるための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>SlackのAI読取対象は、会話とコンテンツごとに制限できる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Slack Enterprise+でAI機能を運用する管理者</li><li>機密プロジェクトの会話をAI検索の対象から外したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Slack</li><li>Slack AI</li><li>AI検索</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260918-04" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Zoomの字幕と文字起こしは別物。残すなら保存・削除・閲覧権限を設定する Zoomは字幕と保存用文字起こしを分けて管理する Zoomは2026年5月、会議中に読むための字幕と、会議後に保持する発話記録である文字起こしを分ける変更を案内しました。字幕は会議後に保存・ダウンロードできず、発話記録を残すにはMeeting transcriptを主催者または管理者が明示的に有効にする必要があります。新しいMeeting transcript設定では、自動生成の対象、削除までの日数、会議後に主催者が閲覧・削除・ダウンロードできるか、参加者の閲覧・保存範囲を設定できます。会議中の利便性と会議後の保存を混同せず、保持ルールを設定する記事です。 セキュリティ・権限 標準 Zoom 文字起こし 字幕 会議記録 データ保持 AI Companion Zoom会議の記録を管理する主催者・管理者 AI要約や文字起こしを使う組織の利用者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">zoom-transcript-retention</span>
+              <div>
+                <p>Zoomは字幕と保存用文字起こしを分けて管理する</p>
+                <h3>Zoomの字幕と文字起こしは別物。残すなら保存・削除・閲覧権限を設定する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-18">2026.09.18</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Zoomは2026年5月、会議中に読むための字幕と、会議後に保持する発話記録である文字起こしを分ける変更を案内しました。字幕は会議後に保存・ダウンロードできず、発話記録を残すにはMeeting transcriptを主催者または管理者が明示的に有効にする必要があります。新しいMeeting transcript設定では、自動生成の対象、削除までの日数、会議後に主催者が閲覧・削除・ダウンロードできるか、参加者の閲覧・保存範囲を設定できます。会議中の利便性と会議後の保存を混同せず、保持ルールを設定する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Zoomの保存用文字起こしは、生成・削除・閲覧・保存を別々に設定する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Zoom会議の記録を管理する主催者・管理者</li><li>AI要約や文字起こしを使う組織の利用者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Zoom</li><li>文字起こし</li><li>字幕</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260919-04">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260919-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
