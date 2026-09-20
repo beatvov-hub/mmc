@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NotebookLMのChat Viewは、資料を隠しても閲覧権限を外さない｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Gemini Notebookでは、ノートを共有する際にViewerまたはEditorの権限を与え、Chat Viewへのリンクも作成できます。Viewerは共有されたソース文書とメモを読み取り専用で閲覧でき、Editorはソースやメモを追加・削除し、さらに共有できます。Chat Viewはソースや生成物を画面上で隠して会話へ集中させる表示ですが、閲覧者の基礎となるノート内容へのアクセスを完全に取り消すものではありません。資料を隠して見せる表示と、資料を見せない権限設定を分けて扱う記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260920-01" />
+<meta property="og:title" content="NotebookLMのChat Viewは、資料を隠しても閲覧権限を外さない｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Gemini Notebookでは、ノートを共有する際にViewerまたはEditorの権限を与え、Chat Viewへのリンクも作成できます。Viewerは共有されたソース文書とメモを読み取り専用で閲覧でき、Editorはソースやメモを追加・削除し、さらに共有できます。Chat Viewはソースや生成物を画面上で隠して会話へ集中させる表示ですが、閲覧者の基礎となるノート内容へのアクセスを完全に取り消すものではありません。資料を隠して見せる表示と、資料を見せない権限設定を分けて扱う記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260920-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>NotebookLMのChat Viewと資料の閲覧権限を分ける</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-20">2026.09.20</time>
+            </div>
+            <h1>NotebookLMのChat Viewは、資料を隠しても閲覧権限を外さない</h1>
+            <p>Gemini Notebookでは、ノートを共有する際にViewerまたはEditorの権限を与え、Chat Viewへのリンクも作成できます。Viewerは共有されたソース文書とメモを読み取り専用で閲覧でき、Editorはソースやメモを追加・削除し、さらに共有できます。Chat Viewはソースや生成物を画面上で隠して会話へ集中させる表示ですが、閲覧者の基礎となるノート内容へのアクセスを完全に取り消すものではありません。資料を隠して見せる表示と、資料を見せない権限設定を分けて扱う記事です。</p>
+            <ul class="forensics-target-list"><li>NotebookLMで資料を共有する人</li><li>AIノートの根拠資料を共同作業へ渡す人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>NotebookLM</li><li>Gemini Notebook</li><li>Chat View</li><li>共有</li><li>アクセス権</li><li>ソース資料</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>NotebookLMは、Chat Viewの表示と資料へのアクセス権を別々に確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Chat Viewリンクを送る前に、相手へソース資料まで渡してよいかを権限で確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>要約だけを見せたいので、NotebookLMのChat Viewリンクを同僚へ送ろうとしている</h3><p>ノートには社内資料やメモを追加しています。会話の要約だけを見せるつもりですが、受け手が元資料へたどり着けるか、編集者にすると何が変わるかを確認したい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Chat Viewは画面を簡潔にする表示方法で、共有対象の資料そのものを秘匿する機能ではありません。資料を渡してよい相手か、編集・再共有まで任せてよいかを、リンクの見た目とは別に決める必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="set-access-first">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>NotebookLMのChat Viewリンクで要約だけを見せたい時、適切な理解は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="set-access-first" data-choice-id="set-access-first" />
+                <span>
+                  <strong>Viewer／Editorの権限を先に確認し、Chat Viewは資料アクセスを完全には取り消さないと理解する</strong>
+                  <small>Chat Viewは表示を絞る機能で、基礎のアクセス権とは別です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="chat-view-hides-all" data-choice-id="chat-view-hides-all" />
+                <span>
+                  <strong>Chat Viewなら、受け手は元資料へ絶対にアクセスできないと考える</strong>
+                  <small>Googleは基礎となるノート内容へのアクセスを完全には取り消さないと案内しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="editor-is-viewer" data-choice-id="editor-is-viewer" />
+                <span>
+                  <strong>EditorでもViewerと同じく読むだけだと考える</strong>
+                  <small>Editorはソース・メモの追加や削除、再共有を行えます。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Viewer／Editorの権限を先に確認し、Chat Viewは資料アクセスを完全には取り消さないと理解する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>共有前に相手へ渡す権限を選び、Chat Viewは資料を隠す表示であってアクセス権の剥奪ではないと扱います。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Viewerの範囲</h3>
+              <p>Viewerは共有ノート内のソース文書とメモを読み取り専用で閲覧できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Editorの範囲</h3>
+              <p>Editorはソース・メモを追加または削除し、ノートを再共有できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Chat Viewの性質</h3>
+              <p>Chat Viewは資料・生成物を隠す表示ですが、閲覧者の基礎アクセスを完全に取り消しません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>共有先</h3>
+              <p>リンクを渡す前に、相手が資料そのものを読む必要があるか確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Chat Viewは資料を見せない権限設定ではなく、会話へ集中する表示</strong><p>ViewerとEditorに渡すノート内容・操作権限は、Chat Viewの表示とは別に残ります。ソース資料を共有できない相手には、ノート共有そのものを行わず、必要な情報を別形式で渡します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>共有前にViewerとEditorの違いを確認する</strong><span>Editorは資料の追加・削除と再共有まで行えます。</span></li>
+            <li><strong>資料を読めてよい相手だけをノートへ招待する</strong><span>Viewerも共有されたソース文書とメモを閲覧できます。</span></li>
+            <li><strong>Chat Viewを表示の簡略化として使う</strong><span>資料を完全に秘匿するアクセス制御ではありません。</span></li>
+            <li><strong>要約だけを渡す必要がある時は別の共有物を作る</strong><span>ノートの権限を渡さずに必要な情報だけを共有できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>Chat Viewが元資料の閲覧権限を消すと考える</strong><span>表示を隠しても基礎のノート内容へのアクセスは完全には取り消されません。</span></li>
+            <li><strong>Editorを気軽に付与する</strong><span>Editorはソース・メモを変更し、再共有できます。</span></li>
+            <li><strong>リンクの見た目だけで共有範囲を判断する</strong><span>表示と権限は別の仕組みです。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>根拠資料を共有する共同調査を、役割ごとに進める</h3>
+          <p>資料を一緒に確認・追加する相手にはEditor、内容を読む相手にはViewerを選べば、ノートを調査・要約の共同作業に生かせます。</p>
+          <ul class="positive-example-list"><li>調査担当へEditorを付与する</li><li>レビュー担当へViewerを付与する</li><li>会話の導入にChat Viewを使う</li><li>要約だけは別資料で共有する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>Chat Viewはすっきり見えるので、資料も隠れたように感じます。でも私は、画面に見えないことと、相手が読めないことを同じにしたくありません。共有の前に、資料そのものを渡してよいかを先に決めます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>NotebookLMのChat Viewは、ソース資料への閲覧権限を完全に外す機能ではない。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/gemininotebook/answer/16206563" target="_blank" rel="noopener noreferrer">Create a notebook in Gemini Notebook<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Gemini Notebook Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260920-02" data-forensics-card data-category="media-literacy" data-level="4" data-difficulty="standard" data-search-text="同じNotebookでも、NotebookLMとGeminiでは回答の根拠範囲が違う NotebookLMとGeminiで回答の根拠範囲を分ける Googleは、Gemini NotebookのノートをGeminiアプリでも使える一方、回答の根拠範囲は同じではないと案内しています。Gemini Notebookでは回答はノートに入れたソースだけを根拠にしますが、Gemini側の会話ではノートのソースに加えてウェブ検索やほかのツールが使われる場合があります。また、Gemini Appsの活動保存をオフにしたり活動を削除しても、Gemini Notebookのデータは削除されません。出典限定で確認する場面と、外部情報も使う場面を、同じノートでも使い分ける記事です。 情報の見極め 標準 NotebookLM Gemini 情報源 ウェブ検索 根拠確認 AIリテラシー NotebookLMとGeminiを併用して資料を調べる人 AI回答がどの情報を根拠にしたか確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">notebooklm-gemini-source-scope</span>
+              <div>
+                <p>NotebookLMとGeminiで回答の根拠範囲を分ける</p>
+                <h3>同じNotebookでも、NotebookLMとGeminiでは回答の根拠範囲が違う</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-20">2026.09.20</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは、Gemini NotebookのノートをGeminiアプリでも使える一方、回答の根拠範囲は同じではないと案内しています。Gemini Notebookでは回答はノートに入れたソースだけを根拠にしますが、Gemini側の会話ではノートのソースに加えてウェブ検索やほかのツールが使われる場合があります。また、Gemini Appsの活動保存をオフにしたり活動を削除しても、Gemini Notebookのデータは削除されません。出典限定で確認する場面と、外部情報も使う場面を、同じノートでも使い分ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>同じノートでも、質問する画面によって回答の根拠範囲が変わり得る</span>
+            </div>
+            <ul class="forensics-card-audience"><li>NotebookLMとGeminiを併用して資料を調べる人</li><li>AI回答がどの情報を根拠にしたか確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>NotebookLM</li><li>Gemini</li><li>情報源</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260920-03" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="Snapchatのゴーストモードは、My AIへの位置情報共有を止めない My AIの位置情報は端末権限停止とデータ消去で管理する Snapchatは、My AIが一般的な位置情報へアクセスするのは、利用者がSnapchatへ位置情報を共有した時、またはMy AIとの会話で位置を伝えた時だと案内しています。ゴーストモードはSnap Mapで友だちに現在地を見せない設定であり、Snapchatアプリ自体への位置情報提供を止めるものではありません。My AIに位置を使わせないためには、iOSまたはAndroidの端末設定でSnapchatの位置情報権限を止め、さらにMy AIデータを消去します。権限を切った直後も位置データがキャッシュに残る場合があるため、停止と消去を分ける記事です。 セキュリティ・権限 はじめて Snapchat My AI 位置情報 ゴーストモード アプリ権限 プライバシー SnapchatのMy AIで近くの場所を質問する人 ゴーストモードで位置情報を管理している人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">snapchat-my-ai-location</span>
+              <div>
+                <p>My AIの位置情報は端末権限停止とデータ消去で管理する</p>
+                <h3>Snapchatのゴーストモードは、My AIへの位置情報共有を止めない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-20">2026.09.20</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Snapchatは、My AIが一般的な位置情報へアクセスするのは、利用者がSnapchatへ位置情報を共有した時、またはMy AIとの会話で位置を伝えた時だと案内しています。ゴーストモードはSnap Mapで友だちに現在地を見せない設定であり、Snapchatアプリ自体への位置情報提供を止めるものではありません。My AIに位置を使わせないためには、iOSまたはAndroidの端末設定でSnapchatの位置情報権限を止め、さらにMy AIデータを消去します。権限を切った直後も位置データがキャッシュに残る場合があるため、停止と消去を分ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>My AIの位置情報は、ゴーストモードではなく端末権限とデータ消去で管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SnapchatのMy AIで近くの場所を質問する人</li><li>ゴーストモードで位置情報を管理している人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Snapchat</li><li>My AI</li><li>位置情報</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260919-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない Copilotの活動履歴と保存済みファイルを分けて削除する Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間がかかる場合があります。開いたままのアプリには履歴が見え続けることがありますが、再起動後は以前の活動が表示されなくなります。一方、Copilotの支援を受けて保存したWordやPowerPointなどのファイル内容は削除されません。履歴と成果物を別々に片付ける記事です。 セキュリティ・権限 標準 Microsoft Copilot 活動履歴 Microsoft 365 削除 データ管理 Office 職場・学校アカウントでMicrosoft Copilotを使う人 Copilotのプロンプト履歴と作成済み資料を整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-activity-history-delete</span>
+              <div>
+                <p>Copilotの活動履歴と保存済みファイルを分けて削除する</p>
+                <h3>Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-19">2026.09.19</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間がかかる場合があります。開いたままのアプリには履歴が見え続けることがありますが、再起動後は以前の活動が表示されなくなります。一方、Copilotの支援を受けて保存したWordやPowerPointなどのファイル内容は削除されません。履歴と成果物を別々に片付ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Copilotの活動履歴と保存済みファイルは別々に管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>職場・学校アカウントでMicrosoft Copilotを使う人</li><li>Copilotのプロンプト履歴と作成済み資料を整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>活動履歴</li><li>Microsoft 365</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260920-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

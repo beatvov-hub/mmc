@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Snapchatのゴーストモードは、My AIへの位置情報共有を止めない｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Snapchatは、My AIが一般的な位置情報へアクセスするのは、利用者がSnapchatへ位置情報を共有した時、またはMy AIとの会話で位置を伝えた時だと案内しています。ゴーストモードはSnap Mapで友だちに現在地を見せない設定であり、Snapchatアプリ自体への位置情報提供を止めるものではありません。My AIに位置を使わせないためには、iOSまたはAndroidの端末設定でSnapchatの位置情報権限を止め、さらにMy AIデータを消去します。権限を切った直後も位置データがキャッシュに残る場合があるため、停止と消去を分ける記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260920-03" />
+<meta property="og:title" content="Snapchatのゴーストモードは、My AIへの位置情報共有を止めない｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Snapchatは、My AIが一般的な位置情報へアクセスするのは、利用者がSnapchatへ位置情報を共有した時、またはMy AIとの会話で位置を伝えた時だと案内しています。ゴーストモードはSnap Mapで友だちに現在地を見せない設定であり、Snapchatアプリ自体への位置情報提供を止めるものではありません。My AIに位置を使わせないためには、iOSまたはAndroidの端末設定でSnapchatの位置情報権限を止め、さらにMy AIデータを消去します。権限を切った直後も位置データがキャッシュに残る場合があるため、停止と消去を分ける記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260920-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>My AIの位置情報は端末権限停止とデータ消去で管理する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-09-20">2026.09.20</time>
+            </div>
+            <h1>Snapchatのゴーストモードは、My AIへの位置情報共有を止めない</h1>
+            <p>Snapchatは、My AIが一般的な位置情報へアクセスするのは、利用者がSnapchatへ位置情報を共有した時、またはMy AIとの会話で位置を伝えた時だと案内しています。ゴーストモードはSnap Mapで友だちに現在地を見せない設定であり、Snapchatアプリ自体への位置情報提供を止めるものではありません。My AIに位置を使わせないためには、iOSまたはAndroidの端末設定でSnapchatの位置情報権限を止め、さらにMy AIデータを消去します。権限を切った直後も位置データがキャッシュに残る場合があるため、停止と消去を分ける記事です。</p>
+            <ul class="forensics-target-list"><li>SnapchatのMy AIで近くの場所を質問する人</li><li>ゴーストモードで位置情報を管理している人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Snapchat</li><li>My AI</li><li>位置情報</li><li>ゴーストモード</li><li>アプリ権限</li><li>プライバシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>My AIの位置情報は、ゴーストモードではなく端末権限とデータ消去で管理する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>My AIに位置を使わせないなら、端末権限を止めた後にMy AIデータも消去しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>ゴーストモードをオンにしているのに、My AIから近くのお店を勧められた</h3><p>友だちには現在地を見せないよう設定していますが、My AIには位置情報を使わせたくありません。ゴーストモードを使っていれば十分なのか、端末設定とMy AI内のデータをどこで確認すればよいか知りたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>友だちに見せる位置情報と、アプリが位置情報を使う権限は別です。My AIの位置利用を止めるには、端末の許可を止めることと、すでに共有したMy AIデータを消すことを組み合わせます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="revoke-and-clear">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>SnapchatのMy AIに位置情報を使わせたくない時、適切な対応は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="revoke-and-clear" data-choice-id="revoke-and-clear" />
+                <span>
+                  <strong>端末でSnapchatの位置情報権限を止め、My AIデータも消去する</strong>
+                  <small>位置共有の停止と共有済みデータの消去は別の操作です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ghost-only" data-choice-id="ghost-only" />
+                <span>
+                  <strong>ゴーストモードをオンにすれば、My AIも位置を使えないと考える</strong>
+                  <small>ゴーストモードは友だちへの共有を制限する設定です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="permission-only" data-choice-id="permission-only" />
+                <span>
+                  <strong>端末権限を切れば、すでにMy AIへ共有した位置データも即座に消えると考える</strong>
+                  <small>キャッシュが残る場合があり、My AIデータ消去も案内されています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>端末でSnapchatの位置情報権限を止め、My AIデータも消去する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>端末の位置情報許可を停止し、Snapchat設定のClear My AI Dataで共有済みデータを消去します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ゴーストモードの対象</h3>
+              <p>ゴーストモードはSnap Mapで友だちに現在地を見せないための設定です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>端末の位置情報権限</h3>
+              <p>iOSまたはAndroidの設定からSnapchatへの位置情報許可を停止します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>My AIデータ消去</h3>
+              <p>Snapchat設定でClear My AI Dataを選び、共有したデータを消去します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>キャッシュ</h3>
+              <p>許可を停止した直後も位置データがキャッシュに残る場合があります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>ゴーストモードは友だちへの表示を止める設定で、My AIへの位置提供を止めるものではない</strong><p>位置情報を使わせないにはSnapchatの端末権限を停止し、すでに共有されたMy AIデータも消去します。表示設定とアプリ権限を混同しないことが重要です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>端末設定でSnapchatの位置情報権限を停止する</strong><span>My AIが位置情報へアクセスしないようにできます。</span></li>
+            <li><strong>Snapchat設定からMy AIデータを消去する</strong><span>共有済みのMy AIデータを消去できます。</span></li>
+            <li><strong>ゴーストモードとアプリ権限を別に確認する</strong><span>それぞれが制限する相手・範囲は異なります。</span></li>
+            <li><strong>位置情報を使う質問の前に権限を確認する</strong><span>近隣の場所に関する回答には共有済み位置情報が使われ得ます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>ゴーストモードだけでMy AIへの位置利用も止まると考える</strong><span>ゴーストモードは友だちへの共有を制限します。</span></li>
+            <li><strong>端末権限を切れば過去の位置データも消えると決めつける</strong><span>キャッシュが残る場合があり、My AIデータ消去が必要です。</span></li>
+            <li><strong>位置情報を伝える会話を、権限と無関係だと考える</strong><span>My AIとの会話で位置を伝えた場合にも一般的位置情報へアクセスし得ます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>位置を必要な時だけ使い、近隣情報の質問を便利にする</h3>
+          <p>近くの場所を探したい時だけ位置情報を許可し、使い終えたら権限とMy AIデータを見直せば、地域の提案を目的に合わせて使えます。</p>
+          <ul class="positive-example-list"><li>旅行中だけ近隣情報を尋ねる</li><li>不要になったら位置権限を止める</li><li>My AIデータを消去する</li><li>友だちへの表示とアプリ権限を別に確認する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>ゴーストモードという名前は心強いですが、誰から隠れる設定なのかは別に見たいです。私は位置情報を使わないと決めたら、地図の表示だけでなく、アプリの権限とAIに渡した記録まで順に片付けます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Snapchatのゴーストモードは、My AIへの位置情報提供を止める設定ではない。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://help.snapchat.com/hc/ja/articles/18937463577620-%E4%BD%8D%E7%BD%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%81%8CMy-AI%E3%81%A8%E5%85%B1%E6%9C%89%E3%81%95%E3%82%8C%E3%82%8B%E6%96%B9%E6%B3%95%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B" target="_blank" rel="noopener noreferrer">位置データがMy AIと共有される方法を管理するにはどうすればよいですか？<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Snapchatサポート</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260920-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="NotebookLMのChat Viewは、資料を隠しても閲覧権限を外さない NotebookLMのChat Viewと資料の閲覧権限を分ける Gemini Notebookでは、ノートを共有する際にViewerまたはEditorの権限を与え、Chat Viewへのリンクも作成できます。Viewerは共有されたソース文書とメモを読み取り専用で閲覧でき、Editorはソースやメモを追加・削除し、さらに共有できます。Chat Viewはソースや生成物を画面上で隠して会話へ集中させる表示ですが、閲覧者の基礎となるノート内容へのアクセスを完全に取り消すものではありません。資料を隠して見せる表示と、資料を見せない権限設定を分けて扱う記事です。 セキュリティ・権限 標準 NotebookLM Gemini Notebook Chat View 共有 アクセス権 ソース資料 NotebookLMで資料を共有する人 AIノートの根拠資料を共同作業へ渡す人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">notebooklm-chat-view-access</span>
+              <div>
+                <p>NotebookLMのChat Viewと資料の閲覧権限を分ける</p>
+                <h3>NotebookLMのChat Viewは、資料を隠しても閲覧権限を外さない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-20">2026.09.20</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Gemini Notebookでは、ノートを共有する際にViewerまたはEditorの権限を与え、Chat Viewへのリンクも作成できます。Viewerは共有されたソース文書とメモを読み取り専用で閲覧でき、Editorはソースやメモを追加・削除し、さらに共有できます。Chat Viewはソースや生成物を画面上で隠して会話へ集中させる表示ですが、閲覧者の基礎となるノート内容へのアクセスを完全に取り消すものではありません。資料を隠して見せる表示と、資料を見せない権限設定を分けて扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>NotebookLMは、Chat Viewの表示と資料へのアクセス権を別々に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>NotebookLMで資料を共有する人</li><li>AIノートの根拠資料を共同作業へ渡す人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>NotebookLM</li><li>Gemini Notebook</li><li>Chat View</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260919-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない Copilotの活動履歴と保存済みファイルを分けて削除する Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間がかかる場合があります。開いたままのアプリには履歴が見え続けることがありますが、再起動後は以前の活動が表示されなくなります。一方、Copilotの支援を受けて保存したWordやPowerPointなどのファイル内容は削除されません。履歴と成果物を別々に片付ける記事です。 セキュリティ・権限 標準 Microsoft Copilot 活動履歴 Microsoft 365 削除 データ管理 Office 職場・学校アカウントでMicrosoft Copilotを使う人 Copilotのプロンプト履歴と作成済み資料を整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-activity-history-delete</span>
+              <div>
+                <p>Copilotの活動履歴と保存済みファイルを分けて削除する</p>
+                <h3>Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-19">2026.09.19</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間がかかる場合があります。開いたままのアプリには履歴が見え続けることがありますが、再起動後は以前の活動が表示されなくなります。一方、Copilotの支援を受けて保存したWordやPowerPointなどのファイル内容は削除されません。履歴と成果物を別々に片付ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Copilotの活動履歴と保存済みファイルは別々に管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>職場・学校アカウントでMicrosoft Copilotを使う人</li><li>Copilotのプロンプト履歴と作成済み資料を整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>活動履歴</li><li>Microsoft 365</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260919-03" data-forensics-card data-category="security" data-level="5" data-difficulty="advanced" data-search-text="GitHub Copilotのコード除外は、Agent modeやCLIまで守る設定ではない GitHub Copilotのコンテンツ除外と対象外の機能 GitHub Copilot BusinessとEnterpriseでは、リポジトリ、組織、Enterpriseの設定から、Copilotが無視するファイルやパスを指定できます。除外された内容はインライン提案、ほかのファイルでの提案、Copilotの回答、Copilot code reviewの根拠に使われません。一方で、GitHubはIDEのCopilot ChatにあるEdit・Agent mode、Copilot CLIなどではコンテンツ除外が未対応であると案内しています。設定反映済みのIDEでも最大30分かかる場合があり、除外ファイルで提案が出ないかテストできます。除外設定を有効化しただけで全AI経路をカバーしたと考えない記事です。 セキュリティ・権限 発展 GitHub Copilot コンテンツ除外 Agent mode Copilot CLI 秘密情報 開発セキュリティ GitHub Copilot Business・Enterpriseを管理する人 秘密情報を含むリポジトリでCopilotを使う開発チーム">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">github-copilot-content-exclusion</span>
+              <div>
+                <p>GitHub Copilotのコンテンツ除外と対象外の機能</p>
+                <h3>GitHub Copilotのコード除外は、Agent modeやCLIまで守る設定ではない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-19">2026.09.19</time>
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">GitHub Copilot BusinessとEnterpriseでは、リポジトリ、組織、Enterpriseの設定から、Copilotが無視するファイルやパスを指定できます。除外された内容はインライン提案、ほかのファイルでの提案、Copilotの回答、Copilot code reviewの根拠に使われません。一方で、GitHubはIDEのCopilot ChatにあるEdit・Agent mode、Copilot CLIなどではコンテンツ除外が未対応であると案内しています。設定反映済みのIDEでも最大30分かかる場合があり、除外ファイルで提案が出ないかテストできます。除外設定を有効化しただけで全AI経路をカバーしたと考えない記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>Copilotの除外設定は、対応する利用面と未対応の利用面を分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>GitHub Copilot Business・Enterpriseを管理する人</li><li>秘密情報を含むリポジトリでCopilotを使う開発チーム</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>GitHub Copilot</li><li>コンテンツ除外</li><li>Agent mode</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260919-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260920-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

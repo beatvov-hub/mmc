@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>同じNotebookでも、NotebookLMとGeminiでは回答の根拠範囲が違う｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Googleは、Gemini NotebookのノートをGeminiアプリでも使える一方、回答の根拠範囲は同じではないと案内しています。Gemini Notebookでは回答はノートに入れたソースだけを根拠にしますが、Gemini側の会話ではノートのソースに加えてウェブ検索やほかのツールが使われる場合があります。また、Gemini Appsの活動保存をオフにしたり活動を削除しても、Gemini Notebookのデータは削除されません。出典限定で確認する場面と、外部情報も使う場面を、同じノートでも使い分ける記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260920-02" />
+<meta property="og:title" content="同じNotebookでも、NotebookLMとGeminiでは回答の根拠範囲が違う｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Googleは、Gemini NotebookのノートをGeminiアプリでも使える一方、回答の根拠範囲は同じではないと案内しています。Gemini Notebookでは回答はノートに入れたソースだけを根拠にしますが、Gemini側の会話ではノートのソースに加えてウェブ検索やほかのツールが使われる場合があります。また、Gemini Appsの活動保存をオフにしたり活動を削除しても、Gemini Notebookのデータは削除されません。出典限定で確認する場面と、外部情報も使う場面を、同じノートでも使い分ける記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260920-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>NotebookLMとGeminiで回答の根拠範囲を分ける</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>標準</span>
+              <time datetime="2026-09-20">2026.09.20</time>
+            </div>
+            <h1>同じNotebookでも、NotebookLMとGeminiでは回答の根拠範囲が違う</h1>
+            <p>Googleは、Gemini NotebookのノートをGeminiアプリでも使える一方、回答の根拠範囲は同じではないと案内しています。Gemini Notebookでは回答はノートに入れたソースだけを根拠にしますが、Gemini側の会話ではノートのソースに加えてウェブ検索やほかのツールが使われる場合があります。また、Gemini Appsの活動保存をオフにしたり活動を削除しても、Gemini Notebookのデータは削除されません。出典限定で確認する場面と、外部情報も使う場面を、同じノートでも使い分ける記事です。</p>
+            <ul class="forensics-target-list"><li>NotebookLMとGeminiを併用して資料を調べる人</li><li>AI回答がどの情報を根拠にしたか確認したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>NotebookLM</li><li>Gemini</li><li>情報源</li><li>ウェブ検索</li><li>根拠確認</li><li>AIリテラシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>同じノートでも、質問する画面によって回答の根拠範囲が変わり得る</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>資料限定の確認はGemini Notebookで行い、Gemini側の回答は追加情報源がないか確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>社内資料だけで答えてほしい質問を、Geminiアプリでも続けて聞こうとしている</h3><p>NotebookLMへ議事録や規程を読み込ませ、資料に沿った回答を得ています。その続きの質問をGeminiアプリで行う時、元資料だけで答えるのか、ウェブ情報も混ざるのかを知りたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIの画面が同じノートを扱っていても、参照する範囲が同じとは限りません。根拠を限定したい質問ではどの画面で聞くかを選び、活動履歴とノートの保存も別に管理します。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="use-notebook">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>ノートに入れた資料だけを根拠に回答を確認したい時、適切な選択は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="use-notebook" data-choice-id="use-notebook" />
+                <span>
+                  <strong>Gemini Notebookで質問し、Geminiアプリ側ではウェブ検索などが加わり得ると理解する</strong>
+                  <small>Gemini Notebookの回答はノートのソースに基づきます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="same-sources" data-choice-id="same-sources" />
+                <span>
+                  <strong>Geminiアプリでも必ずノートの資料だけを使うと考える</strong>
+                  <small>Gemini側ではウェブ検索やほかのツールが使われる場合があります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="activity-deletes-notebook" data-choice-id="activity-deletes-notebook" />
+                <span>
+                  <strong>Gemini Appsの活動を消せばノートのデータも消えると考える</strong>
+                  <small>活動保存・削除とNotebookデータの削除は別です。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Gemini Notebookで質問し、Geminiアプリ側ではウェブ検索などが加わり得ると理解する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>出典をノート内の資料に限定する時はGemini Notebookを使い、Geminiアプリで得た回答は追加の情報源がないか確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Gemini Notebookの根拠</h3>
+              <p>Gemini Notebookの回答はノートのソースを根拠にします。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Gemini側の根拠</h3>
+              <p>Geminiアプリではノートのソースに加え、ウェブ検索やほかのツールを使う場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>質問する場所</h3>
+              <p>出典限定か、外部情報も必要かで質問先を選びます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>保存データ</h3>
+              <p>Gemini Appsの活動設定を変えても、Notebookデータは自動削除されません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>NotebookLMとGeminiは、同じノートを使っても回答の情報源が同一ではない</strong><p>Gemini Notebookはノートのソースに基づく回答を得る場面に向きます。Geminiアプリではウェブ検索などが加わる場合があるため、根拠限定の確認と広い調査を使い分けます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>資料限定の質問はGemini Notebookで行う</strong><span>回答はノートのソースを根拠にします。</span></li>
+            <li><strong>Geminiアプリの回答では情報源の範囲を確認する</strong><span>ウェブ検索やほかのツールが使われる場合があります。</span></li>
+            <li><strong>根拠を用途別に記録する</strong><span>資料内の結論か、外部情報を含む調査結果かを分けられます。</span></li>
+            <li><strong>ノートの削除はノート側で管理する</strong><span>Gemini Appsの活動設定だけではNotebookデータは削除されません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>同じノートなら回答根拠も必ず同じだと考える</strong><span>Gemini側では追加のツールを使う場合があります。</span></li>
+            <li><strong>Gemini Appsの活動削除でNotebookデータも消えると考える</strong><span>GoogleはNotebookデータが削除されないと案内しています。</span></li>
+            <li><strong>出典限定の回答と広い検索結果を混ぜて引用する</strong><span>どの範囲を根拠にした回答かを区別します。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>資料の確認と外部調査を、同じノートを起点に使い分ける</h3>
+          <p>規程・議事録の確認ではGemini Notebook、公開情報も含めた下調べではGeminiというように使い分ければ、根拠の範囲を意識しながらAIを活用できます。</p>
+          <ul class="positive-example-list"><li>議事録だけで要点を確認する</li><li>ウェブも含めて用語を調べる</li><li>回答の根拠範囲をメモする</li><li>不要なノートはノート側で削除する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>同じ資料を開いているから、同じ答え方をするとは限りません。私はAIの回答を読む時、まず『この画面はどこまで探したのか』を確かめたいです。資料だけで決めたい時には、資料だけを見る場所を選びます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>NotebookLMとGeminiは、同じノートでも回答の根拠範囲が異なり得る。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/gemininotebook/answer/17003757?hl=es" target="_blank" rel="noopener noreferrer">Notebooks en aplicaciones de Gemini<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Gemini Notebook Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260920-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="NotebookLMのChat Viewは、資料を隠しても閲覧権限を外さない NotebookLMのChat Viewと資料の閲覧権限を分ける Gemini Notebookでは、ノートを共有する際にViewerまたはEditorの権限を与え、Chat Viewへのリンクも作成できます。Viewerは共有されたソース文書とメモを読み取り専用で閲覧でき、Editorはソースやメモを追加・削除し、さらに共有できます。Chat Viewはソースや生成物を画面上で隠して会話へ集中させる表示ですが、閲覧者の基礎となるノート内容へのアクセスを完全に取り消すものではありません。資料を隠して見せる表示と、資料を見せない権限設定を分けて扱う記事です。 セキュリティ・権限 標準 NotebookLM Gemini Notebook Chat View 共有 アクセス権 ソース資料 NotebookLMで資料を共有する人 AIノートの根拠資料を共同作業へ渡す人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">notebooklm-chat-view-access</span>
+              <div>
+                <p>NotebookLMのChat Viewと資料の閲覧権限を分ける</p>
+                <h3>NotebookLMのChat Viewは、資料を隠しても閲覧権限を外さない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-20">2026.09.20</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Gemini Notebookでは、ノートを共有する際にViewerまたはEditorの権限を与え、Chat Viewへのリンクも作成できます。Viewerは共有されたソース文書とメモを読み取り専用で閲覧でき、Editorはソースやメモを追加・削除し、さらに共有できます。Chat Viewはソースや生成物を画面上で隠して会話へ集中させる表示ですが、閲覧者の基礎となるノート内容へのアクセスを完全に取り消すものではありません。資料を隠して見せる表示と、資料を見せない権限設定を分けて扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>NotebookLMは、Chat Viewの表示と資料へのアクセス権を別々に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>NotebookLMで資料を共有する人</li><li>AIノートの根拠資料を共同作業へ渡す人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>NotebookLM</li><li>Gemini Notebook</li><li>Chat View</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260919-04" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Dropbox DashのAI検索は、Webと接続アプリを切り替えて質問する Dropbox DashはWeb検索と接続アプリ検索を分ける Dropbox Dashは、接続したアプリ内のコンテンツを検索・要約して質問に答える機能を案内しています。Dash ChatではWeb searchが初期状態で有効で、All contentからチェックを切り替えると、ウェブ検索と接続アプリ・自分のコンテンツを対象にした検索を使い分けられます。質問へファイル・フォルダを添付することもできます。DropboxはDashがウェブ参照に第三者AIを使うと説明し、送信データはOpenAIモデルの学習・改善に使われず、Dropboxも生成AIモデル構築には使わないと案内しています。質問前に参照範囲を選ぶ記事です。 仕事・AI活用 標準 Dropbox Dash AI検索 Web search 接続アプリ 業務データ 情報源 Dropbox Dashで業務データを横断検索する人 AI検索の質問範囲を選びたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">dropbox-dash-search-scope</span>
+              <div>
+                <p>Dropbox DashはWeb検索と接続アプリ検索を分ける</p>
+                <h3>Dropbox DashのAI検索は、Webと接続アプリを切り替えて質問する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-19">2026.09.19</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Dropbox Dashは、接続したアプリ内のコンテンツを検索・要約して質問に答える機能を案内しています。Dash ChatではWeb searchが初期状態で有効で、All contentからチェックを切り替えると、ウェブ検索と接続アプリ・自分のコンテンツを対象にした検索を使い分けられます。質問へファイル・フォルダを添付することもできます。DropboxはDashがウェブ参照に第三者AIを使うと説明し、送信データはOpenAIモデルの学習・改善に使われず、Dropboxも生成AIモデル構築には使わないと案内しています。質問前に参照範囲を選ぶ記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Dropbox Dashは、質問ごとにWebと接続アプリの検索範囲を選べる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Dropbox Dashで業務データを横断検索する人</li><li>AI検索の質問範囲を選びたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Dropbox Dash</li><li>AI検索</li><li>Web search</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260918-02" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="Microsoft 365でAI画像を作る時、透かしを自分で有効にする Microsoft 365のAI画像に透かしを付ける設定 Microsoftは、職場・学校用Microsoft 365でAIにより生成・編集した画像へ、利用者自身が透かしを付ける設定を案内しています。myaccount.microsoft.comのData and Privacyから「Show watermark」を有効にすると、同じ職場・学校アカウントで使う全端末に適用され、新しく生成する画像だけでなくAIで編集する既存画像にも透かしが付きます。透かしを有効にしない場合でも、モデル、使用アプリ、生成時刻などの情報はメタデータへ追加され得ます。作り手が共有前に行う表示設定を扱う記事です。 情報の見極め はじめて Microsoft 365 Copilot AI画像 透かし メタデータ Content Credentials 職場・学校アカウントでMicrosoft 365のAI画像機能を使う人 AIで作成・編集した画像を誤認なく共有したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">microsoft-ai-image-watermark</span>
+              <div>
+                <p>Microsoft 365のAI画像に透かしを付ける設定</p>
+                <h3>Microsoft 365でAI画像を作る時、透かしを自分で有効にする</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-18">2026.09.18</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、職場・学校用Microsoft 365でAIにより生成・編集した画像へ、利用者自身が透かしを付ける設定を案内しています。myaccount.microsoft.comのData and Privacyから「Show watermark」を有効にすると、同じ職場・学校アカウントで使う全端末に適用され、新しく生成する画像だけでなくAIで編集する既存画像にも透かしが付きます。透かしを有効にしない場合でも、モデル、使用アプリ、生成時刻などの情報はメタデータへ追加され得ます。作り手が共有前に行う表示設定を扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>AI画像の透かしは、職場・学校アカウントの設定から有効にできる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>職場・学校アカウントでMicrosoft 365のAI画像機能を使う人</li><li>AIで作成・編集した画像を誤認なく共有したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft 365</li><li>Copilot</li><li>AI画像</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260920-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260920-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

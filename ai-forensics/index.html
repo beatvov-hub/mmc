@@ -85,17 +85,17 @@
       <section class="card-section forensics-latest-section" id="latest-cases" aria-labelledby="latest-cases-title">
         <div class="section-heading"><div><p class="section-kicker">Latest Case</p><h2 id="latest-cases-title">最新の鑑識事例</h2></div></div>
         <div class="forensics-featured-grid">
-          <a class="forensics-card is-index-card is-featured tone-caution" href="case-20260919-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない Copilotの活動履歴と保存済みファイルを分けて削除する Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間がかかる場合があります。開いたままのアプリには履歴が見え続けることがありますが、再起動後は以前の活動が表示されなくなります。一方、Copilotの支援を受けて保存したWordやPowerPointなどのファイル内容は削除されません。履歴と成果物を別々に片付ける記事です。 セキュリティ・権限 標準 Microsoft Copilot 活動履歴 Microsoft 365 削除 データ管理 Office 職場・学校アカウントでMicrosoft Copilotを使う人 Copilotのプロンプト履歴と作成済み資料を整理したい人">
+          <a class="forensics-card is-index-card is-featured tone-caution" href="case-20260920-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="NotebookLMのChat Viewは、資料を隠しても閲覧権限を外さない NotebookLMのChat Viewと資料の閲覧権限を分ける Gemini Notebookでは、ノートを共有する際にViewerまたはEditorの権限を与え、Chat Viewへのリンクも作成できます。Viewerは共有されたソース文書とメモを読み取り専用で閲覧でき、Editorはソースやメモを追加・削除し、さらに共有できます。Chat Viewはソースや生成物を画面上で隠して会話へ集中させる表示ですが、閲覧者の基礎となるノート内容へのアクセスを完全に取り消すものではありません。資料を隠して見せる表示と、資料を見せない権限設定を分けて扱う記事です。 セキュリティ・権限 標準 NotebookLM Gemini Notebook Chat View 共有 アクセス権 ソース資料 NotebookLMで資料を共有する人 AIノートの根拠資料を共同作業へ渡す人">
             <div class="forensics-index-card-meta">
 <span class="forensics-latest-label">Latest</span>
               <span>セキュリティ・権限</span>
-              <time datetime="2026-09-19">2026.09.19</time>
+              <time datetime="2026-09-20">2026.09.20</time>
               <small>確認 4</small>
             </div>
-            <h3>Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない</h3>
-            <p class="forensics-card-summary">Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間がかかる場合があります。開いたままのアプリには履歴が見え続けることがありますが、再起動…</p>
+            <h3>NotebookLMのChat Viewは、資料を隠しても閲覧権限を外さない</h3>
+            <p class="forensics-card-summary">Gemini Notebookでは、ノートを共有する際にViewerまたはEditorの権限を与え、Chat Viewへのリンクも作成できます。Viewerは共有されたソース文書とメモを読み取り専用で閲覧でき、Editorはソースやメモを追加・削除し、さらに共有できます。Chat Viewはソースや生成物を画面上で隠…</p>
             <p class="forensics-card-lesson"><span>今回の結論</span>
-              Copilotの活動履歴を削除しても、保存済みファイルは別に残る。</p>
+              NotebookLMのChat Viewは、ソース資料への閲覧権限を完全に外す機能ではない。</p>
             <span class="forensics-card-cta">詳しく見る</span>
           </a>
         </div>
@@ -128,6 +128,45 @@
         <p class="forensics-results-status" data-forensics-results aria-live="polite"></p>
         <p class="forensics-empty-message" data-forensics-empty hidden>該当する事例は、現在準備中です。別の条件でも探してみてください。</p>
         <div class="forensics-card-grid">
+          <a class="forensics-card is-index-card tone-calm" href="case-20260920-02" data-forensics-card data-category="media-literacy" data-level="4" data-difficulty="standard" data-search-text="同じNotebookでも、NotebookLMとGeminiでは回答の根拠範囲が違う NotebookLMとGeminiで回答の根拠範囲を分ける Googleは、Gemini NotebookのノートをGeminiアプリでも使える一方、回答の根拠範囲は同じではないと案内しています。Gemini Notebookでは回答はノートに入れたソースだけを根拠にしますが、Gemini側の会話ではノートのソースに加えてウェブ検索やほかのツールが使われる場合があります。また、Gemini Appsの活動保存をオフにしたり活動を削除しても、Gemini Notebookのデータは削除されません。出典限定で確認する場面と、外部情報も使う場面を、同じノートでも使い分ける記事です。 情報の見極め 標準 NotebookLM Gemini 情報源 ウェブ検索 根拠確認 AIリテラシー NotebookLMとGeminiを併用して資料を調べる人 AI回答がどの情報を根拠にしたか確認したい人">
+            <div class="forensics-index-card-meta">
+
+              <span>情報の見極め</span>
+              <time datetime="2026-09-20">2026.09.20</time>
+              <small>確認 4</small>
+            </div>
+            <h3>同じNotebookでも、NotebookLMとGeminiでは回答の根拠範囲が違う</h3>
+            <p class="forensics-card-summary">Googleは、Gemini NotebookのノートをGeminiアプリでも使える一方、回答の根拠範囲は同じではないと案内しています。Gemini Notebookでは回答はノートに入れたソースだけを根拠にしますが、Gemini側の…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              NotebookLMとGeminiは、同じノートでも回答の根拠範囲が異なり得る。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-caution" href="case-20260920-03" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="Snapchatのゴーストモードは、My AIへの位置情報共有を止めない My AIの位置情報は端末権限停止とデータ消去で管理する Snapchatは、My AIが一般的な位置情報へアクセスするのは、利用者がSnapchatへ位置情報を共有した時、またはMy AIとの会話で位置を伝えた時だと案内しています。ゴーストモードはSnap Mapで友だちに現在地を見せない設定であり、Snapchatアプリ自体への位置情報提供を止めるものではありません。My AIに位置を使わせないためには、iOSまたはAndroidの端末設定でSnapchatの位置情報権限を止め、さらにMy AIデータを消去します。権限を切った直後も位置データがキャッシュに残る場合があるため、停止と消去を分ける記事です。 セキュリティ・権限 はじめて Snapchat My AI 位置情報 ゴーストモード アプリ権限 プライバシー SnapchatのMy AIで近くの場所を質問する人 ゴーストモードで位置情報を管理している人">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-09-20">2026.09.20</time>
+              <small>確認 4</small>
+            </div>
+            <h3>Snapchatのゴーストモードは、My AIへの位置情報共有を止めない</h3>
+            <p class="forensics-card-summary">Snapchatは、My AIが一般的な位置情報へアクセスするのは、利用者がSnapchatへ位置情報を共有した時、またはMy AIとの会話で位置を伝えた時だと案内しています。ゴーストモードはSnap Mapで友だちに現在地を見せない…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              Snapchatのゴーストモードは、My AIへの位置情報提供を止める設定ではない。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-caution" href="case-20260919-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない Copilotの活動履歴と保存済みファイルを分けて削除する Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間がかかる場合があります。開いたままのアプリには履歴が見え続けることがありますが、再起動後は以前の活動が表示されなくなります。一方、Copilotの支援を受けて保存したWordやPowerPointなどのファイル内容は削除されません。履歴と成果物を別々に片付ける記事です。 セキュリティ・権限 標準 Microsoft Copilot 活動履歴 Microsoft 365 削除 データ管理 Office 職場・学校アカウントでMicrosoft Copilotを使う人 Copilotのプロンプト履歴と作成済み資料を整理したい人">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-09-19">2026.09.19</time>
+              <small>確認 4</small>
+            </div>
+            <h3>Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない</h3>
+            <p class="forensics-card-summary">Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間が…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              Copilotの活動履歴を削除しても、保存済みファイルは別に残る。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
           <a class="forensics-card is-index-card tone-caution" href="case-20260919-02" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="Copilot会話の共有リンクは、質問文も渡る。不要になったら停止する Copilot会話リンクの共有範囲と停止を確認する Microsoft Copilotでは、会話全体または個別の応答を共有リンクにできます。個別応答の共有であっても、受け手が答えを理解するために、その応答を作った質問文もリンクへ含まれます。職場・学校アカウントでは、同じ組織でリンクを持つ人がサインインして開けます。共有後はSettingsのData controlsにあるShared linksで発行済みリンクを確認し、Stop sharingで停止できます。元会話を削除した時もリンクは使えなくなります。AI会話を渡す前の確認と、用途終了後の失効操作を扱う記事です。 仕事・AI活用 標準 Microsoft Copilot 共有リンク Data controls 会話共有 権限 情報管理 Microsoft Copilotの回答をリンクで共有する人 共有済みのAI会話を見直したい人">
             <div class="forensics-index-card-meta">
 
