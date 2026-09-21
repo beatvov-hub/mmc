@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Google PhotosのAsk Photosは、Remember Listとクエリ提供を別々に管理する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Google PhotosのAsk Photosは、将来に役立つと判断した情報をRemember Listへ追加することがあります。追加項目はGemini features in Photosから確認して個別に削除できます。品質改善のためにAsk Photosのクエリへアクセスする許可はRemember Listとは別で、Help us improve photosからオフにできます。実験的機能で不正確な回答があり得ることも踏まえ、写真AIの記憶とクエリ提供を分ける記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260921-02" />
+<meta property="og:title" content="Google PhotosのAsk Photosは、Remember Listとクエリ提供を別々に管理する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Google PhotosのAsk Photosは、将来に役立つと判断した情報をRemember Listへ追加することがあります。追加項目はGemini features in Photosから確認して個別に削除できます。品質改善のためにAsk Photosのクエリへアクセスする許可はRemember Listとは別で、Help us improve photosからオフにできます。実験的機能で不正確な回答があり得ることも踏まえ、写真AIの記憶とクエリ提供を分ける記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260921-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Ask Photosの記憶情報とクエリ提供を分けて管理する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-21">2026.09.21</time>
+            </div>
+            <h1>Google PhotosのAsk Photosは、Remember Listとクエリ提供を別々に管理する</h1>
+            <p>Google PhotosのAsk Photosは、将来に役立つと判断した情報をRemember Listへ追加することがあります。追加項目はGemini features in Photosから確認して個別に削除できます。品質改善のためにAsk Photosのクエリへアクセスする許可はRemember Listとは別で、Help us improve photosからオフにできます。実験的機能で不正確な回答があり得ることも踏まえ、写真AIの記憶とクエリ提供を分ける記事です。</p>
+            <ul class="forensics-target-list"><li>Google PhotosのAsk Photosを使う人</li><li>写真に関するAIの記憶・品質改善設定を見直したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Google Photos</li><li>Ask Photos</li><li>Gemini</li><li>Remember List</li><li>写真AI</li><li>プライバシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>Ask Photosは、Remember Listとクエリレビュー許可を別々に見直せる</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>写真AIへ残す情報はRemember Listで、品質改善へのクエリ提供は別設定で確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>写真を探すために伝えた家族構成や好みを、後から見直したい</h3><p>Ask Photosとの会話で人の名前や関係を伝え、将来使う情報がRemember Listへ追加されました。記憶された情報と品質改善へのクエリ提供を、どこで別々に管理できるか知りたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>将来使う情報と、品質改善のためのクエリレビュー許可は別の設定です。目的に応じて、残る情報と提供許可を分けて確認できます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="delete-remember-item">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Ask Photosへ伝えた情報を今後の応答に使わせたくない時、まず何をする？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-remember-item" data-choice-id="delete-remember-item" />
+                <span>
+                  <strong>Gemini features in PhotosのRemember Listで該当項目を削除する</strong>
+                  <small>Remember Listは項目ごとに削除できます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="only-disable-review" data-choice-id="only-disable-review" />
+                <span>
+                  <strong>クエリレビュー許可をオフにすればRemember Listも消えると考える</strong>
+                  <small>Remember Listとクエリ提供の許可は別です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-perfect" data-choice-id="assume-perfect" />
+                <span>
+                  <strong>Ask Photosの回答は常に正しいと考える</strong>
+                  <small>実験的機能で不正確な回答があり得ます。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Gemini features in PhotosのRemember Listで該当項目を削除する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Remember Listから項目を削除し、必要ならクエリ提供の許可も別に見直します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Remember List</h3>
+              <p>将来使う情報が追加された時は設定から一覧を確認できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>項目の削除</h3>
+              <p>Remember Listでは不要な項目の横にあるDeleteを選びます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>クエリ提供</h3>
+              <p>Help us improve photosのAllow us to access your queriesは別設定です。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>機能の性質</h3>
+              <p>Ask Photosは実験的で不正確な回答を返す場合があります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Ask Photosの記憶情報とクエリ提供は、別の設定として管理する</strong><p>将来使う情報を止めたい時はRemember Listから項目を削除します。クエリ提供を止めたい時は別設定をオフにし、AIの回答は元画像の確認と分けて扱います。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Remember Listを設定から確認する</strong><span>Ask Photosが将来使う情報を追加した時に一覧で確認できます。</span></li>
+            <li><strong>不要なRemember List項目を削除する</strong><span>項目単位で削除できます。</span></li>
+            <li><strong>クエリ提供の許可を別に見直す</strong><span>Allow us to access your queriesは独立した設定です。</span></li>
+            <li><strong>重要な写真の解釈は元画像でも確認する</strong><span>実験的機能の回答には誤りがあり得ます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>クエリ提供を止めれば記憶情報も消えると考える</strong><span>Remember Listは別に削除が必要です。</span></li>
+            <li><strong>Remember Listを削除すれば品質改善への提供も止まると考える</strong><span>クエリ提供は別設定です。</span></li>
+            <li><strong>AIの写真解釈だけで出来事を断定する</strong><span>実験的機能の回答には誤りがあり得ます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>写真を探す便利さと、残したい個人情報を両立する</h3>
+          <p>旅行写真や家族写真の検索を助けてもらいながら、不要になった関係・好みの情報はRemember Listから取り除けば、目的に合わせてAsk Photosを使えます。</p>
+          <ul class="positive-example-list"><li>旅行の写真を言葉で探す</li><li>Remember Listを定期的に確認する</li><li>不要な関係情報を削除する</li><li>クエリ提供の許可を見直す</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>写真の検索を便利にする情報は、時がたつと残したくない情報へ変わることがあります。私は『覚えておいて』と『改善に使ってよい』を同じ意味にせず、設定を別々に見直したいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Ask Photosは、Remember Listの削除とクエリ提供の設定を別々に行う。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/photos/answer/15318661" target="_blank" rel="noopener noreferrer">Use Ask Photos to search, edit and get assistance<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Photos Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260921-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChromeのAI Mode履歴は、AI Modeと検索履歴の両方から消す Chrome AI Modeと検索履歴を分けて削除する GoogleはChromeのAI Mode historyから個別または全件のAI検索履歴を削除できると案内しています。ただし、AI Mode historyで削除した検索は通常のSearch historyには残ります。AI OverviewからAI Modeへ進んだ場合は、元の検索とAI Modeへの移行の2件が検索履歴に残ることがあります。AI Mode側で削除した項目がMy Activityに一時表示されても24時間以内に自動削除されますが、完全に消したい検索はSearch history側でも削除が必要です。AI検索画面と通常検索履歴を分けて整理する記事です。 セキュリティ・権限 標準 Chrome AI Mode 検索履歴 My Activity Google検索 削除 ChromeでAI Modeを使う人 AI検索の質問履歴を整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chrome-ai-mode-history</span>
+              <div>
+                <p>Chrome AI Modeと検索履歴を分けて削除する</p>
+                <h3>ChromeのAI Mode履歴は、AI Modeと検索履歴の両方から消す</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-21">2026.09.21</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">GoogleはChromeのAI Mode historyから個別または全件のAI検索履歴を削除できると案内しています。ただし、AI Mode historyで削除した検索は通常のSearch historyには残ります。AI OverviewからAI Modeへ進んだ場合は、元の検索とAI Modeへの移行の2件が検索履歴に残ることがあります。AI Mode側で削除した項目がMy Activityに一時表示されても24時間以内に自動削除されますが、完全に消したい検索はSearch history側でも削除が必要です。AI検索画面と通常検索履歴を分けて整理する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>ChromeのAI検索履歴は、AI ModeとSearch historyを別々に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChromeでAI Modeを使う人</li><li>AI検索の質問履歴を整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Chrome</li><li>AI Mode</li><li>検索履歴</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260921-03" data-forensics-card data-category="security" data-level="5" data-difficulty="advanced" data-search-text="Google検索のAI ModeへGmail・写真をつなぐ前に、許可されるサービス範囲を確認する AI ModeのGoogleコンテンツ接続は検索系全体への許可 Google SearchのPersonal Intelligenceでは、Gmail、Calendar、Google PhotosなどのGoogleコンテンツアプリを接続して、AI Modeの回答を個人向けにできます。Googleは接続と同意により、AI ModeだけでなくGoogle Search、Discover、Maps、Shopping、News、Flights、Hotels、Translateを含むSearch servicesがWorkspaceとGoogle Photosへアクセスできると案内しています。接続はいつでも解除でき、Search activityはMy Activityで管理・削除できます。AI Modeだけにデータを渡す設定と決めつけず、許可するサービス範囲を確認する記事です。 セキュリティ・権限 発展 Google AI Mode Personal Intelligence Gmail Google Photos Google検索 データ接続 Google検索のAI ModeでPersonal Intelligenceを使う人 GmailやGoogle PhotosをAI検索へ接続しようとする人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">google-ai-mode-personal-intelligence</span>
+              <div>
+                <p>AI ModeのGoogleコンテンツ接続は検索系全体への許可</p>
+                <h3>Google検索のAI ModeへGmail・写真をつなぐ前に、許可されるサービス範囲を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-21">2026.09.21</time>
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">Google SearchのPersonal Intelligenceでは、Gmail、Calendar、Google PhotosなどのGoogleコンテンツアプリを接続して、AI Modeの回答を個人向けにできます。Googleは接続と同意により、AI ModeだけでなくGoogle Search、Discover、Maps、Shopping、News、Flights、Hotels、Translateを含むSearch servicesがWorkspaceとGoogle Photosへアクセスできると案内しています。接続はいつでも解除でき、Search activityはMy Activityで管理・削除できます。AI Modeだけにデータを渡す設定と決めつけず、許可するサービス範囲を確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>AI Modeのコンテンツ接続は、Google検索系サービス全体へのアクセス許可を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google検索のAI ModeでPersonal Intelligenceを使う人</li><li>GmailやGoogle PhotosをAI検索へ接続しようとする人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google AI Mode</li><li>Personal Intelligence</li><li>Gmail</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260920-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="NotebookLMのChat Viewは、資料を隠しても閲覧権限を外さない NotebookLMのChat Viewと資料の閲覧権限を分ける Gemini Notebookでは、ノートを共有する際にViewerまたはEditorの権限を与え、Chat Viewへのリンクも作成できます。Viewerは共有されたソース文書とメモを読み取り専用で閲覧でき、Editorはソースやメモを追加・削除し、さらに共有できます。Chat Viewはソースや生成物を画面上で隠して会話へ集中させる表示ですが、閲覧者の基礎となるノート内容へのアクセスを完全に取り消すものではありません。資料を隠して見せる表示と、資料を見せない権限設定を分けて扱う記事です。 セキュリティ・権限 標準 NotebookLM Gemini Notebook Chat View 共有 アクセス権 ソース資料 NotebookLMで資料を共有する人 AIノートの根拠資料を共同作業へ渡す人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">notebooklm-chat-view-access</span>
+              <div>
+                <p>NotebookLMのChat Viewと資料の閲覧権限を分ける</p>
+                <h3>NotebookLMのChat Viewは、資料を隠しても閲覧権限を外さない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-20">2026.09.20</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Gemini Notebookでは、ノートを共有する際にViewerまたはEditorの権限を与え、Chat Viewへのリンクも作成できます。Viewerは共有されたソース文書とメモを読み取り専用で閲覧でき、Editorはソースやメモを追加・削除し、さらに共有できます。Chat Viewはソースや生成物を画面上で隠して会話へ集中させる表示ですが、閲覧者の基礎となるノート内容へのアクセスを完全に取り消すものではありません。資料を隠して見せる表示と、資料を見せない権限設定を分けて扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>NotebookLMは、Chat Viewの表示と資料へのアクセス権を別々に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>NotebookLMで資料を共有する人</li><li>AIノートの根拠資料を共同作業へ渡す人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>NotebookLM</li><li>Gemini Notebook</li><li>Chat View</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260921-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260921-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
