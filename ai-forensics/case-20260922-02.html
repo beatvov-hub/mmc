@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>社内ChatGPTの同期検索は、個人のアプリ連携と別に範囲を確認する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="OpenAIは、管理者が設定するChatGPTのアプリ同期は、個人が外部アカウントを接続して行うライブ利用とは別の仕組みだと案内しています。同期検索で参照できる内容は、管理者が選んだソース範囲だけでなく、元のGoogle Drive、SharePoint、Microsoft Teamsなどで各メンバーが閲覧できる範囲にも従います。個人接続を外しても管理者同期の情報源が消えるとは限らず、メンバー自身では管理者同期のソースを切断できません。導入前に、同期範囲・役割・元サービス権限を分けて確認する記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260922-02" />
+<meta property="og:title" content="社内ChatGPTの同期検索は、個人のアプリ連携と別に範囲を確認する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="OpenAIは、管理者が設定するChatGPTのアプリ同期は、個人が外部アカウントを接続して行うライブ利用とは別の仕組みだと案内しています。同期検索で参照できる内容は、管理者が選んだソース範囲だけでなく、元のGoogle Drive、SharePoint、Microsoft Teamsなどで各メンバーが閲覧できる範囲にも従います。個人接続を外しても管理者同期の情報源が消えるとは限らず、メンバー自身では管理者同期のソースを切断できません。導入前に、同期範囲・役割・元サービス権限を分けて確認する記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260922-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>ChatGPT同期検索は個人連携と別に管理する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>発展</span>
+              <time datetime="2026-09-22">2026.09.22</time>
+            </div>
+            <h1>社内ChatGPTの同期検索は、個人のアプリ連携と別に範囲を確認する</h1>
+            <p>OpenAIは、管理者が設定するChatGPTのアプリ同期は、個人が外部アカウントを接続して行うライブ利用とは別の仕組みだと案内しています。同期検索で参照できる内容は、管理者が選んだソース範囲だけでなく、元のGoogle Drive、SharePoint、Microsoft Teamsなどで各メンバーが閲覧できる範囲にも従います。個人接続を外しても管理者同期の情報源が消えるとは限らず、メンバー自身では管理者同期のソースを切断できません。導入前に、同期範囲・役割・元サービス権限を分けて確認する記事です。</p>
+            <ul class="forensics-target-list"><li>組織でChatGPTのアプリ同期を検討する人</li><li>社内資料をAI検索に使う管理者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>ChatGPT</li><li>同期検索</li><li>Google Drive</li><li>SharePoint</li><li>Microsoft Teams</li><li>社内資料</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>ChatGPTの管理者同期は、個人連携とは別の設定と範囲で動く</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>同期の範囲と提供元の閲覧権限を、管理者・元サービスの両方で確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>個人のアプリ接続を外したので、社内資料のAI検索も使われなくなったと思っている</h3><p>職場のChatGPTで社内資料を検索できるようになっています。個人のアプリ設定と、管理者が設定した同期検索が同じものか、誰が何を止められるかを整理したい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>個人接続と管理者同期は設定者も対象範囲も異なります。情報をAI検索へ載せる前に、元サービスの権限と同期対象を別々に点検できます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="scope-and-source-permissions">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>管理者設定の同期検索で、社内資料の参照範囲を見直す時に最初に確認するものは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="scope-and-source-permissions" data-choice-id="scope-and-source-permissions" />
+                <span>
+                  <strong>同期対象の範囲、利用ロール、元サービスの閲覧権限を確認する</strong>
+                  <small>参照可能な内容は管理者の範囲設定と提供元の権限の両方で決まります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="disconnect-personal" data-choice-id="disconnect-personal" />
+                <span>
+                  <strong>各メンバーが個人の接続を外せば、同期検索も止まると考える</strong>
+                  <small>管理者同期は個人のライブ接続とは別です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-instant-refresh" data-choice-id="assume-instant-refresh" />
+                <span>
+                  <strong>権限変更は検索結果へ即時に反映されると考える</strong>
+                  <small>初回インデックスや権限変更の反映には時間がかかる場合があります。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>同期対象の範囲、利用ロール、元サービスの閲覧権限を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>同期対象、使用できる役割、元サービスでの閲覧権限を分けて確認し、必要なら管理者が接続や範囲を変更します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>同期とライブ接続の区別</h3>
+              <p>管理者同期は個人アカウントのライブ接続とは別の機能です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>同期対象の範囲</h3>
+              <p>管理者が選んだソース範囲が、インデックス対象をさらに制限できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>元サービスの権限</h3>
+              <p>ChatGPTは、元のサービスで閲覧できない内容への権限を新たに与えません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>変更の反映時間</h3>
+              <p>初回のインデックスや権限変更は、反映まで時間がかかる場合があります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>個人接続の解除だけでは、管理者同期の情報源は止まらない</strong><p>同期検索は管理者が接続・範囲・利用ロールを管理します。個人接続とは別に、導入と見直しを行います。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>同期対象のソースを列挙する</strong><span>何を検索対象にするか把握できます。</span></li>
+            <li><strong>役割と元サービスの閲覧権限を確認する</strong><span>利用者ごとの参照範囲を点検できます。</span></li>
+            <li><strong>変更後は反映時間を考慮して確認する</strong><span>索引や権限変更は即時反映とは限りません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>個人のアプリDisconnectで同期検索まで止まると考える</strong><span>管理者同期は別の接続です。</span></li>
+            <li><strong>同期が元サービスの閲覧権限を超えると考える</strong><span>提供元の権限が引き続き適用されます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>資料の置き場所と閲覧権限を保ったまま、社内検索を補助する</h3>
+          <p>対象を絞り、権限を整えて同期検索を使えば、資料探しの補助に活用できます。</p>
+          <ul class="positive-example-list"><li>部署別の同期範囲</li><li>役割ごとの利用制限</li><li>提供元権限の棚卸し</li><li>索引反映の確認</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>社内資料のAI検索は、便利な検索窓の話だけではありません。私は『何を同期するか』『誰が元の資料を見られるか』『誰が設定を変えられるか』を一枚の確認表にします。これで個人設定と組織設定を混ぜずに済みます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>社内ChatGPTの同期検索は、個人連携と分けて範囲・権限・管理者を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/10847137" target="_blank" rel="noopener noreferrer">Administrator-managed apps with sync in ChatGPT<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260922-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChatGPTの連携アプリは、権限を弱めるだけでなく接続も外す ChatGPT連携アプリは権限と接続を分けて管理する OpenAIは、ChatGPTのアプリ権限が、接続済みアカウントの情報を読む時や操作する時に確認を求める頻度を管理する設定であり、提供元アカウントへの接続そのものを外す設定ではないと案内しています。不要な連携を止めるには、SettingsのAppsまたはPluginsで該当アカウントをDisconnectします。また、切断しても既存・アーカイブ済みの会話、保存済みファイル、Memoryの要約は自動削除されません。権限、接続、保存済みデータを別々に管理する記事です。 セキュリティ・権限 標準 ChatGPT 連携アプリ 権限 Disconnect Memory 外部アカウント ChatGPTに外部アプリをつないでいる人 連携したアカウントを見直したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chatgpt-app-permissions</span>
+              <div>
+                <p>ChatGPT連携アプリは権限と接続を分けて管理する</p>
+                <h3>ChatGPTの連携アプリは、権限を弱めるだけでなく接続も外す</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-22">2026.09.22</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは、ChatGPTのアプリ権限が、接続済みアカウントの情報を読む時や操作する時に確認を求める頻度を管理する設定であり、提供元アカウントへの接続そのものを外す設定ではないと案内しています。不要な連携を止めるには、SettingsのAppsまたはPluginsで該当アカウントをDisconnectします。また、切断しても既存・アーカイブ済みの会話、保存済みファイル、Memoryの要約は自動削除されません。権限、接続、保存済みデータを別々に管理する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>ChatGPTのアプリ権限と接続解除は別の操作</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTに外部アプリをつないでいる人</li><li>連携したアカウントを見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>連携アプリ</li><li>権限</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260919-02" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="Copilot会話の共有リンクは、質問文も渡る。不要になったら停止する Copilot会話リンクの共有範囲と停止を確認する Microsoft Copilotでは、会話全体または個別の応答を共有リンクにできます。個別応答の共有であっても、受け手が答えを理解するために、その応答を作った質問文もリンクへ含まれます。職場・学校アカウントでは、同じ組織でリンクを持つ人がサインインして開けます。共有後はSettingsのData controlsにあるShared linksで発行済みリンクを確認し、Stop sharingで停止できます。元会話を削除した時もリンクは使えなくなります。AI会話を渡す前の確認と、用途終了後の失効操作を扱う記事です。 仕事・AI活用 標準 Microsoft Copilot 共有リンク Data controls 会話共有 権限 情報管理 Microsoft Copilotの回答をリンクで共有する人 共有済みのAI会話を見直したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-shared-links</span>
+              <div>
+                <p>Copilot会話リンクの共有範囲と停止を確認する</p>
+                <h3>Copilot会話の共有リンクは、質問文も渡る。不要になったら停止する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-19">2026.09.19</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoft Copilotでは、会話全体または個別の応答を共有リンクにできます。個別応答の共有であっても、受け手が答えを理解するために、その応答を作った質問文もリンクへ含まれます。職場・学校アカウントでは、同じ組織でリンクを持つ人がサインインして開けます。共有後はSettingsのData controlsにあるShared linksで発行済みリンクを確認し、Stop sharingで停止できます。元会話を削除した時もリンクは使えなくなります。AI会話を渡す前の確認と、用途終了後の失効操作を扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Copilotの共有リンクは、回答と質問文を含む共有物として管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft Copilotの回答をリンクで共有する人</li><li>共有済みのAI会話を見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>共有リンク</li><li>Data controls</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260919-04" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Dropbox DashのAI検索は、Webと接続アプリを切り替えて質問する Dropbox DashはWeb検索と接続アプリ検索を分ける Dropbox Dashは、接続したアプリ内のコンテンツを検索・要約して質問に答える機能を案内しています。Dash ChatではWeb searchが初期状態で有効で、All contentからチェックを切り替えると、ウェブ検索と接続アプリ・自分のコンテンツを対象にした検索を使い分けられます。質問へファイル・フォルダを添付することもできます。DropboxはDashがウェブ参照に第三者AIを使うと説明し、送信データはOpenAIモデルの学習・改善に使われず、Dropboxも生成AIモデル構築には使わないと案内しています。質問前に参照範囲を選ぶ記事です。 仕事・AI活用 標準 Dropbox Dash AI検索 Web search 接続アプリ 業務データ 情報源 Dropbox Dashで業務データを横断検索する人 AI検索の質問範囲を選びたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">dropbox-dash-search-scope</span>
+              <div>
+                <p>Dropbox DashはWeb検索と接続アプリ検索を分ける</p>
+                <h3>Dropbox DashのAI検索は、Webと接続アプリを切り替えて質問する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-19">2026.09.19</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Dropbox Dashは、接続したアプリ内のコンテンツを検索・要約して質問に答える機能を案内しています。Dash ChatではWeb searchが初期状態で有効で、All contentからチェックを切り替えると、ウェブ検索と接続アプリ・自分のコンテンツを対象にした検索を使い分けられます。質問へファイル・フォルダを添付することもできます。DropboxはDashがウェブ参照に第三者AIを使うと説明し、送信データはOpenAIモデルの学習・改善に使われず、Dropboxも生成AIモデル構築には使わないと案内しています。質問前に参照範囲を選ぶ記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Dropbox Dashは、質問ごとにWebと接続アプリの検索範囲を選べる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Dropbox Dashで業務データを横断検索する人</li><li>AI検索の質問範囲を選びたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Dropbox Dash</li><li>AI検索</li><li>Web search</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260922-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260922-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

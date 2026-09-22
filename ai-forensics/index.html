@@ -85,17 +85,17 @@
       <section class="card-section forensics-latest-section" id="latest-cases" aria-labelledby="latest-cases-title">
         <div class="section-heading"><div><p class="section-kicker">Latest Case</p><h2 id="latest-cases-title">最新の鑑識事例</h2></div></div>
         <div class="forensics-featured-grid">
-          <a class="forensics-card is-index-card is-featured tone-caution" href="case-20260921-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChromeのAI Mode履歴は、AI Modeと検索履歴の両方から消す Chrome AI Modeと検索履歴を分けて削除する GoogleはChromeのAI Mode historyから個別または全件のAI検索履歴を削除できると案内しています。ただし、AI Mode historyで削除した検索は通常のSearch historyには残ります。AI OverviewからAI Modeへ進んだ場合は、元の検索とAI Modeへの移行の2件が検索履歴に残ることがあります。AI Mode側で削除した項目がMy Activityに一時表示されても24時間以内に自動削除されますが、完全に消したい検索はSearch history側でも削除が必要です。AI検索画面と通常検索履歴を分けて整理する記事です。 セキュリティ・権限 標準 Chrome AI Mode 検索履歴 My Activity Google検索 削除 ChromeでAI Modeを使う人 AI検索の質問履歴を整理したい人">
+          <a class="forensics-card is-index-card is-featured tone-caution" href="case-20260922-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChatGPTの連携アプリは、権限を弱めるだけでなく接続も外す ChatGPT連携アプリは権限と接続を分けて管理する OpenAIは、ChatGPTのアプリ権限が、接続済みアカウントの情報を読む時や操作する時に確認を求める頻度を管理する設定であり、提供元アカウントへの接続そのものを外す設定ではないと案内しています。不要な連携を止めるには、SettingsのAppsまたはPluginsで該当アカウントをDisconnectします。また、切断しても既存・アーカイブ済みの会話、保存済みファイル、Memoryの要約は自動削除されません。権限、接続、保存済みデータを別々に管理する記事です。 セキュリティ・権限 標準 ChatGPT 連携アプリ 権限 Disconnect Memory 外部アカウント ChatGPTに外部アプリをつないでいる人 連携したアカウントを見直したい人">
             <div class="forensics-index-card-meta">
 <span class="forensics-latest-label">Latest</span>
               <span>セキュリティ・権限</span>
-              <time datetime="2026-09-21">2026.09.21</time>
+              <time datetime="2026-09-22">2026.09.22</time>
               <small>確認 4</small>
             </div>
-            <h3>ChromeのAI Mode履歴は、AI Modeと検索履歴の両方から消す</h3>
-            <p class="forensics-card-summary">GoogleはChromeのAI Mode historyから個別または全件のAI検索履歴を削除できると案内しています。ただし、AI Mode historyで削除した検索は通常のSearch historyには残ります。AI OverviewからAI Modeへ進んだ場合は、元の検索とAI Modeへの移行の2件が…</p>
+            <h3>ChatGPTの連携アプリは、権限を弱めるだけでなく接続も外す</h3>
+            <p class="forensics-card-summary">OpenAIは、ChatGPTのアプリ権限が、接続済みアカウントの情報を読む時や操作する時に確認を求める頻度を管理する設定であり、提供元アカウントへの接続そのものを外す設定ではないと案内しています。不要な連携を止めるには、SettingsのAppsまたはPluginsで該当アカウントをDisconnectします。また…</p>
             <p class="forensics-card-lesson"><span>今回の結論</span>
-              ChromeのAI Mode履歴を消した後は、Search historyも別に確認する。</p>
+              ChatGPTの連携を止める時は、権限変更だけでなくDisconnectを行う。</p>
             <span class="forensics-card-cta">詳しく見る</span>
           </a>
         </div>
@@ -128,6 +128,58 @@
         <p class="forensics-results-status" data-forensics-results aria-live="polite"></p>
         <p class="forensics-empty-message" data-forensics-empty hidden>該当する事例は、現在準備中です。別の条件でも探してみてください。</p>
         <div class="forensics-card-grid">
+          <a class="forensics-card is-index-card tone-calm" href="case-20260922-02" data-forensics-card data-category="work-use" data-level="4" data-difficulty="advanced" data-search-text="社内ChatGPTの同期検索は、個人のアプリ連携と別に範囲を確認する ChatGPT同期検索は個人連携と別に管理する OpenAIは、管理者が設定するChatGPTのアプリ同期は、個人が外部アカウントを接続して行うライブ利用とは別の仕組みだと案内しています。同期検索で参照できる内容は、管理者が選んだソース範囲だけでなく、元のGoogle Drive、SharePoint、Microsoft Teamsなどで各メンバーが閲覧できる範囲にも従います。個人接続を外しても管理者同期の情報源が消えるとは限らず、メンバー自身では管理者同期のソースを切断できません。導入前に、同期範囲・役割・元サービス権限を分けて確認する記事です。 仕事・AI活用 発展 ChatGPT 同期検索 Google Drive SharePoint Microsoft Teams 社内資料 組織でChatGPTのアプリ同期を検討する人 社内資料をAI検索に使う管理者">
+            <div class="forensics-index-card-meta">
+
+              <span>仕事・AI活用</span>
+              <time datetime="2026-09-22">2026.09.22</time>
+              <small>確認 4</small>
+            </div>
+            <h3>社内ChatGPTの同期検索は、個人のアプリ連携と別に範囲を確認する</h3>
+            <p class="forensics-card-summary">OpenAIは、管理者が設定するChatGPTのアプリ同期は、個人が外部アカウントを接続して行うライブ利用とは別の仕組みだと案内しています。同期検索で参照できる内容は、管理者が選んだソース範囲だけでなく、元のGoogle Drive、…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              社内ChatGPTの同期検索は、個人連携と分けて範囲・権限・管理者を確認する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-calm" href="case-20260922-03" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="YouTubeのAIラベルは、動画内だけでなく説明欄も確認する YouTubeのAIラベルは動画と説明欄で確認する YouTubeは、現実の人物がしていない発言や行動をしたように見せる内容、実在の出来事や場所を変えた内容、実在しない現実的な場面を生成した内容について、クリエイターに生成AI利用の開示を求めています。視聴者向けのラベルは、写真のように現実的なAIコンテンツでは動画プレーヤーに、非写実的またはアニメーションのAIコンテンツでは展開した説明欄に表示される場合があります。YouTubeの生成AIツール、C2PAメタデータ、内部検出で自動表示されることもあります。ラベルの表示位置を確認し、表示がないことを実写の証明にはしない記事です。 情報の見極め はじめて YouTube 生成AI AIラベル 動画 C2PA 情報リテラシー YouTubeで現実的なAI動画を見る人 YouTubeに動画を投稿する人">
+            <div class="forensics-index-card-meta">
+
+              <span>情報の見極め</span>
+              <time datetime="2026-09-22">2026.09.22</time>
+              <small>確認 3</small>
+            </div>
+            <h3>YouTubeのAIラベルは、動画内だけでなく説明欄も確認する</h3>
+            <p class="forensics-card-summary">YouTubeは、現実の人物がしていない発言や行動をしたように見せる内容、実在の出来事や場所を変えた内容、実在しない現実的な場面を生成した内容について、クリエイターに生成AI利用の開示を求めています。視聴者向けのラベルは、写真のように…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              YouTubeのAI利用表示は、動画プレーヤーと説明欄の両方で確認する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-calm" href="case-20260922-04" data-forensics-card data-category="scam" data-level="4" data-difficulty="standard" data-search-text="YouTubeの自分そっくりAI動画は、プライバシー申立てで削除を求める YouTubeのAIなりすましはプライバシー申立てを使う YouTubeは、AIなどで現実的に作成・改変され、自分の見た目や声に似せたコンテンツについて、プライバシー申立てを通じて削除を求められると案内しています。審査では、合成・改変の有無、開示の有無、本人を一意に識別できるか、現実性、パロディーや公益性などを考慮します。申立ては本人または法定代理人が行います。実験段階のLikeness detectionに出てこない動画でも、申立て手続きは利用できます。見つけた動画の削除手段を、通常の通報と混同せずに確認する記事です。 詐欺・なりすまし 標準 YouTube AIなりすまし ディープフェイク プライバシー 削除申立て 肖像 自分の顔や声を模した動画を見つけた人 YouTubeで本人なりすましに備えたい人">
+            <div class="forensics-index-card-meta">
+
+              <span>詐欺・なりすまし</span>
+              <time datetime="2026-09-22">2026.09.22</time>
+              <small>確認 4</small>
+            </div>
+            <h3>YouTubeの自分そっくりAI動画は、プライバシー申立てで削除を求める</h3>
+            <p class="forensics-card-summary">YouTubeは、AIなどで現実的に作成・改変され、自分の見た目や声に似せたコンテンツについて、プライバシー申立てを通じて削除を求められると案内しています。審査では、合成・改変の有無、開示の有無、本人を一意に識別できるか、現実性、パロ…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              YouTubeで本人そっくりのAI動画を見つけたら、プライバシー申立てを確認する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-caution" href="case-20260921-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChromeのAI Mode履歴は、AI Modeと検索履歴の両方から消す Chrome AI Modeと検索履歴を分けて削除する GoogleはChromeのAI Mode historyから個別または全件のAI検索履歴を削除できると案内しています。ただし、AI Mode historyで削除した検索は通常のSearch historyには残ります。AI OverviewからAI Modeへ進んだ場合は、元の検索とAI Modeへの移行の2件が検索履歴に残ることがあります。AI Mode側で削除した項目がMy Activityに一時表示されても24時間以内に自動削除されますが、完全に消したい検索はSearch history側でも削除が必要です。AI検索画面と通常検索履歴を分けて整理する記事です。 セキュリティ・権限 標準 Chrome AI Mode 検索履歴 My Activity Google検索 削除 ChromeでAI Modeを使う人 AI検索の質問履歴を整理したい人">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-09-21">2026.09.21</time>
+              <small>確認 4</small>
+            </div>
+            <h3>ChromeのAI Mode履歴は、AI Modeと検索履歴の両方から消す</h3>
+            <p class="forensics-card-summary">GoogleはChromeのAI Mode historyから個別または全件のAI検索履歴を削除できると案内しています。ただし、AI Mode historyで削除した検索は通常のSearch historyには残ります。AI Ove…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              ChromeのAI Mode履歴を消した後は、Search historyも別に確認する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
           <a class="forensics-card is-index-card tone-caution" href="case-20260921-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Google PhotosのAsk Photosは、Remember Listとクエリ提供を別々に管理する Ask Photosの記憶情報とクエリ提供を分けて管理する Google PhotosのAsk Photosは、将来に役立つと判断した情報をRemember Listへ追加することがあります。追加項目はGemini features in Photosから確認して個別に削除できます。品質改善のためにAsk Photosのクエリへアクセスする許可はRemember Listとは別で、Help us improve photosからオフにできます。実験的機能で不正確な回答があり得ることも踏まえ、写真AIの記憶とクエリ提供を分ける記事です。 セキュリティ・権限 標準 Google Photos Ask Photos Gemini Remember List 写真AI プライバシー Google PhotosのAsk Photosを使う人 写真に関するAIの記憶・品質改善設定を見直したい人">
             <div class="forensics-index-card-meta">
 

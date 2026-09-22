@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGPTの連携アプリは、権限を弱めるだけでなく接続も外す｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="OpenAIは、ChatGPTのアプリ権限が、接続済みアカウントの情報を読む時や操作する時に確認を求める頻度を管理する設定であり、提供元アカウントへの接続そのものを外す設定ではないと案内しています。不要な連携を止めるには、SettingsのAppsまたはPluginsで該当アカウントをDisconnectします。また、切断しても既存・アーカイブ済みの会話、保存済みファイル、Memoryの要約は自動削除されません。権限、接続、保存済みデータを別々に管理する記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260922-01" />
+<meta property="og:title" content="ChatGPTの連携アプリは、権限を弱めるだけでなく接続も外す｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="OpenAIは、ChatGPTのアプリ権限が、接続済みアカウントの情報を読む時や操作する時に確認を求める頻度を管理する設定であり、提供元アカウントへの接続そのものを外す設定ではないと案内しています。不要な連携を止めるには、SettingsのAppsまたはPluginsで該当アカウントをDisconnectします。また、切断しても既存・アーカイブ済みの会話、保存済みファイル、Memoryの要約は自動削除されません。権限、接続、保存済みデータを別々に管理する記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260922-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>ChatGPT連携アプリは権限と接続を分けて管理する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-22">2026.09.22</time>
+            </div>
+            <h1>ChatGPTの連携アプリは、権限を弱めるだけでなく接続も外す</h1>
+            <p>OpenAIは、ChatGPTのアプリ権限が、接続済みアカウントの情報を読む時や操作する時に確認を求める頻度を管理する設定であり、提供元アカウントへの接続そのものを外す設定ではないと案内しています。不要な連携を止めるには、SettingsのAppsまたはPluginsで該当アカウントをDisconnectします。また、切断しても既存・アーカイブ済みの会話、保存済みファイル、Memoryの要約は自動削除されません。権限、接続、保存済みデータを別々に管理する記事です。</p>
+            <ul class="forensics-target-list"><li>ChatGPTに外部アプリをつないでいる人</li><li>連携したアカウントを見直したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>ChatGPT</li><li>連携アプリ</li><li>権限</li><li>Disconnect</li><li>Memory</li><li>外部アカウント</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>ChatGPTのアプリ権限と接続解除は別の操作</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>不要な連携はDisconnectし、必要なら会話・ファイル・Memoryも別々に確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>外部アプリの権限を『毎回確認』に変えたので、連携も止まったと思っている</h3><p>ChatGPTで使った外部アプリについて、今後は勝手に情報を読ませたくないと考えています。権限の表示だけを変更した時に何が止まり、何が残るのかを確認したい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>権限設定は確認方法を変える操作で、提供元アカウントの接続解除や既存データの削除とは別です。目的に応じて三つの操作を分けると、必要な連携だけを残せます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="disconnect">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>ChatGPTで不要になった外部アプリへの今後のアクセスを止めたい時、適切な対応は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="disconnect" data-choice-id="disconnect" />
+                <span>
+                  <strong>SettingsのApps／Pluginsから該当アカウントをDisconnectする</strong>
+                  <small>接続を外す操作が、当該アカウントを通じた将来のアクセスを止めます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="permission-only" data-choice-id="permission-only" />
+                <span>
+                  <strong>権限をAlways askにすれば、接続も自動的に外れると考える</strong>
+                  <small>権限変更は接続解除や提供元の権限取り消しではありません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-assumption" data-choice-id="delete-assumption" />
+                <span>
+                  <strong>Disconnectすれば会話・保存ファイル・Memoryも自動削除されると考える</strong>
+                  <small>既存の保存情報は別に確認・管理が必要です。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>SettingsのApps／Pluginsから該当アカウントをDisconnectする</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>今後のアクセスを止める目的なら、権限表示だけでなく接続済みアカウントをDisconnectします。既に保存されている会話やファイルは別の設定で確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>権限の種類</h3>
+              <p>Always ask、読み取り許可、低リスク操作許可など、確認の頻度を選ぶ設定です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>接続済みアカウント</h3>
+              <p>不要な連携はAppsまたはPluginsのConnected accountsからDisconnectします。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>保存済み情報</h3>
+              <p>切断後も会話、保存ファイル、Memoryの要約が残り得るため、別に見直します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>提供元の権限</h3>
+              <p>ChatGPT側の権限変更は、提供元の認可や組織の制限を上書きしません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>権限を弱めても、連携解除や保存済み情報の削除にはならない</strong><p>確認頻度を管理する権限設定、接続を止めるDisconnect、既存データの管理を分けて行います。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>接続済みアカウントを一覧で確認する</strong><span>使っていない外部アカウントを把握できます。</span></li>
+            <li><strong>不要なアカウントをDisconnectする</strong><span>そのアカウントを通じた将来のアクセスを止められます。</span></li>
+            <li><strong>既存の会話・ファイル・Memoryを別に確認する</strong><span>接続解除だけでは自動削除されません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>権限変更だけで接続が切れたと考える</strong><span>提供元アカウントの接続は残り得ます。</span></li>
+            <li><strong>Disconnect後に保存済み情報を放置する</strong><span>会話やファイルなどは別に管理が必要です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>必要なアプリだけを、目的に合わせて使う</h3>
+          <p>使う時だけ連携し、不要になれば接続を外す運用にすると、外部情報を活用しながらアカウントの見通しを保てます。</p>
+          <ul class="positive-example-list"><li>接続済みアカウントの棚卸し</li><li>読み取り前の確認設定</li><li>不要な連携のDisconnect</li><li>保存済み情報の別途確認</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>『確認を増やす』と『つながりを外す』は似て見えて別です。私は連携を試した後、役目が終わったら接続一覧まで戻って確認します。画面上の許可表示だけで完了にしないのがコツです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>ChatGPTの連携を止める時は、権限変更だけでなくDisconnectを行う。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/20001494-connecting-and-managing-app-accounts-in-chatgpt" target="_blank" rel="noopener noreferrer">Connecting and managing app accounts in ChatGPT<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/20001495-managing-app-permissions-in-chatgpt" target="_blank" rel="noopener noreferrer">Managing app permissions in ChatGPT<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260922-02" data-forensics-card data-category="work-use" data-level="4" data-difficulty="advanced" data-search-text="社内ChatGPTの同期検索は、個人のアプリ連携と別に範囲を確認する ChatGPT同期検索は個人連携と別に管理する OpenAIは、管理者が設定するChatGPTのアプリ同期は、個人が外部アカウントを接続して行うライブ利用とは別の仕組みだと案内しています。同期検索で参照できる内容は、管理者が選んだソース範囲だけでなく、元のGoogle Drive、SharePoint、Microsoft Teamsなどで各メンバーが閲覧できる範囲にも従います。個人接続を外しても管理者同期の情報源が消えるとは限らず、メンバー自身では管理者同期のソースを切断できません。導入前に、同期範囲・役割・元サービス権限を分けて確認する記事です。 仕事・AI活用 発展 ChatGPT 同期検索 Google Drive SharePoint Microsoft Teams 社内資料 組織でChatGPTのアプリ同期を検討する人 社内資料をAI検索に使う管理者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chatgpt-admin-sync</span>
+              <div>
+                <p>ChatGPT同期検索は個人連携と別に管理する</p>
+                <h3>社内ChatGPTの同期検索は、個人のアプリ連携と別に範囲を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-22">2026.09.22</time>
+              <span>仕事・AI活用</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは、管理者が設定するChatGPTのアプリ同期は、個人が外部アカウントを接続して行うライブ利用とは別の仕組みだと案内しています。同期検索で参照できる内容は、管理者が選んだソース範囲だけでなく、元のGoogle Drive、SharePoint、Microsoft Teamsなどで各メンバーが閲覧できる範囲にも従います。個人接続を外しても管理者同期の情報源が消えるとは限らず、メンバー自身では管理者同期のソースを切断できません。導入前に、同期範囲・役割・元サービス権限を分けて確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>ChatGPTの管理者同期は、個人連携とは別の設定と範囲で動く</span>
+            </div>
+            <ul class="forensics-card-audience"><li>組織でChatGPTのアプリ同期を検討する人</li><li>社内資料をAI検索に使う管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>同期検索</li><li>Google Drive</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260921-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChromeのAI Mode履歴は、AI Modeと検索履歴の両方から消す Chrome AI Modeと検索履歴を分けて削除する GoogleはChromeのAI Mode historyから個別または全件のAI検索履歴を削除できると案内しています。ただし、AI Mode historyで削除した検索は通常のSearch historyには残ります。AI OverviewからAI Modeへ進んだ場合は、元の検索とAI Modeへの移行の2件が検索履歴に残ることがあります。AI Mode側で削除した項目がMy Activityに一時表示されても24時間以内に自動削除されますが、完全に消したい検索はSearch history側でも削除が必要です。AI検索画面と通常検索履歴を分けて整理する記事です。 セキュリティ・権限 標準 Chrome AI Mode 検索履歴 My Activity Google検索 削除 ChromeでAI Modeを使う人 AI検索の質問履歴を整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chrome-ai-mode-history</span>
+              <div>
+                <p>Chrome AI Modeと検索履歴を分けて削除する</p>
+                <h3>ChromeのAI Mode履歴は、AI Modeと検索履歴の両方から消す</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-21">2026.09.21</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">GoogleはChromeのAI Mode historyから個別または全件のAI検索履歴を削除できると案内しています。ただし、AI Mode historyで削除した検索は通常のSearch historyには残ります。AI OverviewからAI Modeへ進んだ場合は、元の検索とAI Modeへの移行の2件が検索履歴に残ることがあります。AI Mode側で削除した項目がMy Activityに一時表示されても24時間以内に自動削除されますが、完全に消したい検索はSearch history側でも削除が必要です。AI検索画面と通常検索履歴を分けて整理する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>ChromeのAI検索履歴は、AI ModeとSearch historyを別々に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChromeでAI Modeを使う人</li><li>AI検索の質問履歴を整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Chrome</li><li>AI Mode</li><li>検索履歴</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260921-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Google PhotosのAsk Photosは、Remember Listとクエリ提供を別々に管理する Ask Photosの記憶情報とクエリ提供を分けて管理する Google PhotosのAsk Photosは、将来に役立つと判断した情報をRemember Listへ追加することがあります。追加項目はGemini features in Photosから確認して個別に削除できます。品質改善のためにAsk Photosのクエリへアクセスする許可はRemember Listとは別で、Help us improve photosからオフにできます。実験的機能で不正確な回答があり得ることも踏まえ、写真AIの記憶とクエリ提供を分ける記事です。 セキュリティ・権限 標準 Google Photos Ask Photos Gemini Remember List 写真AI プライバシー Google PhotosのAsk Photosを使う人 写真に関するAIの記憶・品質改善設定を見直したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ask-photos-remember-list</span>
+              <div>
+                <p>Ask Photosの記憶情報とクエリ提供を分けて管理する</p>
+                <h3>Google PhotosのAsk Photosは、Remember Listとクエリ提供を別々に管理する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-21">2026.09.21</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Google PhotosのAsk Photosは、将来に役立つと判断した情報をRemember Listへ追加することがあります。追加項目はGemini features in Photosから確認して個別に削除できます。品質改善のためにAsk Photosのクエリへアクセスする許可はRemember Listとは別で、Help us improve photosからオフにできます。実験的機能で不正確な回答があり得ることも踏まえ、写真AIの記憶とクエリ提供を分ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Ask Photosは、Remember Listとクエリレビュー許可を別々に見直せる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google PhotosのAsk Photosを使う人</li><li>写真に関するAIの記憶・品質改善設定を見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Photos</li><li>Ask Photos</li><li>Gemini</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260922-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
