@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Microsoftの正規ログイン画面でも、メールで届いたデバイスコードは入力しない｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは2026年9月22日、AIを使いメールボックスの分析、標的選定、なりすまし文面の作成まで行った犯罪基盤EvilTokensを妨害したと発表しました。関連するフィッシングでは、攻撃者が開始した正規のdevice code認証フローへ被害者を誘導し、攻撃者のためのコードをコピー・入力・承認させます。公式のmicrosoft.comサインイン画面が表示されても、自分で始めていない認証のコードを入力すると攻撃者のセッションを承認してしまいます。メールやチャットで届いたコード入力依頼を、正規画面の見た目だけで信用しない記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260923-05" />
+<meta property="og:title" content="Microsoftの正規ログイン画面でも、メールで届いたデバイスコードは入力しない｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは2026年9月22日、AIを使いメールボックスの分析、標的選定、なりすまし文面の作成まで行った犯罪基盤EvilTokensを妨害したと発表しました。関連するフィッシングでは、攻撃者が開始した正規のdevice code認証フローへ被害者を誘導し、攻撃者のためのコードをコピー・入力・承認させます。公式のmicrosoft.comサインイン画面が表示されても、自分で始めていない認証のコードを入力すると攻撃者のセッションを承認してしまいます。メールやチャットで届いたコード入力依頼を、正規画面の見た目だけで信用しない記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260923-05" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>正規ログイン画面でもデバイスコードを入力しない</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>詐欺・なりすまし</span>
+              <span>標準</span>
+              <time datetime="2026-09-23">2026.09.23</time>
+            </div>
+            <h1>Microsoftの正規ログイン画面でも、メールで届いたデバイスコードは入力しない</h1>
+            <p>Microsoftは2026年9月22日、AIを使いメールボックスの分析、標的選定、なりすまし文面の作成まで行った犯罪基盤EvilTokensを妨害したと発表しました。関連するフィッシングでは、攻撃者が開始した正規のdevice code認証フローへ被害者を誘導し、攻撃者のためのコードをコピー・入力・承認させます。公式のmicrosoft.comサインイン画面が表示されても、自分で始めていない認証のコードを入力すると攻撃者のセッションを承認してしまいます。メールやチャットで届いたコード入力依頼を、正規画面の見た目だけで信用しない記事です。</p>
+            <ul class="forensics-target-list"><li>Microsoft 365やMicrosoftアカウントを使う人</li><li>請求書や共有ファイルのメールを受け取る人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft</li><li>フィッシング</li><li>device code</li><li>MFA</li><li>メール詐欺</li><li>EvilTokens</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 5</strong>
+              <span>正規のMicrosoft画面でも、心当たりのないdevice code認証は承認しない</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot is-active">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>コード入力を求められた時は、誰が認証を始めたかを確認し、外部メッセージの指示では承認しないでください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>請求書や共有ファイルのメールからMicrosoftのログイン画面を開き、コード入力を求められた</h3><p>画面は正規のMicrosoftログインに見え、コピー済みの短いコードを貼り付けるよう案内されています。パスワードを盗まれないなら安全だと思い、承認してよいか迷っている状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>device codeフィッシングでは、正規サイト上で本人が認証を完了してしまうため、URLやMFAの画面だけでは防げません。認証を誰が開始したかを確認する習慣が必要です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="start-over">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>メールやチャットのリンクからMicrosoftの正規ログイン画面を開き、デバイスコードの入力を求められた時、適切な対応は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="start-over" data-choice-id="start-over" />
+                <span>
+                  <strong>入力・承認せず閉じ、必要なサービスは自分で公式アプリやURLから開き直す</strong>
+                  <small>攻撃者が開始したdevice code認証を承認しないためです。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="official-page-safe" data-choice-id="official-page-safe" />
+                <span>
+                  <strong>microsoft.comの画面なら、メールで渡されたコードを入力してよいと考える</strong>
+                  <small>正規画面でも攻撃者の認証セッションを承認する場合があります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="mfa-guarantee" data-choice-id="mfa-guarantee" />
+                <span>
+                  <strong>MFAが表示されたので、フィッシングではあり得ないと考える</strong>
+                  <small>device codeフィッシングはMFAの認証を攻撃者のセッションに結びつけます。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>入力・承認せず閉じ、必要なサービスは自分で公式アプリやURLから開き直す</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>外部メッセージで届いたコードや認証依頼は承認せず、必要な操作は自分でサービスを開いて開始します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>認証を始めた人</h3>
+              <p>自分で端末やサービスを始めていないコード入力依頼は承認しません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>誘導文面</h3>
+              <p>請求書、見積依頼、共有ファイルなどを装うメールが使われました。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>正規サイトの見た目</h3>
+              <p>正規のログイン画面でも、攻撃者が開始した認証を完了させることがあります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>侵害が疑われる時</h3>
+              <p>組織のIT窓口へ連絡し、アカウントのセッションや不審なメール規則を確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>正規ログイン画面の表示だけでは、device codeフィッシングを安全と判断できない</strong><p>自分で始めていないコード入力・承認を止め、必要なサービスは公式アプリやブックマークから開き直します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>心当たりのないコードを入力・承認しない</strong><span>攻撃者の認証セッションを承認する可能性があります。</span></li>
+            <li><strong>必要なサービスを自分で開き直す</strong><span>認証を自分の操作で開始できます。</span></li>
+            <li><strong>不審な承認後はIT窓口へ連絡する</strong><span>トークンの失効やアカウント保護が必要になる場合があります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>正規ドメインの画面なら安全だと決めつける</strong><span>攻撃者が開始した正規の認証フローが悪用されます。</span></li>
+            <li><strong>MFAを通したので詐欺ではないと考える</strong><span>MFAの承認自体を攻撃者のセッションに使わせる手口です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>認証を自分の操作から始める</h3>
+          <p>サービス利用が必要な時は、メールの誘導ではなく自分で公式アプリやURLを開けば、便利なクラウドサービスをより安全に使えます。</p>
+          <ul class="positive-example-list"><li>請求書メールの照合</li><li>共有ファイルの公式画面確認</li><li>device codeの拒否</li><li>IT窓口への報告</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>『公式の画面だから安心』という判断が、この手口では逆手に取られます。私はコードを見たら、まず自分が何の端末で認証を始めたかを思い出します。始めていないなら、入力しない。それだけで防げる場面があります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Microsoftの正規画面でも、心当たりのないデバイスコードは入力しない。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.microsoft.com/en-us/security/blog/2026/09/22/unmasking-eviltokens-getting-to-the-root-of-device-code-phishing/" target="_blank" rel="noopener noreferrer">Unmasking EvilTokens: Getting to the root of device code phishing<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Security Blog</span>
+              <span>その他</span>
+              <time datetime="2026-09-22">2026-09-22</time>
+            </li>
+            <li>
+              <strong><a href="https://blogs.microsoft.com/on-the-issues/2026/09/22/disrupting-eviltokens-the-ai-chatbot-built-for-cybercrime/" target="_blank" rel="noopener noreferrer">Disrupting EvilTokens: The AI Chatbot Built for Cybercrime<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft On the Issues</span>
+              <span>その他</span>
+              <time datetime="2026-09-22">2026-09-22</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260922-04" data-forensics-card data-category="scam" data-level="4" data-difficulty="standard" data-search-text="YouTubeの自分そっくりAI動画は、プライバシー申立てで削除を求める YouTubeのAIなりすましはプライバシー申立てを使う YouTubeは、AIなどで現実的に作成・改変され、自分の見た目や声に似せたコンテンツについて、プライバシー申立てを通じて削除を求められると案内しています。審査では、合成・改変の有無、開示の有無、本人を一意に識別できるか、現実性、パロディーや公益性などを考慮します。申立ては本人または法定代理人が行います。実験段階のLikeness detectionに出てこない動画でも、申立て手続きは利用できます。見つけた動画の削除手段を、通常の通報と混同せずに確認する記事です。 詐欺・なりすまし 標準 YouTube AIなりすまし ディープフェイク プライバシー 削除申立て 肖像 自分の顔や声を模した動画を見つけた人 YouTubeで本人なりすましに備えたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">youtube-likeness-complaint</span>
+              <div>
+                <p>YouTubeのAIなりすましはプライバシー申立てを使う</p>
+                <h3>YouTubeの自分そっくりAI動画は、プライバシー申立てで削除を求める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-22">2026.09.22</time>
+              <span>詐欺・なりすまし</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeは、AIなどで現実的に作成・改変され、自分の見た目や声に似せたコンテンツについて、プライバシー申立てを通じて削除を求められると案内しています。審査では、合成・改変の有無、開示の有無、本人を一意に識別できるか、現実性、パロディーや公益性などを考慮します。申立ては本人または法定代理人が行います。実験段階のLikeness detectionに出てこない動画でも、申立て手続きは利用できます。見つけた動画の削除手段を、通常の通報と混同せずに確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>YouTubeの本人模倣AI動画には、プライバシー申立てという削除手段がある</span>
+            </div>
+            <ul class="forensics-card-audience"><li>自分の顔や声を模した動画を見つけた人</li><li>YouTubeで本人なりすましに備えたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube</li><li>AIなりすまし</li><li>ディープフェイク</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20260916-03" data-forensics-card data-category="scam" data-level="5" data-difficulty="beginner" data-search-text="家族の声でも送金しない。AI音声なりすましの緊急連絡を止める手順 AI音声の家族なりすましは既知の連絡先で確認する 米連邦取引委員会（FTC）は、家族や親しい友人を装う緊急送金詐欺について、短い音声素材とAI音声複製を使って本人らしく電話する手口を注意喚起しています。声が似ていても、電話を切るか掛け直すと伝え、あらかじめ知っている番号で本人へ連絡し、別の家族・知人にも確認するよう案内しています。詐欺師は急がせ、秘密を求め、送金・暗号資産・ギフトカードなど返金しにくい方法を指定しがちです。声の真偽を当てにせず、送金前の連絡経路を変える記事です。 詐欺・なりすまし はじめて AI音声 なりすまし 特殊詐欺 送金詐欺 家族 本人確認 家族や友人を名乗る緊急の電話・メッセージを受けた人 AI音声なりすましによる送金詐欺を家族で防ぎたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-voice-emergency-scam</span>
+              <div>
+                <p>AI音声の家族なりすましは既知の連絡先で確認する</p>
+                <h3>家族の声でも送金しない。AI音声なりすましの緊急連絡を止める手順</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-16">2026.09.16</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">米連邦取引委員会（FTC）は、家族や親しい友人を装う緊急送金詐欺について、短い音声素材とAI音声複製を使って本人らしく電話する手口を注意喚起しています。声が似ていても、電話を切るか掛け直すと伝え、あらかじめ知っている番号で本人へ連絡し、別の家族・知人にも確認するよう案内しています。詐欺師は急がせ、秘密を求め、送金・暗号資産・ギフトカードなど返金しにくい方法を指定しがちです。声の真偽を当てにせず、送金前の連絡経路を変える記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>家族の声でも送金前に、既知の連絡先で本人確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>家族や友人を名乗る緊急の電話・メッセージを受けた人</li><li>AI音声なりすましによる送金詐欺を家族で防ぎたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI音声</li><li>なりすまし</li><li>特殊詐欺</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260912-03" data-forensics-card data-category="scam" data-level="5" data-difficulty="beginner" data-search-text="「政府公認」の投資広告は疑う。AI動画で本人らしく見えても個人情報を入力しない 政府公認をうたうAI偽動画の投資広告では入力も送金もしない 警察庁のSOS47は、首相官邸などの政府機関を装った偽サイトや、政府要人の映像・音声を悪用したSNS上の詐欺広告が確認されているとして注意を呼びかけています。これらは『政府公認』『日本政府が開発』『政府が保証』などと表示し、投資・副業・暗号資産への参加を勧め、氏名、住所、電話番号、口座情報などを入力させる手口です。警察庁は、首相官邸や政府要人が個別の投資勧誘や個人情報入力を求めることはないと明示しています。映像の本物らしさで判断せず、入力や送金を止め、公式サイトを直接確認して相談する記事です。 詐欺・なりすまし はじめて 投資詐欺 偽広告 ディープフェイク 政府機関 個人情報 #9110 SNSや検索広告で投資・副業の広告を見る人 政府要人の映像や音声を、広告の信頼性の根拠にしそうな人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">government-impersonation-ad-stop</span>
+              <div>
+                <p>政府公認をうたうAI偽動画の投資広告では入力も送金もしない</p>
+                <h3>「政府公認」の投資広告は疑う。AI動画で本人らしく見えても個人情報を入力しない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-12">2026.09.12</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">警察庁のSOS47は、首相官邸などの政府機関を装った偽サイトや、政府要人の映像・音声を悪用したSNS上の詐欺広告が確認されているとして注意を呼びかけています。これらは『政府公認』『日本政府が開発』『政府が保証』などと表示し、投資・副業・暗号資産への参加を勧め、氏名、住所、電話番号、口座情報などを入力させる手口です。警察庁は、首相官邸や政府要人が個別の投資勧誘や個人情報入力を求めることはないと明示しています。映像の本物らしさで判断せず、入力や送金を止め、公式サイトを直接確認して相談する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>政府名義の投資広告では、映像ではなく入力要求と公式URLを確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSや検索広告で投資・副業の広告を見る人</li><li>政府要人の映像や音声を、広告の信頼性の根拠にしそうな人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>投資詐欺</li><li>偽広告</li><li>ディープフェイク</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260923-06">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260923-04">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
