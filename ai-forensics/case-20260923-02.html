@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ask Photosのフィードバックは、送信される会話と参照情報を確認する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Googleは、Ask Photosのフィードバックを送る時には、対象の会話記録、回答作成で参照された写真・動画・アルバム・顔グループに関する情報が付随し得ると案内しています。スクリーンショットは任意で、含めなければ写真・動画の画素を人間のレビュアーが見ることはないと説明されています。Ask Photosのクエリ提供は設定から止められ、Google PhotosをGemini AppsやSearchなど別サービスへ接続した場合は、接続先のポリシーが適用されます。フィードバック送信とサービス接続を分けて判断する記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260923-02" />
+<meta property="og:title" content="Ask Photosのフィードバックは、送信される会話と参照情報を確認する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Googleは、Ask Photosのフィードバックを送る時には、対象の会話記録、回答作成で参照された写真・動画・アルバム・顔グループに関する情報が付随し得ると案内しています。スクリーンショットは任意で、含めなければ写真・動画の画素を人間のレビュアーが見ることはないと説明されています。Ask Photosのクエリ提供は設定から止められ、Google PhotosをGemini AppsやSearchなど別サービスへ接続した場合は、接続先のポリシーが適用されます。フィードバック送信とサービス接続を分けて判断する記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260923-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Ask Photosのフィードバック送信内容を確認する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-23">2026.09.23</time>
+            </div>
+            <h1>Ask Photosのフィードバックは、送信される会話と参照情報を確認する</h1>
+            <p>Googleは、Ask Photosのフィードバックを送る時には、対象の会話記録、回答作成で参照された写真・動画・アルバム・顔グループに関する情報が付随し得ると案内しています。スクリーンショットは任意で、含めなければ写真・動画の画素を人間のレビュアーが見ることはないと説明されています。Ask Photosのクエリ提供は設定から止められ、Google PhotosをGemini AppsやSearchなど別サービスへ接続した場合は、接続先のポリシーが適用されます。フィードバック送信とサービス接続を分けて判断する記事です。</p>
+            <ul class="forensics-target-list"><li>Google PhotosのAsk Photosを使う人</li><li>AI検索のフィードバック内容を管理したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Google Photos</li><li>Ask Photos</li><li>フィードバック</li><li>Gemini</li><li>写真</li><li>プライバシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>Ask Photosのフィードバックと他サービス接続は、別のデータ処理として確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>送信内容を見直し、スクリーンショットは必要な場合だけ添付しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Ask Photosの答えが違ったので報告したいが、家族写真に関する質問だった</h3><p>検索結果が期待と違い、改善のためフィードバックを送ろうとしています。質問内容や参照された写真に関する情報がどこまで送られるかを理解してから送信したい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIへのフィードバックでは、回答だけでなく再現に必要な関連情報が付く場合があります。スクリーンショットとサービス接続の選択を分けると、便利さと情報管理を両立できます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="review-feedback">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>家族写真についてAsk Photosへフィードバックする前に、適切な対応は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="review-feedback" data-choice-id="review-feedback" />
+                <span>
+                  <strong>会話と任意のスクリーンショットを確認し、不要な画像を添付せずに送る</strong>
+                  <small>スクリーンショットは任意で、送信内容を確認できます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="no-context" data-choice-id="no-context" />
+                <span>
+                  <strong>フィードバックには質問以外の関連情報は一切付かないと考える</strong>
+                  <small>会話や、参照された写真・動画・アルバム・顔グループに関する情報が付随し得ます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="same-policy" data-choice-id="same-policy" />
+                <span>
+                  <strong>Google Photosを他のGoogleサービスへ接続しても、Photosだけのポリシーが続くと考える</strong>
+                  <small>接続先のサービスのポリシーと管理設定が適用されます。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>会話と任意のスクリーンショットを確認し、不要な画像を添付せずに送る</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>フィードバックに含める説明とスクリーンショットを確認し、他サービスへの接続は別のデータ処理として判断します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>会話記録</h3>
+              <p>フィードバックには対象のAsk Photos会話の質問と回答が含まれ得ます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>任意のスクリーンショット</h3>
+              <p>スクリーンショットを付けると写真が写る可能性があるため、送信前に確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>参照情報</h3>
+              <p>参照された写真・動画・アルバム・顔グループの情報が付随し得ます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>接続先のポリシー</h3>
+              <p>Google Photosを別サービスへ接続した後は、接続先のポリシーと設定が適用されます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Ask Photosのフィードバックは、会話や参照情報を含み得るため送信前の確認が必要</strong><p>スクリーンショットを必要最小限にし、別サービスへの接続は接続先のルールで判断します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>フィードバック前に会話と添付を確認する</strong><span>送信する内容を把握できます。</span></li>
+            <li><strong>不要なスクリーンショットを添付しない</strong><span>写真が写った画像を共有せずに済みます。</span></li>
+            <li><strong>接続先サービスの設定も確認する</strong><span>Google Photos内の設定だけでは接続先の処理を管理できません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>フィードバックに画像や関連情報が付かないと決めつける</strong><span>会話や参照情報が付随し得ます。</span></li>
+            <li><strong>Photosを他サービスへ接続しても同じ設定だけが適用されると考える</strong><span>接続先のポリシーが適用されます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>写真検索の改善に協力しながら、送信内容を選ぶ</h3>
+          <p>フィードバックと接続の内容を確認すれば、Ask Photosを使いながら、写真に関する情報の扱いを自分で管理できます。</p>
+          <ul class="positive-example-list"><li>検索結果の報告</li><li>スクリーンショットの確認</li><li>クエリ提供の停止</li><li>接続先の設定確認</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>写真は、質問文だけでも暮らしのことが伝わりやすい情報です。私はフィードバックを送る時、スクリーンショットを付ける理由が本当にあるかを考えます。改善への協力と、必要最小限の共有は両立できます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Ask Photosへ送る前に、会話・参照情報・スクリーンショットを確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/photos/answer/15344015?hl=en" target="_blank" rel="noopener noreferrer">Gemini features in Photos privacy hub<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Photos Help</span>
+              <span>その他</span>
+              <time datetime="2026-02-18">2026-02-18</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260923-01" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="Apple Intelligenceの回答を報告する時は、送信する添付情報を外してから送る Apple Intelligenceの報告前に添付情報を見直す Appleは、Apple IntelligenceまたはSiri AIの回答について、画面上のReport a Concernからフィードバックを送れると案内しています。送信した報告は製品・サービスの改善に利用され、モデルのトレーニングに使われる場合があります。報告には説明だけでなく、写真、動画、メッセージ、メールなどが含まれ得ますが、送信前に不要な情報や添付を確認・削除できます。回答の問題を伝える時に、必要以上の個人情報を渡さないための記事です。 セキュリティ・権限 はじめて Apple Intelligence Siri AI フィードバック Report a Concern 個人情報 添付 Apple IntelligenceやSiri AIの回答を報告したい人 AIへのフィードバックに私的な情報を含めたくない人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">apple-ai-report-concern</span>
+              <div>
+                <p>Apple Intelligenceの報告前に添付情報を見直す</p>
+                <h3>Apple Intelligenceの回答を報告する時は、送信する添付情報を外してから送る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-23">2026.09.23</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Appleは、Apple IntelligenceまたはSiri AIの回答について、画面上のReport a Concernからフィードバックを送れると案内しています。送信した報告は製品・サービスの改善に利用され、モデルのトレーニングに使われる場合があります。報告には説明だけでなく、写真、動画、メッセージ、メールなどが含まれ得ますが、送信前に不要な情報や添付を確認・削除できます。回答の問題を伝える時に、必要以上の個人情報を渡さないための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Apple Intelligenceの報告では、送信内容と添付を選べる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Apple IntelligenceやSiri AIの回答を報告したい人</li><li>AIへのフィードバックに私的な情報を含めたくない人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>Siri AI</li><li>フィードバック</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260923-03" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="Snapchat My AIは、会話を消す操作とデータ削除を分ける Snapchat My AIは会話削除とデータ削除を分ける Snapchatは、My AIとの会話をチャット画面から消す操作とは別に、設定から過去に共有したMy AIデータを削除できると案内しています。iOSではPrivacy ControlsのDelete Data、AndroidではAccount ActionsからDelete My AI Dataを選びます。My AIの直接データを削除しても、Team Snapchatの保存済みチャットデータは別に残るため、そちらはClear Conversationsから個別に削除します。サーバーからの削除には最大30日かかる場合があります。見た目の会話スレッドと保存データを混同しない記事です。 セキュリティ・権限 はじめて Snapchat My AI 削除 チャット履歴 プライバシー Team Snapchat SnapchatのMy AIを使う人 My AIへ送った内容を削除したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">snapchat-my-ai-delete</span>
+              <div>
+                <p>Snapchat My AIは会話削除とデータ削除を分ける</p>
+                <h3>Snapchat My AIは、会話を消す操作とデータ削除を分ける</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-23">2026.09.23</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Snapchatは、My AIとの会話をチャット画面から消す操作とは別に、設定から過去に共有したMy AIデータを削除できると案内しています。iOSではPrivacy ControlsのDelete Data、AndroidではAccount ActionsからDelete My AI Dataを選びます。My AIの直接データを削除しても、Team Snapchatの保存済みチャットデータは別に残るため、そちらはClear Conversationsから個別に削除します。サーバーからの削除には最大30日かかる場合があります。見た目の会話スレッドと保存データを混同しない記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>My AIの会話表示、直接データ、Team Snapchatデータは別々に管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SnapchatのMy AIを使う人</li><li>My AIへ送った内容を削除したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Snapchat</li><li>My AI</li><li>削除</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260922-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChatGPTの連携アプリは、権限を弱めるだけでなく接続も外す ChatGPT連携アプリは権限と接続を分けて管理する OpenAIは、ChatGPTのアプリ権限が、接続済みアカウントの情報を読む時や操作する時に確認を求める頻度を管理する設定であり、提供元アカウントへの接続そのものを外す設定ではないと案内しています。不要な連携を止めるには、SettingsのAppsまたはPluginsで該当アカウントをDisconnectします。また、切断しても既存・アーカイブ済みの会話、保存済みファイル、Memoryの要約は自動削除されません。権限、接続、保存済みデータを別々に管理する記事です。 セキュリティ・権限 標準 ChatGPT 連携アプリ 権限 Disconnect Memory 外部アカウント ChatGPTに外部アプリをつないでいる人 連携したアカウントを見直したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chatgpt-app-permissions</span>
+              <div>
+                <p>ChatGPT連携アプリは権限と接続を分けて管理する</p>
+                <h3>ChatGPTの連携アプリは、権限を弱めるだけでなく接続も外す</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-22">2026.09.22</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは、ChatGPTのアプリ権限が、接続済みアカウントの情報を読む時や操作する時に確認を求める頻度を管理する設定であり、提供元アカウントへの接続そのものを外す設定ではないと案内しています。不要な連携を止めるには、SettingsのAppsまたはPluginsで該当アカウントをDisconnectします。また、切断しても既存・アーカイブ済みの会話、保存済みファイル、Memoryの要約は自動削除されません。権限、接続、保存済みデータを別々に管理する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>ChatGPTのアプリ権限と接続解除は別の操作</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTに外部アプリをつないでいる人</li><li>連携したアカウントを見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>連携アプリ</li><li>権限</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260923-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260923-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Microsoft CopilotのWork IQは、仕事データが必要な質問だけオンにする｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは、Microsoft CopilotのWork IQをオンにすると、既存のMicrosoft 365権限の範囲で、メール、ファイル、チャット、会議、人物、プロジェクトなどの仕事データを回答の根拠として参照できると案内しています。オフにすると、仕事データを参照せず、添付した内容、公開ウェブ情報、ユーザープロフィールや個人設定を使って回答します。Work IQはチャット画面左上のボタンから質問ごとに切り替えられます。社内文脈が必要な質問と、一般的な質問を画面上で使い分ける記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260923-04" />
+<meta property="og:title" content="Microsoft CopilotのWork IQは、仕事データが必要な質問だけオンにする｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは、Microsoft CopilotのWork IQをオンにすると、既存のMicrosoft 365権限の範囲で、メール、ファイル、チャット、会議、人物、プロジェクトなどの仕事データを回答の根拠として参照できると案内しています。オフにすると、仕事データを参照せず、添付した内容、公開ウェブ情報、ユーザープロフィールや個人設定を使って回答します。Work IQはチャット画面左上のボタンから質問ごとに切り替えられます。社内文脈が必要な質問と、一般的な質問を画面上で使い分ける記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260923-04" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Copilot Work IQは質問ごとにオン・オフを選ぶ</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-09-23">2026.09.23</time>
+            </div>
+            <h1>Microsoft CopilotのWork IQは、仕事データが必要な質問だけオンにする</h1>
+            <p>Microsoftは、Microsoft CopilotのWork IQをオンにすると、既存のMicrosoft 365権限の範囲で、メール、ファイル、チャット、会議、人物、プロジェクトなどの仕事データを回答の根拠として参照できると案内しています。オフにすると、仕事データを参照せず、添付した内容、公開ウェブ情報、ユーザープロフィールや個人設定を使って回答します。Work IQはチャット画面左上のボタンから質問ごとに切り替えられます。社内文脈が必要な質問と、一般的な質問を画面上で使い分ける記事です。</p>
+            <ul class="forensics-target-list"><li>Microsoft 365でCopilotを使う人</li><li>仕事データを参照するAI質問を使い分けたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft Copilot</li><li>Work IQ</li><li>Microsoft 365</li><li>仕事データ</li><li>根拠</li><li>設定</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>Work IQは、Microsoft 365の仕事データを根拠に使うかを質問ごとに選ぶ設定</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>社内文脈が必要かを考え、質問前にWork IQの状態を確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>一般論だけを聞きたいのに、仕事のメールや資料まで根拠に使われるか気になる</h3><p>Microsoft Copilotで、社内案件に関する質問と、個人的な調べものを同じ画面で行っています。質問ごとに社内データを参照させるかを選べるか知りたい状況です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>仕事データを使う質問と、一般的な回答が欲しい質問では、必要な根拠範囲が異なります。Work IQを質問ごとに切り替えると、目的に合わせて参照範囲を選べます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="work-iq-off">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Microsoft Copilotで一般的な調べものを行い、Microsoft 365の仕事データを根拠に使わせたくない時、適切な対応は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="work-iq-off" data-choice-id="work-iq-off" />
+                <span>
+                  <strong>チャット画面のWork IQをオフにしてから質問する</strong>
+                  <small>オフ時は仕事データを参照せず、添付・公開ウェブ・プロフィール等で回答します。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="permissions-change" data-choice-id="permissions-change" />
+                <span>
+                  <strong>毎回、Microsoft 365のファイル権限を変更してから質問する</strong>
+                  <small>Work IQは質問ごとの参照範囲を切り替えるための操作です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="always-work" data-choice-id="always-work" />
+                <span>
+                  <strong>Copilotは常にメールや会議を根拠に使うと考える</strong>
+                  <small>Work IQはオン・オフを切り替えられます。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>チャット画面のWork IQをオフにしてから質問する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>社内データが必要な質問だけWork IQをオンにし、一般論や外部調査ではオフにして使い分けます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Work IQの状態</h3>
+              <p>チャット画面左上で、仕事データを参照するか切り替えます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>オン時の根拠</h3>
+              <p>メール、ファイル、チャット、会議、人物、プロジェクトなどを参照し得ます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>オフ時の根拠</h3>
+              <p>仕事データを参照せず、添付・公開ウェブ・プロフィール等で回答します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>既存の権限</h3>
+              <p>オンでも、Copilotが参照できるのはすでに閲覧権限がある仕事データだけです。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>仕事データが不要な質問では、Work IQをオフにして根拠範囲を絞れる</strong><p>オンでは既存権限内の仕事データを参照し、オフでは仕事データを参照しません。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>質問前にWork IQの状態を確認する</strong><span>仕事データを参照するか選べます。</span></li>
+            <li><strong>社内文脈が必要な質問だけオンにする</strong><span>メールやファイルなどを根拠にした回答を得られます。</span></li>
+            <li><strong>一般的な質問ではオフにする</strong><span>仕事データを参照しない回答にできます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>Copilotが常に仕事データを使うと決めつける</strong><span>Work IQは質問ごとに切り替えられます。</span></li>
+            <li><strong>Work IQが既存の閲覧権限を広げると考える</strong><span>元のMicrosoft 365権限は引き続き適用されます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>社内文脈が必要な時だけ、根拠を仕事データへ広げる</h3>
+          <p>一般的な相談と社内案件の確認を使い分ければ、Copilotの根拠を目的に合わせて選べます。</p>
+          <ul class="positive-example-list"><li>社内プロジェクトの要約</li><li>会議後のフォローアップ</li><li>一般的な文章案の作成</li><li>公開情報の調査</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIの回答は、何を根拠にしたかで使いどころが変わります。私は社内の話を聞く時だけWork IQをオンにして、普段の相談ではオフにします。質問の前に根拠の扉を選ぶ感覚です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Microsoft Copilotでは、社内データが必要な質問だけWork IQをオンにする。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/microsoft-365-copilot/what-information-does-copilot-use-to-answer-my-prompt" target="_blank" rel="noopener noreferrer">What information does Copilot use to answer my prompt?<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260922-02" data-forensics-card data-category="work-use" data-level="4" data-difficulty="advanced" data-search-text="社内ChatGPTの同期検索は、個人のアプリ連携と別に範囲を確認する ChatGPT同期検索は個人連携と別に管理する OpenAIは、管理者が設定するChatGPTのアプリ同期は、個人が外部アカウントを接続して行うライブ利用とは別の仕組みだと案内しています。同期検索で参照できる内容は、管理者が選んだソース範囲だけでなく、元のGoogle Drive、SharePoint、Microsoft Teamsなどで各メンバーが閲覧できる範囲にも従います。個人接続を外しても管理者同期の情報源が消えるとは限らず、メンバー自身では管理者同期のソースを切断できません。導入前に、同期範囲・役割・元サービス権限を分けて確認する記事です。 仕事・AI活用 発展 ChatGPT 同期検索 Google Drive SharePoint Microsoft Teams 社内資料 組織でChatGPTのアプリ同期を検討する人 社内資料をAI検索に使う管理者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chatgpt-admin-sync</span>
+              <div>
+                <p>ChatGPT同期検索は個人連携と別に管理する</p>
+                <h3>社内ChatGPTの同期検索は、個人のアプリ連携と別に範囲を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-22">2026.09.22</time>
+              <span>仕事・AI活用</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは、管理者が設定するChatGPTのアプリ同期は、個人が外部アカウントを接続して行うライブ利用とは別の仕組みだと案内しています。同期検索で参照できる内容は、管理者が選んだソース範囲だけでなく、元のGoogle Drive、SharePoint、Microsoft Teamsなどで各メンバーが閲覧できる範囲にも従います。個人接続を外しても管理者同期の情報源が消えるとは限らず、メンバー自身では管理者同期のソースを切断できません。導入前に、同期範囲・役割・元サービス権限を分けて確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>ChatGPTの管理者同期は、個人連携とは別の設定と範囲で動く</span>
+            </div>
+            <ul class="forensics-card-audience"><li>組織でChatGPTのアプリ同期を検討する人</li><li>社内資料をAI検索に使う管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>同期検索</li><li>Google Drive</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260919-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない Copilotの活動履歴と保存済みファイルを分けて削除する Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間がかかる場合があります。開いたままのアプリには履歴が見え続けることがありますが、再起動後は以前の活動が表示されなくなります。一方、Copilotの支援を受けて保存したWordやPowerPointなどのファイル内容は削除されません。履歴と成果物を別々に片付ける記事です。 セキュリティ・権限 標準 Microsoft Copilot 活動履歴 Microsoft 365 削除 データ管理 Office 職場・学校アカウントでMicrosoft Copilotを使う人 Copilotのプロンプト履歴と作成済み資料を整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-activity-history-delete</span>
+              <div>
+                <p>Copilotの活動履歴と保存済みファイルを分けて削除する</p>
+                <h3>Microsoft Copilotの活動履歴を削除しても、保存済みファイルは消えない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-19">2026.09.19</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、職場・学校アカウントのCopilot activity historyをMy Accountから削除できると案内しています。これはCopilotに送ったプロンプトと応答の記録を対象とする削除要求で、反映には時間がかかる場合があります。開いたままのアプリには履歴が見え続けることがありますが、再起動後は以前の活動が表示されなくなります。一方、Copilotの支援を受けて保存したWordやPowerPointなどのファイル内容は削除されません。履歴と成果物を別々に片付ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Copilotの活動履歴と保存済みファイルは別々に管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>職場・学校アカウントでMicrosoft Copilotを使う人</li><li>Copilotのプロンプト履歴と作成済み資料を整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>活動履歴</li><li>Microsoft 365</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260919-02" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="Copilot会話の共有リンクは、質問文も渡る。不要になったら停止する Copilot会話リンクの共有範囲と停止を確認する Microsoft Copilotでは、会話全体または個別の応答を共有リンクにできます。個別応答の共有であっても、受け手が答えを理解するために、その応答を作った質問文もリンクへ含まれます。職場・学校アカウントでは、同じ組織でリンクを持つ人がサインインして開けます。共有後はSettingsのData controlsにあるShared linksで発行済みリンクを確認し、Stop sharingで停止できます。元会話を削除した時もリンクは使えなくなります。AI会話を渡す前の確認と、用途終了後の失効操作を扱う記事です。 仕事・AI活用 標準 Microsoft Copilot 共有リンク Data controls 会話共有 権限 情報管理 Microsoft Copilotの回答をリンクで共有する人 共有済みのAI会話を見直したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-shared-links</span>
+              <div>
+                <p>Copilot会話リンクの共有範囲と停止を確認する</p>
+                <h3>Copilot会話の共有リンクは、質問文も渡る。不要になったら停止する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-19">2026.09.19</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoft Copilotでは、会話全体または個別の応答を共有リンクにできます。個別応答の共有であっても、受け手が答えを理解するために、その応答を作った質問文もリンクへ含まれます。職場・学校アカウントでは、同じ組織でリンクを持つ人がサインインして開けます。共有後はSettingsのData controlsにあるShared linksで発行済みリンクを確認し、Stop sharingで停止できます。元会話を削除した時もリンクは使えなくなります。AI会話を渡す前の確認と、用途終了後の失効操作を扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Copilotの共有リンクは、回答と質問文を含む共有物として管理する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft Copilotの回答をリンクで共有する人</li><li>共有済みのAI会話を見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>共有リンク</li><li>Data controls</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260922-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260923-03">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
