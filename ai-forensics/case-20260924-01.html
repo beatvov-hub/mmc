@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>「許可」を押しただけでも残る侵入――OAuth同意フィッシングは連携アプリを取り消す｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="FBIのIC3は2026年9月1日、正規のサービスの権限画面を悪用するOAuth同意フィッシングについて注意を呼びかけました。不審なDMやメールのリンクから表示された権限画面で「許可」を押すと、攻撃者のアプリにメールやファイルへのアクセスを与えることがあります。この手口ではパスワードを変更してもアクセス用トークンが残り得るため、許可してしまった時はサービスのセキュリティ設定で連携アプリやトークンを取り消すことが重要です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260924-01" />
+<meta property="og:title" content="「許可」を押しただけでも残る侵入――OAuth同意フィッシングは連携アプリを取り消す｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="FBIのIC3は2026年9月1日、正規のサービスの権限画面を悪用するOAuth同意フィッシングについて注意を呼びかけました。不審なDMやメールのリンクから表示された権限画面で「許可」を押すと、攻撃者のアプリにメールやファイルへのアクセスを与えることがあります。この手口ではパスワードを変更してもアクセス用トークンが残り得るため、許可してしまった時はサービスのセキュリティ設定で連携アプリやトークンを取り消すことが重要です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260924-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>OAuth同意フィッシングは連携アプリを取り消す</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-24">2026.09.24</time>
+            </div>
+            <h1>「許可」を押しただけでも残る侵入――OAuth同意フィッシングは連携アプリを取り消す</h1>
+            <p>FBIのIC3は2026年9月1日、正規のサービスの権限画面を悪用するOAuth同意フィッシングについて注意を呼びかけました。不審なDMやメールのリンクから表示された権限画面で「許可」を押すと、攻撃者のアプリにメールやファイルへのアクセスを与えることがあります。この手口ではパスワードを変更してもアクセス用トークンが残り得るため、許可してしまった時はサービスのセキュリティ設定で連携アプリやトークンを取り消すことが重要です。</p>
+            <ul class="forensics-target-list"><li>GoogleやMicrosoftなどのアカウントで外部アプリを連携する人</li><li>DMやメールでファイル共有の案内を受け取る人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>OAuth</li><li>フィッシング</li><li>アプリ連携</li><li>権限</li><li>トークン</li><li>アカウント保護</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 5</strong>
+              <span>正規画面でも、心当たりのない外部アプリには権限を渡さない</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot is-active">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>「許可」の前に、誰が依頼し、どのアプリへ何の権限を渡すのかを確認してください。誤って許可した時は連携解除まで行います。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>DMで届いた『ファイルを確認して』のリンクから、見慣れたログインと権限画面が出た</h3><p>ログイン画面はGoogleやMicrosoftなど正規のサービスに見えます。パスワードを入力するだけなら大丈夫そうですが、続けて外部アプリへ権限を与える「許可」ボタンが表示されました。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>OAuthではパスワードを渡さずに外部アプリへ権限を与えられます。その便利な仕組みを悪用されると、正規の画面上で自分自身が攻撃者のアプリへアクセスを許可してしまいます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="decline-and-reopen">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>不審なDMのリンクから正規サービスの権限画面が開き、外部アプリの「許可」を求められた時は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="decline-and-reopen" data-choice-id="decline-and-reopen" />
+                <span>
+                  <strong>許可せず閉じ、必要なサービスは自分で公式アプリやURLから開き直す</strong>
+                  <small>攻撃者が用意した連携を承認しないためです。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="trusted-screen" data-choice-id="trusted-screen" />
+                <span>
+                  <strong>正規のログイン画面なら、表示されたアプリへ許可してよいと考える</strong>
+                  <small>正規画面でも、許可先のアプリが悪意あるものとは限りません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="password-only" data-choice-id="password-only" />
+                <span>
+                  <strong>許可後にパスワードだけ変えれば十分と考える</strong>
+                  <small>許可済みアプリのトークンは別途取り消す必要があります。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>許可せず閉じ、必要なサービスは自分で公式アプリやURLから開き直す</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>外部メッセージから始まった権限要求は許可せず、必要な操作は自分でサービスを開いて始めます。許可してしまった場合は、パスワード変更だけで済ませず、連携アプリやトークンを取り消します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>権限を求めるきっかけ</h3>
+              <p>DMやメールから始まったファイル共有・本人確認の依頼ではないか確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>許可先のアプリ名と権限</h3>
+              <p>メール、ファイル、連絡先など、何へアクセスを求めているかを見ます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>許可後の解除方法</h3>
+              <p>パスワードを変えるだけでなく、サービスのセキュリティ設定で連携アプリやトークンを取り消します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>記録の保存</h3>
+              <p>不審なメッセージや権限画面はスクリーンショットで残します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>OAuth同意フィッシングは、パスワード変更だけでは解除できない場合がある</strong><p>許可済みの悪意あるアプリは、サービスのセキュリティ設定から取り消します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>不審なDM・メールからの権限要求を許可しない</strong><span>正規の権限画面を使った攻撃を止められます。</span></li>
+            <li><strong>許可済みアプリを定期的に見直す</strong><span>使っていない、または心当たりのない連携を見つけられます。</span></li>
+            <li><strong>誤って許可したら、連携アプリやトークンを取り消す</strong><span>パスワード変更後も残るアクセスを止められます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>正規のログイン画面なら許可先も安全だと判断する</strong><span>正規の認可の仕組みを悪用する手口です。</span></li>
+            <li><strong>パスワード変更だけで終える</strong><span>許可済みトークンは別途無効化が必要です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>使う連携だけを自分で選び、不要になれば外す</h3>
+          <p>アプリ連携は便利です。使うアプリと権限を自分で選び、不要になった連携を外せば、便利さを保ちながらアカウントを管理できます。</p>
+          <ul class="positive-example-list"><li>予定表とタスクアプリの連携</li><li>不要な外部アプリの取り消し</li><li>権限内容の確認</li><li>不審DMのスクリーンショット保存</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>この手口で怖いのは、偽のログイン画面ではなく、見慣れた「許可」ボタンを使うところです。パスワードを変えたから安心、ではなく、許可したアプリが残っていないかまで見る。連携を使う人ほど覚えておきたい復旧手順です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>不審な権限要求は許可せず、許可したら連携アプリを取り消す。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.ic3.gov/PSA/2026/PSA260901" target="_blank" rel="noopener noreferrer">Malicious Cyber Actors Gain Access to Victim Accounts Through Consent Phishing<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Internet Crime Complaint Center (FBI)</span>
+              <span>その他</span>
+              <time datetime="2026-09-01">2026-09-01</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260924-03" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="「ウイルス感染」のChrome通知は、サイトの通知設定から止める Chromeの不要なサイト通知を設定から止める Chrome Securityは2026年8月11日、不要・欺瞞的なサイト通知への対策と、利用者が通知を管理する設定を案内しました。Chromeは最近使っていないサイトや、不審な通知警告を繰り返し受けたサイトの通知権限を自動解除することがありますが、不要な通知は利用者自身でも止められます。デスクトップではChromeの「設定 &gt; プライバシーとセキュリティ &gt; サイトの設定 &gt; 通知」、Androidでは「︙ &gt; 設定 &gt; 通知」から、心当たりのないサイト通知を確認・解除します。 セキュリティ・権限 はじめて Chrome 通知 ブラウザ 詐欺対策 サイト権限 Android Chromeでサイト通知を許可したことがある人 突然の警告通知や広告通知に困っている人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chrome-notification-control</span>
+              <div>
+                <p>Chromeの不要なサイト通知を設定から止める</p>
+                <h3>「ウイルス感染」のChrome通知は、サイトの通知設定から止める</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-24">2026.09.24</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Chrome Securityは2026年8月11日、不要・欺瞞的なサイト通知への対策と、利用者が通知を管理する設定を案内しました。Chromeは最近使っていないサイトや、不審な通知警告を繰り返し受けたサイトの通知権限を自動解除することがありますが、不要な通知は利用者自身でも止められます。デスクトップではChromeの「設定 &gt; プライバシーとセキュリティ &gt; サイトの設定 &gt; 通知」、Androidでは「︙ &gt; 設定 &gt; 通知」から、心当たりのないサイト通知を確認・解除します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>警告通知を開く前に、Chrome設定で許可したサイトを確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Chromeでサイト通知を許可したことがある人</li><li>突然の警告通知や広告通知に困っている人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Chrome</li><li>通知</li><li>ブラウザ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260923-01" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="Apple Intelligenceの回答を報告する時は、送信する添付情報を外してから送る Apple Intelligenceの報告前に添付情報を見直す Appleは、Apple IntelligenceまたはSiri AIの回答について、画面上のReport a Concernからフィードバックを送れると案内しています。送信した報告は製品・サービスの改善に利用され、モデルのトレーニングに使われる場合があります。報告には説明だけでなく、写真、動画、メッセージ、メールなどが含まれ得ますが、送信前に不要な情報や添付を確認・削除できます。回答の問題を伝える時に、必要以上の個人情報を渡さないための記事です。 セキュリティ・権限 はじめて Apple Intelligence Siri AI フィードバック Report a Concern 個人情報 添付 Apple IntelligenceやSiri AIの回答を報告したい人 AIへのフィードバックに私的な情報を含めたくない人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">apple-ai-report-concern</span>
+              <div>
+                <p>Apple Intelligenceの報告前に添付情報を見直す</p>
+                <h3>Apple Intelligenceの回答を報告する時は、送信する添付情報を外してから送る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-23">2026.09.23</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Appleは、Apple IntelligenceまたはSiri AIの回答について、画面上のReport a Concernからフィードバックを送れると案内しています。送信した報告は製品・サービスの改善に利用され、モデルのトレーニングに使われる場合があります。報告には説明だけでなく、写真、動画、メッセージ、メールなどが含まれ得ますが、送信前に不要な情報や添付を確認・削除できます。回答の問題を伝える時に、必要以上の個人情報を渡さないための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Apple Intelligenceの報告では、送信内容と添付を選べる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Apple IntelligenceやSiri AIの回答を報告したい人</li><li>AIへのフィードバックに私的な情報を含めたくない人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>Siri AI</li><li>フィードバック</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260923-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Ask Photosのフィードバックは、送信される会話と参照情報を確認する Ask Photosのフィードバック送信内容を確認する Googleは、Ask Photosのフィードバックを送る時には、対象の会話記録、回答作成で参照された写真・動画・アルバム・顔グループに関する情報が付随し得ると案内しています。スクリーンショットは任意で、含めなければ写真・動画の画素を人間のレビュアーが見ることはないと説明されています。Ask Photosのクエリ提供は設定から止められ、Google PhotosをGemini AppsやSearchなど別サービスへ接続した場合は、接続先のポリシーが適用されます。フィードバック送信とサービス接続を分けて判断する記事です。 セキュリティ・権限 標準 Google Photos Ask Photos フィードバック Gemini 写真 プライバシー Google PhotosのAsk Photosを使う人 AI検索のフィードバック内容を管理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ask-photos-feedback</span>
+              <div>
+                <p>Ask Photosのフィードバック送信内容を確認する</p>
+                <h3>Ask Photosのフィードバックは、送信される会話と参照情報を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-23">2026.09.23</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは、Ask Photosのフィードバックを送る時には、対象の会話記録、回答作成で参照された写真・動画・アルバム・顔グループに関する情報が付随し得ると案内しています。スクリーンショットは任意で、含めなければ写真・動画の画素を人間のレビュアーが見ることはないと説明されています。Ask Photosのクエリ提供は設定から止められ、Google PhotosをGemini AppsやSearchなど別サービスへ接続した場合は、接続先のポリシーが適用されます。フィードバック送信とサービス接続を分けて判断する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Ask Photosのフィードバックと他サービス接続は、別のデータ処理として確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google PhotosのAsk Photosを使う人</li><li>AI検索のフィードバック内容を管理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Photos</li><li>Ask Photos</li><li>フィードバック</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260924-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

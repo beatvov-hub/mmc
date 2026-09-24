@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>「ウイルス感染」のChrome通知は、サイトの通知設定から止める｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Chrome Securityは2026年8月11日、不要・欺瞞的なサイト通知への対策と、利用者が通知を管理する設定を案内しました。Chromeは最近使っていないサイトや、不審な通知警告を繰り返し受けたサイトの通知権限を自動解除することがありますが、不要な通知は利用者自身でも止められます。デスクトップではChromeの「設定 &gt; プライバシーとセキュリティ &gt; サイトの設定 &gt; 通知」、Androidでは「︙ &gt; 設定 &gt; 通知」から、心当たりのないサイト通知を確認・解除します。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260924-03" />
+<meta property="og:title" content="「ウイルス感染」のChrome通知は、サイトの通知設定から止める｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Chrome Securityは2026年8月11日、不要・欺瞞的なサイト通知への対策と、利用者が通知を管理する設定を案内しました。Chromeは最近使っていないサイトや、不審な通知警告を繰り返し受けたサイトの通知権限を自動解除することがありますが、不要な通知は利用者自身でも止められます。デスクトップではChromeの「設定 &gt; プライバシーとセキュリティ &gt; サイトの設定 &gt; 通知」、Androidでは「︙ &gt; 設定 &gt; 通知」から、心当たりのないサイト通知を確認・解除します。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260924-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Chromeの不要なサイト通知を設定から止める</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-09-24">2026.09.24</time>
+            </div>
+            <h1>「ウイルス感染」のChrome通知は、サイトの通知設定から止める</h1>
+            <p>Chrome Securityは2026年8月11日、不要・欺瞞的なサイト通知への対策と、利用者が通知を管理する設定を案内しました。Chromeは最近使っていないサイトや、不審な通知警告を繰り返し受けたサイトの通知権限を自動解除することがありますが、不要な通知は利用者自身でも止められます。デスクトップではChromeの「設定 &gt; プライバシーとセキュリティ &gt; サイトの設定 &gt; 通知」、Androidでは「︙ &gt; 設定 &gt; 通知」から、心当たりのないサイト通知を確認・解除します。</p>
+            <ul class="forensics-target-list"><li>Chromeでサイト通知を許可したことがある人</li><li>突然の警告通知や広告通知に困っている人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Chrome</li><li>通知</li><li>ブラウザ</li><li>詐欺対策</li><li>サイト権限</li><li>Android</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>警告通知を開く前に、Chrome設定で許可したサイトを確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Chromeの通知はサイトごとの権限です。気になる通知は、本文ではなく設定画面から送信元と許可状態を確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Chromeの右下やスマホに『ウイルスが見つかった』『今すぐ更新』という通知が何度も出る</h3><p>通知にはロゴや警告マークがあり、タップすると修復ソフトの購入や個人情報の入力を促されそうです。サイトを閉じても通知だけが届き続けます。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>サイト通知はブラウザの権限で届くため、通知の見た目だけで端末の警告とは判断できません。通知本文を押す前に、許可したサイトを設定から見直す方が安全です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="remove-site-notification">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Chromeに心当たりのない『感染警告』通知が届いた時、まず何をする？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="remove-site-notification" data-choice-id="remove-site-notification" />
+                <span>
+                  <strong>通知を押さず、Chromeの通知設定で許可済みサイトを確認して解除する</strong>
+                  <small>警告のリンクを開かずに、通知権限を止められます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="click-repair" data-choice-id="click-repair" />
+                <span>
+                  <strong>通知をタップして表示された修復手順を進める</strong>
+                  <small>不要な通知から詐欺ページや不正ソフトへ誘導される場合があります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ignore-forever" data-choice-id="ignore-forever" />
+                <span>
+                  <strong>端末を再起動すれば消えると考え、通知設定は見ない</strong>
+                  <small>サイトに許可した権限は設定から解除できます。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>通知を押さず、Chromeの通知設定で許可済みサイトを確認して解除する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>通知本文のリンクは開かず、Chromeの設定から通知を許可したサイトを確認します。不要なサイトの権限を解除してから、端末の更新などは公式の設定画面から行います。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>通知の送信元サイト</h3>
+              <p>端末名やセキュリティ会社名ではなく、どのサイトに通知を許可しているかを設定で確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Chromeの通知設定</h3>
+              <p>デスクトップでは「設定 &gt; プライバシーとセキュリティ &gt; サイトの設定 &gt; 通知」を開きます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Androidの通知設定</h3>
+              <p>Chromeで「︙ &gt; 設定 &gt; 通知」を開き、不要な通知を管理します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>通知内のリンク</h3>
+              <p>修復・支払い・個人情報入力を促す通知本文は開かず、公式設定画面から状態を確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>不要なChrome通知は、サイト通知の権限を設定から解除して止められる</strong><p>通知に表示されたリンクを開かず、Chromeの設定画面から心当たりのないサイトを外します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>不要な通知を開かずにChrome設定へ進む</strong><span>通知からの誘導を避けられます。</span></li>
+            <li><strong>許可済みのサイト通知を定期的に見直す</strong><span>使わなくなったサイトの通知を減らせます。</span></li>
+            <li><strong>端末の更新やセキュリティ確認は公式の設定画面から行う</strong><span>通知の見た目に依存せずに状態を確認できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>通知の警告マークだけで端末の警告だと信じる</strong><span>サイト通知は端末通知のように表示されることがあります。</span></li>
+            <li><strong>通知から修復ソフト購入や個人情報入力へ進む</strong><span>欺瞞的な通知は詐欺・マルウェア・情報収集に使われる場合があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>必要な通知だけを残して、ブラウザを情報受信に使う</h3>
+          <p>配送、予約、仕事の連絡など、本当に必要なサイトだけ通知を許可すれば、Chromeの便利さを保ちながら不要な警告を減らせます。</p>
+          <ul class="positive-example-list"><li>不要サイトの通知解除</li><li>配送状況の通知だけ残す</li><li>Androidで通知を管理</li><li>公式設定から端末更新を確認</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>『感染しました』と大きく出ると、つい通知そのものを押してしまいます。でも通知は、届き方が強いだけで端末診断ではありません。私は通知の文面を相手にせず、先にChromeの許可一覧を開きます。止める場所が分かるだけで、慌てる回数が減ります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>不審なChrome通知は開かず、サイト通知の権限を設定から外す。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://blog.google/security/the-multi-layered-defenses-that-harden-chrome-against-abusive-notifications/" target="_blank" rel="noopener noreferrer">The multi-layered defenses that harden Chrome against abusive notifications<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Chrome Security</span>
+              <span>その他</span>
+              <time datetime="2026-08-11">2026-08-11</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260924-01" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「許可」を押しただけでも残る侵入――OAuth同意フィッシングは連携アプリを取り消す OAuth同意フィッシングは連携アプリを取り消す FBIのIC3は2026年9月1日、正規のサービスの権限画面を悪用するOAuth同意フィッシングについて注意を呼びかけました。不審なDMやメールのリンクから表示された権限画面で「許可」を押すと、攻撃者のアプリにメールやファイルへのアクセスを与えることがあります。この手口ではパスワードを変更してもアクセス用トークンが残り得るため、許可してしまった時はサービスのセキュリティ設定で連携アプリやトークンを取り消すことが重要です。 セキュリティ・権限 標準 OAuth フィッシング アプリ連携 権限 トークン アカウント保護 GoogleやMicrosoftなどのアカウントで外部アプリを連携する人 DMやメールでファイル共有の案内を受け取る人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">oauth-consent-phishing</span>
+              <div>
+                <p>OAuth同意フィッシングは連携アプリを取り消す</p>
+                <h3>「許可」を押しただけでも残る侵入――OAuth同意フィッシングは連携アプリを取り消す</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-24">2026.09.24</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">FBIのIC3は2026年9月1日、正規のサービスの権限画面を悪用するOAuth同意フィッシングについて注意を呼びかけました。不審なDMやメールのリンクから表示された権限画面で「許可」を押すと、攻撃者のアプリにメールやファイルへのアクセスを与えることがあります。この手口ではパスワードを変更してもアクセス用トークンが残り得るため、許可してしまった時はサービスのセキュリティ設定で連携アプリやトークンを取り消すことが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>正規画面でも、心当たりのない外部アプリには権限を渡さない</span>
+            </div>
+            <ul class="forensics-card-audience"><li>GoogleやMicrosoftなどのアカウントで外部アプリを連携する人</li><li>DMやメールでファイル共有の案内を受け取る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>OAuth</li><li>フィッシング</li><li>アプリ連携</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260923-01" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="Apple Intelligenceの回答を報告する時は、送信する添付情報を外してから送る Apple Intelligenceの報告前に添付情報を見直す Appleは、Apple IntelligenceまたはSiri AIの回答について、画面上のReport a Concernからフィードバックを送れると案内しています。送信した報告は製品・サービスの改善に利用され、モデルのトレーニングに使われる場合があります。報告には説明だけでなく、写真、動画、メッセージ、メールなどが含まれ得ますが、送信前に不要な情報や添付を確認・削除できます。回答の問題を伝える時に、必要以上の個人情報を渡さないための記事です。 セキュリティ・権限 はじめて Apple Intelligence Siri AI フィードバック Report a Concern 個人情報 添付 Apple IntelligenceやSiri AIの回答を報告したい人 AIへのフィードバックに私的な情報を含めたくない人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">apple-ai-report-concern</span>
+              <div>
+                <p>Apple Intelligenceの報告前に添付情報を見直す</p>
+                <h3>Apple Intelligenceの回答を報告する時は、送信する添付情報を外してから送る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-23">2026.09.23</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Appleは、Apple IntelligenceまたはSiri AIの回答について、画面上のReport a Concernからフィードバックを送れると案内しています。送信した報告は製品・サービスの改善に利用され、モデルのトレーニングに使われる場合があります。報告には説明だけでなく、写真、動画、メッセージ、メールなどが含まれ得ますが、送信前に不要な情報や添付を確認・削除できます。回答の問題を伝える時に、必要以上の個人情報を渡さないための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Apple Intelligenceの報告では、送信内容と添付を選べる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Apple IntelligenceやSiri AIの回答を報告したい人</li><li>AIへのフィードバックに私的な情報を含めたくない人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>Siri AI</li><li>フィードバック</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260923-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Ask Photosのフィードバックは、送信される会話と参照情報を確認する Ask Photosのフィードバック送信内容を確認する Googleは、Ask Photosのフィードバックを送る時には、対象の会話記録、回答作成で参照された写真・動画・アルバム・顔グループに関する情報が付随し得ると案内しています。スクリーンショットは任意で、含めなければ写真・動画の画素を人間のレビュアーが見ることはないと説明されています。Ask Photosのクエリ提供は設定から止められ、Google PhotosをGemini AppsやSearchなど別サービスへ接続した場合は、接続先のポリシーが適用されます。フィードバック送信とサービス接続を分けて判断する記事です。 セキュリティ・権限 標準 Google Photos Ask Photos フィードバック Gemini 写真 プライバシー Google PhotosのAsk Photosを使う人 AI検索のフィードバック内容を管理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ask-photos-feedback</span>
+              <div>
+                <p>Ask Photosのフィードバック送信内容を確認する</p>
+                <h3>Ask Photosのフィードバックは、送信される会話と参照情報を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-23">2026.09.23</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは、Ask Photosのフィードバックを送る時には、対象の会話記録、回答作成で参照された写真・動画・アルバム・顔グループに関する情報が付随し得ると案内しています。スクリーンショットは任意で、含めなければ写真・動画の画素を人間のレビュアーが見ることはないと説明されています。Ask Photosのクエリ提供は設定から止められ、Google PhotosをGemini AppsやSearchなど別サービスへ接続した場合は、接続先のポリシーが適用されます。フィードバック送信とサービス接続を分けて判断する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Ask Photosのフィードバックと他サービス接続は、別のデータ処理として確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google PhotosのAsk Photosを使う人</li><li>AI検索のフィードバック内容を管理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Photos</li><li>Ask Photos</li><li>フィードバック</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260924-04">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260924-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIが働き、人間が考え、創造する。</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
