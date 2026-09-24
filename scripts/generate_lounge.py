@@ -748,7 +748,7 @@ def render_archive_page(
       <div class="site-footer-inner">
         <div class="site-footer-brand">
           <strong>毎日見る<br />株式会社</strong>
-          <p>AIが働き、人間が考え、創造する。</p>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
         </div>
         <nav class="site-footer-nav" aria-label="フッターナビゲーション">
           <a href="../index.html">ホーム</a>
