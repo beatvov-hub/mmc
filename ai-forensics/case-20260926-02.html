@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>怪しいAI画像は「見た目」ではなく、Geminiに由来・編集履歴を尋ねる｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Googleは2026年5月19日、画像・動画・音声のSynthID検証と、C2PA Content Credentialsの確認機能をGemini、Search、Chromeなどへ広げると発表しました。Gemini、Lens、AI Mode、Circle to Search、Chrome内のGeminiでは、画像について「AIで作られたか」を尋ねられます。C2PA Content Credentialsがある場合は、カメラで撮影されたオリジナルか、AIツールで編集されたか、どのようなツールが使われたかを確認できます。画像の見た目だけで断定せず、由来情報があるかを自分で尋ねる記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260926-02" />
+<meta property="og:title" content="怪しいAI画像は「見た目」ではなく、Geminiに由来・編集履歴を尋ねる｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Googleは2026年5月19日、画像・動画・音声のSynthID検証と、C2PA Content Credentialsの確認機能をGemini、Search、Chromeなどへ広げると発表しました。Gemini、Lens、AI Mode、Circle to Search、Chrome内のGeminiでは、画像について「AIで作られたか」を尋ねられます。C2PA Content Credentialsがある場合は、カメラで撮影されたオリジナルか、AIツールで編集されたか、どのようなツールが使われたかを確認できます。画像の見た目だけで断定せず、由来情報があるかを自分で尋ねる記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260926-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>怪しい画像はGeminiで由来・編集履歴を確認</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+              <time datetime="2026-09-26">2026.09.26</time>
+            </div>
+            <h1>怪しいAI画像は「見た目」ではなく、Geminiに由来・編集履歴を尋ねる</h1>
+            <p>Googleは2026年5月19日、画像・動画・音声のSynthID検証と、C2PA Content Credentialsの確認機能をGemini、Search、Chromeなどへ広げると発表しました。Gemini、Lens、AI Mode、Circle to Search、Chrome内のGeminiでは、画像について「AIで作られたか」を尋ねられます。C2PA Content Credentialsがある場合は、カメラで撮影されたオリジナルか、AIツールで編集されたか、どのようなツールが使われたかを確認できます。画像の見た目だけで断定せず、由来情報があるかを自分で尋ねる記事です。</p>
+            <ul class="forensics-target-list"><li>SNSやチャットで画像・動画を見る人</li><li>AI生成やAI編集の画像を確認したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Gemini</li><li>SynthID</li><li>Content Credentials</li><li>画像検証</li><li>AI生成画像</li><li>メディアリテラシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>画像の真偽は見た目で決めず、由来・編集情報を確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>画像を見た時は、まずAI生成かを尋ね、表示された由来情報と投稿元の両方を確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>SNSで見た衝撃的な写真が、本物の撮影なのかAI編集なのか分からない</h3><p>光や影は自然に見えますが、生成・編集された画像かもしれません。コメント欄の推測だけで信じるか、別の確認方法を使うか迷っています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>高品質な画像は見た目だけで作成方法を判断しにくくなっています。ラベルを待つだけでなく、利用できる検証機能で由来を尋ねる行動が役立ちます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="ask-origin">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>気になる画像がAI生成・AI編集かを確認したい時、適切な最初の行動は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ask-origin" data-choice-id="ask-origin" />
+                <span>
+                  <strong>GeminiやSearch機能でAI生成かを尋ね、由来・編集情報が示されるか確認する</strong>
+                  <small>SynthIDやContent Credentialsの確認を使えます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="looks-real" data-choice-id="looks-real" />
+                <span>
+                  <strong>光や影が自然なので、実写だと決める</strong>
+                  <small>見た目だけでは作成・編集方法を断定できません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="no-metadata-real" data-choice-id="no-metadata-real" />
+                <span>
+                  <strong>由来情報が見えなければ、必ず実写だと考える</strong>
+                  <small>情報がないことは実写の証明ではありません。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>GeminiやSearch機能でAI生成かを尋ね、由来・編集情報が示されるか確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>まず由来・編集情報を確認します。その情報がない場合も、作成方法を断定せず、投稿元や別の根拠を確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>確認に使う機能</h3>
+              <p>Gemini、Lens、AI Mode、Circle to Search、Chrome内Geminiなどで画像の由来を尋ねます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>SynthIDの検出結果</h3>
+              <p>Google AIが生成・編集したコンテンツの検証情報を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Content Credentials</h3>
+              <p>カメラ撮影か、AI編集されたか、利用ツールの情報が示される場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>情報がない場合</h3>
+              <p>由来情報が見えないことだけで、実写・未編集とは結論付けません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>画像の見た目だけでなく、利用できる由来情報を確認して判断する</strong><p>検証情報があれば読む。なければ断定せず、別の情報源も確認するという順番が役立ちます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>画像についてAI生成かを検証機能で尋ねる</strong><span>見た目以外の由来情報を得られる場合があります。</span></li>
+            <li><strong>Content Credentialsの作成・編集情報を確認する</strong><span>カメラ撮影や編集の経緯を知る手掛かりになります。</span></li>
+            <li><strong>検証情報がなくても断定しない</strong><span>情報の不在は実写・未編集の証明ではありません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>画像の自然さだけで本物と判断する</strong><span>生成・編集技術の品質が上がっています。</span></li>
+            <li><strong>AIラベルがないことを安全の証明にする</strong><span>すべての画像に由来情報が付くとは限りません。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>画像を信じる前に、由来を尋ねる習慣を作る</h3>
+          <p>検証機能を使えば、目にした画像を即座に信じたり拡散したりせず、根拠を追加して判断できます。</p>
+          <ul class="positive-example-list"><li>SNS画像の由来確認</li><li>Geminiへの画像アップロード</li><li>Lensでの確認</li><li>投稿元の追加確認</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>画像の検証は、見破るゲームではありません。私は『これはAI？』と一度聞いて、返ってきた由来情報を判断材料に足す使い方が好きです。答えが出ない時に断定しないことも、今は立派な確認です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>気になる画像は、見た目で決めずGeminiなどに由来・編集履歴を尋ねる。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://blog.google/innovation-and-ai/products/identifying-ai-generated-media-online/" target="_blank" rel="noopener noreferrer">Making it easier to understand how content was created and edited<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Blog</span>
+              <span>その他</span>
+              <time datetime="2026-05-19">2026-05-19</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260925-02" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="standard" data-search-text="Meta AIの回答にも反映される「他社での行動」を、設定で選ぶ Meta AIの個別化に使う外部行動を設定で選ぶ Metaは2026年6月9日、他社が既にMetaへ共有している行動データを、広告に加えてFeedやAI回答のパーソナライズにも使う方針を案内しました。ゲームや外部サイトでの購入などの情報が例として挙げられています。旧「Your activity off Meta technologies」設定は終了し、「Activity from other businesses」で広告・非広告コンテンツへの利用を管理する形へ移行します。AIの回答が自分向けに見える時、アプリ内の会話履歴だけでなく、外部事業者から共有される行動データの設定も確認する記事です。 情報の見極め 標準 Meta AI パーソナライズ プライバシー Facebook Instagram 設定 FacebookやInstagramなどMetaのサービスを使う人 AIの回答や表示が個人向けになる仕組みを確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">meta-external-activity-control</span>
+              <div>
+                <p>Meta AIの個別化に使う外部行動を設定で選ぶ</p>
+                <h3>Meta AIの回答にも反映される「他社での行動」を、設定で選ぶ</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-25">2026.09.25</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Metaは2026年6月9日、他社が既にMetaへ共有している行動データを、広告に加えてFeedやAI回答のパーソナライズにも使う方針を案内しました。ゲームや外部サイトでの購入などの情報が例として挙げられています。旧「Your activity off Meta technologies」設定は終了し、「Activity from other businesses」で広告・非広告コンテンツへの利用を管理する形へ移行します。AIの回答が自分向けに見える時、アプリ内の会話履歴だけでなく、外部事業者から共有される行動データの設定も確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>AI回答の個別化は、会話履歴だけでなく外部行動データも確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>FacebookやInstagramなどMetaのサービスを使う人</li><li>AIの回答や表示が個人向けになる仕組みを確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Meta AI</li><li>パーソナライズ</li><li>プライバシー</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260924-04" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="仕事用AndroidのAI自動化は、個人と業務プロファイルを分けて使う 仕事用AndroidのAI自動化は業務プロファイルを確認 Googleは2026年9月23日、Android EnterpriseでのAI自動化について、Geminiがカレンダー、メール、ブラウザなどをまたいで情報を探し操作できる一方、業務プロファイルの分離により個人側のエージェントが業務アプリや業務データへアクセスしない仕組みを案内しました。管理者はAndroid Enterpriseの管理ポリシーでAI自動化を組織全体に設定・制限・無効化できます。仕事用端末では、AIに任せる前に、自分の端末が業務プロファイルか、会社が許可する自動化の範囲かを確認する記事です。 仕事・AI活用 標準 Android Enterprise Gemini 業務プロファイル モバイルAI 端末管理 仕事術 会社管理のAndroid端末を使う人 Android Enterpriseを管理するIT担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">android-work-profile-ai</span>
+              <div>
+                <p>仕事用AndroidのAI自動化は業務プロファイルを確認</p>
+                <h3>仕事用AndroidのAI自動化は、個人と業務プロファイルを分けて使う</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-24">2026.09.24</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年9月23日、Android EnterpriseでのAI自動化について、Geminiがカレンダー、メール、ブラウザなどをまたいで情報を探し操作できる一方、業務プロファイルの分離により個人側のエージェントが業務アプリや業務データへアクセスしない仕組みを案内しました。管理者はAndroid Enterpriseの管理ポリシーでAI自動化を組織全体に設定・制限・無効化できます。仕事用端末では、AIに任せる前に、自分の端末が業務プロファイルか、会社が許可する自動化の範囲かを確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>仕事用AndroidのAI自動化は、業務プロファイルと組織ポリシーを先に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>会社管理のAndroid端末を使う人</li><li>Android Enterpriseを管理するIT担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Android Enterprise</li><li>Gemini</li><li>業務プロファイル</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260923-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Ask Photosのフィードバックは、送信される会話と参照情報を確認する Ask Photosのフィードバック送信内容を確認する Googleは、Ask Photosのフィードバックを送る時には、対象の会話記録、回答作成で参照された写真・動画・アルバム・顔グループに関する情報が付随し得ると案内しています。スクリーンショットは任意で、含めなければ写真・動画の画素を人間のレビュアーが見ることはないと説明されています。Ask Photosのクエリ提供は設定から止められ、Google PhotosをGemini AppsやSearchなど別サービスへ接続した場合は、接続先のポリシーが適用されます。フィードバック送信とサービス接続を分けて判断する記事です。 セキュリティ・権限 標準 Google Photos Ask Photos フィードバック Gemini 写真 プライバシー Google PhotosのAsk Photosを使う人 AI検索のフィードバック内容を管理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ask-photos-feedback</span>
+              <div>
+                <p>Ask Photosのフィードバック送信内容を確認する</p>
+                <h3>Ask Photosのフィードバックは、送信される会話と参照情報を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-23">2026.09.23</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは、Ask Photosのフィードバックを送る時には、対象の会話記録、回答作成で参照された写真・動画・アルバム・顔グループに関する情報が付随し得ると案内しています。スクリーンショットは任意で、含めなければ写真・動画の画素を人間のレビュアーが見ることはないと説明されています。Ask Photosのクエリ提供は設定から止められ、Google PhotosをGemini AppsやSearchなど別サービスへ接続した場合は、接続先のポリシーが適用されます。フィードバック送信とサービス接続を分けて判断する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Ask Photosのフィードバックと他サービス接続は、別のデータ処理として確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google PhotosのAsk Photosを使う人</li><li>AI検索のフィードバック内容を管理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Photos</li><li>Ask Photos</li><li>フィードバック</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260926-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260926-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

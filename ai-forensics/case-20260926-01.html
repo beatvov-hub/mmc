@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIエージェントにメール送信や購入を任せる前に、権限・確認・記録を分ける｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Metaは2026年9月8日、メール送信、旅行予約、フォーム入力などを代行する個人向けAIエージェントMuseを発表しました。Metaによれば、利用者は連携するアプリとアクセス範囲を選び、メールなら閲覧だけか送信も可能にするかを選択できます。送信や購入などの機微な操作では利用者へ確認し、実行済み・予定の操作は監査履歴で確認できます。行動するAIを使う時は、連携の権限、最終承認、実行後の記録を別々に確認する記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260926-01" />
+<meta property="og:title" content="AIエージェントにメール送信や購入を任せる前に、権限・確認・記録を分ける｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Metaは2026年9月8日、メール送信、旅行予約、フォーム入力などを代行する個人向けAIエージェントMuseを発表しました。Metaによれば、利用者は連携するアプリとアクセス範囲を選び、メールなら閲覧だけか送信も可能にするかを選択できます。送信や購入などの機微な操作では利用者へ確認し、実行済み・予定の操作は監査履歴で確認できます。行動するAIを使う時は、連携の権限、最終承認、実行後の記録を別々に確認する記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260926-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>AIエージェントの権限・確認・記録を分ける</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-26">2026.09.26</time>
+            </div>
+            <h1>AIエージェントにメール送信や購入を任せる前に、権限・確認・記録を分ける</h1>
+            <p>Metaは2026年9月8日、メール送信、旅行予約、フォーム入力などを代行する個人向けAIエージェントMuseを発表しました。Metaによれば、利用者は連携するアプリとアクセス範囲を選び、メールなら閲覧だけか送信も可能にするかを選択できます。送信や購入などの機微な操作では利用者へ確認し、実行済み・予定の操作は監査履歴で確認できます。行動するAIを使う時は、連携の権限、最終承認、実行後の記録を別々に確認する記事です。</p>
+            <ul class="forensics-target-list"><li>メールや購入を代行するAIエージェントを使う人</li><li>AIへ外部サービスを連携する人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>AIエージェント</li><li>権限</li><li>メール送信</li><li>購入</li><li>監査履歴</li><li>Meta Muse</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>行動するAIは、権限・最終承認・実行履歴を別々に確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AIに任せる操作を増やす前に、何を読めるか、何を実行できるか、何を確認できるかを分けて見てください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>AIに旅程作成を頼んだら、メール送信や購入まで代行できると言われた</h3><p>予定をまとめるだけなら便利そうですが、メールや支払いまで任せると、どこで内容を確認し、どの権限を渡すべきか迷います。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIが情報を読むことと、外部へ送信・購入することでは影響が違います。アプリごとの権限、操作直前の承認、あとから確認する履歴を分けると、任せる範囲を選べます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="limit-and-review">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>AIエージェントへメールや購入を任せる前の適切な対応は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="limit-and-review" data-choice-id="limit-and-review" />
+                <span>
+                  <strong>アプリごとの権限を絞り、送信・購入前の承認と操作履歴を確認する</strong>
+                  <small>読む権限と実行権限、承認と記録を分けて管理します。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="all-access" data-choice-id="all-access" />
+                <span>
+                  <strong>便利なので、連携したサービスには最初から全権限を渡す</strong>
+                  <small>アプリごとにアクセス範囲を選べます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="trust-memory" data-choice-id="trust-memory" />
+                <span>
+                  <strong>一度任せた操作は、後から確認しなくてよいと考える</strong>
+                  <small>実行済み・予定の操作を確認する監査履歴が案内されています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>アプリごとの権限を絞り、送信・購入前の承認と操作履歴を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>必要なアプリだけを連携し、閲覧・送信などの範囲を選びます。機微な操作は承認し、完了後は履歴を確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>連携するアプリ</h3>
+              <p>どのサービスをつなぐかを一つずつ選びます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>アプリごとの権限</h3>
+              <p>メールでは閲覧だけか送信も許可するかなど、任せる操作を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>機微な操作の確認</h3>
+              <p>メール送信や購入の前に、内容と相手・金額を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>実行履歴</h3>
+              <p>AIが実行したことと予定していることを監査履歴で確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AIエージェントは、必要最小限の権限と人間の最終確認を組み合わせて使う</strong><p>連携範囲を絞り、送信・購入は承認し、履歴で結果を確認します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>必要なサービスだけを連携する</strong><span>AIに渡すアクセス範囲を絞れます。</span></li>
+            <li><strong>送信・購入前に最終確認する</strong><span>相手、内容、金額を人が判断できます。</span></li>
+            <li><strong>実行後に監査履歴を確認する</strong><span>AIが行った操作と次に行う予定を把握できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>閲覧権限と送信・購入権限を同じものとして扱う</strong><span>操作の影響が異なります。</span></li>
+            <li><strong>連携後の権限や履歴を見直さない</strong><span>不要になったアクセスや想定外の操作に気付きにくくなります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>小さな作業から任せ、最後の判断は自分で行う</h3>
+          <p>予定整理や下書きから始め、必要な場面だけ承認を挟めば、AIエージェントの便利さを活かせます。</p>
+          <ul class="positive-example-list"><li>旅程の下書き</li><li>メールの文案作成</li><li>送信前の宛先確認</li><li>購入前の金額確認</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>AIが『代わりにやる』段階になると、プロンプトの上手さよりも、権限の設計が効いてきます。私は読むだけ、下書きまで、送信してよい、を一続きにせず、途中に確認場所を作っておきたいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>行動するAIには、権限・最終承認・実行履歴を分けて確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/" target="_blank" rel="noopener noreferrer">Introducing Muse: The World’s First Personal AI Agent Built for Everyone<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Meta</span>
+              <span>その他</span>
+              <time datetime="2026-09-08">2026-09-08</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260926-03" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="AIで作られた性的画像を通報後、48時間反応がなければプラットフォームも報告する 性的画像の削除申立て後はプラットフォームも報告 FTCは2026年9月23日、無断で共有された性的画像について削除を申し立てた後、48時間以内にプラットフォームが削除も応答もしない場合の報告手順を案内しました。米国のTake It Down Actでは、対象プラットフォームに削除申立ての仕組みと48時間以内の対応が求められます。FTCのTakeItDown.ftc.govでは、報告するプラットフォーム名と掲載場所を入力して提出できます。無断共有だけでなく、デジタル改変・生成された性的画像にも権利と対応手順があることを、米国制度として整理する記事です。 セキュリティ・権限 標準 AI画像 性的画像 削除申立て Take It Down Act FTC 被害対応 無断共有やAI改変の性的画像の被害に遭った人 家族や友人の被害時に支援したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">intimate-image-platform-report</span>
+              <div>
+                <p>性的画像の削除申立て後はプラットフォームも報告</p>
+                <h3>AIで作られた性的画像を通報後、48時間反応がなければプラットフォームも報告する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-26">2026.09.26</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">FTCは2026年9月23日、無断で共有された性的画像について削除を申し立てた後、48時間以内にプラットフォームが削除も応答もしない場合の報告手順を案内しました。米国のTake It Down Actでは、対象プラットフォームに削除申立ての仕組みと48時間以内の対応が求められます。FTCのTakeItDown.ftc.govでは、報告するプラットフォーム名と掲載場所を入力して提出できます。無断共有だけでなく、デジタル改変・生成された性的画像にも権利と対応手順があることを、米国制度として整理する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>削除申立て後の記録を残し、プラットフォームの不対応も報告する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>無断共有やAI改変の性的画像の被害に遭った人</li><li>家族や友人の被害時に支援したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AI画像</li><li>性的画像</li><li>削除申立て</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260925-03" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="WhatsAppで機微なAI相談をするなら、Incognito Chatの範囲を知る WhatsAppのAI一時会話は範囲を確認して使う Metaは2026年5月13日、WhatsAppとMeta AIアプリでIncognito Chatを段階的に提供すると発表しました。Metaによれば、Incognito Chatは利用者だけが見られる一時会話で、メッセージは保存されず既定で消去され、Metaも会話を読めない安全な処理環境で扱われます。利用できる地域・アプリであることを確認したうえで、通常のAI会話と一時会話を目的別に選ぶ記事です。 セキュリティ・権限 標準 WhatsApp Meta AI Incognito Chat 一時会話 プライバシー 会話履歴 WhatsAppやMeta AIで相談する人 AI会話の保存範囲を使い分けたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">whatsapp-incognito-chat</span>
+              <div>
+                <p>WhatsAppのAI一時会話は範囲を確認して使う</p>
+                <h3>WhatsAppで機微なAI相談をするなら、Incognito Chatの範囲を知る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-25">2026.09.25</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Metaは2026年5月13日、WhatsAppとMeta AIアプリでIncognito Chatを段階的に提供すると発表しました。Metaによれば、Incognito Chatは利用者だけが見られる一時会話で、メッセージは保存されず既定で消去され、Metaも会話を読めない安全な処理環境で扱われます。利用できる地域・アプリであることを確認したうえで、通常のAI会話と一時会話を目的別に選ぶ記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>AI会話を始める前に、通常会話か一時会話かを選ぶ</span>
+            </div>
+            <ul class="forensics-card-audience"><li>WhatsAppやMeta AIで相談する人</li><li>AI会話の保存範囲を使い分けたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>WhatsApp</li><li>Meta AI</li><li>Incognito Chat</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260924-01" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「許可」を押しただけでも残る侵入――OAuth同意フィッシングは連携アプリを取り消す OAuth同意フィッシングは連携アプリを取り消す FBIのIC3は2026年9月1日、正規のサービスの権限画面を悪用するOAuth同意フィッシングについて注意を呼びかけました。不審なDMやメールのリンクから表示された権限画面で「許可」を押すと、攻撃者のアプリにメールやファイルへのアクセスを与えることがあります。この手口ではパスワードを変更してもアクセス用トークンが残り得るため、許可してしまった時はサービスのセキュリティ設定で連携アプリやトークンを取り消すことが重要です。 セキュリティ・権限 標準 OAuth フィッシング アプリ連携 権限 トークン アカウント保護 GoogleやMicrosoftなどのアカウントで外部アプリを連携する人 DMやメールでファイル共有の案内を受け取る人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">oauth-consent-phishing</span>
+              <div>
+                <p>OAuth同意フィッシングは連携アプリを取り消す</p>
+                <h3>「許可」を押しただけでも残る侵入――OAuth同意フィッシングは連携アプリを取り消す</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-24">2026.09.24</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">FBIのIC3は2026年9月1日、正規のサービスの権限画面を悪用するOAuth同意フィッシングについて注意を呼びかけました。不審なDMやメールのリンクから表示された権限画面で「許可」を押すと、攻撃者のアプリにメールやファイルへのアクセスを与えることがあります。この手口ではパスワードを変更してもアクセス用トークンが残り得るため、許可してしまった時はサービスのセキュリティ設定で連携アプリやトークンを取り消すことが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>正規画面でも、心当たりのない外部アプリには権限を渡さない</span>
+            </div>
+            <ul class="forensics-card-audience"><li>GoogleやMicrosoftなどのアカウントで外部アプリを連携する人</li><li>DMやメールでファイル共有の案内を受け取る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>OAuth</li><li>フィッシング</li><li>アプリ連携</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260926-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
