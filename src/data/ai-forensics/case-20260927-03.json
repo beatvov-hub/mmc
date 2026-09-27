@@ -1,0 +1,53 @@
+{
+  "id": "case-20260927-03",
+  "publishedAt": "2026-09-27",
+  "title": "Google広告のAI利用表示は「︙」から見る――制作方法と広告主を分けて確認",
+  "shortTitle": "Google広告のAI利用表示を確認",
+  "category": "media-literacy",
+  "difficulty": "beginner",
+  "targetAudience": ["検索やYouTubeで広告を見る人", "AIで作られた広告か気になる人"],
+  "summary": "Googleは2026年7月9日、検索・YouTube・Discoverの広告で、生成AIによる制作・編集情報をMy Ad Centerの「How this ad was made」に表示する仕組みを発表しました。広告の「︙」または情報アイコンから制作方法を確認でき、同じ画面で広告主情報や広告の報告にも進めます。ただし、AI利用のすべてが表示対象ではなく、表示の有無だけで広告の安全性は判断できません。広告を見た時に、制作方法と広告主を別々に調べる記事です。",
+  "scenario": {
+    "headline": "検索結果の広告に、実在の人物のような画像が使われている",
+    "description": "画像がAI制作か気になります。広告の見た目だけで判断せず、利用できる開示情報と広告主を確認したい場面です。",
+    "whyItMatters": "AIで制作されたかどうかと、広告主が信頼できるかどうかは別の問いです。開示画面の使い方と限界を知る必要があります。"
+  },
+  "question": {
+    "text": "気になるGoogle広告について、どの情報を確認する？",
+    "choices": [
+      {"id": "open-ad-center", "label": "広告の「︙」から制作方法と広告主情報をそれぞれ見る", "description": "My Ad Centerで異なる種類の情報を確認できます。"},
+      {"id": "no-label-safe", "label": "AI表示がなければ必ず人が作った安全な広告と考える", "description": "すべてのAI利用に表示が付くわけではありません。"},
+      {"id": "ai-means-fraud", "label": "AI表示があれば広告内容はすべて詐欺だと決める", "description": "制作方法の開示は広告の真偽判定ではありません。"}
+    ],
+    "recommendedAnswers": ["open-ad-center"],
+    "explanation": "「How this ad was made」は制作方法、「About this advertiser」は支払った広告主の情報です。誤解を招く広告なら報告機能を使います。"
+  },
+  "inspectionPoints": [
+    {"title": "開き方", "description": "広告の「︙」または情報アイコンからMy Ad Centerへ進みます。", "priority": "high"},
+    {"title": "制作方法の表示", "description": "「How this ad was made」はAIで作成・編集された広告素材について表示されます。", "priority": "high"},
+    {"title": "表示されない場合", "description": "AI利用の開示要件は地域やコンテンツで異なり、表示がないことは非AIの証明ではありません。", "priority": "high"},
+    {"title": "広告主と報告", "description": "広告主情報を別に確認し、誤解を招く場合は「Report this ad」から報告できます。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "AI利用の開示と広告主の確認は別々に行う",
+  "verificationMessage": "AI表示の有無を安全性の判定に使わず、制作方法・広告主・内容を分けて見ます。",
+  "verdict": {"label": "AI表示は制作の手掛かりであり、広告の信用保証ではない", "description": "広告のメニューから開示を読み、必要なら広告主情報の確認や報告を行います。", "confidence": "high"},
+  "safeActions": [
+    {"action": "広告の「︙」から制作方法を見る", "reason": "AIで作成・編集された広告素材かを確認できる場合があります。"},
+    {"action": "広告主情報を別に確認する", "reason": "制作方法と支払った主体は異なる情報です。"},
+    {"action": "誤解を招く広告は報告する", "reason": "My Ad Centerから広告の審査を求められます。"}
+  ],
+  "avoidActions": [
+    {"action": "AI表示がないだけで広告を信用する", "reason": "開示対象や表示方法には条件があります。"},
+    {"action": "AI使用の表示だけで詐欺と断定する", "reason": "制作方法は内容の真偽と別です。"}
+  ],
+  "positiveUse": {"title": "広告の情報を一画面で整理する", "description": "制作方法、広告主、表示理由、報告の入口を使い分けると、広告を見た後の判断材料を増やせます。", "examples": ["制作方法を見る", "広告主を見る", "表示理由を見る", "問題のある広告を報告する"]},
+  "makotoComment": "広告の『AIで作ったか』は気になりますが、それだけでは買ってよいか決まりません。同じメニューで広告主まで見られるのが実用的です。私は制作方法と販売主体を別々の欄として確認します。",
+  "oneLineLesson": "広告のAI表示は「︙」から確認し、広告主情報とは分けて読む。",
+  "tags": ["Google広告", "AI広告", "My Ad Center", "広告主", "情報開示"],
+  "sources": [
+    {"title": "Expanding AI transparency in ads", "publisher": "Google Blog", "sourceType": "official-product-update", "publishedAt": "2026-07-09", "url": "https://blog.google/products/ads-commerce/google-ads-ai-transparency-labels/"},
+    {"title": "AI Transparency in ads", "publisher": "Google My Ad Center Help", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.google.com/My-Ad-Center-Help/answer/17196133"}
+  ],
+  "visualSuggestion": {"mainVisual": "広告の三点メニューから制作方法、広告主情報、報告へ分岐する画面図。", "cardIcon": "ad-ai-disclosure", "accentTone": "info"}
+}

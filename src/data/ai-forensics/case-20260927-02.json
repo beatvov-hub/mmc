@@ -1,0 +1,53 @@
+{
+  "id": "case-20260927-02",
+  "publishedAt": "2026-09-27",
+  "title": "SafariのAIで作る拡張機能は、試してからサイト別に管理する",
+  "shortTitle": "SafariのAI拡張機能は試して管理",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["対応するiPhoneでSafariを使う人", "ウェブページを自分向けに調整したい人"],
+  "summary": "Appleは2026年9月14日、iOS 27のSafariで、自然な言葉から拡張機能を作る「Describe an Extension」を含む新機能の提供を発表しました。対応するiPhoneでは、ページメニューから目的を入力し、既存のApp Store拡張機能を確認した後、必要なら独自の拡張機能を作れます。完成直後に使い続ける必要はなく、試用・編集・保存を経て、サイト単位のオン・オフや削除もできます。端末・言語・地域の対応状況を確かめたうえで、小さな用途から試す記事です。",
+  "scenario": {
+    "headline": "Safariで、長いページを読みやすくする小さな機能を作りたい",
+    "description": "拡張機能を言葉で作れると聞きましたが、生成された結果が期待どおりか、後から止められるか分かりません。",
+    "whyItMatters": "拡張機能はウェブページの表示や操作に関わります。作成したものをそのまま常用せず、試用とサイト別の管理方法を知ることが重要です。"
+  },
+  "question": {
+    "text": "言葉で作ったSafari拡張機能を使う前に、どう進める？",
+    "choices": [
+      {"id": "try-edit-save", "label": "既存候補を確認し、作成したら試用・編集してから保存する", "description": "Appleが案内する作成手順に沿い、動作を確かめられます。"},
+      {"id": "accept-immediately", "label": "生成された機能なら確認せず常時有効にする", "description": "意図と異なる動作に気付けません。"},
+      {"id": "all-sites", "label": "必要なサイトが一つでも、すべてのサイトで有効にする", "description": "Safariではサイトごとにオン・オフを選べます。"}
+    ],
+    "recommendedAnswers": ["try-edit-save"],
+    "explanation": "対象ページで目的を具体的に入力し、試して必要なら編集します。不要になったらサイト別にオフにするか削除できます。"
+  },
+  "inspectionPoints": [
+    {"title": "対応条件", "description": "iOS 27以降とApple Intelligence対応iPhoneが必要で、言語・地域による制限もあります。", "priority": "high"},
+    {"title": "既存候補の確認", "description": "説明を入力すると、Safariは先にApp Storeで一致する拡張機能を探します。", "priority": "medium"},
+    {"title": "試用と編集", "description": "作成後はTryで試し、必要ならEditで変更してから保存できます。", "priority": "high"},
+    {"title": "終了方法", "description": "Manage Extensionsからサイト別にオフにしたり、独自の拡張機能を削除したりできます。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "AIで作った機能も、試用と停止方法を確認する",
+  "verificationMessage": "対応条件、試用、サイト別のオン・オフ、削除までを一続きの操作として把握します。",
+  "verdict": {"label": "作成できることと、期待どおり安全に使えることは別", "description": "小さな用途から試し、必要なサイトだけで使い、不要なら停止・削除します。", "confidence": "high"},
+  "safeActions": [
+    {"action": "対応するiOS・端末・言語か確認する", "reason": "機能はすべてのiPhoneや地域で使えるわけではありません。"},
+    {"action": "作成後にTryとEditで動作を確認する", "reason": "説明と異なる結果を保存前に見直せます。"},
+    {"action": "必要なサイトだけで有効にし、不要なら削除する", "reason": "使う範囲と期間を自分で管理できます。"}
+  ],
+  "avoidActions": [
+    {"action": "生成直後の結果を確かめずに使い続ける", "reason": "作成意図と実際の動作が一致するかは試用して確認できます。"},
+    {"action": "設定場所を知らないまま拡張機能を増やす", "reason": "後からサイト別の停止や削除をしづらくなります。"}
+  ],
+  "positiveUse": {"title": "小さな作業を自分用のブラウザー機能にする", "description": "AIで作成・試用・修正できるため、ページの見やすさを調整するような限定的な用途から活用できます。", "examples": ["ページの表示を調整する", "作成結果を試用する", "サイト別に有効化する", "不要な拡張機能を削除する"]},
+  "makotoComment": "ここで便利なのは『作れる』だけでなく、作った後にTry、Edit、サイト別のオフ、削除までつながっている点です。私は最初から万能な拡張機能を目指さず、まず一つのページで動作を見ます。",
+  "oneLineLesson": "SafariのAI拡張機能は、試用・編集してから必要なサイトだけで使う。",
+  "tags": ["Safari", "Apple Intelligence", "拡張機能", "iOS 27", "サイト別設定"],
+  "sources": [
+    {"title": "Get extensions to customize Safari on iPhone", "publisher": "Apple Support", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.apple.com/guide/iphone/get-extensions-iphab0432bf6/27/ios/27"},
+    {"title": "Siri AI, a profoundly more capable and personal assistant, is here", "publisher": "Apple Newsroom", "sourceType": "official-product-update", "publishedAt": "2026-09-14", "url": "https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/"}
+  ],
+  "visualSuggestion": {"mainVisual": "Safariのページメニューから説明入力、Try、Edit、保存、サイト別オフへ進む操作図。", "cardIcon": "safari-extension-controls", "accentTone": "info"}
+}

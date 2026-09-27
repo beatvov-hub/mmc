@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Google広告のAI利用表示は「︙」から見る――制作方法と広告主を分けて確認｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Googleは2026年7月9日、検索・YouTube・Discoverの広告で、生成AIによる制作・編集情報をMy Ad Centerの「How this ad was made」に表示する仕組みを発表しました。広告の「︙」または情報アイコンから制作方法を確認でき、同じ画面で広告主情報や広告の報告にも進めます。ただし、AI利用のすべてが表示対象ではなく、表示の有無だけで広告の安全性は判断できません。広告を見た時に、制作方法と広告主を別々に調べる記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260927-03" />
+<meta property="og:title" content="Google広告のAI利用表示は「︙」から見る――制作方法と広告主を分けて確認｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Googleは2026年7月9日、検索・YouTube・Discoverの広告で、生成AIによる制作・編集情報をMy Ad Centerの「How this ad was made」に表示する仕組みを発表しました。広告の「︙」または情報アイコンから制作方法を確認でき、同じ画面で広告主情報や広告の報告にも進めます。ただし、AI利用のすべてが表示対象ではなく、表示の有無だけで広告の安全性は判断できません。広告を見た時に、制作方法と広告主を別々に調べる記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260927-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Google広告のAI利用表示を確認</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+              <time datetime="2026-09-27">2026.09.27</time>
+            </div>
+            <h1>Google広告のAI利用表示は「︙」から見る――制作方法と広告主を分けて確認</h1>
+            <p>Googleは2026年7月9日、検索・YouTube・Discoverの広告で、生成AIによる制作・編集情報をMy Ad Centerの「How this ad was made」に表示する仕組みを発表しました。広告の「︙」または情報アイコンから制作方法を確認でき、同じ画面で広告主情報や広告の報告にも進めます。ただし、AI利用のすべてが表示対象ではなく、表示の有無だけで広告の安全性は判断できません。広告を見た時に、制作方法と広告主を別々に調べる記事です。</p>
+            <ul class="forensics-target-list"><li>検索やYouTubeで広告を見る人</li><li>AIで作られた広告か気になる人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Google広告</li><li>AI広告</li><li>My Ad Center</li><li>広告主</li><li>情報開示</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>AI利用の開示と広告主の確認は別々に行う</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>AI表示の有無を安全性の判定に使わず、制作方法・広告主・内容を分けて見ます。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>検索結果の広告に、実在の人物のような画像が使われている</h3><p>画像がAI制作か気になります。広告の見た目だけで判断せず、利用できる開示情報と広告主を確認したい場面です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIで制作されたかどうかと、広告主が信頼できるかどうかは別の問いです。開示画面の使い方と限界を知る必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="open-ad-center">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>気になるGoogle広告について、どの情報を確認する？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="open-ad-center" data-choice-id="open-ad-center" />
+                <span>
+                  <strong>広告の「︙」から制作方法と広告主情報をそれぞれ見る</strong>
+                  <small>My Ad Centerで異なる種類の情報を確認できます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="no-label-safe" data-choice-id="no-label-safe" />
+                <span>
+                  <strong>AI表示がなければ必ず人が作った安全な広告と考える</strong>
+                  <small>すべてのAI利用に表示が付くわけではありません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ai-means-fraud" data-choice-id="ai-means-fraud" />
+                <span>
+                  <strong>AI表示があれば広告内容はすべて詐欺だと決める</strong>
+                  <small>制作方法の開示は広告の真偽判定ではありません。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>広告の「︙」から制作方法と広告主情報をそれぞれ見る</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>「How this ad was made」は制作方法、「About this advertiser」は支払った広告主の情報です。誤解を招く広告なら報告機能を使います。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>開き方</h3>
+              <p>広告の「︙」または情報アイコンからMy Ad Centerへ進みます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>制作方法の表示</h3>
+              <p>「How this ad was made」はAIで作成・編集された広告素材について表示されます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>表示されない場合</h3>
+              <p>AI利用の開示要件は地域やコンテンツで異なり、表示がないことは非AIの証明ではありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>広告主と報告</h3>
+              <p>広告主情報を別に確認し、誤解を招く場合は「Report this ad」から報告できます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>AI表示は制作の手掛かりであり、広告の信用保証ではない</strong><p>広告のメニューから開示を読み、必要なら広告主情報の確認や報告を行います。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>広告の「︙」から制作方法を見る</strong><span>AIで作成・編集された広告素材かを確認できる場合があります。</span></li>
+            <li><strong>広告主情報を別に確認する</strong><span>制作方法と支払った主体は異なる情報です。</span></li>
+            <li><strong>誤解を招く広告は報告する</strong><span>My Ad Centerから広告の審査を求められます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>AI表示がないだけで広告を信用する</strong><span>開示対象や表示方法には条件があります。</span></li>
+            <li><strong>AI使用の表示だけで詐欺と断定する</strong><span>制作方法は内容の真偽と別です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>広告の情報を一画面で整理する</h3>
+          <p>制作方法、広告主、表示理由、報告の入口を使い分けると、広告を見た後の判断材料を増やせます。</p>
+          <ul class="positive-example-list"><li>制作方法を見る</li><li>広告主を見る</li><li>表示理由を見る</li><li>問題のある広告を報告する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>広告の『AIで作ったか』は気になりますが、それだけでは買ってよいか決まりません。同じメニューで広告主まで見られるのが実用的です。私は制作方法と販売主体を別々の欄として確認します。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>広告のAI表示は「︙」から確認し、広告主情報とは分けて読む。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://blog.google/products/ads-commerce/google-ads-ai-transparency-labels/" target="_blank" rel="noopener noreferrer">Expanding AI transparency in ads<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Blog</span>
+              <span>その他</span>
+              <time datetime="2026-07-09">2026-07-09</time>
+            </li>
+            <li>
+              <strong><a href="https://support.google.com/My-Ad-Center-Help/answer/17196133" target="_blank" rel="noopener noreferrer">AI Transparency in ads<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google My Ad Center Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260926-02" data-forensics-card data-category="media-literacy" data-level="4" data-difficulty="beginner" data-search-text="怪しいAI画像は「見た目」ではなく、Geminiに由来・編集履歴を尋ねる 怪しい画像はGeminiで由来・編集履歴を確認 Googleは2026年5月19日、画像・動画・音声のSynthID検証と、C2PA Content Credentialsの確認機能をGemini、Search、Chromeなどへ広げると発表しました。Gemini、Lens、AI Mode、Circle to Search、Chrome内のGeminiでは、画像について「AIで作られたか」を尋ねられます。C2PA Content Credentialsがある場合は、カメラで撮影されたオリジナルか、AIツールで編集されたか、どのようなツールが使われたかを確認できます。画像の見た目だけで断定せず、由来情報があるかを自分で尋ねる記事です。 情報の見極め はじめて Gemini SynthID Content Credentials 画像検証 AI生成画像 メディアリテラシー SNSやチャットで画像・動画を見る人 AI生成やAI編集の画像を確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">image-origin-check</span>
+              <div>
+                <p>怪しい画像はGeminiで由来・編集履歴を確認</p>
+                <h3>怪しいAI画像は「見た目」ではなく、Geminiに由来・編集履歴を尋ねる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-26">2026.09.26</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年5月19日、画像・動画・音声のSynthID検証と、C2PA Content Credentialsの確認機能をGemini、Search、Chromeなどへ広げると発表しました。Gemini、Lens、AI Mode、Circle to Search、Chrome内のGeminiでは、画像について「AIで作られたか」を尋ねられます。C2PA Content Credentialsがある場合は、カメラで撮影されたオリジナルか、AIツールで編集されたか、どのようなツールが使われたかを確認できます。画像の見た目だけで断定せず、由来情報があるかを自分で尋ねる記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>画像の真偽は見た目で決めず、由来・編集情報を確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>SNSやチャットで画像・動画を見る人</li><li>AI生成やAI編集の画像を確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>SynthID</li><li>Content Credentials</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260925-02" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="standard" data-search-text="Meta AIの回答にも反映される「他社での行動」を、設定で選ぶ Meta AIの個別化に使う外部行動を設定で選ぶ Metaは2026年6月9日、他社が既にMetaへ共有している行動データを、広告に加えてFeedやAI回答のパーソナライズにも使う方針を案内しました。ゲームや外部サイトでの購入などの情報が例として挙げられています。旧「Your activity off Meta technologies」設定は終了し、「Activity from other businesses」で広告・非広告コンテンツへの利用を管理する形へ移行します。AIの回答が自分向けに見える時、アプリ内の会話履歴だけでなく、外部事業者から共有される行動データの設定も確認する記事です。 情報の見極め 標準 Meta AI パーソナライズ プライバシー Facebook Instagram 設定 FacebookやInstagramなどMetaのサービスを使う人 AIの回答や表示が個人向けになる仕組みを確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">meta-external-activity-control</span>
+              <div>
+                <p>Meta AIの個別化に使う外部行動を設定で選ぶ</p>
+                <h3>Meta AIの回答にも反映される「他社での行動」を、設定で選ぶ</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-25">2026.09.25</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Metaは2026年6月9日、他社が既にMetaへ共有している行動データを、広告に加えてFeedやAI回答のパーソナライズにも使う方針を案内しました。ゲームや外部サイトでの購入などの情報が例として挙げられています。旧「Your activity off Meta technologies」設定は終了し、「Activity from other businesses」で広告・非広告コンテンツへの利用を管理する形へ移行します。AIの回答が自分向けに見える時、アプリ内の会話履歴だけでなく、外部事業者から共有される行動データの設定も確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>AI回答の個別化は、会話履歴だけでなく外部行動データも確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>FacebookやInstagramなどMetaのサービスを使う人</li><li>AIの回答や表示が個人向けになる仕組みを確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Meta AI</li><li>パーソナライズ</li><li>プライバシー</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260922-03" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="YouTubeのAIラベルは、動画内だけでなく説明欄も確認する YouTubeのAIラベルは動画と説明欄で確認する YouTubeは、現実の人物がしていない発言や行動をしたように見せる内容、実在の出来事や場所を変えた内容、実在しない現実的な場面を生成した内容について、クリエイターに生成AI利用の開示を求めています。視聴者向けのラベルは、写真のように現実的なAIコンテンツでは動画プレーヤーに、非写実的またはアニメーションのAIコンテンツでは展開した説明欄に表示される場合があります。YouTubeの生成AIツール、C2PAメタデータ、内部検出で自動表示されることもあります。ラベルの表示位置を確認し、表示がないことを実写の証明にはしない記事です。 情報の見極め はじめて YouTube 生成AI AIラベル 動画 C2PA 情報リテラシー YouTubeで現実的なAI動画を見る人 YouTubeに動画を投稿する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">youtube-ai-label</span>
+              <div>
+                <p>YouTubeのAIラベルは動画と説明欄で確認する</p>
+                <h3>YouTubeのAIラベルは、動画内だけでなく説明欄も確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-22">2026.09.22</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeは、現実の人物がしていない発言や行動をしたように見せる内容、実在の出来事や場所を変えた内容、実在しない現実的な場面を生成した内容について、クリエイターに生成AI利用の開示を求めています。視聴者向けのラベルは、写真のように現実的なAIコンテンツでは動画プレーヤーに、非写実的またはアニメーションのAIコンテンツでは展開した説明欄に表示される場合があります。YouTubeの生成AIツール、C2PAメタデータ、内部検出で自動表示されることもあります。ラベルの表示位置を確認し、表示がないことを実写の証明にはしない記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>YouTubeのAIラベルは表示位置と対象範囲を分けて見る</span>
+            </div>
+            <ul class="forensics-card-audience"><li>YouTubeで現実的なAI動画を見る人</li><li>YouTubeに動画を投稿する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube</li><li>生成AI</li><li>AIラベル</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260927-04">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260927-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

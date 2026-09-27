@@ -1,0 +1,52 @@
+{
+  "id": "case-20260927-04",
+  "publishedAt": "2026-09-27",
+  "title": "AIメガネの白い撮影ランプは何を知らせる？ 保存と共有の境界も知る",
+  "shortTitle": "AIメガネの白い撮影ランプの意味",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": ["Meta製AIメガネを使う人", "AIメガネを着けた人と同じ場にいる人"],
+  "summary": "Metaは2026年7月7日、同社のAIメガネで撮影中に点滅する白い「capture LED」の意味と、写真・動画の保存方法をFAQで説明しました。写真では短く、動画では撮影中に点滅し、撮影ランプにオフスイッチはありません。ギャラリー用の写真・動画はまずメガネに保存され、スマートフォンへの取り込みや他人への共有は別の操作です。周囲の人に撮影を伝え、取り込み・共有前に内容を見直す場面を扱います。",
+  "scenario": {
+    "headline": "会話中、相手のAIメガネの白いランプが点滅した",
+    "description": "撮影なのか、AIへの質問なのか分かりません。着用者も、撮った映像が自動的に公開されるのか気になります。",
+    "whyItMatters": "撮影の合図、メガネ内の保存、スマートフォンへの取り込み、公開・共有は同じ出来事ではありません。段階を分けて理解すると周囲への説明もしやすくなります。"
+  },
+  "question": {
+    "text": "Meta製AIメガネの白いランプが撮影中に点滅した時、どう考える？",
+    "choices": [
+      {"id": "ask-and-review", "label": "撮影の意図を確認し、着用者は取り込み・共有前に内容を見直す", "description": "ランプはギャラリー用の撮影を知らせる合図です。"},
+      {"id": "already-public", "label": "撮影された映像は自動的にインターネットへ公開されると考える", "description": "撮影と取り込み・共有は別の操作です。"},
+      {"id": "cover-led", "label": "ランプが気になるので着用者はテープで覆って撮影する", "description": "対応機種ではランプを覆うとカメラが無効になります。"}
+    ],
+    "recommendedAnswers": ["ask-and-review"],
+    "explanation": "白いランプは撮影を周囲に知らせます。着用者は保存後の取り込みと共有を自分で選び、撮影される側は必要なら撮影の意図を尋ねられます。"
+  },
+  "inspectionPoints": [
+    {"title": "白いランプの意味", "description": "ギャラリー用の写真撮影では短く、動画撮影中は継続して点滅します。", "priority": "high"},
+    {"title": "ランプを隠さない", "description": "Metaはオフスイッチはなく、対応するメガネでランプが覆われるとカメラを無効にすると説明しています。", "priority": "high"},
+    {"title": "保存場所と取り込み", "description": "撮影した内容はまずメガネに保存され、スマートフォンへ取り込むかは着用者が選びます。", "priority": "high"},
+    {"title": "共有は別の判断", "description": "スマートフォンへの取り込み後も、SNS投稿やMeta AIへの利用は別途選ぶ行動です。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "撮影・取り込み・共有を別々の段階として考える",
+  "verificationMessage": "撮影ランプを周囲への合図として理解し、共有前に写り込みと相手の意向を確認します。",
+  "verdict": {"label": "白い点滅は撮影の合図。撮影しただけで自動公開されるわけではない", "description": "ランプの意味を知り、着用者は取り込み・共有を意識的に選びます。", "confidence": "high"},
+  "safeActions": [
+    {"action": "撮影前に周囲へ伝える", "reason": "ランプに加えて言葉でも意図を共有できます。"},
+    {"action": "取り込み・共有前に写り込みを確認する", "reason": "撮影と公開は別の操作であり、共有範囲を見直せます。"},
+    {"action": "撮影される側は必要なら意図を尋ねる", "reason": "点滅を見た時に撮影の状況を確認できます。"}
+  ],
+  "avoidActions": [
+    {"action": "撮影ランプを覆って使う", "reason": "Metaはランプを塞ぐとカメラを無効にする仕組みを説明しています。"},
+    {"action": "撮影した内容を見直さず共有する", "reason": "周囲の人や私的な情報の写り込みを見落とします。"}
+  ],
+  "positiveUse": {"title": "ハンズフリー撮影を周囲への説明とセットで使う", "description": "撮影ランプと共有前の確認を組み合わせれば、手がふさがっている場面でも撮影の便利さを生かしやすくなります。", "examples": ["撮影前に声をかける", "撮影ランプを確認する", "取り込み前に映像を見る", "共有先を選ぶ"]},
+  "makotoComment": "この白いランプは『AIが何かを考えている』印ではなく、ギャラリー用の撮影を知らせる合図です。私は、ランプを見ることと、撮った後にどこへ共有するかを別のチェックにしたいと思います。",
+  "oneLineLesson": "白い撮影ランプの意味を知り、取り込みと共有は別々に判断する。",
+  "tags": ["AIメガネ", "Meta", "撮影ランプ", "プライバシー", "写真共有"],
+  "sources": [
+    {"title": "Meta’s AI Glasses: Your Questions Answered", "publisher": "Meta Newsroom", "sourceType": "official-product-documentation", "publishedAt": "2026-07-07", "url": "https://about.fb.com/news/2026/07/metas-ai-glasses-your-questions-answered/"}
+  ],
+  "visualSuggestion": {"mainVisual": "白い撮影ランプからメガネ内保存、スマートフォンへの取り込み、共有までを分けた図。", "cardIcon": "glasses-capture-led", "accentTone": "alert"}
+}

@@ -1,0 +1,53 @@
+{
+  "id": "case-20260927-01",
+  "publishedAt": "2026-09-27",
+  "title": "Pixel Watchの「血圧トレンド」は血圧計の代わりになる？ 月次の健康指標を読む",
+  "shortTitle": "血圧トレンドは血圧計の代わり？",
+  "category": "health-ai",
+  "difficulty": "beginner",
+  "targetAudience": ["Pixel Watchで健康指標を確認する人", "ウェアラブルの結果を受診や生活習慣の判断に使いたい人"],
+  "summary": "Googleは2026年9月24日、Google HealthアプリでPixel Watch向けのHealth Guardian機能を順次提供すると発表しました。血圧トレンドは、手首のデータから長期的な傾向を示す健康情報であり、血圧計の実測値や高血圧の診断に代わるものではありません。結果は毎日のリアルタイム数値ではなく月次の傾向として届き、利用できる地域や端末にも条件があります。表示を見た時に、家庭用血圧計で確認する場面と医療者へ相談する場面を分けます。",
+  "scenario": {
+    "headline": "腕時計のアプリに「血圧トレンドが高い」と出た",
+    "description": "数値が気になり、いつもの血圧の薬を自分で変えるべきか、血圧計で測り直すべきか迷っています。",
+    "whyItMatters": "ウェアラブルの傾向表示は医療用のリアルタイム血圧測定ではありません。結果の用途を取り違えると、必要な測定や相談を飛ばしてしまいます。"
+  },
+  "question": {
+    "text": "血圧トレンドの表示が気になった時、適切なのは？",
+    "choices": [
+      {"id": "measure-and-consult", "label": "家庭用血圧計で確認し、心配な結果や症状があれば医療者に相談する", "description": "傾向表示を確認のきっかけとして使います。"},
+      {"id": "change-medicine", "label": "傾向表示だけで薬の量を変える", "description": "Googleは治療計画や薬の調整に使わないよう明記しています。"},
+      {"id": "treat-as-diagnosis", "label": "腕時計だけで高血圧と診断されたと考える", "description": "この機能は高血圧の事前検査や診断ではありません。"}
+    ],
+    "recommendedAnswers": ["measure-and-consult"],
+    "explanation": "血圧トレンドは一般的な健康情報です。数値を知りたい時は血圧計を使い、医療上の判断は専門家へ相談します。"
+  },
+  "inspectionPoints": [
+    {"title": "表示されるのは月次の傾向", "description": "Googleは血圧トレンドの結果を月初に届けると説明しており、その場の血圧値ではありません。", "priority": "high"},
+    {"title": "利用条件を確認", "description": "Pixel Watch 3・4・5向けに順次提供されますが、地域・端末によって利用可否が異なります。", "priority": "high"},
+    {"title": "医療用途ではない", "description": "高血圧の診断、リアルタイム測定、薬や治療計画の変更には使わないとGoogleは明記しています。", "priority": "high"},
+    {"title": "実測と相談へつなげる", "description": "気になる傾向が出たら、家庭用血圧計で確認し、医療上の疑問は専門家に相談します。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "健康の傾向と医療用の測定値を区別する",
+  "verificationMessage": "ウェアラブルの表示を受診や実測のきっかけにし、診断や薬の変更の根拠にはしません。",
+  "verdict": {"label": "血圧トレンドは気付きの道具で、血圧計や診断の代わりではない", "description": "提供条件と月次表示の性質を理解し、必要な時は実測値と医療者の判断につなげます。", "confidence": "high"},
+  "safeActions": [
+    {"action": "自分の地域と端末で使えるか確認する", "reason": "提供状況は地域・端末により異なります。"},
+    {"action": "気になる傾向は血圧計で確かめる", "reason": "腕時計の傾向はリアルタイムの血圧測定値ではありません。"},
+    {"action": "症状や治療の疑問は医療者に相談する", "reason": "診断や薬の変更をウェアラブルの表示だけで決めないためです。"}
+  ],
+  "avoidActions": [
+    {"action": "トレンド表示を高血圧の診断と受け取る", "reason": "Googleは診断や事前検査を目的としないと説明しています。"},
+    {"action": "表示だけで服薬や治療を変更する", "reason": "治療上の判断には使えません。"}
+  ],
+  "positiveUse": {"title": "月次の変化を生活習慣の振り返りに使う", "description": "長期的な傾向を、実測や医療相談へつなぐ補助情報として使えます。", "examples": ["月次の傾向を見る", "家庭用血圧計で確認する", "気になる結果を受診時に共有する"]},
+  "makotoComment": "この機能で大切なのは、腕時計が『血圧を測った』と思い込まないことです。月次の傾向が行動を促すのは便利ですが、診療に持ち込むなら血圧計の実測とセットにしたいですね。",
+  "oneLineLesson": "血圧トレンドは月次の健康情報。診断や薬の変更には使わない。",
+  "tags": ["Google Health", "Pixel Watch", "血圧トレンド", "ウェアラブル", "健康情報"],
+  "sources": [
+    {"title": "Our new health and safety tools are live in the Google Health app.", "publisher": "Google Blog", "sourceType": "official-product-update", "publishedAt": "2026-09-24", "url": "https://blog.google/products-and-platforms/products/google-health/health-guardian-features-live/"},
+    {"title": "Is Your Heart Telling You Something You Can't Always Feel? Introducing Blood Pressure Trends", "publisher": "Google Health", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://healthapp.google/latest-news/blood-pressure/"}
+  ],
+  "visualSuggestion": {"mainVisual": "腕時計の月次トレンド、家庭用血圧計の実測、医療相談を別々の段階で示す図。", "cardIcon": "watch-health-trend", "accentTone": "info"}
+}
