@@ -41,6 +41,20 @@ def practice_route(qualification_id: str, page: int = 1) -> str:
     return base if page == 1 else f"{base}/{page}"
 
 
+def practice_ranges(qualification_id: str, total: int) -> str:
+    items = []
+    for page in range(1, max(3, (total + PRACTICE_PAGE_SIZE - 1) // PRACTICE_PAGE_SIZE) + 1):
+        start = (page - 1) * PRACTICE_PAGE_SIZE + 1
+        end = page * PRACTICE_PAGE_SIZE
+        label = f"{start}〜{end}問"
+        if total >= start:
+            count = min(total - start + 1, PRACTICE_PAGE_SIZE)
+            items.append(f'<a href="{practice_route(qualification_id, page)}">{label}<small>公開中：{count}問</small></a>')
+        else:
+            items.append(f'<span>{label}<small>準備中</small></span>')
+    return f'<nav class="quiz-range-links" aria-label="問題集の範囲">{"".join(items)}</nav>'
+
+
 def featured_question(questions: list[dict], qualification_id: str, day: date) -> dict:
     """Shuffle each complete cycle, then select one stable question per JST day."""
     if not questions:
@@ -101,18 +115,55 @@ def today_card(question: dict, qualification: dict, detail_link: bool = True) ->
     </article>"""
 
 
-def render_hub(data: dict, featured: dict[str, dict], day: date) -> str:
-    cards = "\n".join(
-        f"""<article class="quiz-qualification-card quiz-accent-{qualification['accent']}">
-          <div class="quiz-card-heading"><span class="quiz-icon" aria-hidden="true">{escape(qualification['icon'])}</span><h2><a href="/quiz/{qualification['id']}">{escape(qualification['name'])}</a></h2></div>
-          <h3>{escape(featured[qualification['id']]['title'])}</h3>
-          <p>{escape(featured[qualification['id']]['question'])}</p>
-          <div class="quiz-card-links"><a class="quiz-action" href="{route_for(featured[qualification['id']])}">問題を解く <span aria-hidden="true">→</span></a><a href="{practice_route(qualification['id'])}">問題集を見る</a></div>
+def render_question_body(question: dict, heading_level: int, key: str, *, number: int | None = None, show_meta: bool = False) -> str:
+    choices = "\n".join(
+        f'<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>{escape(choice["id"])}</span><strong>{escape(choice["text"])}</strong></button>'
+        for choice in question["choices"]
+    )
+    explanations = "\n".join(
+        f'<li><strong>{escape(choice)}</strong><span>{escape(explanation)}</span></li>'
+        for choice, explanation in question["explanation"]["choices"].items()
+    )
+    keywords = "".join(f"<li>{escape(keyword)}</li>" for keyword in question["keywords"])
+    source = f'<a href="{escape(question["sourceUrl"])}">{escape(question["sourceName"])}</a>'
+    heading = f"h{heading_level}"
+    subheading = f"h{heading_level + 1}"
+    question_id = f"question-{key}"
+    answer_id = f"quiz-answer-{key}"
+    kicker = f"QUESTION {number}" if number is not None else "QUESTION"
+    question_meta = f"\n        {meta(question)}" if show_meta else ""
+    return f"""<section class="quiz-question-block" aria-labelledby="{question_id}">
+        <p class="section-kicker">{kicker}</p>
+        <{heading} id="{question_id}">{escape(question['title'])}</{heading}>{question_meta}
+        <p class="quiz-question-text">{escape(question['question'])}</p>
+        <div class="quiz-choices" role="group" aria-label="4つの選択肢">{choices}</div>
+        <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="{answer_id}">答えを見る</button>
+      </section>
+      <section class="quiz-answer" id="{answer_id}" data-quiz-answer hidden aria-live="polite">
+        <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
+        <{heading} class="quiz-answer-title">正解：{escape(question['correctAnswer'])}</{heading}>
+        <p>{escape(question['explanation']['correct'])}</p>
+        <{subheading}>選択肢のポイント</{subheading}><ul class="quiz-explanation-list">{explanations}</ul>
+        <{subheading}>関連キーワード</{subheading}><ul class="quiz-keywords">{keywords}</ul>
+        <p class="quiz-source">参考にした公式情報：{source} / 確認日：{jp_date(question['checkedAt'])}</p>
+      </section>"""
+
+
+def render_hub(data: dict, featured: dict[str, dict], questions_by_qualification: dict[str, list[dict]], day: date) -> str:
+    questions = "\n".join(
+        f"""<article class="quiz-detail quiz-home-question quiz-accent-{qualification['accent']}" data-quiz>
+          <header class="quiz-home-question-heading"><span class="quiz-icon" aria-hidden="true">{escape(qualification['icon'])}</span><h3><a href="/quiz/{qualification['id']}">{escape(qualification['name'])}</a></h3></header>
+          {render_question_body(featured[qualification['id']], 4, f"today-{qualification['id']}")}
+          <p class="quiz-question-permalink"><a href="{route_for(featured[qualification['id']])}">この問題の個別ページ →</a></p>
         </article>"""
         for qualification in data["qualifications"]
     )
-    chooser = "\n".join(
-        f"""<li><span class="quiz-icon quiz-icon-small quiz-accent-{qualification['accent']}" aria-hidden="true">{escape(qualification['icon'])}</span><div><h3>{escape(qualification['name'])}</h3><p>{escape(qualification['description'])}</p></div></li>"""
+    banks = "\n".join(
+        f"""<article class="quiz-qualification-card quiz-accent-{qualification['accent']}">
+          <div class="quiz-card-heading"><span class="quiz-icon" aria-hidden="true">{escape(qualification['icon'])}</span><h3><a href="/quiz/{qualification['id']}">{escape(qualification['name'])}</a></h3></div>
+          <p>{escape(qualification['description'])} 現在{len(questions_by_qualification[qualification['id']])}問を公開中。</p>
+          {practice_ranges(qualification['id'], len(questions_by_qualification[qualification['id']]))}
+        </article>"""
         for qualification in data["qualifications"]
     )
     body = f"""<main class="page-main quiz-main">
@@ -124,16 +175,16 @@ def render_hub(data: dict, featured: dict[str, dict], day: date) -> str:
     </section>
     <section class="quiz-section" aria-labelledby="today-heading">
       <div class="quiz-section-heading"><p class="section-kicker">TODAY / {jp_date(day)}</p><h2 id="today-heading">今日の4問</h2></div>
-      <div class="quiz-card-grid">{cards}</div>
+      <div class="quiz-card-grid quiz-today-grid">{questions}</div>
     </section>
     <section class="quiz-section quiz-chooser" aria-labelledby="chooser-heading">
-      <div class="quiz-section-heading"><p class="section-kicker">CHOOSE</p><h2 id="chooser-heading">資格を選ぶ</h2></div>
-      <ul>{chooser}</ul>
+      <div class="quiz-section-heading"><p class="section-kicker">PRACTICE</p><h2 id="chooser-heading">資格別の問題集</h2></div>
+      <div class="quiz-card-grid">{banks}</div>
       <p class="quiz-note">掲載する問題は、学び直しの入口として作成したオリジナル練習問題です。</p>
     </section>
   </div>
 </main>"""
-    return document("毎日一問。｜AI・IT資格のオリジナル練習問題", "G検定、ITパスポート、生成AIパスポート、DS検定の問題集から毎日4問を選ぶオリジナル練習問題です。", body)
+    return document("毎日一問。｜AI・IT資格のオリジナル練習問題", "G検定、ITパスポート、生成AIパスポート、DS検定の問題集から毎日4問を選ぶオリジナル練習問題です。", body, "../scripts/daily-quiz.js")
 
 
 def render_qualification(data: dict, qualification: dict, questions: list[dict], question: dict, day: date) -> str:
@@ -180,43 +231,39 @@ def render_practice(qualification: dict, questions: list[dict], page: int) -> st
     if not 1 <= page <= page_count:
         raise ValueError(f"Unknown practice page: {qualification['id']} / {page}")
     start = (page - 1) * PRACTICE_PAGE_SIZE
-    current = questions[start:start + PRACTICE_PAGE_SIZE]
-    rows = "\n".join(
-        f"""<li><div><time datetime="{item['date']}">{jp_date(item['date'])}</time><h3><a href="{route_for(item)}">{escape(item['title'])}</a></h3></div><div class="quiz-history-meta"><span>{escape(item['category'])}</span><span>{escape(item['difficulty'])}</span></div></li>"""
-        for item in current
+    current = sorted(questions, key=lambda item: (item["date"], item["id"]))[start:start + PRACTICE_PAGE_SIZE]
+    cards = "\n".join(
+        f"""<article class="quiz-detail quiz-practice-question quiz-accent-{qualification['accent']}" id="item-{start + offset + 1}" data-quiz>
+      {render_question_body(item, 3, f"practice-{start + offset + 1}", number=start + offset + 1, show_meta=True)}
+      <p class="quiz-question-permalink"><a href="{route_for(item)}">この問題の個別ページ →</a></p>
+    </article>"""
+        for offset, item in enumerate(current)
     )
-    pagination = ""
-    if page_count > 1:
-        links = "".join(
-            f'<span aria-current="page">{number}</span>' if number == page
-            else f'<a href="{practice_route(qualification["id"], number)}">{number}ページ目</a>'
-            for number in range(1, page_count + 1)
-        )
-        pagination = f'<nav class="quiz-practice-pages" aria-label="問題集のページ">{links}</nav>'
-    pagination_section = f"      {pagination}\n" if pagination else ""
-    page_label = f"（{page}ページ目）" if page_count > 1 else ""
+    page_label = f"{start + 1}〜{page * PRACTICE_PAGE_SIZE}問"
     body = f"""<main class="page-main quiz-main">
   <div class="page-width">
-    {breadcrumb([("毎日一問。", "/quiz"), (qualification['name'], f"/quiz/{qualification['id']}"), (f"問題集{page_label}", None)])}
+    {breadcrumb([("毎日一問。", "/quiz"), (qualification['name'], f"/quiz/{qualification['id']}"), (page_label, None)])}
     <section class="quiz-intro quiz-intro-compact" aria-labelledby="quiz-title">
       <p class="section-kicker">PRACTICE / {escape(qualification['icon'])}</p>
-      <h1 id="quiz-title">{escape(qualification['name'])}｜オリジナル練習問題集{page_label}</h1>
-      <p>公式の出題範囲を参考に作成した4択の練習問題です。各資格300問を目標に追加します。現在{total}問を公開しています。</p>
+      <h1 id="quiz-title">{escape(qualification['name'])}｜オリジナル練習問題集 {page_label}</h1>
+      <p>公式の出題範囲を参考に作成した4択の練習問題です。各資格300問を目標に追加します。現在{total}問を公開しています。このページでは{len(current)}問に挑戦できます。</p>
     </section>
+    {practice_ranges(qualification['id'], total)}
     <section class="quiz-section" aria-labelledby="list-heading">
-      <div class="quiz-section-heading"><p class="section-kicker">QUESTIONS</p><h2 id="list-heading">{start + 1}〜{start + len(current)}問目</h2></div>
-      <ul class="quiz-history-list">{rows}</ul>
-{pagination_section}    </section>
+      <div class="quiz-section-heading"><p class="section-kicker">QUESTIONS</p><h2 id="list-heading">公開中の第{start + 1}〜{start + len(current)}問</h2></div>
+      <div class="quiz-practice-list">{cards}</div>
+    </section>
   </div>
 </main>"""
     return document(
-        f"{qualification['name']}｜オリジナル練習問題集{page_label}",
-        f"{qualification['name']}のオリジナル4択練習問題。現在{total}問を公開し、1問ずつ解説を読めます。",
+        f"{qualification['name']}｜オリジナル練習問題集 {page_label}",
+        f"{qualification['name']}のオリジナル4択練習問題集 {page_label}。現在{total}問を公開し、このページで解答と解説を確認できます。",
         body,
+        "../../../scripts/daily-quiz.js" if page == 1 else "../../../../scripts/daily-quiz.js",
     )
 
 
-def render_detail(qualification: dict, question: dict, previous: dict | None, next_question: dict | None, depth: int) -> str:
+def render_detail(qualification: dict, question: dict, previous: dict | None, next_question: dict | None, depth: int, bank_page: int = 1) -> str:
     choices = "\n".join(
         f"<button type=\"button\" class=\"quiz-choice\" data-quiz-choice aria-pressed=\"false\"><span>{escape(choice['id'])}</span><strong>{escape(choice['text'])}</strong></button>"
         for choice in question["choices"]
@@ -231,7 +278,7 @@ def render_detail(qualification: dict, question: dict, previous: dict | None, ne
     next_link = f'<a href="{route_for(next_question)}">次の問題 →</a>' if next_question else ""
     if question.get("slug"):
         detail_label = question["title"]
-        crumbs = [("毎日一問。", "/quiz"), (qualification["name"], f"/quiz/{qualification['id']}"), ("問題集", practice_route(qualification["id"])), (detail_label, None)]
+        crumbs = [("毎日一問。", "/quiz"), (qualification["name"], f"/quiz/{qualification['id']}"), ("問題集", practice_route(qualification["id"], bank_page)), (detail_label, None)]
     else:
         detail_label = f"{jp_date(question['date'])}の問題"
         crumbs = [("毎日一問。", "/quiz"), (qualification["name"], f"/quiz/{qualification['id']}"), (detail_label, None)]
@@ -260,7 +307,7 @@ def render_detail(qualification: dict, question: dict, previous: dict | None, ne
         <p class="quiz-source">参考にした公式情報：{source} / 確認日：{jp_date(question['checkedAt'])}</p>
       </section>
     </article>
-    <nav class="quiz-next-nav" aria-label="問題の移動">{previous_link}{next_link}<a href="{practice_route(qualification['id'])}">この資格の問題集</a><a href="/quiz/{qualification['id']}">資格トップ</a><a href="/quiz">毎日一問。トップ</a></nav>
+    <nav class="quiz-next-nav" aria-label="問題の移動">{previous_link}{next_link}<a href="{practice_route(qualification['id'], bank_page)}">この資格の問題集</a><a href="/quiz/{qualification['id']}">資格トップ</a><a href="/quiz">毎日一問。トップ</a></nav>
   </div>
 </main>"""
     description = (
@@ -356,7 +403,7 @@ def main() -> None:
     routes = ["/quiz"]
     changed_routes = set()
 
-    if write_page(QUIZ_DIR / "index.html", render_hub(data, featured, day), 1):
+    if write_page(QUIZ_DIR / "index.html", render_hub(data, featured, questions_by_qualification, day), 1):
         changed_routes.add("/quiz")
     for qualification in data["qualifications"]:
         questions = questions_by_qualification[qualification["id"]]
@@ -374,13 +421,17 @@ def main() -> None:
             if write_page(page_path / "index.html", render_practice(qualification, questions, page), 3 if page == 1 else 4):
                 changed_routes.add(page_route)
             routes.append(page_route)
+        bank_pages = {
+            item["id"]: index // PRACTICE_PAGE_SIZE + 1
+            for index, item in enumerate(sorted(questions, key=lambda item: (item["date"], item["id"])))
+        }
         for index, question in enumerate(questions):
             detail_route = route_for(question)
             detail_path = ROOT / detail_route.lstrip("/") / "index.html"
             depth = len(Path(detail_route.lstrip("/")).parts)
             previous = questions[index + 1] if index + 1 < len(questions) else None
             next_question = questions[index - 1] if index else None
-            if write_page(detail_path, render_detail(qualification, question, previous, next_question, depth), depth):
+            if write_page(detail_path, render_detail(qualification, question, previous, next_question, depth, bank_pages[question["id"]]), depth):
                 changed_routes.add(detail_route)
             routes.append(detail_route)
 

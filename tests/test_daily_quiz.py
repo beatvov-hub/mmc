@@ -30,24 +30,37 @@ class DailyQuizTest(unittest.TestCase):
         )
 
     def test_practice_pages_split_at_one_hundred_without_empty_pages(self) -> None:
-        qualification = {"id": "g-kentei", "name": "G検定", "icon": "G"}
+        data = json.loads(quiz.DATA_PATH.read_text(encoding="utf-8"))
+        qualification = next(item for item in data["qualifications"] if item["id"] == "g-kentei")
+        original = next(item for item in data["questions"] if item["qualification"] == "g-kentei")
         questions = [
             {
+                **original,
                 "id": f"g-{number}",
-                "qualification": "g-kentei",
+                "slug": f"g-{number}",
                 "date": (date(2026, 1, 1) + timedelta(days=number)).isoformat(),
                 "title": f"テーマ{number}",
-                "category": "AI",
-                "difficulty": "基礎",
             }
             for number in range(205)
         ]
         pages = [quiz.render_practice(qualification, questions, page) for page in (1, 2, 3)]
-        self.assertEqual([page.count('<h3><a href="/quiz/g-kentei/') for page in pages], [100, 100, 5])
+        self.assertEqual([page.count('class="quiz-detail quiz-practice-question') for page in pages], [100, 100, 5])
+        self.assertEqual([page.count('data-quiz-reveal') for page in pages], [100, 100, 5])
+        self.assertEqual([page.count('data-quiz-choice') for page in pages], [400, 400, 20])
         self.assertIn('href="/quiz/g-kentei/practice/3"', pages[0])
+        self.assertIn('src="../../../../scripts/daily-quiz.js"', pages[1])
         self.assertNotIn("テーマ205", pages[2])
+        self.assertIn('id="quiz-answer-practice-205"', pages[2])
+        self.assertNotIn('href="/quiz/g-kentei/practice/4"', pages[2])
         with self.assertRaises(ValueError):
             quiz.render_practice(qualification, questions, 4)
+
+    def test_unpublished_ranges_are_visible_without_broken_links(self) -> None:
+        ranges = quiz.practice_ranges("g-kentei", 10)
+        self.assertIn('href="/quiz/g-kentei/practice"', ranges)
+        self.assertIn('101〜200問<small>準備中</small>', ranges)
+        self.assertNotIn('href="/quiz/g-kentei/practice/2"', ranges)
+        self.assertIn('href="/quiz/g-kentei/practice/3"', quiz.practice_ranges("g-kentei", 205))
 
     def test_bank_questions_can_share_a_publish_date_without_changing_legacy_routes(self) -> None:
         data = json.loads(quiz.DATA_PATH.read_text(encoding="utf-8"))
@@ -63,6 +76,8 @@ class DailyQuizTest(unittest.TestCase):
         page = quiz.render_detail(qualification, bank_question, None, None, 4)
         self.assertIn('href="/quiz/' + original["qualification"] + '/practice"', page)
         self.assertIn('src="../../../../scripts/daily-quiz.js"', page)
+        page_two = quiz.render_detail(qualification, bank_question, None, None, 4, bank_page=2)
+        self.assertIn('href="/quiz/' + original["qualification"] + '/practice/2"', page_two)
         duplicate = deepcopy(bank_question)
         duplicate["id"] = "another-id"
         data["questions"].append(duplicate)
@@ -72,7 +87,8 @@ class DailyQuizTest(unittest.TestCase):
     def test_generated_hub_and_bank_links_resolve_to_answerable_pages(self) -> None:
         data = json.loads(quiz.DATA_PATH.read_text(encoding="utf-8"))
         hub = (quiz.QUIZ_DIR / "index.html").read_text(encoding="utf-8")
-        self.assertEqual(hub.count('class="quiz-action"'), len(data["qualifications"]))
+        self.assertEqual(hub.count('class="quiz-detail quiz-home-question'), len(data["qualifications"]))
+        self.assertEqual(hub.count('data-quiz-reveal'), len(data["qualifications"]))
         for qualification in data["qualifications"]:
             qualification_id = qualification["id"]
             practice_route = quiz.practice_route(qualification_id)
@@ -80,8 +96,12 @@ class DailyQuizTest(unittest.TestCase):
             qualification_page = (quiz.QUIZ_DIR / qualification_id / "index.html").read_text(encoding="utf-8")
             self.assertIn(f'href="{practice_route}"', qualification_page)
             practice_page = (quiz.QUIZ_DIR / qualification_id / "practice" / "index.html").read_text(encoding="utf-8")
-            self.assertEqual(practice_page.count('<h3><a href="/quiz/'), 10)
+            self.assertEqual(practice_page.count('class="quiz-detail quiz-practice-question'), 10)
+            self.assertEqual(practice_page.count('data-quiz-reveal'), 10)
+            self.assertEqual(practice_page.count('data-quiz-choice'), 40)
             self.assertIn(f'<link rel="canonical" href="{quiz.SITE_URL}{practice_route}"', practice_page)
+            self.assertIn('daily-quiz.js', practice_page)
+        self.assertIn('daily-quiz.js', hub)
         for route in re.findall(r'href="(/quiz(?:/[^"#?]*)?)"', hub):
             page = (quiz.ROOT / route.lstrip("/") / "index.html").read_text(encoding="utf-8")
             if "/practice" not in route and route.count("/") == 3:

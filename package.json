@@ -6,7 +6,7 @@
   },
   "scripts": {
     "build:daily-quiz": "python -B scripts/generate_daily_quiz.py",
-    "test:daily-quiz": "python -B -m unittest tests.test_daily_quiz",
+    "test:daily-quiz": "python -B -m unittest tests.test_daily_quiz && node --test tests/daily-quiz.test.js",
     "generate:today-one": "python3 scripts/generate_today_one.py",
     "test:today-one": "python3 -m unittest tests.test_today_one",
     "build:ai-forensics": "python3 scripts/generate_ai_forensics.py",
