@@ -15,6 +15,7 @@ LOUNGE_LOGS_PATH = ROOT / "src" / "data" / "loungeLogs.json"
 LOUNGE_TOPICS_PATH = ROOT / "src" / "data" / "loungeCalendarTopics.json"
 WORK_STORIES_PATH = ROOT / "src" / "data" / "workStories.json"
 TODAY_ONE_DATA_PATH = ROOT / "src" / "data" / "todayOne.json"
+DAILY_QUIZ_DATA_PATH = ROOT / "src" / "data" / "dailyQuiz.json"
 INDEX_HTML_PATH = ROOT / "index.html"
 LOUNGE_HTML_PATH = ROOT / "lounge.html"
 ARCHIVE_DIR = ROOT / "lounge-archive"
@@ -350,6 +351,25 @@ def load_today_one_sitemap_entries() -> tuple[list[tuple[str, str]], str | None]
         entries.append((archive_path, entry_date))
     latest_date = max((lastmod for _, lastmod in entries), default=None)
     return sorted(entries), latest_date
+
+
+def load_daily_quiz_sitemap_entries() -> tuple[list[tuple[str, str | None]], str | None]:
+    quiz_dir = ROOT / "quiz"
+    if not quiz_dir.exists():
+        return [], None
+    lastmod = None
+    if DAILY_QUIZ_DATA_PATH.exists():
+        try:
+            updated_at = json.loads(DAILY_QUIZ_DATA_PATH.read_text(encoding="utf-8")).get("updatedAt")
+            if isinstance(updated_at, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}.*", updated_at):
+                lastmod = updated_at[:10]
+        except json.JSONDecodeError:
+            pass
+    entries = [
+        (path.parent.relative_to(ROOT).as_posix(), lastmod)
+        for path in sorted(quiz_dir.rglob("index.html"))
+    ]
+    return entries, lastmod
 
 
 def load_event_paths() -> list[str]:
@@ -1083,6 +1103,7 @@ def update_sitemap(logs: list[dict]) -> None:
     forensics_lastmods = load_ai_forensics_lastmods()
     latest_forensics_date = max(forensics_lastmods.values(), default=None)
     today_one_entries, latest_today_one_date = load_today_one_sitemap_entries()
+    daily_quiz_entries, _ = load_daily_quiz_sitemap_entries()
     static_lastmods = {
         "lounge": latest_lounge_date,
         "ai-forensics/": latest_forensics_date,
@@ -1103,6 +1124,10 @@ def update_sitemap(logs: list[dict]) -> None:
     entries.extend(
         (f"{BASE_URL}/{path}", lastmod)
         for path, lastmod in today_one_entries
+    )
+    entries.extend(
+        (f"{BASE_URL}/{path}", lastmod)
+        for path, lastmod in daily_quiz_entries
     )
     archive_dates = sorted({log["date"] for log in logs})
     entries.extend((f"{BASE_URL}/lounge-archive/{date}", date) for date in archive_dates)
