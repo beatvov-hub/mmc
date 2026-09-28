@@ -1,0 +1,53 @@
+{
+  "id": "case-20260928-02",
+  "publishedAt": "2026-09-28",
+  "title": "ホームカメラのAI映像説明は、カメラごとにオン・オフを選ぶ",
+  "shortTitle": "ホームカメラのAI映像説明を選ぶ",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["Appleのホームアプリでカメラを使う人", "家庭内映像のAI解析と通知を管理したい人"],
+  "summary": "Appleは2026年9月14日、ホームアプリで録画クリップの説明を生成し、自然な言葉で検索できるApple Intelligence機能を発表しました。iPhoneのホーム設定では、AIによる映像説明をカメラごとに有効・無効にでき、似た通知をまとめる『通知を減らす』設定も別に切り替えられます。利用には対応するホームハブ、Apple Intelligence対応iPhone、2TBのiCloud+プランなどの条件があります。家庭内のどのカメラに説明生成を使うか、通知設定と分けて決める記事です。",
+  "scenario": {
+    "headline": "玄関カメラは検索したいが、室内カメラはAIの説明を付けたくない",
+    "description": "ホームアプリで便利な映像検索を使いたい一方、すべてのカメラに同じ設定を適用するのは気になります。",
+    "whyItMatters": "映像説明は録画した内容を後から探しやすくします。家庭内の撮影場所によって必要性が異なるため、カメラ別の設定場所を知る価値があります。"
+  },
+  "question": {
+    "text": "玄関だけAI映像説明を使いたい時、どう設定する？",
+    "choices": [
+      {"id": "per-camera", "label": "ホーム設定でApple Intelligenceを開き、カメラごとに映像説明を切り替える", "description": "Appleのユーザガイドで案内されている操作です。"},
+      {"id": "all-or-none", "label": "ホーム全体で一括してオンにする以外の方法はないと考える", "description": "映像説明はカメラ別に有効・無効を選べます。"},
+      {"id": "notifications-same", "label": "通知を減らす設定をオフにすれば映像説明も止まると考える", "description": "通知の集約と映像説明は別の設定です。"}
+    ],
+    "recommendedAnswers": ["per-camera"],
+    "explanation": "ホームアプリの『ホーム設定』でApple Intelligenceをオンにした後、映像説明をカメラ別に管理します。通知の集約は別に選びます。"
+  },
+  "inspectionPoints": [
+    {"title": "機能が扱う映像", "description": "互換性のあるホームカメラの録画クリップから検索可能な説明を生成します。", "priority": "high"},
+    {"title": "カメラ別の切り替え", "description": "ホームアプリの『ホーム設定』からApple Intelligenceを開き、各カメラの映像説明を有効・無効にします。", "priority": "high"},
+    {"title": "通知は別設定", "description": "似たホーム通知をまとめる『通知を減らす』は、映像説明とは別に切り替えられます。", "priority": "high"},
+    {"title": "利用条件", "description": "対応するホームハブ、Apple Intelligence対応iPhone、ホーム所有者の2TB iCloud+プランなどが必要です。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "カメラ別の映像説明と通知の集約を別々に設定する",
+  "verificationMessage": "撮影場所ごとに必要性を考え、対応条件も確認してから有効にします。",
+  "verdict": {"label": "ホームのAI映像説明は、カメラごとの必要性で選べる", "description": "録画検索の便利さを使いつつ、映像説明と通知の設定範囲を分けて管理します。", "confidence": "high"},
+  "safeActions": [
+    {"action": "カメラごとに映像説明の必要性を決める", "reason": "撮影場所ごとに使い方を変えられます。"},
+    {"action": "通知を減らす設定は別に確認する", "reason": "通知の集約と映像説明は別機能です。"},
+    {"action": "ホームハブ・iPhone・iCloud+の条件を確認する", "reason": "条件が揃わないと機能を使えません。"}
+  ],
+  "avoidActions": [
+    {"action": "カメラ別の選択肢を見ずに全体を有効化する", "reason": "撮影場所ごとに使い分けられます。"},
+    {"action": "通知を減らす設定と映像説明を同じものと考える", "reason": "それぞれ独立して切り替える設定です。"}
+  ],
+  "positiveUse": {"title": "必要なカメラの録画だけ、自然な言葉で探しやすくする", "description": "玄関など後から確認したい録画に説明を付け、通知の数も家庭の運用に合わせて調整できます。", "examples": ["玄関カメラの録画検索", "カメラ別の説明設定", "通知の集約を切り替える"]},
+  "makotoComment": "この設定は『AIを使うか』の一択ではなく、どのカメラに説明を付けるかまで選べます。私は、玄関と室内を同じ扱いにせず、撮影場所ごとに必要性を考えるのが自然だと思います。",
+  "oneLineLesson": "ホームのAI映像説明はカメラ別、通知の集約は別設定で選ぶ。",
+  "tags": ["Apple Intelligence", "ホームアプリ", "ホームカメラ", "映像説明", "通知設定"],
+  "sources": [
+    {"title": "iPhoneの「ホーム」のカメラと通知でApple Intelligenceを使用する", "publisher": "Appleサポート", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.apple.com/ja-jp/guide/iphone/bd2gjv2g9nx0/27/ios/27"},
+    {"title": "Siri AI, a profoundly more capable and personal assistant, is here", "publisher": "Apple Newsroom", "sourceType": "official-product-update", "publishedAt": "2026-09-14", "url": "https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/"}
+  ],
+  "visualSuggestion": {"mainVisual": "玄関と室内のカメラで映像説明を別々に切り替え、通知設定を別欄に置いた図。", "cardIcon": "home-camera-ai-settings", "accentTone": "info"}
+}

@@ -1,0 +1,53 @@
+{
+  "id": "case-20260928-01",
+  "publishedAt": "2026-09-28",
+  "title": "iPhoneの「なりすましリスク検出」は、警告なしでも安全の証明ではない",
+  "shortTitle": "なりすましリスク検出の設定と限界",
+  "category": "scam",
+  "difficulty": "beginner",
+  "targetAudience": ["iPhoneで支払いやアカウント変更をする人", "アプリの詐欺警告や本人確認が気になる人"],
+  "summary": "Appleは2026年9月14日、iOS 27以降の「なりすましリスク検出」の仕組みと設定方法を案内しました。対応する他社製アプリが支払いや重要なアカウント変更時にリスク評価を求めると、アプリには危険度だけが返され、警告や本人確認を出すかはアプリが決めます。『不審な兆候なし』は安全の保証ではありません。設定画面で利用したアプリと理由を確かめ、詐欺の相手から機能を切るよう言われてもその場で従わないための記事です。",
+  "scenario": {
+    "headline": "送金を急かす相手に『警告機能をオフにして』と言われた",
+    "description": "アプリの操作中に警告や本人確認が出ました。相手は誤検出だと言いますが、設定を変えてよいか迷っています。",
+    "whyItMatters": "詐欺の相手が利用者自身に危険な操作をさせる場面では、通常のログイン保護だけでは気付きにくいことがあります。警告の仕組みと限界を知ることが大切です。"
+  },
+  "question": {
+    "text": "相手から『なりすましリスク検出を切って続けて』と言われたら？",
+    "choices": [
+      {"id": "pause-check", "label": "操作を止め、設定の最近のアクティビティと評価理由を確認する", "description": "要求された操作を続ける前に、何が起きたかを確認できます。"},
+      {"id": "turn-off", "label": "相手の指示どおり機能をオフにして支払う", "description": "Appleは機能を切るよう誘導された場合、詐欺の可能性に注意を促しています。"},
+      {"id": "unknown-safe", "label": "警告が出なければ、その支払いは安全だと判断する", "description": "『不審な兆候なし』も安全の確認ではありません。"}
+    ],
+    "recommendedAnswers": ["pause-check"],
+    "explanation": "警告の有無だけで安全を断定しません。相手に切るよう求められたら操作を止め、アプリや取引の状況を確認します。"
+  },
+  "inspectionPoints": [
+    {"title": "対応範囲", "description": "iOS 27・iPadOS 27以降で、機能に対応する他社製アプリに限って使えます。", "priority": "high"},
+    {"title": "アプリが受け取る情報", "description": "アプリへ返るのは危険度で、判定に使った端末やApple Accountの元データではありません。", "priority": "medium"},
+    {"title": "警告なしの意味", "description": "『不審な兆候なし』は取引の安全性を確認した結果ではありません。", "priority": "high"},
+    {"title": "設定と変更の反映", "description": "設定の『プライバシーとセキュリティ』から最近の利用や理由を確認できます。オフへの変更には最大24時間かかる場合があります。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "警告機能の対象と、警告がない場合の限界を知る",
+  "verificationMessage": "対応アプリの表示を確認し、相手に設定変更を急かされても操作を止めます。",
+  "verdict": {"label": "警告は判断材料であり、警告がないことも安全証明ではない", "description": "支払いや重要な変更を急かされたら、機能を切る前に取引の状況を確認します。", "confidence": "high"},
+  "safeActions": [
+    {"action": "設定で最近の利用アプリと理由を見る", "reason": "どの操作で評価が求められたかを把握できます。"},
+    {"action": "設定を切るよう求められたら操作を止める", "reason": "Appleはその誘導を詐欺の兆候として注意喚起しています。"},
+    {"action": "警告がなくても取引内容を自分で確認する", "reason": "『不審な兆候なし』は安全の保証ではありません。"}
+  ],
+  "avoidActions": [
+    {"action": "相手の指示だけで保護機能をオフにする", "reason": "設定変更そのものが詐欺の目的になり得ます。"},
+    {"action": "機能がすべてのアプリで働くと思う", "reason": "対応する他社製アプリでのみ利用できます。"}
+  ],
+  "positiveUse": {"title": "高リスク操作に一度立ち止まるきっかけを加える", "description": "対応アプリで警告や本人確認が出たら、急いで進めず、その操作が本当に自分の意図かを見直せます。", "examples": ["支払い前の警告を見る", "設定で利用履歴を確認する", "アプリ別のアクセスを見直す"]},
+  "makotoComment": "この機能の要点は、相手が『あなた自身に操作させる』詐欺にも目を向けていることです。ただし、無警告はお墨付きではありません。オフにするよう急かす言葉が出たら、そこで手を止めたいですね。",
+  "oneLineLesson": "警告がなくても安全とは限らない。機能を切るよう急かされたら止まる。",
+  "tags": ["iPhone", "なりすましリスク検出", "詐欺", "iOS 27", "設定"],
+  "sources": [
+    {"title": "About Impersonation Risk Detection", "publisher": "Apple Support", "sourceType": "official-product-documentation", "publishedAt": "2026-09-14", "url": "https://support.apple.com/en-us/127906"},
+    {"title": "なりすましリスク検出を使用する", "publisher": "Appleサポート", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.apple.com/ja-jp/guide/iphone/je2kvy9nls19/27/ios/27"}
+  ],
+  "visualSuggestion": {"mainVisual": "支払い操作時の警告と、設定画面の最近のアクティビティを確認する流れ図。", "cardIcon": "impersonation-risk-setting", "accentTone": "alert"}
+}

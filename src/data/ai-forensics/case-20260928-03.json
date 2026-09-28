@@ -1,0 +1,52 @@
+{
+  "id": "case-20260928-03",
+  "publishedAt": "2026-09-28",
+  "title": "Adobeのコンテンツ認証情報を削除しても、公開済みの埋め込み情報は消えない",
+  "shortTitle": "コンテンツ認証情報の削除範囲",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["Adobe Content Authenticityで作品の来歴情報を管理する人", "公開後に認証情報を取り下げたい制作者"],
+  "summary": "Adobeは2026年8月18日更新の公式ヘルプで、Adobe Content Authenticity（Beta）の『Manage Content Credentials』からクラウド保存の認証情報を削除できる一方、ファイルに埋め込まれた情報や公開済みの複製は削除されないと説明しています。生成AI利用の開示を含む認証情報には削除できないものもあります。削除ボタンを押す前に、どこに残る情報を管理したいのかを分けて考えるための記事です。",
+  "scenario": {
+    "headline": "作品の認証情報を取り下げたい。管理画面で削除すれば公開先からも消える？",
+    "description": "公開済みの画像に付けたContent Credentialsを見直し、Adobeの管理画面から削除しようとしています。",
+    "whyItMatters": "クラウドの認証情報とファイルへの埋め込み情報は削除範囲が違います。管理画面の操作だけで公開済みファイルまで変わると誤解すると、意図した取り下げができません。"
+  },
+  "question": {
+    "text": "クラウド保存の認証情報を削除した後、公開済みファイルはどう扱う？",
+    "choices": [
+      {"id": "check-copies", "label": "埋め込み情報と公開先のファイルを別に確認する", "description": "管理画面の削除だけでは、それらは消えません。"},
+      {"id": "assume-global", "label": "管理画面で削除すれば全公開先から自動的に消えると考える", "description": "Adobeはそのような削除範囲を案内していません。"},
+      {"id": "delete-original", "label": "元ファイルもAdobeの管理画面から削除されたと考える", "description": "Adobeは同画面に実際のファイルを保存しないと説明しています。"}
+    ],
+    "recommendedAnswers": ["check-copies"],
+    "explanation": "Manageで削除できるのはクラウド保存の認証情報です。埋め込み情報や公開先のコピーは別に扱い、削除できない種類も確認します。"
+  },
+  "inspectionPoints": [
+    {"title": "管理対象", "description": "Manage Content Credentialsはクラウド保存の認証情報を管理します。Adobeはここに実際の作品ファイルを保存しないと説明しています。", "priority": "high"},
+    {"title": "埋め込みのみの情報", "description": "ファイルにだけ埋め込んだ認証情報はManageに表示されません。", "priority": "high"},
+    {"title": "削除しても残る場所", "description": "クラウドの認証情報を削除しても、埋め込み情報、同じ素材を使った別ファイル、公開サイトやプラットフォーム上の情報は消えません。", "priority": "high"},
+    {"title": "削除できない種類", "description": "生成AI利用の開示を含む認証情報は削除できない場合があります。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "クラウド、ファイル、公開先を分けて削除範囲を確かめる",
+  "verificationMessage": "管理画面の削除を、公開済みの複製の削除と同一視しません。",
+  "verdict": {"label": "Manageの削除は全公開先からの一括削除ではない", "description": "クラウド保存分を消しても、埋め込み情報と公開済みのファイルは残り得ます。", "confidence": "high"},
+  "safeActions": [
+    {"action": "削除対象がクラウド保存か埋め込みかを確認する", "reason": "Manageに表示される対象と表示されない対象があります。"},
+    {"action": "公開済みファイルと掲載先を別に確認する", "reason": "クラウドからの削除は既存のコピーを変更しません。"},
+    {"action": "生成AI利用の開示が含まれるか確認する", "reason": "削除できない種類の認証情報があります。"}
+  ],
+  "avoidActions": [
+    {"action": "管理画面の削除だけで公開先の情報も消えたと判断する", "reason": "Adobeは埋め込み情報や公開済みコピーは残ると説明しています。"},
+    {"action": "管理画面に出ない認証情報は存在しないと決めつける", "reason": "埋め込みのみの認証情報はManageに表示されません。"}
+  ],
+  "positiveUse": {"title": "来歴情報を残す場所ごとに管理する", "description": "クラウドで管理できる情報を見直しつつ、配布ファイルと公開先の状態は別に把握できます。", "examples": ["作品公開前の認証情報の設計", "取り下げ時の掲載先確認", "埋め込み情報の有無の確認"]},
+  "makotoComment": "ここで重要なのは『削除できるか』より『どのコピーを削除したか』です。AdobeのManageは作品ファイルそのものを保管する画面ではないので、公開後の取り下げは掲載先も含めて考える必要があります。",
+  "oneLineLesson": "クラウドの認証情報を削除しても、埋め込み情報や公開済みコピーは別に残る。",
+  "tags": ["Adobe Content Authenticity", "Content Credentials", "来歴情報", "削除範囲", "作品公開"],
+  "sources": [
+    {"title": "Manage Content Credentials", "publisher": "Adobe Help Center", "sourceType": "official-product-documentation", "publishedAt": "2026-08-18", "url": "https://helpx.adobe.com/creative-cloud/apps/adobe-content-authenticity/content-credentials/manage-content-credentials.html"}
+  ],
+  "visualSuggestion": {"mainVisual": "クラウド上の認証情報、ファイルに埋め込まれた情報、公開先のコピーを別の箱で示した図。", "cardIcon": "content-credentials-cloud", "accentTone": "info"}
+}
