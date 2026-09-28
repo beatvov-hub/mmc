@@ -93,6 +93,8 @@ class DailyQuizTest(unittest.TestCase):
             qualification_id = qualification["id"]
             practice_route = quiz.practice_route(qualification_id)
             self.assertIn(f'href="{practice_route}"', hub)
+            second_route = quiz.practice_route(qualification_id, 2)
+            self.assertIn(f'href="{second_route}"', hub)
             qualification_page = (quiz.QUIZ_DIR / qualification_id / "index.html").read_text(encoding="utf-8")
             self.assertIn(f'href="{practice_route}"', qualification_page)
             practice_page = (quiz.QUIZ_DIR / qualification_id / "practice" / "index.html").read_text(encoding="utf-8")
@@ -101,6 +103,12 @@ class DailyQuizTest(unittest.TestCase):
             self.assertEqual(practice_page.count('data-quiz-choice'), 400)
             self.assertIn(f'<link rel="canonical" href="{quiz.SITE_URL}{practice_route}"', practice_page)
             self.assertIn('daily-quiz.js', practice_page)
+            second_page = (quiz.QUIZ_DIR / qualification_id / "practice" / "2" / "index.html").read_text(encoding="utf-8")
+            self.assertEqual(second_page.count('class="quiz-detail quiz-practice-question'), 100)
+            self.assertEqual(second_page.count('data-quiz-reveal'), 100)
+            self.assertEqual(second_page.count('data-quiz-choice'), 400)
+            self.assertIn(f'<link rel="canonical" href="{quiz.SITE_URL}{second_route}"', second_page)
+            self.assertIn('daily-quiz.js', second_page)
         self.assertIn('daily-quiz.js', hub)
         for route in re.findall(r'href="(/quiz(?:/[^"#?]*)?)"', hub):
             page = (quiz.ROOT / route.lstrip("/") / "index.html").read_text(encoding="utf-8")
