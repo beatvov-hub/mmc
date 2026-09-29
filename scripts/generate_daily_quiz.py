@@ -26,6 +26,48 @@ OFFICIAL_INFO = {
     "generative-ai-passport": ("一般社団法人 生成AI活用普及協会（GUGA）", "https://guga.or.jp/outline/", "生成AIパスポート 公式サイトを見る"),
     "ds-kentei": ("一般社団法人 データサイエンティスト協会", "https://www.datascientist.or.jp/dscertification/", "DS検定 公式サイトを見る"),
 }
+LEGACY_RELATED = {
+    ("g-kentei", "2026-09-28"): (315, 471, 478),
+    ("g-kentei", "2026-09-27"): (174, 301, 471),
+    ("g-kentei", "2026-09-26"): (68, 69, 70),
+    ("g-kentei", "2026-09-25"): (183, 474, 500),
+    ("g-kentei", "2026-09-24"): (127, 128, 436),
+    ("g-kentei", "2026-09-23"): (440, 141, 144),
+    ("g-kentei", "2026-09-22"): (421, 133, 331),
+    ("g-kentei", "2026-09-21"): (213, 413, 420),
+    ("g-kentei", "2026-09-20"): (185, 455, 488),
+    ("g-kentei", "2026-09-19"): (491, 492, 496),
+    ("it-passport", "2026-09-28"): (197, 493, 494),
+    ("it-passport", "2026-09-27"): (497, 399, 91),
+    ("it-passport", "2026-09-26"): (283, 472, 474),
+    ("it-passport", "2026-09-25"): (170, 449),
+    ("it-passport", "2026-09-24"): (103, 110, 108),
+    ("it-passport", "2026-09-23"): (44, 42, 41),
+    ("it-passport", "2026-09-22"): (161, 446, 448),
+    ("it-passport", "2026-09-21"): (483, 83, 85),
+    ("it-passport", "2026-09-20"): (34, 29, 32),
+    ("it-passport", "2026-09-19"): (25, 26, 419),
+    ("generative-ai-passport", "2026-09-28"): (25, 32, 412),
+    ("generative-ai-passport", "2026-09-27"): (60, 63, 430),
+    ("generative-ai-passport", "2026-09-26"): (65, 66, 69),
+    ("generative-ai-passport", "2026-09-25"): (77, 78, 80),
+    ("generative-ai-passport", "2026-09-24"): (157, 268, 474),
+    ("generative-ai-passport", "2026-09-23"): (33, 417, 412),
+    ("generative-ai-passport", "2026-09-22"): (60, 61, 63),
+    ("generative-ai-passport", "2026-09-21"): (47, 52, 51),
+    ("generative-ai-passport", "2026-09-20"): (83, 285),
+    ("generative-ai-passport", "2026-09-19"): (491, 492, 100),
+    ("ds-kentei", "2026-09-28"): (11, 323, 144),
+    ("ds-kentei", "2026-09-27"): (141, 147, 149),
+    ("ds-kentei", "2026-09-26"): (133, 317, 448),
+    ("ds-kentei", "2026-09-25"): (105, 106, 107),
+    ("ds-kentei", "2026-09-24"): (370, 471, 472),
+    ("ds-kentei", "2026-09-23"): (254, 255, 485),
+    ("ds-kentei", "2026-09-22"): (29, 30, 446),
+    ("ds-kentei", "2026-09-21"): (107, 195, 403),
+    ("ds-kentei", "2026-09-20"): (239, 369, 370),
+    ("ds-kentei", "2026-09-19"): (129, 31, 447),
+}
 
 
 def escape(value: object) -> str:
@@ -78,8 +120,14 @@ def rotation_day(now: datetime) -> date:
     return (now.astimezone(TOKYO) - timedelta(hours=6)).date()
 
 
-def document(title: str, description: str, body: str, script_path: str | None = None) -> str:
+def document(title: str, description: str, body: str, script_path: str | None = None, structured_data: dict | None = None) -> str:
     script = f'\n  <script src="{script_path}" defer></script>' if script_path else ""
+    schema = (
+        '\n  <script type="application/ld+json">'
+        + json.dumps(structured_data, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
+        + "</script>"
+        if structured_data else ""
+    )
     return f"""<!doctype html>
 <html lang="ja">
 <head>
@@ -87,7 +135,7 @@ def document(title: str, description: str, body: str, script_path: str | None = 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{escape(title)} | 毎日見る株式会社</title>
   <meta name="description" content="{escape(description)}">
-  <link rel="stylesheet" href="{{PREFIX}}styles.css">{script}
+  <link rel="stylesheet" href="{{PREFIX}}styles.css">{script}{schema}
 </head>
 <body class="subpage quiz-page">
 {body}
@@ -105,6 +153,50 @@ def breadcrumb(items: list[tuple[str, str | None]]) -> str:
     for label, href in items:
         parts.append(f'<a href="{href}">{escape(label)}</a>' if href else f"<span aria-current=\"page\">{escape(label)}</span>")
     return f'<nav class="quiz-breadcrumbs" aria-label="パンくずリスト">{"<span aria-hidden=\"true\">/</span>".join(parts)}</nav>'
+
+
+def breadcrumb_schema(items: list[tuple[str, str | None]]) -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": index, "name": label, **({"item": SITE_URL + href} if href else {})}
+            for index, (label, href) in enumerate(items, start=1)
+        ],
+    }
+
+
+def answer_term(question: dict) -> str:
+    return next(choice["text"] for choice in question["choices"] if choice["id"] == question["correctAnswer"])
+
+
+def related_terms(question: dict, questions: list[dict]) -> list[dict]:
+    by_term = {answer_term(item): item for item in questions if item.get("slug")}
+    by_number = {int(item["slug"].split("-")[-1]): item for item in questions if item.get("slug")}
+    if question.get("slug"):
+        related = [by_term[choice["text"]] for choice in question["choices"]
+                   if choice["id"] != question["correctAnswer"] and choice["text"] in by_term]
+    else:
+        related = [by_number[number] for number in LEGACY_RELATED.get((question["qualification"], question["date"]), ())]
+    return [item for item in related if item["id"] != question["id"]]
+
+
+def render_related_terms(related: list[dict]) -> str:
+    rows = []
+    for item in related:
+        definition = item["explanation"]["correct"].split("。", 1)[0].strip() + "。"
+        context = re.sub(r"最も適切なものはどれですか。$", "", item["question"]).strip()
+        rows.append(
+            f'<li><h4><a href="{route_for(item)}">{escape(answer_term(item))}</a></h4>'
+            f'<p>{escape(definition)}</p>'
+            f'<p class="quiz-term-context"><strong>使われる場面</strong> {escape(context)}</p></li>'
+        )
+    return (
+        '<section class="quiz-related-terms" aria-labelledby="quiz-related-heading">'
+        '<h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3>'
+        '<p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p>'
+        f'<ul>{"".join(rows)}</ul></section>'
+    ) if rows else ""
 
 
 def official_link(qualification_id: str) -> str:
@@ -319,7 +411,7 @@ def render_practice(qualification: dict, questions: list[dict], page: int) -> st
     )
 
 
-def render_detail(qualification: dict, question: dict, previous: dict | None, next_question: dict | None, depth: int, bank_page: int = 1) -> str:
+def render_detail(qualification: dict, question: dict, previous: dict | None, next_question: dict | None, depth: int, bank_page: int = 1, related: list[dict] | None = None) -> str:
     choices = "\n".join(
         f"<button type=\"button\" class=\"quiz-choice\" data-quiz-choice aria-pressed=\"false\"><span>{escape(choice['id'])}</span><strong>{escape(choice['text'])}</strong></button>"
         for choice in question["choices"]
@@ -329,6 +421,7 @@ def render_detail(qualification: dict, question: dict, previous: dict | None, ne
         for key, value in question["explanation"]["choices"].items()
     )
     keyword_list = "".join(f"<li>{escape(keyword)}</li>" for keyword in question["keywords"])
+    related_html = render_related_terms(related or [])
     source = f'<a href="{escape(question["sourceUrl"])}">{escape(question["sourceName"])}</a>' if question["sourceUrl"] else escape(question["sourceName"])
     previous_link = f'<a href="{route_for(previous)}">← 前の問題</a>' if previous else ""
     next_link = f'<a href="{route_for(next_question)}">次の問題 →</a>' if next_question else ""
@@ -360,6 +453,7 @@ def render_detail(qualification: dict, question: dict, previous: dict | None, ne
         <p>{escape(question['explanation']['correct'])}</p>
         <h3>選択肢のポイント</h3><ul class="quiz-explanation-list">{explanations}</ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords">{keyword_list}</ul>
+        {related_html}
         <p class="quiz-source">参考にした公式情報：{source} / 確認日：{jp_date(question['checkedAt'])}</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">
@@ -371,11 +465,13 @@ def render_detail(qualification: dict, question: dict, previous: dict | None, ne
   </div>
 </main>"""
     description = (
-        f"{qualification['name']}のオリジナル練習問題「{question['title']}」と解説です。"
-        if question.get("slug")
-        else f"{qualification['name']}の{jp_date(question['date'])}のオリジナル練習問題と解説です。"
+        f"{qualification['name']}の{question['category']}を学ぶオリジナル4択問題「{question['title']}」。"
+        "答え・解説と、関連する用語の意味や使われる場面を確認できます。"
     )
-    return document(f"{qualification['name']}｜{detail_label}", description, body, "../" * depth + "scripts/daily-quiz.js")
+    return document(
+        f"{qualification['name']}｜{detail_label}", description, body,
+        "../" * depth + "scripts/daily-quiz.js", breadcrumb_schema(crumbs),
+    )
 
 
 def update_sitemap(routes: list[str], changed_routes: set[str]) -> None:
@@ -495,7 +591,10 @@ def main() -> None:
             depth = len(Path(detail_route.lstrip("/")).parts)
             previous = questions[index + 1] if index + 1 < len(questions) else None
             next_question = questions[index - 1] if index else None
-            if write_page(detail_path, render_detail(qualification, question, previous, next_question, depth, bank_pages[question["id"]]), depth):
+            if write_page(detail_path, render_detail(
+                qualification, question, previous, next_question, depth,
+                bank_pages[question["id"]], related_terms(question, questions),
+            ), depth):
                 changed_routes.add(detail_route)
             routes.append(detail_route)
 

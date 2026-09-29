@@ -88,6 +88,27 @@ class DailyQuizTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             quiz.validate(data)
 
+    def test_detail_pages_explain_related_terms_and_match_visible_breadcrumbs(self) -> None:
+        data = json.loads(quiz.DATA_PATH.read_text(encoding="utf-8"))
+        by_qualification = {
+            qualification["id"]: [item for item in data["questions"] if item["qualification"] == qualification["id"]]
+            for qualification in data["qualifications"]
+        }
+        for question in data["questions"]:
+            related = quiz.related_terms(question, by_qualification[question["qualification"]])
+            self.assertGreaterEqual(len(related), 2, question["id"])
+            self.assertEqual(len({item["id"] for item in related}), len(related))
+            page = (quiz.ROOT / quiz.route_for(question).lstrip("/") / "index.html").read_text(encoding="utf-8")
+            self.assertIn("選択肢とあわせて学ぶ用語", page)
+            self.assertEqual(page.count('class="quiz-term-context"'), len(related))
+            for item in related:
+                self.assertIn(f'href="{quiz.route_for(item)}"', page)
+            schema = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', page).group(1))
+            self.assertEqual(schema["@type"], "BreadcrumbList")
+            self.assertGreaterEqual(len(schema["itemListElement"]), 3)
+            self.assertEqual(schema["itemListElement"][-1]["name"],
+                             question["title"] if question.get("slug") else f"{quiz.jp_date(question['date'])}の問題")
+
     def test_generated_hub_and_bank_links_resolve_to_answerable_pages(self) -> None:
         data = json.loads(quiz.DATA_PATH.read_text(encoding="utf-8"))
         hub = (quiz.QUIZ_DIR / "index.html").read_text(encoding="utf-8")
