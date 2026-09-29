@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-29T07:30:27+09:00",
+  "updatedAt": "2026-09-30T07:30:48+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -685,6 +685,27 @@
       "license": "Apache License 2.0とMIT（プロジェクト内のコード・貢献時期等により異なる）",
       "notes": "活用例は公式MCP Inspector Quickstartに基づく想定で、実機検証は未実施です。",
       "verifiedAt": "2026-09-29",
+      "status": "published"
+    },
+    {
+      "date": "2026-09-30",
+      "slug": "pre-commit",
+      "name": "pre-commit",
+      "category": "Developer Tool",
+      "officialUrl": "https://github.com/pre-commit/pre-commit",
+      "summary": "Gitでコミットする直前に、設定した書式・構文チェックを自動で実行するオープンソースの仕組みです。",
+      "whyToday": "AIがコードや設定ファイルを直してくれても、JSONの括弧抜けや行末の余分な空白はコミット前に残ることがあります。pre-commitは登録したチェックをGitのコミット前に実行できるため、確認を覚えている人だけに頼らず、小さなミスを早い段階で止める入口になります。",
+      "useFor": "例えば、AIが編集した公開設定JSONをコミット前に点検する想定例です。PythonとGitを使えるリポジトリへpre-commitを導入し、`.pre-commit-config.yaml`でJSON構文チェックと行末空白チェックを選んでGit hookを設定します。コミット時にステージ済みファイルへ検査が走り、JSONが不正なら止まり、空白を修正した場合は差分を確認して再ステージします。成果物はチェック結果と、修正済みの差分です。最初はテスト用JSON一つで試し、どの誤りを止め、どこを自動修正するか確かめます。",
+      "recommendedFor": {
+        "employeeId": "MMC-011",
+        "reason": "編集主任のコトちゃんに、記事データのJSON構文と行末空白をコミット前に確認するルールを整えてもらいたいです。合格・修正が必要なファイルの結果を受け取れれば、内容の編集と公開用データの形式確認を分けて進められます。"
+      },
+      "keiComment": "毎回の手作業チェックを一つ仕組みに渡せるのは頼もしいですね。自動修正が入ったときは、何が変わったかを見てから再コミットする流れまで決めておきたいです。",
+      "pricing": "pre-commitと公式フック集はMITライセンスのOSSで、ソフトウェア利用料はかかりません。",
+      "conditions": "PythonとGitが必要です。設定したフックは初回にネットワークから取得・構築されることがあり、コミット前にローカルで実行されます。各フックの提供元とバージョンを確認して固定し、変更されたファイルは差分を見てからステージし直してください。",
+      "license": "MIT License（pre-commit、および例に使うpre-commit-hooks）",
+      "notes": "活用例は公式Quick Start・フック一覧に基づく想定で、実機検証は未実施です。",
+      "verifiedAt": "2026-09-30",
       "status": "published"
     }
   ]
