@@ -17,6 +17,7 @@ DATA_PATH = ROOT / "src" / "data" / "dailyQuiz.json"
 QUIZ_DIR = ROOT / "quiz"
 SITE_URL = "https://mainichi-miru.com"
 PRACTICE_PAGE_SIZE = 100
+ROTATION_LOOKAHEAD_DAYS = 35
 SELECTION_EPOCH = date(2026, 9, 28)
 TOKYO = timezone(timedelta(hours=9))
 OFFICIAL_INFO = {
@@ -70,6 +71,11 @@ def featured_question(questions: list[dict], qualification_id: str, day: date) -
     seed = hashlib.sha256(f"{qualification_id}:{cycle}".encode("utf-8")).digest()
     random.Random(int.from_bytes(seed, "big")).shuffle(ordered)
     return ordered[position]
+
+
+def rotation_day(now: datetime) -> date:
+    """The next quiz day starts at 06:00 in Tokyo, not at midnight."""
+    return (now.astimezone(TOKYO) - timedelta(hours=6)).date()
 
 
 def document(title: str, description: str, body: str, script_path: str | None = None) -> str:
@@ -160,8 +166,8 @@ def render_question_body(question: dict, heading_level: int, key: str, *, number
       </section>"""
 
 
-def render_hub(data: dict, featured: dict[str, dict], questions_by_qualification: dict[str, list[dict]], day: date) -> str:
-    questions = "\n".join(
+def hub_question_cards(data: dict, featured: dict[str, dict]) -> str:
+    return "\n".join(
         f"""<article class="quiz-detail quiz-home-question quiz-accent-{qualification['accent']}" data-quiz>
           <header class="quiz-home-question-heading"><span class="quiz-icon" aria-hidden="true">{escape(qualification['icon'])}</span><h3><a href="/quiz/{qualification['id']}">{escape(qualification['name'])}</a></h3></header>
           {render_question_body(featured[qualification['id']], 4, f"today-{qualification['id']}")}
@@ -169,6 +175,24 @@ def render_hub(data: dict, featured: dict[str, dict], questions_by_qualification
         </article>"""
         for qualification in data["qualifications"]
     )
+
+
+def rotation_payload(data: dict, questions_by_qualification: dict[str, list[dict]], first_day: date) -> dict:
+    days = {}
+    for offset in range(ROTATION_LOOKAHEAD_DAYS):
+        day = first_day + timedelta(days=offset)
+        featured = {
+            qualification["id"]: featured_question(
+                questions_by_qualification[qualification["id"]], qualification["id"], day
+            )
+            for qualification in data["qualifications"]
+        }
+        days[day.isoformat()] = hub_question_cards(data, featured)
+    return {"days": days}
+
+
+def render_hub(data: dict, featured: dict[str, dict], questions_by_qualification: dict[str, list[dict]], day: date) -> str:
+    questions = hub_question_cards(data, featured)
     banks = "\n".join(
         f"""<article class="quiz-qualification-card quiz-accent-{qualification['accent']}">
           <div class="quiz-card-heading"><span class="quiz-icon" aria-hidden="true">{escape(qualification['icon'])}</span><h3><a href="/quiz/{qualification['id']}">{escape(qualification['name'])}</a></h3></div>
@@ -188,9 +212,9 @@ def render_hub(data: dict, featured: dict[str, dict], questions_by_qualification
       <h1 id="quiz-title">毎日一問。</h1>
       <p>4資格のオリジナル練習問題集から、毎日1問ずつ日替わりで選びます。</p>
     </section>
-    <section class="quiz-section" aria-labelledby="today-heading">
-      <div class="quiz-section-heading"><p class="section-kicker">TODAY / {jp_date(day)}</p><h2 id="today-heading">今日の4問</h2></div>
-      <div class="quiz-card-grid quiz-today-grid">{questions}</div>
+    <section class="quiz-section" aria-labelledby="today-heading" data-daily-day="{day.isoformat()}">
+      <div class="quiz-section-heading"><p class="section-kicker" data-daily-date-label>TODAY / {jp_date(day)}</p><h2 id="today-heading">今日の4問</h2></div>
+      <div class="quiz-card-grid quiz-today-grid" data-daily-rotation>{questions}</div>
     </section>
     <section class="quiz-section quiz-chooser" aria-labelledby="chooser-heading">
       <div class="quiz-section-heading"><p class="section-kicker">PRACTICE</p><h2 id="chooser-heading">資格別の問題集</h2></div>
@@ -431,7 +455,7 @@ def main() -> None:
         questions_by_qualification[question["qualification"]].append(question)
     for items in questions_by_qualification.values():
         items.sort(key=lambda item: item["date"], reverse=True)
-    day = datetime.now(TOKYO).date()
+    day = rotation_day(datetime.now(TOKYO))
     featured = {
         qualification["id"]: featured_question(questions_by_qualification[qualification["id"]], qualification["id"], day)
         for qualification in data["qualifications"]
@@ -441,6 +465,10 @@ def main() -> None:
 
     if write_page(QUIZ_DIR / "index.html", render_hub(data, featured, questions_by_qualification, day), 1):
         changed_routes.add("/quiz")
+    (QUIZ_DIR / "daily-rotation.json").write_text(
+        json.dumps(rotation_payload(data, questions_by_qualification, day), ensure_ascii=False, separators=(",", ":")),
+        encoding="utf-8",
+    )
     for qualification in data["qualifications"]:
         questions = questions_by_qualification[qualification["id"]]
         qualification_path = QUIZ_DIR / qualification["id"] / "index.html"

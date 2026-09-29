@@ -63,3 +63,44 @@ test('複数の問題で選択と答えの表示が互いに独立する', () =>
   assert.equal(widgets[1].choices[2].attributes['aria-pressed'], 'true');
   assert.equal(widgets[1].answer.hidden, false);
 });
+
+test('日本時間6時に静的な今日の4問を差し替える', async () => {
+  const source = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'daily-quiz.js'), 'utf8');
+  let now = Date.parse('2026-09-28T20:59:59Z');
+  class TestDate extends Date {
+    static now() { return now; }
+  }
+  const timers = [];
+  const label = { textContent: 'TODAY / 2026年9月28日' };
+  const grid = { innerHTML: 'static cards', querySelectorAll: () => [] };
+  const attributes = { 'data-daily-day': '2026-09-28' };
+  const section = {
+    getAttribute(name) { return attributes[name]; },
+    setAttribute(name, value) { attributes[name] = value; },
+    querySelector(selector) { return selector === '[data-daily-rotation]' ? grid : label; },
+  };
+  let fetchCount = 0;
+  vm.runInNewContext(source, {
+    Date: TestDate,
+    document: {
+      querySelectorAll: () => [],
+      querySelector: () => section,
+      addEventListener() {},
+    },
+    fetch: async () => {
+      fetchCount += 1;
+      return { ok: true, json: async () => ({ days: { '2026-09-29': '<article>new cards</article>' } }) };
+    },
+    setTimeout(callback, delay) { timers.push({ callback, delay }); return timers.length; },
+    clearTimeout() {},
+  });
+  assert.equal(fetchCount, 0);
+  assert.equal(timers[0].delay, 1000);
+  now += 1000;
+  timers[0].callback();
+  await new Promise(setImmediate);
+  assert.equal(fetchCount, 1);
+  assert.equal(grid.innerHTML, '<article>new cards</article>');
+  assert.equal(label.textContent, 'TODAY / 2026年9月29日');
+  assert.equal(attributes['data-daily-day'], '2026-09-29');
+});

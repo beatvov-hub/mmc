@@ -5,7 +5,7 @@ import unittest
 import json
 import re
 from copy import deepcopy
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 
@@ -16,6 +16,10 @@ import generate_daily_quiz as quiz
 
 
 class DailyQuizTest(unittest.TestCase):
+    def test_rotation_day_changes_at_six_in_tokyo(self) -> None:
+        self.assertEqual(quiz.rotation_day(datetime(2026, 9, 28, 20, 59, tzinfo=timezone.utc)), date(2026, 9, 28))
+        self.assertEqual(quiz.rotation_day(datetime(2026, 9, 28, 21, 0, tzinfo=timezone.utc)), date(2026, 9, 29))
+
     def test_featured_selection_is_stable_and_covers_bank_before_repeating(self) -> None:
         questions = [{"id": f"g-{number}"} for number in range(10)]
         first = date(2026, 9, 28)
@@ -87,6 +91,17 @@ class DailyQuizTest(unittest.TestCase):
     def test_generated_hub_and_bank_links_resolve_to_answerable_pages(self) -> None:
         data = json.loads(quiz.DATA_PATH.read_text(encoding="utf-8"))
         hub = (quiz.QUIZ_DIR / "index.html").read_text(encoding="utf-8")
+        rotation = json.loads((quiz.QUIZ_DIR / "daily-rotation.json").read_text(encoding="utf-8"))["days"]
+        static_day = re.search(r'data-daily-day="(\d{4}-\d{2}-\d{2})"', hub).group(1)
+        self.assertEqual(len(rotation), quiz.ROTATION_LOOKAHEAD_DAYS)
+        self.assertIn(static_day, rotation)
+        self.assertIn(rotation[static_day], hub)
+        self.assertIn('data-daily-rotation', hub)
+        for cards in rotation.values():
+            self.assertEqual(cards.count('class="quiz-detail quiz-home-question'), len(data["qualifications"]))
+            self.assertEqual(cards.count('data-quiz-reveal'), len(data["qualifications"]))
+            for route in re.findall(r'class="quiz-question-permalink"><a href="([^"]+)"', cards):
+                self.assertTrue((quiz.ROOT / route.lstrip("/") / "index.html").is_file())
         self.assertEqual(hub.count('class="quiz-detail quiz-home-question'), len(data["qualifications"]))
         self.assertEqual(hub.count('data-quiz-reveal'), len(data["qualifications"]))
         self.assertIn("ご利用にあたって", hub)
