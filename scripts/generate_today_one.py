@@ -723,38 +723,41 @@ def render_teaser(entry: dict | None, members: dict[str, dict[str, str]]) -> str
         member = members.get(str(recommendation.get("employeeId", "")), {})
         member_name = member.get("name", "")
         member_role = member.get("role", "")
-        member_html = f'''          <div class="today-one-teaser-for">
+        member_html = f'''            <div class="today-one-teaser-for">
             <span class="today-one-teaser-label">For</span>
             <strong>{esc(member_name)}</strong>
             <small>{esc(member_role)}</small>
           </div>''' if member_name else ""
-        selection_html = f'''          <p class="today-one-teaser-selection">Today's selection</p>
-          <h3>{esc(entry.get("name", ""))}</h3>
-          <p class="today-one-teaser-category">{esc(entry.get("category", ""))}</p>
-          <p class="today-one-teaser-summary">{esc(entry.get("summary", ""))}</p>
+        selection_html = f'''            <p class="today-one-teaser-selection">Today's selection</p>
+            <h3>{esc(entry.get("name", ""))}</h3>
+            <p class="today-one-teaser-category">{esc(entry.get("category", ""))}</p>
+            <p class="today-one-teaser-summary">{esc(entry.get("summary", ""))}</p>
 {member_html}
-          <a class="today-one-teaser-link" href="today-one.html">今日のひとつを見る <span aria-hidden="true">→</span></a>'''
+            <a class="today-one-teaser-link" href="today-one">今日のひとつを見る <span aria-hidden="true">→</span></a>'''
         date_html = f'<time datetime="{esc(entry.get("date", ""))}">{esc(str(entry.get("date", "")).replace("-", "."))}</time>'
     else:
-        selection_html = '''          <p class="today-one-teaser-selection">Today's selection</p>
-          <h3>本日のひとつは、まだ届いていません。</h3>
-          <p class="today-one-teaser-summary">ケイ、巡回中です。</p>
-          <a class="today-one-teaser-link" href="today-one.html">ページを見る <span aria-hidden="true">→</span></a>'''
+        selection_html = '''            <p class="today-one-teaser-selection">Today's selection</p>
+            <h3>本日のひとつは、まだ届いていません。</h3>
+            <p class="today-one-teaser-summary">ケイ、巡回中です。</p>
+            <a class="today-one-teaser-link" href="today-one">ページを見る <span aria-hidden="true">→</span></a>'''
         date_html = '<span class="today-one-teaser-empty-date">Today</span>'
     body = f'''      <section id="today-one-teaser" class="today-one-teaser" aria-labelledby="today-one-teaser-title">
-        <div class="today-one-teaser-art today-one-teaser-art--left" aria-hidden="true"></div>
-        <div class="today-one-teaser-art" aria-hidden="true"></div>
-        <div class="today-one-teaser-inner">
-          <header class="today-one-teaser-heading">
+        <div class="section-heading">
+          <div>
             <p class="today-one-teaser-eyebrow">AGENT SKILLS LIBRARY</p>
-            {date_html}
             <h2 id="today-one-teaser-title">今日ひとつ。</h2>
+          </div>
+          <a class="text-link" href="today-one">アーカイブを見る →</a>
+        </div>
+        <article class="today-one-teaser-card">
+          <div class="today-one-teaser-heading">
             <p class="today-one-teaser-lead">AIと働くための道具を、毎日ひとつだけ。</p>
-          </header>
-          <div class="today-one-teaser-selection">
+            {date_html}
+          </div>
+          <div class="today-one-teaser-selection-card">
 {selection_html}
           </div>
-        </div>
+        </article>
       </section>'''
     return f"    {TEASER_START}\n{body}\n    {TEASER_END}\n"
 
