@@ -64,22 +64,22 @@
         <p class="section-kicker">QUESTION</p>
         <h2 id="question-heading">重要でない入力の重みをゼロに近づけたい</h2>
         <p class="quiz-question-text">重要でない入力の重みをゼロに近づけたい。最も適切なものはどれですか。</p>
-        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>L1正則化</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>ノイズ付与</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>ドロップアウト</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>モメンタム</strong></button></div>
+        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>ノイズ付与</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>モメンタム</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>L1正則化</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>ドロップアウト</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：A</h2>
+        <h2>正解：C</h2>
         <p>重みの絶対値に応じた罰則を加える方法です。損失の減らし方と過学習対策を分けます。</p>
-        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>正解です。重みの絶対値に応じた罰則を加える方法です。</span></li>
-<li><strong>B</strong><span>ノイズ付与は入力や内部表現へ乱れを加える方法です。この設問で求めるものとは異なります。</span></li>
-<li><strong>C</strong><span>ドロップアウトは学習中に一部の結合をランダムに無効にする方法です。この設問で求めるものとは異なります。</span></li>
-<li><strong>D</strong><span>モメンタムは過去の更新方向を現在の更新へ反映する方法です。この設問で求めるものとは異なります。</span></li></ul>
+        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>ノイズ付与は入力や内部表現へ乱れを加える方法です。この設問で求めるものとは異なります。</span></li>
+<li><strong>B</strong><span>モメンタムは過去の更新方向を現在の更新へ反映する方法です。この設問で求めるものとは異なります。</span></li>
+<li><strong>C</strong><span>正解です。重みの絶対値に応じた罰則を加える方法です。</span></li>
+<li><strong>D</strong><span>ドロップアウトは学習中に一部の結合をランダムに無効にする方法です。この設問で求めるものとは異なります。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>L1正則化</li><li>学習の安定化</li></ul>
-        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-129">ノイズ付与</a></h4><p>入力や内部表現へ乱れを加える方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 学習時に小さな揺らぎを入力へ加え頑健にしたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-122">ドロップアウト</a></h4><p>学習中に一部の結合をランダムに無効にする方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 層の一部を学習中だけ無効にして依存を減らしたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-125">モメンタム</a></h4><p>過去の更新方向を現在の更新へ反映する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 勾配の過去の傾向を使って更新方向を滑らかにしたい。</p></li></ul></section>
+        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-129">ノイズ付与</a></h4><p>入力や内部表現へ乱れを加える方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 学習時に小さな揺らぎを入力へ加え頑健にしたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-125">モメンタム</a></h4><p>過去の更新方向を現在の更新へ反映する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 勾配の過去の傾向を使って更新方向を滑らかにしたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-122">ドロップアウト</a></h4><p>学習中に一部の結合をランダムに無効にする方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 層の一部を学習中だけ無効にして依存を減らしたい。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲（シラバス）</a> / 確認日：2026年9月28日</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">

@@ -64,22 +64,22 @@
         <p class="section-kicker">QUESTION</p>
         <h2 id="question-heading">複数の初期値で学習し結果の安定性を確かめたい</h2>
         <p class="quiz-question-text">複数の初期値で学習し結果の安定性を確かめたい。最も適切なものはどれですか。</p>
-        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>勾配クリッピング</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>学習率スケジューリング</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>初期値の検証</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>L2正則化</strong></button></div>
+        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>初期値の検証</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>勾配クリッピング</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>L2正則化</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>学習率スケジューリング</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：C</h2>
+        <h2>正解：A</h2>
         <p>開始時の重みを変えて結果を比較することです。損失の減らし方と過学習対策を分けます。</p>
-        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>勾配クリッピングは勾配の大きさを制限して更新を安定させる方法です。この設問で求めるものとは異なります。</span></li>
-<li><strong>B</strong><span>学習率スケジューリングは学習率を段階や時点で変える方法です。この設問で求めるものとは異なります。</span></li>
-<li><strong>C</strong><span>正解です。開始時の重みを変えて結果を比較することです。</span></li>
-<li><strong>D</strong><span>L2正則化は重みの二乗に応じた罰則を加える方法です。この設問で求めるものとは異なります。</span></li></ul>
+        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>正解です。開始時の重みを変えて結果を比較することです。</span></li>
+<li><strong>B</strong><span>勾配クリッピングは勾配の大きさを制限して更新を安定させる方法です。この設問で求めるものとは異なります。</span></li>
+<li><strong>C</strong><span>L2正則化は重みの二乗に応じた罰則を加える方法です。この設問で求めるものとは異なります。</span></li>
+<li><strong>D</strong><span>学習率スケジューリングは学習率を段階や時点で変える方法です。この設問で求めるものとは異なります。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>初期値の検証</li><li>学習の安定化</li></ul>
-        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-121">勾配クリッピング</a></h4><p>勾配の大きさを制限して更新を安定させる方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 勾配の大きさが極端な更新を防ぎたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-124">学習率スケジューリング</a></h4><p>学習率を段階や時点で変える方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 学習の進行に合わせて更新幅を徐々に小さくしたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-127">L2正則化</a></h4><p>重みの二乗に応じた罰則を加える方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 重みを小さく保つ罰則を損失に加えたい。</p></li></ul></section>
+        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-121">勾配クリッピング</a></h4><p>勾配の大きさを制限して更新を安定させる方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 勾配の大きさが極端な更新を防ぎたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-127">L2正則化</a></h4><p>重みの二乗に応じた罰則を加える方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 重みを小さく保つ罰則を損失に加えたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-124">学習率スケジューリング</a></h4><p>学習率を段階や時点で変える方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 学習の進行に合わせて更新幅を徐々に小さくしたい。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲（シラバス）</a> / 確認日：2026年9月28日</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">

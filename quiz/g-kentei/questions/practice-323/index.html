@@ -64,22 +64,22 @@
         <p class="section-kicker">QUESTION</p>
         <h2 id="question-heading">過去の試行結果から有望な設定を選び次を試したい</h2>
         <p class="quiz-question-text">過去の試行結果から有望な設定を選び次を試したい。最も適切なものはどれですか。</p>
-        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>勾配蓄積</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>チェックポイント保存</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>実験条件の記録</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>ベイズ最適化</strong></button></div>
+        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>チェックポイント保存</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>実験条件の記録</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>ベイズ最適化</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>勾配蓄積</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：D</h2>
+        <h2>正解：C</h2>
         <p>試行結果を使い次の候補を効率よく選ぶ方法です。探索と学習の条件を再現できるようにします。</p>
-        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>勾配蓄積は複数の小バッチの勾配をまとめて更新する方法です。この設問で求めるものとは異なります。</span></li>
-<li><strong>B</strong><span>チェックポイント保存は途中のモデル状態を記録することです。この設問で求めるものとは異なります。</span></li>
-<li><strong>C</strong><span>実験条件の記録は学習設定と入力条件を残すことです。この設問で求めるものとは異なります。</span></li>
-<li><strong>D</strong><span>正解です。試行結果を使い次の候補を効率よく選ぶ方法です。</span></li></ul>
+        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>チェックポイント保存は途中のモデル状態を記録することです。この設問で求めるものとは異なります。</span></li>
+<li><strong>B</strong><span>実験条件の記録は学習設定と入力条件を残すことです。この設問で求めるものとは異なります。</span></li>
+<li><strong>C</strong><span>正解です。試行結果を使い次の候補を効率よく選ぶ方法です。</span></li>
+<li><strong>D</strong><span>勾配蓄積は複数の小バッチの勾配をまとめて更新する方法です。この設問で求めるものとは異なります。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>ベイズ最適化</li><li>モデルの選定と調整</li></ul>
-        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-324">勾配蓄積</a></h4><p>複数の小バッチの勾配をまとめて更新する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 小さいバッチしか載らない装置で勾配を数回分ためたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-327">チェックポイント保存</a></h4><p>途中のモデル状態を記録することです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 学習途中の重みを保存して障害後に再開したい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-330">実験条件の記録</a></h4><p>学習設定と入力条件を残すことです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 比較実験でデータ分割と前処理を記録して再現したい。</p></li></ul></section>
+        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-327">チェックポイント保存</a></h4><p>途中のモデル状態を記録することです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 学習途中の重みを保存して障害後に再開したい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-330">実験条件の記録</a></h4><p>学習設定と入力条件を残すことです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 比較実験でデータ分割と前処理を記録して再現したい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-324">勾配蓄積</a></h4><p>複数の小バッチの勾配をまとめて更新する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 小さいバッチしか載らない装置で勾配を数回分ためたい。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲（シラバス）</a> / 確認日：2026年9月29日</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">

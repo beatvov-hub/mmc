@@ -64,22 +64,22 @@
         <p class="section-kicker">QUESTION</p>
         <h2 id="question-heading">チャンネルごとの畳み込みと点ごとの結合で計算量を抑…</h2>
         <p class="quiz-question-text">チャンネルごとの畳み込みと点ごとの結合で計算量を抑えたい。最も適切なものはどれですか。</p>
-        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>注意機構</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>深さ方向分離畳み込み</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>エンコーダ・デコーダ</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>Xavier初期化</strong></button></div>
+        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>Xavier初期化</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>注意機構</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>深さ方向分離畳み込み</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>エンコーダ・デコーダ</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：B</h2>
+        <h2>正解：C</h2>
         <p>空間方向とチャンネル方向の処理を分ける畳み込みです。構造ごとの情報の流れを理解します。</p>
-        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>注意機構は要素間の重要度を重みとして計算する仕組みです。この設問で求めるものとは異なります。</span></li>
-<li><strong>B</strong><span>正解です。空間方向とチャンネル方向の処理を分ける畳み込みです。</span></li>
-<li><strong>C</strong><span>エンコーダ・デコーダは入力の符号化と出力の生成を分ける構造です。この設問で求めるものとは異なります。</span></li>
-<li><strong>D</strong><span>Xavier初期化は層の規模に応じて重みの初期値を設定する方法です。この設問で求めるものとは異なります。</span></li></ul>
+        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>Xavier初期化は層の規模に応じて重みの初期値を設定する方法です。この設問で求めるものとは異なります。</span></li>
+<li><strong>B</strong><span>注意機構は要素間の重要度を重みとして計算する仕組みです。この設問で求めるものとは異なります。</span></li>
+<li><strong>C</strong><span>正解です。空間方向とチャンネル方向の処理を分ける畳み込みです。</span></li>
+<li><strong>D</strong><span>エンコーダ・デコーダは入力の符号化と出力の生成を分ける構造です。この設問で求めるものとは異なります。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>深さ方向分離畳み込み</li><li>深層学習の構造</li></ul>
-        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-134">注意機構</a></h4><p>要素間の重要度を重みとして計算する仕組みです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 入力の各部分が他の部分をどれだけ参照するか計算したい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-137">エンコーダ・デコーダ</a></h4><p>入力の符号化と出力の生成を分ける構造です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 入力文を内部表現に変え別の出力文を作りたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-140">Xavier初期化</a></h4><p>層の規模に応じて重みの初期値を設定する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 層ごとの重みを入力と出力の数に応じた範囲で初期化したい。</p></li></ul></section>
+        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-140">Xavier初期化</a></h4><p>層の規模に応じて重みの初期値を設定する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 層ごとの重みを入力と出力の数に応じた範囲で初期化したい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-134">注意機構</a></h4><p>要素間の重要度を重みとして計算する仕組みです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 入力の各部分が他の部分をどれだけ参照するか計算したい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-137">エンコーダ・デコーダ</a></h4><p>入力の符号化と出力の生成を分ける構造です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 入力文を内部表現に変え別の出力文を作りたい。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲（シラバス）</a> / 確認日：2026年9月28日</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">

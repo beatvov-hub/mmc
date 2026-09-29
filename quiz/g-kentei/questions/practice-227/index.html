@@ -64,20 +64,20 @@
         <p class="section-kicker">QUESTION</p>
         <h2 id="question-heading">活性化を一部滑らかに抑える関数を使いたい</h2>
         <p class="quiz-question-text">活性化を一部滑らかに抑える関数を使いたい。最も適切なものはどれですか。</p>
-        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>特徴マップ</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>レイヤー正規化</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>因果マスク</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>GELU</strong></button></div>
+        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>GELU</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>特徴マップ</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>レイヤー正規化</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>因果マスク</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：D</h2>
+        <h2>正解：A</h2>
         <p>入力値に応じ滑らかに出力を変える活性化関数です。情報の正規化と注意の仕組みを区別します。</p>
-        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>特徴マップは画像上の位置ごとの特徴を並べた表現です。この設問で求めるものとは異なります。</span></li>
-<li><strong>B</strong><span>レイヤー正規化は各入力例の特徴方向で値を正規化する方法です。この設問で求めるものとは異なります。</span></li>
-<li><strong>C</strong><span>因果マスクは後の位置の情報を見えなくする制御です。この設問で求めるものとは異なります。</span></li>
-<li><strong>D</strong><span>正解です。入力値に応じ滑らかに出力を変える活性化関数です。</span></li></ul>
+        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>正解です。入力値に応じ滑らかに出力を変える活性化関数です。</span></li>
+<li><strong>B</strong><span>特徴マップは画像上の位置ごとの特徴を並べた表現です。この設問で求めるものとは異なります。</span></li>
+<li><strong>C</strong><span>レイヤー正規化は各入力例の特徴方向で値を正規化する方法です。この設問で求めるものとは異なります。</span></li>
+<li><strong>D</strong><span>因果マスクは後の位置の情報を見えなくする制御です。この設問で求めるものとは異なります。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>GELU</li><li>ニューラルネットの内部</li></ul>
         <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-228">特徴マップ</a></h4><p>画像上の位置ごとの特徴を並べた表現です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 画像の空間情報を平坦化せず保って処理したい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-221">レイヤー正規化</a></h4><p>各入力例の特徴方向で値を正規化する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 系列の各位置ごとに特徴を正規化したい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-224">因果マスク</a></h4><p>後の位置の情報を見えなくする制御です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 文章生成時に未来の語を参照しないようにしたい。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲（シラバス）</a> / 確認日：2026年9月29日</p>

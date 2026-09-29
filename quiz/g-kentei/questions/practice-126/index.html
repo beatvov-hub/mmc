@@ -65,18 +65,18 @@
         <h2 id="question-heading">各重みの勾配に応じ更新幅を自動調整したい</h2>
         <p class="quiz-question-text">各重みの勾配に応じ更新幅を自動調整したい。最も適切なものはどれですか。</p>
         <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>L2正則化</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>初期値の検証</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>Adam</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>Adam</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>初期値の検証</strong></button>
 <button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>特徴量の標準化</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：C</h2>
+        <h2>正解：B</h2>
         <p>勾配の移動平均を使う適応的最適化法です。損失の減らし方と過学習対策を分けます。</p>
         <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>L2正則化は重みの二乗に応じた罰則を加える方法です。この設問で求めるものとは異なります。</span></li>
-<li><strong>B</strong><span>初期値の検証は開始時の重みを変えて結果を比較することです。この設問で求めるものとは異なります。</span></li>
-<li><strong>C</strong><span>正解です。勾配の移動平均を使う適応的最適化法です。</span></li>
+<li><strong>B</strong><span>正解です。勾配の移動平均を使う適応的最適化法です。</span></li>
+<li><strong>C</strong><span>初期値の検証は開始時の重みを変えて結果を比較することです。この設問で求めるものとは異なります。</span></li>
 <li><strong>D</strong><span>特徴量の標準化は特徴の中心と尺度をそろえる処理です。この設問で求めるものとは異なります。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>Adam</li><li>学習の安定化</li></ul>
         <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-127">L2正則化</a></h4><p>重みの二乗に応じた罰則を加える方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 重みを小さく保つ罰則を損失に加えたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-130">初期値の検証</a></h4><p>開始時の重みを変えて結果を比較することです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 複数の初期値で学習し結果の安定性を確かめたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-123">特徴量の標準化</a></h4><p>特徴の中心と尺度をそろえる処理です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 入力の値域をそろえ勾配による学習を進めやすくしたい。</p></li></ul></section>

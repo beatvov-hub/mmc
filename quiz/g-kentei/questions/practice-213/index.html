@@ -64,22 +64,22 @@
         <p class="section-kicker">QUESTION</p>
         <h2 id="question-heading">中心点を更新しながらデータを指定数の群へ分けたい</h2>
         <p class="quiz-question-text">中心点を更新しながらデータを指定数の群へ分けたい。最も適切なものはどれですか。</p>
-        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>DBSCAN</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>k-means法</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>Lasso回帰</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>主成分分析</strong></button></div>
+        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>k-means法</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>DBSCAN</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>主成分分析</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>Lasso回帰</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：B</h2>
+        <h2>正解：A</h2>
         <p>中心に近いデータをまとめるクラスタリングです。予測対象とデータ構造に応じて手法を選びます。</p>
-        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>DBSCANは密度で群と外れ点を見つける方法です。この設問で求めるものとは異なります。</span></li>
-<li><strong>B</strong><span>正解です。中心に近いデータをまとめるクラスタリングです。</span></li>
-<li><strong>C</strong><span>Lasso回帰はL1罰則を加えた回帰です。この設問で求めるものとは異なります。</span></li>
-<li><strong>D</strong><span>主成分分析は分散の大きい方向へ情報を要約する方法です。この設問で求めるものとは異なります。</span></li></ul>
+        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>正解です。中心に近いデータをまとめるクラスタリングです。</span></li>
+<li><strong>B</strong><span>DBSCANは密度で群と外れ点を見つける方法です。この設問で求めるものとは異なります。</span></li>
+<li><strong>C</strong><span>主成分分析は分散の大きい方向へ情報を要約する方法です。この設問で求めるものとは異なります。</span></li>
+<li><strong>D</strong><span>Lasso回帰はL1罰則を加えた回帰です。この設問で求めるものとは異なります。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>k-means法</li><li>機械学習の手法選択</li></ul>
-        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-214">DBSCAN</a></h4><p>密度で群と外れ点を見つける方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 密度の高い領域を群にし孤立点も見つけたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-217">Lasso回帰</a></h4><p>L1罰則を加えた回帰です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 重要な変数だけを残すため係数へ絶対値の罰則を加えたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-220">主成分分析</a></h4><p>分散の大きい方向へ情報を要約する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 正解のない大量データから主な変動方向を取り出したい。</p></li></ul></section>
+        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-214">DBSCAN</a></h4><p>密度で群と外れ点を見つける方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 密度の高い領域を群にし孤立点も見つけたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-220">主成分分析</a></h4><p>分散の大きい方向へ情報を要約する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 正解のない大量データから主な変動方向を取り出したい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-217">Lasso回帰</a></h4><p>L1罰則を加えた回帰です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 重要な変数だけを残すため係数へ絶対値の罰則を加えたい。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲（シラバス）</a> / 確認日：2026年9月29日</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">

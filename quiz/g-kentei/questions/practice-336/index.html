@@ -64,22 +64,22 @@
         <p class="section-kicker">QUESTION</p>
         <h2 id="question-heading">小さくした特徴マップを画素ごとの出力へ戻したい</h2>
         <p class="quiz-question-text">小さくした特徴マップを画素ごとの出力へ戻したい。最も適切なものはどれですか。</p>
-        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>アップサンプリング</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>画像チャンネル</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>非最大値抑制</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>受容野</strong></button></div>
+        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>非最大値抑制</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>受容野</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>アップサンプリング</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>画像チャンネル</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：A</h2>
+        <h2>正解：C</h2>
         <p>空間解像度を上げる処理です。画像の空間情報と計算の役割を区別します。</p>
-        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>正解です。空間解像度を上げる処理です。</span></li>
-<li><strong>B</strong><span>画像チャンネルは色などの情報を分けた画像の成分です。この設問で求めるものとは異なります。</span></li>
-<li><strong>C</strong><span>非最大値抑制は重複する検出候補を整理する方法です。この設問で求めるものとは異なります。</span></li>
-<li><strong>D</strong><span>受容野は出力の一要素へ影響する入力の範囲です。この設問で求めるものとは異なります。</span></li></ul>
+        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>非最大値抑制は重複する検出候補を整理する方法です。この設問で求めるものとは異なります。</span></li>
+<li><strong>B</strong><span>受容野は出力の一要素へ影響する入力の範囲です。この設問で求めるものとは異なります。</span></li>
+<li><strong>C</strong><span>正解です。空間解像度を上げる処理です。</span></li>
+<li><strong>D</strong><span>画像チャンネルは色などの情報を分けた画像の成分です。この設問で求めるものとは異なります。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>アップサンプリング</li><li>画像モデルの処理</li></ul>
-        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-337">画像チャンネル</a></h4><p>色などの情報を分けた画像の成分です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 画像内の複数の色成分を別々の入力として扱いたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-340">非最大値抑制</a></h4><p>重複する検出候補を整理する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 似た検出枠が何個も出たら代表だけ残したい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-333">受容野</a></h4><p>出力の一要素へ影響する入力の範囲です。</p><p class="quiz-term-context"><strong>使われる場面</strong> ある出力が入力画像のどの範囲に依存するか知りたい。</p></li></ul></section>
+        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-340">非最大値抑制</a></h4><p>重複する検出候補を整理する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 似た検出枠が何個も出たら代表だけ残したい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-333">受容野</a></h4><p>出力の一要素へ影響する入力の範囲です。</p><p class="quiz-term-context"><strong>使われる場面</strong> ある出力が入力画像のどの範囲に依存するか知りたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-337">画像チャンネル</a></h4><p>色などの情報を分けた画像の成分です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 画像内の複数の色成分を別々の入力として扱いたい。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲（シラバス）</a> / 確認日：2026年9月29日</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">

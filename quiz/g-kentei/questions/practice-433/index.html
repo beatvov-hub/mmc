@@ -65,21 +65,21 @@
         <h2 id="question-heading">勾配更新の幅が大き過ぎて損失が振動する</h2>
         <p class="quiz-question-text">勾配更新の幅が大き過ぎて損失が振動する。最も適切なものはどれですか。</p>
         <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>勾配消失の診断</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>学習率の引下げ</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>部分的なファインチューニング</strong></button>
 <button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>独立した最終テストの保持</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>部分的なファインチューニング</strong></button></div>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>学習率の引下げ</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：B</h2>
+        <h2>正解：D</h2>
         <p>一回の更新量を小さくする調整です。損失曲線と設定変更の意味を読み分けます。</p>
         <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>勾配消失の診断は逆伝播で勾配が小さくなり過ぎる現象を調べることです。この設問で求めるものとは異なります。</span></li>
-<li><strong>B</strong><span>正解です。一回の更新量を小さくする調整です。</span></li>
+<li><strong>B</strong><span>部分的なファインチューニングは既存モデルの一部の重みだけ再学習することです。この設問で求めるものとは異なります。</span></li>
 <li><strong>C</strong><span>独立した最終テストの保持は選定に使わないデータで最後に性能を測ることです。この設問で求めるものとは異なります。</span></li>
-<li><strong>D</strong><span>部分的なファインチューニングは既存モデルの一部の重みだけ再学習することです。この設問で求めるものとは異なります。</span></li></ul>
+<li><strong>D</strong><span>正解です。一回の更新量を小さくする調整です。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>学習率の引下げ</li><li>学習過程の診断</li></ul>
-        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-434">勾配消失の診断</a></h4><p>逆伝播で勾配が小さくなり過ぎる現象を調べることです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 初期層へ誤差の情報が届きにくい長いネットを調べたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-437">独立した最終テストの保持</a></h4><p>選定に使わないデータで最後に性能を測ることです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 評価用の例を見ながら何度も設定を選ぶ危険を避けたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-440">部分的なファインチューニング</a></h4><p>既存モデルの一部の重みだけ再学習することです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 事前学習済み層の一部だけ更新して小規模データへ適応したい。</p></li></ul></section>
+        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-434">勾配消失の診断</a></h4><p>逆伝播で勾配が小さくなり過ぎる現象を調べることです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 初期層へ誤差の情報が届きにくい長いネットを調べたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-440">部分的なファインチューニング</a></h4><p>既存モデルの一部の重みだけ再学習することです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 事前学習済み層の一部だけ更新して小規模データへ適応したい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-437">独立した最終テストの保持</a></h4><p>選定に使わないデータで最後に性能を測ることです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 評価用の例を見ながら何度も設定を選ぶ危険を避けたい。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲</a> / 確認日：2026年9月29日</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">

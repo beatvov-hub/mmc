@@ -64,22 +64,22 @@
         <p class="section-kicker">QUESTION</p>
         <h2 id="question-heading">欠測した日の数値を安易にゼロ扱いしたくない</h2>
         <p class="quiz-question-text">欠測した日の数値を安易にゼロ扱いしたくない。最も適切なものはどれですか。</p>
-        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>欠測時点の確認</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>予測区間</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>移動平均</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>未来情報の遮断</strong></button></div>
+        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>未来情報の遮断</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>移動平均</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>欠測時点の確認</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>予測区間</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：A</h2>
+        <h2>正解：C</h2>
         <p>値がない理由と時刻を確かめることです。時間順の構造と評価を守ります。</p>
-        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>正解です。値がない理由と時刻を確かめることです。</span></li>
-<li><strong>B</strong><span>予測区間は将来値が入り得る範囲の推定です。この設問で求めるものとは異なります。</span></li>
-<li><strong>C</strong><span>移動平均は近い時点の値を平均して変動をならす方法です。この設問で求めるものとは異なります。</span></li>
-<li><strong>D</strong><span>未来情報の遮断は予測時に未観測の情報を使わないことです。この設問で求めるものとは異なります。</span></li></ul>
+        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>未来情報の遮断は予測時に未観測の情報を使わないことです。この設問で求めるものとは異なります。</span></li>
+<li><strong>B</strong><span>移動平均は近い時点の値を平均して変動をならす方法です。この設問で求めるものとは異なります。</span></li>
+<li><strong>C</strong><span>正解です。値がない理由と時刻を確かめることです。</span></li>
+<li><strong>D</strong><span>予測区間は将来値が入り得る範囲の推定です。この設問で求めるものとは異なります。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>欠測時点の確認</li><li>データサイエンス・時系列</li></ul>
-        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/ds-kentei/questions/practice-240">予測区間</a></h4><p>将来値が入り得る範囲の推定です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 予測の一点だけでなく上振れと下振れの範囲を示したい。</p></li><li><h4><a href="/quiz/ds-kentei/questions/practice-233">移動平均</a></h4><p>近い時点の値を平均して変動をならす方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 直近数日の平均で日々の揺れを滑らかにしたい。</p></li><li><h4><a href="/quiz/ds-kentei/questions/practice-236">未来情報の遮断</a></h4><p>予測時に未観測の情報を使わないことです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 未来の売上を特徴量へ混ぜないようにしたい。</p></li></ul></section>
+        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/ds-kentei/questions/practice-236">未来情報の遮断</a></h4><p>予測時に未観測の情報を使わないことです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 未来の売上を特徴量へ混ぜないようにしたい。</p></li><li><h4><a href="/quiz/ds-kentei/questions/practice-233">移動平均</a></h4><p>近い時点の値を平均して変動をならす方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 直近数日の平均で日々の揺れを滑らかにしたい。</p></li><li><h4><a href="/quiz/ds-kentei/questions/practice-240">予測区間</a></h4><p>将来値が入り得る範囲の推定です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 予測の一点だけでなく上振れと下振れの範囲を示したい。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.datascientist.or.jp/dscertification/what/">データサイエンティスト協会 DS検定の試験範囲（スキルチェックリストver.6）</a> / 確認日：2026年9月29日</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">

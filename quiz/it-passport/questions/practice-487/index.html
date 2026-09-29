@@ -65,18 +65,18 @@
         <h2 id="question-heading">大量の行を持つ表から必要な列だけを取り出したい</h2>
         <p class="quiz-question-text">大量の行を持つ表から必要な列だけを取り出したい。最も適切なものはどれですか。</p>
         <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>WHERE句の条件指定</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>正規化による冗長削減</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>SELECT句の列指定</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>SELECT句の列指定</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>正規化による冗長削減</strong></button>
 <button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>トランザクション分離性</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：C</h2>
+        <h2>正解：B</h2>
         <p>SQLのSELECT句へ取得したい列を明示することです。表の整合性と処理の安全性を保ちます。</p>
         <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>WHERE句の条件指定は表から条件に合う行を選ぶことです。この設問で求めるものとは異なります。</span></li>
-<li><strong>B</strong><span>正規化による冗長削減は表を分けて同じ情報の重複を減らすことです。この設問で求めるものとは異なります。</span></li>
-<li><strong>C</strong><span>正解です。SQLのSELECT句へ取得したい列を明示することです。</span></li>
+<li><strong>B</strong><span>正解です。SQLのSELECT句へ取得したい列を明示することです。</span></li>
+<li><strong>C</strong><span>正規化による冗長削減は表を分けて同じ情報の重複を減らすことです。この設問で求めるものとは異なります。</span></li>
 <li><strong>D</strong><span>トランザクション分離性は並行する取引が互いの途中状態へ影響しない性質です。この設問で求めるものとは異なります。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>SELECT句の列指定</li><li>テクノロジ系・データ管理</li></ul>
         <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/it-passport/questions/practice-488">WHERE句の条件指定</a></h4><p>表から条件に合う行を選ぶことです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 集計前に特定の日付の行だけを取り出したい。</p></li><li><h4><a href="/quiz/it-passport/questions/practice-481">正規化による冗長削減</a></h4><p>表を分けて同じ情報の重複を減らすことです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 同じ顧客の住所を注文行すべてに重ねて保存したくない。</p></li><li><h4><a href="/quiz/it-passport/questions/practice-484">トランザクション分離性</a></h4><p>並行する取引が互いの途中状態へ影響しない性質です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 取引中の途中結果を別の取引に見せたくない。</p></li></ul></section>

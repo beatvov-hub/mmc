@@ -4,8 +4,10 @@ import sys
 import unittest
 import json
 import re
+from collections import Counter
 from copy import deepcopy
 from datetime import date, datetime, timedelta, timezone
+from html import escape
 from pathlib import Path
 
 
@@ -16,6 +18,22 @@ import generate_daily_quiz as quiz
 
 
 class DailyQuizTest(unittest.TestCase):
+    def test_answer_positions_are_balanced_without_a_repeating_four_step_pattern(self) -> None:
+        data = json.loads(quiz.DATA_PATH.read_text(encoding="utf-8"))
+        for qualification in data["qualifications"]:
+            questions = sorted(
+                (item for item in data["questions"] if item["qualification"] == qualification["id"]),
+                key=lambda item: (item["date"], item["id"]),
+            )
+            for start in range(0, len(questions), 100):
+                block = questions[start:start + 100]
+                if len(block) == 100:
+                    self.assertEqual(Counter(item["correctAnswer"] for item in block),
+                                     Counter({letter: 25 for letter in "ABCD"}))
+            sequence = "".join(item["correctAnswer"] for item in questions)
+            self.assertTrue(all(sequence[index:index + 4] * 3 != sequence[index:index + 12]
+                                for index in range(len(sequence) - 11)))
+
     def test_rotation_day_changes_at_six_in_tokyo(self) -> None:
         self.assertEqual(quiz.rotation_day(datetime(2026, 9, 28, 20, 59, tzinfo=timezone.utc)), date(2026, 9, 28))
         self.assertEqual(quiz.rotation_day(datetime(2026, 9, 28, 21, 0, tzinfo=timezone.utc)), date(2026, 9, 29))
@@ -101,6 +119,9 @@ class DailyQuizTest(unittest.TestCase):
             self.assertGreaterEqual(len(related), 2, question["id"])
             self.assertEqual(len({item["id"] for item in related}), len(related))
             page = (quiz.ROOT / quiz.route_for(question).lstrip("/") / "index.html").read_text(encoding="utf-8")
+            self.assertIn(f"正解：{question['correctAnswer']}", page)
+            for choice in question["choices"]:
+                self.assertIn(f'<span>{choice["id"]}</span><strong>{escape(choice["text"])}</strong>', page)
             self.assertIn("選択肢とあわせて学ぶ用語", page)
             self.assertEqual(page.count('class="quiz-term-context"'), len(related))
             for item in related:

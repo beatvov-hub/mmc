@@ -64,22 +64,22 @@
         <p class="section-kicker">QUESTION</p>
         <h2 id="question-heading">損失を減らす方向へ進む</h2>
         <p class="quiz-question-text">損失の傾きを使い、重みを少しずつ更新する基本手法はどれですか。</p>
-        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>勾配降下法</strong></button>
+        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>平均二乗誤差</strong></button>
 <button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>ミニバッチ学習</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>平均二乗誤差</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>勾配降下法</strong></button>
 <button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>学習率</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：A</h2>
+        <h2>正解：C</h2>
         <p>損失の勾配を使ってパラメータを更新する最適化手法です。損失は誤差の測り方、最適化はその損失を減らす手順です。</p>
-        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>正解です。損失の勾配を使ってパラメータを更新する最適化手法です。</span></li>
+        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>平均二乗誤差は予測値と正解の差の二乗を平均する損失です。この設問で求める働きとは異なります。</span></li>
 <li><strong>B</strong><span>ミニバッチ学習は学習データを小さな単位に分けて更新する方法です。この設問で求める働きとは異なります。</span></li>
-<li><strong>C</strong><span>平均二乗誤差は予測値と正解の差の二乗を平均する損失です。この設問で求める働きとは異なります。</span></li>
+<li><strong>C</strong><span>正解です。損失の勾配を使ってパラメータを更新する最適化手法です。</span></li>
 <li><strong>D</strong><span>学習率は勾配に沿ったパラメータ更新の大きさを決める値です。この設問で求める働きとは異なります。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>勾配降下法</li><li>学習と最適化</li></ul>
-        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-033">ミニバッチ学習</a></h4><p>学習データを小さな単位に分けて更新する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 全学習例を一度に使わず、小さなまとまりごとに重みを更新する方法はどれですか。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-029">平均二乗誤差</a></h4><p>予測値と正解の差の二乗を平均する損失です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 住宅価格の予測値と実際の価格との差を二乗して平均する指標はどれですか。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-031">学習率</a></h4><p>勾配に沿ったパラメータ更新の大きさを決める値です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 重みを一度にどの程度変えるかを決める設定値はどれですか。</p></li></ul></section>
+        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-029">平均二乗誤差</a></h4><p>予測値と正解の差の二乗を平均する損失です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 住宅価格の予測値と実際の価格との差を二乗して平均する指標はどれですか。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-033">ミニバッチ学習</a></h4><p>学習データを小さな単位に分けて更新する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 全学習例を一度に使わず、小さなまとまりごとに重みを更新する方法はどれですか。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-031">学習率</a></h4><p>勾配に沿ったパラメータ更新の大きさを決める値です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 重みを一度にどの程度変えるかを決める設定値はどれですか。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲（シラバス）</a> / 確認日：2026年9月28日</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">

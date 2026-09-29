@@ -65,19 +65,19 @@
         <h2 id="question-heading">生成器と識別器を競わせる</h2>
         <p class="quiz-question-text">偽物を作る側と見分ける側を競わせながら画像を学ぶ枠組みはどれですか。</p>
         <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>VAE</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>GAN</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>自己回帰モデル</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>位置エンコーディング</strong></button></div>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>自己回帰モデル</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>位置エンコーディング</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>GAN</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：B</h2>
+        <h2>正解：D</h2>
         <p>生成器と識別器を対抗させて学習する生成モデルです。各生成モデルは学習や生成の仕組みが異なります。</p>
         <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>VAEは潜在変数の分布を学び、デコーダでデータを再構成する生成モデルです。この設問で求める働きとは異なります。</span></li>
-<li><strong>B</strong><span>正解です。生成器と識別器を対抗させて学習する生成モデルです。</span></li>
-<li><strong>C</strong><span>自己回帰モデルは過去の出力を条件として次の要素を順に生成するモデルです。この設問で求める働きとは異なります。</span></li>
-<li><strong>D</strong><span>位置エンコーディングは系列中の位置に関する情報を入力表現へ加える仕組みです。この設問で求める働きとは異なります。</span></li></ul>
+<li><strong>B</strong><span>自己回帰モデルは過去の出力を条件として次の要素を順に生成するモデルです。この設問で求める働きとは異なります。</span></li>
+<li><strong>C</strong><span>位置エンコーディングは系列中の位置に関する情報を入力表現へ加える仕組みです。この設問で求める働きとは異なります。</span></li>
+<li><strong>D</strong><span>正解です。生成器と識別器を対抗させて学習する生成モデルです。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>GAN</li><li>生成モデル</li></ul>
         <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-054">VAE</a></h4><p>潜在変数の分布を学び、デコーダでデータを再構成する生成モデルです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 入力を確率的な潜在表現に写し、そこから再構成するモデルはどれですか。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-056">自己回帰モデル</a></h4><p>過去の出力を条件として次の要素を順に生成するモデルです。</p><p class="quiz-term-context"><strong>使われる場面</strong> すでに出した文字列を条件に、次の文字列を順番に生成するモデルはどれですか。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-058">位置エンコーディング</a></h4><p>系列中の位置に関する情報を入力表現へ加える仕組みです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 語の並びを入れ替えた場合の違いをモデルへ伝えるために位置情報を加える仕組みはどれですか。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲（シラバス）</a> / 確認日：2026年9月28日</p>

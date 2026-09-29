@@ -64,22 +64,22 @@
         <p class="section-kicker">QUESTION</p>
         <h2 id="question-heading">閾値を変えて比較する</h2>
         <p class="quiz-question-text">判定の閾値を変え、真陽性率と偽陽性率の関係を曲線で見たい。図はどれですか。</p>
-        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>確率の較正</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>真陽性</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>F1スコア</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>ROC曲線</strong></button></div>
+        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>ROC曲線</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>F1スコア</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>確率の較正</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>真陽性</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：D</h2>
+        <h2>正解：A</h2>
         <p>閾値ごとの真陽性率と偽陽性率を描く曲線です。一つの指標だけでなく、誤判定の種類を分けて見ます。</p>
-        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>確率の較正は予測確率と実際の発生頻度が対応している性質です。この設問で求める働きとは異なります。</span></li>
-<li><strong>B</strong><span>真陽性は実際も予測も陽性である事例です。この設問で求める働きとは異なります。</span></li>
-<li><strong>C</strong><span>F1スコアは適合率と再現率の調和平均です。この設問で求める働きとは異なります。</span></li>
-<li><strong>D</strong><span>正解です。閾値ごとの真陽性率と偽陽性率を描く曲線です。</span></li></ul>
+        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>正解です。閾値ごとの真陽性率と偽陽性率を描く曲線です。</span></li>
+<li><strong>B</strong><span>F1スコアは適合率と再現率の調和平均です。この設問で求める働きとは異なります。</span></li>
+<li><strong>C</strong><span>確率の較正は予測確率と実際の発生頻度が対応している性質です。この設問で求める働きとは異なります。</span></li>
+<li><strong>D</strong><span>真陽性は実際も予測も陽性である事例です。この設問で求める働きとは異なります。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>ROC曲線</li><li>分類モデルの評価</li></ul>
-        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-076">確率の較正</a></h4><p>予測確率と実際の発生頻度が対応している性質です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 「80％」と予測した事例の約80％で実際に起きているか確かめたい。確認する性質はどれですか。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-072">真陽性</a></h4><p>実際も予測も陽性である事例です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 実際に陽性で、モデルも陽性と判定した件数はどれですか。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-074">F1スコア</a></h4><p>適合率と再現率の調和平均です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 適合率と再現率の両方を一つの数値にまとめたい。代表的な指標はどれですか。</p></li></ul></section>
+        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-074">F1スコア</a></h4><p>適合率と再現率の調和平均です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 適合率と再現率の両方を一つの数値にまとめたい。代表的な指標はどれですか。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-076">確率の較正</a></h4><p>予測確率と実際の発生頻度が対応している性質です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 「80％」と予測した事例の約80％で実際に起きているか確かめたい。確認する性質はどれですか。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-072">真陽性</a></h4><p>実際も予測も陽性である事例です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 実際に陽性で、モデルも陽性と判定した件数はどれですか。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲（シラバス）</a> / 確認日：2026年9月28日</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">

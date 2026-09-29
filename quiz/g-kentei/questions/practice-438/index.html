@@ -65,21 +65,21 @@
         <h2 id="question-heading">学習開始直後だけ更新幅を小さくし徐々に通常値へ近づ…</h2>
         <p class="quiz-question-text">学習開始直後だけ更新幅を小さくし徐々に通常値へ近づけたい。最も適切なものはどれですか。</p>
         <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>適応的な学習率調整</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>表現不足の確認</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>学習率ウォームアップ</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>バッチ正規化の利用</strong></button></div>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>バッチ正規化の利用</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>表現不足の確認</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>学習率ウォームアップ</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：C</h2>
+        <h2>正解：D</h2>
         <p>学習序盤の更新幅を段階的に増やす方法です。損失曲線と設定変更の意味を読み分けます。</p>
         <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>適応的な学習率調整はパラメータごとに更新幅を変える最適化です。この設問で求めるものとは異なります。</span></li>
-<li><strong>B</strong><span>表現不足の確認はモデルが関係を十分に捉えられない可能性を調べることです。この設問で求めるものとは異なります。</span></li>
-<li><strong>C</strong><span>正解です。学習序盤の更新幅を段階的に増やす方法です。</span></li>
-<li><strong>D</strong><span>バッチ正規化の利用はミニバッチの平均と分散を用いて値を正規化する方法です。この設問で求めるものとは異なります。</span></li></ul>
+<li><strong>B</strong><span>バッチ正規化の利用はミニバッチの平均と分散を用いて値を正規化する方法です。この設問で求めるものとは異なります。</span></li>
+<li><strong>C</strong><span>表現不足の確認はモデルが関係を十分に捉えられない可能性を調べることです。この設問で求めるものとは異なります。</span></li>
+<li><strong>D</strong><span>正解です。学習序盤の更新幅を段階的に増やす方法です。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>学習率ウォームアップ</li><li>学習過程の診断</li></ul>
-        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-439">適応的な学習率調整</a></h4><p>パラメータごとに更新幅を変える最適化です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 入力項目ごとに勾配に応じた更新幅を変えたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-432">表現不足の確認</a></h4><p>モデルが関係を十分に捉えられない可能性を調べることです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 学習と評価の両方で誤差が高止まりしている。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-435">バッチ正規化の利用</a></h4><p>ミニバッチの平均と分散を用いて値を正規化する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> ミニバッチ内の統計を用いて層の値を整えたい。</p></li></ul></section>
+        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-439">適応的な学習率調整</a></h4><p>パラメータごとに更新幅を変える最適化です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 入力項目ごとに勾配に応じた更新幅を変えたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-435">バッチ正規化の利用</a></h4><p>ミニバッチの平均と分散を用いて値を正規化する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> ミニバッチ内の統計を用いて層の値を整えたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-432">表現不足の確認</a></h4><p>モデルが関係を十分に捉えられない可能性を調べることです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 学習と評価の両方で誤差が高止まりしている。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲</a> / 確認日：2026年9月29日</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">

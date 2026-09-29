@@ -64,22 +64,22 @@
         <p class="section-kicker">QUESTION</p>
         <h2 id="question-heading">特徴が独立と仮定して文書の分類を行いたい</h2>
         <p class="quiz-question-text">特徴が独立と仮定して文書の分類を行いたい。最も適切なものはどれですか。</p>
-        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>ナイーブベイズ</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>k-means法</strong></button>
+        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>k-means法</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>スタッキング</strong></button>
 <button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>バギング</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>スタッキング</strong></button></div>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>ナイーブベイズ</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：A</h2>
+        <h2>正解：D</h2>
         <p>条件付き独立の仮定を用いる分類法です。予測対象とデータ構造に応じて手法を選びます。</p>
-        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>正解です。条件付き独立の仮定を用いる分類法です。</span></li>
-<li><strong>B</strong><span>k-means法は中心に近いデータをまとめるクラスタリングです。この設問で求めるものとは異なります。</span></li>
+        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>k-means法は中心に近いデータをまとめるクラスタリングです。この設問で求めるものとは異なります。</span></li>
+<li><strong>B</strong><span>スタッキングは別モデルの予測を学習して統合する方法です。この設問で求めるものとは異なります。</span></li>
 <li><strong>C</strong><span>バギングは異なる標本で学習したモデルの出力を集約する方法です。この設問で求めるものとは異なります。</span></li>
-<li><strong>D</strong><span>スタッキングは別モデルの予測を学習して統合する方法です。この設問で求めるものとは異なります。</span></li></ul>
+<li><strong>D</strong><span>正解です。条件付き独立の仮定を用いる分類法です。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>ナイーブベイズ</li><li>機械学習の手法選択</li></ul>
-        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-213">k-means法</a></h4><p>中心に近いデータをまとめるクラスタリングです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 中心点を更新しながらデータを指定数の群へ分けたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-216">バギング</a></h4><p>異なる標本で学習したモデルの出力を集約する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 多数の学習集合で別々に学習した結果を平均したい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-219">スタッキング</a></h4><p>別モデルの予測を学習して統合する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 複数モデルの予測をもう一つのモデルで組み合わせたい。</p></li></ul></section>
+        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-213">k-means法</a></h4><p>中心に近いデータをまとめるクラスタリングです。</p><p class="quiz-term-context"><strong>使われる場面</strong> 中心点を更新しながらデータを指定数の群へ分けたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-219">スタッキング</a></h4><p>別モデルの予測を学習して統合する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 複数モデルの予測をもう一つのモデルで組み合わせたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-216">バギング</a></h4><p>異なる標本で学習したモデルの出力を集約する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 多数の学習集合で別々に学習した結果を平均したい。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲（シラバス）</a> / 確認日：2026年9月29日</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">

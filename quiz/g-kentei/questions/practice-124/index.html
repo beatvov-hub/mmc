@@ -64,22 +64,22 @@
         <p class="section-kicker">QUESTION</p>
         <h2 id="question-heading">学習の進行に合わせて更新幅を徐々に小さくしたい</h2>
         <p class="quiz-question-text">学習の進行に合わせて更新幅を徐々に小さくしたい。最も適切なものはどれですか。</p>
-        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>学習率スケジューリング</strong></button>
+        <div class="quiz-choices" role="group" aria-label="4つの選択肢"><button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>A</span><strong>L1正則化</strong></button>
 <button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>B</span><strong>モメンタム</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>L1正則化</strong></button>
-<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>勾配クリッピング</strong></button></div>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>C</span><strong>勾配クリッピング</strong></button>
+<button type="button" class="quiz-choice" data-quiz-choice aria-pressed="false"><span>D</span><strong>学習率スケジューリング</strong></button></div>
         <button class="quiz-reveal-button" type="button" data-quiz-reveal aria-controls="quiz-answer">答えを見る</button>
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：A</h2>
+        <h2>正解：D</h2>
         <p>学習率を段階や時点で変える方法です。損失の減らし方と過学習対策を分けます。</p>
-        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>正解です。学習率を段階や時点で変える方法です。</span></li>
+        <h3>選択肢のポイント</h3><ul class="quiz-explanation-list"><li><strong>A</strong><span>L1正則化は重みの絶対値に応じた罰則を加える方法です。この設問で求めるものとは異なります。</span></li>
 <li><strong>B</strong><span>モメンタムは過去の更新方向を現在の更新へ反映する方法です。この設問で求めるものとは異なります。</span></li>
-<li><strong>C</strong><span>L1正則化は重みの絶対値に応じた罰則を加える方法です。この設問で求めるものとは異なります。</span></li>
-<li><strong>D</strong><span>勾配クリッピングは勾配の大きさを制限して更新を安定させる方法です。この設問で求めるものとは異なります。</span></li></ul>
+<li><strong>C</strong><span>勾配クリッピングは勾配の大きさを制限して更新を安定させる方法です。この設問で求めるものとは異なります。</span></li>
+<li><strong>D</strong><span>正解です。学習率を段階や時点で変える方法です。</span></li></ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords"><li>学習率スケジューリング</li><li>学習の安定化</li></ul>
-        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-125">モメンタム</a></h4><p>過去の更新方向を現在の更新へ反映する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 勾配の過去の傾向を使って更新方向を滑らかにしたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-128">L1正則化</a></h4><p>重みの絶対値に応じた罰則を加える方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 重要でない入力の重みをゼロに近づけたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-121">勾配クリッピング</a></h4><p>勾配の大きさを制限して更新を安定させる方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 勾配の大きさが極端な更新を防ぎたい。</p></li></ul></section>
+        <section class="quiz-related-terms" aria-labelledby="quiz-related-heading"><h3 id="quiz-related-heading">選択肢とあわせて学ぶ用語</h3><p>この問題に関連する用語の意味と、判断に使う場面を確認できます。</p><ul><li><h4><a href="/quiz/g-kentei/questions/practice-128">L1正則化</a></h4><p>重みの絶対値に応じた罰則を加える方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 重要でない入力の重みをゼロに近づけたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-125">モメンタム</a></h4><p>過去の更新方向を現在の更新へ反映する方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 勾配の過去の傾向を使って更新方向を滑らかにしたい。</p></li><li><h4><a href="/quiz/g-kentei/questions/practice-121">勾配クリッピング</a></h4><p>勾配の大きさを制限して更新を安定させる方法です。</p><p class="quiz-term-context"><strong>使われる場面</strong> 勾配の大きさが極端な更新を防ぎたい。</p></li></ul></section>
         <p class="quiz-source">参考にした公式情報：<a href="https://www.jdla.org/certificate/general/">日本ディープラーニング協会 G検定の試験範囲（シラバス）</a> / 確認日：2026年9月28日</p>
       </section>
       <aside class="quiz-origin-note" aria-label="この問題について">
