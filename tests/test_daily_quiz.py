@@ -52,6 +52,8 @@ class DailyQuizTest(unittest.TestCase):
         self.assertEqual([page.count('data-quiz-reveal') for page in pages], [100, 100, 5])
         self.assertEqual([page.count('data-quiz-choice') for page in pages], [400, 400, 20])
         self.assertIn('href="/quiz/g-kentei/practice/3"', pages[0])
+        self.assertIn('href="/quiz/g-kentei/practice/2" aria-current="page"', pages[1])
+        self.assertNotIn('公開中：100問', pages[0])
         self.assertIn('src="../../../../scripts/daily-quiz.js"', pages[1])
         self.assertNotIn("テーマ205", pages[2])
         self.assertIn('id="quiz-answer-practice-205"', pages[2])

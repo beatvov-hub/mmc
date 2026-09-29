@@ -90,7 +90,7 @@ def practice_route(qualification_id: str, page: int = 1) -> str:
     return base if page == 1 else f"{base}/{page}"
 
 
-def practice_ranges(qualification_id: str, total: int) -> str:
+def practice_ranges(qualification_id: str, total: int, current_page: int | None = None) -> str:
     items = []
     for page in range(1, max(3, (total + PRACTICE_PAGE_SIZE - 1) // PRACTICE_PAGE_SIZE) + 1):
         start = (page - 1) * PRACTICE_PAGE_SIZE + 1
@@ -98,10 +98,13 @@ def practice_ranges(qualification_id: str, total: int) -> str:
         label = f"{start}〜{end}問"
         if total >= start:
             count = min(total - start + 1, PRACTICE_PAGE_SIZE)
-            items.append(f'<a href="{practice_route(qualification_id, page)}">{label}<small>公開中：{count}問</small></a>')
+            current = page == current_page
+            status = '<small>このページ</small>' if current else (f'<small>公開中：{count}問</small>' if count < PRACTICE_PAGE_SIZE else '')
+            current_attr = ' aria-current="page"' if current else ''
+            items.append(f'<a href="{practice_route(qualification_id, page)}"{current_attr}>{label}{status}</a>')
         else:
             items.append(f'<span>{label}<small>準備中</small></span>')
-    return f'<nav class="quiz-range-links" aria-label="問題集の範囲">{"".join(items)}</nav>'
+    return f'<nav class="quiz-range-links" aria-label="問題集の範囲">{" ".join(items)}</nav>'
 
 
 def featured_question(questions: list[dict], qualification_id: str, day: date) -> dict:
@@ -401,7 +404,8 @@ def render_practice(qualification: dict, questions: list[dict], page: int) -> st
       <h1 id="quiz-title">{escape(qualification['name'])}｜オリジナル練習問題集 {page_label}</h1>
       <p>公開されている出題範囲を参考に、生成AIを活用して作成したオリジナルの4択練習問題です。各試験実施団体が提供する問題ではありません。現在{total}問を公開し、このページでは{len(current)}問に挑戦できます。</p>
     </section>
-    {practice_ranges(qualification['id'], total)}
+    <p class="quiz-range-heading">問題集のページを選ぶ <span>100問ずつ・全{total}問</span></p>
+    {practice_ranges(qualification['id'], total, current_page=page)}
     <section class="quiz-section" aria-labelledby="list-heading">
       <div class="quiz-section-heading"><p class="section-kicker">QUESTIONS</p><h2 id="list-heading">公開中の第{start + 1}〜{start + len(current)}問</h2></div>
       <div class="quiz-practice-list">{cards}</div>
