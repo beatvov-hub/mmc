@@ -19,6 +19,12 @@ SITE_URL = "https://mainichi-miru.com"
 PRACTICE_PAGE_SIZE = 100
 SELECTION_EPOCH = date(2026, 9, 28)
 TOKYO = timezone(timedelta(hours=9))
+OFFICIAL_INFO = {
+    "g-kentei": ("一般社団法人 日本ディープラーニング協会（JDLA）", "https://www.jdla.org/certificate/general/", "G検定 公式サイトを見る"),
+    "it-passport": ("独立行政法人 情報処理推進機構（IPA）", "https://www3.jitec.ipa.go.jp/JitesCbt/html/about/range.html", "ITパスポート 公式情報を見る"),
+    "generative-ai-passport": ("一般社団法人 生成AI活用普及協会（GUGA）", "https://guga.or.jp/outline/", "生成AIパスポート 公式サイトを見る"),
+    "ds-kentei": ("一般社団法人 データサイエンティスト協会", "https://www.datascientist.or.jp/dscertification/", "DS検定 公式サイトを見る"),
+}
 
 
 def escape(value: object) -> str:
@@ -95,6 +101,11 @@ def breadcrumb(items: list[tuple[str, str | None]]) -> str:
     return f'<nav class="quiz-breadcrumbs" aria-label="パンくずリスト">{"<span aria-hidden=\"true\">/</span>".join(parts)}</nav>'
 
 
+def official_link(qualification_id: str) -> str:
+    _, url, label = OFFICIAL_INFO[qualification_id]
+    return f'<a href="{escape(url)}" target="_blank" rel="noopener noreferrer">{escape(label)} <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>'
+
+
 def meta(question: dict, *, show_date: bool = True) -> str:
     date_label = "公開日" if question.get("slug") else "出題日"
     date_row = f'      <div><dt>{date_label}</dt><dd>{jp_date(question["date"])}</dd></div>\n' if show_date else ""
@@ -166,6 +177,10 @@ def render_hub(data: dict, featured: dict[str, dict], questions_by_qualification
         </article>"""
         for qualification in data["qualifications"]
     )
+    official_links = "".join(
+        f'<li>{official_link(qualification["id"])}</li>'
+        for qualification in data["qualifications"]
+    )
     body = f"""<main class="page-main quiz-main">
   <div class="page-width">
     <section class="quiz-intro" aria-labelledby="quiz-title">
@@ -181,6 +196,16 @@ def render_hub(data: dict, featured: dict[str, dict], questions_by_qualification
       <div class="quiz-section-heading"><p class="section-kicker">PRACTICE</p><h2 id="chooser-heading">資格別の問題集</h2></div>
       <div class="quiz-card-grid">{banks}</div>
       <p class="quiz-note">掲載する問題は、学び直しの入口として作成したオリジナル練習問題です。</p>
+    </section>
+    <section class="quiz-section quiz-guidance" aria-labelledby="guidance-heading">
+      <div class="quiz-section-heading"><h2 id="guidance-heading">ご利用にあたって</h2></div>
+      <p>本コンテンツは、AI・IT分野の学習を目的として、各資格・試験の公式サイト、公開されているシラバス、出題範囲、学習項目などを参考に作成しています。</p>
+      <p>掲載している問題・選択肢・解説は、生成AIを活用して作成したオリジナル練習問題です。実際の試験問題や過去に出題された問題、各試験実施団体が提供する問題・模擬試験を再現したものではありません。</p>
+      <p>内容は可能な範囲で確認していますが、試験制度、出題範囲、法令、サービス仕様、技術情報などは変更される場合があります。最新かつ正確な情報は、各試験実施団体・関係機関の公式情報をご確認ください。</p>
+      <p>本コンテンツの利用によって、特定の試験への合格や得点向上を保証するものではありません。問題・解説に誤りや不適切な表現が確認された場合は、内容を修正・更新することがあります。</p>
+      <p>各資格名・試験名・サービス名などは、それぞれの運営団体または権利者に帰属します。本サイトは、各試験実施団体による公式サービスではありません。</p>
+      <h3>各資格の公式情報</h3>
+      <ul class="quiz-official-links">{official_links}</ul>
     </section>
   </div>
 </main>"""
@@ -208,6 +233,7 @@ def render_qualification(data: dict, qualification: dict, questions: list[dict],
       <h1 id="quiz-title">{escape(qualification['name'])}｜毎日一問。</h1>
       <p>{escape(qualification['intro'])}</p>
       <p>現在{len(questions)}問のオリジナル練習問題を公開しています。</p>
+      <p class="quiz-intro-disclaimer">本ページは毎日見る株式会社が独自に制作・運営する学習コンテンツです。各試験実施団体による公式サービスではありません。</p>
     </section>
     <section class="quiz-section" aria-labelledby="today-heading">
       <div class="quiz-section-heading"><p class="section-kicker">TODAY / {jp_date(day)}</p><h2 id="today-heading">今日の問題</h2></div>
@@ -219,6 +245,12 @@ def render_qualification(data: dict, qualification: dict, questions: list[dict],
       <p class="quiz-note"><a href="{practice_route(qualification['id'])}">全{len(questions)}問の問題集を見る →</a></p>
 {pending_note}
       <p class="quiz-note">2026年9月19日〜27日分は、2026年9月28日にまとめて公開しました。</p>
+    </section>
+    <section class="quiz-section quiz-official-info" aria-labelledby="official-heading">
+      <div class="quiz-section-heading"><h2 id="official-heading">公式情報を確認する</h2></div>
+      <p>試験内容・最新の出題範囲・受験情報については、試験実施団体の公式サイトをご確認ください。</p>
+      <p class="quiz-official-organization">実施団体・機関：{escape(OFFICIAL_INFO[qualification['id']][0])}</p>
+      <p class="quiz-official-action">{official_link(qualification['id'])}</p>
     </section>
   </div>
 </main>"""
@@ -246,7 +278,7 @@ def render_practice(qualification: dict, questions: list[dict], page: int) -> st
     <section class="quiz-intro quiz-intro-compact" aria-labelledby="quiz-title">
       <p class="section-kicker">PRACTICE / {escape(qualification['icon'])}</p>
       <h1 id="quiz-title">{escape(qualification['name'])}｜オリジナル練習問題集 {page_label}</h1>
-      <p>公式の出題範囲を参考に作成した4択の練習問題です。各資格300問を目標に追加します。現在{total}問を公開しています。このページでは{len(current)}問に挑戦できます。</p>
+      <p>公開されている出題範囲を参考に、生成AIを活用して作成したオリジナルの4択練習問題です。各試験実施団体が提供する問題ではありません。現在{total}問を公開し、このページでは{len(current)}問に挑戦できます。</p>
     </section>
     {practice_ranges(qualification['id'], total)}
     <section class="quiz-section" aria-labelledby="list-heading">
@@ -306,6 +338,10 @@ def render_detail(qualification: dict, question: dict, previous: dict | None, ne
         <h3>関連キーワード</h3><ul class="quiz-keywords">{keyword_list}</ul>
         <p class="quiz-source">参考にした公式情報：{source} / 確認日：{jp_date(question['checkedAt'])}</p>
       </section>
+      <aside class="quiz-origin-note" aria-label="この問題について">
+        <h2>この問題について</h2>
+        <p>本コンテンツの問題は、各資格・試験の公開情報や出題範囲などを参考に、生成AIを活用して作成したオリジナル練習問題です。実際の試験問題や過去に出題された問題、各試験実施団体が提供する問題を再現したものではありません。</p>
+      </aside>
     </article>
     <nav class="quiz-next-nav" aria-label="問題の移動">{previous_link}{next_link}<a href="{practice_route(qualification['id'], bank_page)}">この資格の問題集</a><a href="/quiz/{qualification['id']}">資格トップ</a><a href="/quiz">毎日一問。トップ</a></nav>
   </div>

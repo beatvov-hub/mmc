@@ -89,8 +89,13 @@ class DailyQuizTest(unittest.TestCase):
         hub = (quiz.QUIZ_DIR / "index.html").read_text(encoding="utf-8")
         self.assertEqual(hub.count('class="quiz-detail quiz-home-question'), len(data["qualifications"]))
         self.assertEqual(hub.count('data-quiz-reveal'), len(data["qualifications"]))
+        self.assertIn("ご利用にあたって", hub)
+        self.assertIn("生成AIを活用して作成したオリジナル練習問題", hub)
         for qualification in data["qualifications"]:
             qualification_id = qualification["id"]
+            _, official_url, official_label = quiz.OFFICIAL_INFO[qualification_id]
+            self.assertIn(f'href="{official_url}" target="_blank" rel="noopener noreferrer"', hub)
+            self.assertIn(official_label, hub)
             practice_route = quiz.practice_route(qualification_id)
             self.assertIn(f'href="{practice_route}"', hub)
             second_route = quiz.practice_route(qualification_id, 2)
@@ -101,6 +106,13 @@ class DailyQuizTest(unittest.TestCase):
             self.assertIn(f'href="{fourth_route}"', hub)
             qualification_page = (quiz.QUIZ_DIR / qualification_id / "index.html").read_text(encoding="utf-8")
             self.assertIn(f'href="{practice_route}"', qualification_page)
+            self.assertIn(f'href="{official_url}" target="_blank" rel="noopener noreferrer"', qualification_page)
+            self.assertIn("各試験実施団体による公式サービスではありません", qualification_page)
+            detail_route = quiz.route_for(next(item for item in data["questions"] if item["qualification"] == qualification_id))
+            detail_page = (quiz.ROOT / detail_route.lstrip("/") / "index.html").read_text(encoding="utf-8")
+            self.assertIn("この問題について", detail_page)
+            self.assertIn("生成AIを活用して作成したオリジナル練習問題", detail_page)
+            self.assertIn("data-quiz-reveal", detail_page)
             practice_page = (quiz.QUIZ_DIR / qualification_id / "practice" / "index.html").read_text(encoding="utf-8")
             self.assertEqual(practice_page.count('class="quiz-detail quiz-practice-question'), 100)
             self.assertEqual(practice_page.count('data-quiz-reveal'), 100)
