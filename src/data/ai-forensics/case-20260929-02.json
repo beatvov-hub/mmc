@@ -1,0 +1,52 @@
+{
+  "id": "case-20260929-02",
+  "publishedAt": "2026-09-29",
+  "title": "iPhoneの翻訳を端末内で処理したいなら、言語をダウンロードして設定する",
+  "shortTitle": "iPhone翻訳の処理場所を選ぶ",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["iPhoneの翻訳アプリを使う人", "翻訳する文章の処理場所を選びたい人"],
+  "summary": "AppleはiOS 27のiPhoneユーザガイドで、翻訳アプリの『デバイス上で翻訳』設定を説明しています。必要な言語をダウンロードするとiPhone内で翻訳でき、オフラインでも利用できます。一方『自動』では、言語が未ダウンロードならAppleのサーバで処理される場合があります。機密性の高い文章を翻訳する前に、言語の準備と処理場所の設定を確かめるための記事です。",
+  "scenario": {
+    "headline": "仕事の文章を翻訳したいが、どこで処理されるのか気になる",
+    "description": "翻訳アプリを開けば自動的に端末内だけで処理されると思い、設定を確認していません。",
+    "whyItMatters": "『自動』では言語のダウンロード状態によって処理場所が変わる場合があります。"
+  },
+  "question": {
+    "text": "iPhone内で翻訳したい時、まず何をする？",
+    "choices": [
+      {"id": "download-set", "label": "必要な言語をダウンロードし、デバイス上で翻訳の設定を確認する", "description": "Appleのガイドが案内する設定手順です。"},
+      {"id": "automatic-assume", "label": "『自動』なら必ず端末内だけで処理されると考える", "description": "未ダウンロードの言語はサーバ処理になる場合があります。"},
+      {"id": "offline-only", "label": "通信を切るだけで、どの言語も翻訳できると考える", "description": "オフライン利用には必要な言語のダウンロードが必要です。"}
+    ],
+    "recommendedAnswers": ["download-set"],
+    "explanation": "『設定 → アプリ → 翻訳 → 言語』で必要な言語をダウンロードし、『デバイス上で翻訳』を確認します。『自動』の挙動と常に端末内で処理する選択肢の違いを理解して選びます。"
+  },
+  "inspectionPoints": [
+    {"title": "言語のダウンロード", "description": "『設定 → アプリ → 翻訳 → 言語』で使う言語をダウンロードします。", "priority": "high"},
+    {"title": "自動の意味", "description": "『自動』ではダウンロード済み言語は端末内で処理され、未ダウンロードならAppleのサーバで処理される場合があります。", "priority": "high"},
+    {"title": "端末内処理", "description": "デバイス上で翻訳する設定では、ダウンロード済み言語を使ってiPhone内で処理します。", "priority": "high"},
+    {"title": "オフライン利用", "description": "端末内翻訳はインターネットに接続していなくても使えますが、必要な言語の準備が前提です。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "言語のダウンロード状態と翻訳設定を両方確認する",
+  "verificationMessage": "『自動』を端末内限定と読み違えず、用途に合う処理場所を選びます。",
+  "verdict": {"label": "『自動』は常に端末内処理という意味ではない", "description": "未ダウンロードの言語はサーバ処理になる場合があります。", "confidence": "high"},
+  "safeActions": [
+    {"action": "使う言語を先にダウンロードする", "reason": "端末内処理とオフライン利用の準備になります。"},
+    {"action": "翻訳の設定で処理方法を選ぶ", "reason": "『自動』と端末内での処理を選ぶ設定では挙動が異なります。"},
+    {"action": "仕事の文章は組織の取扱規程も確認する", "reason": "端末内処理を選んでも、業務上の入力許可とは別の判断です。"}
+  ],
+  "avoidActions": [
+    {"action": "『自動』だから必ずAppleのサーバを使わないと思う", "reason": "未ダウンロードの言語ではサーバ処理になる場合があります。"},
+    {"action": "言語を用意せずオフライン翻訳を当てにする", "reason": "必要な言語のダウンロードが前提です。"}
+  ],
+  "positiveUse": {"title": "旅行や日常の翻訳をオフラインでも使う", "description": "渡航前に言語をダウンロードしておけば、通信できない場面でも端末内翻訳を使えます。", "examples": ["海外旅行前の言語準備", "通信の不安定な場所での翻訳", "処理場所を選ぶ"]},
+  "makotoComment": "翻訳の『自動』は便利ですが、処理場所まで常に固定する設定ではありません。私は、まず使う言語をダウンロードし、その後に処理方法を選ぶ順番が分かりやすいと思います。",
+  "oneLineLesson": "端末内で翻訳したいなら、言語のダウンロードと設定の両方を確認する。",
+  "tags": ["iPhone", "翻訳", "オンデバイス", "オフライン", "プライバシー"],
+  "sources": [
+    {"title": "iPhoneで翻訳の設定を変更する", "publisher": "Appleサポート", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.apple.com/ja-jp/guide/iphone/iphddb6e7264/27/ios/27"}
+  ],
+  "visualSuggestion": {"mainVisual": "言語ダウンロードの有無と『自動』設定による処理場所の分岐図。", "cardIcon": "on-device-translation", "accentTone": "info"}
+}

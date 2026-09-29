@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260929-01" />
+<meta property="og:title" content="ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260929-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>ChatGPTのセキュリティ履歴を見る</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-29">2026.09.29</time>
+            </div>
+            <h1>ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる</h1>
+            <p>OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。</p>
+            <ul class="forensics-target-list"><li>ChatGPTを使う人</li><li>アカウントへの不審なアクセスが気になる人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>ChatGPT</li><li>セキュリティ履歴</li><li>不正ログイン</li><li>MFA</li><li>アカウント保護</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>過去の変更履歴と現在のセッションを分けて確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>不審な操作を見つけたら、場所だけで判断せず、記録を残してアカウントを保護します。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>知らない端末からログインされた気がする</h3><p>アカウントに違和感があるものの、現在ログイン中の端末を見るだけでは、過去の設定変更まで分かりません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>セキュリティ履歴は過去のイベントを、アクティブなセッションは現在のログイン状態を確認する別の場所です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="secure">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>覚えのないセキュリティ履歴を見つけたら、どうする？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="secure" data-choice-id="secure" />
+                <span>
+                  <strong>記録を残し、認証情報とセッションを確認してサポートへ相談する</strong>
+                  <small>OpenAIのアカウント保護ガイドに沿う対応です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="location-only" data-choice-id="location-only" />
+                <span>
+                  <strong>表示された場所だけで本人かどうか断定する</strong>
+                  <small>場所や端末の詳細は概算、または表示されないことがあります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="mfa-only" data-choice-id="mfa-only" />
+                <span>
+                  <strong>MFAをオンにするだけで既存のログインも終了すると考える</strong>
+                  <small>MFAの有効化だけでは既存のログインは取り消されません。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>記録を残し、認証情報とセッションを確認してサポートへ相談する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Web版の『設定 → セキュリティとログイン → セキュリティ履歴』でイベントと時刻を確認します。身に覚えがなければ記録を残し、パスワード変更、セッション終了などを進めます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>履歴の場所</h3>
+              <p>ChatGPTのWeb版で『設定 → セキュリティとログイン → セキュリティ履歴』を開きます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>確認できるイベント</h3>
+              <p>ログイン・ログアウト、パスワード、MFA、パスキーなどの変更が対象です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>位置情報の限界</h3>
+              <p>時刻・場所・端末の詳細は参考になりますが、概算または欠落している場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>現在のセッションとは別</h3>
+              <p>現在ログインしている端末は『アクティブなセッション』で確認・管理します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>セキュリティ履歴は異変を調べる手掛かり</strong><p>履歴の場所・時刻・端末を確認し、必要ならパスワードとセッションを見直します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>セキュリティ履歴のイベントと時刻を確認する</strong><span>覚えのないログインや設定変更を探せます。</span></li>
+            <li><strong>不審な記録を残し、パスワードとセッションを見直す</strong><span>OpenAIは侵害が疑われる場合にこれらの対応を案内しています。</span></li>
+            <li><strong>解決できなければOpenAIサポートに相談する</strong><span>不審な活動の詳細はアカウント復旧の助けになります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>場所の表示だけで正規・不正を断定する</strong><span>位置や端末の情報は概算または欠落することがあります。</span></li>
+            <li><strong>MFAをオンにしただけで既存セッションが終了したと思う</strong><span>OpenAIはMFAの有効化では既存のログインは取り消されないと説明しています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>設定変更の履歴を定期点検に使う</h3>
+          <p>過去のイベントと現在のセッションを組み合わせ、アカウントの状態を自分で確かめられます。</p>
+          <ul class="positive-example-list"><li>覚えのないログインの確認</li><li>MFA変更の点検</li><li>端末の入れ替え後の確認</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>新しい履歴画面は『どこから入られたか』を断定するものではありません。場所の精度に頼り切らず、自分が行った設定変更の時刻と照らすのが使いどころです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>過去のセキュリティ履歴と現在のセッションを、別々に確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener noreferrer">ChatGPT — Release Notes<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>その他</span>
+              <time datetime="2026-09-25">2026-09-25</time>
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/8304786-keeping-your-openai-account-secure" target="_blank" rel="noopener noreferrer">Keeping your OpenAI account secure<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260929-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="iPhoneの翻訳を端末内で処理したいなら、言語をダウンロードして設定する iPhone翻訳の処理場所を選ぶ AppleはiOS 27のiPhoneユーザガイドで、翻訳アプリの『デバイス上で翻訳』設定を説明しています。必要な言語をダウンロードするとiPhone内で翻訳でき、オフラインでも利用できます。一方『自動』では、言語が未ダウンロードならAppleのサーバで処理される場合があります。機密性の高い文章を翻訳する前に、言語の準備と処理場所の設定を確かめるための記事です。 セキュリティ・権限 標準 iPhone 翻訳 オンデバイス オフライン プライバシー iPhoneの翻訳アプリを使う人 翻訳する文章の処理場所を選びたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">on-device-translation</span>
+              <div>
+                <p>iPhone翻訳の処理場所を選ぶ</p>
+                <h3>iPhoneの翻訳を端末内で処理したいなら、言語をダウンロードして設定する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-29">2026.09.29</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">AppleはiOS 27のiPhoneユーザガイドで、翻訳アプリの『デバイス上で翻訳』設定を説明しています。必要な言語をダウンロードするとiPhone内で翻訳でき、オフラインでも利用できます。一方『自動』では、言語が未ダウンロードならAppleのサーバで処理される場合があります。機密性の高い文章を翻訳する前に、言語の準備と処理場所の設定を確かめるための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>言語のダウンロード状態と翻訳設定を両方確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhoneの翻訳アプリを使う人</li><li>翻訳する文章の処理場所を選びたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>iPhone</li><li>翻訳</li><li>オンデバイス</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260928-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ホームカメラのAI映像説明は、カメラごとにオン・オフを選ぶ ホームカメラのAI映像説明を選ぶ Appleは2026年9月14日、ホームアプリで録画クリップの説明を生成し、自然な言葉で検索できるApple Intelligence機能を発表しました。iPhoneのホーム設定では、AIによる映像説明をカメラごとに有効・無効にでき、似た通知をまとめる『通知を減らす』設定も別に切り替えられます。利用には対応するホームハブ、Apple Intelligence対応iPhone、2TBのiCloud+プランなどの条件があります。家庭内のどのカメラに説明生成を使うか、通知設定と分けて決める記事です。 セキュリティ・権限 標準 Apple Intelligence ホームアプリ ホームカメラ 映像説明 通知設定 Appleのホームアプリでカメラを使う人 家庭内映像のAI解析と通知を管理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">home-camera-ai-settings</span>
+              <div>
+                <p>ホームカメラのAI映像説明を選ぶ</p>
+                <h3>ホームカメラのAI映像説明は、カメラごとにオン・オフを選ぶ</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-28">2026.09.28</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Appleは2026年9月14日、ホームアプリで録画クリップの説明を生成し、自然な言葉で検索できるApple Intelligence機能を発表しました。iPhoneのホーム設定では、AIによる映像説明をカメラごとに有効・無効にでき、似た通知をまとめる『通知を減らす』設定も別に切り替えられます。利用には対応するホームハブ、Apple Intelligence対応iPhone、2TBのiCloud+プランなどの条件があります。家庭内のどのカメラに説明生成を使うか、通知設定と分けて決める記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>カメラ別の映像説明と通知の集約を別々に設定する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Appleのホームアプリでカメラを使う人</li><li>家庭内映像のAI解析と通知を管理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>ホームアプリ</li><li>ホームカメラ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260927-04" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="AIメガネの白い撮影ランプは何を知らせる？ 保存と共有の境界も知る AIメガネの白い撮影ランプの意味 Metaは2026年7月7日、同社のAIメガネで撮影中に点滅する白い「capture LED」の意味と、写真・動画の保存方法をFAQで説明しました。写真では短く、動画では撮影中に点滅し、撮影ランプにオフスイッチはありません。ギャラリー用の写真・動画はまずメガネに保存され、スマートフォンへの取り込みや他人への共有は別の操作です。周囲の人に撮影を伝え、取り込み・共有前に内容を見直す場面を扱います。 セキュリティ・権限 はじめて AIメガネ Meta 撮影ランプ プライバシー 写真共有 Meta製AIメガネを使う人 AIメガネを着けた人と同じ場にいる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">glasses-capture-led</span>
+              <div>
+                <p>AIメガネの白い撮影ランプの意味</p>
+                <h3>AIメガネの白い撮影ランプは何を知らせる？ 保存と共有の境界も知る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-27">2026.09.27</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Metaは2026年7月7日、同社のAIメガネで撮影中に点滅する白い「capture LED」の意味と、写真・動画の保存方法をFAQで説明しました。写真では短く、動画では撮影中に点滅し、撮影ランプにオフスイッチはありません。ギャラリー用の写真・動画はまずメガネに保存され、スマートフォンへの取り込みや他人への共有は別の操作です。周囲の人に撮影を伝え、取り込み・共有前に内容を見直す場面を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>撮影・取り込み・共有を別々の段階として考える</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Meta製AIメガネを使う人</li><li>AIメガネを着けた人と同じ場にいる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIメガネ</li><li>Meta</li><li>撮影ランプ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260929-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

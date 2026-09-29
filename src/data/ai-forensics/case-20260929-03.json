@@ -1,0 +1,53 @@
+{
+  "id": "case-20260929-03",
+  "publishedAt": "2026-09-29",
+  "title": "ChatGPT for Wordは修正範囲を選んで頼む――開いている文書と別ファイルの境界",
+  "shortTitle": "ChatGPT for Wordの使い方と境界",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["Microsoft WordでChatGPTを使う人", "文書のAI編集を職場で検討する人"],
+  "summary": "OpenAIは2026年9月17日、Microsoft Word内で文書の下書き・要約・選択範囲の修正ができるChatGPT for Wordを発表しました。公式ヘルプでは、開いている文書を扱える一方、PC内の別ファイルは参照できず、複雑な表や書式は手直しが必要と説明しています。アドイン内の会話は通常のChatGPT履歴と別で、Memoryも引き継がれません。文書を大きく変更する前に、範囲と残す条件を指定するための記事です。",
+  "scenario": {
+    "headline": "長い企画書の一段落だけ直したい。別の資料も自動で読んでくれる？",
+    "description": "Wordのサイドバーに依頼する際、どの文章を変えるか、別ファイルを参照できるかを確認していません。",
+    "whyItMatters": "選択範囲を明確にしないと意図しない変更が起こり得ます。別ファイルも自動では参照されません。"
+  },
+  "question": {
+    "text": "企画書の一部分を直す時、どう依頼する？",
+    "choices": [
+      {"id": "select", "label": "修正したい文章を選び、変える点と残す点を伝える", "description": "OpenAIが推奨する具体的な編集方法です。"},
+      {"id": "assume-files", "label": "PC内の参考資料を自動で読んでいると考える", "description": "開いている文書以外のローカルファイルは参照できません。"},
+      {"id": "assume-memory", "label": "通常のChatGPTのMemoryがWordにも引き継がれると考える", "description": "アドイン内の会話とMemoryは通常のChatGPTとは別です。"}
+    ],
+    "recommendedAnswers": ["select"],
+    "explanation": "対象の文章を選び、変更内容と維持する事実・用語を伝えます。必要な別資料は関連部分を貼り付け、重要な変更前には文書のコピーを保存します。"
+  },
+  "inspectionPoints": [
+    {"title": "編集する範囲", "description": "Wordで対象の文章を選択し、変えたい点と残したい点を依頼します。", "priority": "high"},
+    {"title": "参照できるファイル", "description": "開いている文書は扱えますが、PC内の別ファイルを自動では参照できません。", "priority": "high"},
+    {"title": "書式の限界", "description": "複雑な書式、表、グラフは手動調整が必要になる場合があります。", "priority": "high"},
+    {"title": "会話とMemory", "description": "アドイン内の会話は通常のChatGPT履歴と別で、Memoryは引き継がれません。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "選択範囲、参照資料、維持したい内容を明示する",
+  "verificationMessage": "大きな変更の前にコピーを保存し、重要な事実と書式を確認します。",
+  "verdict": {"label": "Word内のAI編集は対象範囲と資料を明示して使う", "description": "別のローカルファイルや通常のChatGPTのMemoryを暗黙の前提にしません。", "confidence": "high"},
+  "safeActions": [
+    {"action": "対象の文章を選んで、残す情報も指定する", "reason": "編集範囲と維持条件が明確になります。"},
+    {"action": "必要な別資料は関連部分をプロンプトに含める", "reason": "他のローカルファイルは自動参照できません。"},
+    {"action": "大きな変更前に文書を複製し、事実と書式を確認する", "reason": "誤りや意図しない変更、複雑な書式の崩れに備えられます。"}
+  ],
+  "avoidActions": [
+    {"action": "同じPCにあるだけの資料を読んだ前提で指示する", "reason": "別のローカルファイルは参照できません。"},
+    {"action": "以前のChatGPT会話やMemoryが使われていると決めつける", "reason": "アドイン内の会話は別で、Memoryも引き継がれません。"}
+  ],
+  "positiveUse": {"title": "文書の一部分から、安全にAI編集を試す", "description": "選択した段落の明瞭化や見出しの調整から始め、結果を確認してから範囲を広げられます。", "examples": ["段落の短縮", "用語の不統一確認", "見出しの整理"]},
+  "makotoComment": "このアドインでは『同じPC上の資料なら知っているはず』が通用しません。選択範囲と参考文を自分で渡す設計は、意図しない文書全体の変更を防ぐうえでも役立ちます。",
+  "oneLineLesson": "Wordでは修正範囲と参考資料を明示し、別ファイルやMemoryを暗黙に期待しない。",
+  "tags": ["ChatGPT for Word", "文書編集", "選択範囲", "ローカルファイル", "仕事術"],
+  "sources": [
+    {"title": "ChatGPT for Word", "publisher": "OpenAI Help Center", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://help.openai.com/en/articles/20001526-chatgpt-for-word"},
+    {"title": "ChatGPT — Release Notes", "publisher": "OpenAI Help Center", "sourceType": "official-product-update", "publishedAt": "2026-09-17", "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"}
+  ],
+  "visualSuggestion": {"mainVisual": "Wordの選択段落、参照できない別ファイル、編集依頼のサイドバーを示す図。", "cardIcon": "word-selected-edit", "accentTone": "info"}
+}

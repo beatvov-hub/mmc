@@ -1,0 +1,53 @@
+{
+  "id": "case-20260929-01",
+  "publishedAt": "2026-09-29",
+  "title": "ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる",
+  "shortTitle": "ChatGPTのセキュリティ履歴を見る",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["ChatGPTを使う人", "アカウントへの不審なアクセスが気になる人"],
+  "summary": "OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。",
+  "scenario": {
+    "headline": "知らない端末からログインされた気がする",
+    "description": "アカウントに違和感があるものの、現在ログイン中の端末を見るだけでは、過去の設定変更まで分かりません。",
+    "whyItMatters": "セキュリティ履歴は過去のイベントを、アクティブなセッションは現在のログイン状態を確認する別の場所です。"
+  },
+  "question": {
+    "text": "覚えのないセキュリティ履歴を見つけたら、どうする？",
+    "choices": [
+      {"id": "secure", "label": "記録を残し、認証情報とセッションを確認してサポートへ相談する", "description": "OpenAIのアカウント保護ガイドに沿う対応です。"},
+      {"id": "location-only", "label": "表示された場所だけで本人かどうか断定する", "description": "場所や端末の詳細は概算、または表示されないことがあります。"},
+      {"id": "mfa-only", "label": "MFAをオンにするだけで既存のログインも終了すると考える", "description": "MFAの有効化だけでは既存のログインは取り消されません。"}
+    ],
+    "recommendedAnswers": ["secure"],
+    "explanation": "Web版の『設定 → セキュリティとログイン → セキュリティ履歴』でイベントと時刻を確認します。身に覚えがなければ記録を残し、パスワード変更、セッション終了などを進めます。"
+  },
+  "inspectionPoints": [
+    {"title": "履歴の場所", "description": "ChatGPTのWeb版で『設定 → セキュリティとログイン → セキュリティ履歴』を開きます。", "priority": "high"},
+    {"title": "確認できるイベント", "description": "ログイン・ログアウト、パスワード、MFA、パスキーなどの変更が対象です。", "priority": "high"},
+    {"title": "位置情報の限界", "description": "時刻・場所・端末の詳細は参考になりますが、概算または欠落している場合があります。", "priority": "high"},
+    {"title": "現在のセッションとは別", "description": "現在ログインしている端末は『アクティブなセッション』で確認・管理します。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "過去の変更履歴と現在のセッションを分けて確認する",
+  "verificationMessage": "不審な操作を見つけたら、場所だけで判断せず、記録を残してアカウントを保護します。",
+  "verdict": {"label": "セキュリティ履歴は異変を調べる手掛かり", "description": "履歴の場所・時刻・端末を確認し、必要ならパスワードとセッションを見直します。", "confidence": "high"},
+  "safeActions": [
+    {"action": "セキュリティ履歴のイベントと時刻を確認する", "reason": "覚えのないログインや設定変更を探せます。"},
+    {"action": "不審な記録を残し、パスワードとセッションを見直す", "reason": "OpenAIは侵害が疑われる場合にこれらの対応を案内しています。"},
+    {"action": "解決できなければOpenAIサポートに相談する", "reason": "不審な活動の詳細はアカウント復旧の助けになります。"}
+  ],
+  "avoidActions": [
+    {"action": "場所の表示だけで正規・不正を断定する", "reason": "位置や端末の情報は概算または欠落することがあります。"},
+    {"action": "MFAをオンにしただけで既存セッションが終了したと思う", "reason": "OpenAIはMFAの有効化では既存のログインは取り消されないと説明しています。"}
+  ],
+  "positiveUse": {"title": "設定変更の履歴を定期点検に使う", "description": "過去のイベントと現在のセッションを組み合わせ、アカウントの状態を自分で確かめられます。", "examples": ["覚えのないログインの確認", "MFA変更の点検", "端末の入れ替え後の確認"]},
+  "makotoComment": "新しい履歴画面は『どこから入られたか』を断定するものではありません。場所の精度に頼り切らず、自分が行った設定変更の時刻と照らすのが使いどころです。",
+  "oneLineLesson": "過去のセキュリティ履歴と現在のセッションを、別々に確認する。",
+  "tags": ["ChatGPT", "セキュリティ履歴", "不正ログイン", "MFA", "アカウント保護"],
+  "sources": [
+    {"title": "ChatGPT — Release Notes", "publisher": "OpenAI Help Center", "sourceType": "official-product-update", "publishedAt": "2026-09-25", "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"},
+    {"title": "Keeping your OpenAI account secure", "publisher": "OpenAI Help Center", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://help.openai.com/en/articles/8304786-keeping-your-openai-account-secure"}
+  ],
+  "visualSuggestion": {"mainVisual": "過去のイベント一覧と現在のセッションを別の画面として並べた図。", "cardIcon": "account-security-history", "accentTone": "warning"}
+}

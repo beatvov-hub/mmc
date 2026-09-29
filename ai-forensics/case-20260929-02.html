@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>iPhoneの翻訳を端末内で処理したいなら、言語をダウンロードして設定する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="AppleはiOS 27のiPhoneユーザガイドで、翻訳アプリの『デバイス上で翻訳』設定を説明しています。必要な言語をダウンロードするとiPhone内で翻訳でき、オフラインでも利用できます。一方『自動』では、言語が未ダウンロードならAppleのサーバで処理される場合があります。機密性の高い文章を翻訳する前に、言語の準備と処理場所の設定を確かめるための記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260929-02" />
+<meta property="og:title" content="iPhoneの翻訳を端末内で処理したいなら、言語をダウンロードして設定する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="AppleはiOS 27のiPhoneユーザガイドで、翻訳アプリの『デバイス上で翻訳』設定を説明しています。必要な言語をダウンロードするとiPhone内で翻訳でき、オフラインでも利用できます。一方『自動』では、言語が未ダウンロードならAppleのサーバで処理される場合があります。機密性の高い文章を翻訳する前に、言語の準備と処理場所の設定を確かめるための記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260929-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>iPhone翻訳の処理場所を選ぶ</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-29">2026.09.29</time>
+            </div>
+            <h1>iPhoneの翻訳を端末内で処理したいなら、言語をダウンロードして設定する</h1>
+            <p>AppleはiOS 27のiPhoneユーザガイドで、翻訳アプリの『デバイス上で翻訳』設定を説明しています。必要な言語をダウンロードするとiPhone内で翻訳でき、オフラインでも利用できます。一方『自動』では、言語が未ダウンロードならAppleのサーバで処理される場合があります。機密性の高い文章を翻訳する前に、言語の準備と処理場所の設定を確かめるための記事です。</p>
+            <ul class="forensics-target-list"><li>iPhoneの翻訳アプリを使う人</li><li>翻訳する文章の処理場所を選びたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>iPhone</li><li>翻訳</li><li>オンデバイス</li><li>オフライン</li><li>プライバシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>言語のダウンロード状態と翻訳設定を両方確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>『自動』を端末内限定と読み違えず、用途に合う処理場所を選びます。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>仕事の文章を翻訳したいが、どこで処理されるのか気になる</h3><p>翻訳アプリを開けば自動的に端末内だけで処理されると思い、設定を確認していません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>『自動』では言語のダウンロード状態によって処理場所が変わる場合があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="download-set">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>iPhone内で翻訳したい時、まず何をする？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="download-set" data-choice-id="download-set" />
+                <span>
+                  <strong>必要な言語をダウンロードし、デバイス上で翻訳の設定を確認する</strong>
+                  <small>Appleのガイドが案内する設定手順です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="automatic-assume" data-choice-id="automatic-assume" />
+                <span>
+                  <strong>『自動』なら必ず端末内だけで処理されると考える</strong>
+                  <small>未ダウンロードの言語はサーバ処理になる場合があります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="offline-only" data-choice-id="offline-only" />
+                <span>
+                  <strong>通信を切るだけで、どの言語も翻訳できると考える</strong>
+                  <small>オフライン利用には必要な言語のダウンロードが必要です。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>必要な言語をダウンロードし、デバイス上で翻訳の設定を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>『設定 → アプリ → 翻訳 → 言語』で必要な言語をダウンロードし、『デバイス上で翻訳』を確認します。『自動』の挙動と常に端末内で処理する選択肢の違いを理解して選びます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>言語のダウンロード</h3>
+              <p>『設定 → アプリ → 翻訳 → 言語』で使う言語をダウンロードします。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>自動の意味</h3>
+              <p>『自動』ではダウンロード済み言語は端末内で処理され、未ダウンロードならAppleのサーバで処理される場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>端末内処理</h3>
+              <p>デバイス上で翻訳する設定では、ダウンロード済み言語を使ってiPhone内で処理します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>オフライン利用</h3>
+              <p>端末内翻訳はインターネットに接続していなくても使えますが、必要な言語の準備が前提です。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>『自動』は常に端末内処理という意味ではない</strong><p>未ダウンロードの言語はサーバ処理になる場合があります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>使う言語を先にダウンロードする</strong><span>端末内処理とオフライン利用の準備になります。</span></li>
+            <li><strong>翻訳の設定で処理方法を選ぶ</strong><span>『自動』と端末内での処理を選ぶ設定では挙動が異なります。</span></li>
+            <li><strong>仕事の文章は組織の取扱規程も確認する</strong><span>端末内処理を選んでも、業務上の入力許可とは別の判断です。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>『自動』だから必ずAppleのサーバを使わないと思う</strong><span>未ダウンロードの言語ではサーバ処理になる場合があります。</span></li>
+            <li><strong>言語を用意せずオフライン翻訳を当てにする</strong><span>必要な言語のダウンロードが前提です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>旅行や日常の翻訳をオフラインでも使う</h3>
+          <p>渡航前に言語をダウンロードしておけば、通信できない場面でも端末内翻訳を使えます。</p>
+          <ul class="positive-example-list"><li>海外旅行前の言語準備</li><li>通信の不安定な場所での翻訳</li><li>処理場所を選ぶ</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>翻訳の『自動』は便利ですが、処理場所まで常に固定する設定ではありません。私は、まず使う言語をダウンロードし、その後に処理方法を選ぶ順番が分かりやすいと思います。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>端末内で翻訳したいなら、言語のダウンロードと設定の両方を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.apple.com/ja-jp/guide/iphone/iphddb6e7264/27/ios/27" target="_blank" rel="noopener noreferrer">iPhoneで翻訳の設定を変更する<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Appleサポート</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260929-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる ChatGPTのセキュリティ履歴を見る OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。 セキュリティ・権限 標準 ChatGPT セキュリティ履歴 不正ログイン MFA アカウント保護 ChatGPTを使う人 アカウントへの不審なアクセスが気になる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">account-security-history</span>
+              <div>
+                <p>ChatGPTのセキュリティ履歴を見る</p>
+                <h3>ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-29">2026.09.29</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>過去の変更履歴と現在のセッションを分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTを使う人</li><li>アカウントへの不審なアクセスが気になる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>セキュリティ履歴</li><li>不正ログイン</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260928-01" data-forensics-card data-category="scam" data-level="4" data-difficulty="beginner" data-search-text="iPhoneの「なりすましリスク検出」は、警告なしでも安全の証明ではない なりすましリスク検出の設定と限界 Appleは2026年9月14日、iOS 27以降の「なりすましリスク検出」の仕組みと設定方法を案内しました。対応する他社製アプリが支払いや重要なアカウント変更時にリスク評価を求めると、アプリには危険度だけが返され、警告や本人確認を出すかはアプリが決めます。『不審な兆候なし』は安全の保証ではありません。設定画面で利用したアプリと理由を確かめ、詐欺の相手から機能を切るよう言われてもその場で従わないための記事です。 詐欺・なりすまし はじめて iPhone なりすましリスク検出 詐欺 iOS 27 設定 iPhoneで支払いやアカウント変更をする人 アプリの詐欺警告や本人確認が気になる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">impersonation-risk-setting</span>
+              <div>
+                <p>なりすましリスク検出の設定と限界</p>
+                <h3>iPhoneの「なりすましリスク検出」は、警告なしでも安全の証明ではない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-28">2026.09.28</time>
+              <span>詐欺・なりすまし</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Appleは2026年9月14日、iOS 27以降の「なりすましリスク検出」の仕組みと設定方法を案内しました。対応する他社製アプリが支払いや重要なアカウント変更時にリスク評価を求めると、アプリには危険度だけが返され、警告や本人確認を出すかはアプリが決めます。『不審な兆候なし』は安全の保証ではありません。設定画面で利用したアプリと理由を確かめ、詐欺の相手から機能を切るよう言われてもその場で従わないための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>警告機能の対象と、警告がない場合の限界を知る</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhoneで支払いやアカウント変更をする人</li><li>アプリの詐欺警告や本人確認が気になる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>iPhone</li><li>なりすましリスク検出</li><li>詐欺</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260928-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ホームカメラのAI映像説明は、カメラごとにオン・オフを選ぶ ホームカメラのAI映像説明を選ぶ Appleは2026年9月14日、ホームアプリで録画クリップの説明を生成し、自然な言葉で検索できるApple Intelligence機能を発表しました。iPhoneのホーム設定では、AIによる映像説明をカメラごとに有効・無効にでき、似た通知をまとめる『通知を減らす』設定も別に切り替えられます。利用には対応するホームハブ、Apple Intelligence対応iPhone、2TBのiCloud+プランなどの条件があります。家庭内のどのカメラに説明生成を使うか、通知設定と分けて決める記事です。 セキュリティ・権限 標準 Apple Intelligence ホームアプリ ホームカメラ 映像説明 通知設定 Appleのホームアプリでカメラを使う人 家庭内映像のAI解析と通知を管理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">home-camera-ai-settings</span>
+              <div>
+                <p>ホームカメラのAI映像説明を選ぶ</p>
+                <h3>ホームカメラのAI映像説明は、カメラごとにオン・オフを選ぶ</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-28">2026.09.28</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Appleは2026年9月14日、ホームアプリで録画クリップの説明を生成し、自然な言葉で検索できるApple Intelligence機能を発表しました。iPhoneのホーム設定では、AIによる映像説明をカメラごとに有効・無効にでき、似た通知をまとめる『通知を減らす』設定も別に切り替えられます。利用には対応するホームハブ、Apple Intelligence対応iPhone、2TBのiCloud+プランなどの条件があります。家庭内のどのカメラに説明生成を使うか、通知設定と分けて決める記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>カメラ別の映像説明と通知の集約を別々に設定する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Appleのホームアプリでカメラを使う人</li><li>家庭内映像のAI解析と通知を管理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>ホームアプリ</li><li>ホームカメラ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260929-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260929-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
