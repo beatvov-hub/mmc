@@ -9,6 +9,7 @@ from site_layout import apply_layout_to_file
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKS_DATA_PATH = ROOT / "src" / "data" / "workStories.json"
+KEY_VISUALS_PATH = ROOT / "src" / "data" / "gameKeyVisuals.json"
 WORKS_HTML_PATH = ROOT / "works.html"
 WORKS_DIR = ROOT / "works"
 BASE_URL = "https://mainichi-miru.com"
@@ -20,6 +21,7 @@ def esc(value: object) -> str:
 
 def load_works() -> list[dict]:
     works = json.loads(WORKS_DATA_PATH.read_text(encoding="utf-8"))
+    key_visuals = json.loads(KEY_VISUALS_PATH.read_text(encoding="utf-8"))
     if not isinstance(works, list):
         raise ValueError("workStories.json must be a list.")
     required = [
@@ -45,6 +47,11 @@ def load_works() -> list[dict]:
             raise ValueError(f"members must be a list: {work['slug']}")
         if not isinstance(work["nextSteps"], list):
             raise ValueError(f"nextSteps must be a list: {work['slug']}")
+        if work["slug"] in key_visuals:
+            visual = key_visuals[work["slug"]]
+            if set(visual) != {"square", "portrait", "landscape"}:
+                raise ValueError(f"Invalid key visual variants: {work['slug']}")
+            work["keyVisual"] = visual
     return works
 
 
@@ -66,6 +73,36 @@ def work_href(work: dict, prefix: str = "") -> str:
 
 def work_url(work: dict) -> str:
     return f"{BASE_URL}/works/{work['slug']}"
+
+
+def work_og_image(work: dict) -> str:
+    visual = work.get("keyVisual")
+    return f"{BASE_URL}/{visual['landscape']}" if visual else f"{BASE_URL}/image/top004.webp"
+
+
+def render_work_card_visual(work: dict) -> str:
+    visual = work.get("keyVisual")
+    if not visual:
+        return ""
+    return (
+        '            <figure class="work-card-visual">\n'
+        f'              <img src="{esc(visual["square"])}" width="1254" height="1254" loading="lazy" alt="{esc(work["title"])}のキービジュアル" />\n'
+        "            </figure>"
+    )
+
+
+def render_work_detail_visual(work: dict) -> str:
+    visual = work.get("keyVisual")
+    if not visual:
+        return ""
+    return (
+        '      <figure class="work-detail-visual">\n'
+        "        <picture>\n"
+        f'          <source media="(max-width: 620px)" srcset="../{esc(visual["portrait"])}" />\n'
+        f'          <img src="../{esc(visual["landscape"])}" width="1672" height="941" loading="eager" alt="{esc(work["title"])}のキービジュアル" />\n'
+        "        </picture>\n"
+        "      </figure>"
+    )
 
 
 def render_member_chips(work: dict) -> str:
@@ -277,6 +314,12 @@ def render_work_card(work: dict) -> str:
         f'              <span class="tag">{esc(work["category"])}</span>',
         f'              <span class="work-status-chip">{esc(work["statusLabel"])}</span>',
         "            </div>",
+    ]
+    card_visual = render_work_card_visual(work)
+    if card_visual:
+        lines.append(card_visual)
+    lines.extend(
+        [
         f'            <h3>{esc(work["title"])}</h3>',
         f'            <p class="work-summary">{esc(work["summary"])}</p>',
         f'            <p class="work-story-summary">{esc(work["storySummary"])}</p>',
@@ -285,7 +328,8 @@ def render_work_card(work: dict) -> str:
         "            </div>",
         '            <div class="work-links">',
         f'              <a class="mini-button" href="{esc(work_href(work))}">制作背景を読む</a>',
-    ]
+        ]
+    )
     if public_url:
         public_href = local_href("", public_url)
         lines.append(f'              <a class="mini-button mini-button-secondary" href="{esc(public_href)}"{external_link_attrs(public_href)}>{esc(public_label)}</a>')
@@ -423,7 +467,7 @@ def render_rich_detail_page(work: dict) -> str:
         f'    <meta property="og:description" content="{esc(description)}" />',
         '    <meta property="og:type" content="article" />',
         f'    <meta property="og:url" content="{esc(work_url(work))}" />',
-        '    <meta property="og:image" content="https://mainichi-miru.com/image/top004.webp" />',
+        f'    <meta property="og:image" content="{esc(work_og_image(work))}" />',
         '    <meta name="twitter:card" content="summary_large_image" />',
         '    <link rel="icon" href="../favicon.ico" />',
         '    <link rel="stylesheet" href="../styles.css" />',
@@ -466,6 +510,8 @@ def render_rich_detail_page(work: dict) -> str:
         f'          <p>{esc(work["statusBody"])}</p>',
         "        </aside>",
         "      </section>",
+        "",
+        render_work_detail_visual(work),
         "",
         render_quick_look(work),
         "",
@@ -539,7 +585,7 @@ def render_detail_page(work: dict) -> str:
         f'    <meta property="og:description" content="{esc(description)}" />',
         '    <meta property="og:type" content="article" />',
         f'    <meta property="og:url" content="{esc(work_url(work))}" />',
-        '    <meta property="og:image" content="https://mainichi-miru.com/image/top004.webp" />',
+        f'    <meta property="og:image" content="{esc(work_og_image(work))}" />',
         '    <meta name="twitter:card" content="summary_large_image" />',
         '    <link rel="icon" href="../favicon.ico" />',
         '    <link rel="stylesheet" href="../styles.css" />',
@@ -581,6 +627,8 @@ def render_detail_page(work: dict) -> str:
         f'          <p>{esc(work["statusBody"])}</p>',
         "        </aside>",
         "      </section>",
+        "",
+        render_work_detail_visual(work),
         "",
         '      <section class="work-detail-grid" aria-label="制作背景詳細">',
         '        <article class="work-detail-card work-detail-overview">',

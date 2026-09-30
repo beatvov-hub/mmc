@@ -2445,6 +2445,26 @@ body.subpage { padding-top: 88px; }
   display: grid;
   gap: 14px;
 }
+.work-card-visual {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 1px solid rgba(122,79,43,.15);
+  border-radius: 6px;
+  background: #f1e7d7;
+}
+.work-card-visual img {
+  position: absolute;
+  inset: 0;
+}
+.work-card-visual img,
+.work-detail-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .work-card-top {
   display: flex;
   flex-wrap: wrap;
@@ -2496,6 +2516,24 @@ body.subpage { padding-top: 88px; }
 .work-detail-hero {
   width: 100%;
   padding-top: 8px;
+}
+.work-detail-visual {
+  width: 100%;
+  margin: 20px 0 0;
+  overflow: hidden;
+  border: 1px solid #e1ccb0;
+  border-radius: 8px;
+  background: #f1e7d7;
+  box-shadow: 0 14px 36px rgba(54,35,20,.07);
+}
+.work-detail-visual picture {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+}
+.work-detail-visual img {
+  position: absolute;
+  inset: 0;
 }
 .work-detail-note {
   display: grid;
@@ -4599,6 +4637,7 @@ img { max-width: 100%; }
   .gallery-detail-grid {
     grid-template-columns: 1fr;
   }
+  .work-detail-visual picture { aspect-ratio: 2 / 3; }
   .member-card {
     display: grid;
     grid-template-columns: 104px minmax(0, 1fr);

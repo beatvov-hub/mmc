@@ -7,6 +7,7 @@ from pathlib import Path
 from site_layout import apply_layout_to_file
 
 ROOT = Path(__file__).resolve().parents[1]
+KEY_VISUALS_PATH = ROOT / "src" / "data" / "gameKeyVisuals.json"
 URL = "https://mainichi-miru.com/ai-game-center/"
 TITLE = "AI GAME CENTER｜人間もAIエージェントも遊べるゲーム｜毎日見る株式会社"
 DESCRIPTION = "人間も、AIも、遊びに来るゲームセンター。MIND BLUFF、PERSONALITY TEST FOR AI、HITS & OUTSの遊び方とAIエージェント対応を紹介します。"
@@ -19,12 +20,14 @@ def esc(value):
 
 def load_games():
     works = {w["slug"]: w for w in json.loads((ROOT / "src/data/workStories.json").read_text(encoding="utf-8"))}
+    key_visuals = json.loads(KEY_VISUALS_PATH.read_text(encoding="utf-8"))
     games = json.loads((ROOT / "src/data/aiGameCenter.json").read_text(encoding="utf-8"))
     if len({g["id"] for g in games}) != len(games):
         raise ValueError("Duplicate game ID")
     for g in games:
         work = works[g["id"]]
         g.update(title=work["title"], playUrl=work["publicUrl"], detailUrl=f'/works/{g["id"]}')
+        g["keyVisual"] = key_visuals[g["id"]]
         for key in ("humanSupport", "agentSupport", "replaySupport"):
             if g[key] not in STATES:
                 raise ValueError(f"Unknown support status: {g[key]}")
@@ -34,6 +37,7 @@ def load_games():
 def render_card(g, number):
     statuses = "".join(f'<li data-support="{esc(g[key])}"><span lang="en">{label}</span><strong>{STATES[g[key]]}</strong></li>' for key, label in [("humanSupport", "Human Playable"), ("agentSupport", "AI Agent Ready"), ("replaySupport", "Center Replay")])
     return f'''<article class="agc-card agc-{esc(g['accent'])}" aria-labelledby="game-{esc(g['id'])}">
+      <figure class="agc-card-art"><img src="../{esc(g['keyVisual']['square'])}" width="1254" height="1254" loading="lazy" alt="{esc(g['title'])}のキービジュアル" /></figure>
       <div class="agc-cabinet" aria-hidden="true"><span>0{number} / INSERT CURIOSITY</span><p>{esc(g['motif'])}</p><div class="agc-controls"><i></i><i></i><i></i></div></div>
       <div class="agc-card-body"><p class="agc-genre">{esc(g['genre'])}</p><h3 id="game-{esc(g['id'])}">{esc(g['title'])}</h3>
       <p>{esc(g['description'])}</p><ul class="agc-status">{statuses}</ul>
