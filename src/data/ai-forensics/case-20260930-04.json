@@ -1,0 +1,43 @@
+{
+  "id": "case-20260930-04",
+  "publishedAt": "2026-09-30",
+  "title": "YouTubeのAI顔なりすまし検出は、見つけた動画を自動削除しない",
+  "shortTitle": "AI顔なりすまし検出後の判断",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["YouTubeに顔を出すクリエイター", "AIで顔をまねた動画への対応を知りたい人"],
+  "summary": "YouTubeは公式ヘルプで、顔がAIで改変・生成された可能性のある動画を探す『Likeness detection』を実験的機能として案内しています。対象のクリエイターは本人確認を経て候補を確認できますが、検出された動画は自動で削除されません。実写の再利用が候補に出る場合もあり、プライバシー申立て、著作権申立て、保留を内容に応じて選びます。利用できない国もあり、顔の検出が中心です。",
+  "scenario": {"headline": "自分の顔に似た動画が検出された。すぐ削除申立てしてよい？", "description": "YouTube Studioに候補が表示され、AIで作られた偽物だと決めつけて申立てを急いでいます。", "whyItMatters": "実際の映像が候補に含まれることもあり、何が問題かで申立ての種類が変わります。"},
+  "question": {"text": "顔の一致候補が表示されたら、まずどうする？", "choices": [
+    {"id": "review", "label": "動画を確認し、プライバシー・著作権・保留から対応を選ぶ", "description": "検出は自動削除の判断ではありません。"},
+    {"id": "all-ai", "label": "候補はすべてAI生成と決めて一括削除を求める", "description": "実写の映像が候補に含まれる場合があります。"},
+    {"id": "voice", "label": "声のなりすましもこの顔検出で見つかると考える", "description": "現時点では顔の検出が中心です。"}
+  ], "recommendedAnswers": ["review"], "explanation": "『YouTube Studio → Content detection → Likeness → For review』で候補を確認します。AI改変の顔か実写の無断使用かを分け、適切な申立てか保留を選びます。"},
+  "inspectionPoints": [
+    {"title": "利用条件", "description": "実験的機能で、一部の国では利用できません。設定には成人のチャンネル所有者または管理者の権限と、公的身分証・顔の短い動画による確認が必要です。", "priority": "high"},
+    {"title": "検出の対象", "description": "登録したクリエイターの顔が新規動画に含まれる可能性を探します。現時点では音声の類似検出は対象外です。", "priority": "high"},
+    {"title": "誤って候補に出るもの", "description": "AI改変ではない本人の実写映像も候補に出る場合があります。", "priority": "high"},
+    {"title": "対応の選択", "description": "内容に応じてプライバシー申立て、著作権申立て、アーカイブを選びます。申立ては自動承認ではありません。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "検出結果を見て、問題に合う申立てを選ぶ",
+  "verificationMessage": "顔の一致をAI生成の証明や自動削除の決定と同一視しません。",
+  "verdict": {"label": "顔なりすまし検出は審査候補を探す補助機能", "description": "クリエイターが動画を確認し、対応を選ぶ必要があります。", "confidence": "high"},
+  "safeActions": [
+    {"action": "検出された動画の内容と自分の顔の使われ方を確認する", "reason": "実写の再利用などAI生成以外も候補に含まれます。"},
+    {"action": "侵害の種類に合った申立て経路を選ぶ", "reason": "顔のAI改変と原著作物の無断利用では検討点が違います。"},
+    {"action": "機能に見つからない動画も必要なら通常のプライバシー申立てを使う", "reason": "実験的な検出がすべてを拾うわけではありません。"}
+  ],
+  "avoidActions": [
+    {"action": "候補に出たことだけで偽物と断定する", "reason": "本人の実写映像も表示されることがあります。"},
+    {"action": "声のなりすましまで自動検出すると期待する", "reason": "現時点では顔の検出が中心です。"}
+  ],
+  "positiveUse": {"title": "自分の顔の不正利用を探す入口にする", "description": "利用条件を満たすクリエイターは候補を点検し、必要な申立てを適切に進められます。", "examples": ["AI改変動画の確認", "実写の無断利用との区別", "申立ての種類の選択"]},
+  "makotoComment": "『検出』は『違反確定』ではありません。顔が似た動画を見つけたら、まず映像がAI改変なのか実写の再利用なのかを確認するのが、この機能の正しい使い方です。",
+  "oneLineLesson": "顔の一致候補は自動削除されない。内容を確認して申立てを選ぶ。",
+  "tags": ["YouTube", "Likeness detection", "AIなりすまし", "顔", "プライバシー申立て"],
+  "sources": [
+    {"title": "Likeness detection on YouTube", "publisher": "YouTube Help", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.google.com/youtube/answer/16440338?hl=en"}
+  ],
+  "visualSuggestion": {"mainVisual": "一致候補から動画確認、プライバシー申立て・著作権申立て・保留へ分岐する図。", "cardIcon": "youtube-likeness-review", "accentTone": "warning"}
+}

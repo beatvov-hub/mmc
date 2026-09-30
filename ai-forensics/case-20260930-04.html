@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTubeのAI顔なりすまし検出は、見つけた動画を自動削除しない｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="YouTubeは公式ヘルプで、顔がAIで改変・生成された可能性のある動画を探す『Likeness detection』を実験的機能として案内しています。対象のクリエイターは本人確認を経て候補を確認できますが、検出された動画は自動で削除されません。実写の再利用が候補に出る場合もあり、プライバシー申立て、著作権申立て、保留を内容に応じて選びます。利用できない国もあり、顔の検出が中心です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260930-04" />
+<meta property="og:title" content="YouTubeのAI顔なりすまし検出は、見つけた動画を自動削除しない｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="YouTubeは公式ヘルプで、顔がAIで改変・生成された可能性のある動画を探す『Likeness detection』を実験的機能として案内しています。対象のクリエイターは本人確認を経て候補を確認できますが、検出された動画は自動で削除されません。実写の再利用が候補に出る場合もあり、プライバシー申立て、著作権申立て、保留を内容に応じて選びます。利用できない国もあり、顔の検出が中心です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260930-04" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>AI顔なりすまし検出後の判断</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-30">2026.09.30</time>
+            </div>
+            <h1>YouTubeのAI顔なりすまし検出は、見つけた動画を自動削除しない</h1>
+            <p>YouTubeは公式ヘルプで、顔がAIで改変・生成された可能性のある動画を探す『Likeness detection』を実験的機能として案内しています。対象のクリエイターは本人確認を経て候補を確認できますが、検出された動画は自動で削除されません。実写の再利用が候補に出る場合もあり、プライバシー申立て、著作権申立て、保留を内容に応じて選びます。利用できない国もあり、顔の検出が中心です。</p>
+            <ul class="forensics-target-list"><li>YouTubeに顔を出すクリエイター</li><li>AIで顔をまねた動画への対応を知りたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>YouTube</li><li>Likeness detection</li><li>AIなりすまし</li><li>顔</li><li>プライバシー申立て</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>検出結果を見て、問題に合う申立てを選ぶ</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>顔の一致をAI生成の証明や自動削除の決定と同一視しません。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>自分の顔に似た動画が検出された。すぐ削除申立てしてよい？</h3><p>YouTube Studioに候補が表示され、AIで作られた偽物だと決めつけて申立てを急いでいます。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>実際の映像が候補に含まれることもあり、何が問題かで申立ての種類が変わります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="review">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>顔の一致候補が表示されたら、まずどうする？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="review" data-choice-id="review" />
+                <span>
+                  <strong>動画を確認し、プライバシー・著作権・保留から対応を選ぶ</strong>
+                  <small>検出は自動削除の判断ではありません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="all-ai" data-choice-id="all-ai" />
+                <span>
+                  <strong>候補はすべてAI生成と決めて一括削除を求める</strong>
+                  <small>実写の映像が候補に含まれる場合があります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="voice" data-choice-id="voice" />
+                <span>
+                  <strong>声のなりすましもこの顔検出で見つかると考える</strong>
+                  <small>現時点では顔の検出が中心です。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>動画を確認し、プライバシー・著作権・保留から対応を選ぶ</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>『YouTube Studio → Content detection → Likeness → For review』で候補を確認します。AI改変の顔か実写の無断使用かを分け、適切な申立てか保留を選びます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>利用条件</h3>
+              <p>実験的機能で、一部の国では利用できません。設定には成人のチャンネル所有者または管理者の権限と、公的身分証・顔の短い動画による確認が必要です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>検出の対象</h3>
+              <p>登録したクリエイターの顔が新規動画に含まれる可能性を探します。現時点では音声の類似検出は対象外です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>誤って候補に出るもの</h3>
+              <p>AI改変ではない本人の実写映像も候補に出る場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対応の選択</h3>
+              <p>内容に応じてプライバシー申立て、著作権申立て、アーカイブを選びます。申立ては自動承認ではありません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>顔なりすまし検出は審査候補を探す補助機能</strong><p>クリエイターが動画を確認し、対応を選ぶ必要があります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>検出された動画の内容と自分の顔の使われ方を確認する</strong><span>実写の再利用などAI生成以外も候補に含まれます。</span></li>
+            <li><strong>侵害の種類に合った申立て経路を選ぶ</strong><span>顔のAI改変と原著作物の無断利用では検討点が違います。</span></li>
+            <li><strong>機能に見つからない動画も必要なら通常のプライバシー申立てを使う</strong><span>実験的な検出がすべてを拾うわけではありません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>候補に出たことだけで偽物と断定する</strong><span>本人の実写映像も表示されることがあります。</span></li>
+            <li><strong>声のなりすましまで自動検出すると期待する</strong><span>現時点では顔の検出が中心です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>自分の顔の不正利用を探す入口にする</h3>
+          <p>利用条件を満たすクリエイターは候補を点検し、必要な申立てを適切に進められます。</p>
+          <ul class="positive-example-list"><li>AI改変動画の確認</li><li>実写の無断利用との区別</li><li>申立ての種類の選択</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>『検出』は『違反確定』ではありません。顔が似た動画を見つけたら、まず映像がAI改変なのか実写の再利用なのかを確認するのが、この機能の正しい使い方です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>顔の一致候補は自動削除されない。内容を確認して申立てを選ぶ。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/youtube/answer/16440338?hl=en" target="_blank" rel="noopener noreferrer">Likeness detection on YouTube<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>YouTube Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260930-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="家庭向けMicrosoft 365でCopilotを止めると、ほかの接続機能にも影響する Copilotと接続機能の設定を分ける Microsoftは公式サポートで、個人のMicrosoftアカウントで使う家庭向けMicrosoft 365のCopilotは、『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両設定に依存すると説明しています。どちらかをオフにするとWord・Excel・PowerPoint・Outlook・OneNoteのCopilotを使えなくなり、ほかの機能も止まる場合があります。AIだけを止めるつもりで広い設定を変える前に、影響を確かめる記事です。 セキュリティ・権限 標準 Microsoft 365 Copilot 接続エクスペリエンス プライバシー設定 個人アカウント 個人のMicrosoftアカウントでMicrosoft 365を使う人 WordやExcelのCopilotを設定で止めたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">m365-connected-experiences</span>
+              <div>
+                <p>Copilotと接続機能の設定を分ける</p>
+                <h3>家庭向けMicrosoft 365でCopilotを止めると、ほかの接続機能にも影響する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-30">2026.09.30</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは公式サポートで、個人のMicrosoftアカウントで使う家庭向けMicrosoft 365のCopilotは、『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両設定に依存すると説明しています。どちらかをオフにするとWord・Excel・PowerPoint・Outlook・OneNoteのCopilotを使えなくなり、ほかの機能も止まる場合があります。AIだけを止めるつもりで広い設定を変える前に、影響を確かめる記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>家庭向けアカウントか確認し、接続設定の影響を調べる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>個人のMicrosoftアカウントでMicrosoft 365を使う人</li><li>WordやExcelのCopilotを設定で止めたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft 365</li><li>Copilot</li><li>接続エクスペリエンス</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260929-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる ChatGPTのセキュリティ履歴を見る OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。 セキュリティ・権限 標準 ChatGPT セキュリティ履歴 不正ログイン MFA アカウント保護 ChatGPTを使う人 アカウントへの不審なアクセスが気になる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">account-security-history</span>
+              <div>
+                <p>ChatGPTのセキュリティ履歴を見る</p>
+                <h3>ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-29">2026.09.29</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>過去の変更履歴と現在のセッションを分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTを使う人</li><li>アカウントへの不審なアクセスが気になる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>セキュリティ履歴</li><li>不正ログイン</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260929-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="iPhoneの翻訳を端末内で処理したいなら、言語をダウンロードして設定する iPhone翻訳の処理場所を選ぶ AppleはiOS 27のiPhoneユーザガイドで、翻訳アプリの『デバイス上で翻訳』設定を説明しています。必要な言語をダウンロードするとiPhone内で翻訳でき、オフラインでも利用できます。一方『自動』では、言語が未ダウンロードならAppleのサーバで処理される場合があります。機密性の高い文章を翻訳する前に、言語の準備と処理場所の設定を確かめるための記事です。 セキュリティ・権限 標準 iPhone 翻訳 オンデバイス オフライン プライバシー iPhoneの翻訳アプリを使う人 翻訳する文章の処理場所を選びたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">on-device-translation</span>
+              <div>
+                <p>iPhone翻訳の処理場所を選ぶ</p>
+                <h3>iPhoneの翻訳を端末内で処理したいなら、言語をダウンロードして設定する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-29">2026.09.29</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">AppleはiOS 27のiPhoneユーザガイドで、翻訳アプリの『デバイス上で翻訳』設定を説明しています。必要な言語をダウンロードするとiPhone内で翻訳でき、オフラインでも利用できます。一方『自動』では、言語が未ダウンロードならAppleのサーバで処理される場合があります。機密性の高い文章を翻訳する前に、言語の準備と処理場所の設定を確かめるための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>言語のダウンロード状態と翻訳設定を両方確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhoneの翻訳アプリを使う人</li><li>翻訳する文章の処理場所を選びたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>iPhone</li><li>翻訳</li><li>オンデバイス</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260929-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260930-03">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

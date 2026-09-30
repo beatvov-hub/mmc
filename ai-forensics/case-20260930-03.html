@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ClaudeのArtifactを「自分だけ」に戻しても、招待した相手は残る場合がある｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Claudeの公式ヘルプは、Artifactが最初は非公開で、共有後はプランに応じてリンク公開と個別招待を管理できると説明しています。Pro・Maxでは公開範囲を『Only you』に戻しても、個別に招待した相手のアクセスは残ります。一方Team・Enterpriseでは招待相手の扱いが異なります。共有を終える時に、リンクと招待者を別々に確認するための記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260930-03" />
+<meta property="og:title" content="ClaudeのArtifactを「自分だけ」に戻しても、招待した相手は残る場合がある｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Claudeの公式ヘルプは、Artifactが最初は非公開で、共有後はプランに応じてリンク公開と個別招待を管理できると説明しています。Pro・Maxでは公開範囲を『Only you』に戻しても、個別に招待した相手のアクセスは残ります。一方Team・Enterpriseでは招待相手の扱いが異なります。共有を終える時に、リンクと招待者を別々に確認するための記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260930-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Claude Artifactの共有を止める</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-09-30">2026.09.30</time>
+            </div>
+            <h1>ClaudeのArtifactを「自分だけ」に戻しても、招待した相手は残る場合がある</h1>
+            <p>Claudeの公式ヘルプは、Artifactが最初は非公開で、共有後はプランに応じてリンク公開と個別招待を管理できると説明しています。Pro・Maxでは公開範囲を『Only you』に戻しても、個別に招待した相手のアクセスは残ります。一方Team・Enterpriseでは招待相手の扱いが異なります。共有を終える時に、リンクと招待者を別々に確認するための記事です。</p>
+            <ul class="forensics-target-list"><li>ClaudeのArtifactを共有する人</li><li>成果物へのアクセスを取り消したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Claude</li><li>Artifacts</li><li>共有設定</li><li>個別招待</li><li>アクセス解除</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>公開リンクと個別招待を別々に解除する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>『Only you』の表示だけで、全員のアクセスが消えたと判断しません。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>公開リンクを止めたのに、以前招待した相手も見られなくなった？</h3><p>Artifactの共有範囲を『自分だけ』に戻した後、個別招待の一覧を見ていません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Pro・Maxでは公開範囲の変更だけでは招待者のアクセスが残るため、意図した共有終了にならない場合があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="both">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Pro・MaxでArtifactの共有を完全に見直す時、何を確認する？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="both" data-choice-id="both" />
+                <span>
+                  <strong>『Who has access』と個別招待の両方を確認する</strong>
+                  <small>公開範囲と招待者のアクセスは別に残り得ます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="only-you" data-choice-id="only-you" />
+                <span>
+                  <strong>『Only you』にすれば招待者も必ず外れると考える</strong>
+                  <small>Pro・Maxでは招待者のアクセスが残ります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="link-secret" data-choice-id="link-secret" />
+                <span>
+                  <strong>リンクを送らなければ招待済みの相手は開けないと考える</strong>
+                  <small>個別招待はリンク公開とは別のアクセス方法です。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>『Who has access』と個別招待の両方を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Artifactの『Share』で公開範囲を見直し、個別招待した人はそれぞれ削除します。プランによる挙動の違いも確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>初期状態</h3>
+              <p>Artifactは作成時点では非公開で、共有操作をするまで他人には共有されません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>リンク公開</h3>
+              <p>Pro・Maxでは『Only you』と『Anyone with the link』などを選べます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>招待者の残存</h3>
+              <p>Pro・Maxで『Only you』を選んでも個別招待した人はアクセスを保ちます。Team・Enterpriseでは招待の扱いが異なります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>共有停止</h3>
+              <p>『Share』で範囲を変更し、招待者ごとのアクセスは『Remove』で外します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Pro・Maxの『Only you』は招待者の一括解除ではない</strong><p>個別招待を取り消したい時は、招待者一覧から削除します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Artifactの『Share』で公開範囲を確認する</strong><span>リンクを知る人に開ける状態か分かります。</span></li>
+            <li><strong>招待した人の一覧を確認し、不要な人を削除する</strong><span>Pro・Maxでは『Only you』にしても招待者が残ります。</span></li>
+            <li><strong>プランと共有方法を確かめる</strong><span>個人プランと組織プランでアクセス変更の挙動が違います。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>公開範囲の変更だけで個別招待も解除されたと考える</strong><span>Pro・Maxでは招待者のアクセスが残ります。</span></li>
+            <li><strong>リンクだけでなく招待済みの相手もいることを忘れる</strong><span>共有経路が複数あります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>共同制作を終えた時にアクセスを整理する</h3>
+          <p>必要な相手だけに成果物を残し、共有リンクと個別招待を用途に合わせて管理できます。</p>
+          <ul class="positive-example-list"><li>試作品の共有終了</li><li>外部協力者の招待解除</li><li>公開リンクの見直し</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>同じ『共有』画面でも、リンク公開と人への招待は別の鍵です。特にPro・Maxで『自分だけ』に戻した後は、招待者一覧が残っていないかまで見たいところです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>ClaudeのArtifactは、リンク公開を止めても個別招待が残る場合がある。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.claude.com/en/articles/9547008-share-artifacts" target="_blank" rel="noopener noreferrer">Share artifacts<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Claude Help Center</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260930-01" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="自分のサイトをGoogleのAI検索に出すか、Search Consoleで選ぶ AI検索への掲載を選ぶ Googleは2026年8月31日時点で、サイトのリンクや内容をAI Overviews・AI Modeなどの生成AI検索機能に表示するかを選ぶSearch Consoleの設定を全世界のサイトに展開したと案内しています。除外すると対象機能からの表示・流入がなくなる一方、通常の検索順位やAIモデルの学習を制御する設定ではありません。サイト所有者が掲載範囲と流入のトレードオフを判断するための記事です。 仕事・AI活用 標準 Search Console AI Overviews AI Mode サイト運営 掲載設定 自分のWebサイトを運営する人 AI検索からの流入を管理したい発信者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">search-console-ai-control</span>
+              <div>
+                <p>AI検索への掲載を選ぶ</p>
+                <h3>自分のサイトをGoogleのAI検索に出すか、Search Consoleで選ぶ</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-30">2026.09.30</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年8月31日時点で、サイトのリンクや内容をAI Overviews・AI Modeなどの生成AI検索機能に表示するかを選ぶSearch Consoleの設定を全世界のサイトに展開したと案内しています。除外すると対象機能からの表示・流入がなくなる一方、通常の検索順位やAIモデルの学習を制御する設定ではありません。サイト所有者が掲載範囲と流入のトレードオフを判断するための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AI検索への掲載と通常検索・AI学習を分ける</span>
+            </div>
+            <ul class="forensics-card-audience"><li>自分のWebサイトを運営する人</li><li>AI検索からの流入を管理したい発信者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Search Console</li><li>AI Overviews</li><li>AI Mode</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260929-03" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="ChatGPT for Wordは修正範囲を選んで頼む――開いている文書と別ファイルの境界 ChatGPT for Wordの使い方と境界 OpenAIは2026年9月17日、Microsoft Word内で文書の下書き・要約・選択範囲の修正ができるChatGPT for Wordを発表しました。公式ヘルプでは、開いている文書を扱える一方、PC内の別ファイルは参照できず、複雑な表や書式は手直しが必要と説明しています。アドイン内の会話は通常のChatGPT履歴と別で、Memoryも引き継がれません。文書を大きく変更する前に、範囲と残す条件を指定するための記事です。 仕事・AI活用 標準 ChatGPT for Word 文書編集 選択範囲 ローカルファイル 仕事術 Microsoft WordでChatGPTを使う人 文書のAI編集を職場で検討する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">word-selected-edit</span>
+              <div>
+                <p>ChatGPT for Wordの使い方と境界</p>
+                <h3>ChatGPT for Wordは修正範囲を選んで頼む――開いている文書と別ファイルの境界</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-29">2026.09.29</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年9月17日、Microsoft Word内で文書の下書き・要約・選択範囲の修正ができるChatGPT for Wordを発表しました。公式ヘルプでは、開いている文書を扱える一方、PC内の別ファイルは参照できず、複雑な表や書式は手直しが必要と説明しています。アドイン内の会話は通常のChatGPT履歴と別で、Memoryも引き継がれません。文書を大きく変更する前に、範囲と残す条件を指定するための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>選択範囲、参照資料、維持したい内容を明示する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft WordでChatGPTを使う人</li><li>文書のAI編集を職場で検討する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT for Word</li><li>文書編集</li><li>選択範囲</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260928-03" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="Adobeのコンテンツ認証情報を削除しても、公開済みの埋め込み情報は消えない コンテンツ認証情報の削除範囲 Adobeは2026年8月18日更新の公式ヘルプで、Adobe Content Authenticity（Beta）の『Manage Content Credentials』からクラウド保存の認証情報を削除できる一方、ファイルに埋め込まれた情報や公開済みの複製は削除されないと説明しています。生成AI利用の開示を含む認証情報には削除できないものもあります。削除ボタンを押す前に、どこに残る情報を管理したいのかを分けて考えるための記事です。 仕事・AI活用 標準 Adobe Content Authenticity Content Credentials 来歴情報 削除範囲 作品公開 Adobe Content Authenticityで作品の来歴情報を管理する人 公開後に認証情報を取り下げたい制作者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">content-credentials-cloud</span>
+              <div>
+                <p>コンテンツ認証情報の削除範囲</p>
+                <h3>Adobeのコンテンツ認証情報を削除しても、公開済みの埋め込み情報は消えない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-28">2026.09.28</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Adobeは2026年8月18日更新の公式ヘルプで、Adobe Content Authenticity（Beta）の『Manage Content Credentials』からクラウド保存の認証情報を削除できる一方、ファイルに埋め込まれた情報や公開済みの複製は削除されないと説明しています。生成AI利用の開示を含む認証情報には削除できないものもあります。削除ボタンを押す前に、どこに残る情報を管理したいのかを分けて考えるための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>クラウド、ファイル、公開先を分けて削除範囲を確かめる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Adobe Content Authenticityで作品の来歴情報を管理する人</li><li>公開後に認証情報を取り下げたい制作者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Adobe Content Authenticity</li><li>Content Credentials</li><li>来歴情報</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260930-04">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260930-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

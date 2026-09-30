@@ -1,0 +1,43 @@
+{
+  "id": "case-20260930-02",
+  "publishedAt": "2026-09-30",
+  "title": "家庭向けMicrosoft 365でCopilotを止めると、ほかの接続機能にも影響する",
+  "shortTitle": "Copilotと接続機能の設定を分ける",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["個人のMicrosoftアカウントでMicrosoft 365を使う人", "WordやExcelのCopilotを設定で止めたい人"],
+  "summary": "Microsoftは公式サポートで、個人のMicrosoftアカウントで使う家庭向けMicrosoft 365のCopilotは、『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両設定に依存すると説明しています。どちらかをオフにするとWord・Excel・PowerPoint・Outlook・OneNoteのCopilotを使えなくなり、ほかの機能も止まる場合があります。AIだけを止めるつもりで広い設定を変える前に、影響を確かめる記事です。",
+  "scenario": {"headline": "WordのCopilotだけを止めたいので、接続エクスペリエンスをオフにしようとしている", "description": "設定名からは影響範囲が分かりにくく、ほかのMicrosoft 365機能も変わることを知らずに切り替えようとしています。", "whyItMatters": "設定はCopilotだけの個別スイッチではなく、複数アプリやほかの接続機能にも影響します。"},
+  "question": {"text": "家庭向けMicrosoft 365の接続設定をオフにする前に何を確認する？", "choices": [
+    {"id": "scope", "label": "Copilot以外の機能も含めた影響範囲を確認する", "description": "Microsoftは別の機能もオフになる場合があると案内しています。"},
+    {"id": "word-only", "label": "WordのCopilotだけが止まると考える", "description": "複数のMicrosoft 365アプリのCopilotに影響します。"},
+    {"id": "training", "label": "設定オフが学習利用の拒否に必須だと考える", "description": "Microsoftは対象のプロンプト・応答・ファイル内容を基盤モデルの学習に使わないと説明しています。"}
+  ], "recommendedAnswers": ["scope"], "explanation": "2つの接続設定のどちらかをオフにすると、対象アプリのCopilotを使えなくなります。ほかの必要な機能にも影響するか確認してから切り替えます。"},
+  "inspectionPoints": [
+    {"title": "対象アカウント", "description": "個人のMicrosoftアカウントで家庭向けMicrosoft 365を使う場合の案内です。職場・学校アカウントとは分けます。", "priority": "high"},
+    {"title": "依存する設定", "description": "『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両方が関係します。", "priority": "high"},
+    {"title": "止まるアプリ", "description": "どちらかをオフにするとWord、Excel、PowerPoint、Outlook、OneNoteのCopilotが使えなくなります。", "priority": "high"},
+    {"title": "Copilot以外への影響", "description": "同じ設定でほかの接続機能も使えなくなる場合があります。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "家庭向けアカウントか確認し、接続設定の影響を調べる",
+  "verificationMessage": "Copilotだけを止めるつもりで、必要なMicrosoft 365機能まで止めないようにします。",
+  "verdict": {"label": "接続エクスペリエンスはCopilot専用のスイッチではない", "description": "複数アプリのCopilotとほかの機能に影響する広い設定です。", "confidence": "high"},
+  "safeActions": [
+    {"action": "個人用か職場・学校用かを先に確認する", "reason": "適用されるプライバシー案内が異なります。"},
+    {"action": "接続機能の一覧を見て必要な機能を確認する", "reason": "Copilot以外にも影響します。"},
+    {"action": "切り替え後にWordなどの必要な機能を試す", "reason": "実際の利用への影響を確かめられます。"}
+  ],
+  "avoidActions": [
+    {"action": "設定をWordだけのCopilot停止機能と思い込む", "reason": "複数アプリに適用されます。"},
+    {"action": "基盤モデルの学習を止めるためだけに設定をオフにする", "reason": "Microsoftは対象データを基盤モデル学習に使わないと説明しています。"}
+  ],
+  "positiveUse": {"title": "便利な機能を残すか、広く止めるかを選ぶ", "description": "家族や個人の利用状況に合わせて、Copilotとその他の接続機能の影響を比較できます。", "examples": ["WordのCopilot利用判断", "OneNoteの機能確認", "家庭向けMicrosoft 365の設定見直し"]},
+  "makotoComment": "『Copilotを使わない』という判断と『接続エクスペリエンス全体を止める』という操作は同じではありません。設定前に普段使うOffice機能を思い出すことが大切です。",
+  "oneLineLesson": "家庭向けMicrosoft 365の接続設定は、Copilot以外にも影響する。",
+  "tags": ["Microsoft 365", "Copilot", "接続エクスペリエンス", "プライバシー設定", "個人アカウント"],
+  "sources": [
+    {"title": "Copilot in Microsoft 365 apps for home: your data and privacy", "publisher": "Microsoft Support", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.microsoft.com/en-us/privacy/copilot-in-microsoft-365-apps-for-home-your-data-and-privacy"}
+  ],
+  "visualSuggestion": {"mainVisual": "二つの接続設定から複数のOfficeアプリとCopilotへ影響が広がる図。", "cardIcon": "m365-connected-experiences", "accentTone": "warning"}
+}

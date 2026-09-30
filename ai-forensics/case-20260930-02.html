@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>家庭向けMicrosoft 365でCopilotを止めると、ほかの接続機能にも影響する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは公式サポートで、個人のMicrosoftアカウントで使う家庭向けMicrosoft 365のCopilotは、『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両設定に依存すると説明しています。どちらかをオフにするとWord・Excel・PowerPoint・Outlook・OneNoteのCopilotを使えなくなり、ほかの機能も止まる場合があります。AIだけを止めるつもりで広い設定を変える前に、影響を確かめる記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260930-02" />
+<meta property="og:title" content="家庭向けMicrosoft 365でCopilotを止めると、ほかの接続機能にも影響する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは公式サポートで、個人のMicrosoftアカウントで使う家庭向けMicrosoft 365のCopilotは、『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両設定に依存すると説明しています。どちらかをオフにするとWord・Excel・PowerPoint・Outlook・OneNoteのCopilotを使えなくなり、ほかの機能も止まる場合があります。AIだけを止めるつもりで広い設定を変える前に、影響を確かめる記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260930-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Copilotと接続機能の設定を分ける</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-09-30">2026.09.30</time>
+            </div>
+            <h1>家庭向けMicrosoft 365でCopilotを止めると、ほかの接続機能にも影響する</h1>
+            <p>Microsoftは公式サポートで、個人のMicrosoftアカウントで使う家庭向けMicrosoft 365のCopilotは、『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両設定に依存すると説明しています。どちらかをオフにするとWord・Excel・PowerPoint・Outlook・OneNoteのCopilotを使えなくなり、ほかの機能も止まる場合があります。AIだけを止めるつもりで広い設定を変える前に、影響を確かめる記事です。</p>
+            <ul class="forensics-target-list"><li>個人のMicrosoftアカウントでMicrosoft 365を使う人</li><li>WordやExcelのCopilotを設定で止めたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft 365</li><li>Copilot</li><li>接続エクスペリエンス</li><li>プライバシー設定</li><li>個人アカウント</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>家庭向けアカウントか確認し、接続設定の影響を調べる</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Copilotだけを止めるつもりで、必要なMicrosoft 365機能まで止めないようにします。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>WordのCopilotだけを止めたいので、接続エクスペリエンスをオフにしようとしている</h3><p>設定名からは影響範囲が分かりにくく、ほかのMicrosoft 365機能も変わることを知らずに切り替えようとしています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>設定はCopilotだけの個別スイッチではなく、複数アプリやほかの接続機能にも影響します。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="scope">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>家庭向けMicrosoft 365の接続設定をオフにする前に何を確認する？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="scope" data-choice-id="scope" />
+                <span>
+                  <strong>Copilot以外の機能も含めた影響範囲を確認する</strong>
+                  <small>Microsoftは別の機能もオフになる場合があると案内しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="word-only" data-choice-id="word-only" />
+                <span>
+                  <strong>WordのCopilotだけが止まると考える</strong>
+                  <small>複数のMicrosoft 365アプリのCopilotに影響します。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="training" data-choice-id="training" />
+                <span>
+                  <strong>設定オフが学習利用の拒否に必須だと考える</strong>
+                  <small>Microsoftは対象のプロンプト・応答・ファイル内容を基盤モデルの学習に使わないと説明しています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Copilot以外の機能も含めた影響範囲を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>2つの接続設定のどちらかをオフにすると、対象アプリのCopilotを使えなくなります。ほかの必要な機能にも影響するか確認してから切り替えます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象アカウント</h3>
+              <p>個人のMicrosoftアカウントで家庭向けMicrosoft 365を使う場合の案内です。職場・学校アカウントとは分けます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>依存する設定</h3>
+              <p>『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両方が関係します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>止まるアプリ</h3>
+              <p>どちらかをオフにするとWord、Excel、PowerPoint、Outlook、OneNoteのCopilotが使えなくなります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Copilot以外への影響</h3>
+              <p>同じ設定でほかの接続機能も使えなくなる場合があります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>接続エクスペリエンスはCopilot専用のスイッチではない</strong><p>複数アプリのCopilotとほかの機能に影響する広い設定です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>個人用か職場・学校用かを先に確認する</strong><span>適用されるプライバシー案内が異なります。</span></li>
+            <li><strong>接続機能の一覧を見て必要な機能を確認する</strong><span>Copilot以外にも影響します。</span></li>
+            <li><strong>切り替え後にWordなどの必要な機能を試す</strong><span>実際の利用への影響を確かめられます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>設定をWordだけのCopilot停止機能と思い込む</strong><span>複数アプリに適用されます。</span></li>
+            <li><strong>基盤モデルの学習を止めるためだけに設定をオフにする</strong><span>Microsoftは対象データを基盤モデル学習に使わないと説明しています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>便利な機能を残すか、広く止めるかを選ぶ</h3>
+          <p>家族や個人の利用状況に合わせて、Copilotとその他の接続機能の影響を比較できます。</p>
+          <ul class="positive-example-list"><li>WordのCopilot利用判断</li><li>OneNoteの機能確認</li><li>家庭向けMicrosoft 365の設定見直し</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>『Copilotを使わない』という判断と『接続エクスペリエンス全体を止める』という操作は同じではありません。設定前に普段使うOffice機能を思い出すことが大切です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>家庭向けMicrosoft 365の接続設定は、Copilot以外にも影響する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/privacy/copilot-in-microsoft-365-apps-for-home-your-data-and-privacy" target="_blank" rel="noopener noreferrer">Copilot in Microsoft 365 apps for home: your data and privacy<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260930-04" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="YouTubeのAI顔なりすまし検出は、見つけた動画を自動削除しない AI顔なりすまし検出後の判断 YouTubeは公式ヘルプで、顔がAIで改変・生成された可能性のある動画を探す『Likeness detection』を実験的機能として案内しています。対象のクリエイターは本人確認を経て候補を確認できますが、検出された動画は自動で削除されません。実写の再利用が候補に出る場合もあり、プライバシー申立て、著作権申立て、保留を内容に応じて選びます。利用できない国もあり、顔の検出が中心です。 セキュリティ・権限 標準 YouTube Likeness detection AIなりすまし 顔 プライバシー申立て YouTubeに顔を出すクリエイター AIで顔をまねた動画への対応を知りたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">youtube-likeness-review</span>
+              <div>
+                <p>AI顔なりすまし検出後の判断</p>
+                <h3>YouTubeのAI顔なりすまし検出は、見つけた動画を自動削除しない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-30">2026.09.30</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeは公式ヘルプで、顔がAIで改変・生成された可能性のある動画を探す『Likeness detection』を実験的機能として案内しています。対象のクリエイターは本人確認を経て候補を確認できますが、検出された動画は自動で削除されません。実写の再利用が候補に出る場合もあり、プライバシー申立て、著作権申立て、保留を内容に応じて選びます。利用できない国もあり、顔の検出が中心です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>検出結果を見て、問題に合う申立てを選ぶ</span>
+            </div>
+            <ul class="forensics-card-audience"><li>YouTubeに顔を出すクリエイター</li><li>AIで顔をまねた動画への対応を知りたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube</li><li>Likeness detection</li><li>AIなりすまし</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260929-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる ChatGPTのセキュリティ履歴を見る OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。 セキュリティ・権限 標準 ChatGPT セキュリティ履歴 不正ログイン MFA アカウント保護 ChatGPTを使う人 アカウントへの不審なアクセスが気になる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">account-security-history</span>
+              <div>
+                <p>ChatGPTのセキュリティ履歴を見る</p>
+                <h3>ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-29">2026.09.29</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>過去の変更履歴と現在のセッションを分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTを使う人</li><li>アカウントへの不審なアクセスが気になる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>セキュリティ履歴</li><li>不正ログイン</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260929-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="iPhoneの翻訳を端末内で処理したいなら、言語をダウンロードして設定する iPhone翻訳の処理場所を選ぶ AppleはiOS 27のiPhoneユーザガイドで、翻訳アプリの『デバイス上で翻訳』設定を説明しています。必要な言語をダウンロードするとiPhone内で翻訳でき、オフラインでも利用できます。一方『自動』では、言語が未ダウンロードならAppleのサーバで処理される場合があります。機密性の高い文章を翻訳する前に、言語の準備と処理場所の設定を確かめるための記事です。 セキュリティ・権限 標準 iPhone 翻訳 オンデバイス オフライン プライバシー iPhoneの翻訳アプリを使う人 翻訳する文章の処理場所を選びたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">on-device-translation</span>
+              <div>
+                <p>iPhone翻訳の処理場所を選ぶ</p>
+                <h3>iPhoneの翻訳を端末内で処理したいなら、言語をダウンロードして設定する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-29">2026.09.29</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">AppleはiOS 27のiPhoneユーザガイドで、翻訳アプリの『デバイス上で翻訳』設定を説明しています。必要な言語をダウンロードするとiPhone内で翻訳でき、オフラインでも利用できます。一方『自動』では、言語が未ダウンロードならAppleのサーバで処理される場合があります。機密性の高い文章を翻訳する前に、言語の準備と処理場所の設定を確かめるための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>言語のダウンロード状態と翻訳設定を両方確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhoneの翻訳アプリを使う人</li><li>翻訳する文章の処理場所を選びたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>iPhone</li><li>翻訳</li><li>オンデバイス</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260930-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260930-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <nav class="site-footer-nav" aria-label="フッターナビゲーション">
+          <a href="../">ホーム</a>
+          <a href="../about">会社概要</a>
+          <a href="../members">AI社員紹介</a>
+          <a href="../ai-forensics/">AI鑑識室</a>
+          <a href="../works">制作物</a>
+          <a href="../lounge">ラウンジ</a>
+          <a href="../news">ニュース</a>
+          <a href="../contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
