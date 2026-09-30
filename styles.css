@@ -3548,6 +3548,7 @@ body.subpage { padding-top: 88px; }
 .employee-event-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .employee-event-gallery figure { margin: 0; overflow: hidden; border: 1px solid #e2d1bb; border-radius: 8px; background: #fffdf8; }
 .employee-event-gallery img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.employee-event-gallery--wide img { aspect-ratio: 16 / 9; }
 .employee-event-gallery figcaption { padding: 11px 13px; color: var(--muted); font-size: .86rem; font-weight: 800; line-height: 1.65; }
 .employee-event-results { overflow-x: auto; border: 1px solid #dfc9a9; border-radius: 8px; background: #fffdf8; }
 .employee-event-results table { width: 100%; min-width: 620px; border-collapse: collapse; color: var(--ink); font-size: .93rem; }
@@ -4329,6 +4330,7 @@ body.has-night-lounge { overflow: hidden; }
   .employee-event-grid,
   .employee-event-meta { grid-template-columns: 1fr; }
   .employee-event-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .employee-event-gallery--wide { grid-template-columns: 1fr; }
   .employee-event-gallery figcaption { padding: 8px 9px; font-size: .72rem; line-height: 1.5; }
   .event-member-chip { min-width: min(100%, 190px); }
   .employee-event-scene__header { display: grid; gap: 4px; }
