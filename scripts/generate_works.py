@@ -305,7 +305,7 @@ def render_quick_look(work: dict) -> str:
     return "\n".join(lines)
 
 
-def render_work_card(work: dict) -> str:
+def render_work_card(work: dict, show_key_visual: bool = True) -> str:
     public_url = work.get("publicUrl")
     public_label = work.get("publicLabel", "公開ページ")
     lines = [
@@ -315,7 +315,7 @@ def render_work_card(work: dict) -> str:
         f'              <span class="work-status-chip">{esc(work["statusLabel"])}</span>',
         "            </div>",
     ]
-    card_visual = render_work_card_visual(work)
+    card_visual = render_work_card_visual(work) if show_key_visual else ""
     if card_visual:
         lines.append(card_visual)
     lines.extend(
@@ -341,7 +341,19 @@ def is_game_work(work: dict) -> bool:
     return "ゲーム" in str(work.get("category", ""))
 
 
-def render_work_group(section_id: str, kicker: str, title: str, description: str, works: list[dict]) -> str:
+def is_published_game(work: dict) -> bool:
+    return is_game_work(work) and "公開" in str(work.get("statusLabel", ""))
+
+
+def render_work_group(
+    section_id: str,
+    kicker: str,
+    title: str,
+    description: str,
+    works: list[dict],
+    *,
+    show_key_visual: bool = True,
+) -> str:
     lines = [
         f'      <section id="{esc(section_id)}" class="card-section works-group-section" aria-labelledby="{esc(section_id)}-title">',
         '        <div class="section-heading works-group-heading">',
@@ -355,7 +367,7 @@ def render_work_group(section_id: str, kicker: str, title: str, description: str
         '        <div class="works-grid works-story-grid">',
     ]
     for work in works:
-        lines.append(render_work_card(work))
+        lines.append(render_work_card(work, show_key_visual=show_key_visual))
     lines.extend(["        </div>", "      </section>"])
     return "\n".join(lines)
 
@@ -363,6 +375,8 @@ def render_work_group(section_id: str, kicker: str, title: str, description: str
 def render_works_main(works: list[dict]) -> str:
     published = sum(1 for work in works if work.get("publicUrl"))
     game_works = [work for work in works if is_game_work(work)]
+    published_game_works = [work for work in game_works if is_published_game(work)]
+    planned_game_works = [work for work in game_works if not is_published_game(work)]
     tool_works = [work for work in works if not is_game_work(work)]
     lines = [
         '    <main class="page-main works-main">',
@@ -407,17 +421,28 @@ def render_works_main(works: list[dict]) -> str:
         "      </section>",
         "",
         '      <nav class="works-type-nav" aria-label="制作物カテゴリ">',
-        '        <a href="#works-games">ゲーム</a>',
+        '        <a href="#works-published-games">公開中のゲーム</a>',
+        '        <a href="#works-planned-games">構想・開発中</a>',
         '        <a href="#works-tools">ツール</a>',
         "      </nav>",
     ]
     lines.append(
         render_work_group(
-            "works-games",
+            "works-published-games",
             "Playable Works",
-            "ゲーム",
-            "公開中のブラウザゲームや、ゲームとして遊ぶ体験を中心にした制作物です。遊べるものは外部ページへのリンクを付けています。",
-            game_works,
+            "公開中のゲーム",
+            "現在ブラウザで遊べる、公開中のゲームです。各作品ページから制作背景や遊び方も読めます。",
+            published_game_works,
+        )
+    )
+    lines.append(
+        render_work_group(
+            "works-planned-games",
+            "In Development",
+            "構想・開発中のゲーム",
+            "試作、MVP、企画段階のゲームです。遊びの核や制作背景を、制作物として記録しています。",
+            planned_game_works,
+            show_key_visual=False,
         )
     )
     lines.append(
