@@ -31,6 +31,18 @@ PICKUP_ARTICLE_IDS = [
     "case-20260813-01",
 ]
 
+# Consolidated duplicate pages keep their older article as the canonical page.
+RETIRED_CASE_REDIRECTS = {
+    "case-20260910-01": "case-20260903-01",
+    "case-20260910-02": "case-20260903-02",
+    "case-20260914-02": "case-20260902-03",
+    "case-20260915-02": "case-20260907-02",
+    "case-20260916-01": "case-20260904-02",
+    "case-20260918-03": "case-20260907-04",
+    "case-20260919-01": "case-20260905-03",
+    "case-20260922-04": "case-20260902-03",
+}
+
 CATEGORY_LABELS = {
     "media-literacy": "情報の見極め",
     "security": "セキュリティ・権限",
@@ -848,6 +860,12 @@ def update_redirects(articles: list[dict[str, Any]]) -> None:
         article_id = article["id"]
         block.append(f"/ai-forensics/{article_id}.html /ai-forensics/{article_id} 301")
         block.append(f"/ai-forensics/{article_id} /ai-forensics/{article_id}.html 200")
+    current_ids = {article["id"] for article in articles}
+    for retired_id, canonical_id in sorted(RETIRED_CASE_REDIRECTS.items()):
+        if retired_id in current_ids or canonical_id not in current_ids:
+            raise ValueError(f"Invalid retired case redirect: {retired_id} -> {canonical_id}")
+        block.append(f"/ai-forensics/{retired_id}.html /ai-forensics/{canonical_id} 301")
+        block.append(f"/ai-forensics/{retired_id} /ai-forensics/{canonical_id} 301")
     block.append("# AI_FORENSICS_REDIRECTS_END")
     rendered_block = "\n".join(block) + "\n"
     marker_pattern = re.compile(

@@ -9,7 +9,7 @@
     "iPhoneでApple Intelligenceを使い、処理場所を確認したい人",
     "AI機能のクラウド利用を設定と記録から確かめたい人"
   ],
-  "summary": "Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」からApple Intelligence Reportを作成し、Private Cloud Computeへ送られた要求のレポートを確認できます。期間は直近15分間または7日間から選び、出力すると`Apple_Intelligence_Report.json`として保存されます。『オンデバイスAI』という説明だけで処理場所を一律に決めつけず、端末で確認できる記録と、機能の利用可否・出力の正確さを分けて見る手順を扱います。",
+  "summary": "Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」→「プライバシーとセキュリティ」→「Apple Intelligence & PCC Report」で記録期間を選び、端末外で処理された要求のレポートを出力できます。Macにも同様の設定があります。対応するApple Intelligence Extensionsへの要求も記録対象ですが、Face IDやTouch IDが一時的に無効だった場合は最近の要求が反映されない可能性があります。『オンデバイスAI』という説明だけで処理場所を決めつけず、記録の対象と限界を確認する手順を扱います。",
   "scenario": {
     "headline": "iPhoneのApple Intelligenceを使っているが、クラウド処理が使われたか確認したい",
     "description": "端末内処理を重視してApple Intelligenceを使っています。複雑な依頼をした時も常に端末だけで終わると思っており、Private Cloud Computeへ要求が送られたかをどこで見られるのか知りません。",
@@ -45,23 +45,23 @@
     },
     {
       "title": "レポートの作成場所と対象期間",
-      "description": "iPhoneの「設定」から「プライバシーとセキュリティ」を開き、Apple Intelligence Reportで直近15分間または7日間を選びます。利用できない端末・地域・言語もあります。",
+      "description": "iPhoneでは「設定」→「プライバシーとセキュリティ」→「Apple Intelligence & PCC Report」、Macでは「システム設定」の同項目で記録期間を選び、要求後にファイルを出力します。",
       "priority": "high"
     },
     {
       "title": "エクスポートしたファイルの扱い",
-      "description": "活動をエクスポートすると、レポートは`Apple_Intelligence_Report.json`として保存されます。共有する場合は、記録に含まれる情報を確認してからにします。",
+      "description": "レポートにはPCCへの要求のほか、対応機能で使ったApple Intelligence Extensionsへの要求も含まれます。共有する場合は、出力したファイルの内容を先に確認します。",
       "priority": "medium"
     },
     {
       "title": "処理場所と回答の正しさを分ける",
-      "description": "レポートはPrivate Cloud Computeへの要求を確認するためのものです。重要な回答は、処理場所にかかわらず元資料や公式情報で検証します。",
+      "description": "Face IDやTouch IDが一時的に無効だった場合、最近の要求がレポートに反映されない可能性があります。記録の有無は回答の正確さも保証しません。",
       "priority": "high"
     }
   ],
   "verificationLevel": 3,
   "verificationLabel": "Apple Intelligenceのクラウド利用は、設定のレポートで確認できる",
-  "verificationMessage": "処理場所が気になる時は、説明文だけで終わらせず、Apple Intelligence Reportの対象期間と出力ファイルを確認しましょう。",
+  "verificationMessage": "処理場所が気になる時は、Apple Intelligence & PCC Reportの対象期間と出力ファイルを確認しましょう。",
   "verdict": {
     "label": "Apple Intelligenceの処理先は、端末内かクラウドかを一律に決めつけない",
     "description": "Apple Intelligenceは端末内処理を基盤としつつ、複雑な要求ではPrivate Cloud Computeを利用できます。対応するiPhoneでは利用記録を出力できるため、プライバシーの判断を『オンデバイス』という一語だけで済ませず、実際の利用状況と用途を確認できます。",
@@ -69,8 +69,8 @@
   },
   "safeActions": [
     {
-      "action": "Apple Intelligence Reportで直近15分または7日間を選び、必要な時だけ活動をエクスポートする",
-      "reason": "Appleは、Private Cloud Computeへ送られた要求のレポートをこの期間で作成できると案内しています。"
+      "action": "Apple Intelligence & PCC Reportで記録期間を選び、利用後にファイルを出力する",
+      "reason": "Appleは、PCCおよび対応するExtensionsへの要求を記録できると案内しています。"
     },
     {
       "action": "レポートを共有する前に、JSONファイルの内容と共有先を確認する",
@@ -92,7 +92,7 @@
     },
     {
       "action": "レポートが空だったことだけで、すべての期間・機能でクラウド処理がなかったと断定する",
-      "reason": "選択した期間にPrivate Cloud Computeへの要求がなければ、レポートが空の場合があります。"
+      "reason": "選択期間外の要求や、Face ID・Touch IDが一時的に無効だった際の最近の要求は反映されない可能性があります。"
     },
     {
       "action": "AIの回答内容を、処理先の表示だけで正しいと判断する",
@@ -119,10 +119,17 @@
       "sourceType": "official-product-documentation",
       "publishedAt": null,
       "url": "https://support.apple.com/guide/iphone/apple-intelligence-and-privacy-iphe3f499e0e/26/ios/26"
+    },
+    {
+      "title": "Apple Intelligence & Privacy",
+      "publisher": "Apple",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://www.apple.com/legal/privacy/data/en/intelligence-engine/"
     }
   ],
   "visualSuggestion": {
-    "mainVisual": "iPhoneのプライバシー設定でApple Intelligence Reportの期間を15分・7日から選び、端末内処理とPrivate Cloud Computeの二つの経路を確認する人物。JSONレポートのファイルアイコンを小さく添える。",
+    "mainVisual": "iPhoneのプライバシー設定でApple Intelligence & PCC Reportの期間を選び、端末内処理とPrivate Cloud Computeの二つの経路を確認する人物。レポートのファイルアイコンを小さく添える。",
     "cardIcon": "apple-intelligence-private-cloud-report",
     "accentTone": "calm"
   }

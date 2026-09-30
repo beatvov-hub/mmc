@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Apple Intelligenceは「端末内だけ」とは限らない。Private Cloud Computeの利用履歴を確認する｜AI鑑識室｜毎日見る株式会社</title>
-    <meta name="description" content="Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」からApple Intelligence Reportを作成し、Private Cloud Computeへ送られた要求のレポートを確認できます。期間は直近15分間または7日間から選び、出力すると`Apple_Intelligence_Report.json`として保存されます。『オンデバイスAI』という説明だけで処理場所を一律に決めつけず、端末で確認できる記録と、機能の利用可否・出力の正確さを分けて見る手順を扱います。" />
+    <meta name="description" content="Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」→「プライバシーとセキュリティ」→「Apple Intelligence &amp; PCC Report」で記録期間を選び、端末外で処理された要求のレポートを出力できます。Macにも同様の設定があります。対応するApple Intelligence Extensionsへの要求も記録対象ですが、Face IDやTouch IDが一時的に無効だった場合は最近の要求が反映されない可能性があります。『オンデバイスAI』という説明だけで処理場所を決めつけず、記録の対象と限界を確認する手順を扱います。" />
     <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260907-02" />
 <meta property="og:title" content="Apple Intelligenceは「端末内だけ」とは限らない。Private Cloud Computeの利用履歴を確認する｜AI鑑識室｜毎日見る株式会社" />
-    <meta property="og:description" content="Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」からApple Intelligence Reportを作成し、Private Cloud Computeへ送られた要求のレポートを確認できます。期間は直近15分間または7日間から選び、出力すると`Apple_Intelligence_Report.json`として保存されます。『オンデバイスAI』という説明だけで処理場所を一律に決めつけず、端末で確認できる記録と、機能の利用可否・出力の正確さを分けて見る手順を扱います。" />
+    <meta property="og:description" content="Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」→「プライバシーとセキュリティ」→「Apple Intelligence &amp; PCC Report」で記録期間を選び、端末外で処理された要求のレポートを出力できます。Macにも同様の設定があります。対応するApple Intelligence Extensionsへの要求も記録対象ですが、Face IDやTouch IDが一時的に無効だった場合は最近の要求が反映されない可能性があります。『オンデバイスAI』という説明だけで処理場所を決めつけず、記録の対象と限界を確認する手順を扱います。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260907-02" />
 <meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
@@ -48,6 +48,7 @@
         <a href="../news">ニュース</a>
         <a class="nav-contact-link" href="../contact">お問い合わせ</a>
       </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
       <a class="contact-button" href="../contact">お問い合わせ</a>
     </header>
     <!-- SITE_HEADER_END -->
@@ -69,7 +70,7 @@
               <time datetime="2026-09-07">2026.09.07</time>
             </div>
             <h1>Apple Intelligenceは「端末内だけ」とは限らない。Private Cloud Computeの利用履歴を確認する</h1>
-            <p>Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」からApple Intelligence Reportを作成し、Private Cloud Computeへ送られた要求のレポートを確認できます。期間は直近15分間または7日間から選び、出力すると`Apple_Intelligence_Report.json`として保存されます。『オンデバイスAI』という説明だけで処理場所を一律に決めつけず、端末で確認できる記録と、機能の利用可否・出力の正確さを分けて見る手順を扱います。</p>
+            <p>Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」→「プライバシーとセキュリティ」→「Apple Intelligence &amp; PCC Report」で記録期間を選び、端末外で処理された要求のレポートを出力できます。Macにも同様の設定があります。対応するApple Intelligence Extensionsへの要求も記録対象ですが、Face IDやTouch IDが一時的に無効だった場合は最近の要求が反映されない可能性があります。『オンデバイスAI』という説明だけで処理場所を決めつけず、記録の対象と限界を確認する手順を扱います。</p>
             <ul class="forensics-target-list"><li>iPhoneでApple Intelligenceを使い、処理場所を確認したい人</li><li>AI機能のクラウド利用を設定と記録から確かめたい人</li></ul>
             <ul class="pill-list forensics-article-tags"><li>Apple Intelligence</li><li>iPhone</li><li>Private Cloud Compute</li><li>プライバシー</li><li>オンデバイスAI</li><li>利用記録</li></ul>
           </div>
@@ -86,7 +87,7 @@
               <span class="forensics-level-dot">5</span>
             </div>
             <small>危険度ではなく、必要な確認の程度を表しています。</small>
-            <p>処理場所が気になる時は、説明文だけで終わらせず、Apple Intelligence Reportの対象期間と出力ファイルを確認しましょう。</p>
+            <p>処理場所が気になる時は、Apple Intelligence &amp; PCC Reportの対象期間と出力ファイルを確認しましょう。</p>
           </div>
         </header>
 
@@ -149,17 +150,17 @@
             <article class="inspection-card priority-high">
               <span>優先して確認</span>
               <h3>レポートの作成場所と対象期間</h3>
-              <p>iPhoneの「設定」から「プライバシーとセキュリティ」を開き、Apple Intelligence Reportで直近15分間または7日間を選びます。利用できない端末・地域・言語もあります。</p>
+              <p>iPhoneでは「設定」→「プライバシーとセキュリティ」→「Apple Intelligence &amp; PCC Report」、Macでは「システム設定」の同項目で記録期間を選び、要求後にファイルを出力します。</p>
             </article>
             <article class="inspection-card priority-medium">
               <span>できれば確認</span>
               <h3>エクスポートしたファイルの扱い</h3>
-              <p>活動をエクスポートすると、レポートは`Apple_Intelligence_Report.json`として保存されます。共有する場合は、記録に含まれる情報を確認してからにします。</p>
+              <p>レポートにはPCCへの要求のほか、対応機能で使ったApple Intelligence Extensionsへの要求も含まれます。共有する場合は、出力したファイルの内容を先に確認します。</p>
             </article>
             <article class="inspection-card priority-high">
               <span>優先して確認</span>
               <h3>処理場所と回答の正しさを分ける</h3>
-              <p>レポートはPrivate Cloud Computeへの要求を確認するためのものです。重要な回答は、処理場所にかかわらず元資料や公式情報で検証します。</p>
+              <p>Face IDやTouch IDが一時的に無効だった場合、最近の要求がレポートに反映されない可能性があります。記録の有無は回答の正確さも保証しません。</p>
             </article>
           </div>
         </section>
@@ -175,14 +176,14 @@
           <h2>安全な対処方法</h2>
           <div class="action-grid">
             <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
-            <li><strong>Apple Intelligence Reportで直近15分または7日間を選び、必要な時だけ活動をエクスポートする</strong><span>Appleは、Private Cloud Computeへ送られた要求のレポートをこの期間で作成できると案内しています。</span></li>
+            <li><strong>Apple Intelligence &amp; PCC Reportで記録期間を選び、利用後にファイルを出力する</strong><span>Appleは、PCCおよび対応するExtensionsへの要求を記録できると案内しています。</span></li>
             <li><strong>レポートを共有する前に、JSONファイルの内容と共有先を確認する</strong><span>活動レポートは端末にファイルとして保存されるため、不要な共有を避ける必要があります。</span></li>
             <li><strong>対応端末・言語・地域かを先に確認する</strong><span>Apple IntelligenceはすべてのiPhone、言語、地域で利用できるわけではありません。</span></li>
             <li><strong>重要な回答は、元資料や公式情報で別に確認する</strong><span>処理場所の確認は、生成内容の正確さを保証するものではありません。</span></li>
             </ul></div>
             <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
             <li><strong>Apple Intelligenceは常に端末内で処理されると決めつける</strong><span>より大きな計算能力が必要な要求ではPrivate Cloud Computeが利用される場合があります。</span></li>
-            <li><strong>レポートが空だったことだけで、すべての期間・機能でクラウド処理がなかったと断定する</strong><span>選択した期間にPrivate Cloud Computeへの要求がなければ、レポートが空の場合があります。</span></li>
+            <li><strong>レポートが空だったことだけで、すべての期間・機能でクラウド処理がなかったと断定する</strong><span>選択期間外の要求や、Face ID・Touch IDが一時的に無効だった際の最近の要求は反映されない可能性があります。</span></li>
             <li><strong>AIの回答内容を、処理先の表示だけで正しいと判断する</strong><span>Private Cloud Computeの利用記録と、回答の事実性・適切性は別の問題です。</span></li>
             </ul></div>
           </div>
@@ -219,75 +220,80 @@
               <span>Apple Support</span>
               <span>その他</span>
             </li>
+            <li>
+              <strong><a href="https://www.apple.com/legal/privacy/data/en/intelligence-engine/" target="_blank" rel="noopener noreferrer">Apple Intelligence &amp; Privacy<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Apple</span>
+              <span>その他</span>
+            </li>
           </ul>
         </section>
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-caution" href="case-20260907-01" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="Geminiに通知を読ませる前に。Keep Activityとは別の「通知アクセス」を確認する Geminiの通知アクセスと端末操作権限を分けて確認する Googleは、Android版GeminiがDevice assistance（旧Utilities）という接続アプリを通じて、アラーム、アプリ、通知、端末設定などを操作できると案内しています。通知に出るメッセージを読んだり返信したりする機能には、Geminiを提供するGoogleアプリへの通知アクセスが必要です。Googleアプリを既定のデジタルアシスタントにすると、Wi-FiやBluetoothなどの設定変更、写真・スクリーンショットの撮影、電源オフといった操作も可能になります。Device assistanceはKeep Activityをオフにしていても動作し得るため、会話履歴の設定だけでなく、通知アクセス・既定アシスタント・Connected Appsを別々に確認する手順を扱います。 セキュリティ・権限 標準 Gemini Android 通知アクセス Device assistance Connected Apps 権限管理 AndroidでGeminiを日常のアシスタントとして使う人 通知の読み上げや返信をAIに任せる前に、端末権限を見直したい人">
+          <a class="forensics-card tone-calm" href="case-20260930-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="家庭向けMicrosoft 365でCopilotを止めると、ほかの接続機能にも影響する Copilotと接続機能の設定を分ける Microsoftは公式サポートで、個人のMicrosoftアカウントで使う家庭向けMicrosoft 365のCopilotは、『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両設定に依存すると説明しています。どちらかをオフにするとWord・Excel・PowerPoint・Outlook・OneNoteのCopilotを使えなくなり、ほかの機能も止まる場合があります。AIだけを止めるつもりで広い設定を変える前に、影響を確かめる記事です。 セキュリティ・権限 標準 Microsoft 365 Copilot 接続エクスペリエンス プライバシー設定 個人アカウント 個人のMicrosoftアカウントでMicrosoft 365を使う人 WordやExcelのCopilotを設定で止めたい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">gemini-notification-device-permissions</span>
+              <span class="forensics-card-icon" aria-hidden="true">m365-connected-experiences</span>
               <div>
-                <p>Geminiの通知アクセスと端末操作権限を分けて確認する</p>
-                <h3>Geminiに通知を読ませる前に。Keep Activityとは別の「通知アクセス」を確認する</h3>
+                <p>Copilotと接続機能の設定を分ける</p>
+                <h3>家庭向けMicrosoft 365でCopilotを止めると、ほかの接続機能にも影響する</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-07">2026.09.07</time>
+              <time datetime="2026-09-30">2026.09.30</time>
               <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Googleは、Android版GeminiがDevice assistance（旧Utilities）という接続アプリを通じて、アラーム、アプリ、通知、端末設定などを操作できると案内しています。通知に出るメッセージを読んだり返信したりする機能には、Geminiを提供するGoogleアプリへの通知アクセスが必要です。Googleアプリを既定のデジタルアシスタントにすると、Wi-FiやBluetoothなどの設定変更、写真・スクリーンショットの撮影、電源オフといった操作も可能になります。Device assistanceはKeep Activityをオフにしていても動作し得るため、会話履歴の設定だけでなく、通知アクセス・既定アシスタント・Connected Appsを別々に確認する手順を扱います。</p>
+            <p class="forensics-card-summary">Microsoftは公式サポートで、個人のMicrosoftアカウントで使う家庭向けMicrosoft 365のCopilotは、『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両設定に依存すると説明しています。どちらかをオフにするとWord・Excel・PowerPoint・Outlook・OneNoteのCopilotを使えなくなり、ほかの機能も止まる場合があります。AIだけを止めるつもりで広い設定を変える前に、影響を確かめる記事です。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>Geminiの会話履歴、通知アクセス、端末操作権限を分けて確認する</span>
+              <strong>確認レベル 4</strong>
+              <span>家庭向けアカウントか確認し、接続設定の影響を調べる</span>
             </div>
-            <ul class="forensics-card-audience"><li>AndroidでGeminiを日常のアシスタントとして使う人</li><li>通知の読み上げや返信をAIに任せる前に、端末権限を見直したい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>Android</li><li>通知アクセス</li></ul>
+            <ul class="forensics-card-audience"><li>個人のMicrosoftアカウントでMicrosoft 365を使う人</li><li>WordやExcelのCopilotを設定で止めたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft 365</li><li>Copilot</li><li>接続エクスペリエンス</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-calm" href="case-20260907-03" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="Galaxy AIの「端末内のみで処理」は万能ではない。止まる機能を確認してから切り替える Galaxy AIを端末内処理に限定する前に機能差を確認する Samsungは、Galaxy AIの機能には端末内で処理されるものと、ネットワーク接続を使うものがあると案内しています。多くの翻訳やGalleryのEdit Suggestionsは端末内処理の例ですが、自動整形、要約、自動修正、画像編集などはクラウドを利用します。対応端末では「設定」からGalaxy AIを開き、「Process data only on device」を有効にしてクラウド処理を止められます。ただし、この切り替えにより利用できなくなる機能があり、機種やOSの違いでも機能は変わります。機密情報を扱う前に、処理場所の希望と必要な機能を照らし合わせる記事です。 セキュリティ・権限 はじめて Galaxy AI Samsung オンデバイスAI クラウド処理 スマホ設定 プライバシー GalaxyスマートフォンやタブレットのAI機能を使う人 AIへの入力をクラウドへ送る範囲を設定から見直したい人">
+          <a class="forensics-card tone-calm" href="case-20260930-04" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="YouTubeのAI顔なりすまし検出は、見つけた動画を自動削除しない AI顔なりすまし検出後の判断 YouTubeは公式ヘルプで、顔がAIで改変・生成された可能性のある動画を探す『Likeness detection』を実験的機能として案内しています。対象のクリエイターは本人確認を経て候補を確認できますが、検出された動画は自動で削除されません。実写の再利用が候補に出る場合もあり、プライバシー申立て、著作権申立て、保留を内容に応じて選びます。利用できない国もあり、顔の検出が中心です。 セキュリティ・権限 標準 YouTube Likeness detection AIなりすまし 顔 プライバシー申立て YouTubeに顔を出すクリエイター AIで顔をまねた動画への対応を知りたい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">galaxy-ai-on-device-processing</span>
+              <span class="forensics-card-icon" aria-hidden="true">youtube-likeness-review</span>
               <div>
-                <p>Galaxy AIを端末内処理に限定する前に機能差を確認する</p>
-                <h3>Galaxy AIの「端末内のみで処理」は万能ではない。止まる機能を確認してから切り替える</h3>
+                <p>AI顔なりすまし検出後の判断</p>
+                <h3>YouTubeのAI顔なりすまし検出は、見つけた動画を自動削除しない</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-07">2026.09.07</time>
+              <time datetime="2026-09-30">2026.09.30</time>
               <span>セキュリティ・権限</span>
-              <span>はじめて</span>
+              <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Samsungは、Galaxy AIの機能には端末内で処理されるものと、ネットワーク接続を使うものがあると案内しています。多くの翻訳やGalleryのEdit Suggestionsは端末内処理の例ですが、自動整形、要約、自動修正、画像編集などはクラウドを利用します。対応端末では「設定」からGalaxy AIを開き、「Process data only on device」を有効にしてクラウド処理を止められます。ただし、この切り替えにより利用できなくなる機能があり、機種やOSの違いでも機能は変わります。機密情報を扱う前に、処理場所の希望と必要な機能を照らし合わせる記事です。</p>
+            <p class="forensics-card-summary">YouTubeは公式ヘルプで、顔がAIで改変・生成された可能性のある動画を探す『Likeness detection』を実験的機能として案内しています。対象のクリエイターは本人確認を経て候補を確認できますが、検出された動画は自動で削除されません。実写の再利用が候補に出る場合もあり、プライバシー申立て、著作権申立て、保留を内容に応じて選びます。利用できない国もあり、顔の検出が中心です。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>Galaxy AIは、端末内処理の希望と使える機能を一緒に確認する</span>
+              <strong>確認レベル 4</strong>
+              <span>検出結果を見て、問題に合う申立てを選ぶ</span>
             </div>
-            <ul class="forensics-card-audience"><li>GalaxyスマートフォンやタブレットのAI機能を使う人</li><li>AIへの入力をクラウドへ送る範囲を設定から見直したい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Galaxy AI</li><li>Samsung</li><li>オンデバイスAI</li></ul>
+            <ul class="forensics-card-audience"><li>YouTubeに顔を出すクリエイター</li><li>AIで顔をまねた動画への対応を知りたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube</li><li>Likeness detection</li><li>AIなりすまし</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-caution" href="case-20260905-01" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="iPhoneのChatGPT拡張、アカウントなしで使う時とログイン後はデータの扱いが変わる Apple IntelligenceのChatGPTは、接続前にアカウント有無を決める Appleは、iPhoneのApple IntelligenceからChatGPTを使う時、ChatGPTアカウントを接続しなくても利用できると案内しています。アカウントなしの場合、ChatGPTの会話履歴に要求を保存することはできませんが、OpenAIにはApple Accountに結び付く情報は渡らず、要求と応答は原則として保存やモデル改善に使われません。一方、ChatGPTアカウントでサインインした場合は、そのChatGPTアカウントの設定とOpenAIのデータプライバシーポリシーが適用されます。SiriはChatGPT利用時に確認を求め、確認をオフにしても写真やファイルを送る前には常に確認されます。便利な連携を始める前に、履歴を残す必要があるかと、どの内容を外部サービスへ渡すかを分けて選ぶ記事です。 セキュリティ・権限 はじめて Apple Intelligence iPhone ChatGPT Siri Writing Tools プライバシー iPhoneのApple IntelligenceからChatGPTを使おうとしている人 SiriやWriting Toolsで写真・ファイルをAIに渡す前に設定を確認したい人">
+          <a class="forensics-card tone-calm" href="case-20260929-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる ChatGPTのセキュリティ履歴を見る OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。 セキュリティ・権限 標準 ChatGPT セキュリティ履歴 不正ログイン MFA アカウント保護 ChatGPTを使う人 アカウントへの不審なアクセスが気になる人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">iphone-chatgpt-account-choice</span>
+              <span class="forensics-card-icon" aria-hidden="true">account-security-history</span>
               <div>
-                <p>Apple IntelligenceのChatGPTは、接続前にアカウント有無を決める</p>
-                <h3>iPhoneのChatGPT拡張、アカウントなしで使う時とログイン後はデータの扱いが変わる</h3>
+                <p>ChatGPTのセキュリティ履歴を見る</p>
+                <h3>ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-05">2026.09.05</time>
+              <time datetime="2026-09-29">2026.09.29</time>
               <span>セキュリティ・権限</span>
-              <span>はじめて</span>
+              <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Appleは、iPhoneのApple IntelligenceからChatGPTを使う時、ChatGPTアカウントを接続しなくても利用できると案内しています。アカウントなしの場合、ChatGPTの会話履歴に要求を保存することはできませんが、OpenAIにはApple Accountに結び付く情報は渡らず、要求と応答は原則として保存やモデル改善に使われません。一方、ChatGPTアカウントでサインインした場合は、そのChatGPTアカウントの設定とOpenAIのデータプライバシーポリシーが適用されます。SiriはChatGPT利用時に確認を求め、確認をオフにしても写真やファイルを送る前には常に確認されます。便利な連携を始める前に、履歴を残す必要があるかと、どの内容を外部サービスへ渡すかを分けて選ぶ記事です。</p>
+            <p class="forensics-card-summary">OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>Apple IntelligenceのChatGPTは、アカウント接続と添付送信を分けて確認する</span>
+              <strong>確認レベル 4</strong>
+              <span>過去の変更履歴と現在のセッションを分けて確認する</span>
             </div>
-            <ul class="forensics-card-audience"><li>iPhoneのApple IntelligenceからChatGPTを使おうとしている人</li><li>SiriやWriting Toolsで写真・ファイルをAIに渡す前に設定を確認したい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>iPhone</li><li>ChatGPT</li></ul>
+            <ul class="forensics-card-audience"><li>ChatGPTを使う人</li><li>アカウントへの不審なアクセスが気になる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>セキュリティ履歴</li><li>不正ログイン</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>
