@@ -46,13 +46,15 @@ def load_events() -> list[dict]:
     events = json.loads(EVENTS_PATH.read_text(encoding="utf-8"))
     if not isinstance(events, list):
         raise ValueError("events.json must be a list.")
-    required = {"id", "slug", "date", "title", "eventName", "place", "summary", "participants", "scenes"}
+    required = {"id", "slug", "date", "title", "eventName", "place", "summary", "participants"}
     for event in events:
         missing = required - set(event)
         if missing:
             raise ValueError(f"Event is missing required fields {sorted(missing)}: {event!r}")
-        if not isinstance(event["participants"], list) or not isinstance(event["scenes"], list):
-            raise ValueError(f"participants and scenes must be lists: {event['slug']}")
+        if not isinstance(event["participants"], list):
+            raise ValueError(f"participants must be a list: {event['slug']}")
+        if not event.get("preserveDetail") and not isinstance(event.get("scenes"), list):
+            raise ValueError(f"scenes must be a list: {event['slug']}")
     return sorted(events, key=lambda item: item["date"], reverse=True)
 
 
@@ -300,11 +302,15 @@ def update_redirects(events: list[dict]) -> None:
 def main() -> None:
     events = load_events()
     EVENTS_DIR.mkdir(parents=True, exist_ok=True)
+    preserved_slugs = {event["slug"] for event in events if event.get("preserveDetail")}
     for path in EVENTS_DIR.glob("*.html"):
-        path.unlink()
+        if path.stem not in preserved_slugs:
+            path.unlink()
     EVENTS_INDEX_PATH.write_text(render_event_index(events), encoding="utf-8")
     output_paths = [EVENTS_INDEX_PATH]
     for event in events:
+        if event.get("preserveDetail"):
+            continue
         path = EVENTS_DIR / f"{event['slug']}.html"
         path.write_text(render_event_detail(event), encoding="utf-8")
         output_paths.append(path)
