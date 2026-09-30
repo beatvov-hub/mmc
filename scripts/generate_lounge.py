@@ -46,6 +46,7 @@ TIME_SLOT_CLASSES = {
 }
 
 STATIC_SITEMAP_PATHS = [
+    "ai-game-center/",
     "",
     "en/",
     "about",

@@ -6,6 +6,8 @@
 主な管理方針
 ------------
 
+- AI GAME CENTERは `/ai-game-center/` の常設セクションです。対応情報は `src/data/aiGameCenter.json`、タイトル・公開URLは既存作品データを参照します。`python -B scripts/generate_ai_game_center.py` で再生成します。調査・将来データ案は `docs/ai-game-center.md` を参照してください。
+
 - トップページ、ニュース、ラウンジ、制作物、ギャラリーを運用中です。
 - 日々の更新は、可能な限り `src/data/*.json` を元データとして管理します。
 - HTMLを直接編集したあとに生成スクリプトを実行すると、生成対象ページは上書きされます。
