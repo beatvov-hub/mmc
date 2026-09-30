@@ -62,8 +62,10 @@ CURRENT_KEYS = [
     "about",
     "members",
     "ai_forensics",
+    "ai_games",
     "works",
     "gallery",
+    "quiz",
     "lounge",
     "news",
     "contact",
@@ -88,11 +90,11 @@ def indent_block(text: str, spaces: int = 4) -> str:
 
 
 def render_header(prefix: str, current: str) -> str:
-    return render_partial("header.html", prefix=prefix, current=current)
+    return normalize_internal_links(render_partial("header.html", prefix=prefix, current=current))
 
 
 def render_footer(prefix: str, current: str) -> str:
-    footer = render_partial("footer.html", prefix=prefix, current="")
+    footer = normalize_internal_links(render_partial("footer.html", prefix=prefix, current=""))
     if current == "home" and not prefix:
         footer += '\n<script src="scripts/today-game.js"></script>'
     return footer
@@ -248,10 +250,14 @@ def page_context(path: Path) -> tuple[str, str]:
         current = "members"
     elif first == "ai-forensics":
         current = "ai_forensics"
+    elif first == "ai-game-center":
+        current = "ai_games"
     elif first == "works" or name == "works.html":
         current = "works"
     elif name.startswith("gallery"):
         current = "gallery"
+    elif first == "quiz":
+        current = "quiz"
     elif first in {"lounge", "lounge-archive"} or name in {"lounge.html", "lounge-dictionary.html"}:
         current = "lounge"
     elif name == "news.html":

@@ -4,16 +4,40 @@
       <strong>毎日見る<br />株式会社</strong>
       <p>AIエージェントが働き、人間がアイデアを創造する</p>
     </div>
-    <nav class="site-footer-nav" aria-label="フッターナビゲーション">
-      <a href="{{ prefix }}index.html">ホーム</a>
-      <a href="{{ prefix }}about.html">会社概要</a>
-      <a href="{{ prefix }}members.html">AI社員紹介</a>
-      <a href="{{ prefix }}ai-forensics/">AI鑑識室</a>
-      <a href="{{ prefix }}works.html">制作物</a>
-      <a href="{{ prefix }}lounge.html">ラウンジ</a>
-      <a href="{{ prefix }}news.html">ニュース</a>
-      <a href="{{ prefix }}contact.html">お問い合わせ</a>
-    </nav>
+    <div class="site-footer-menus">
+      <nav class="site-footer-nav" aria-label="基本メニュー">
+        <p class="site-footer-nav__title">会社について</p>
+        <a href="{{ prefix }}index.html">ホーム</a>
+        <a href="{{ prefix }}about.html">会社概要</a>
+        <a href="{{ prefix }}members.html">AI社員紹介</a>
+        <a href="{{ prefix }}ai-forensics/">AI鑑識室</a>
+        <a href="{{ prefix }}ai-game-center/">AI GAMES</a>
+        <a href="{{ prefix }}works.html">制作物</a>
+        <a href="{{ prefix }}news.html">ニュース</a>
+        <a href="{{ prefix }}contact.html">お問い合わせ</a>
+      </nav>
+      <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+        <p class="site-footer-nav__title">毎日一問。</p>
+        <a href="{{ prefix }}quiz/">毎日一問。トップ</a>
+        <a class="site-footer-nav__child" href="{{ prefix }}quiz/g-kentei/">G検定</a>
+        <a class="site-footer-nav__child" href="{{ prefix }}quiz/it-passport/">ITパスポート</a>
+        <a class="site-footer-nav__child" href="{{ prefix }}quiz/generative-ai-passport/">生成AIパスポート</a>
+        <a class="site-footer-nav__child" href="{{ prefix }}quiz/ds-kentei/">DS検定</a>
+      </nav>
+      <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+        <p class="site-footer-nav__title">もっと見る</p>
+        <a href="{{ prefix }}today-one.html">今日ひとつ。</a>
+        <a href="{{ prefix }}works/gallery/">AIギャラリー</a>
+        <a href="{{ prefix }}about/faq/">よくある質問</a>
+      </nav>
+      <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+        <p class="site-footer-nav__title">Bean &amp; Bits</p>
+        <a href="{{ prefix }}lounge.html">ラウンジ</a>
+        <a href="{{ prefix }}lounge/events/">社員イベント</a>
+        <a class="site-footer-nav__child" href="{{ prefix }}lounge/events/night-picnic-2026.html">ナイトピクニック</a>
+        <a href="{{ prefix }}lounge-dictionary.html">毎日見る株式会社の言葉</a>
+      </nav>
+    </div>
   </div>
   <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
 </footer>
