@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meta Museに作業を任せる前に、接続権限・承認・行動履歴を分けて見る｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Metaは2026年9月8日、個人向けAIエージェントMuseを発表し、米国でiOS・Android・Webへ展開中と案内しています。Museでは接続アプリごとにアクセス範囲を選び、メールを読むだけか送信も許すかを分けられます。メール送信や購入などの機微な操作は事前確認を求め、実行済み・予定中の行動を監査履歴で見られるとMetaは説明します。接続の変更・解除、学習利用からのオプトアウト、覚えた情報の忘却も案内されています。一方、さらに強い暗号化をうたうMuse Confidential VMは今後の予定で、現行機能と混同しないことが重要です。日本での一般提供は公式発表から確認できないため、提供地域と権限の両方を確認する記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261001-02" />
+<meta property="og:title" content="Meta Museに作業を任せる前に、接続権限・承認・行動履歴を分けて見る｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Metaは2026年9月8日、個人向けAIエージェントMuseを発表し、米国でiOS・Android・Webへ展開中と案内しています。Museでは接続アプリごとにアクセス範囲を選び、メールを読むだけか送信も許すかを分けられます。メール送信や購入などの機微な操作は事前確認を求め、実行済み・予定中の行動を監査履歴で見られるとMetaは説明します。接続の変更・解除、学習利用からのオプトアウト、覚えた情報の忘却も案内されています。一方、さらに強い暗号化をうたうMuse Confidential VMは今後の予定で、現行機能と混同しないことが重要です。日本での一般提供は公式発表から確認できないため、提供地域と権限の両方を確認する記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261001-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Museの権限と行動履歴を確認</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-10-01">2026.10.01</time>
+            </div>
+            <h1>Meta Museに作業を任せる前に、接続権限・承認・行動履歴を分けて見る</h1>
+            <p>Metaは2026年9月8日、個人向けAIエージェントMuseを発表し、米国でiOS・Android・Webへ展開中と案内しています。Museでは接続アプリごとにアクセス範囲を選び、メールを読むだけか送信も許すかを分けられます。メール送信や購入などの機微な操作は事前確認を求め、実行済み・予定中の行動を監査履歴で見られるとMetaは説明します。接続の変更・解除、学習利用からのオプトアウト、覚えた情報の忘却も案内されています。一方、さらに強い暗号化をうたうMuse Confidential VMは今後の予定で、現行機能と混同しないことが重要です。日本での一般提供は公式発表から確認できないため、提供地域と権限の両方を確認する記事です。</p>
+            <ul class="forensics-target-list"><li>Meta Museの提供地域でAIエージェントを使う人</li><li>メール送信や購入をAIに任せる条件を考える人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Meta Muse</li><li>AIエージェント</li><li>接続権限</li><li>監査履歴</li><li>事前承認</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>権限、承認、監査履歴を別々に確認する</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>事前確認があるからといって、不要な接続権限まで渡しません。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Museにメール整理と買い物を任せたい</h3><p>便利そうなのでメールや決済サービスを一度に接続しようとしています。何を許したか、後から止められるかが気になります。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>閲覧だけの権限と送信・購入の権限では影響が違います。確認画面があることと、接続権限を絞ることも別の操作です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="scope">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Museへメールを接続する時、最初に決めるべきことは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="scope" data-choice-id="scope" />
+                <span>
+                  <strong>読むだけで足りるか、送信まで必要かを分けて権限を選ぶ</strong>
+                  <small>Metaはアプリごとにアクセス範囲を選べると説明しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="all-access" data-choice-id="all-access" />
+                <span>
+                  <strong>後で確認が出るので、最初から全権限を渡す</strong>
+                  <small>事前確認と、接続時に渡す権限の範囲は別です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="no-audit" data-choice-id="no-audit" />
+                <span>
+                  <strong>AIが行った操作は確認できないと考えて記録を取らない</strong>
+                  <small>Metaは行動の監査履歴を表示すると説明しています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>読むだけで足りるか、送信まで必要かを分けて権限を選ぶ</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>目的に必要な範囲だけ接続し、重要操作の承認と行動履歴を別に確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>提供地域</h3>
+              <p>2026年10月1日時点の公式発表では、Museは米国でiOS・Android・Webへ展開中です。日本での一般提供は確認できません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>アプリごとの権限</h3>
+              <p>接続するアプリとアクセス範囲を利用者が選べます。メールでは閲覧のみか、代理送信も許すかを分けられます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>操作前の承認と事後の記録</h3>
+              <p>Metaはメール送信・購入などの機微な操作で確認を求め、行ったことと予定していることの監査履歴を表示すると説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>終了時の操作</h3>
+              <p>接続の変更・解除、学習利用のオプトアウト、記憶した内容の忘却が案内されています。将来予定のConfidential VMを現行の保護と混同しません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Museの利用開始時は、任せる操作と接続権限を先に絞る</strong><p>承認画面と行動履歴は補助策です。不要になった接続や記憶は別に見直します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>自分の地域でMuseが提供されているかを確認する</strong><span>公式発表で確認できる展開先は米国です。</span></li>
+            <li><strong>接続アプリごとに、読む・送る・購入するなど必要な操作だけを許す</strong><span>Metaはアクセス範囲を利用者が選べると説明しています。</span></li>
+            <li><strong>機微な操作の承認画面と監査履歴を確認する</strong><span>何を実行し、次に何をしようとしているかを把握できます。</span></li>
+            <li><strong>使わない接続を外し、不要な記憶と学習利用の設定を見直す</strong><span>これらは権限設定や承認とは別の管理対象です。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>確認が表示されることだけを理由に全権限を許す</strong><span>事前承認は接続権限の最小化に代わりません。</span></li>
+            <li><strong>予定されているConfidential VMを、すでに使える保護機能として説明する</strong><span>Metaは年内導入予定と案内しています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIエージェントへ段階的に仕事を任せる</h3>
+          <p>まず閲覧など影響の小さい操作で試し、必要に応じて権限を増やし、履歴を確認しながら運用できます。</p>
+          <ul class="positive-example-list"><li>メールを読むだけに限定する</li><li>送信前の承認を確認する</li><li>使わないサービスを切断する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>Museで見るべきなのは『AIが賢いか』より、メールを読む許可と送る許可の境目です。確認画面、監査履歴、接続解除はそれぞれ役割が違うので、任せる作業を増やすたびに三つを見直したいですね。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Museは接続権限を先に絞り、重要操作の承認と行動履歴を別に確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/" target="_blank" rel="noopener noreferrer">Introducing Muse: The World’s First Personal AI Agent Built for Everyone<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Meta</span>
+              <span>その他</span>
+              <time datetime="2026-09-08">2026-09-08</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260930-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="家庭向けMicrosoft 365でCopilotを止めると、ほかの接続機能にも影響する Copilotと接続機能の設定を分ける Microsoftは公式サポートで、個人のMicrosoftアカウントで使う家庭向けMicrosoft 365のCopilotは、『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両設定に依存すると説明しています。どちらかをオフにするとWord・Excel・PowerPoint・Outlook・OneNoteのCopilotを使えなくなり、ほかの機能も止まる場合があります。AIだけを止めるつもりで広い設定を変える前に、影響を確かめる記事です。 セキュリティ・権限 標準 Microsoft 365 Copilot 接続エクスペリエンス プライバシー設定 個人アカウント 個人のMicrosoftアカウントでMicrosoft 365を使う人 WordやExcelのCopilotを設定で止めたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">m365-connected-experiences</span>
+              <div>
+                <p>Copilotと接続機能の設定を分ける</p>
+                <h3>家庭向けMicrosoft 365でCopilotを止めると、ほかの接続機能にも影響する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-30">2026.09.30</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは公式サポートで、個人のMicrosoftアカウントで使う家庭向けMicrosoft 365のCopilotは、『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両設定に依存すると説明しています。どちらかをオフにするとWord・Excel・PowerPoint・Outlook・OneNoteのCopilotを使えなくなり、ほかの機能も止まる場合があります。AIだけを止めるつもりで広い設定を変える前に、影響を確かめる記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>家庭向けアカウントか確認し、接続設定の影響を調べる</span>
+            </div>
+            <ul class="forensics-card-audience"><li>個人のMicrosoftアカウントでMicrosoft 365を使う人</li><li>WordやExcelのCopilotを設定で止めたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft 365</li><li>Copilot</li><li>接続エクスペリエンス</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260930-04" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="YouTubeのAI顔なりすまし検出は、見つけた動画を自動削除しない AI顔なりすまし検出後の判断 YouTubeは公式ヘルプで、顔がAIで改変・生成された可能性のある動画を探す『Likeness detection』を実験的機能として案内しています。対象のクリエイターは本人確認を経て候補を確認できますが、検出された動画は自動で削除されません。実写の再利用が候補に出る場合もあり、プライバシー申立て、著作権申立て、保留を内容に応じて選びます。利用できない国もあり、顔の検出が中心です。 セキュリティ・権限 標準 YouTube Likeness detection AIなりすまし 顔 プライバシー申立て YouTubeに顔を出すクリエイター AIで顔をまねた動画への対応を知りたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">youtube-likeness-review</span>
+              <div>
+                <p>AI顔なりすまし検出後の判断</p>
+                <h3>YouTubeのAI顔なりすまし検出は、見つけた動画を自動削除しない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-30">2026.09.30</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeは公式ヘルプで、顔がAIで改変・生成された可能性のある動画を探す『Likeness detection』を実験的機能として案内しています。対象のクリエイターは本人確認を経て候補を確認できますが、検出された動画は自動で削除されません。実写の再利用が候補に出る場合もあり、プライバシー申立て、著作権申立て、保留を内容に応じて選びます。利用できない国もあり、顔の検出が中心です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>検出結果を見て、問題に合う申立てを選ぶ</span>
+            </div>
+            <ul class="forensics-card-audience"><li>YouTubeに顔を出すクリエイター</li><li>AIで顔をまねた動画への対応を知りたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube</li><li>Likeness detection</li><li>AIなりすまし</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260929-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる ChatGPTのセキュリティ履歴を見る OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。 セキュリティ・権限 標準 ChatGPT セキュリティ履歴 不正ログイン MFA アカウント保護 ChatGPTを使う人 アカウントへの不審なアクセスが気になる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">account-security-history</span>
+              <div>
+                <p>ChatGPTのセキュリティ履歴を見る</p>
+                <h3>ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-29">2026.09.29</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>過去の変更履歴と現在のセッションを分けて確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTを使う人</li><li>アカウントへの不審なアクセスが気になる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>セキュリティ履歴</li><li>不正ログイン</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20260930-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261001-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "id": "case-20261001-01",
+  "publishedAt": "2026-10-01",
+  "title": "Claudeの利用を振り返るベータ機能。休憩通知と記録の対象範囲を先に知る",
+  "shortTitle": "Claudeの利用傾向と休憩通知を確認",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": ["Claudeを日常的に使う人", "AIに任せる仕事の範囲や利用時間を見直したい人"],
+  "summary": "Anthropicは2026年7月9日、Claudeで自分の利用傾向を振り返るベータ機能を発表しました。メモリを有効にしたFree・Pro・Max利用者は、Web版またはデスクトップ版の設定からレポートを生成し、過去1・3・6・12か月の会話傾向を見られます。静かな時間帯や休憩を促す通知も設定できます。ただし、シークレットチャット、接続ツールの元ファイル、健康連携ツールにつながる会話は分析の対象外です。レポートを利用全体の完全な記録とみなさず、何をAIに任せ続けるかを自分で決めるための記事です。",
+  "scenario": {"headline": "気づくと毎日Claudeに作業を頼んでいる", "description": "下書きや調べ物が便利な一方、どの仕事を任せすぎているか、いつ休憩したいかを見直したくなりました。", "whyItMatters": "利用傾向の表示には対象外の会話やファイルがあり、レポートだけでは全活動を把握できません。休憩通知も利用を強制的に止める仕組みではありません。"},
+  "question": {"text": "Claudeの振り返りレポートを使う時、適切な受け止め方は？", "choices": [
+    {"id": "review-and-set", "label": "表示対象の限界を知り、必要なら静かな時間帯や休憩通知を設定する", "description": "自分の作業配分を見直す材料として使います。"},
+    {"id": "complete-log", "label": "接続先の元ファイルやシークレットチャットも全部含む完全なログと考える", "description": "Anthropicはこれらを分析対象外と説明しています。"},
+    {"id": "hard-stop", "label": "休憩通知を設定すれば、その時間はClaudeを使えなくなると考える", "description": "通知は利用者が解除できるリマインダーです。"}
+  ], "recommendedAnswers": ["review-and-set"], "explanation": "設定から利用傾向を確認し、静かな時間帯や休憩通知を自分の用途に合わせます。レポートに出ない情報があることも忘れません。"},
+  "inspectionPoints": [
+    {"title": "利用条件", "description": "2026年10月1日時点ではベータ機能です。Anthropicはメモリを有効にしたFree・Pro・Max利用者向けと案内しています。", "priority": "high"},
+    {"title": "振り返りの期間", "description": "Web版またはデスクトップ版の設定から、過去1・3・6・12か月の利用傾向を確認できます。", "priority": "high"},
+    {"title": "休憩の設定", "description": "静かな時間帯や、一定時間使った後の休憩を促す通知を設定できます。いずれも解除可能なリマインダーです。", "priority": "high"},
+    {"title": "分析されない情報", "description": "シークレットチャット、接続ツールの元ファイル、健康連携ツールにつながる会話は振り返りの対象外です。機微な会話は高い粒度では表示されません。", "priority": "high"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "レポートを完全な利用履歴とみなさない",
+  "verificationMessage": "表示対象を確認し、休憩通知を自分の作業ルールに合わせて使います。",
+  "verdict": {"label": "振り返りは使い方を見直す補助であり、全活動の記録ではない", "description": "対象外の会話やファイルがあることを踏まえて、任せる仕事と休む時間を決めます。", "confidence": "high"},
+  "safeActions": [
+    {"action": "ClaudeのWeb版・デスクトップ版の設定で振り返り機能の利用可否を確認する", "reason": "ベータ機能で、メモリの有効化が利用条件です。"},
+    {"action": "期間を選んで、よく任せる作業と自分で続けたい作業を見直す", "reason": "表示は利用傾向を考える材料になります。"},
+    {"action": "必要なら静かな時間帯や休憩通知を設定する", "reason": "自分の希望する利用ペースを思い出す手がかりになります。"}
+  ],
+  "avoidActions": [
+    {"action": "レポートに出ない会話は存在しなかったと判断する", "reason": "シークレットチャットなどは分析対象外です。"},
+    {"action": "休憩通知を強制的な利用停止機能と受け取る", "reason": "Anthropicは解除できるリマインダーと説明しています。"}
+  ],
+  "positiveUse": {"title": "AIとの作業分担を定期的に見直す", "description": "作業の種類と利用時間の傾向を見て、AIに任せる部分と自分で考える部分を調整できます。", "examples": ["下書きの作業量を振り返る", "静かな時間帯を設ける", "定期的な休憩を促す"]},
+  "makotoComment": "面白いのは、利用時間の数字を競う機能ではなく『自分で続けたいことは何か』まで問いかける点です。レポートに載らない会話もあるので、使い方を決めるのは最後まで本人ですね。",
+  "oneLineLesson": "Claudeの振り返りは利用傾向の一部を映す。休憩通知と合わせて作業分担を見直す。",
+  "tags": ["Claude", "振り返り", "ベータ機能", "休憩通知", "AI活用"],
+  "sources": [
+    {"title": "Introducing a way to reflect on how you use Claude", "publisher": "Anthropic", "sourceType": "official-product-update", "publishedAt": "2026-07-09", "url": "https://www.anthropic.com/news/reflect-with-claude"}
+  ],
+  "visualSuggestion": {"mainVisual": "利用傾向のダッシュボードと休憩通知を見ながら、AIに任せる作業と自分で続ける作業を分ける図。", "cardIcon": "claude-reflection", "accentTone": "calm"}
+}

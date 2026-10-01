@@ -1,0 +1,44 @@
+{
+  "id": "case-20261001-02",
+  "publishedAt": "2026-10-01",
+  "title": "Meta Museに作業を任せる前に、接続権限・承認・行動履歴を分けて見る",
+  "shortTitle": "Museの権限と行動履歴を確認",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["Meta Museの提供地域でAIエージェントを使う人", "メール送信や購入をAIに任せる条件を考える人"],
+  "summary": "Metaは2026年9月8日、個人向けAIエージェントMuseを発表し、米国でiOS・Android・Webへ展開中と案内しています。Museでは接続アプリごとにアクセス範囲を選び、メールを読むだけか送信も許すかを分けられます。メール送信や購入などの機微な操作は事前確認を求め、実行済み・予定中の行動を監査履歴で見られるとMetaは説明します。接続の変更・解除、学習利用からのオプトアウト、覚えた情報の忘却も案内されています。一方、さらに強い暗号化をうたうMuse Confidential VMは今後の予定で、現行機能と混同しないことが重要です。日本での一般提供は公式発表から確認できないため、提供地域と権限の両方を確認する記事です。",
+  "scenario": {"headline": "Museにメール整理と買い物を任せたい", "description": "便利そうなのでメールや決済サービスを一度に接続しようとしています。何を許したか、後から止められるかが気になります。", "whyItMatters": "閲覧だけの権限と送信・購入の権限では影響が違います。確認画面があることと、接続権限を絞ることも別の操作です。"},
+  "question": {"text": "Museへメールを接続する時、最初に決めるべきことは？", "choices": [
+    {"id": "scope", "label": "読むだけで足りるか、送信まで必要かを分けて権限を選ぶ", "description": "Metaはアプリごとにアクセス範囲を選べると説明しています。"},
+    {"id": "all-access", "label": "後で確認が出るので、最初から全権限を渡す", "description": "事前確認と、接続時に渡す権限の範囲は別です。"},
+    {"id": "no-audit", "label": "AIが行った操作は確認できないと考えて記録を取らない", "description": "Metaは行動の監査履歴を表示すると説明しています。"}
+  ], "recommendedAnswers": ["scope"], "explanation": "目的に必要な範囲だけ接続し、重要操作の承認と行動履歴を別に確認します。"},
+  "inspectionPoints": [
+    {"title": "提供地域", "description": "2026年10月1日時点の公式発表では、Museは米国でiOS・Android・Webへ展開中です。日本での一般提供は確認できません。", "priority": "high"},
+    {"title": "アプリごとの権限", "description": "接続するアプリとアクセス範囲を利用者が選べます。メールでは閲覧のみか、代理送信も許すかを分けられます。", "priority": "high"},
+    {"title": "操作前の承認と事後の記録", "description": "Metaはメール送信・購入などの機微な操作で確認を求め、行ったことと予定していることの監査履歴を表示すると説明しています。", "priority": "high"},
+    {"title": "終了時の操作", "description": "接続の変更・解除、学習利用のオプトアウト、記憶した内容の忘却が案内されています。将来予定のConfidential VMを現行の保護と混同しません。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "権限、承認、監査履歴を別々に確認する",
+  "verificationMessage": "事前確認があるからといって、不要な接続権限まで渡しません。",
+  "verdict": {"label": "Museの利用開始時は、任せる操作と接続権限を先に絞る", "description": "承認画面と行動履歴は補助策です。不要になった接続や記憶は別に見直します。", "confidence": "high"},
+  "safeActions": [
+    {"action": "自分の地域でMuseが提供されているかを確認する", "reason": "公式発表で確認できる展開先は米国です。"},
+    {"action": "接続アプリごとに、読む・送る・購入するなど必要な操作だけを許す", "reason": "Metaはアクセス範囲を利用者が選べると説明しています。"},
+    {"action": "機微な操作の承認画面と監査履歴を確認する", "reason": "何を実行し、次に何をしようとしているかを把握できます。"},
+    {"action": "使わない接続を外し、不要な記憶と学習利用の設定を見直す", "reason": "これらは権限設定や承認とは別の管理対象です。"}
+  ],
+  "avoidActions": [
+    {"action": "確認が表示されることだけを理由に全権限を許す", "reason": "事前承認は接続権限の最小化に代わりません。"},
+    {"action": "予定されているConfidential VMを、すでに使える保護機能として説明する", "reason": "Metaは年内導入予定と案内しています。"}
+  ],
+  "positiveUse": {"title": "AIエージェントへ段階的に仕事を任せる", "description": "まず閲覧など影響の小さい操作で試し、必要に応じて権限を増やし、履歴を確認しながら運用できます。", "examples": ["メールを読むだけに限定する", "送信前の承認を確認する", "使わないサービスを切断する"]},
+  "makotoComment": "Museで見るべきなのは『AIが賢いか』より、メールを読む許可と送る許可の境目です。確認画面、監査履歴、接続解除はそれぞれ役割が違うので、任せる作業を増やすたびに三つを見直したいですね。",
+  "oneLineLesson": "Museは接続権限を先に絞り、重要操作の承認と行動履歴を別に確認する。",
+  "tags": ["Meta Muse", "AIエージェント", "接続権限", "監査履歴", "事前承認"],
+  "sources": [
+    {"title": "Introducing Muse: The World’s First Personal AI Agent Built for Everyone", "publisher": "Meta", "sourceType": "official-product-update", "publishedAt": "2026-09-08", "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"}
+  ],
+  "visualSuggestion": {"mainVisual": "接続権限、重要操作の承認、行動履歴を三つの独立したパネルとして示す図。米国で展開中という条件を添える。", "cardIcon": "muse-agent-permissions", "accentTone": "caution"}
+}
