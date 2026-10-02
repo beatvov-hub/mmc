@@ -1,0 +1,41 @@
+{
+  "id": "case-20261002-02",
+  "publishedAt": "2026-10-02",
+  "title": "Gmail・Docs・Keepの音声AIは何ができる？作業とプランを分けて選ぶ",
+  "shortTitle": "Googleの音声AIを作業別に選ぶ",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": ["音声でメールや文書を扱いたい人", "Google AIプランの機能差を確認したい人"],
+  "summary": "Googleは2026年9月3日、Gmail・Docs・Keepで音声によって作業を進める新機能の提供を発表しました。Gmail Liveは受信箱を会話形式で検索し、Docs Liveは対話しながら文書を組み立て、Keep Liveは話した内容を整理したメモにします。Docs LiveがGmail・Drive・ChatやWebの情報を下書きに取り込む際には利用者の許可が必要です。提供プランも異なり、GmailとKeepはGoogle AI Plus・Pro・Ultra、DocsはPro・Ultra向けです。ひとまとめに『Googleの音声AI』と捉えず、必要な作業とプランを選ぶための記事です。",
+  "scenario": {"headline": "移動中にメールを探し、あとで文書の下書きも作りたい", "description": "音声だけで全部できると思ったものの、アプリごとに役割と利用できるプランが異なります。", "whyItMatters": "機能名と提供対象を混同すると、使えない機能を探したり、不要なプランを選んだりします。"},
+  "question": {"text": "音声機能を選ぶ時、まず何を確かめる？", "choices": [
+    {"id": "task-plan", "label": "Gmail・Docs・Keepの用途と、自分のプランでの提供状況を確認する", "description": "作業に合う機能と利用条件を選べます。"},
+    {"id": "all-same", "label": "三つとも同じ機能と同じ利用条件だと考える", "description": "用途も対象プランも異なります。"},
+    {"id": "business-now", "label": "企業向けWorkspaceでも全機能が提供済みと考える", "description": "Googleは企業利用者向けを今後の提供と案内しています。"}
+  ], "recommendedAnswers": ["task-plan"], "explanation": "まず探す・書く・記録するのどれが必要かを決め、プランと提供状況を確認します。"},
+  "inspectionPoints": [
+    {"title": "Gmail Liveはメールを探す", "description": "受信箱の情報を会話形式で検索し、メールに埋もれた予定などを尋ねられます。", "priority": "high"},
+    {"title": "Docs Liveは下書きを組み立てる", "description": "音声で考えを整理して文書にできます。Gmail・Drive・ChatやWebの関連情報を使う場合、利用者の許可を得ると説明されています。", "priority": "high"},
+    {"title": "Keep Liveはメモを整理する", "description": "話したアイデアを、構造化したリストやメモへまとめます。", "priority": "medium"},
+    {"title": "提供プランを分ける", "description": "Gmail・KeepはGoogle AI Plus・Pro・Ultra、DocsはPro・Ultra向けに展開中です。企業向けWorkspaceへの提供は今後の予定です。", "priority": "high"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "作業・許可・提供プランを確認",
+  "verificationMessage": "音声機能の名前だけで、同じ情報へアクセスできるとは考えないでください。",
+  "verdict": {"label": "用途と利用条件はアプリごとに違う", "description": "メール検索、文書作成、メモ整理から必要な作業を選び、プランと情報利用の許可を確認します。", "confidence": "high"},
+  "safeActions": [
+    {"action": "まず探す・書く・記録するのどれをしたいか決める", "reason": "Gmail・Docs・Keep Liveの役割が異なります。"},
+    {"action": "自分のGoogle AIプランと機能の提供状況を確認する", "reason": "Docs Liveだけ対象プランが異なり、順次展開中です。"},
+    {"action": "Docs Liveで他サービスの情報を使う時は、許可する内容を確認する", "reason": "Googleは関連情報を取り込む前に利用者の許可を得ると説明しています。"}
+  ],
+  "avoidActions": [
+    {"action": "音声対応なら三つのアプリが同じ仕事をすると考える", "reason": "検索、文書作成、メモ整理で役割が分かれています。"},
+    {"action": "企業向けWorkspaceでも提供済みと断定する", "reason": "Googleは今後の提供予定としています。"}
+  ],
+  "positiveUse": {"title": "手が離せない時に、適した作業だけ音声に任せる", "description": "移動中の受信箱検索やアイデアの記録に使い、文書に取り込む情報は自分で選べます。", "examples": ["受信箱から予定を探す", "下書きの構成を話しながら作る", "思いつきを整理したメモにする"]},
+  "makotoComment": "三つの『Live』を同じ機能として紹介すると、何に便利で何に許可が要るのかがぼやけます。特にDocsで他の情報を使う場面は、下書きの便利さと参照先の選択をセットで考えたいところです。",
+  "oneLineLesson": "Gmailは探す、Docsは書く、Keepは記録する。対象プランも確認する。",
+  "tags": ["Gmail Live", "Docs Live", "Keep Live", "Google AI", "音声", "仕事"],
+  "sources": [{"title": "Use your voice to get more done in Gmail, Docs, and Keep", "publisher": "Google", "sourceType": "official-product-update", "publishedAt": "2026-09-03", "url": "https://blog.google/products-and-platforms/products/workspace/voice-features-gmail-docs-keep/"}],
+  "visualSuggestion": {"mainVisual": "Gmailは検索、Docsは下書き、Keepはメモとして三つの音声機能を並べ、対象プランの違いを添える図。", "cardIcon": "google-voice-workflow", "accentTone": "calm"}
+}

@@ -1,0 +1,41 @@
+{
+  "id": "case-20261002-01",
+  "publishedAt": "2026-10-02",
+  "title": "Copilotの会話がBing・Edge・MSNにも影響する？共有設定と広告設定を分けて選ぶ",
+  "shortTitle": "Copilotの共有エクスペリエンスを選ぶ",
+  "category": "media-literacy",
+  "difficulty": "beginner",
+  "targetAudience": ["個人のMicrosoftアカウントでCopilotを使う人", "AIの会話と他サービスの表示を分けて管理したい人"],
+  "summary": "Microsoftは個人向けCopilotの公式サポートで、Bing・Edge・MSNでの利用状況がCopilotの個別化に使われ、Copilotの会話もそれらのサービスの個別化に使われ得ると説明しています。更新版Copilotアプリを個人のMicrosoftアカウントで使う場合、設定の「Personalization」から「One shared experience」を切り替えられます。ただし、この設定はCopilot内のパーソナライズ広告を制御しません。サービス間の個別化と広告設定を別々に判断するための記事です。",
+  "scenario": {"headline": "Copilotで話した旅行の話題が他のMicrosoftサービスにも反映されるの？", "description": "Copilotの回答だけでなく、BingやMSNの表示が自分向けに変わる仕組みを知り、必要な設定を選びたい場面です。", "whyItMatters": "共有エクスペリエンスをオフにしても広告の個別化まで同時にオフになるわけではありません。"},
+  "question": {"text": "CopilotとBingなどの間での個別化を止めたい時、どの設定を確認する？", "choices": [
+    {"id": "shared", "label": "Copilotの「One shared experience」を確認し、広告は別の設定として扱う", "description": "サービス間の個別化と広告の選択を分けます。"},
+    {"id": "memory", "label": "保存済みメモリだけ削除すれば、サービス間の個別化も止まると考える", "description": "メモリと共有エクスペリエンスは別の設定です。"},
+    {"id": "ads", "label": "共有エクスペリエンスをオフにすれば、Copilot内の広告も必ず消えると考える", "description": "広告表示・広告の個別化は別の問題です。"}
+  ], "recommendedAnswers": ["shared"], "explanation": "Copilotの設定で共有エクスペリエンスを選びます。広告の個別化も変えたい場合は、別の広告設定を確認します。"},
+  "inspectionPoints": [
+    {"title": "対象となるCopilot", "description": "Microsoftの説明は、更新版Copilotアプリに個人のMicrosoftアカウントでサインインする場合が対象です。Microsoft 365内のCopilotや職場・学校アカウントは別扱いです。", "priority": "high"},
+    {"title": "サービス間で利用される情報", "description": "Bing・Edge・MSNでの体験がCopilotの個別化に、Copilotの会話がそれらのサービスの個別化に使われ得ます。", "priority": "high"},
+    {"title": "Copilot側の設定経路", "description": "Copilotでサインインし、Settings→Personalization→One shared experienceを確認します。", "priority": "high"},
+    {"title": "広告とは別の選択", "description": "共有エクスペリエンスの設定はCopilot内のパーソナライズ広告を制御しません。広告は「Allow ads personalization」で別に選びます。", "priority": "high"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "サービス間の個別化と広告を分けて確認",
+  "verificationMessage": "Copilot側の共有設定だけで、Edge側の設定や広告の設定まで変更したと考えないでください。",
+  "verdict": {"label": "共有と広告は別スイッチ", "description": "自分に合う個別化を残すか選び、止めたい範囲の設定をそれぞれ確認します。", "confidence": "high"},
+  "safeActions": [
+    {"action": "個人向けの更新版Copilotアプリか確認する", "reason": "公式サポートの適用範囲を取り違えないためです。"},
+    {"action": "Settings→PersonalizationでOne shared experienceを選ぶ", "reason": "CopilotとBingなどの間での個別化を管理できます。"},
+    {"action": "広告の個別化が気になる場合はAllow ads personalizationも別に確認する", "reason": "共有設定だけでは広告の個別化は変わりません。"}
+  ],
+  "avoidActions": [
+    {"action": "共有エクスペリエンスのオフを、広告の完全停止と受け取る", "reason": "Microsoftは広告の個別化を別設定と説明しています。"},
+    {"action": "職場・学校アカウントにも同じ画面と手順を当てはめる", "reason": "この公式サポートの対象外です。"}
+  ],
+  "positiveUse": {"title": "必要な個別化だけを選ぶ", "description": "サービスをまたぐ提案が便利なら利用し、会話の影響を分けたいなら共有設定を変えられます。", "examples": ["BingやMSNでの関連情報の表示を見直す", "Copilotの個別化範囲を選ぶ", "広告の個別化を別に管理する"]},
+  "makotoComment": "この設定で意外なのは、Copilotで話したことがCopilot内だけの個別化にとどまらず、BingやMSNで見る内容にも関係し得る点です。『共有』と『広告』の二つを同じスイッチだと思わずに見たいですね。",
+  "oneLineLesson": "Copilotの共有エクスペリエンスと広告の個別化は、別々に選ぶ。",
+  "tags": ["Microsoft Copilot", "Bing", "Edge", "MSN", "個別化", "設定"],
+  "sources": [{"title": "Microsoft Copilot for individuals: your privacy controls and choices", "publisher": "Microsoft", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.microsoft.com/en-us/privacy/microsoft-copilot/privacy-controls"}],
+  "visualSuggestion": {"mainVisual": "CopilotとBing・Edge・MSNの間の個別化を、広告設定とは別のスイッチとして描く図。", "cardIcon": "copilot-shared-experience", "accentTone": "info"}
+}

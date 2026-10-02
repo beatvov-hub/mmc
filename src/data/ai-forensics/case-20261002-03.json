@@ -1,0 +1,41 @@
+{
+  "id": "case-20261002-03",
+  "publishedAt": "2026-10-02",
+  "title": "Facebook・InstagramのAIサポートで何を頼める？異議申し立てとログイン復旧の範囲を分ける",
+  "shortTitle": "MetaのAIサポートで頼めることを確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": ["FacebookやInstagramのアカウント問題に困っている人", "通報や異議申し立ての入口を探している人"],
+  "summary": "Metaは2026年3月19日、Facebook・InstagramでAIサポートアシスタントを展開すると発表し、翌日に提供地域の説明を更新しました。Meta AIが利用可能な地域のモバイルアプリやPCのヘルプセンターで、アカウント問題の相談に使えます。Facebook内では、詐欺・なりすましの通報、投稿削除の理由や異議申し立ての確認、プライバシー設定やパスワード変更などの操作を支援すると案内しています。ただし、ログインできない人への支援は米国・カナダの一部ケースから展開中です。利用できる相談と、まだ限定的な復旧支援を分けて考えるための記事です。",
+  "scenario": {"headline": "投稿が削除された理由を知りたい、または偽アカウントを報告したい", "description": "アプリ内のサポートを使いたいが、何を相談でき、どの操作まで手伝ってもらえるか分かりません。", "whyItMatters": "アシスタントの一般的な展開と、ログインできない人向けの限定的な支援は提供範囲が違います。"},
+  "question": {"text": "アカウントに問題が起きた時の適切な使い方は？", "choices": [
+    {"id": "supported", "label": "アプリ・ヘルプセンターから相談し、通報や異議申し立ての案内を確認する", "description": "Metaが案内している支援内容と一致します。"},
+    {"id": "all-recovery", "label": "どの国でも、ログイン不能の全ケースをAIが復旧してくれると考える", "description": "復旧支援は一部地域・ケースからの展開です。"},
+    {"id": "instagram-actions", "label": "InstagramでもFacebookと同じ操作をAIがすべて代行できると考える", "description": "Metaは直接操作の例をFacebookについて説明し、Instagramは今後としています。"}
+  ], "recommendedAnswers": ["supported"], "explanation": "利用可能な入口で相談し、具体的な操作が自分の地域・アカウントに提供されているか確認します。"},
+  "inspectionPoints": [
+    {"title": "相談できる入口", "description": "Meta AIが利用可能な地域では、Facebook・InstagramのiOS/Androidアプリと、PC版ヘルプセンターに展開中と案内されています。", "priority": "high"},
+    {"title": "Facebook内で支援する操作", "description": "詐欺やなりすましの通報、削除理由や異議申し立ての確認、プライバシー設定、パスワード変更などが挙げられています。", "priority": "high"},
+    {"title": "Instagramへの直接操作", "description": "Metaは、アシスタントによる直接操作はFacebook内で広げ、Instagramでは今後と説明しています。", "priority": "high"},
+    {"title": "ログインできない人向け", "description": "この支援は米国・カナダの一部ケースから展開中です。日本の全利用者に提供済みとは読めません。", "priority": "high"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "相談と直接操作・復旧を区別",
+  "verificationMessage": "アシスタントを見つけられても、すべての復旧操作が使えるとは限りません。",
+  "verdict": {"label": "AIサポートの提供範囲は問題の種類と地域で異なる", "description": "通報や異議申し立ての入口として使い、ログイン復旧は限定的な展開であることを確認します。", "confidence": "high"},
+  "safeActions": [
+    {"action": "Facebook・Instagramのアプリ内または公式ヘルプセンターでサポートを探す", "reason": "Metaが案内している提供入口です。"},
+    {"action": "通報・異議申し立て・設定変更のうち、自分の問題に合う項目を選ぶ", "reason": "相談と操作の対象を具体的に絞れます。"},
+    {"action": "ログインできない時は、自分の地域とケースで支援が利用可能か確認する", "reason": "ログイン不能者向けの展開は一部から始まっています。"}
+  ],
+  "avoidActions": [
+    {"action": "AIアシスタントが全地域のログイン問題を必ず解決すると考える", "reason": "Metaは米国・カナダの一部ケースからの展開と説明しています。"},
+    {"action": "Facebookで示された直接操作がInstagramでもすべて可能と考える", "reason": "MetaはInstagramへの操作拡大を今後の予定としています。"}
+  ],
+  "positiveUse": {"title": "アカウント問題の相談先を見つける", "description": "公式の入口から相談し、通報や異議申し立ての次の手順を整理できます。", "examples": ["なりすましアカウントを報告する", "投稿削除の理由を確認する", "設定変更の案内を受ける"]},
+  "makotoComment": "『FacebookとInstagramでAIサポートを提供』という見出しだけだと、どちらでも同じ操作ができそうに見えます。実際の説明では、Facebook内の直接操作と、ログインできない人への限定的な支援に境界があります。",
+  "oneLineLesson": "MetaのAIサポートは相談の入口。直接操作とログイン復旧の対象は別に確認する。",
+  "tags": ["Facebook", "Instagram", "Meta AI", "サポート", "異議申し立て", "アカウント復旧"],
+  "sources": [{"title": "Boosting Your Support and Safety on Meta’s Apps With AI", "publisher": "Meta", "sourceType": "official-product-update", "publishedAt": "2026-03-19", "url": "https://about.fb.com/news/2026/03/boosting-your-support-and-safety-on-metas-apps-with-ai/"}],
+  "visualSuggestion": {"mainVisual": "アプリ内相談、Facebook内の直接操作、限定的なログイン復旧を三段階に分ける図。", "cardIcon": "meta-ai-support", "accentTone": "info"}
+}
