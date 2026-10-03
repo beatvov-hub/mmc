@@ -1,0 +1,53 @@
+{
+  "id": "case-20261003-01",
+  "publishedAt": "2026-10-03",
+  "title": "Meta AIの自傷リスク通知、保護者はInstagramの監督設定と対象地域を確認",
+  "shortTitle": "Meta AIの10代向け危機通知",
+  "category": "health-ai",
+  "difficulty": "beginner",
+  "targetAudience": ["Meta AIを使う10代の保護者", "Instagramのペアレンタルコントロールを確認したい人"],
+  "summary": "Metaは2026年7月16日、Meta AIとの会話から10代の自殺・自傷リスクが示唆された場合、Instagramの監督機能を利用する保護者に通知する仕組みを発表しました。AIが検知した会話は通知前に人が確認し、意図が曖昧な場合は通知側に判断する設計です。発表時点で稼働中の地域は米国・英国・オーストラリア・カナダで、年内に世界の監督対象保護者へ展開予定と説明されています。保護者は監督機能と、より制限の強い「Limited Content」設定を確認できますが、この通知は診断ではなく、緊急サービスへの自動連絡機能も開発中で未提供です。",
+  "scenario": {
+    "headline": "子どもがMeta AIを使っている。どんな場合に保護者へ通知される？",
+    "description": "AIとの会話が子どもの安全に関係する時、保護者向け通知やコンテンツ制限が何をするのか知りたい場面です。",
+    "whyItMatters": "通知はAI検知後に人が確認する仕組みで、提供地域も限られています。機能の存在だけで見守りや緊急対応を代替できると考えないためです。"
+  },
+  "question": {
+    "text": "Meta AIの保護者向け危機通知について、何を確認すべき？",
+    "choices": [
+      {"id": "scope", "label": "Instagramの監督機能、対象地域、Limited Contentの設定を確認する", "description": "機能の対象と、より強いコンテンツ制限を分けて把握します。"},
+      {"id": "diagnosis", "label": "通知が来れば自傷リスクが確定したと考える", "description": "通知はAI検知後の確認に基づくもので、診断ではありません。"},
+      {"id": "emergency", "label": "Meta AIが緊急サービスへ自動連絡する機能はすでに利用できると考える", "description": "Metaはその機能を開発中と説明しています。"}
+    ],
+    "recommendedAnswers": ["scope"],
+    "explanation": "Instagramの監督設定を確認し、通知の対象地域や提供状況を把握します。通知がない場合も安全の証明にはならず、緊急サービスへの連絡機能は発表時点で開発中です。"
+  },
+  "inspectionPoints": [
+    {"title": "通知のきっかけ", "description": "Meta AIとの会話に、自殺や自傷のリスクを示唆する内容があるとシステムが検知した場合、Instagramの監督対象保護者への通知候補になります。", "priority": "high"},
+    {"title": "通知前に人が確認", "description": "MetaはAIがフラグした会話をすべて手動確認してから通知すると説明しています。意図が曖昧な場合は、誤通知の可能性を受け入れて通知側に判断する方針です。", "priority": "high"},
+    {"title": "提供地域と今後の展開", "description": "発表時点では米国・英国・オーストラリア・カナダで稼働し、年内に世界の監督対象保護者へ提供予定とされました。自分のアカウントで実際に使えるかは設定画面で確認します。", "priority": "high"},
+    {"title": "Limited Contentの適用", "description": "保護者がInstagramでより制限の強いLimited Contentを選ぶと、Meta AIでできる会話もさらに制限されるとMetaは説明しています。", "priority": "medium"},
+    {"title": "緊急サービスへの連絡は未提供", "description": "Meta AIとの会話から差し迫った自殺リスクを検知し緊急サービスへ連絡する機能は、発表時点で開発中です。現在利用可能な機能として案内しないでください。", "priority": "high"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "通知の範囲と提供状況を確認",
+  "verificationMessage": "通知の有無だけで安全を判断せず、Instagramの監督設定と地域ごとの提供状況を確認してください。",
+  "verdict": {"label": "通知は見守りの補助で、診断や緊急対応の代わりではない", "description": "Instagramの監督設定と対象地域を確かめ、通知の意味を過大評価せずに保護者自身の支援につなげます。", "confidence": "high"},
+  "safeActions": [
+    {"action": "InstagramのFamily Centerまたは監督設定で対象アカウントを確認する", "reason": "通知の利用には保護者のInstagram監督機能が関係します。"},
+    {"action": "利用可能地域と現在の提供状況を確認する", "reason": "Metaの発表時点では提供地域が限定され、世界展開は予定として案内されています。"},
+    {"action": "必要に応じてLimited Contentの設定を検討する", "reason": "Instagramのより厳しいコンテンツ設定はMeta AIの会話にも適用されます。"},
+    {"action": "通知があれば、通知内の専門家向けリソースを参考に本人と話す", "reason": "Metaは保護者が会話を始めるための専門家向け情報を提供するとしています。"}
+  ],
+  "avoidActions": [
+    {"action": "通知を医学的な判定や確定診断として扱う", "reason": "記事はリスクを示唆する会話を見つけて支援につなぐ通知であり、診断機能とは説明していません。"},
+    {"action": "通知が届かないことを、危険がない証拠とみなす", "reason": "検知・提供状況には限界があり、通知の不在は安全を保証しません。"},
+    {"action": "Meta AIが緊急サービスへすでに自動連絡すると案内する", "reason": "Metaは同機能を開発中としています。"}
+  ],
+  "positiveUse": {"title": "設定を知った上で見守りを補助に使う", "description": "監督機能とコンテンツ制限を確認し、通知があれば保護者と本人の対話や専門的支援につなげます。", "examples": ["Instagramの監督対象アカウントを確認する", "Limited Contentの適用を検討する", "通知をきっかけに本人と話し、必要な支援先につなぐ"]},
+  "makotoComment": "今回の仕組みで重要なのは、AIが検知したらそのまま保護者へ送るのではなく、人が通知前に確認する一方、曖昧な場合は通知する側へ倒す設計です。誤通知もあり得るとMeta自身が説明しているので、通知を診断と読み替えず、対話を始める合図として扱うのがよさそうです。",
+  "oneLineLesson": "Meta AIの危機通知は保護者の見守りを補助するもの。監督設定・地域・通知の意味を確かめる。",
+  "tags": ["Meta AI", "Instagram", "保護者向け通知", "ペアレンタルコントロール", "10代", "自傷リスク"],
+  "sources": [{"title": "Alerting Parents if Teens Show Signs of Distress in Conversations With Meta AI", "publisher": "Meta Newsroom", "sourceType": "official-product-update", "publishedAt": "2026-07-16", "url": "https://about.fb.com/news/2026/07/keeping-parents-informed-teens-distress-conversations-meta-ai/"}],
+  "visualSuggestion": {"mainVisual": "Meta AIの会話からAI検知、人による確認、Instagram監督保護者への通知という流れを示し、開発中機能は別枠で表示する。", "cardIcon": "meta-teen-safety-alert", "accentTone": "caution"}
+}

@@ -1,0 +1,53 @@
+{
+  "id": "case-20261003-02",
+  "publishedAt": "2026-10-03",
+  "title": "Claudeの企業向けEFSは何を顧客側で管理する？データ保管と不正監視を分けて確認",
+  "shortTitle": "Claude企業向けEFSの保管と監視",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["Claudeを企業導入する管理者", "AI利用時のログ保管や監視を設計するセキュリティ担当者"],
+  "summary": "Anthropicは2026年9月1日、ゼロデータ保持（ZDR）と不正利用の検知を組み合わせる企業向け構想「Enterprise Frontier Safeguards（EFS）」を発表しました。利用データはAnthropicではなく顧客が管理するクラウド基盤に保存し、検知システムのシグナルを顧客へ送り、顧客側が確認する設計です。データを長く保持すること自体が目的ではなく、複数セッションやアカウントにまたがる不正の兆候を照合するためと説明されています。提供は2026年秋以降の段階的開始予定で、発表時点では利用可能な完成済みサービスではありません。企業は導入判断時に対応製品、保存先、鍵・アクセス権、アラート確認責任を確かめる必要があります。",
+  "scenario": {
+    "headline": "企業向けAIはログを残さず使いたいが、複数回に分かれた不正利用も見つけたい",
+    "description": "ゼロ保持のプライバシー要件と、AIエージェントの不正利用を横断的に検知したいセキュリティ要件を両立したい場面です。",
+    "whyItMatters": "EFSはデータをAnthropicに預けない設計を掲げますが、顧客側の保存・監視・アラート運用が必要になるため、責任分担を決めずに導入できるとは限りません。"
+  },
+  "question": {
+    "text": "EFSの導入を検討する管理者が最初に確認することは？",
+    "choices": [
+      {"id": "responsibility", "label": "提供状況、対応製品、顧客側の保存先・鍵・アラート確認者を確認する", "description": "EFSの段階的提供と顧客管理の運用前提を確認します。"},
+      {"id": "anthropic-store", "label": "EFSを使えばログはAnthropicが保管し、Anthropic社員がすべて確認すると考える", "description": "発表では顧客管理クラウドへの保存と顧客側確認の設計です。"},
+      {"id": "available-now", "label": "発表をもって全企業ですぐ使えると考える", "description": "Anthropicは秋以降の段階的提供としています。"}
+    ],
+    "recommendedAnswers": ["responsibility"],
+    "explanation": "発表と一般提供を区別し、対応サービス、保存とアクセス管理、監視アラートを誰が扱うかを契約・設計段階で確認します。"
+  },
+  "inspectionPoints": [
+    {"title": "発表段階と提供時期", "description": "AnthropicはEFSを発表し、2026年秋以降に段階的に提供するとしています。契約済み・一般提供済みの機能として断定せず、個別の利用資格と開始時期を確認します。", "priority": "high"},
+    {"title": "顧客管理クラウドへの保存", "description": "EFSではデータをAnthropicではなく顧客が管理するクラウド基盤に置く設計です。顧客側の保存場所と管理責任を確認します。", "priority": "high"},
+    {"title": "鍵・アクセス・監査", "description": "顧客は自社の暗号鍵、アクセス方針、監査ログの下でデータを保管・管理できる構成を想定しています。既存クラウドアカウントの運用と整合するか確認します。", "priority": "high"},
+    {"title": "監視シグナルの確認主体", "description": "自動監視で注意が必要なパターンを検知するとシグナルを顧客へ直接送り、顧客側がレビューします。組織内の担当者・エスカレーション手順が必要です。", "priority": "high"},
+    {"title": "複数セッションにまたがる検知", "description": "Anthropicは、複数セッションやアカウントに分散する高度な不正は、各やりとりを個別に解析して即時破棄するだけでは検出しにくく、一定期間の照合が必要と説明しています。ZDRという名称だけから監視データが一切保持されないと推測しないでください。", "priority": "medium"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "保存責任と監視運用を設計",
+  "verificationMessage": "ゼロデータ保持という表現だけでログの保存先や顧客側の監視義務まで推測せず、提供条件と運用分担を確認してください。",
+  "verdict": {"label": "EFSは顧客側の保管・レビュー運用を組み込む発表段階の構想", "description": "導入前に提供対象、保存基盤、鍵・アクセス権、検知アラートを確認する必要があります。", "confidence": "high"},
+  "safeActions": [
+    {"action": "Anthropicに自社アカウント・契約でのEFS利用開始時期と対応サービスを確認する", "reason": "発表は2026年秋以降の段階的提供を案内しており、利用可能性は一律ではありません。"},
+    {"action": "ログや活動データの保存先、保持期間、暗号鍵、アクセス制御を設計書で確認する", "reason": "EFSは顧客管理クラウドと顧客側の鍵・アクセス方針・監査を前提にしています。"},
+    {"action": "監視シグナルを誰が確認し、誤検知・重大事案をどこへ連絡するか決める", "reason": "Anthropicの説明では検知後のシグナルは顧客に届き、顧客側が確認します。"},
+    {"action": "ZDR対象の会話データと監視用活動データの扱いを分けて確認する", "reason": "EFSはプライバシーと複数回にまたがる監視を両立させる設計で、単純な『何も保存されない』とは異なります。"}
+  ],
+  "avoidActions": [
+    {"action": "発表を一般提供開始と読み替えて直ちに全社展開する", "reason": "Anthropicは段階的提供を今後開始するとしています。"},
+    {"action": "顧客側のログ保管・監視体制が不要と考える", "reason": "保存場所や監視シグナルのレビューは顧客側が管理する設計です。"},
+    {"action": "Anthropicが企業データを学習に使う発表だと説明する", "reason": "EFSは不正利用検知のための保管・監視の仕組みとして発表されています。"}
+  ],
+  "positiveUse": {"title": "プライバシーと不正検知を責任分担つきで両立する", "description": "顧客が管理するクラウド・鍵・監査と、顧客側のアラート対応を整えた上で適用可能性を評価します。", "examples": ["自社クラウドへのデータ保存条件を確認する", "セキュリティ担当者をアラート確認者に割り当てる", "既存の監査ログ・インシデント対応へ接続する"]},
+  "makotoComment": "EFSの見どころは『ZDRだから何も残らない』ではなく、Anthropic側に預けず顧客環境で保管しながら、複数セッションにまたがる兆候を検知できるようにする責任分担です。顧客管理が増えるぶん、保存場所だけでなく、シグナルを見て判断する社内担当まで決めて初めて使える設計だと感じます。",
+  "oneLineLesson": "企業向けEFSは発表段階。保存先・鍵・監視アラートの担当を確認してから導入を判断する。",
+  "tags": ["Anthropic", "Claude", "Enterprise Frontier Safeguards", "ゼロデータ保持", "企業セキュリティ", "データ保管"],
+  "sources": [{"title": "Developing Enterprise Frontier Safeguards with our customers", "publisher": "Anthropic", "sourceType": "official-product-update", "publishedAt": "2026-09-01", "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards"}],
+  "visualSuggestion": {"mainVisual": "Anthropicの自動検知から顧客クラウド内の保管、顧客側担当者のレビューへ流れるデータ・責任分担図。", "cardIcon": "claude-enterprise-frontier-safeguards", "accentTone": "serious"}
+}

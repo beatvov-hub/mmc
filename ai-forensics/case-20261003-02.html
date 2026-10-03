@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Claudeの企業向けEFSは何を顧客側で管理する？データ保管と不正監視を分けて確認｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Anthropicは2026年9月1日、ゼロデータ保持（ZDR）と不正利用の検知を組み合わせる企業向け構想「Enterprise Frontier Safeguards（EFS）」を発表しました。利用データはAnthropicではなく顧客が管理するクラウド基盤に保存し、検知システムのシグナルを顧客へ送り、顧客側が確認する設計です。データを長く保持すること自体が目的ではなく、複数セッションやアカウントにまたがる不正の兆候を照合するためと説明されています。提供は2026年秋以降の段階的開始予定で、発表時点では利用可能な完成済みサービスではありません。企業は導入判断時に対応製品、保存先、鍵・アクセス権、アラート確認責任を確かめる必要があります。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261003-02" />
+<meta property="og:title" content="Claudeの企業向けEFSは何を顧客側で管理する？データ保管と不正監視を分けて確認｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Anthropicは2026年9月1日、ゼロデータ保持（ZDR）と不正利用の検知を組み合わせる企業向け構想「Enterprise Frontier Safeguards（EFS）」を発表しました。利用データはAnthropicではなく顧客が管理するクラウド基盤に保存し、検知システムのシグナルを顧客へ送り、顧客側が確認する設計です。データを長く保持すること自体が目的ではなく、複数セッションやアカウントにまたがる不正の兆候を照合するためと説明されています。提供は2026年秋以降の段階的開始予定で、発表時点では利用可能な完成済みサービスではありません。企業は導入判断時に対応製品、保存先、鍵・アクセス権、アラート確認責任を確かめる必要があります。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261003-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Claude企業向けEFSの保管と監視</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-10-03">2026.10.03</time>
+            </div>
+            <h1>Claudeの企業向けEFSは何を顧客側で管理する？データ保管と不正監視を分けて確認</h1>
+            <p>Anthropicは2026年9月1日、ゼロデータ保持（ZDR）と不正利用の検知を組み合わせる企業向け構想「Enterprise Frontier Safeguards（EFS）」を発表しました。利用データはAnthropicではなく顧客が管理するクラウド基盤に保存し、検知システムのシグナルを顧客へ送り、顧客側が確認する設計です。データを長く保持すること自体が目的ではなく、複数セッションやアカウントにまたがる不正の兆候を照合するためと説明されています。提供は2026年秋以降の段階的開始予定で、発表時点では利用可能な完成済みサービスではありません。企業は導入判断時に対応製品、保存先、鍵・アクセス権、アラート確認責任を確かめる必要があります。</p>
+            <ul class="forensics-target-list"><li>Claudeを企業導入する管理者</li><li>AI利用時のログ保管や監視を設計するセキュリティ担当者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Anthropic</li><li>Claude</li><li>Enterprise Frontier Safeguards</li><li>ゼロデータ保持</li><li>企業セキュリティ</li><li>データ保管</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>保存責任と監視運用を設計</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>ゼロデータ保持という表現だけでログの保存先や顧客側の監視義務まで推測せず、提供条件と運用分担を確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>企業向けAIはログを残さず使いたいが、複数回に分かれた不正利用も見つけたい</h3><p>ゼロ保持のプライバシー要件と、AIエージェントの不正利用を横断的に検知したいセキュリティ要件を両立したい場面です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>EFSはデータをAnthropicに預けない設計を掲げますが、顧客側の保存・監視・アラート運用が必要になるため、責任分担を決めずに導入できるとは限りません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="responsibility">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>EFSの導入を検討する管理者が最初に確認することは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="responsibility" data-choice-id="responsibility" />
+                <span>
+                  <strong>提供状況、対応製品、顧客側の保存先・鍵・アラート確認者を確認する</strong>
+                  <small>EFSの段階的提供と顧客管理の運用前提を確認します。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="anthropic-store" data-choice-id="anthropic-store" />
+                <span>
+                  <strong>EFSを使えばログはAnthropicが保管し、Anthropic社員がすべて確認すると考える</strong>
+                  <small>発表では顧客管理クラウドへの保存と顧客側確認の設計です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="available-now" data-choice-id="available-now" />
+                <span>
+                  <strong>発表をもって全企業ですぐ使えると考える</strong>
+                  <small>Anthropicは秋以降の段階的提供としています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>提供状況、対応製品、顧客側の保存先・鍵・アラート確認者を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>発表と一般提供を区別し、対応サービス、保存とアクセス管理、監視アラートを誰が扱うかを契約・設計段階で確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>発表段階と提供時期</h3>
+              <p>AnthropicはEFSを発表し、2026年秋以降に段階的に提供するとしています。契約済み・一般提供済みの機能として断定せず、個別の利用資格と開始時期を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>顧客管理クラウドへの保存</h3>
+              <p>EFSではデータをAnthropicではなく顧客が管理するクラウド基盤に置く設計です。顧客側の保存場所と管理責任を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>鍵・アクセス・監査</h3>
+              <p>顧客は自社の暗号鍵、アクセス方針、監査ログの下でデータを保管・管理できる構成を想定しています。既存クラウドアカウントの運用と整合するか確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>監視シグナルの確認主体</h3>
+              <p>自動監視で注意が必要なパターンを検知するとシグナルを顧客へ直接送り、顧客側がレビューします。組織内の担当者・エスカレーション手順が必要です。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>複数セッションにまたがる検知</h3>
+              <p>Anthropicは、複数セッションやアカウントに分散する高度な不正は、各やりとりを個別に解析して即時破棄するだけでは検出しにくく、一定期間の照合が必要と説明しています。ZDRという名称だけから監視データが一切保持されないと推測しないでください。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>EFSは顧客側の保管・レビュー運用を組み込む発表段階の構想</strong><p>導入前に提供対象、保存基盤、鍵・アクセス権、検知アラートを確認する必要があります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Anthropicに自社アカウント・契約でのEFS利用開始時期と対応サービスを確認する</strong><span>発表は2026年秋以降の段階的提供を案内しており、利用可能性は一律ではありません。</span></li>
+            <li><strong>ログや活動データの保存先、保持期間、暗号鍵、アクセス制御を設計書で確認する</strong><span>EFSは顧客管理クラウドと顧客側の鍵・アクセス方針・監査を前提にしています。</span></li>
+            <li><strong>監視シグナルを誰が確認し、誤検知・重大事案をどこへ連絡するか決める</strong><span>Anthropicの説明では検知後のシグナルは顧客に届き、顧客側が確認します。</span></li>
+            <li><strong>ZDR対象の会話データと監視用活動データの扱いを分けて確認する</strong><span>EFSはプライバシーと複数回にまたがる監視を両立させる設計で、単純な『何も保存されない』とは異なります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>発表を一般提供開始と読み替えて直ちに全社展開する</strong><span>Anthropicは段階的提供を今後開始するとしています。</span></li>
+            <li><strong>顧客側のログ保管・監視体制が不要と考える</strong><span>保存場所や監視シグナルのレビューは顧客側が管理する設計です。</span></li>
+            <li><strong>Anthropicが企業データを学習に使う発表だと説明する</strong><span>EFSは不正利用検知のための保管・監視の仕組みとして発表されています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>プライバシーと不正検知を責任分担つきで両立する</h3>
+          <p>顧客が管理するクラウド・鍵・監査と、顧客側のアラート対応を整えた上で適用可能性を評価します。</p>
+          <ul class="positive-example-list"><li>自社クラウドへのデータ保存条件を確認する</li><li>セキュリティ担当者をアラート確認者に割り当てる</li><li>既存の監査ログ・インシデント対応へ接続する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>EFSの見どころは『ZDRだから何も残らない』ではなく、Anthropic側に預けず顧客環境で保管しながら、複数セッションにまたがる兆候を検知できるようにする責任分担です。顧客管理が増えるぶん、保存場所だけでなく、シグナルを見て判断する社内担当まで決めて初めて使える設計だと感じます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>企業向けEFSは発表段階。保存先・鍵・監視アラートの担当を確認してから導入を判断する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.anthropic.com/news/enterprise-frontier-safeguards" target="_blank" rel="noopener noreferrer">Developing Enterprise Frontier Safeguards with our customers<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Anthropic</span>
+              <span>その他</span>
+              <time datetime="2026-09-01">2026-09-01</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261002-03" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Facebook・InstagramのAIサポートで何を頼める？異議申し立てとログイン復旧の範囲を分ける MetaのAIサポートで頼めることを確認 Metaは2026年3月19日、Facebook・InstagramでAIサポートアシスタントを展開すると発表し、翌日に提供地域の説明を更新しました。Meta AIが利用可能な地域のモバイルアプリやPCのヘルプセンターで、アカウント問題の相談に使えます。Facebook内では、詐欺・なりすましの通報、投稿削除の理由や異議申し立ての確認、プライバシー設定やパスワード変更などの操作を支援すると案内しています。ただし、ログインできない人への支援は米国・カナダの一部ケースから展開中です。利用できる相談と、まだ限定的な復旧支援を分けて考えるための記事です。 セキュリティ・権限 はじめて Facebook Instagram Meta AI サポート 異議申し立て アカウント復旧 FacebookやInstagramのアカウント問題に困っている人 通報や異議申し立ての入口を探している人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">meta-ai-support</span>
+              <div>
+                <p>MetaのAIサポートで頼めることを確認</p>
+                <h3>Facebook・InstagramのAIサポートで何を頼める？異議申し立てとログイン復旧の範囲を分ける</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-02">2026.10.02</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Metaは2026年3月19日、Facebook・InstagramでAIサポートアシスタントを展開すると発表し、翌日に提供地域の説明を更新しました。Meta AIが利用可能な地域のモバイルアプリやPCのヘルプセンターで、アカウント問題の相談に使えます。Facebook内では、詐欺・なりすましの通報、投稿削除の理由や異議申し立ての確認、プライバシー設定やパスワード変更などの操作を支援すると案内しています。ただし、ログインできない人への支援は米国・カナダの一部ケースから展開中です。利用できる相談と、まだ限定的な復旧支援を分けて考えるための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>相談と直接操作・復旧を区別</span>
+            </div>
+            <ul class="forensics-card-audience"><li>FacebookやInstagramのアカウント問題に困っている人</li><li>通報や異議申し立ての入口を探している人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Facebook</li><li>Instagram</li><li>Meta AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261001-01" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="Claudeの利用を振り返るベータ機能。休憩通知と記録の対象範囲を先に知る Claudeの利用傾向と休憩通知を確認 Anthropicは2026年7月9日、Claudeで自分の利用傾向を振り返るベータ機能を発表しました。メモリを有効にしたFree・Pro・Max利用者は、Web版またはデスクトップ版の設定からレポートを生成し、過去1・3・6・12か月の会話傾向を見られます。静かな時間帯や休憩を促す通知も設定できます。ただし、シークレットチャット、接続ツールの元ファイル、健康連携ツールにつながる会話は分析の対象外です。レポートを利用全体の完全な記録とみなさず、何をAIに任せ続けるかを自分で決めるための記事です。 仕事・AI活用 はじめて Claude 振り返り ベータ機能 休憩通知 AI活用 Claudeを日常的に使う人 AIに任せる仕事の範囲や利用時間を見直したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">claude-reflection</span>
+              <div>
+                <p>Claudeの利用傾向と休憩通知を確認</p>
+                <h3>Claudeの利用を振り返るベータ機能。休憩通知と記録の対象範囲を先に知る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-01">2026.10.01</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Anthropicは2026年7月9日、Claudeで自分の利用傾向を振り返るベータ機能を発表しました。メモリを有効にしたFree・Pro・Max利用者は、Web版またはデスクトップ版の設定からレポートを生成し、過去1・3・6・12か月の会話傾向を見られます。静かな時間帯や休憩を促す通知も設定できます。ただし、シークレットチャット、接続ツールの元ファイル、健康連携ツールにつながる会話は分析の対象外です。レポートを利用全体の完全な記録とみなさず、何をAIに任せ続けるかを自分で決めるための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>レポートを完全な利用履歴とみなさない</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Claudeを日常的に使う人</li><li>AIに任せる仕事の範囲や利用時間を見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Claude</li><li>振り返り</li><li>ベータ機能</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261001-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Meta Museに作業を任せる前に、接続権限・承認・行動履歴を分けて見る Museの権限と行動履歴を確認 Metaは2026年9月8日、個人向けAIエージェントMuseを発表し、米国でiOS・Android・Webへ展開中と案内しています。Museでは接続アプリごとにアクセス範囲を選び、メールを読むだけか送信も許すかを分けられます。メール送信や購入などの機微な操作は事前確認を求め、実行済み・予定中の行動を監査履歴で見られるとMetaは説明します。接続の変更・解除、学習利用からのオプトアウト、覚えた情報の忘却も案内されています。一方、さらに強い暗号化をうたうMuse Confidential VMは今後の予定で、現行機能と混同しないことが重要です。日本での一般提供は公式発表から確認できないため、提供地域と権限の両方を確認する記事です。 セキュリティ・権限 標準 Meta Muse AIエージェント 接続権限 監査履歴 事前承認 Meta Museの提供地域でAIエージェントを使う人 メール送信や購入をAIに任せる条件を考える人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">muse-agent-permissions</span>
+              <div>
+                <p>Museの権限と行動履歴を確認</p>
+                <h3>Meta Museに作業を任せる前に、接続権限・承認・行動履歴を分けて見る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-01">2026.10.01</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Metaは2026年9月8日、個人向けAIエージェントMuseを発表し、米国でiOS・Android・Webへ展開中と案内しています。Museでは接続アプリごとにアクセス範囲を選び、メールを読むだけか送信も許すかを分けられます。メール送信や購入などの機微な操作は事前確認を求め、実行済み・予定中の行動を監査履歴で見られるとMetaは説明します。接続の変更・解除、学習利用からのオプトアウト、覚えた情報の忘却も案内されています。一方、さらに強い暗号化をうたうMuse Confidential VMは今後の予定で、現行機能と混同しないことが重要です。日本での一般提供は公式発表から確認できないため、提供地域と権限の両方を確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>権限、承認、監査履歴を別々に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Meta Museの提供地域でAIエージェントを使う人</li><li>メール送信や購入をAIに任せる条件を考える人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Meta Muse</li><li>AIエージェント</li><li>接続権限</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261003-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261003-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
