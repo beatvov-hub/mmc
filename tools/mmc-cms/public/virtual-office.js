@@ -21,6 +21,9 @@ const OFFICE_SPOTS = {
 let office = null;
 let officeTimer = null;
 let bubbleTimer = null;
+let liveRefreshTimer = null;
+let walkTimer = null;
+let walkingEmployeeId = null;
 
 const officeRoot = () => document.querySelector("#virtual-office");
 const peopleRoot = () => document.querySelector("#office-people");
@@ -148,20 +151,75 @@ function showBubble(employee) {
 
 function scheduleBubble() {
   window.clearTimeout(bubbleTimer);
-  if (!office?.employees.length) return;
+  if (!office?.employees.length || document.hidden || !document.querySelector("#panel-office.is-active")) return;
   bubbleTimer = window.setTimeout(() => {
     const candidates = office.employees.filter((employee) => ["working", "idle", "meeting"].includes(employee.officeStatus));
     showBubble((candidates.length ? candidates : office.employees)[Math.floor(Math.random() * (candidates.length ? candidates.length : office.employees.length))]);
     scheduleBubble();
-  }, 9000 + Math.random() * 8000);
+  }, 6500 + Math.random() * 10500);
 }
 
 async function loadOffice() {
-  const response = await fetch("/api/workline/office");
-  const result = await response.json().catch(() => ({ ok: false }));
-  if (!result.ok) return;
-  office = result.office;
-  renderOffice();
+  try {
+    const response = await fetch("/api/workline/office");
+    if (!response.ok) return;
+    const result = await response.json().catch(() => ({ ok: false }));
+    if (!result.ok) return;
+    office = result.office;
+    renderOffice();
+    scheduleLiveRefresh();
+  } catch {
+    // A temporary local-server hiccup should not stop the ambient office loops.
+  }
+}
+
+function scheduleLiveRefresh() {
+  window.clearTimeout(liveRefreshTimer);
+  if (!office || document.hidden || !document.querySelector("#panel-office.is-active")) return;
+  liveRefreshTimer = window.setTimeout(async () => {
+    await loadOffice();
+    scheduleLiveRefresh();
+  }, 12000);
+}
+
+function scheduleOfficeMotion() {
+  window.clearTimeout(walkTimer);
+  if (document.hidden || !document.querySelector("#panel-office.is-active")) return;
+  walkTimer = window.setTimeout(() => {
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const idle = (office?.employees || []).filter((employee) => employee.officeStatus === "idle" && employee.id !== walkingEmployeeId);
+      const workers = (office?.employees || []).filter((employee) => employee.officeStatus === "working");
+      const person = idle[Math.floor(Math.random() * idle.length)];
+      if (person) {
+        const element = peopleRoot()?.querySelector(`[data-office-employee="${CSS.escape(person.id)}"]`);
+        if (element) {
+          walkingEmployeeId = person.id;
+          const original = [...element.classList].find((name) => name.startsWith("office-pos-"));
+          element.classList.remove(original);
+          element.classList.add("office-pos-22-82", "is-walking");
+          window.setTimeout(() => {
+            if (!element.isConnected) {
+              walkingEmployeeId = null;
+              return;
+            }
+            element.classList.remove("office-pos-22-82", "is-walking");
+            const current = placedEmployees(office?.employees || []).find((employee) => employee.id === person.id);
+            const destination = current ? `office-pos-${current.position[0]}-${current.position[1]}` : original;
+            element.classList.add(destination);
+            walkingEmployeeId = null;
+          }, 6500);
+        }
+      } else if (workers.length) {
+        const person = workers[Math.floor(Math.random() * workers.length)];
+        const element = peopleRoot()?.querySelector(`[data-office-employee="${CSS.escape(person.id)}"]`);
+        if (element) {
+          element.classList.add("is-stretching");
+          window.setTimeout(() => element.classList.remove("is-stretching"), 2400);
+        }
+      }
+    }
+    scheduleOfficeMotion();
+  }, 14000 + Math.random() * 14000);
 }
 
 document.addEventListener("click", (event) => {
@@ -176,10 +234,33 @@ document.addEventListener("click", (event) => {
 });
 
 window.addEventListener("workline-tab-change", (event) => {
-  if (event.detail.tab === "office") loadOffice();
-  else closeOfficePanel();
+  if (event.detail.tab === "office") {
+    loadOffice();
+    scheduleOfficeMotion();
+  } else {
+    window.clearTimeout(liveRefreshTimer);
+    window.clearTimeout(walkTimer);
+    window.clearTimeout(bubbleTimer);
+    closeOfficePanel();
+  }
 });
-window.addEventListener("workline-data-updated", () => { if (document.querySelector("#panel-office")?.classList.contains("is-active")) loadOffice(); });
+window.addEventListener("workline-data-updated", () => {
+  if (document.querySelector("#panel-office")?.classList.contains("is-active")) {
+    loadOffice();
+  }
+});
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    window.clearTimeout(liveRefreshTimer);
+    window.clearTimeout(walkTimer);
+    window.clearTimeout(bubbleTimer);
+  } else if (document.querySelector("#panel-office.is-active")) {
+    loadOffice();
+    scheduleLiveRefresh();
+    scheduleOfficeMotion();
+    scheduleBubble();
+  }
+});
 
 currentTimeLabel();
 window.setInterval(currentTimeLabel, 30000);
@@ -189,15 +270,4 @@ document.addEventListener("error", (event) => {
   if (event.target.matches?.(".office-avatar img, .office-profile img")) event.target.remove();
 }, true);
 document.addEventListener("keydown", event => { if (event.key === "Escape") closeOfficePanel(); });
-window.setInterval(() => {
-  if (document.hidden || !document.querySelector("#panel-office.is-active")) return;
-  const idle = (office?.employees || []).filter(employee => employee.officeStatus === "idle");
-  const employee = idle[Math.floor(Math.random() * idle.length)];
-  if (!employee || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const element = peopleRoot().querySelector(`[data-office-employee="${CSS.escape(employee.id)}"]`);
-  const original = [...element.classList].find(name => name.startsWith("office-pos-"));
-  element.classList.remove(original);
-  element.classList.add("office-pos-22-82", "is-walking");
-  setTimeout(() => element.classList.remove("is-walking"), 1900);
-  setTimeout(() => { element.classList.remove("office-pos-22-82"); element.classList.add(original, "is-walking"); setTimeout(() => element.classList.remove("is-walking"), 1900); }, 12000);
-}, 35000);
+scheduleOfficeMotion();
