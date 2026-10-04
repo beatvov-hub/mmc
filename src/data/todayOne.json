@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T09:17:12+09:00",
+  "updatedAt": "2026-10-05T07:33:36+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -790,6 +790,27 @@
       "license": "GNU General Public License (GPL)",
       "notes": "活用例は公式マニュアルのQuick Start、タイトルクリップ、MP4書き出しの説明に基づく想定です。実機検証は未実施です。",
       "verifiedAt": "2026-10-04",
+      "status": "published"
+    },
+    {
+      "date": "2026-10-05",
+      "slug": "actionlint",
+      "name": "actionlint",
+      "category": "Developer Tool",
+      "officialUrl": "https://github.com/rhysd/actionlint",
+      "summary": "GitHub Actionsの設定ファイルを検査し、構文や式、アクション入力の誤りを実行前に見つける静的チェックツールです。",
+      "whyToday": "GitHub Actionsの設定は、YAMLとして読めても式の型やアクションへの入力が間違っていれば、実行時まで気づきにくいことがあります。actionlintはワークフローの構文だけでなく、式や指定内容も検査するため、自動処理を走らせる前の設定レビューを一段具体的にできます。",
+      "useFor": "例えば、定期実行のGitHub Actionsへjobを追加する前に。リポジトリ内の .github/workflows/daily-quiz.yml など対象ファイルをactionlintで検査すると、構文、${{ }}式の型、アクションへの入力名などの問題がファイル名・行番号付きで示されます。指摘を直して再検査し、トリガー条件や権限設定はGitHub上で意図と合うか別に読み合わせます。まず変更したYAML一つだけを対象にし、actionlintはworkflow自体を実行しないため、検査合格を動作確認と取り違えないようにします。",
+      "recommendedFor": {
+        "employeeId": "MMC-008",
+        "reason": "AI開発推進主任のアキトに、変更したworkflowの静的チェックと指摘の整理を任せたいです。エラーの行番号に加え、GitHub上で別途確認すべきトリガー・権限も分けて受け取れれば、設定の誤りと実行時の確認を混同せずレビューできます。"
+      },
+      "keiComment": "ジョブを実際に走らせる前に、設定の食い違いを拾えるのは助かりますね。ただ、検査が通ってもSecretsやRunner上の動きまで保証されるわけではないので、意図した実行条件もレビューに残したいです。",
+      "pricing": "MITライセンスのオープンソースで、actionlint本体は無償で利用できます。",
+      "conditions": "実行ファイルをPCへ導入し、対象のworkflowファイルをローカルで検査します。run内のシェルスクリプトまで確認するShellCheck連携は、ShellCheckを別途用意した場合に使えます。実際のworkflow実行やGitHub側の設定・権限の確認は別途必要です。",
+      "license": "MIT License",
+      "notes": "活用例は公式READMEとUsageに基づく想定です。実機検証は未実施で、静的検査はworkflowの実行結果を保証しません。",
+      "verifiedAt": "2026-10-05",
       "status": "published"
     }
   ]
