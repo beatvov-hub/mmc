@@ -62,7 +62,7 @@
         render(section, work);
       }
     } catch {
-      // The hidden section is intentionally left out when the data is unavailable.
+      // Keep the static fallback visible when the data is unavailable.
     }
   };
 
