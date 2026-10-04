@@ -1,0 +1,53 @@
+{
+  "id": "case-20261004-02",
+  "publishedAt": "2026-10-04",
+  "title": "Siriの音声・文字起こし提供は任意設定、Apple Intelligence学習との違いも確認",
+  "shortTitle": "Siriの改善データ設定を選ぶ",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": ["iPhone・iPadでSiriや音声入力を使う人", "Apple製品の音声データ利用設定を確認したい人"],
+  "summary": "Appleは2026年9月16日付のサポート文書で、「Improve Siri & Apple Intelligence」と「Improve Siri & Dictation」の任意設定をオン・オフする手順とデータ利用を説明しています。オンにするとSiri、音声入力、翻訳のやりとりのサンプル（音声、文字起こし、関連するリクエストデータ）が保存・確認の対象になり、前者では基盤モデルの学習にも使われ得ます。設定は後から変更でき、iPhone・iPadでは「設定」＞「プライバシーとセキュリティ」＞「解析と改善」から確認できます。二つの設定名と対象データを見て、自分の端末で選び直すための記事です。",
+  "scenario": {
+    "headline": "Siriや音声入力を使う時、録音や文字起こしを改善に提供する設定はオン？",
+    "description": "端末設定を初期化・更新した後や、Siriに個人情報を話す前に、音声サンプルの提供条件を確認したい場面です。",
+    "whyItMatters": "任意設定のオン・オフで、音声・文字起こしなどのサンプルをAppleが保存・確認することへの同意が変わります。「Siri改善」と「Apple Intelligenceを含む改善」では説明される利用範囲も異なります。"
+  },
+  "question": {
+    "text": "Siriなどのやりとりのサンプル提供を見直すには？",
+    "choices": [
+      {"id": "settings", "label": "解析と改善を開き、二つの改善設定とデータ利用の違いを確認する", "description": "任意設定を端末で選び、基盤モデル学習を含むかも確認します。"},
+      {"id": "account", "label": "Apple Accountからサインアウトすれば、改善設定も必ずオフになると考える", "description": "サポート文書は設定画面で明示的にオン・オフする手順を案内しています。"},
+      {"id": "same", "label": "二つの設定名は同じで、データ利用範囲も完全に同一と考える", "description": "Apple Intelligenceの設定では基盤モデル学習にも使うと説明されています。"}
+    ],
+    "recommendedAnswers": ["settings"],
+    "explanation": "設定は任意で後から変更可能です。オンにする前に、対象データと、Apple Intelligenceの改善設定に追加される基盤モデル学習の説明を読みます。"
+  },
+  "inspectionPoints": [
+    {"title": "任意設定で後から変更できる", "description": "Appleは設定を任意と説明し、端末の「解析と改善」からいつでもオン・オフできると案内しています。初期設定時の選択を固定と考える必要はありません。", "priority": "high"},
+    {"title": "対象となるデータ", "description": "オンにすると、Siri・音声入力・翻訳とのやりとりのサンプルとして、音声、文字起こし、関連するリクエストデータをAppleが保存・確認します。", "priority": "high"},
+    {"title": "二つの設定の違い", "description": "「Improve Siri & Apple Intelligence」はSiri AI利用者向けで、提供データを基盤モデル学習にも使えると説明されています。「Improve Siri & Dictation」は別の設定名で、機能改善の説明が中心です。", "priority": "high"},
+    {"title": "識別子と確認する人", "description": "Appleの説明では、情報はApple Accountやメールアドレスではなく端末生成のランダム識別子に関連づけられ、音声録音を確認するのはApple従業員です。", "priority": "medium"},
+    {"title": "iPhone・iPadでの設定経路", "description": "「設定」＞「プライバシーとセキュリティ」＞「解析と改善」を開き、利用中の改善設定を切り替えます。Macや他のApple製品では経路が異なるため、公式手順を確認してください。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "音声サンプルの任意設定を確認",
+  "verificationMessage": "設定名ごとの対象データと用途を読んでから、端末の「解析と改善」で選択してください。",
+  "verdict": {"label": "改善データ提供は任意、モデル学習の範囲も設定名で異なる", "description": "オプトインすると音声・文字起こし等のサンプルが扱われ、Apple Intelligenceの改善設定では基盤モデル学習も説明されています。端末で設定を確認し、後から変更できます。", "confidence": "high"},
+  "safeActions": [
+    {"action": "iPhone・iPadの「設定」＞「プライバシーとセキュリティ」＞「解析と改善」を開く", "reason": "Appleが案内する設定経路で、現在のオン・オフを確認できます。"},
+    {"action": "「Improve Siri & Apple Intelligence」と「Improve Siri & Dictation」の説明を個別に読む", "reason": "Apple Intelligenceの設定には基盤モデル学習への利用も記載されています。"},
+    {"action": "家族のApple WatchやHomePodなど、端末ごとの連動・変更条件を確認する", "reason": "一部の端末は設定元のiPhone・iPadに連動し、家族用設定などでは変更条件が異なります。"},
+    {"action": "選択を変えた場合も、端末上で設定状態を再確認する", "reason": "Appleは設定をいつでも調整できると案内しています。"}
+  ],
+  "avoidActions": [
+    {"action": "任意設定をオンにした場合の範囲を、匿名化されるから問題ないと一括判断する", "reason": "Appleはランダムな端末識別子を使うとしていますが、音声・文字起こし・関連データの保存と確認も説明しています。"},
+    {"action": "二つの設定名を同一視し、基盤モデル学習の説明を見落とす", "reason": "Apple Intelligence改善設定については基盤モデル学習への利用が明記されています。"},
+    {"action": "設定を切り替えれば過去に提供されたサンプルも自動消去されると推測する", "reason": "参照した案内は設定のオン・オフ手順を説明していますが、切替による過去データ消去までは述べていません。"}
+  ],
+  "positiveUse": {"title": "便利さと音声データ提供を自分で選ぶ", "description": "音声機能の改善に協力するかを、データの種類・確認主体・モデル学習の範囲と合わせて判断します。", "examples": ["現在の設定を端末で確認する", "必要ならオプトインをオフにする", "家族の端末に設定が連動していないか見る"]},
+  "makotoComment": "ここは『Appleに音声が送られるか』だけでなく、選んだ設定の名称まで見たいところです。Appleの説明ではApple Intelligence側の改善設定に基盤モデル学習が含まれるので、単にSiriを使う設定とは分けて判断できます。オフにすれば過去データも消える、とまでは案内に書かれていない点も切り分けておきます。",
+  "oneLineLesson": "Siri改善の任意設定を端末で確認し、音声サンプルとモデル学習の範囲を分けて選ぶ。",
+  "tags": ["Apple", "Siri", "Apple Intelligence", "音声入力", "プライバシー設定", "データ利用"],
+  "sources": [{"title": "Turn Improve Siri & Apple Intelligence or Improve Siri & Dictation on or off", "publisher": "Apple Support", "sourceType": "official-product-documentation", "publishedAt": "2026-09-16", "url": "https://support.apple.com/en-hk/127070"}],
+  "visualSuggestion": {"mainVisual": "iPhoneの解析と改善画面から二つの任意設定を比較し、音声・文字起こし・関連データと基盤モデル学習の範囲を区別する。", "cardIcon": "siri-audio-improvement-setting", "accentTone": "info"}
+}

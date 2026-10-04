@@ -1,0 +1,53 @@
+{
+  "id": "case-20261004-01",
+  "publishedAt": "2026-10-04",
+  "title": "税務ソフトの生成AI、HMRC指針から見る「出典・人の確認・訂正手段」",
+  "shortTitle": "HMRC指針で税務AIを確認",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["生成AIを使う税務ソフトの利用者", "AI機能のある会計・申告サービスを選ぶ人"],
+  "summary": "英国の歳入関税庁（HMRC）は2026年1月28日、税務申告などを支援する商用ソフトの開発者向けに、生成AI利用の指針を公開しました。利用者には、AIが使われていることや参照データ、限界、人による確認の方法を示し、誤りを直したり問題を報告できる設計が期待されています。これは英国の開発者向け行政指針で、日本の税法や個別製品への認証ではありません。AI搭載の税務ソフトを選ぶ際は、根拠資料の表示、訂正手段、複雑なケースの専門家への引き継ぎ、HMRC非公認であることを確認する視点として使えます。",
+  "scenario": {
+    "headline": "税務申告を手伝うAIソフト、回答の根拠や誤りの直し方は分かる？",
+    "description": "申告内容の整理や入力を生成AIが支援するサービスを使う前に、どこまで任せてよいかを判断したい場面です。",
+    "whyItMatters": "税務ソフトがもっともらしい説明を返しても、参照した法令・公的資料や更新状況、利用者が修正する経路が見えなければ、誤った申告を見逃すおそれがあります。"
+  },
+  "question": {
+    "text": "AI機能のある税務ソフトを選ぶとき、最初に確認したいことは？",
+    "choices": [
+      {"id": "traceable", "label": "参照資料、AIの限界、人の確認、訂正・問い合わせ手段を確認する", "description": "HMRC指針が開発者に期待する透明性と人の関与を利用者の確認項目にします。"},
+      {"id": "endorsed", "label": "HMRCの指針に沿っていればHMRC公認製品だと考える", "description": "HMRCは特定の開発者や製品を承認・推奨していません。"},
+      {"id": "automatic", "label": "AIが税額を出したら人の確認なしで提出する", "description": "指針は人の判断を支援し、利用者が結果を確認できる設計を期待しています。"}
+    ],
+    "recommendedAnswers": ["traceable"],
+    "explanation": "出典と処理方法を見られること、誤りを直せること、複雑な論点を専門家へつなぐことを確認します。HMRCの指針は製品の認証ではなく、英国の開発者向けの期待事項です。"
+  },
+  "inspectionPoints": [
+    {"title": "AI利用と人の確認が見えるか", "description": "HMRCは、ソフトが生成AIを使っていること、能力・限界、人によるレビューのあり方を利用者に説明するよう開発者に期待しています。", "priority": "high"},
+    {"title": "根拠資料と更新管理", "description": "参照候補はHMRCの公式刊行物、法令、確立した判例です。税法やHMRCガイダンスの変更に合わせ、データ源を継続監視し更新することも示されています。", "priority": "high"},
+    {"title": "訂正・複雑な案件の引き継ぎ", "description": "利用者が結果を確認し、誤りを訂正・報告できること、複雑な税務論点では追加調査や資格ある税務専門家への相談を促すことが期待されています。", "priority": "high"},
+    {"title": "個人・財務情報の扱い", "description": "税務ツールは機微な個人・商業・財務情報を扱う可能性があるため、HMRCはプライバシー・バイ・デザイン、強固なセキュリティ、英国GDPRへの準拠を指針に含めています。", "priority": "medium"},
+    {"title": "HMRCの承認とは別", "description": "HMRCは開発者や製品を承認しておらず、HMRCの代理であるかのように示すべきでないと明記しています。指針への言及を公認マークと読み替えないでください。", "priority": "high"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "税務AIの根拠と訂正経路を確認",
+  "verificationMessage": "AIの回答だけで申告を確定せず、出典・更新・人の確認・訂正方法をサービス側に確認してください。",
+  "verdict": {"label": "税務AIは出典と人の確認が見える製品を選ぶ", "description": "HMRCの英国向け開発者指針を、根拠資料・訂正手段・専門家への引き継ぎを確認するチェックリストとして使います。指針はHMRCによる製品承認ではありません。", "confidence": "high"},
+  "safeActions": [
+    {"action": "AIの回答が参照した法令・公的資料と更新日を表示できるか確認する", "reason": "HMRCは信頼できる情報源と継続的な更新管理を期待しています。"},
+    {"action": "申告に反映する前に入力値と計算結果を自分で確認し、修正経路を試す", "reason": "指針は利用者の確認と、誤りの訂正・報告を可能にする設計を求めています。"},
+    {"action": "複雑な税務論点を専門家へ相談できる案内があるか確認する", "reason": "ソフトは複雑なケースを示し、必要なら資格ある税務専門家への相談を勧めることが期待されています。"},
+    {"action": "英国の開発者指針と日本の制度・製品条件を区別する", "reason": "HMRC文書は英国の税務ソフト開発者向けで、日本の税務判断を直接定める資料ではありません。"}
+  ],
+  "avoidActions": [
+    {"action": "HMRC指針に沿うという表示をHMRC公認・保証と受け取る", "reason": "HMRCは特定製品・開発者を承認または推奨しないと明記しています。"},
+    {"action": "AIが出した申告内容を出典や自分の資料と照合せず提出する", "reason": "指針はAIを人の判断の補助とし、利用者が結果を確認する設計を期待しています。"},
+    {"action": "英国向け指針を日本の税務要件そのものとして扱う", "reason": "対象はHMRCへ情報を提出する商用ソフトの開発者向け指針です。"}
+  ],
+  "positiveUse": {"title": "税務AIを検証可能な補助役として使う", "description": "根拠と更新状況をたどれ、利用者が修正でき、複雑な論点を専門家へつなげられるサービスを選びます。", "examples": ["AIの回答に付いた公的資料を読む", "申告前に数値と根拠を確認する", "訂正・問い合わせ窓口と専門家相談の案内を確かめる"]},
+  "makotoComment": "税務ソフトのAIで私が見たいのは、回答の流暢さよりも『どの資料をいつ参照したか』と『違うと思った時にどこで直せるか』です。HMRCの文書も、AIの賢さを認定するものではなく、出典・人の確認・利用者の訂正を組み込む開発上の期待として読むのが筋です。",
+  "oneLineLesson": "税務AIは出典・更新・訂正手段を見て選び、HMRC指針を製品認証と混同しない。",
+  "tags": ["HMRC", "税務", "生成AI", "税務ソフト", "出典", "人間の確認"],
+  "sources": [{"title": "Guidelines for using generative artificial intelligence if you’re a software developer", "publisher": "HM Revenue & Customs", "sourceType": "government", "publishedAt": "2026-01-28", "url": "https://www.gov.uk/guidance/guidelines-for-using-generative-artificial-intelligence-if-youre-a-software-developer"}],
+  "visualSuggestion": {"mainVisual": "税務AIの回答から参照資料、利用者による確認・修正、複雑な論点の専門家相談へ進む流れを描く。HMRC指針は製品承認とは別枠で示す。", "cardIcon": "tax-ai-source-review", "accentTone": "caution"}
+}

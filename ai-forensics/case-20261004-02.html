@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Siriの音声・文字起こし提供は任意設定、Apple Intelligence学習との違いも確認｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Appleは2026年9月16日付のサポート文書で、「Improve Siri &amp; Apple Intelligence」と「Improve Siri &amp; Dictation」の任意設定をオン・オフする手順とデータ利用を説明しています。オンにするとSiri、音声入力、翻訳のやりとりのサンプル（音声、文字起こし、関連するリクエストデータ）が保存・確認の対象になり、前者では基盤モデルの学習にも使われ得ます。設定は後から変更でき、iPhone・iPadでは「設定」＞「プライバシーとセキュリティ」＞「解析と改善」から確認できます。二つの設定名と対象データを見て、自分の端末で選び直すための記事です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261004-02" />
+<meta property="og:title" content="Siriの音声・文字起こし提供は任意設定、Apple Intelligence学習との違いも確認｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Appleは2026年9月16日付のサポート文書で、「Improve Siri &amp; Apple Intelligence」と「Improve Siri &amp; Dictation」の任意設定をオン・オフする手順とデータ利用を説明しています。オンにするとSiri、音声入力、翻訳のやりとりのサンプル（音声、文字起こし、関連するリクエストデータ）が保存・確認の対象になり、前者では基盤モデルの学習にも使われ得ます。設定は後から変更でき、iPhone・iPadでは「設定」＞「プライバシーとセキュリティ」＞「解析と改善」から確認できます。二つの設定名と対象データを見て、自分の端末で選び直すための記事です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261004-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Siriの改善データ設定を選ぶ</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-10-04">2026.10.04</time>
+            </div>
+            <h1>Siriの音声・文字起こし提供は任意設定、Apple Intelligence学習との違いも確認</h1>
+            <p>Appleは2026年9月16日付のサポート文書で、「Improve Siri &amp; Apple Intelligence」と「Improve Siri &amp; Dictation」の任意設定をオン・オフする手順とデータ利用を説明しています。オンにするとSiri、音声入力、翻訳のやりとりのサンプル（音声、文字起こし、関連するリクエストデータ）が保存・確認の対象になり、前者では基盤モデルの学習にも使われ得ます。設定は後から変更でき、iPhone・iPadでは「設定」＞「プライバシーとセキュリティ」＞「解析と改善」から確認できます。二つの設定名と対象データを見て、自分の端末で選び直すための記事です。</p>
+            <ul class="forensics-target-list"><li>iPhone・iPadでSiriや音声入力を使う人</li><li>Apple製品の音声データ利用設定を確認したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Apple</li><li>Siri</li><li>Apple Intelligence</li><li>音声入力</li><li>プライバシー設定</li><li>データ利用</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>音声サンプルの任意設定を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>設定名ごとの対象データと用途を読んでから、端末の「解析と改善」で選択してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Siriや音声入力を使う時、録音や文字起こしを改善に提供する設定はオン？</h3><p>端末設定を初期化・更新した後や、Siriに個人情報を話す前に、音声サンプルの提供条件を確認したい場面です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>任意設定のオン・オフで、音声・文字起こしなどのサンプルをAppleが保存・確認することへの同意が変わります。「Siri改善」と「Apple Intelligenceを含む改善」では説明される利用範囲も異なります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="settings">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Siriなどのやりとりのサンプル提供を見直すには？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="settings" data-choice-id="settings" />
+                <span>
+                  <strong>解析と改善を開き、二つの改善設定とデータ利用の違いを確認する</strong>
+                  <small>任意設定を端末で選び、基盤モデル学習を含むかも確認します。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="account" data-choice-id="account" />
+                <span>
+                  <strong>Apple Accountからサインアウトすれば、改善設定も必ずオフになると考える</strong>
+                  <small>サポート文書は設定画面で明示的にオン・オフする手順を案内しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="same" data-choice-id="same" />
+                <span>
+                  <strong>二つの設定名は同じで、データ利用範囲も完全に同一と考える</strong>
+                  <small>Apple Intelligenceの設定では基盤モデル学習にも使うと説明されています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>解析と改善を開き、二つの改善設定とデータ利用の違いを確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>設定は任意で後から変更可能です。オンにする前に、対象データと、Apple Intelligenceの改善設定に追加される基盤モデル学習の説明を読みます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>任意設定で後から変更できる</h3>
+              <p>Appleは設定を任意と説明し、端末の「解析と改善」からいつでもオン・オフできると案内しています。初期設定時の選択を固定と考える必要はありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象となるデータ</h3>
+              <p>オンにすると、Siri・音声入力・翻訳とのやりとりのサンプルとして、音声、文字起こし、関連するリクエストデータをAppleが保存・確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>二つの設定の違い</h3>
+              <p>「Improve Siri &amp; Apple Intelligence」はSiri AI利用者向けで、提供データを基盤モデル学習にも使えると説明されています。「Improve Siri &amp; Dictation」は別の設定名で、機能改善の説明が中心です。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>識別子と確認する人</h3>
+              <p>Appleの説明では、情報はApple Accountやメールアドレスではなく端末生成のランダム識別子に関連づけられ、音声録音を確認するのはApple従業員です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>iPhone・iPadでの設定経路</h3>
+              <p>「設定」＞「プライバシーとセキュリティ」＞「解析と改善」を開き、利用中の改善設定を切り替えます。Macや他のApple製品では経路が異なるため、公式手順を確認してください。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>改善データ提供は任意、モデル学習の範囲も設定名で異なる</strong><p>オプトインすると音声・文字起こし等のサンプルが扱われ、Apple Intelligenceの改善設定では基盤モデル学習も説明されています。端末で設定を確認し、後から変更できます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>iPhone・iPadの「設定」＞「プライバシーとセキュリティ」＞「解析と改善」を開く</strong><span>Appleが案内する設定経路で、現在のオン・オフを確認できます。</span></li>
+            <li><strong>「Improve Siri &amp; Apple Intelligence」と「Improve Siri &amp; Dictation」の説明を個別に読む</strong><span>Apple Intelligenceの設定には基盤モデル学習への利用も記載されています。</span></li>
+            <li><strong>家族のApple WatchやHomePodなど、端末ごとの連動・変更条件を確認する</strong><span>一部の端末は設定元のiPhone・iPadに連動し、家族用設定などでは変更条件が異なります。</span></li>
+            <li><strong>選択を変えた場合も、端末上で設定状態を再確認する</strong><span>Appleは設定をいつでも調整できると案内しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>任意設定をオンにした場合の範囲を、匿名化されるから問題ないと一括判断する</strong><span>Appleはランダムな端末識別子を使うとしていますが、音声・文字起こし・関連データの保存と確認も説明しています。</span></li>
+            <li><strong>二つの設定名を同一視し、基盤モデル学習の説明を見落とす</strong><span>Apple Intelligence改善設定については基盤モデル学習への利用が明記されています。</span></li>
+            <li><strong>設定を切り替えれば過去に提供されたサンプルも自動消去されると推測する</strong><span>参照した案内は設定のオン・オフ手順を説明していますが、切替による過去データ消去までは述べていません。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>便利さと音声データ提供を自分で選ぶ</h3>
+          <p>音声機能の改善に協力するかを、データの種類・確認主体・モデル学習の範囲と合わせて判断します。</p>
+          <ul class="positive-example-list"><li>現在の設定を端末で確認する</li><li>必要ならオプトインをオフにする</li><li>家族の端末に設定が連動していないか見る</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>ここは『Appleに音声が送られるか』だけでなく、選んだ設定の名称まで見たいところです。Appleの説明ではApple Intelligence側の改善設定に基盤モデル学習が含まれるので、単にSiriを使う設定とは分けて判断できます。オフにすれば過去データも消える、とまでは案内に書かれていない点も切り分けておきます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Siri改善の任意設定を端末で確認し、音声サンプルとモデル学習の範囲を分けて選ぶ。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.apple.com/en-hk/127070" target="_blank" rel="noopener noreferrer">Turn Improve Siri &amp; Apple Intelligence or Improve Siri &amp; Dictation on or off<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Apple Support</span>
+              <span>その他</span>
+              <time datetime="2026-09-16">2026-09-16</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-serious" href="case-20261003-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Claudeの企業向けEFSは何を顧客側で管理する？データ保管と不正監視を分けて確認 Claude企業向けEFSの保管と監視 Anthropicは2026年9月1日、ゼロデータ保持（ZDR）と不正利用の検知を組み合わせる企業向け構想「Enterprise Frontier Safeguards（EFS）」を発表しました。利用データはAnthropicではなく顧客が管理するクラウド基盤に保存し、検知システムのシグナルを顧客へ送り、顧客側が確認する設計です。データを長く保持すること自体が目的ではなく、複数セッションやアカウントにまたがる不正の兆候を照合するためと説明されています。提供は2026年秋以降の段階的開始予定で、発表時点では利用可能な完成済みサービスではありません。企業は導入判断時に対応製品、保存先、鍵・アクセス権、アラート確認責任を確かめる必要があります。 セキュリティ・権限 標準 Anthropic Claude Enterprise Frontier Safeguards ゼロデータ保持 企業セキュリティ データ保管 Claudeを企業導入する管理者 AI利用時のログ保管や監視を設計するセキュリティ担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">claude-enterprise-frontier-safeguards</span>
+              <div>
+                <p>Claude企業向けEFSの保管と監視</p>
+                <h3>Claudeの企業向けEFSは何を顧客側で管理する？データ保管と不正監視を分けて確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-03">2026.10.03</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Anthropicは2026年9月1日、ゼロデータ保持（ZDR）と不正利用の検知を組み合わせる企業向け構想「Enterprise Frontier Safeguards（EFS）」を発表しました。利用データはAnthropicではなく顧客が管理するクラウド基盤に保存し、検知システムのシグナルを顧客へ送り、顧客側が確認する設計です。データを長く保持すること自体が目的ではなく、複数セッションやアカウントにまたがる不正の兆候を照合するためと説明されています。提供は2026年秋以降の段階的開始予定で、発表時点では利用可能な完成済みサービスではありません。企業は導入判断時に対応製品、保存先、鍵・アクセス権、アラート確認責任を確かめる必要があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>保存責任と監視運用を設計</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Claudeを企業導入する管理者</li><li>AI利用時のログ保管や監視を設計するセキュリティ担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Anthropic</li><li>Claude</li><li>Enterprise Frontier Safeguards</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261002-03" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Facebook・InstagramのAIサポートで何を頼める？異議申し立てとログイン復旧の範囲を分ける MetaのAIサポートで頼めることを確認 Metaは2026年3月19日、Facebook・InstagramでAIサポートアシスタントを展開すると発表し、翌日に提供地域の説明を更新しました。Meta AIが利用可能な地域のモバイルアプリやPCのヘルプセンターで、アカウント問題の相談に使えます。Facebook内では、詐欺・なりすましの通報、投稿削除の理由や異議申し立ての確認、プライバシー設定やパスワード変更などの操作を支援すると案内しています。ただし、ログインできない人への支援は米国・カナダの一部ケースから展開中です。利用できる相談と、まだ限定的な復旧支援を分けて考えるための記事です。 セキュリティ・権限 はじめて Facebook Instagram Meta AI サポート 異議申し立て アカウント復旧 FacebookやInstagramのアカウント問題に困っている人 通報や異議申し立ての入口を探している人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">meta-ai-support</span>
+              <div>
+                <p>MetaのAIサポートで頼めることを確認</p>
+                <h3>Facebook・InstagramのAIサポートで何を頼める？異議申し立てとログイン復旧の範囲を分ける</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-02">2026.10.02</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Metaは2026年3月19日、Facebook・InstagramでAIサポートアシスタントを展開すると発表し、翌日に提供地域の説明を更新しました。Meta AIが利用可能な地域のモバイルアプリやPCのヘルプセンターで、アカウント問題の相談に使えます。Facebook内では、詐欺・なりすましの通報、投稿削除の理由や異議申し立ての確認、プライバシー設定やパスワード変更などの操作を支援すると案内しています。ただし、ログインできない人への支援は米国・カナダの一部ケースから展開中です。利用できる相談と、まだ限定的な復旧支援を分けて考えるための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>相談と直接操作・復旧を区別</span>
+            </div>
+            <ul class="forensics-card-audience"><li>FacebookやInstagramのアカウント問題に困っている人</li><li>通報や異議申し立ての入口を探している人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Facebook</li><li>Instagram</li><li>Meta AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261001-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Meta Museに作業を任せる前に、接続権限・承認・行動履歴を分けて見る Museの権限と行動履歴を確認 Metaは2026年9月8日、個人向けAIエージェントMuseを発表し、米国でiOS・Android・Webへ展開中と案内しています。Museでは接続アプリごとにアクセス範囲を選び、メールを読むだけか送信も許すかを分けられます。メール送信や購入などの機微な操作は事前確認を求め、実行済み・予定中の行動を監査履歴で見られるとMetaは説明します。接続の変更・解除、学習利用からのオプトアウト、覚えた情報の忘却も案内されています。一方、さらに強い暗号化をうたうMuse Confidential VMは今後の予定で、現行機能と混同しないことが重要です。日本での一般提供は公式発表から確認できないため、提供地域と権限の両方を確認する記事です。 セキュリティ・権限 標準 Meta Muse AIエージェント 接続権限 監査履歴 事前承認 Meta Museの提供地域でAIエージェントを使う人 メール送信や購入をAIに任せる条件を考える人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">muse-agent-permissions</span>
+              <div>
+                <p>Museの権限と行動履歴を確認</p>
+                <h3>Meta Museに作業を任せる前に、接続権限・承認・行動履歴を分けて見る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-01">2026.10.01</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Metaは2026年9月8日、個人向けAIエージェントMuseを発表し、米国でiOS・Android・Webへ展開中と案内しています。Museでは接続アプリごとにアクセス範囲を選び、メールを読むだけか送信も許すかを分けられます。メール送信や購入などの機微な操作は事前確認を求め、実行済み・予定中の行動を監査履歴で見られるとMetaは説明します。接続の変更・解除、学習利用からのオプトアウト、覚えた情報の忘却も案内されています。一方、さらに強い暗号化をうたうMuse Confidential VMは今後の予定で、現行機能と混同しないことが重要です。日本での一般提供は公式発表から確認できないため、提供地域と権限の両方を確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>権限、承認、監査履歴を別々に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Meta Museの提供地域でAIエージェントを使う人</li><li>メール送信や購入をAIに任せる条件を考える人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Meta Muse</li><li>AIエージェント</li><li>接続権限</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261004-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261004-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

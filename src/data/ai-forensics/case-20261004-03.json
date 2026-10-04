@@ -1,0 +1,53 @@
+{
+  "id": "case-20261004-03",
+  "publishedAt": "2026-10-04",
+  "title": "FTCが広告最適化となりすまし詐欺を調査、まだプラットフォームへの新ルールではない",
+  "shortTitle": "FTCの広告詐欺ルール検討",
+  "category": "scam",
+  "difficulty": "standard",
+  "targetAudience": ["SNSや検索広告から商品・公的手続きを利用する人", "なりすまし広告を通報・見分けたい人"],
+  "summary": "米連邦取引委員会（FTC）は2026年9月24日、政府機関や企業になりすますオンライン広告詐欺に、プラットフォームの広告最適化がどう関与するかについて意見を募る事前規則制定通知（ANPRM）を発表しました。広告主の審査、広告の監視、疑わしい広告の調査、確認済み詐欺広告の削除などは、FTCが検討対象として挙げた選択肢です。現時点で新たな義務が確定したわけではありません。利用者は「FTCがSNS広告を規制する新ルールを施行した」と誤解せず、見つけた広告の確認・通報を続ける必要があります。",
+  "scenario": {
+    "headline": "SNSで銀行・政府機関を名乗る広告を見た。プラットフォームの責任はもう決まった？",
+    "description": "広告の配信やターゲティングを使ったなりすまし詐欺について、FTCの発表を読んだ時に、成立済み規制と検討段階を見分けたい場面です。",
+    "whyItMatters": "意見募集の発表を現行ルールと誤読すると、広告審査や削除がすでに義務化されたと勘違いしたり、目の前の広告への通報を不要と思ったりする可能性があります。"
+  },
+  "question": {
+    "text": "FTCの2026年9月24日の発表をどう読む？",
+    "choices": [
+      {"id": "proposal", "label": "ANPRMによる意見募集・規則検討と理解し、疑わしい広告は引き続き通報する", "description": "発表はプラットフォームの役割や将来の措置について意見を求める段階です。"},
+      {"id": "law", "label": "広告主審査・監視・削除が全プラットフォームに義務化されたと考える", "description": "列挙された対策は検討対象で、発表時点の確定義務ではありません。"},
+      {"id": "safe", "label": "FTCが調査するので、広告の真偽確認や通報はもう不要と考える", "description": "規則検討は個別広告の安全を保証しません。"}
+    ],
+    "recommendedAnswers": ["proposal"],
+    "explanation": "FTCはANPRMで意見を募り、既存規則の更新、新規則、非規制措置などを検討しています。新しい義務が成立・施行したと読み替えず、個々の広告は引き続き確認・通報します。"
+  },
+  "inspectionPoints": [
+    {"title": "発表の段階はANPRM", "description": "FTCは規則を更新するか、別の措置を取るかを検討するためのAdvance Notice of Proposed Rulemakingを発表し、プラットフォーム広告が詐欺を助長する程度などへの意見を求めています。", "priority": "high"},
+    {"title": "広告最適化が調査対象", "description": "対象はソーシャルメディア、検索エンジン、デジタル市場の広告最適化ツールやサービスが、政府機関・正規企業になりすます詐欺広告の配信を助けるかという問題です。", "priority": "high"},
+    {"title": "挙げられた対策は検討例", "description": "広告主審査、掲載広告の監視、疑わしい広告の調査、詐欺と確認した広告の削除、広告主への措置が、将来の規制で検討し得る例として示されています。現行の確定義務ではありません。", "priority": "high"},
+    {"title": "手続きと実施義務を混同しない", "description": "FTCは既存の政府・企業なりすまし規則の改正、新たな規則、非規制措置を検討事項として示しています。意見募集と最終規則の成立・発効は別段階です。", "priority": "high"},
+    {"title": "個別広告への対応は続ける", "description": "発表はプラットフォーム制度の検討であって、個々の広告の真偽を保証する仕組みではありません。FTCの消費者向け案内は、詐欺等をReportFraud.ftc.govで報告する窓口を案内しています。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "意見募集と成立済みルールを区別",
+  "verificationMessage": "FTCの発表は規則制定の検討段階です。対策例を既存のプラットフォーム義務と読み替えないでください。",
+  "verdict": {"label": "広告最適化の責任は検討中で、新ルールはまだ確定していない", "description": "FTCはプラットフォームの広告配信と詐欺の関係について意見を募っています。ユーザーは制度の進捗と、個別広告の確認・通報を分けて扱います。", "confidence": "high"},
+  "safeActions": [
+    {"action": "FTC発表のANPRMという手続き段階を確認し、最終規則と区別する", "reason": "2026年9月24日の発表は意見募集・規則検討であり、義務の成立を発表していません。"},
+    {"action": "広告主名だけでなく、広告先URLや公式サイトの連絡先を別に確認する", "reason": "なりすまし広告は政府・企業の名称や広告配信を悪用する問題として検討されています。"},
+    {"action": "疑わしい広告をプラットフォームの通報機能やFTCの窓口へ報告する", "reason": "規則検討の結果を待つ間も、個別の詐欺広告への報告は利用者が取れる対応です。"},
+    {"action": "FTCの意見募集期限や今後の決定を一次資料で追う", "reason": "意見期限は連邦官報への掲載後60日と発表されており、発表日から固定日数で断定しない方が正確です。"}
+  ],
+  "avoidActions": [
+    {"action": "FTCがプラットフォームに広告審査・削除を義務付けたと投稿する", "reason": "審査・監視・削除は検討し得る対策例で、確定した新義務ではありません。"},
+    {"action": "規制案の発表を、詐欺広告が減った証拠とみなす", "reason": "発表は制度を検討する段階であり、実施結果を示すものではありません。"},
+    {"action": "広告に有名企業や政府のロゴがあるだけで正規と判断する", "reason": "本件は正規組織になりすます広告を扱っており、見た目だけでは正当性を確定できません。"}
+  ],
+  "positiveUse": {"title": "制度の進捗を追いながら広告を報告する", "description": "規制検討を現行の安全保証と取り違えず、疑わしい広告の確認・通報を続け、今後のルール決定を一次資料で追います。", "examples": ["広告のリンク先を確認する", "プラットフォームの広告通報を使う", "FTCの発表・官報掲載後の手続きを確認する"]},
+  "makotoComment": "今回のニュースの肝は、FTCが広告の最適化そのものを責任論の俎上に載せた点ですが、まだ『SNSは審査・削除を義務づけられた』ではありません。選択肢の列挙を成立済みのルールに変換しないこと、そして制度の議論中も利用者の広告通報は止めないことをセットで伝えたいです。",
+  "oneLineLesson": "FTCの広告詐欺対策は意見募集段階。新ルールと誤認せず、個別広告は確認・通報する。",
+  "tags": ["FTC", "なりすまし詐欺", "SNS広告", "広告最適化", "ANPRM", "消費者保護"],
+  "sources": [{"title": "FTC Seeks Public Comment on Whether to Update Rule on Impersonation of Government and Businesses to Address Platforms’ Role in Promoting Impersonation Scams", "publisher": "Federal Trade Commission", "sourceType": "government-regulatory-update", "publishedAt": "2026-09-24", "url": "https://www.ftc.gov/news-events/news/press-releases/2026/09/ftc-seeks-public-comment-whether-update-rule-impersonation-government-businesses-address-platforms"}],
+  "visualSuggestion": {"mainVisual": "FTCのANPRM意見募集から、規則案検討、最終決定（未到達）へ進む段階を図示し、広告主審査・監視・削除は検討例として点線で表示する。", "cardIcon": "ftc-platform-ad-impersonation-review", "accentTone": "caution"}
+}
