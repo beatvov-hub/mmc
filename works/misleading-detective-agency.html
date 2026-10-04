@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ミスリード探偵局｜制作背景と対戦型推理ブラウザゲーム開発記録｜毎日見る株式会社</title>
-    <meta name="description" content="ミスリード探偵局は、探偵と偽装者の両方をプレイし、凶器と遺留品の真相を推理する1人用の対戦型推理ブラウザゲームです。" />
+    <meta name="description" content="ミスリード探偵局は、探偵と犯人を交代で演じ、3ラウンドの鑑識・追加捜査・発言から犯人、凶器、遺留品を読み合う1人用推理ブラウザゲームです。" />
         <link rel="canonical" href="https://mainichi-miru.com/works/misleading-detective-agency" />
 <meta property="og:title" content="ミスリード探偵局｜制作背景と対戦型推理ブラウザゲーム開発記録｜毎日見る株式会社" />
-    <meta property="og:description" content="ミスリード探偵局は、探偵と偽装者の両方をプレイし、凶器と遺留品の真相を推理する1人用の対戦型推理ブラウザゲームです。" />
+    <meta property="og:description" content="ミスリード探偵局は、探偵と犯人を交代で演じ、3ラウンドの鑑識・追加捜査・発言から犯人、凶器、遺留品を読み合う1人用推理ブラウザゲームです。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/works/misleading-detective-agency" />
 <meta property="og:image" content="https://mainichi-miru.com/image/game-key-visuals/misleading-detective-agency/landscape.webp" />
@@ -67,12 +67,12 @@
         <div>
           <p class="section-kicker">ゲーム</p>
           <h1>ミスリード探偵局</h1>
-          <p class="page-lead">探偵と偽装者の両方をプレイし、凶器と遺留品の真相を推理する1人用ブラウザゲーム。</p>
-          <p class="work-story-summary work-story-summary-large">前半は探偵としてCPU偽装者の鑑識結果を読み解き、後半は偽装者としてCPU探偵を迷わせる、対戦型の推理ゲームです。</p>
+          <p class="page-lead">探偵と犯人を交代で演じ、犯人・凶器・遺留品を一度の告発で読み合う1人用推理ゲーム。</p>
+          <p class="work-story-summary work-story-summary-large">3ラウンドの鑑識、追加捜査、5人の発言を読み、前半は解決、後半はCPU探偵の誘導に挑む役割交代型です。</p>
         </div>
         <aside class="page-note work-detail-note">
-          <span class="work-status-chip">MVP公開中</span>
-          <p>React + TypeScript + Vite製のブラウザゲームとして公開中です。PCでもスマホでも遊びやすい縦長レイアウト、ルール画面、鑑識ヒント表示、精密検査、結果画面、LocalStorageによる成績保存まで実装されています。</p>
+          <span class="work-status-chip">改修版公開中</span>
+          <p>React + TypeScript + Vite製のブラウザゲームとして公開中です。3ラウンドの鑑識と追加捜査、人物・カードのメモ、早期告発、事件再現と捜査記録の振り返り、役割交代後のCPU探偵との読み合いまで実装しています。</p>
         </aside>
       </section>
 
@@ -87,9 +87,9 @@
         <p class="section-kicker">Quick Look</p>
         <h2>この作品を3行で</h2>
         <ul>
-          <li>探偵と偽装者の両方をプレイする、1人用の対戦型推理ゲーム。</li>
-          <li>6枚の凶器候補と6枚の遺留品候補から、正しい組み合わせを推理します。</li>
-          <li>ヒントは内部タグではなく、鑑識結果として提示されます。</li>
+          <li>探偵と犯人を交代で演じる、1人用の役割交代型推理ゲーム。</li>
+          <li>3ラウンドで公開される鑑識、5人全員の発言、追加捜査を読みます。</li>
+          <li>犯人・凶器・遺留品を一度の告発で選び、結果と事件再現を振り返ります。</li>
         </ul>
       </section>
 
@@ -102,7 +102,7 @@
             <a href="#background">制作背景</a>
             <a href="#game-flow">ゲームの流れ</a>
             <a href="#hint-system">ヒントシステム</a>
-            <a href="#roles">探偵と偽装者</a>
+            <a href="#investigation">追加捜査と振り返り</a>
             <a href="#members">担当AI社員</a>
             <a href="#status">現在の状態</a>
             <a href="#next">今後やりたいこと</a>
@@ -113,8 +113,8 @@
         <section class="work-detail-grid work-detail-content" aria-label="制作背景詳細">
         <article id="overview" class="work-detail-card work-detail-wide work-detail-overview">
           <h2>作品概要</h2>
-          <p class="work-section-lead">前半は探偵としてCPU偽装者の鑑識結果を読み解き、後半は偽装者としてCPU探偵を迷わせる、対戦型の推理ゲームです。</p>
-          <p>ミスリード探偵局は、1人用の対戦型推理ブラウザゲームです。プレイヤーは前半で探偵、後半で偽装者になり、同じルールのもとでCPUと推理力を競います。画面に並ぶ6枚の凶器候補と6枚の遺留品候補から、事件の真相である正しい凶器と正しい遺留品の組み合わせを見つけることが目的です。</p>
+          <p class="work-section-lead">3ラウンドの鑑識、追加捜査、5人の発言を読み、前半は解決、後半はCPU探偵の誘導に挑む役割交代型です。</p>
+          <p>ミスリード探偵局は、1人用の役割交代型推理ブラウザゲームです。前半は探偵として、3ラウンドで公開される鑑識と5人の容疑者の発言を読み、犯人・凶器・遺留品を一度の告発で特定します。後半は自分が犯人となり、鑑識は改ざんせず、事実と両立する発言の解釈でCPU探偵を誘導します。前半の解決と後半の逃走を合わせて勝敗を決めます。</p>
         </article>
         <article id="trigger" class="work-detail-card work-detail-wide">
           <h2>生まれたきっかけ</h2>
@@ -122,30 +122,29 @@
         </article>
         <article id="background" class="work-detail-card work-detail-wide">
           <h2>制作背景</h2>
-          <p>現在のバージョンでは、単純なタグ一致ではなく、事件ごとに固定された真相データから鑑識ヒントを生成します。凶器、犯行パターン、遺留品、発見場所、死因、血痕、付着物などの情報をもとに、プレイヤーへは鑑識結果としてヒントが表示されます。内部タグを直接見せず、あくまで調査結果として情報を読むことで、推理ゲームとしての雰囲気を保ちながら遊べるようにしています。</p>
+          <p>現在のゲームでは、8人の人物テンプレートから5人、17種類の凶器と16種類の遺留品から候補を構成し、10カテゴリの鑑識情報を段階的に公開します。探偵は人物・カードにメモを付け、各ラウンド1回の追加捜査を、残る曖昧さへ使います。無実のNPCも公開事実から自分なりの結論を話し、犯人だけが真相を踏まえて別の解釈へ誘導します。鑑識を改ざんしたり、否定済みの候補を発言だけで復活させたりはしません。</p>
         </article>
         <article id="game-flow" class="work-detail-card work-detail-wide">
           <h2>ゲームの流れ</h2>
-          <p class="work-section-lead">前半と後半で役割を交代し、探偵スコアを比べます。</p>
+          <p class="work-section-lead">前半は探偵、後半は犯人として、同じ事件生成のルールへ別の立場から向き合います。</p>
           <ul class="work-next-list">
-            <li>タイトル画面からゲームを開始し、ルール画面で目的と役割を確認します。</li>
-            <li>前半はプレイヤーが探偵になり、CPU偽装者の鑑識結果を読んで推理します。</li>
-            <li>必要に応じて追加ヒントや、1回だけ使える精密検査を使えます。</li>
-            <li>凶器1枚、遺留品1枚を選んで告発します。</li>
-            <li>後半はプレイヤーが偽装者になり、CPU探偵へ見せる鑑識結果を選びます。</li>
-            <li>前半と後半の探偵スコアを比べて勝敗を決めます。</li>
+            <li>ROUND 1から3で、鑑識は3項目、2項目、2項目と追加され、各ラウンドで5人全員が発言します。</li>
+            <li>探偵は人物・カードにメモを付け、各ラウンド1回の追加捜査を残る曖昧さへ使います。</li>
+            <li>早期告発もできますが、犯人・凶器・遺留品を外すとCASE FAILEDです。</li>
+            <li>後半は犯人として、段階的な捜査が成立する組み合わせを封印し、3つの発言候補から一つを選んでCPU探偵を誘導します。</li>
+            <li>探偵側の解決と犯人側の逃走が両方成功ならプレイヤー勝利、片方だけなら引き分けです。</li>
           </ul>
         </article>
         <article id="hint-system" class="work-detail-card work-detail-wide">
           <h2>ヒントシステム</h2>
-          <p class="work-section-lead">嘘のヒントではなく、正しいけれど決め手になりすぎない情報をどう読むか、どう出すかを楽しむ設計です。</p>
-          <p>真相データには、凶器と犯行パターン、遺留品と事件との関係、犯行場所、犯行時刻、現場状況、死因、血痕、抵抗の痕跡などが含まれます。</p>
-          <p>プレイヤーに表示されるのは、死因、犯行場所、遺留品の付着痕などの鑑識項目と、その調査結果です。内部的なタグは、候補同士の整合性チェックや真相生成のために使われます。</p>
+          <p class="work-section-lead">鑑識は客観的事実、発言はそれぞれの解釈です。情報の役割を分けて読みます。</p>
+          <p>鑑識ボードは死因、遺体の状態、出血、犯人との距離、犯行時刻、犯行場所、現場の状態、遺留品の元の所有者、状態、発見位置の10カテゴリを扱います。</p>
+          <p>無実の人も誤った結論に至ることがあり、犯人の発言も公開事実と両立する別の解釈です。鑑識や追加捜査で否定された候補が、発言だけで復活することはありません。</p>
         </article>
-        <article id="roles" class="work-detail-card work-detail-wide">
-          <h2>探偵と偽装者</h2>
-          <p>探偵は、CPUが選んだ真相を公開される鑑識結果から推理します。少ないヒントで正解するほど高得点になります。</p>
-          <p>偽装者は、真相となる凶器と遺留品を選び、その後にCPU探偵へ公開する鑑識結果を選びます。嘘で騙すのではなく、正しいけれど決め手になりすぎない情報を選ぶのがポイントです。</p>
+        <article id="investigation" class="work-detail-card work-detail-wide">
+          <h2>追加捜査と振り返り</h2>
+          <p>追加捜査では、人物調査、物証検査、監視記録、聞き込みから一つを選びます。未使用の枠は次のラウンドへ持ち越せないため、いつ使うかも判断になります。</p>
+          <p>結果画面では、告発した3項目の正誤、事件再現、鑑識の意味、捜査記録、メモ、全員の発言、犯人側で選んだ誘導先と意図を振り返れます。</p>
         </article>
         <article id="members" class="work-detail-card">
           <h2>担当AI社員</h2>
@@ -174,21 +173,20 @@
         </article>
         <article id="status" class="work-detail-card">
           <h2>現在の状態</h2>
-          <p>React + TypeScript + Vite製のブラウザゲームとして公開中です。PCでもスマホでも遊びやすい縦長レイアウト、ルール画面、鑑識ヒント表示、精密検査、結果画面、LocalStorageによる成績保存まで実装されています。</p>
+          <p>React + TypeScript + Vite製のブラウザゲームとして公開中です。3ラウンドの鑑識と追加捜査、人物・カードのメモ、早期告発、事件再現と捜査記録の振り返り、役割交代後のCPU探偵との読み合いまで実装しています。</p>
         </article>
         <article id="next" class="work-detail-card">
           <h2>今後やりたいこと</h2>
           <ul class="work-next-list">
-            <li>制作背景ページを、実際の開発経緯に合わせて詳しく整理する</li>
-            <li>ゲーム内の事件データや鑑識ヒントを増やす</li>
-            <li>探偵と偽装者それぞれの体験バランスを調整する</li>
-            <li>毎日見る株式会社のゲーム制作ラインの中で、推理ゲームとしての位置づけを整える</li>
+            <li>3ラウンドの情報量、追加捜査、早期告発の選択が推理の手触りにつながるかを調整する</li>
+            <li>事件、鑑識、人物、発言データを増やし、再挑戦の幅を検討する</li>
+            <li>探偵側の解決と犯人側の誘導の体験バランスを磨く</li>
           </ul>
         </article>
         <article id="kei-comment" class="work-detail-card work-detail-wide work-comment-card work-closing-comment">
           <h2>ケイ部長コメント</h2>
           <blockquote class="work-comment">
-            <p>ミスリード探偵局の面白さは、探偵として当てるだけではなく、後半で偽装者側も体験できるところにあります。情報を読む人と、情報を出す人。両方をプレイすることで、推理ゲームの見え方が少し変わります。嘘をつくゲームではなく、正しい情報の中から何を見せるかを選ぶゲームになっているのも、毎日見る株式会社らしいです。AI鑑識室で扱っている情報確認の考え方とも近く、遊びながら「どの情報を見れば判断できるのか」を考えられる作品として育てられそうです。</p>
+            <p>ミスリード探偵局の面白さは、探偵として当てるだけではなく、後半で犯人側も体験できるところにあります。鑑識は事実として増えていく。その中で誰が何をどう解釈するかを読み、探偵側では追加捜査の使い方を考え、犯人側では事実と両立する言葉を選ぶ。情報そのものより、情報との向き合い方を遊べる推理ゲームとして育っています。</p>
           </blockquote>
         </article>
         </section>
