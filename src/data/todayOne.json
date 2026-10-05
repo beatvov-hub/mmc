@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T13:53:19+09:00",
+  "updatedAt": "2026-10-06T07:32:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -1436,6 +1436,55 @@
       "verifiedAt": "2026-10-05",
       "status": "published",
       "archiveDescription": "GitHub Actionsが動かないとき、YAML・式・Action入力の誤りをactionlintで静的に調べられます。指摘箇所を直す方法と、Runner上の実行やSecrets確認は別途必要な理由を解説します。"
+    },
+    {
+      "date": "2026-10-06",
+      "slug": "uv",
+      "name": "uv",
+      "category": "Developer Tool",
+      "officialUrl": "https://docs.astral.sh/uv/guides/projects/",
+      "archiveTitle": "uvでPythonの依存関係を別のPCでも揃えられる？",
+      "archiveDescription": "Python案件の「自分のPCでは動く」を減らしたいとき、uvはpyproject.tomlとuv.lockで依存条件と解決済みバージョンを記録し、別PCの環境再現を助けます。requirements.txtからの移行と同期時の注意を紹介します。",
+      "forWho": "Pythonの小さなツールやAI連携スクリプトを複数のPCで動かし、依存パッケージの違いに困っている開発担当者向けです。",
+      "summary": "uvはPythonプロジェクトの依存関係を管理し、pyproject.tomlとuv.lockを使ってチームで環境を揃えやすくするオープンソースのツールです。",
+      "whyToday": "AIに作業用スクリプトを書かせても、必要なパッケージの版が人ごとに違うと再実行でつまずきます。uvは依存条件と解決済みバージョンをプロジェクトに記録し、環境を作り直す手順までまとめられるので、コードを渡すだけで終わらせない方法として選びました。",
+      "useFor": "例えば、AIに作ってもらったPython小ツールを同僚も動かせるようにする想定です。Pythonとuvを用意し、作業用コピーでuv initを実行してから、uv add -r requirements.txtで既存の依存一覧を登録します。生成されたpyproject.tomlとuv.lockを確認してGitへ含め、別PCではuv syncでロックされた依存関係から環境を揃えます。まず小さな非本番プロジェクトで試し、必要なパッケージが記録されたか、同期時に余分なパッケージが削除されても問題ないかを確認します。",
+      "recommendedFor": {
+        "employeeId": "MMC-008",
+        "reason": "開発ツール調査と技術の一般向け翻訳を担当するアキトに、サンプルPython案件でrequirements.txtからuv.lockを作る手順を整理してもらう想定です。依存一覧、別PCで再現するコマンド、既存環境へ同期する前の注意点を成果物として受け取れれば、AI生成スクリプトを安全に引き継ぐ手順を説明できます。"
+      },
+      "keiComment": "ロックファイルまで一緒に渡せると、「私のPCでは動くのに」が減らせそうです。ただしuv syncはロックにないパッケージを環境から外す設定が標準なので、まず既存環境ではなく使い捨てのコピーで試したいですね。",
+      "pricing": "uv本体はApache-2.0またはMITライセンスで公開されたオープンソースです。ツール自体の利用料はありません。",
+      "conditions": "uvのインストール、Pythonプロジェクト、依存パッケージを取得するネット接続が必要です。パッケージの配布条件や外部APIの料金はuvの利用料とは別です。uv syncはロックファイルにないパッケージを既定で削除するため、既存環境で実行する前に対象を確認してください。",
+      "license": "Apache License 2.0 OR MIT License",
+      "cautions": "uv syncは既定で環境をロックファイルに合わせ、記載のない余分なパッケージを削除します。Pythonの版やOS固有の条件、外部サービスの設定まで自動で同一になるわけではありません。",
+      "faq": [
+        {
+          "question": "uv.lockをGitに登録すれば、別のPCでも依存パッケージを揃えられますか？",
+          "answer": "依存関係の解決結果を共有し、別のPCでuv syncして同じロック内容を使う助けになります。Pythonの版やOS固有条件、環境変数、外部サービスまではロックファイルに含まれないため、それらは別途確認してください。"
+        },
+        {
+          "question": "uv syncを実行すると、ロックファイルにないパッケージは残りますか？",
+          "answer": "既定では残りません。uv syncは環境をロックファイルに合わせるexact syncを行い、記載のない余分なパッケージを削除します。既存環境に使う前に公式オプションを確認し、まず分離した仮想環境で試してください。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "uv公式ガイド：Pythonプロジェクトの作成・依存管理",
+          "url": "https://docs.astral.sh/uv/guides/projects/"
+        },
+        {
+          "label": "uv公式ドキュメント：ロックと環境同期",
+          "url": "https://docs.astral.sh/uv/concepts/projects/sync/"
+        },
+        {
+          "label": "uv公式GitHub：ライセンス",
+          "url": "https://github.com/astral-sh/uv"
+        }
+      ],
+      "notes": "公式ガイドに記載されたrequirements.txtからの移行とロックファイル同期に基づく想定例です。実機検証は未実施です。",
+      "verifiedAt": "2026-10-06",
+      "status": "published"
     }
   ]
 }
