@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ローカル生成AIで相談データを分析する前に、何を入力し人が何を確かめる？｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="消費者庁の消費者政策研究センターは2026年6月、PIO-NETの過去の相談情報を対象に、ローカル生成AIを使った分析・要約の研究ディスカッションペーパーを公表しました。研究では相談原文をそのままLLMへ渡さず、トピックモデル等で抽出したキーワード・話題情報を入力し、生成文も人が確認・編集しています。これは研究上の検討であり、消費者庁の本番業務への導入発表ではありません。社内の相談記録をAI分析する際も、モデルを社内で動かすことだけで安心せず、入力を加工して情報を絞る工程、出力の人手確認、試験時の限界を設計する参考になります。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261006-01" />
+<meta property="og:title" content="ローカル生成AIで相談データを分析する前に、何を入力し人が何を確かめる？｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="消費者庁の消費者政策研究センターは2026年6月、PIO-NETの過去の相談情報を対象に、ローカル生成AIを使った分析・要約の研究ディスカッションペーパーを公表しました。研究では相談原文をそのままLLMへ渡さず、トピックモデル等で抽出したキーワード・話題情報を入力し、生成文も人が確認・編集しています。これは研究上の検討であり、消費者庁の本番業務への導入発表ではありません。社内の相談記録をAI分析する際も、モデルを社内で動かすことだけで安心せず、入力を加工して情報を絞る工程、出力の人手確認、試験時の限界を設計する参考になります。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261006-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>ローカルAI分析の入力と確認</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-10-06">2026.10.06</time>
+            </div>
+            <h1>ローカル生成AIで相談データを分析する前に、何を入力し人が何を確かめる？</h1>
+            <p>消費者庁の消費者政策研究センターは2026年6月、PIO-NETの過去の相談情報を対象に、ローカル生成AIを使った分析・要約の研究ディスカッションペーパーを公表しました。研究では相談原文をそのままLLMへ渡さず、トピックモデル等で抽出したキーワード・話題情報を入力し、生成文も人が確認・編集しています。これは研究上の検討であり、消費者庁の本番業務への導入発表ではありません。社内の相談記録をAI分析する際も、モデルを社内で動かすことだけで安心せず、入力を加工して情報を絞る工程、出力の人手確認、試験時の限界を設計する参考になります。</p>
+            <ul class="forensics-target-list"><li>生成AIで社内データを分析する人</li><li>相談記録や顧客データを要約する担当者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>消費者庁</li><li>ローカル生成AI</li><li>データ分析</li><li>相談記録</li><li>データ最小化</li><li>人による確認</li><li>研究</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>入力を絞り、生成文を人が照合</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>消費者庁の研究は、過去の相談データを用いた検討です。現在の相談状況や行政サービスへの導入を示す資料ではありません。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>相談記録をローカルAIに読ませて傾向をまとめたい</h3><p>顧客や利用者の相談記録から傾向を把握したいが、原文を生成AIへ入力することや、要約の誤りが気になる場面です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>ローカル実行は通信先を制限する一つの方法ですが、入力データに含める情報や、出力を誰が検証するかは別に決める必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="minimize-review">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>相談記録を生成AIで分析する工程として、研究から読み取れる慎重な設計は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="minimize-review" data-choice-id="minimize-review" />
+                <span>
+                  <strong>先に話題・キーワードを抽出して入力を絞り、生成結果を人が確認する</strong>
+                  <small>研究では相談原文そのものではなく、前段の分析で抽出した情報をLLMへ渡し、要約を人が編集しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="raw-local" data-choice-id="raw-local" />
+                <span>
+                  <strong>ローカルで動くモデルなら、相談原文を無加工で入力してよい</strong>
+                  <small>処理場所だけでは、入力の必要性や出力の正確性は解決しません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="publish-auto" data-choice-id="publish-auto" />
+                <span>
+                  <strong>AIの文章をそのまま公式レポートとして公開する</strong>
+                  <small>研究の生成文は人が確認・編集しており、モデル出力のまま確定する運用ではありません。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>先に話題・キーワードを抽出して入力を絞り、生成結果を人が確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>研究は、入力前の情報整理と出力後の人による確認を組み合わせています。実データを扱う場合は、利用目的・権限・保存条件も組織のルールに沿って確認してください。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>原文ではなく加工後の情報を入力</h3>
+              <p>研究ではトピックモデル等で抽出したキーワードや話題情報をLLMへ渡し、相談原文をそのままプロンプトに入れていません。入力前に、目的に必要な粒度まで情報を整理できるか検討します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象期間・対象者を明示</h3>
+              <p>分析対象は2020年4月から2022年12月までに受け付けられたPIO-NET相談情報のうち、16〜23歳の若者に関するデータです。現在の相談傾向を直接示すものではありません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>プロンプトで渡した情報と出力を区別</h3>
+              <p>論文では年齢層情報をプロンプトへ渡していない一方、要約文に年齢層ごとの傾向が表現される例が報告されています。モデルがどの入力・文脈から説明を作ったかを点検します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>生成文を人が確認・編集</h3>
+              <p>研究で作成された文章は人による確認・編集を経ています。話題名や件数の出し方に揺れが生じる可能性もあるため、数値・分類・代表例を原データや前段の分析と照合します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>研究と行政サービスの導入を混同しない</h3>
+              <p>公表資料はリサーチ・ディスカッション・ペーパーで、研究者個人の見解を含み、消費者庁の公式見解ではないと記されています。本番導入や行政サービスの変更を示す発表ではありません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>ローカル実行だけでなく、入力前の加工と出力後の確認を設計する</strong><p>研究の実務的な示唆は、モデルの設置場所だけでなく、原文をそのまま渡さない前処理と、人が生成文を検証・編集する工程にあります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>分析目的に必要な項目だけを残し、相談原文をそのままプロンプトへ貼らない</strong><span>研究はキーワード・話題情報をLLMへの入力として使っています。</span></li>
+            <li><strong>個人を特定できる情報や不要な属性を除けるか、入力前に確認する</strong><span>ローカル実行はデータ最小化や利用権限の確認を代替しません。</span></li>
+            <li><strong>出力の件数・分類・傾向を元データや前段処理と照合し、人が編集する</strong><span>研究では生成文を人が確認・編集しており、出力を確定情報として扱っていません。</span></li>
+            <li><strong>分析対象期間、対象者、研究段階をレポートに明記する</strong><span>過去の限定されたデータから得た結果を、現況や全利用者へ一般化しないためです。</span></li>
+            <li><strong>実データを扱う前に組織のデータ利用権限・保存・削除ルールを確認する</strong><span>研究の手法は各組織のデータ利用許可や安全管理の判断を代行しません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>ローカルモデルなら機微な原文を無加工で入力してよいと考える</strong><span>実行場所と、入力の必要性・権限・データ最小化は別の論点です。</span></li>
+            <li><strong>この研究結果を現在のPIO-NET全体や若者全体の傾向として紹介する</strong><span>対象期間と対象者が限定されています。</span></li>
+            <li><strong>論文を消費者庁の本番導入・公式見解として引用する</strong><span>公表資料は研究ディスカッションペーパーであり、公式見解ではないと明記されています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>データ分析を段階に分ける</h3>
+          <p>前処理で入力を必要な情報へ絞り、生成後に担当者が分類・要約の根拠を確認する設計にします。</p>
+          <ul class="positive-example-list"><li>相談文から個人情報を除いて話題別の集計を作る</li><li>AI要約の件数を前段分析と照合する</li><li>限定された期間・対象の結果としてレポートする</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>この研究で注目したいのは『ローカルAIを使った』という点だけではありません。原文を丸ごと渡さず、前段で抽出した情報を入力し、生成文も人が直すという工程が示されています。社内データ活用へ応用するなら、この二つの境界を先に決めるのが出発点です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>ローカルAIでも、原文を入力する前に情報を絞り、生成結果は人が元データと照合する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.caa.go.jp/notice/entry/046685/" target="_blank" rel="noopener noreferrer">「ローカル生成AIを用いたデータ分析と自動要約～相談内容のテキストマイニングからのレポート自動作成～」リサーチ・ディスカッション・ペーパー公表について<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>消費者庁</span>
+              <span>官公庁</span>
+              <time datetime="2026-06-30">2026-06-30</time>
+            </li>
+            <li>
+              <strong><a href="https://www.caa.go.jp/policies/future/icprc/research_003/assets/caa_futurer_cms201_260707_19.pdf" target="_blank" rel="noopener noreferrer">ローカル生成AIを用いたデータ分析と自動要約～相談内容のテキストマイニングからのレポート自動作成～<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>消費者庁 消費者政策研究センター</span>
+              <span>研究・論文</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20261006-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="YouTubeの自動商品タグ、売切れ商品の置換と報酬条件を投稿者が確認する YouTube商品タグを公開前に確認 YouTubeはヘルプで、YouTube Shoppingアフィリエイト対象のクリエイター向けに、動画の自動商品タグ付け機能を案内しています。システムは動画・タイトル・説明・字幕等から商品候補を付け、元の商品が在庫切れまたは期限切れの場合は、関連する在庫商品へ自動で置き換えることがあります。その置換商品には元の商品と同じコミッション率が適用されません。投稿者は通知を受けて確認・編集・置換・削除でき、チャンネル設定で自動タグ付けを停止すると既存の自動タグは外れますが、手動タグは残ります。購入導線と報酬条件が変わり得るため、対象クリエイターは動画公開後の通知や商品タグ欄を確認し、自動タグと手動タグを区別して管理する必要があります。 仕事・AI活用 標準 YouTube Shopping 自動商品タグ アフィリエイト クリエイター 商品リンク コミッション YouTube Shoppingアフィリエイトを利用するクリエイター 動画に商品タグを付けるチャンネル運営者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">youtube-shopping-auto-tag-review</span>
+              <div>
+                <p>YouTube商品タグを公開前に確認</p>
+                <h3>YouTubeの自動商品タグ、売切れ商品の置換と報酬条件を投稿者が確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-06">2026.10.06</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeはヘルプで、YouTube Shoppingアフィリエイト対象のクリエイター向けに、動画の自動商品タグ付け機能を案内しています。システムは動画・タイトル・説明・字幕等から商品候補を付け、元の商品が在庫切れまたは期限切れの場合は、関連する在庫商品へ自動で置き換えることがあります。その置換商品には元の商品と同じコミッション率が適用されません。投稿者は通知を受けて確認・編集・置換・削除でき、チャンネル設定で自動タグ付けを停止すると既存の自動タグは外れますが、手動タグは残ります。購入導線と報酬条件が変わり得るため、対象クリエイターは動画公開後の通知や商品タグ欄を確認し、自動タグと手動タグを区別して管理する必要があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>リンク先商品と置換・報酬条件を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>YouTube Shoppingアフィリエイトを利用するクリエイター</li><li>動画に商品タグを付けるチャンネル運営者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube Shopping</li><li>自動商品タグ</li><li>アフィリエイト</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261005-01" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="standard" data-search-text="AIの自動判定に納得できないとき、説明や人の再確認をどう求める？ AIの自動判定に説明を求める 英国の情報コミッショナー事務局（ICO）は、自動処理だけで行われた判断について、本人が説明や人による介入、異議申立てを求める方法を案内しています。例としてオンライン融資審査や、人の関与なしに行う採用適性テストが挙げられています。ただし、この案内はData (Use and Access) Actによる変更を受けて見直し中で、最終的な改定版は2026年冬の予定です。記事では現行法上の権利を断定せず、判断の自動化の有無、理由・影響、再確認や苦情の窓口を組織へ尋ねるための実務的な確認手順として紹介します。英国の制度案内であり、日本の法制度や個別ケースへそのまま当てはめることはできません。 情報の見極め 標準 自動判定 AI審査 融資 採用 人による確認 ICO 英国 英国で融資・採用などの自動判定を受けた人 AIによる審査結果の確認・異議申立てを考えている人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">automated-decision-review-request</span>
+              <div>
+                <p>AIの自動判定に説明を求める</p>
+                <h3>AIの自動判定に納得できないとき、説明や人の再確認をどう求める？</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-05">2026.10.05</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">英国の情報コミッショナー事務局（ICO）は、自動処理だけで行われた判断について、本人が説明や人による介入、異議申立てを求める方法を案内しています。例としてオンライン融資審査や、人の関与なしに行う採用適性テストが挙げられています。ただし、この案内はData (Use and Access) Actによる変更を受けて見直し中で、最終的な改定版は2026年冬の予定です。記事では現行法上の権利を断定せず、判断の自動化の有無、理由・影響、再確認や苦情の窓口を組織へ尋ねるための実務的な確認手順として紹介します。英国の制度案内であり、日本の法制度や個別ケースへそのまま当てはめることはできません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>自動判定かを確かめ、説明と再確認の窓口を記録</span>
+            </div>
+            <ul class="forensics-card-audience"><li>英国で融資・採用などの自動判定を受けた人</li><li>AIによる審査結果の確認・異議申立てを考えている人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>自動判定</li><li>AI審査</li><li>融資</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261004-01" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="税務ソフトの生成AI、HMRC指針から見る「出典・人の確認・訂正手段」 HMRC指針で税務AIを確認 英国の歳入関税庁（HMRC）は2026年1月28日、税務申告などを支援する商用ソフトの開発者向けに、生成AI利用の指針を公開しました。利用者には、AIが使われていることや参照データ、限界、人による確認の方法を示し、誤りを直したり問題を報告できる設計が期待されています。これは英国の開発者向け行政指針で、日本の税法や個別製品への認証ではありません。AI搭載の税務ソフトを選ぶ際は、根拠資料の表示、訂正手段、複雑なケースの専門家への引き継ぎ、HMRC非公認であることを確認する視点として使えます。 仕事・AI活用 標準 HMRC 税務 生成AI 税務ソフト 出典 人間の確認 生成AIを使う税務ソフトの利用者 AI機能のある会計・申告サービスを選ぶ人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">tax-ai-source-review</span>
+              <div>
+                <p>HMRC指針で税務AIを確認</p>
+                <h3>税務ソフトの生成AI、HMRC指針から見る「出典・人の確認・訂正手段」</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-04">2026.10.04</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">英国の歳入関税庁（HMRC）は2026年1月28日、税務申告などを支援する商用ソフトの開発者向けに、生成AI利用の指針を公開しました。利用者には、AIが使われていることや参照データ、限界、人による確認の方法を示し、誤りを直したり問題を報告できる設計が期待されています。これは英国の開発者向け行政指針で、日本の税法や個別製品への認証ではありません。AI搭載の税務ソフトを選ぶ際は、根拠資料の表示、訂正手段、複雑なケースの専門家への引き継ぎ、HMRC非公認であることを確認する視点として使えます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>税務AIの根拠と訂正経路を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>生成AIを使う税務ソフトの利用者</li><li>AI機能のある会計・申告サービスを選ぶ人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>HMRC</li><li>税務</li><li>生成AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261006-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

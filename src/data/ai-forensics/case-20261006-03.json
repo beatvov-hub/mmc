@@ -1,0 +1,56 @@
+{
+  "id": "case-20261006-03",
+  "publishedAt": "2026-10-06",
+  "title": "FDAのAI医療機器リストから個別審査記録へ、申請番号の読み方",
+  "shortTitle": "FDA医療機器の審査記録を読む",
+  "category": "health-ai",
+  "difficulty": "standard",
+  "targetAudience": ["米国FDAの医療機器記録を調べる人", "AIを使う医療機器の公開審査情報を読みたい患者・医療関係者"],
+  "summary": "FDAのAI対応医療機器リストに掲載された機器は、行のSubmission Numberから個別のFDAデータベース記録へ進めます。たとえばAuto-Segの記録（K253628）では、機器名・申請者・製品分類・受領日・決定日・決定内容を確認でき、Summaryへのリンクから公開要約も開けます。この記録は2026年6月29日付で、決定欄は「Substantially Equivalent（実質的同等）」です。これは当該510(k)記録に記載された米国の規制判断であり、日本国内での承認、すべての患者への適合性、または製品の性能順位を示すものではありません。機器名だけで評価せず、申請番号から対象機器と規制上の決定情報を照合する手順を紹介します。",
+  "scenario": {
+    "headline": "AI医療機器の名前を見つけたが、審査記録のどこを見ればよい？",
+    "description": "FDAのAI対応医療機器リストなどで製品名を見つけ、米国でどの申請番号・規制判断に結び付くかを調べたい場面です。",
+    "whyItMatters": "製品名だけでは、同名・類似名の機器や決定内容を取り違える可能性があります。FDA記録では申請番号から機器名、申請者、分類、決定と公開要約を照合できます。"
+  },
+  "question": {
+    "text": "FDAのAI医療機器リストで製品を見つけた後、何を確認する？",
+    "choices": [
+      {"id": "record-details", "label": "Submission Numberから個別記録を開き、機器名・申請者・決定内容と公開要約を照合する", "description": "FDAの個別記録には申請番号に結び付いた機器情報、決定日・決定内容、Summaryへのリンクがあります。"},
+      {"id": "name-only", "label": "製品名とAIという表示だけで、承認範囲や性能が分かったと考える", "description": "製品名だけでは個別の審査記録や対象範囲が分かりません。"},
+      {"id": "japan-approval", "label": "FDAの決定を日本国内の承認と同じものとして扱う", "description": "FDA記録は米国の規制上の決定であり、日本の承認状況は別に確認する必要があります。"}
+    ],
+    "recommendedAnswers": ["record-details"],
+    "explanation": "一覧で見つけた申請番号を個別記録へたどり、当該機器と申請者、決定欄、公開要約を読みます。米国FDAの記録を日本国内の承認や個別診療の結論と混同しないことが大切です。"
+  },
+  "inspectionPoints": [
+    {"title": "申請番号と機器名を照合", "description": "FDA記録K253628には510(k)番号、Auto-Seg (SO-0012)等の機器名、申請者Agada Medical, Ltd.が記載されています。表記が似た製品を名前だけで同一視せず、番号と申請者まで確認します。", "priority": "high"},
+    {"title": "日付欄を区別", "description": "個別記録には受領日2025年11月19日と決定日2026年6月29日が別々にあります。ページ閲覧日や掲載更新日ではなく、知りたい手続きの欄を読みます。", "priority": "medium"},
+    {"title": "決定内容の用語を確認", "description": "K253628のDecision欄は「Substantially Equivalent (SESE)」です。これは510(k)個別記録に表示された決定内容であり、あらゆる使用条件・臨床結果を要約する一語ではありません。", "priority": "high"},
+    {"title": "Summaryへのリンクを開く", "description": "個別ページにはSummaryのリンクがあり、公開された要約資料へ進めます。機器の用途や審査資料を読む際は、概要欄だけでなくこのリンク先も確認します。", "priority": "high"},
+    {"title": "米国のFDA記録と日本の制度を切り分け", "description": "このデータベースはFDAの米国向け規制記録です。日本での承認・認証や保険適用、医療機関での使用状況はPMDA等の国内情報で別に確かめます。", "priority": "high"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "番号・機器・決定欄・公開要約を照合",
+  "verificationMessage": "FDA個別記録は米国の規制情報です。日本の承認状況や患者ごとの適合性は別の公的情報・医療従事者に確認してください。",
+  "verdict": {"label": "FDAの製品名検索は申請番号から個別記録へ進み、用途と決定内容を確認する", "description": "K253628の記録では機器名、申請者、受領日・決定日、決定内容、Summaryリンクを確認できます。米国の510(k)情報を国内承認や個別の有効性判断と混同しないことが必要です。", "confidence": "high"},
+  "safeActions": [
+    {"action": "FDAのAI対応医療機器リストで見つけたSubmission Numberを控え、個別記録を開く", "reason": "申請番号は製品名が似ている場合の取り違えを防ぐ識別子になります。"},
+    {"action": "個別記録の機器名・申請者・製品分類を照合する", "reason": "名前だけで対象機器を判断せず、申請記録に結び付いた情報を確認できます。"},
+    {"action": "受領日と決定日、Decision欄を別々に読む", "reason": "各日付・決定欄は異なる手続き情報です。"},
+    {"action": "Summaryリンクから公開要約を開き、機器の用途や根拠を確認する", "reason": "個別記録から公開要約へ直接進めます。"},
+    {"action": "日本で利用される機器ならPMDA等の国内記録を別に調べ、診療上の質問は医療従事者に相談する", "reason": "FDAの決定は日本の承認や患者個人への適合性を示しません。"}
+  ],
+  "avoidActions": [
+    {"action": "FDAの決定欄の一語だけで、すべての患者に有効・安全だと結論づける", "reason": "個別の規制記録は、個人の診療判断や製品の網羅的な性能評価ではありません。"},
+    {"action": "FDAの510(k)記録を日本国内の承認・保険適用と同じものとして紹介する", "reason": "異なる法域の規制記録です。"},
+    {"action": "似た名前の医療機器を申請番号や申請者を確認せず同一製品とみなす", "reason": "FDAの個別記録では番号・機器名・申請者を組み合わせて識別できます。"}
+  ],
+  "positiveUse": {"title": "医療AIの根拠情報を個別記録までたどる", "description": "AIというラベルではなく、個別の機器と申請番号、決定記録、公開要約を照合して情報を整理します。", "examples": ["記事で見た医療機器の申請番号を探す", "同名・類似名製品を申請者と番号で区別する", "米国記録と日本国内の承認情報を別々に確認する"]},
+  "makotoComment": "規制データベースは『承認済みか』だけを探す場所ではなく、どの機器について、誰の申請が、どんな手続き上の決定を受けたかをたどる記録です。申請番号からSummaryへ進むと、製品名の印象だけで判断するより一段具体的に確認できます。",
+  "oneLineLesson": "FDAのAI機器リストから申請番号で個別記録へ進み、機器・申請者・決定・要約を確認する。国内承認は別に調べる。",
+  "tags": ["FDA", "AI医療機器", "医療AI", "510(k)", "申請番号", "公開要約", "PMDA", "米国"],
+  "sources": [
+    {"title": "510(k) Premarket Notification — K253628", "publisher": "U.S. Food and Drug Administration (FDA)", "sourceType": "government", "publishedAt": null, "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPMN/pmn.cfm?ID=K253628"}
+  ],
+  "visualSuggestion": {"mainVisual": "FDAの一覧行からSubmission Number K253628をクリックし、個別記録で機器名・申請者・受領日・決定日・Decision・Summaryを確認する流れ。米国FDA記録と日本の承認は別と注記。", "cardIcon": "fda-medical-device-record-lookup", "accentTone": "caution"}
+}
