@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>GitHub Spec Kit｜AGENT SKILLS ライブラリ｜2026.09.10｜毎日見る株式会社</title>
-    <meta name="description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。AIコーディングで作る機能の目的、実装方針、作業項目を順番に整理し、引き継げる形に残すOSSの開発手順キットです。" />
+    <title>GitHub Spec Kitで要望を仕様と作業計画に分けられる？｜毎日見る株式会社</title>
+    <meta name="description" content="AIへ実装を頼むと要件の抜けや作業順が曖昧になる場合、Spec Kitで要求・設計・タスクの文書化を進められます。小さな変更一つで生成内容を確認し、着手前に要件と完了条件をレビューする流れを紹介します。" />
         <link rel="canonical" href="https://mainichi-miru.com/today-one/archive/2026-09-10-spec-kit" />
-<meta name="keywords" content="AGENT SKILLS, AGENT SKILLS ライブラリ, AIエージェント, Codex, MCP, 仕事道具" />
-<meta property="og:title" content="GitHub Spec Kit｜AGENT SKILLS ライブラリ｜2026.09.10｜毎日見る株式会社" />
-    <meta property="og:description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。AIコーディングで作る機能の目的、実装方針、作業項目を順番に整理し、引き継げる形に残すOSSの開発手順キットです。" />
+<meta name="keywords" content="GitHub Spec Kit, OSS, 使い方, 困りごと" />
+<meta property="og:title" content="GitHub Spec Kitで要望を仕様と作業計画に分けられる？｜毎日見る株式会社" />
+    <meta property="og:description" content="AIへ実装を頼むと要件の抜けや作業順が曖昧になる場合、Spec Kitで要求・設計・タスクの文書化を進められます。小さな変更一つで生成内容を確認し、着手前に要件と完了条件をレビューする流れを紹介します。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/today-one/archive/2026-09-10-spec-kit" />
 <meta property="og:site_name" content="毎日見る株式会社" />
@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
     <link rel="stylesheet" href="../../styles.css" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "2026-09-10の今日ひとつ。｜GitHub Spec Kit", "description": "AGENT SKILLS ライブラリ「今日ひとつ。」の記録。AIコーディングで作る機能の目的、実装方針、作業項目を順番に整理し、引き継げる形に残すOSSの開発手順キットです。", "url": "https://mainichi-miru.com/today-one/archive/2026-09-10-spec-kit", "datePublished": "2026-09-10", "inLanguage": "ja-JP", "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", "OSS", "GitHub Spec Kit"], "isPartOf": {"@type": "CollectionPage", "name": "AGENT SKILLS ライブラリ｜これまでのひとつ。", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "GitHub Spec Kitで要望を仕様と作業計画に分けられる？", "description": "AIへ実装を頼むと要件の抜けや作業順が曖昧になる場合、Spec Kitで要求・設計・タスクの文書化を進められます。小さな変更一つで生成内容を確認し、着手前に要件と完了条件をレビューする流れを紹介します。", "url": "https://mainichi-miru.com/today-one/archive/2026-09-10-spec-kit", "datePublished": "2026-09-10", "inLanguage": "ja-JP", "keywords": ["OSS", "GitHub Spec Kit", "使い方", "困りごと"], "isPartOf": {"@type": "CollectionPage", "name": "今日ひとつ。アーカイブ", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
     <!-- GOOGLE_TAG_START -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
@@ -28,7 +28,7 @@
       gtag('config', 'G-35Q8QP7V1W');
     </script>
     <!-- GOOGLE_TAG_END -->
-</head>
+  </head>
   <body class="subpage today-one-page today-one-archive-detail-page">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
@@ -66,7 +66,8 @@
       </nav>
       <header class="today-one-archive-detail-heading">
         <p class="section-kicker">Today's One Archive</p>
-        <h1>2026.09.10のひとつ。</h1>
+        <h1>GitHub Spec Kitで要望を仕様と作業計画に分けられる？</h1>
+        <p>2026.09.10</p>
       </header>
       <article class="today-one-entry" aria-labelledby="today-one-entry-name">
         <header class="today-one-entry-header">
@@ -76,20 +77,41 @@
           </div>
           <p class="today-one-entry-label">この日のひとつ</p>
           <h2 id="today-one-entry-name">GitHub Spec Kit</h2>
-          <p class="today-one-summary-label">一言でいうと</p>
-          <p class="today-one-summary">AIコーディングで作る機能の目的、実装方針、作業項目を順番に整理し、引き継げる形に残すOSSの開発手順キットです。</p>
           <a class="today-one-official-link" href="https://github.com/github/spec-kit" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
+          <section class="today-one-section today-one-audience" aria-labelledby="today-one-audience-title">
+            <p class="section-kicker">For Whom</p>
+            <h2 id="today-one-audience-title">こんな人向け</h2>
+            <p>AIを使った開発で、実装前に要望・仕様・作業項目を整理したいチーム向けです。</p>
+          </section>
+          <section class="today-one-section today-one-conclusion" aria-labelledby="today-one-conclusion-title">
+            <p class="section-kicker">The Answer</p>
+            <h2 id="today-one-conclusion-title">結論</h2>
+            <p>AIコーディングで作る機能の目的、実装方針、作業項目を順番に整理し、引き継げる形に残すOSSの開発手順キットです。</p>
+          </section>
+          <section class="today-one-section today-one-method" aria-labelledby="today-one-use-title">
+            <p class="section-kicker">How to Use</p>
+            <h2 id="today-one-use-title">やり方／確認方法</h2>
+            <p>例えば、既存サイトに「今日ひとつ。」のアーカイブ検索を足す前の整理に。検証用のコピーでSpec Kitを初期化し、対応するAIエージェントを選んで、検索対象・検索結果で見せる項目・対象外を仕様として1ページに書きます。次に計画とタスクへ分け、まず検索のない一覧画面1件だけを実装依頼し、仕様・実装・テスト結果が一致するか確認します。成果物は、次の担当が読める仕様、作業リスト、確認結果です。既存リポジトリへ導入する前に、生成される設定・指示ファイルの差分と、使うエージェントの対応状況を確認します。</p>
+          </section>
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
             <p>AIへ実装を頼むほど、最初の一文が曖昧だと、途中で修正理由が追えなくなります。Spec Kitは仕様、計画、タスク、実装という工程でMarkdownの成果物をつなぐため、画面を何となく直す前に決めることを分けたい日の入口になります。</p>
           </section>
-          <section class="today-one-section" aria-labelledby="today-one-use-title">
-            <p class="section-kicker">Use For</p>
-            <h2 id="today-one-use-title">何に使える？</h2>
-            <p>例えば、既存サイトに「今日ひとつ。」のアーカイブ検索を足す前の整理に。検証用のコピーでSpec Kitを初期化し、対応するAIエージェントを選んで、検索対象・検索結果で見せる項目・対象外を仕様として1ページに書きます。次に計画とタスクへ分け、まず検索のない一覧画面1件だけを実装依頼し、仕様・実装・テスト結果が一致するか確認します。成果物は、次の担当が読める仕様、作業リスト、確認結果です。既存リポジトリへ導入する前に、生成される設定・指示ファイルの差分と、使うエージェントの対応状況を確認します。</p>
+          <section class="today-one-section today-one-faq" aria-labelledby="today-one-faq-title">
+            <p class="section-kicker">Cautions & FAQ</p>
+            <h2 id="today-one-faq-title">注意点・FAQ</h2>
+            <p class="today-one-caution">生成される仕様は入力の曖昧さを引き継ぐことがあります。コード変更を始める前に、範囲・受け入れ条件・対象外を人が確認してください。</p><div class="today-one-faq-item">
+          <h3>Spec Kitがあれば、要望から正しい仕様が自動で決まりますか？</h3>
+          <p>自動確定ではありません。生成された仕様・計画・タスクを担当者が見直し、実装対象と完了条件に合意してから使います。</p>
+        </div>
+          </section>
+          <section class="today-one-section today-one-sources" aria-labelledby="today-one-sources-title">
+            <p class="section-kicker">Primary Sources</p>
+            <h2 id="today-one-sources-title">公式ソース</h2>
+            <ul><li><a href="https://github.com/github/spec-kit" target="_blank" rel="noopener noreferrer">GitHub公式リポジトリ：Spec Kit README <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
           </section>
                   <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
           <p class="section-kicker">Recommended For</p>
@@ -125,7 +147,7 @@
                   <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
           <p class="section-kicker">Basic Information</p>
           <h2 id="today-one-basic-title">基本情報</h2>
-          <dl><div><dt>種別</dt><dd>OSS</dd></div><div><dt>公式サイト</dt><dd><a href="https://github.com/github/spec-kit" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-09-10">2026-09-10</time></dd></div><div><dt>料金</dt><dd>MITライセンスのOSSで、Specify CLIは無償で利用できます。紹介した仕様・計画・タスクの作成に、Spec Kit自体の利用料はかかりません。</dd></div><div><dt>利用条件</dt><dd>Python 3.11以上とuvまたはpipx、対応するAIコーディングエージェントが必要です。AIエージェントや連携サービスの利用料は別です。初期化でプロジェクト内に指示・テンプレート類が追加されるため、既存リポジトリでは検証用コピーで差分を確認してから導入します。</dd></div><div><dt>ライセンス</dt><dd>MIT License</dd></div><div><dt>補足</dt><dd>活用例は公式ドキュメントに基づく想定で、実機検証は未実施です。</dd></div></dl>
+          <dl><div><dt>種別</dt><dd>OSS</dd></div><div><dt>公式サイト</dt><dd><a href="https://github.com/github/spec-kit" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-05">2026-10-05</time></dd></div><div><dt>料金</dt><dd>MITライセンスのOSSで、Specify CLIは無償で利用できます。紹介した仕様・計画・タスクの作成に、Spec Kit自体の利用料はかかりません。</dd></div><div><dt>ライセンス</dt><dd>MIT License</dd></div><div><dt>補足</dt><dd>活用例は公式ドキュメントに基づく想定で、実機検証は未実施です。</dd></div></dl>
         </section>
         </div>
       </article>

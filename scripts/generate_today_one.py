@@ -32,9 +32,15 @@ PUBLISHED_REQUIRED_FIELDS = (
     "name",
     "category",
     "officialUrl",
+    "archiveTitle",
+    "archiveDescription",
+    "forWho",
     "summary",
     "whyToday",
     "useFor",
+    "cautions",
+    "faq",
+    "officialSources",
     "keiComment",
     "verifiedAt",
     "status",
@@ -105,6 +111,34 @@ def published_entry_issues(entry: object, *, label: str) -> list[str]:
             parse_iso_date(entry["verifiedAt"], label=f"{label}.verifiedAt")
         except ValueError as exc:
             issues.append(str(exc))
+    if isinstance(entry.get("archiveTitle"), str) and entry.get("name") not in entry["archiveTitle"]:
+        issues.append(f"{label}.archiveTitle must include the tool name.")
+    description = entry.get("archiveDescription")
+    if description and (not isinstance(description, str) or len(description) > 200):
+        issues.append(f"{label}.archiveDescription must be a string of at most 200 characters.")
+    faq = entry.get("faq")
+    if not isinstance(faq, list) or not 1 <= len(faq) <= 2:
+        issues.append(f"{label}.faq must contain one or two questions and answers.")
+    elif any(
+        not isinstance(item, dict)
+        or not isinstance(item.get("question"), str)
+        or not item["question"].strip()
+        or not isinstance(item.get("answer"), str)
+        or not item["answer"].strip()
+        for item in faq
+    ):
+        issues.append(f"{label}.faq items must include question and answer text.")
+    sources = entry.get("officialSources")
+    if not isinstance(sources, list) or not sources:
+        issues.append(f"{label}.officialSources must contain at least one official source.")
+    elif any(
+        not isinstance(item, dict)
+        or not isinstance(item.get("label"), str)
+        or not item["label"].strip()
+        or not is_safe_external_url(item.get("url", ""))
+        for item in sources
+    ):
+        issues.append(f"{label}.officialSources items must include a label and https URL.")
     return issues
 
 
@@ -405,6 +439,8 @@ def render_basic_info(entry: dict) -> str:
         ("notes", "補足"),
     )
     for field, label in optional_fields:
+        if field == "conditions" and entry.get("cautions"):
+            continue
         value = entry.get(field)
         if value not in (None, "", []):
             rows.append(f"<div><dt>{esc(label)}</dt><dd>{render_value(value)}</dd></div>")
@@ -419,6 +455,58 @@ def render_basic_info(entry: dict) -> str:
           <h2 id="today-one-basic-title">基本情報</h2>
           <dl>{''.join(rows)}</dl>
         </section>'''
+
+
+def render_faq_and_cautions(entry: dict) -> str:
+    faq_items = entry.get("faq") or []
+    if not entry.get("cautions") and not faq_items:
+        return "<!-- No FAQ fields on this legacy entry. -->"
+    faq_html = "".join(
+        f'''<div class="today-one-faq-item">
+          <h3>{esc(item.get("question", ""))}</h3>
+          <p>{esc(item.get("answer", ""))}</p>
+        </div>'''
+        for item in faq_items
+        if isinstance(item, dict)
+    )
+    caution_html = (
+        f'<p class="today-one-caution">{esc(entry["cautions"])}</p>'
+        if entry.get("cautions")
+        else ""
+    )
+    return f'''<section class="today-one-section today-one-faq" aria-labelledby="today-one-faq-title">
+            <p class="section-kicker">Cautions & FAQ</p>
+            <h2 id="today-one-faq-title">注意点・FAQ</h2>
+            {caution_html}{faq_html}
+          </section>'''
+
+
+def render_audience_section(entry: dict) -> str:
+    if not entry.get("forWho"):
+        return "<!-- No audience field on this legacy entry. -->"
+    return f'''<section class="today-one-section today-one-audience" aria-labelledby="today-one-audience-title">
+            <p class="section-kicker">For Whom</p>
+            <h2 id="today-one-audience-title">こんな人向け</h2>
+            <p>{esc(entry["forWho"])}</p>
+          </section>'''
+
+
+def render_official_sources(entry: dict) -> str:
+    sources = entry.get("officialSources") or [
+        {"label": "公式サイト・公式情報", "url": entry.get("officialUrl", "")}
+    ]
+    links = "".join(
+        f'<li><a href="{esc(item["url"])}" target="_blank" rel="noopener noreferrer">{esc(item["label"])} <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li>'
+        for item in sources
+        if isinstance(item, dict) and item.get("url") and item.get("label")
+    )
+    if not links:
+        return ""
+    return f'''<section class="today-one-section today-one-sources" aria-labelledby="today-one-sources-title">
+            <p class="section-kicker">Primary Sources</p>
+            <h2 id="today-one-sources-title">公式ソース</h2>
+            <ul>{links}</ul>
+          </section>'''
 
 
 def render_entry(
@@ -437,21 +525,27 @@ def render_entry(
           </div>
           <p class="today-one-entry-label">{esc(entry_label)}</p>
           <h2 id="today-one-entry-name">{esc(entry.get("name", ""))}</h2>
-          <p class="today-one-summary-label">一言でいうと</p>
-          <p class="today-one-summary">{esc(entry.get("summary", ""))}</p>
           <a class="today-one-official-link" href="{esc(entry.get("officialUrl", ""))}" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
+          {render_audience_section(entry)}
+          <section class="today-one-section today-one-conclusion" aria-labelledby="today-one-conclusion-title">
+            <p class="section-kicker">The Answer</p>
+            <h2 id="today-one-conclusion-title">結論</h2>
+            <p>{esc(entry.get("summary", ""))}</p>
+          </section>
+          <section class="today-one-section today-one-method" aria-labelledby="today-one-use-title">
+            <p class="section-kicker">How to Use</p>
+            <h2 id="today-one-use-title">やり方／確認方法</h2>
+            <p>{esc(entry.get("useFor", ""))}</p>
+          </section>
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
             <p>{esc(entry.get("whyToday", ""))}</p>
           </section>
-          <section class="today-one-section" aria-labelledby="today-one-use-title">
-            <p class="section-kicker">Use For</p>
-            <h2 id="today-one-use-title">何に使える？</h2>
-            <p>{esc(entry.get("useFor", ""))}</p>
-          </section>
+          {render_faq_and_cautions(entry)}
+          {render_official_sources(entry)}
           {render_member(entry, members, prefix=prefix)}
           {render_kei_comment(entry, members, prefix=prefix)}
           {render_basic_info(entry)}
@@ -487,7 +581,7 @@ def render_archive_promo(entries: list[dict], target_date: date) -> str:
     if previous:
         previous_html = f'''        <a class="today-one-archive-latest" href="today-one/archive/{esc(archive_filename(previous))}">
           <time datetime="{esc(previous["date"])}">{esc(previous["date"].replace("-", "."))}</time>
-          <strong>{esc(previous["name"])}</strong>
+          <strong>{esc(previous.get("archiveTitle") or previous["name"])}</strong>
           <span>この日のひとつを見る →</span>
         </a>'''
     else:
@@ -508,15 +602,16 @@ def render_archive_card(entry: dict) -> str:
               <time datetime="{esc(entry["date"])}">{esc(entry["date"].replace("-", "."))}</time>
               <span>{esc(entry["category"])}</span>
             </div>
-            <h2>{esc(entry["name"])}</h2>
-            <p>{esc(entry["summary"])}</p>
+            <h2>{esc(entry.get("archiveTitle") or entry["name"])}</h2>
+            <p class="today-one-archive-tool-name">{esc(entry["name"])}</p>
+            <p>{esc(entry.get("archiveDescription") or entry["summary"])}</p>
             <strong>この日のひとつを見る <span aria-hidden="true">→</span></strong>
           </a>'''
 
 
 def render_archive_index_page(entries: list[dict]) -> str:
-    title = "AGENT SKILLS ライブラリ｜これまでのひとつ。｜毎日見る株式会社"
-    description = "AGENT SKILLS ライブラリ「今日ひとつ。」のアーカイブ。AIと働くための仕事道具を、一日ひとつずつ記録します。"
+    title = "今日ひとつ。アーカイブ｜仕事の困りごとを解決する道具｜毎日見る株式会社"
+    description = "仕事の困りごとから、使い方や確認方法が分かる道具を探せる「今日ひとつ。」のアーカイブです。"
     cards = "\n".join(render_archive_card(entry) for entry in entries)
     archive_body = (
         f'        <div class="today-one-archive-grid">\n{cards}\n        </div>'
@@ -530,7 +625,7 @@ def render_archive_index_page(entries: list[dict]) -> str:
         "description": description,
         "url": f"{BASE_URL}/today-one/archive",
         "inLanguage": "ja-JP",
-        "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", "AIエージェント", "仕事道具"],
+        "keywords": ["仕事の困りごと", "仕事道具", "使い方", "確認方法"],
     }
     return f'''<!doctype html>
 <html lang="ja">
@@ -539,7 +634,7 @@ def render_archive_index_page(entries: list[dict]) -> str:
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{esc(title)}</title>
     <meta name="description" content="{esc(description)}" />
-    <meta name="keywords" content="AGENT SKILLS, AGENT SKILLS ライブラリ, AIエージェント, Codex, MCP, 仕事道具" />
+    <meta name="keywords" content="仕事の困りごと, 仕事道具, 使い方, 確認方法" />
     <link rel="canonical" href="{BASE_URL}/today-one/archive" />
     <meta property="og:title" content="{esc(title)}" />
     <meta property="og:description" content="{esc(description)}" />
@@ -578,21 +673,22 @@ def render_archive_detail_page(
     members: dict[str, dict[str, str]],
 ) -> str:
     entry_date = parse_iso_date(entry["date"], label="entry.date")
-    title = f'{entry["name"]}｜AGENT SKILLS ライブラリ｜{entry["date"].replace("-", ".")}｜毎日見る株式会社'
-    description = f'AGENT SKILLS ライブラリ「今日ひとつ。」の記録。{entry["summary"]}'
+    archive_title = entry.get("archiveTitle") or f'{entry["name"]}｜{entry["summary"]}'
+    title = f'{archive_title}｜毎日見る株式会社'
+    description = entry.get("archiveDescription") or entry["summary"]
     canonical = archive_url(entry)
     structured_data = {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": f'{entry["date"]}の今日ひとつ。｜{entry["name"]}',
+        "name": archive_title,
         "description": description,
         "url": canonical,
         "datePublished": entry["date"],
         "inLanguage": "ja-JP",
-        "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", entry["category"], entry["name"]],
+        "keywords": [entry["category"], entry["name"], "使い方", "困りごと"],
         "isPartOf": {
             "@type": "CollectionPage",
-            "name": "AGENT SKILLS ライブラリ｜これまでのひとつ。",
+            "name": "今日ひとつ。アーカイブ",
             "url": f"{BASE_URL}/today-one/archive",
         },
     }
@@ -603,7 +699,7 @@ def render_archive_detail_page(
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{esc(title)}</title>
     <meta name="description" content="{esc(description)}" />
-    <meta name="keywords" content="AGENT SKILLS, AGENT SKILLS ライブラリ, AIエージェント, Codex, MCP, 仕事道具" />
+    <meta name="keywords" content="{esc(entry['name'])}, {esc(entry['category'])}, 使い方, 困りごと" />
     <link rel="canonical" href="{canonical}" />
     <meta property="og:title" content="{esc(title)}" />
     <meta property="og:description" content="{esc(description)}" />
@@ -627,7 +723,8 @@ def render_archive_detail_page(
       </nav>
       <header class="today-one-archive-detail-heading">
         <p class="section-kicker">Today's One Archive</p>
-        <h1>{esc(entry["date"].replace("-", "."))}のひとつ。</h1>
+        <h1>{esc(archive_title)}</h1>
+        <p>{esc(entry["date"].replace("-", "."))}</p>
       </header>
 {render_entry(entry, members, entry_date, prefix="../../", entry_label="この日のひとつ")}
       <nav class="today-one-archive-back" aria-label="今日ひとつ。アーカイブへの戻り先">

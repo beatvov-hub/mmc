@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>whisper.cpp｜AGENT SKILLS ライブラリ｜2026.09.28｜毎日見る株式会社</title>
-    <meta name="description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。音声ファイルから、編集や検索の土台になる文字起こしを作るローカル実行型のオープンソースです。" />
+    <title>whisper.cppで音声をPC内で文字起こしできる？｜毎日見る株式会社</title>
+    <meta name="description" content="会議や公開イベントの録音を外部の文字起こしサービスへ送りたくないとき、whisper.cppでWhisperモデルをローカル実行できます。短い音声で書き起こし、話者名・固有名詞・保存先を確認する流れを紹介します。" />
         <link rel="canonical" href="https://mainichi-miru.com/today-one/archive/2026-09-28-whisper-cpp" />
-<meta name="keywords" content="AGENT SKILLS, AGENT SKILLS ライブラリ, AIエージェント, Codex, MCP, 仕事道具" />
-<meta property="og:title" content="whisper.cpp｜AGENT SKILLS ライブラリ｜2026.09.28｜毎日見る株式会社" />
-    <meta property="og:description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。音声ファイルから、編集や検索の土台になる文字起こしを作るローカル実行型のオープンソースです。" />
+<meta name="keywords" content="whisper.cpp, OSS, 使い方, 困りごと" />
+<meta property="og:title" content="whisper.cppで音声をPC内で文字起こしできる？｜毎日見る株式会社" />
+    <meta property="og:description" content="会議や公開イベントの録音を外部の文字起こしサービスへ送りたくないとき、whisper.cppでWhisperモデルをローカル実行できます。短い音声で書き起こし、話者名・固有名詞・保存先を確認する流れを紹介します。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/today-one/archive/2026-09-28-whisper-cpp" />
 <meta property="og:site_name" content="毎日見る株式会社" />
@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
     <link rel="stylesheet" href="../../styles.css" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "2026-09-28の今日ひとつ。｜whisper.cpp", "description": "AGENT SKILLS ライブラリ「今日ひとつ。」の記録。音声ファイルから、編集や検索の土台になる文字起こしを作るローカル実行型のオープンソースです。", "url": "https://mainichi-miru.com/today-one/archive/2026-09-28-whisper-cpp", "datePublished": "2026-09-28", "inLanguage": "ja-JP", "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", "OSS", "whisper.cpp"], "isPartOf": {"@type": "CollectionPage", "name": "AGENT SKILLS ライブラリ｜これまでのひとつ。", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "whisper.cppで音声をPC内で文字起こしできる？", "description": "会議や公開イベントの録音を外部の文字起こしサービスへ送りたくないとき、whisper.cppでWhisperモデルをローカル実行できます。短い音声で書き起こし、話者名・固有名詞・保存先を確認する流れを紹介します。", "url": "https://mainichi-miru.com/today-one/archive/2026-09-28-whisper-cpp", "datePublished": "2026-09-28", "inLanguage": "ja-JP", "keywords": ["OSS", "whisper.cpp", "使い方", "困りごと"], "isPartOf": {"@type": "CollectionPage", "name": "今日ひとつ。アーカイブ", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
     <!-- GOOGLE_TAG_START -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
@@ -28,7 +28,7 @@
       gtag('config', 'G-35Q8QP7V1W');
     </script>
     <!-- GOOGLE_TAG_END -->
-</head>
+  </head>
   <body class="subpage today-one-page today-one-archive-detail-page">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
@@ -66,7 +66,8 @@
       </nav>
       <header class="today-one-archive-detail-heading">
         <p class="section-kicker">Today's One Archive</p>
-        <h1>2026.09.28のひとつ。</h1>
+        <h1>whisper.cppで音声をPC内で文字起こしできる？</h1>
+        <p>2026.09.28</p>
       </header>
       <article class="today-one-entry" aria-labelledby="today-one-entry-name">
         <header class="today-one-entry-header">
@@ -76,20 +77,41 @@
           </div>
           <p class="today-one-entry-label">この日のひとつ</p>
           <h2 id="today-one-entry-name">whisper.cpp</h2>
-          <p class="today-one-summary-label">一言でいうと</p>
-          <p class="today-one-summary">音声ファイルから、編集や検索の土台になる文字起こしを作るローカル実行型のオープンソースです。</p>
           <a class="today-one-official-link" href="https://github.com/ggml-org/whisper.cpp" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
+          <section class="today-one-section today-one-audience" aria-labelledby="today-one-audience-title">
+            <p class="section-kicker">For Whom</p>
+            <h2 id="today-one-audience-title">こんな人向け</h2>
+            <p>音声ファイルをローカルで文字起こしし、編集の下書きを作りたい担当者向けです。</p>
+          </section>
+          <section class="today-one-section today-one-conclusion" aria-labelledby="today-one-conclusion-title">
+            <p class="section-kicker">The Answer</p>
+            <h2 id="today-one-conclusion-title">結論</h2>
+            <p>音声ファイルから、編集や検索の土台になる文字起こしを作るローカル実行型のオープンソースです。</p>
+          </section>
+          <section class="today-one-section today-one-method" aria-labelledby="today-one-use-title">
+            <p class="section-kicker">How to Use</p>
+            <h2 id="today-one-use-title">やり方／確認方法</h2>
+            <p>例えば、公開してよい短いイベント録音から編集用の文字起こし案を作る想定例です。C/C++のビルド環境とCMakeを用意し、whisper.cppをビルドして多言語Whisperモデルをダウンロードしたら、16-bit WAV音声をwhisper-cliへ渡します。できあがるのは記事そのものではなく、編集の土台となる文字起こしです。まず短いクリップ一つで試し、固有名詞・数字・話者の取り違えを録音と照合して直せるかを確かめます。録音の利用許可とファイルの保管先も、処理を始める前に決めておきます。</p>
+          </section>
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
             <p>録音を記事や議事メモへ活用するとき、聞き直して書き起こす作業が最初の負担になります。whisper.cppならWhisperモデルを手元のPCで実行し、録音から文字起こし案を作れるので、音声を外部の文字起こしサービスへアップロードせず編集の入口を試せます。</p>
           </section>
-          <section class="today-one-section" aria-labelledby="today-one-use-title">
-            <p class="section-kicker">Use For</p>
-            <h2 id="today-one-use-title">何に使える？</h2>
-            <p>例えば、公開してよい短いイベント録音から編集用の文字起こし案を作る想定例です。C/C++のビルド環境とCMakeを用意し、whisper.cppをビルドして多言語Whisperモデルをダウンロードしたら、16-bit WAV音声をwhisper-cliへ渡します。できあがるのは記事そのものではなく、編集の土台となる文字起こしです。まず短いクリップ一つで試し、固有名詞・数字・話者の取り違えを録音と照合して直せるかを確かめます。録音の利用許可とファイルの保管先も、処理を始める前に決めておきます。</p>
+          <section class="today-one-section today-one-faq" aria-labelledby="today-one-faq-title">
+            <p class="section-kicker">Cautions & FAQ</p>
+            <h2 id="today-one-faq-title">注意点・FAQ</h2>
+            <p class="today-one-caution">ビルド環境・モデルのダウンロードが必要で、文字起こしは誤認識を含みます。録音の利用許諾と話者の同意も確認してください。</p><div class="today-one-faq-item">
+          <h3>whisper.cppの文字起こしは、そのまま公開できる精度ですか？</h3>
+          <p>公開前の原稿としてそのまま使えるとは限りません。固有名詞・数字・話者の発言を録音と照合し、必要なら編集してください。</p>
+        </div>
+          </section>
+          <section class="today-one-section today-one-sources" aria-labelledby="today-one-sources-title">
+            <p class="section-kicker">Primary Sources</p>
+            <h2 id="today-one-sources-title">公式ソース</h2>
+            <ul><li><a href="https://github.com/ggml-org/whisper.cpp" target="_blank" rel="noopener noreferrer">whisper.cpp公式GitHubリポジトリ：Quick start <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
           </section>
                   <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
           <p class="section-kicker">Recommended For</p>
@@ -125,7 +147,7 @@
                   <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
           <p class="section-kicker">Basic Information</p>
           <h2 id="today-one-basic-title">基本情報</h2>
-          <dl><div><dt>種別</dt><dd>OSS</dd></div><div><dt>公式サイト</dt><dd><a href="https://github.com/ggml-org/whisper.cpp" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-09-28">2026-09-28</time></dd></div><div><dt>料金</dt><dd>whisper.cppはMITライセンスのOSSで、Whisperのコードとモデル重みもMITライセンスです。自分のPCで処理する範囲ではAPI利用料はかかりません。</dd></div><div><dt>利用条件</dt><dd>C/C++ビルド環境、CMake、Whisperモデルのダウンロードが必要です。公式READMEのCLI例は16-bit WAV入力を前提としており、別形式の音声はffmpeg等で変換します。計算資源・電力は利用者側の負担です。</dd></div><div><dt>ライセンス</dt><dd>MIT License（whisper.cpp、Whisperのコードとモデル重み）</dd></div><div><dt>補足</dt><dd>活用例は公式READMEに基づく想定で、実機検証は未実施です。録音は利用許可のある素材を使ってください。</dd></div></dl>
+          <dl><div><dt>種別</dt><dd>OSS</dd></div><div><dt>公式サイト</dt><dd><a href="https://github.com/ggml-org/whisper.cpp" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-05">2026-10-05</time></dd></div><div><dt>料金</dt><dd>whisper.cppはMITライセンスのOSSで、Whisperのコードとモデル重みもMITライセンスです。自分のPCで処理する範囲ではAPI利用料はかかりません。</dd></div><div><dt>ライセンス</dt><dd>MIT License（whisper.cpp、Whisperのコードとモデル重み）</dd></div><div><dt>補足</dt><dd>活用例は公式READMEに基づく想定で、実機検証は未実施です。録音は利用許可のある素材を使ってください。</dd></div></dl>
         </section>
         </div>
       </article>

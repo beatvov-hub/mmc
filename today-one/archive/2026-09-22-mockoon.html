@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mockoon｜AGENT SKILLS ライブラリ｜2026.09.22｜毎日見る株式会社</title>
-    <meta name="description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。まだ本物のAPIがなくても、決めたURLへ固定の応答を返して、画面や連携の入口をローカルで試せる無料のオープンソースAPIモックツールです。" />
+    <title>MockoonでAPI未完成でも画面の動きを試せる？｜毎日見る株式会社</title>
+    <meta name="description" content="接続先APIがまだないため画面開発が止まるとき、Mockoonで想定レスポンスを返すローカルAPIを用意できます。成功・空・エラーの三つの例を作り、画面が各状態で崩れないか確認する方法を紹介します。" />
         <link rel="canonical" href="https://mainichi-miru.com/today-one/archive/2026-09-22-mockoon" />
-<meta name="keywords" content="AGENT SKILLS, AGENT SKILLS ライブラリ, AIエージェント, Codex, MCP, 仕事道具" />
-<meta property="og:title" content="Mockoon｜AGENT SKILLS ライブラリ｜2026.09.22｜毎日見る株式会社" />
-    <meta property="og:description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。まだ本物のAPIがなくても、決めたURLへ固定の応答を返して、画面や連携の入口をローカルで試せる無料のオープンソースAPIモックツールです。" />
+<meta name="keywords" content="Mockoon, Developer Tool, 使い方, 困りごと" />
+<meta property="og:title" content="MockoonでAPI未完成でも画面の動きを試せる？｜毎日見る株式会社" />
+    <meta property="og:description" content="接続先APIがまだないため画面開発が止まるとき、Mockoonで想定レスポンスを返すローカルAPIを用意できます。成功・空・エラーの三つの例を作り、画面が各状態で崩れないか確認する方法を紹介します。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/today-one/archive/2026-09-22-mockoon" />
 <meta property="og:site_name" content="毎日見る株式会社" />
@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
     <link rel="stylesheet" href="../../styles.css" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "2026-09-22の今日ひとつ。｜Mockoon", "description": "AGENT SKILLS ライブラリ「今日ひとつ。」の記録。まだ本物のAPIがなくても、決めたURLへ固定の応答を返して、画面や連携の入口をローカルで試せる無料のオープンソースAPIモックツールです。", "url": "https://mainichi-miru.com/today-one/archive/2026-09-22-mockoon", "datePublished": "2026-09-22", "inLanguage": "ja-JP", "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", "Developer Tool", "Mockoon"], "isPartOf": {"@type": "CollectionPage", "name": "AGENT SKILLS ライブラリ｜これまでのひとつ。", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "MockoonでAPI未完成でも画面の動きを試せる？", "description": "接続先APIがまだないため画面開発が止まるとき、Mockoonで想定レスポンスを返すローカルAPIを用意できます。成功・空・エラーの三つの例を作り、画面が各状態で崩れないか確認する方法を紹介します。", "url": "https://mainichi-miru.com/today-one/archive/2026-09-22-mockoon", "datePublished": "2026-09-22", "inLanguage": "ja-JP", "keywords": ["Developer Tool", "Mockoon", "使い方", "困りごと"], "isPartOf": {"@type": "CollectionPage", "name": "今日ひとつ。アーカイブ", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
     <!-- GOOGLE_TAG_START -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
@@ -28,7 +28,7 @@
       gtag('config', 'G-35Q8QP7V1W');
     </script>
     <!-- GOOGLE_TAG_END -->
-</head>
+  </head>
   <body class="subpage today-one-page today-one-archive-detail-page">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
@@ -66,7 +66,8 @@
       </nav>
       <header class="today-one-archive-detail-heading">
         <p class="section-kicker">Today's One Archive</p>
-        <h1>2026.09.22のひとつ。</h1>
+        <h1>MockoonでAPI未完成でも画面の動きを試せる？</h1>
+        <p>2026.09.22</p>
       </header>
       <article class="today-one-entry" aria-labelledby="today-one-entry-name">
         <header class="today-one-entry-header">
@@ -76,20 +77,41 @@
           </div>
           <p class="today-one-entry-label">この日のひとつ</p>
           <h2 id="today-one-entry-name">Mockoon</h2>
-          <p class="today-one-summary-label">一言でいうと</p>
-          <p class="today-one-summary">まだ本物のAPIがなくても、決めたURLへ固定の応答を返して、画面や連携の入口をローカルで試せる無料のオープンソースAPIモックツールです。</p>
           <a class="today-one-official-link" href="https://mockoon.com/" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
+          <section class="today-one-section today-one-audience" aria-labelledby="today-one-audience-title">
+            <p class="section-kicker">For Whom</p>
+            <h2 id="today-one-audience-title">こんな人向け</h2>
+            <p>APIの完成を待たずにフロント画面やエラー表示を試したい開発担当向けです。</p>
+          </section>
+          <section class="today-one-section today-one-conclusion" aria-labelledby="today-one-conclusion-title">
+            <p class="section-kicker">The Answer</p>
+            <h2 id="today-one-conclusion-title">結論</h2>
+            <p>まだ本物のAPIがなくても、決めたURLへ固定の応答を返して、画面や連携の入口をローカルで試せる無料のオープンソースAPIモックツールです。</p>
+          </section>
+          <section class="today-one-section today-one-method" aria-labelledby="today-one-use-title">
+            <p class="section-kicker">How to Use</p>
+            <h2 id="today-one-use-title">やり方／確認方法</h2>
+            <p>例えば、「今日ひとつ。」の一覧カードへ仮の紹介データを出す画面を先に作る場面に。Mockoonでローカル環境を作り、GET /today-one のHTTPルートへ、name・summary・officialUrlだけを含むダミーJSONと200応答を設定します。画面の開発用設定からこのローカルURLを読むようにして、タイトルが長い時やsummaryが空の時にも崩れないかを確認します。成果物は、共有できるモック環境ファイルと、表示確認済みの画面です。最初は1ルート・1応答だけに絞り、実在の利用者情報や認証情報はモックへ入れず、外部へ公開しません。</p>
+          </section>
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
             <p>AIに画面実装を頼むとき、必要なデータの形が決まらないまま本番APIを待つと、確認したい表示まで止まってしまいます。Mockoonなら想定したJSONと応答コードをローカルで返せるため、実データや外部サービスへつなぐ前に、画面が何を受け取れば成り立つかを確かめられます。</p>
           </section>
-          <section class="today-one-section" aria-labelledby="today-one-use-title">
-            <p class="section-kicker">Use For</p>
-            <h2 id="today-one-use-title">何に使える？</h2>
-            <p>例えば、「今日ひとつ。」の一覧カードへ仮の紹介データを出す画面を先に作る場面に。Mockoonでローカル環境を作り、GET /today-one のHTTPルートへ、name・summary・officialUrlだけを含むダミーJSONと200応答を設定します。画面の開発用設定からこのローカルURLを読むようにして、タイトルが長い時やsummaryが空の時にも崩れないかを確認します。成果物は、共有できるモック環境ファイルと、表示確認済みの画面です。最初は1ルート・1応答だけに絞り、実在の利用者情報や認証情報はモックへ入れず、外部へ公開しません。</p>
+          <section class="today-one-section today-one-faq" aria-labelledby="today-one-faq-title">
+            <p class="section-kicker">Cautions & FAQ</p>
+            <h2 id="today-one-faq-title">注意点・FAQ</h2>
+            <p class="today-one-caution">モックの応答は本番APIの認証・速度・データ仕様を保証しません。実APIが用意された後に接続先を切り替えて再確認してください。</p><div class="today-one-faq-item">
+          <h3>Mockoonのモックが動けば、本番APIとの接続も確認済みですか？</h3>
+          <p>いいえ。Mockoonは設定したサンプル応答を返します。本番の認証、通信、実際のデータ形式は実APIで別途検証します。</p>
+        </div>
+          </section>
+          <section class="today-one-section today-one-sources" aria-labelledby="today-one-sources-title">
+            <p class="section-kicker">Primary Sources</p>
+            <h2 id="today-one-sources-title">公式ソース</h2>
+            <ul><li><a href="https://mockoon.com/docs/latest/about/" target="_blank" rel="noopener noreferrer">Mockoon公式ドキュメント：About <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
           </section>
                   <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
           <p class="section-kicker">Recommended For</p>
@@ -125,7 +147,7 @@
                   <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
           <p class="section-kicker">Basic Information</p>
           <h2 id="today-one-basic-title">基本情報</h2>
-          <dl><div><dt>種別</dt><dd>Developer Tool</dd></div><div><dt>公式サイト</dt><dd><a href="https://mockoon.com/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-09-22">2026-09-22</time></dd></div><div><dt>料金</dt><dd>MockoonはMITライセンスのOSSで、デスクトップアプリを無料で利用できます。この例のローカルAPIモック作成に、Mockoon自体の利用料やアカウントは不要です。</dd></div><div><dt>利用条件</dt><dd>Mockoonのローカル導入と、開発用にURLを切り替えられる画面環境が必要です。モックは実APIと別物なので、本番の認証・権限・性能を確認したことにはなりません。ダミー情報だけを使い、ローカルモックをインターネットへ公開しません。</dd></div><div><dt>ライセンス</dt><dd>MIT License</dd></div><div><dt>補足</dt><dd>活用例は公式ドキュメントに基づく想定で、実機検証は未実施です。</dd></div></dl>
+          <dl><div><dt>種別</dt><dd>Developer Tool</dd></div><div><dt>公式サイト</dt><dd><a href="https://mockoon.com/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-05">2026-10-05</time></dd></div><div><dt>料金</dt><dd>MockoonはMITライセンスのOSSで、デスクトップアプリを無料で利用できます。この例のローカルAPIモック作成に、Mockoon自体の利用料やアカウントは不要です。</dd></div><div><dt>ライセンス</dt><dd>MIT License</dd></div><div><dt>補足</dt><dd>活用例は公式ドキュメントに基づく想定で、実機検証は未実施です。</dd></div></dl>
         </section>
         </div>
       </article>

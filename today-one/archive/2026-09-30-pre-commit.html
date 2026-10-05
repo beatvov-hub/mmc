@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>pre-commit｜AGENT SKILLS ライブラリ｜2026.09.30｜毎日見る株式会社</title>
-    <meta name="description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。Gitでコミットする直前に、設定した書式・構文チェックを自動で実行するオープンソースの仕組みです。" />
+    <title>pre-commitでコミット前にファイル検査を自動実行できる？｜毎日見る株式会社</title>
+    <meta name="description" content="フォーマットやJSON検査の抜けをコミット前に減らしたいとき、pre-commitで指定したフックを自動実行できます。小さな設定から始め、失敗時に直して再ステージする流れを紹介します。" />
         <link rel="canonical" href="https://mainichi-miru.com/today-one/archive/2026-09-30-pre-commit" />
-<meta name="keywords" content="AGENT SKILLS, AGENT SKILLS ライブラリ, AIエージェント, Codex, MCP, 仕事道具" />
-<meta property="og:title" content="pre-commit｜AGENT SKILLS ライブラリ｜2026.09.30｜毎日見る株式会社" />
-    <meta property="og:description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。Gitでコミットする直前に、設定した書式・構文チェックを自動で実行するオープンソースの仕組みです。" />
+<meta name="keywords" content="pre-commit, Developer Tool, 使い方, 困りごと" />
+<meta property="og:title" content="pre-commitでコミット前にファイル検査を自動実行できる？｜毎日見る株式会社" />
+    <meta property="og:description" content="フォーマットやJSON検査の抜けをコミット前に減らしたいとき、pre-commitで指定したフックを自動実行できます。小さな設定から始め、失敗時に直して再ステージする流れを紹介します。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/today-one/archive/2026-09-30-pre-commit" />
 <meta property="og:site_name" content="毎日見る株式会社" />
@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
     <link rel="stylesheet" href="../../styles.css" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "2026-09-30の今日ひとつ。｜pre-commit", "description": "AGENT SKILLS ライブラリ「今日ひとつ。」の記録。Gitでコミットする直前に、設定した書式・構文チェックを自動で実行するオープンソースの仕組みです。", "url": "https://mainichi-miru.com/today-one/archive/2026-09-30-pre-commit", "datePublished": "2026-09-30", "inLanguage": "ja-JP", "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", "Developer Tool", "pre-commit"], "isPartOf": {"@type": "CollectionPage", "name": "AGENT SKILLS ライブラリ｜これまでのひとつ。", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "pre-commitでコミット前にファイル検査を自動実行できる？", "description": "フォーマットやJSON検査の抜けをコミット前に減らしたいとき、pre-commitで指定したフックを自動実行できます。小さな設定から始め、失敗時に直して再ステージする流れを紹介します。", "url": "https://mainichi-miru.com/today-one/archive/2026-09-30-pre-commit", "datePublished": "2026-09-30", "inLanguage": "ja-JP", "keywords": ["Developer Tool", "pre-commit", "使い方", "困りごと"], "isPartOf": {"@type": "CollectionPage", "name": "今日ひとつ。アーカイブ", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
     <!-- GOOGLE_TAG_START -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
@@ -28,7 +28,7 @@
       gtag('config', 'G-35Q8QP7V1W');
     </script>
     <!-- GOOGLE_TAG_END -->
-</head>
+  </head>
   <body class="subpage today-one-page today-one-archive-detail-page">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
@@ -66,7 +66,8 @@
       </nav>
       <header class="today-one-archive-detail-heading">
         <p class="section-kicker">Today's One Archive</p>
-        <h1>2026.09.30のひとつ。</h1>
+        <h1>pre-commitでコミット前にファイル検査を自動実行できる？</h1>
+        <p>2026.09.30</p>
       </header>
       <article class="today-one-entry" aria-labelledby="today-one-entry-name">
         <header class="today-one-entry-header">
@@ -76,20 +77,41 @@
           </div>
           <p class="today-one-entry-label">この日のひとつ</p>
           <h2 id="today-one-entry-name">pre-commit</h2>
-          <p class="today-one-summary-label">一言でいうと</p>
-          <p class="today-one-summary">Gitでコミットする直前に、設定した書式・構文チェックを自動で実行するオープンソースの仕組みです。</p>
           <a class="today-one-official-link" href="https://github.com/pre-commit/pre-commit" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
+          <section class="today-one-section today-one-audience" aria-labelledby="today-one-audience-title">
+            <p class="section-kicker">For Whom</p>
+            <h2 id="today-one-audience-title">こんな人向け</h2>
+            <p>複数人で同じ軽量チェックをコミット前に揃えたい開発チーム向けです。</p>
+          </section>
+          <section class="today-one-section today-one-conclusion" aria-labelledby="today-one-conclusion-title">
+            <p class="section-kicker">The Answer</p>
+            <h2 id="today-one-conclusion-title">結論</h2>
+            <p>Gitでコミットする直前に、設定した書式・構文チェックを自動で実行するオープンソースの仕組みです。</p>
+          </section>
+          <section class="today-one-section today-one-method" aria-labelledby="today-one-use-title">
+            <p class="section-kicker">How to Use</p>
+            <h2 id="today-one-use-title">やり方／確認方法</h2>
+            <p>例えば、AIが編集した公開設定JSONをコミット前に点検する想定例です。PythonとGitを使えるリポジトリへpre-commitを導入し、`.pre-commit-config.yaml`でJSON構文チェックと行末空白チェックを選んでGit hookを設定します。コミット時にステージ済みファイルへ検査が走り、JSONが不正なら止まり、空白を修正した場合は差分を確認して再ステージします。成果物はチェック結果と、修正済みの差分です。最初はテスト用JSON一つで試し、どの誤りを止め、どこを自動修正するか確かめます。</p>
+          </section>
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
             <p>AIがコードや設定ファイルを直してくれても、JSONの括弧抜けや行末の余分な空白はコミット前に残ることがあります。pre-commitは登録したチェックをGitのコミット前に実行できるため、確認を覚えている人だけに頼らず、小さなミスを早い段階で止める入口になります。</p>
           </section>
-          <section class="today-one-section" aria-labelledby="today-one-use-title">
-            <p class="section-kicker">Use For</p>
-            <h2 id="today-one-use-title">何に使える？</h2>
-            <p>例えば、AIが編集した公開設定JSONをコミット前に点検する想定例です。PythonとGitを使えるリポジトリへpre-commitを導入し、`.pre-commit-config.yaml`でJSON構文チェックと行末空白チェックを選んでGit hookを設定します。コミット時にステージ済みファイルへ検査が走り、JSONが不正なら止まり、空白を修正した場合は差分を確認して再ステージします。成果物はチェック結果と、修正済みの差分です。最初はテスト用JSON一つで試し、どの誤りを止め、どこを自動修正するか確かめます。</p>
+          <section class="today-one-section today-one-faq" aria-labelledby="today-one-faq-title">
+            <p class="section-kicker">Cautions & FAQ</p>
+            <h2 id="today-one-faq-title">注意点・FAQ</h2>
+            <p class="today-one-caution">フックが通っても、テストやレビュー全てが完了した意味ではありません。導入フックの取得元とバージョンを固定し、変更ファイルを確認してください。</p><div class="today-one-faq-item">
+          <h3>pre-commitを入れると、CIのテストも不要になりますか？</h3>
+          <p>いいえ。ローカルのコミット前チェックです。実行環境差やフック未実行に備え、必要な検査はCIでも実行します。</p>
+        </div>
+          </section>
+          <section class="today-one-section today-one-sources" aria-labelledby="today-one-sources-title">
+            <p class="section-kicker">Primary Sources</p>
+            <h2 id="today-one-sources-title">公式ソース</h2>
+            <ul><li><a href="https://pre-commit.com/" target="_blank" rel="noopener noreferrer">pre-commit公式ドキュメント <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
           </section>
                   <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
           <p class="section-kicker">Recommended For</p>
@@ -125,7 +147,7 @@
                   <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
           <p class="section-kicker">Basic Information</p>
           <h2 id="today-one-basic-title">基本情報</h2>
-          <dl><div><dt>種別</dt><dd>Developer Tool</dd></div><div><dt>公式サイト</dt><dd><a href="https://github.com/pre-commit/pre-commit" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-09-30">2026-09-30</time></dd></div><div><dt>料金</dt><dd>pre-commitと公式フック集はMITライセンスのOSSで、ソフトウェア利用料はかかりません。</dd></div><div><dt>利用条件</dt><dd>PythonとGitが必要です。設定したフックは初回にネットワークから取得・構築されることがあり、コミット前にローカルで実行されます。各フックの提供元とバージョンを確認して固定し、変更されたファイルは差分を見てからステージし直してください。</dd></div><div><dt>ライセンス</dt><dd>MIT License（pre-commit、および例に使うpre-commit-hooks）</dd></div><div><dt>補足</dt><dd>活用例は公式Quick Start・フック一覧に基づく想定で、実機検証は未実施です。</dd></div></dl>
+          <dl><div><dt>種別</dt><dd>Developer Tool</dd></div><div><dt>公式サイト</dt><dd><a href="https://github.com/pre-commit/pre-commit" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-05">2026-10-05</time></dd></div><div><dt>料金</dt><dd>pre-commitと公式フック集はMITライセンスのOSSで、ソフトウェア利用料はかかりません。</dd></div><div><dt>ライセンス</dt><dd>MIT License（pre-commit、および例に使うpre-commit-hooks）</dd></div><div><dt>補足</dt><dd>活用例は公式Quick Start・フック一覧に基づく想定で、実機検証は未実施です。</dd></div></dl>
         </section>
         </div>
       </article>

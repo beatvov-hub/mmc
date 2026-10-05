@@ -19,9 +19,15 @@ def published_entry(day: str, *, slug: str = "sample") -> dict:
         "name": "Sample Tool",
         "category": "MCP",
         "officialUrl": "https://example.com/",
+        "archiveTitle": f"Sample Toolで確認できる？",
+        "archiveDescription": "サンプル作業で困った点を確認する方法と、使う際の注意点を紹介します。",
+        "forWho": "手順を確認したい担当者向けです。",
         "summary": "短い説明です。",
         "whyToday": "今日選ぶ理由です。",
         "useFor": "仕事で使う場面です。",
+        "cautions": "出力は人が確認してください。",
+        "faq": [{"question": "何を確認できますか？", "answer": "設定した内容を確認できます。"}],
+        "officialSources": [{"label": "公式ドキュメント", "url": "https://example.com/docs"}],
         "recommendedFor": {"employeeId": "MMC-008", "reason": "相性が良さそうです。"},
         "keiComment": "確認してから使いたいですね。",
         "verifiedAt": day,
@@ -91,7 +97,36 @@ class TodayOneTest(unittest.TestCase):
         )
         self.assertIn("アキト", rendered)
         self.assertIn("members/akito", rendered)
-        self.assertIn("一言でいうと", rendered)
+        self.assertIn("結論", rendered)
+        self.assertIn("やり方／確認方法", rendered)
+
+    def test_actionlint_entry_has_clear_audience_faq_and_sources(self) -> None:
+        data = today_one.load_data()
+        entry = next(item for item in data["entries"] if item["slug"] == "actionlint")
+        rendered = today_one.render_entry(
+            entry, today_one.load_members(), date.fromisoformat(entry["date"])
+        )
+        for heading in ("こんな人向け", "結論", "やり方／確認方法", "注意点・FAQ", "公式ソース"):
+            self.assertIn(heading, rendered)
+        self.assertIn("actionlintに合格すれば", rendered)
+        self.assertNotIn("よくある質問：", entry.get("notes", ""))
+
+    def test_new_entries_require_search_and_faq_fields(self) -> None:
+        entry = published_entry("2026-10-06")
+        entry.pop("faq")
+        entry.pop("archiveDescription")
+        warnings = today_one.validate_data({"entries": [entry]}, self.members)
+        joined = " ".join(warnings)
+        self.assertIn("archiveDescription", joined)
+        self.assertIn("faq", joined)
+        self.assertNotIn("officialSources", joined)
+
+    def test_archive_title_prioritizes_problem_and_omits_library_phrase(self) -> None:
+        data = today_one.load_data()
+        entry = next(item for item in data["entries"] if item["slug"] == "actionlint")
+        rendered = today_one.render_archive_detail_page(entry, today_one.load_members())
+        self.assertIn("actionlintでGitHub Actionsの設定ミスを実行前に見つけられる？", rendered)
+        self.assertNotIn("AGENT SKILLS ライブラリ", rendered)
 
     def test_archive_keeps_published_entries_up_to_target_date(self) -> None:
         future = published_entry("2026-08-29", slug="future")

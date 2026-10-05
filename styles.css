@@ -7999,6 +7999,10 @@ img { max-width: 100%; }
 }
 
 @media (min-width: 761px) and (max-width: 980px) {
+  .today-one-content-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .ai-forensics-page .forensics-card-grid,
   .ai-forensics-page .forensics-filters {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -8563,7 +8567,7 @@ img { max-width: 100%; }
 
 .today-one-content-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border-left: 1px solid #d9ccb9;
 }
 
@@ -8594,6 +8598,50 @@ img { max-width: 100%; }
 .today-one-basic,
 .today-one-kei {
   grid-column: 1 / -1;
+}
+
+.today-one-faq-item + .today-one-faq-item {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #d9ccb9;
+}
+
+.today-one-faq-item h3 {
+  margin: 0 0 8px;
+  color: var(--green);
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.today-one-faq-item p,
+.today-one-caution {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.today-one-caution {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--mustard);
+  background: rgba(230,194,124,.15);
+}
+
+.today-one-sources ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.today-one-sources a {
+  color: var(--coffee);
+  font-weight: 800;
+  line-height: 1.7;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
 }
 
 .today-one-member-card {
@@ -8904,6 +8952,11 @@ img { max-width: 100%; }
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   line-height: 1.18;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.today-one-archive-detail-heading h1 {
+  font-size: clamp(1.8rem, 4vw, 3.1rem);
 }
 
 .today-one-archive-heading > p:last-child {
@@ -8951,6 +9004,13 @@ img { max-width: 100%; }
   color: var(--green);
   font-size: clamp(1.35rem, 2.2vw, 1.75rem);
   line-height: 1.4;
+}
+
+.today-one-archive-tool-name {
+  margin: -5px 0 12px !important;
+  color: var(--coffee) !important;
+  font-size: .86rem;
+  font-weight: 900;
 }
 
 .today-one-archive-card p {
@@ -9219,7 +9279,8 @@ img { max-width: 100%; }
     grid-template-columns: 1fr;
   }
   .today-one-recommendation,
-  .today-one-basic {
+  .today-one-basic,
+  .today-one-kei {
     grid-column: auto;
   }
   .today-one-section {

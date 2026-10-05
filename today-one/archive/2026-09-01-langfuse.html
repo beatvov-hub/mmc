@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Langfuse｜AGENT SKILLS ライブラリ｜2026.09.01｜毎日見る株式会社</title>
-    <meta name="description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。AIアプリの処理や入出力を記録し、失敗した箇所をたどるための開発・運用ツールです。" />
+    <title>LangfuseでAI回答の入力と出力をあとから追える？｜毎日見る株式会社</title>
+    <meta name="description" content="AIの回答が変わったとき、どの入力や処理が関係したか分からない場合は、Langfuseに実行トレースを記録して流れを確認できます。小さなテストでログ項目を決め、機微情報を残さない設定も確認します。" />
         <link rel="canonical" href="https://mainichi-miru.com/today-one/archive/2026-09-01-langfuse" />
-<meta name="keywords" content="AGENT SKILLS, AGENT SKILLS ライブラリ, AIエージェント, Codex, MCP, 仕事道具" />
-<meta property="og:title" content="Langfuse｜AGENT SKILLS ライブラリ｜2026.09.01｜毎日見る株式会社" />
-    <meta property="og:description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。AIアプリの処理や入出力を記録し、失敗した箇所をたどるための開発・運用ツールです。" />
+<meta name="keywords" content="Langfuse, OSS, 使い方, 困りごと" />
+<meta property="og:title" content="LangfuseでAI回答の入力と出力をあとから追える？｜毎日見る株式会社" />
+    <meta property="og:description" content="AIの回答が変わったとき、どの入力や処理が関係したか分からない場合は、Langfuseに実行トレースを記録して流れを確認できます。小さなテストでログ項目を決め、機微情報を残さない設定も確認します。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/today-one/archive/2026-09-01-langfuse" />
 <meta property="og:site_name" content="毎日見る株式会社" />
@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
     <link rel="stylesheet" href="../../styles.css" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "2026-09-01の今日ひとつ。｜Langfuse", "description": "AGENT SKILLS ライブラリ「今日ひとつ。」の記録。AIアプリの処理や入出力を記録し、失敗した箇所をたどるための開発・運用ツールです。", "url": "https://mainichi-miru.com/today-one/archive/2026-09-01-langfuse", "datePublished": "2026-09-01", "inLanguage": "ja-JP", "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", "OSS", "Langfuse"], "isPartOf": {"@type": "CollectionPage", "name": "AGENT SKILLS ライブラリ｜これまでのひとつ。", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "LangfuseでAI回答の入力と出力をあとから追える？", "description": "AIの回答が変わったとき、どの入力や処理が関係したか分からない場合は、Langfuseに実行トレースを記録して流れを確認できます。小さなテストでログ項目を決め、機微情報を残さない設定も確認します。", "url": "https://mainichi-miru.com/today-one/archive/2026-09-01-langfuse", "datePublished": "2026-09-01", "inLanguage": "ja-JP", "keywords": ["OSS", "Langfuse", "使い方", "困りごと"], "isPartOf": {"@type": "CollectionPage", "name": "今日ひとつ。アーカイブ", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
     <!-- GOOGLE_TAG_START -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
@@ -28,7 +28,7 @@
       gtag('config', 'G-35Q8QP7V1W');
     </script>
     <!-- GOOGLE_TAG_END -->
-</head>
+  </head>
   <body class="subpage today-one-page today-one-archive-detail-page">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
@@ -66,7 +66,8 @@
       </nav>
       <header class="today-one-archive-detail-heading">
         <p class="section-kicker">Today's One Archive</p>
-        <h1>2026.09.01のひとつ。</h1>
+        <h1>LangfuseでAI回答の入力と出力をあとから追える？</h1>
+        <p>2026.09.01</p>
       </header>
       <article class="today-one-entry" aria-labelledby="today-one-entry-name">
         <header class="today-one-entry-header">
@@ -76,20 +77,41 @@
           </div>
           <p class="today-one-entry-label">この日のひとつ</p>
           <h2 id="today-one-entry-name">Langfuse</h2>
-          <p class="today-one-summary-label">一言でいうと</p>
-          <p class="today-one-summary">AIアプリの処理や入出力を記録し、失敗した箇所をたどるための開発・運用ツールです。</p>
           <a class="today-one-official-link" href="https://langfuse.com/" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
+          <section class="today-one-section today-one-audience" aria-labelledby="today-one-audience-title">
+            <p class="section-kicker">For Whom</p>
+            <h2 id="today-one-audience-title">こんな人向け</h2>
+            <p>AIアプリの回答品質や処理の流れを、開発中に調べたい担当者向けです。</p>
+          </section>
+          <section class="today-one-section today-one-conclusion" aria-labelledby="today-one-conclusion-title">
+            <p class="section-kicker">The Answer</p>
+            <h2 id="today-one-conclusion-title">結論</h2>
+            <p>AIアプリの処理や入出力を記録し、失敗した箇所をたどるための開発・運用ツールです。</p>
+          </section>
+          <section class="today-one-section today-one-method" aria-labelledby="today-one-use-title">
+            <p class="section-kicker">How to Use</p>
+            <h2 id="today-one-use-title">やり方／確認方法</h2>
+            <p>例えば、公開資料を要約する小さなAIアプリの不具合調査に。LangfuseのプロジェクトとAPI認証情報を用意し、SDKなどで「資料取得」「要約」の処理を記録する設定を加えます。公開サンプル1件を流して、画面上で入力・出力と処理時間をたどり、誤った資料が渡ったのか、要約で意味が変わったのかを人が切り分けます。成果物は、見直す工程を記した調査メモと実行記録。まずその1件が追えることを確かめ、秘密情報や個人情報をログへ送らない設定も確認します。</p>
+          </section>
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
             <p>調査AIの回答がおかしいとき、資料の取得と要約のどちらで外れたのか分からなければ、直す場所も決まりません。処理を段階ごとに記録できるLangfuseを、回答の採点より前に原因を探る道具として選びます。</p>
           </section>
-          <section class="today-one-section" aria-labelledby="today-one-use-title">
-            <p class="section-kicker">Use For</p>
-            <h2 id="today-one-use-title">何に使える？</h2>
-            <p>例えば、公開資料を要約する小さなAIアプリの不具合調査に。LangfuseのプロジェクトとAPI認証情報を用意し、SDKなどで「資料取得」「要約」の処理を記録する設定を加えます。公開サンプル1件を流して、画面上で入力・出力と処理時間をたどり、誤った資料が渡ったのか、要約で意味が変わったのかを人が切り分けます。成果物は、見直す工程を記した調査メモと実行記録。まずその1件が追えることを確かめ、秘密情報や個人情報をログへ送らない設定も確認します。</p>
+          <section class="today-one-section today-one-faq" aria-labelledby="today-one-faq-title">
+            <p class="section-kicker">Cautions & FAQ</p>
+            <h2 id="today-one-faq-title">注意点・FAQ</h2>
+            <p class="today-one-caution">記録するにはアプリ側の計測設定が必要です。ログに個人情報や秘密情報を含めないよう、送信項目と保存設定を先に決めてください。</p><div class="today-one-faq-item">
+          <h3>Langfuseを開けば、何も設定せず過去のAI回答を見られますか？</h3>
+          <p>いいえ。対象アプリにSDK等の計測を組み込み、記録する入出力を設定します。導入後はテスト1回分のトレースから記録範囲を確認します。</p>
+        </div>
+          </section>
+          <section class="today-one-section today-one-sources" aria-labelledby="today-one-sources-title">
+            <p class="section-kicker">Primary Sources</p>
+            <h2 id="today-one-sources-title">公式ソース</h2>
+            <ul><li><a href="https://langfuse.com/docs/observability/overview" target="_blank" rel="noopener noreferrer">Langfuse公式ドキュメント：Observability overview <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
           </section>
                   <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
           <p class="section-kicker">Recommended For</p>
@@ -125,7 +147,7 @@
                   <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
           <p class="section-kicker">Basic Information</p>
           <h2 id="today-one-basic-title">基本情報</h2>
-          <dl><div><dt>種別</dt><dd>OSS</dd></div><div><dt>公式サイト</dt><dd><a href="https://langfuse.com/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-09-07">2026-09-07</time></dd></div><div><dt>料金</dt><dd>CloudのHobbyプランは無料で、月50,000 units、データへのアクセス期間30日などの制限があります。</dd></div><div><dt>利用条件</dt><dd>アカウント、プロジェクトのAPI認証情報、アプリ側の記録設定が必要です。AIモデルの呼び出し料金は別です。無料で記録機能だけを試す場合は、ダミーの入出力から始められます。</dd></div><div><dt>補足</dt><dd>2026-09-07に活用例と利用条件を追記・再確認しました。活用例は公式情報に基づく想定で、実機検証は未実施です。</dd></div></dl>
+          <dl><div><dt>種別</dt><dd>OSS</dd></div><div><dt>公式サイト</dt><dd><a href="https://langfuse.com/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-05">2026-10-05</time></dd></div><div><dt>料金</dt><dd>CloudのHobbyプランは無料で、月50,000 units、データへのアクセス期間30日などの制限があります。</dd></div><div><dt>補足</dt><dd>2026-09-07に活用例と利用条件を追記・再確認しました。活用例は公式情報に基づく想定で、実機検証は未実施です。</dd></div></dl>
         </section>
         </div>
       </article>
