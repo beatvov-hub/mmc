@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T07:33:36+09:00",
+  "updatedAt": "2026-10-05T13:23:19+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -798,18 +798,18 @@
       "name": "actionlint",
       "category": "Developer Tool",
       "officialUrl": "https://github.com/rhysd/actionlint",
-      "summary": "GitHub Actionsの設定ファイルを検査し、構文や式、アクション入力の誤りを実行前に見つける静的チェックツールです。",
-      "whyToday": "GitHub Actionsの設定は、YAMLとして読めても式の型やアクションへの入力が間違っていれば、実行時まで気づきにくいことがあります。actionlintはワークフローの構文だけでなく、式や指定内容も検査するため、自動処理を走らせる前の設定レビューを一段具体的にできます。",
-      "useFor": "例えば、定期実行のGitHub Actionsへjobを追加する前に。リポジトリ内の .github/workflows/daily-quiz.yml など対象ファイルをactionlintで検査すると、構文、${{ }}式の型、アクションへの入力名などの問題がファイル名・行番号付きで示されます。指摘を直して再検査し、トリガー条件や権限設定はGitHub上で意図と合うか別に読み合わせます。まず変更したYAML一つだけを対象にし、actionlintはworkflow自体を実行しないため、検査合格を動作確認と取り違えないようにします。",
+      "summary": "GitHub ActionsのYAML・式・Action入力の誤りを、ジョブ実行前に見つけるコマンドラインの静的チェッカーです。",
+      "whyToday": "GitHub Actionsが動かないとき、YAMLの構文エラーだけでなく、${{ }}式の参照ミスやActionの入力名違いが原因のこともあります。actionlintはworkflowファイルを静的に検査し、誤りの場所を示すので、実行ログを何度も追う前に設定上の問題を切り分ける入口になります。",
+      "useFor": "例えば、定期実行のGitHub Actionsを直したのに動かない原因が見えない場面に。PCへactionlintの配布バイナリを用意し、.github/workflows/daily-quiz.ymlを指定して検査すると、構文、${{ }}式、Actionの入力名などの問題がファイル名と行番号付きで示されます。指摘を直して同じファイルを再検査すれば、workflow設定の確認結果を残せます。まず変更したYAML一つだけを対象にし、actionlintが行わないRunner上の実行確認はGitHub Actionsで別に行います。",
       "recommendedFor": {
         "employeeId": "MMC-008",
-        "reason": "AI開発推進主任のアキトに、変更したworkflowの静的チェックと指摘の整理を任せたいです。エラーの行番号に加え、GitHub上で別途確認すべきトリガー・権限も分けて受け取れれば、設定の誤りと実行時の確認を混同せずレビューできます。"
+        "reason": "AI開発推進主任のアキトに、変更したdaily-quiz.ymlの検査と指摘の整理を任せたいです。ファイル・行番号付きの問題一覧と、GitHub側で別途確かめるトリガー・権限の確認メモを受け取れれば、設定修正と実行確認を分けてレビューできます。"
       },
-      "keiComment": "ジョブを実際に走らせる前に、設定の食い違いを拾えるのは助かりますね。ただ、検査が通ってもSecretsやRunner上の動きまで保証されるわけではないので、意図した実行条件もレビューに残したいです。",
+      "keiComment": "英語の設定エラーを行番号で指してくれるなら、どこから直すか迷いにくそうですね。合格は「設定に明白な誤りが見つからなかった」という意味で、実際の実行成功とは別。そこは紹介文でもはっきり分けたいです。",
       "pricing": "MITライセンスのオープンソースで、actionlint本体は無償で利用できます。",
-      "conditions": "実行ファイルをPCへ導入し、対象のworkflowファイルをローカルで検査します。run内のシェルスクリプトまで確認するShellCheck連携は、ShellCheckを別途用意した場合に使えます。実際のworkflow実行やGitHub側の設定・権限の確認は別途必要です。",
+      "conditions": "公式配布の実行ファイルをPCへ用意し、workflowファイルを指定して実行します。run内のシェルスクリプトも調べる場合は、任意連携のShellCheckを別途用意します。検査は設定ファイルに対する静的チェックで、workflowの実行やGitHub側のSecrets・権限設定は別途確認してください。",
       "license": "MIT License",
-      "notes": "活用例は公式READMEとUsageに基づく想定です。実機検証は未実施で、静的検査はworkflowの実行結果を保証しません。",
+      "notes": "活用例は公式READMEとUsageに基づく想定です。実機検証は未実施です。よくある質問：actionlintに合格すればGitHub Actionsも正常に動きますか？ 回答：保証しません。静的検査のため、Runner上の実行やGitHub側の設定は別に確認します。",
       "verifiedAt": "2026-10-05",
       "status": "published"
     }

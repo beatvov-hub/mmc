@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>actionlint｜AGENT SKILLS ライブラリ｜2026.10.05｜毎日見る株式会社</title>
-    <meta name="description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。GitHub Actionsの設定ファイルを検査し、構文や式、アクション入力の誤りを実行前に見つける静的チェックツールです。" />
+    <meta name="description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。GitHub ActionsのYAML・式・Action入力の誤りを、ジョブ実行前に見つけるコマンドラインの静的チェッカーです。" />
         <link rel="canonical" href="https://mainichi-miru.com/today-one/archive/2026-10-05-actionlint" />
 <meta name="keywords" content="AGENT SKILLS, AGENT SKILLS ライブラリ, AIエージェント, Codex, MCP, 仕事道具" />
 <meta property="og:title" content="actionlint｜AGENT SKILLS ライブラリ｜2026.10.05｜毎日見る株式会社" />
-    <meta property="og:description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。GitHub Actionsの設定ファイルを検査し、構文や式、アクション入力の誤りを実行前に見つける静的チェックツールです。" />
+    <meta property="og:description" content="AGENT SKILLS ライブラリ「今日ひとつ。」の記録。GitHub ActionsのYAML・式・Action入力の誤りを、ジョブ実行前に見つけるコマンドラインの静的チェッカーです。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/today-one/archive/2026-10-05-actionlint" />
 <meta property="og:site_name" content="毎日見る株式会社" />
@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
     <link rel="stylesheet" href="../../styles.css" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "2026-10-05の今日ひとつ。｜actionlint", "description": "AGENT SKILLS ライブラリ「今日ひとつ。」の記録。GitHub Actionsの設定ファイルを検査し、構文や式、アクション入力の誤りを実行前に見つける静的チェックツールです。", "url": "https://mainichi-miru.com/today-one/archive/2026-10-05-actionlint", "datePublished": "2026-10-05", "inLanguage": "ja-JP", "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", "Developer Tool", "actionlint"], "isPartOf": {"@type": "CollectionPage", "name": "AGENT SKILLS ライブラリ｜これまでのひとつ。", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "2026-10-05の今日ひとつ。｜actionlint", "description": "AGENT SKILLS ライブラリ「今日ひとつ。」の記録。GitHub ActionsのYAML・式・Action入力の誤りを、ジョブ実行前に見つけるコマンドラインの静的チェッカーです。", "url": "https://mainichi-miru.com/today-one/archive/2026-10-05-actionlint", "datePublished": "2026-10-05", "inLanguage": "ja-JP", "keywords": ["AGENT SKILLS", "AGENT SKILLS ライブラリ", "Developer Tool", "actionlint"], "isPartOf": {"@type": "CollectionPage", "name": "AGENT SKILLS ライブラリ｜これまでのひとつ。", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
     <!-- GOOGLE_TAG_START -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
@@ -77,19 +77,19 @@
           <p class="today-one-entry-label">この日のひとつ</p>
           <h2 id="today-one-entry-name">actionlint</h2>
           <p class="today-one-summary-label">一言でいうと</p>
-          <p class="today-one-summary">GitHub Actionsの設定ファイルを検査し、構文や式、アクション入力の誤りを実行前に見つける静的チェックツールです。</p>
+          <p class="today-one-summary">GitHub ActionsのYAML・式・Action入力の誤りを、ジョブ実行前に見つけるコマンドラインの静的チェッカーです。</p>
           <a class="today-one-official-link" href="https://github.com/rhysd/actionlint" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
-            <p>GitHub Actionsの設定は、YAMLとして読めても式の型やアクションへの入力が間違っていれば、実行時まで気づきにくいことがあります。actionlintはワークフローの構文だけでなく、式や指定内容も検査するため、自動処理を走らせる前の設定レビューを一段具体的にできます。</p>
+            <p>GitHub Actionsが動かないとき、YAMLの構文エラーだけでなく、${{ }}式の参照ミスやActionの入力名違いが原因のこともあります。actionlintはworkflowファイルを静的に検査し、誤りの場所を示すので、実行ログを何度も追う前に設定上の問題を切り分ける入口になります。</p>
           </section>
           <section class="today-one-section" aria-labelledby="today-one-use-title">
             <p class="section-kicker">Use For</p>
             <h2 id="today-one-use-title">何に使える？</h2>
-            <p>例えば、定期実行のGitHub Actionsへjobを追加する前に。リポジトリ内の .github/workflows/daily-quiz.yml など対象ファイルをactionlintで検査すると、構文、${{ }}式の型、アクションへの入力名などの問題がファイル名・行番号付きで示されます。指摘を直して再検査し、トリガー条件や権限設定はGitHub上で意図と合うか別に読み合わせます。まず変更したYAML一つだけを対象にし、actionlintはworkflow自体を実行しないため、検査合格を動作確認と取り違えないようにします。</p>
+            <p>例えば、定期実行のGitHub Actionsを直したのに動かない原因が見えない場面に。PCへactionlintの配布バイナリを用意し、.github/workflows/daily-quiz.ymlを指定して検査すると、構文、${{ }}式、Actionの入力名などの問題がファイル名と行番号付きで示されます。指摘を直して同じファイルを再検査すれば、workflow設定の確認結果を残せます。まず変更したYAML一つだけを対象にし、actionlintが行わないRunner上の実行確認はGitHub Actionsで別に行います。</p>
           </section>
                   <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
           <p class="section-kicker">Recommended For</p>
@@ -100,7 +100,7 @@
               <small>MMC-008</small>
               <h3>アキト</h3>
               <p class="today-one-member-role">AI開発推進主任 <span>開発推進室</span></p>
-              <p>AI開発推進主任のアキトに、変更したworkflowの静的チェックと指摘の整理を任せたいです。エラーの行番号に加え、GitHub上で別途確認すべきトリガー・権限も分けて受け取れれば、設定の誤りと実行時の確認を混同せずレビューできます。</p>
+              <p>AI開発推進主任のアキトに、変更したdaily-quiz.ymlの検査と指摘の整理を任せたいです。ファイル・行番号付きの問題一覧と、GitHub側で別途確かめるトリガー・権限の確認メモを受け取れれば、設定修正と実行確認を分けてレビューできます。</p>
               <a class="today-one-profile-link" href="../../members/akito">プロフィールを見る</a>
             </div>
           </div>
@@ -114,7 +114,7 @@
                 <img src="../../image/staff/mmc-009.jpg" alt="ケイ" loading="lazy" />
                 <strong>ケイ｜広報部長</strong>
               </div>
-              <p>ジョブを実際に走らせる前に、設定の食い違いを拾えるのは助かりますね。ただ、検査が通ってもSecretsやRunner上の動きまで保証されるわけではないので、意図した実行条件もレビューに残したいです。</p>
+              <p>英語の設定エラーを行番号で指してくれるなら、どこから直すか迷いにくそうですね。合格は「設定に明白な誤りが見つからなかった」という意味で、実際の実行成功とは別。そこは紹介文でもはっきり分けたいです。</p>
             </div>
             <figure class="today-one-kei-visual">
               <img src="../../image/today-one/kei-note.webp" alt="メガホン、ノート、虫眼鏡のコラージュ" loading="lazy" />
@@ -125,7 +125,7 @@
                   <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
           <p class="section-kicker">Basic Information</p>
           <h2 id="today-one-basic-title">基本情報</h2>
-          <dl><div><dt>種別</dt><dd>Developer Tool</dd></div><div><dt>公式サイト</dt><dd><a href="https://github.com/rhysd/actionlint" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-05">2026-10-05</time></dd></div><div><dt>料金</dt><dd>MITライセンスのオープンソースで、actionlint本体は無償で利用できます。</dd></div><div><dt>利用条件</dt><dd>実行ファイルをPCへ導入し、対象のworkflowファイルをローカルで検査します。run内のシェルスクリプトまで確認するShellCheck連携は、ShellCheckを別途用意した場合に使えます。実際のworkflow実行やGitHub側の設定・権限の確認は別途必要です。</dd></div><div><dt>ライセンス</dt><dd>MIT License</dd></div><div><dt>補足</dt><dd>活用例は公式READMEとUsageに基づく想定です。実機検証は未実施で、静的検査はworkflowの実行結果を保証しません。</dd></div></dl>
+          <dl><div><dt>種別</dt><dd>Developer Tool</dd></div><div><dt>公式サイト</dt><dd><a href="https://github.com/rhysd/actionlint" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-05">2026-10-05</time></dd></div><div><dt>料金</dt><dd>MITライセンスのオープンソースで、actionlint本体は無償で利用できます。</dd></div><div><dt>利用条件</dt><dd>公式配布の実行ファイルをPCへ用意し、workflowファイルを指定して実行します。run内のシェルスクリプトも調べる場合は、任意連携のShellCheckを別途用意します。検査は設定ファイルに対する静的チェックで、workflowの実行やGitHub側のSecrets・権限設定は別途確認してください。</dd></div><div><dt>ライセンス</dt><dd>MIT License</dd></div><div><dt>補足</dt><dd>活用例は公式READMEとUsageに基づく想定です。実機検証は未実施です。よくある質問：actionlintに合格すればGitHub Actionsも正常に動きますか？ 回答：保証しません。静的検査のため、Runner上の実行やGitHub側の設定は別に確認します。</dd></div></dl>
         </section>
         </div>
       </article>
