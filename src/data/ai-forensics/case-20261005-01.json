@@ -1,0 +1,57 @@
+{
+  "id": "case-20261005-01",
+  "publishedAt": "2026-10-05",
+  "title": "AIの自動判定に納得できないとき、説明や人の再確認をどう求める？",
+  "shortTitle": "AIの自動判定に説明を求める",
+  "category": "media-literacy",
+  "difficulty": "standard",
+  "targetAudience": ["英国で融資・採用などの自動判定を受けた人", "AIによる審査結果の確認・異議申立てを考えている人"],
+  "summary": "英国の情報コミッショナー事務局（ICO）は、自動処理だけで行われた判断について、本人が説明や人による介入、異議申立てを求める方法を案内しています。例としてオンライン融資審査や、人の関与なしに行う採用適性テストが挙げられています。ただし、この案内はData (Use and Access) Actによる変更を受けて見直し中で、最終的な改定版は2026年冬の予定です。記事では現行法上の権利を断定せず、判断の自動化の有無、理由・影響、再確認や苦情の窓口を組織へ尋ねるための実務的な確認手順として紹介します。英国の制度案内であり、日本の法制度や個別ケースへそのまま当てはめることはできません。",
+  "scenario": {
+    "headline": "融資や採用の結果が自動で決まり、理由が分からない",
+    "description": "オンライン融資の申込みが否決された、または採用選考の適性テストで不合格になったものの、どの情報が使われ、誰が判断したかが見えません。",
+    "whyItMatters": "重要な結果が自動処理だけで出たのか、人が内容を確認したのかで、組織へ尋ねるべき事項や再検討を求める経路が変わります。ICOの案内自体も法改正を踏まえた見直し中です。"
+  },
+  "question": {
+    "text": "英国でAI等による自動判定の結果に異議があるとき、最初にどう動く？",
+    "choices": [
+      {"id": "written-request", "label": "判断が自動処理だけで行われたかを尋ね、理由と再確認の窓口を文面で確認する", "description": "ICOは説明、人による介入、意見表明、異議申立てを案内し、口頭の依頼も記録のため書面で続けるよう勧めています。"},
+      {"id": "assume-right", "label": "ICOのページに書かれた手続きが、法改正後も同じ条件で必ず適用されると考える", "description": "ICO自身がData (Use and Access) Actを受けて案内を見直し中と明記しています。"},
+      {"id": "accept-result", "label": "AIの判定なので訂正や人の確認は求められないと考える", "description": "ICOは案内ページで説明や人の介入を求める方法を示しています。"}
+    ],
+    "recommendedAnswers": ["written-request"],
+    "explanation": "ICOの案内を読む場合も、まず自動処理だけで決まったか、判断理由や利用情報、再検討の窓口は何かを組織に確認します。案内が改定中であることを踏まえ、現在の英国法上の適用条件はICOの最新情報や専門家に確認してください。"
+  },
+  "inspectionPoints": [
+    {"title": "判断に人が関与したか", "description": "ICOは、オンライン融資の判断や、事前設定された基準による採用適性テストを自動処理だけの判断例として挙げています。実際の案件について、単にAIを使ったのか、最終判断も自動だったのかを組織へ確認します。", "priority": "high"},
+    {"title": "理由・利用情報・影響を尋ねる", "description": "ICOの案内は、組織が自動処理の利用、使用情報、判断理由や本人への影響を説明することを示しています。回答を保存し、誤った入力情報がないか確かめます。", "priority": "high"},
+    {"title": "人による確認と異議申立ての経路", "description": "案内ページには、人の介入、本人の意見表明、決定への異議申立ての手段が記されています。どの窓口が現在利用可能かを確認し、口頭で伝えた場合も希望する解決策や根拠を文書で残します。", "priority": "high"},
+    {"title": "案内の改定状況と適用地域", "description": "ICOはData (Use and Access) Actによる変更を受けてページを見直し中と明記し、最終版の予定を2026年冬としています。これは英国の案内で、日本の法律や日本国内の個別審査に適用される権利の説明ではありません。", "priority": "high"},
+    {"title": "不満が残る場合の苦情先", "description": "ICOは、まず判断を行った組織へ苦情を申し立て、その対応に不満が残る場合はICOへ申し立てる順序を示しています。実際の窓口や期限は現行ページで再確認します。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "自動判定かを確かめ、説明と再確認の窓口を記録",
+  "verificationMessage": "ICOの案内は法改正を受けて見直し中です。英国の制度に関する情報として、現在の適用条件を公式ページで確認してから利用してください。",
+  "verdict": {"label": "判定の自動化の有無・理由・再確認先を文書で尋ねる", "description": "ICOの公開案内は説明や人による介入を求める手順を示しますが、ページ自体が法改正後の見直し中です。現行の権利を断定せず、英国の利用者向け確認ガイドとして使います。", "confidence": "medium"},
+  "safeActions": [
+    {"action": "判断が自動処理だけで行われたか、人がどの段階で関与したかを組織へ尋ねる", "reason": "AIが補助に使われただけなのか、判断自体が自動だったのかを区別できます。"},
+    {"action": "使用された情報、判断理由、本人への影響、再確認や異議申立ての窓口を文面で確認する", "reason": "回答と依頼内容を後から照合でき、誤情報や説明不足を具体的に伝えられます。"},
+    {"action": "口頭で依頼した場合は、日付・内容・希望する解決策を記した書面を続けて送る", "reason": "ICOは書面でのフォローアップが説明や証拠を残す助けになると案内しています。"},
+    {"action": "ICOの改定状況と現行の案内を確認し、必要に応じて英国の専門家へ相談する", "reason": "Data (Use and Access) Actを受けて案内の更新が進行中だからです。"},
+    {"action": "日本の審査や雇用の場面では、日本の公的窓口や専門家の案内を別途確認する", "reason": "ICOの説明は英国の制度に関するもので、日本の法的結論を示しません。"}
+  ],
+  "avoidActions": [
+    {"action": "見直し中のICOページだけを根拠に、現在の英国法上の権利や期限を断定する", "reason": "ICO自身が法改正を受けた更新作業中と表示しています。"},
+    {"action": "英国ICOの案内を日本の法律や企業の審査にそのまま当てはめる", "reason": "管轄・法令・手続きが異なります。"},
+    {"action": "異議申立てをする前に、組織の回答や申請に使った情報を保存せず削除する", "reason": "経緯と訂正したい情報を示しにくくなるため、回答・通知・依頼記録を保管します。"}
+  ],
+  "positiveUse": {"title": "自動判定への問い合わせを具体化する", "description": "「AIを使っていますか」だけで終わらせず、誰が最終判断したか、どの情報が使われたか、どこで再確認を求められるかを順に尋ねます。", "examples": ["融資否決の決定過程を確認する", "採用テストの評価情報を尋ねる", "人による再確認を依頼する", "組織への苦情とICOへの相談経路を確認する"]},
+  "makotoComment": "この案内で見落としたくないのは、利用者向けの手順が書かれている一方で、ICO自身が法改正に合わせた見直し中と明示している点です。『こう申し立てれば必ず覆る』という話ではなく、判断過程を尋ね、説明と記録をそろえる入口として読むのが適切です。",
+  "oneLineLesson": "自動判定に疑問があれば、誰が決めたか・理由・再確認先を文書で尋ね、見直し中の英国案内を現行法の断定に使わない。",
+  "tags": ["自動判定", "AI審査", "融資", "採用", "人による確認", "ICO", "英国"],
+  "sources": [
+    {"title": "Your rights relating to decisions being made about you without human involvement", "publisher": "Information Commissioner's Office (ICO)", "sourceType": "government", "publishedAt": null, "url": "https://ico.org.uk/for-the-public/your-rights-relating-to-decisions-being-made-about-you-without-human-involvement/"},
+    {"title": "Technology", "publisher": "Information Commissioner's Office (ICO)", "sourceType": "government", "publishedAt": null, "url": "https://ico.org.uk/about-the-ico/what-we-do/our-plans-for-new-and-updated-guidance/technology/"}
+  ],
+  "visualSuggestion": {"mainVisual": "自動判定の通知を受けた利用者が、組織に自動化の有無・判断理由・人の再確認窓口を文書で尋ねる3段階の図。英国ICO案内は法改正後の見直し中と注記。", "cardIcon": "automated-decision-review-request", "accentTone": "caution"}
+}
