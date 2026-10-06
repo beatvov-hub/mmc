@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-06T07:32:00+09:00",
+  "updatedAt": "2026-10-07T07:32:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -1484,6 +1484,50 @@
       ],
       "notes": "公式ガイドに記載されたrequirements.txtからの移行とロックファイル同期に基づく想定例です。実機検証は未実施です。",
       "verifiedAt": "2026-10-06",
+      "status": "published"
+    },
+    {
+      "date": "2026-10-07",
+      "slug": "data-studio",
+      "name": "Data Studio",
+      "category": "Web Tool",
+      "officialUrl": "https://datastudio.google.com/",
+      "archiveTitle": "Data StudioでSearch Consoleの検索語とページ別データを見比べられる？",
+      "archiveDescription": "Search Consoleの検索語やページ別の動きを共有レポートにしたい人向けに、Data Studioでの接続方法と集計単位の違い、表示されない検索語がある理由を紹介します。",
+      "forWho": "Search Consoleの検索語や記事ページの実績を、毎回画面で探さず定例レポートで見比べたいWeb担当者・編集者向けです。",
+      "summary": "Data StudioはSearch Consoleのデータをつなぎ、検索パフォーマンスをグラフや共有レポートにできる無償の可視化ツールです。サイト全体とページ単位を同じレポートで見る場合は、別々のデータソースを作ります。",
+      "whyToday": "記事を公開した後、検索語の変化を追うには、検索語と対象ページの数字を同じ場所で見られる形にする必要があります。Search Console専用コネクタからレポートへつなげるData Studioなら、たとえば記事1本の推移を定例確認する入口を作れます。",
+      "useFor": "活用例として、公開済みの記事1本について検索語とページ別の表示状況を定期確認する想定です。GoogleアカウントでData Studioを開き、データソース作成からSearch Consoleコネクタを選択し、対象サイトとURL Impressionを指定して接続します。続けてレポートを作り、記事URLや検索語を切り替えて確認できる表・グラフを配置すれば、共有用の確認レポートが成果物になります。まずURL Impressionの1ソースだけで始め、対象ページと期間が意図どおり絞れているか見ます。サイト全体のSite Impressionも並べたい場合は、別ソースとして追加します。",
+      "recommendedFor": {
+        "employeeId": "MMC-002",
+        "reason": "企画営業部長のショウマに、公開記事1本の検索語・ページ別推移を月次で確認するレポート案を任せたいです。読者が反応している検索語と見直し候補を一枚に整理して受け取れれば、記事企画や既存記事の改善判断に使えます。"
+      },
+      "keiComment": "数字を探し回らず、記事ごとの変化を同じ場所で見られるのは広報にも助かりますね。共有時はデータソースの閲覧権限を先に決めて、見せる範囲を確認しておきたいです。",
+      "pricing": "Data Studioの個人向け可視化は無償です。Data Studio Proは有料です。",
+      "conditions": "Googleアカウントと、対象のSearch Consoleプロパティへの閲覧権限が必要です。Googleアカウント認証後、データソースの認証情報によってレポート閲覧者がデータを見られる範囲が変わります。標準のSearch Consoleコネクタを使う例の説明であり、Proや他社コネクタ、別サービスの費用は含みません。",
+      "cautions": "1つのSearch Consoleデータソースで選べる集計方法はSite ImpressionかURL Impressionのいずれかです。また、プライバシー保護のため、少数の検索語や個人情報・機微情報を含む検索語は表示されないことがあります。",
+      "faq": [
+        {
+          "question": "サイト全体とページ単位の検索データを一緒に見られますか？",
+          "answer": "1つのデータソースではどちらか一方ですが、Site Impression用とURL Impression用に2つのデータソースを作り、同じレポートへ追加すれば並べて表示できます。"
+        },
+        {
+          "question": "Search Consoleにある検索語がすべてレポートに出ますか？",
+          "answer": "すべては表示されません。検索回数が少ない語や個人情報・機微情報を含む語は、プライバシー保護のため省略され、空欄の集計行にまとめられる場合があります。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Data Studio公式ドキュメント：Search Consoleへの接続・集計単位・検索語の注意",
+          "url": "https://docs.cloud.google.com/data-studio/connect-to-search-console"
+        },
+        {
+          "label": "Google Cloud公式ブログ：Data Studioの名称と無償版・Pro版",
+          "url": "https://cloud.google.com/blog/products/data-analytics/looker-studio-is-data-studio"
+        }
+      ],
+      "notes": "公式手順を基にした想定例です。実機でのレポート作成・検証は未実施です。",
+      "verifiedAt": "2026-10-07",
       "status": "published"
     }
   ]
