@@ -1,0 +1,60 @@
+{
+  "id": "case-20261007-02",
+  "publishedAt": "2026-10-07",
+  "title": "OpenAIの文章透かし、検出結果だけで作者や真偽を決められない",
+  "shortTitle": "AI文章透かしの検出限界",
+  "category": "media-literacy",
+  "difficulty": "standard",
+  "targetAudience": ["AI生成文の出所を確かめたい人", "学校・編集・採用でAI文章検出を扱う人", "文章生成APIを提供する事業者"],
+  "summary": "OpenAIは2026年10月5日、EU AI Actの透明性要件への対応として、文章の単語選択に見えない統計的信号を埋め込む透かし方式と導入計画を公表しました。対象モデルのAPI利用者は世界各地で任意に有効化できますが、初期設定はオフです。ChatGPT・Codexへの導入はEUの対象出力から段階的に進める計画で、全世界の一律設定ではありません。透かし検出器は当初、審査済みの研究者・専門組織向けに限定されます。OpenAI自身も短い文章、編集、翻訳等で検出が難しくなり得るとし、透かしは作者、著作権、文章の正確さを証明しないと説明しています。検出・非検出だけで不正利用や人間執筆を断定せず、長さや編集状況、他の出所情報と合わせて扱う必要があります。",
+  "scenario": {
+    "headline": "文章検出ツールがAIらしいと判定し、提出者への対応を求められた",
+    "description": "学校、編集部、採用担当などで文章検出結果を受け取り、AI利用の有無や作者について判断する場面です。",
+    "whyItMatters": "OpenAIの透かし検出は同社の生成システム由来の信号を探すもので、誰が書いたか、どれほど人が編集したか、内容が正しいかを判定するものではありません。"
+  },
+  "question": {
+    "text": "文章からOpenAIの透かしが検出された／されなかった場合、何を結論にできる？",
+    "choices": [
+      {"id": "limited-signal", "label": "同社の透かし信号に関する限定的な結果として扱い、作者・人の貢献・正確性は別に確かめる", "description": "OpenAIは透かしで作者や利用者を特定できず、真偽も検証できないと説明しています。"},
+      {"id": "ai-proof", "label": "検出されたら人間の編集がなく、内容もAIが作ったと断定する", "description": "透かしは人間の寄与を測らず、検出結果から編集量や責任は分かりません。"},
+      {"id": "human-proof", "label": "検出されなければ人間が書いた証拠と判断する", "description": "短文や編集済み文章では信号を検出できない場合があり、非検出は人間執筆の証明ではありません。"}
+    ],
+    "recommendedAnswers": ["limited-signal"],
+    "explanation": "OpenAIの方式は、同社モデルの関与に関連する統計的信号を探します。文章の作者、編集割合、正確さ、他社モデルの利用までは示しません。教育・雇用上の判断には、本人への確認や作成記録など別の根拠が必要です。"
+  },
+  "inspectionPoints": [
+    {"title": "文章の単語選択へ見えない信号", "description": "OpenAIによると、textGrainはモデルが選ぶ単語に統計的信号を付加し、検出器がその信号の有無を評価します。これは画像メタデータや一般的なAI判定器と同一の技術ではありません。", "priority": "medium"},
+    {"title": "APIは任意選択、初期状態オフ", "description": "対象モデルのAPI顧客は世界各地で透かしを任意に有効化できる一方、APIでは初期設定がオフです。API出力に必ず透かしがあると決めつけないでください。", "priority": "high"},
+    {"title": "ChatGPT・CodexはEUで段階導入予定", "description": "OpenAIは対象となるChatGPT・Codexの文章出力への透かしを、EU内で今後数週間かけて導入すると公表しました。全プラン・全地域で同時に既定オンになる発表ではありません。", "priority": "high"},
+    {"title": "検出器は初期段階で限定提供", "description": "文章透かし検出器への申請は研究者・専門組織向けに開かれましたが、アクセスは当初審査制です。OpenAIは誤検出と見逃しの両方があるため一般公開しないとしています。", "priority": "high"},
+    {"title": "検出は作者・責任・真偽を証明しない", "description": "OpenAIは透かしから人間の貢献度、所有権・責任、利用者の身元、文章の正確性は分からず、透かし非検出も人間執筆の証明ではないと列挙しています。", "priority": "high"},
+    {"title": "短文や編集で信号が弱まる", "description": "OpenAIの自社評価では、文章が短い場合や単語の置換・翻訳等の編集で検出率が低下する課題が示されています。数値は同社が選んだ英語データ等での評価であり、あらゆる文章や検出器の一般性能を示すものではありません。", "priority": "medium"},
+    {"title": "EUの規則と実装コードを区別", "description": "欧州委員会はAI Act Article 50の透明性義務と、任意の実務規範を区別しています。OpenAIの方式は同社の対応計画であり、単独で法令要件全体や個別投稿者の義務を決定するものではありません。", "priority": "medium"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "透かしは限定信号。作者・真偽の断定には使わない",
+  "verificationMessage": "OpenAIの方式・評価は同社による技術説明です。検出・非検出だけで執筆者や不正利用を断定せず、法的・教育的判断には別の証拠と手続きを用いてください。",
+  "verdict": {"label": "透かし検出は出所の手掛かりであり、作者・人の貢献・真偽を証明しない", "description": "短文・編集で検出が失敗する可能性があり、APIも既定オフ、ChatGPT/CodexはEUから段階導入です。検出器を懲戒や信用判断の唯一の根拠にしないでください。", "confidence": "high"},
+  "safeActions": [
+    {"action": "検出結果には使用ツール、対象文章の長さ、編集・翻訳の有無を添えて記録する", "reason": "文章量や編集により透かしの検出可能性が変わるとOpenAIが説明しています。"},
+    {"action": "検出器の結果だけで作者・不正・真実性を決めず、作成履歴や本人説明など別の根拠を確認する", "reason": "透かしは利用者や人間の寄与、内容の正確さを示しません。"},
+    {"action": "API提供者は対象モデル・有効化設定・地域・出力条件を確認する", "reason": "APIは世界各地で任意設定できますが、初期状態はオフです。"},
+    {"action": "EU AI Actの義務、任意の実務規範、OpenAI固有の実装を区別する", "reason": "規制上の義務と一つの事業者の導入計画は同一ではありません。"},
+    {"action": "教育・採用で使う場合は、検出器の限界と異議申立て・説明の手順を事前に定める", "reason": "誤検出・見逃しがあり得る判定を単独の不利益判断に使わないためです。"}
+  ],
+  "avoidActions": [
+    {"action": "透かし検出を文章の作者・著作権者・責任者の証明とする", "reason": "OpenAIはこれらを透かしでは確定できないと明記しています。"},
+    {"action": "検出されなかった文章を人間が書いたと断定する", "reason": "短文、編集、翻訳、非対応モデル等では検出されない場合があります。"},
+    {"action": "検出結果を文章が正確・安全・誤情報でないことの証明とみなす", "reason": "透かしは内容の真偽や文脈の適切さを検証しません。"},
+    {"action": "OpenAIの初期設定を、全API・全地域のChatGPT出力にも共通する設定と紹介する", "reason": "APIの設定とEUのChatGPT/Codex導入は別の提供方法・段階です。"}
+  ],
+  "positiveUse": {"title": "文章の出所情報を複数の手掛かりで読む", "description": "透かしがある場合もない場合も結論を限定し、作成記録・編集履歴・本人の説明・公開条件と組み合わせます。", "examples": ["教育機関が検出結果を懲戒の唯一根拠にしない", "編集部が透かしを一つの来歴情報として扱う", "API事業者が出力方式とオプトイン状態を利用者に説明する"]},
+  "makotoComment": "『AIが書いたかを見抜く判定器』という説明に縮めると、透かしの役割を越えてしまいます。今回の発表で重要なのは、OpenAI自身が検出器を限定公開にし、検出結果が作者や真偽を示さないと列挙している点です。制度運用では、検出値よりも判断の手続きを先に決めたいところです。",
+  "oneLineLesson": "AI文章の透かしは出所の限定的な信号。検出・非検出だけで作者や文章の真偽を断定しない。",
+  "tags": ["OpenAI", "AI文章検出", "透かし", "来歴", "EU AI Act", "誤検出", "メディアリテラシー"],
+  "sources": [
+    {"title": "Our approach to EU text provenance rules", "publisher": "OpenAI", "sourceType": "official", "publishedAt": "2026-10-05", "url": "https://openai.com/index/eu-text-provenance/"},
+    {"title": "Code of Practice on Transparency of AI-generated Content", "publisher": "European Commission — Shaping Europe’s digital future", "sourceType": "government", "publishedAt": null, "url": "https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content"}
+  ],
+  "visualSuggestion": {"mainVisual": "文章へ不可視の統計信号を埋め込む図と、検出結果が示すもの（OpenAI信号の可能性）／示さないもの（作者・編集量・真偽）を左右に分ける。APIは任意・既定オフ、検出器は限定提供と注記。", "cardIcon": "text-watermark-limits", "accentTone": "caution"}
+}

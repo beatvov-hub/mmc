@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenAIの文章透かし、検出結果だけで作者や真偽を決められない｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="OpenAIは2026年10月5日、EU AI Actの透明性要件への対応として、文章の単語選択に見えない統計的信号を埋め込む透かし方式と導入計画を公表しました。対象モデルのAPI利用者は世界各地で任意に有効化できますが、初期設定はオフです。ChatGPT・Codexへの導入はEUの対象出力から段階的に進める計画で、全世界の一律設定ではありません。透かし検出器は当初、審査済みの研究者・専門組織向けに限定されます。OpenAI自身も短い文章、編集、翻訳等で検出が難しくなり得るとし、透かしは作者、著作権、文章の正確さを証明しないと説明しています。検出・非検出だけで不正利用や人間執筆を断定せず、長さや編集状況、他の出所情報と合わせて扱う必要があります。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261007-02" />
+<meta property="og:title" content="OpenAIの文章透かし、検出結果だけで作者や真偽を決められない｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="OpenAIは2026年10月5日、EU AI Actの透明性要件への対応として、文章の単語選択に見えない統計的信号を埋め込む透かし方式と導入計画を公表しました。対象モデルのAPI利用者は世界各地で任意に有効化できますが、初期設定はオフです。ChatGPT・Codexへの導入はEUの対象出力から段階的に進める計画で、全世界の一律設定ではありません。透かし検出器は当初、審査済みの研究者・専門組織向けに限定されます。OpenAI自身も短い文章、編集、翻訳等で検出が難しくなり得るとし、透かしは作者、著作権、文章の正確さを証明しないと説明しています。検出・非検出だけで不正利用や人間執筆を断定せず、長さや編集状況、他の出所情報と合わせて扱う必要があります。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261007-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>AI文章透かしの検出限界</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>情報の見極め</span>
+              <span>標準</span>
+              <time datetime="2026-10-07">2026.10.07</time>
+            </div>
+            <h1>OpenAIの文章透かし、検出結果だけで作者や真偽を決められない</h1>
+            <p>OpenAIは2026年10月5日、EU AI Actの透明性要件への対応として、文章の単語選択に見えない統計的信号を埋め込む透かし方式と導入計画を公表しました。対象モデルのAPI利用者は世界各地で任意に有効化できますが、初期設定はオフです。ChatGPT・Codexへの導入はEUの対象出力から段階的に進める計画で、全世界の一律設定ではありません。透かし検出器は当初、審査済みの研究者・専門組織向けに限定されます。OpenAI自身も短い文章、編集、翻訳等で検出が難しくなり得るとし、透かしは作者、著作権、文章の正確さを証明しないと説明しています。検出・非検出だけで不正利用や人間執筆を断定せず、長さや編集状況、他の出所情報と合わせて扱う必要があります。</p>
+            <ul class="forensics-target-list"><li>AI生成文の出所を確かめたい人</li><li>学校・編集・採用でAI文章検出を扱う人</li><li>文章生成APIを提供する事業者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>OpenAI</li><li>AI文章検出</li><li>透かし</li><li>来歴</li><li>EU AI Act</li><li>誤検出</li><li>メディアリテラシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>透かしは限定信号。作者・真偽の断定には使わない</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>OpenAIの方式・評価は同社による技術説明です。検出・非検出だけで執筆者や不正利用を断定せず、法的・教育的判断には別の証拠と手続きを用いてください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>文章検出ツールがAIらしいと判定し、提出者への対応を求められた</h3><p>学校、編集部、採用担当などで文章検出結果を受け取り、AI利用の有無や作者について判断する場面です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>OpenAIの透かし検出は同社の生成システム由来の信号を探すもので、誰が書いたか、どれほど人が編集したか、内容が正しいかを判定するものではありません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="limited-signal">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>文章からOpenAIの透かしが検出された／されなかった場合、何を結論にできる？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="limited-signal" data-choice-id="limited-signal" />
+                <span>
+                  <strong>同社の透かし信号に関する限定的な結果として扱い、作者・人の貢献・正確性は別に確かめる</strong>
+                  <small>OpenAIは透かしで作者や利用者を特定できず、真偽も検証できないと説明しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="ai-proof" data-choice-id="ai-proof" />
+                <span>
+                  <strong>検出されたら人間の編集がなく、内容もAIが作ったと断定する</strong>
+                  <small>透かしは人間の寄与を測らず、検出結果から編集量や責任は分かりません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="human-proof" data-choice-id="human-proof" />
+                <span>
+                  <strong>検出されなければ人間が書いた証拠と判断する</strong>
+                  <small>短文や編集済み文章では信号を検出できない場合があり、非検出は人間執筆の証明ではありません。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>同社の透かし信号に関する限定的な結果として扱い、作者・人の貢献・正確性は別に確かめる</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>OpenAIの方式は、同社モデルの関与に関連する統計的信号を探します。文章の作者、編集割合、正確さ、他社モデルの利用までは示しません。教育・雇用上の判断には、本人への確認や作成記録など別の根拠が必要です。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>文章の単語選択へ見えない信号</h3>
+              <p>OpenAIによると、textGrainはモデルが選ぶ単語に統計的信号を付加し、検出器がその信号の有無を評価します。これは画像メタデータや一般的なAI判定器と同一の技術ではありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>APIは任意選択、初期状態オフ</h3>
+              <p>対象モデルのAPI顧客は世界各地で透かしを任意に有効化できる一方、APIでは初期設定がオフです。API出力に必ず透かしがあると決めつけないでください。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ChatGPT・CodexはEUで段階導入予定</h3>
+              <p>OpenAIは対象となるChatGPT・Codexの文章出力への透かしを、EU内で今後数週間かけて導入すると公表しました。全プラン・全地域で同時に既定オンになる発表ではありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>検出器は初期段階で限定提供</h3>
+              <p>文章透かし検出器への申請は研究者・専門組織向けに開かれましたが、アクセスは当初審査制です。OpenAIは誤検出と見逃しの両方があるため一般公開しないとしています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>検出は作者・責任・真偽を証明しない</h3>
+              <p>OpenAIは透かしから人間の貢献度、所有権・責任、利用者の身元、文章の正確性は分からず、透かし非検出も人間執筆の証明ではないと列挙しています。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>短文や編集で信号が弱まる</h3>
+              <p>OpenAIの自社評価では、文章が短い場合や単語の置換・翻訳等の編集で検出率が低下する課題が示されています。数値は同社が選んだ英語データ等での評価であり、あらゆる文章や検出器の一般性能を示すものではありません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>EUの規則と実装コードを区別</h3>
+              <p>欧州委員会はAI Act Article 50の透明性義務と、任意の実務規範を区別しています。OpenAIの方式は同社の対応計画であり、単独で法令要件全体や個別投稿者の義務を決定するものではありません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>透かし検出は出所の手掛かりであり、作者・人の貢献・真偽を証明しない</strong><p>短文・編集で検出が失敗する可能性があり、APIも既定オフ、ChatGPT/CodexはEUから段階導入です。検出器を懲戒や信用判断の唯一の根拠にしないでください。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>検出結果には使用ツール、対象文章の長さ、編集・翻訳の有無を添えて記録する</strong><span>文章量や編集により透かしの検出可能性が変わるとOpenAIが説明しています。</span></li>
+            <li><strong>検出器の結果だけで作者・不正・真実性を決めず、作成履歴や本人説明など別の根拠を確認する</strong><span>透かしは利用者や人間の寄与、内容の正確さを示しません。</span></li>
+            <li><strong>API提供者は対象モデル・有効化設定・地域・出力条件を確認する</strong><span>APIは世界各地で任意設定できますが、初期状態はオフです。</span></li>
+            <li><strong>EU AI Actの義務、任意の実務規範、OpenAI固有の実装を区別する</strong><span>規制上の義務と一つの事業者の導入計画は同一ではありません。</span></li>
+            <li><strong>教育・採用で使う場合は、検出器の限界と異議申立て・説明の手順を事前に定める</strong><span>誤検出・見逃しがあり得る判定を単独の不利益判断に使わないためです。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>透かし検出を文章の作者・著作権者・責任者の証明とする</strong><span>OpenAIはこれらを透かしでは確定できないと明記しています。</span></li>
+            <li><strong>検出されなかった文章を人間が書いたと断定する</strong><span>短文、編集、翻訳、非対応モデル等では検出されない場合があります。</span></li>
+            <li><strong>検出結果を文章が正確・安全・誤情報でないことの証明とみなす</strong><span>透かしは内容の真偽や文脈の適切さを検証しません。</span></li>
+            <li><strong>OpenAIの初期設定を、全API・全地域のChatGPT出力にも共通する設定と紹介する</strong><span>APIの設定とEUのChatGPT/Codex導入は別の提供方法・段階です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>文章の出所情報を複数の手掛かりで読む</h3>
+          <p>透かしがある場合もない場合も結論を限定し、作成記録・編集履歴・本人の説明・公開条件と組み合わせます。</p>
+          <ul class="positive-example-list"><li>教育機関が検出結果を懲戒の唯一根拠にしない</li><li>編集部が透かしを一つの来歴情報として扱う</li><li>API事業者が出力方式とオプトイン状態を利用者に説明する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>『AIが書いたかを見抜く判定器』という説明に縮めると、透かしの役割を越えてしまいます。今回の発表で重要なのは、OpenAI自身が検出器を限定公開にし、検出結果が作者や真偽を示さないと列挙している点です。制度運用では、検出値よりも判断の手続きを先に決めたいところです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>AI文章の透かしは出所の限定的な信号。検出・非検出だけで作者や文章の真偽を断定しない。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://openai.com/index/eu-text-provenance/" target="_blank" rel="noopener noreferrer">Our approach to EU text provenance rules<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI</span>
+              <span>公式発表</span>
+              <time datetime="2026-10-05">2026-10-05</time>
+            </li>
+            <li>
+              <strong><a href="https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content" target="_blank" rel="noopener noreferrer">Code of Practice on Transparency of AI-generated Content<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>European Commission — Shaping Europe’s digital future</span>
+              <span>官公庁</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20261005-01" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="standard" data-search-text="AIの自動判定に納得できないとき、説明や人の再確認をどう求める？ AIの自動判定に説明を求める 英国の情報コミッショナー事務局（ICO）は、自動処理だけで行われた判断について、本人が説明や人による介入、異議申立てを求める方法を案内しています。例としてオンライン融資審査や、人の関与なしに行う採用適性テストが挙げられています。ただし、この案内はData (Use and Access) Actによる変更を受けて見直し中で、最終的な改定版は2026年冬の予定です。記事では現行法上の権利を断定せず、判断の自動化の有無、理由・影響、再確認や苦情の窓口を組織へ尋ねるための実務的な確認手順として紹介します。英国の制度案内であり、日本の法制度や個別ケースへそのまま当てはめることはできません。 情報の見極め 標準 自動判定 AI審査 融資 採用 人による確認 ICO 英国 英国で融資・採用などの自動判定を受けた人 AIによる審査結果の確認・異議申立てを考えている人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">automated-decision-review-request</span>
+              <div>
+                <p>AIの自動判定に説明を求める</p>
+                <h3>AIの自動判定に納得できないとき、説明や人の再確認をどう求める？</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-05">2026.10.05</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">英国の情報コミッショナー事務局（ICO）は、自動処理だけで行われた判断について、本人が説明や人による介入、異議申立てを求める方法を案内しています。例としてオンライン融資審査や、人の関与なしに行う採用適性テストが挙げられています。ただし、この案内はData (Use and Access) Actによる変更を受けて見直し中で、最終的な改定版は2026年冬の予定です。記事では現行法上の権利を断定せず、判断の自動化の有無、理由・影響、再確認や苦情の窓口を組織へ尋ねるための実務的な確認手順として紹介します。英国の制度案内であり、日本の法制度や個別ケースへそのまま当てはめることはできません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>自動判定かを確かめ、説明と再確認の窓口を記録</span>
+            </div>
+            <ul class="forensics-card-audience"><li>英国で融資・採用などの自動判定を受けた人</li><li>AIによる審査結果の確認・異議申立てを考えている人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>自動判定</li><li>AI審査</li><li>融資</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261005-02" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="standard" data-search-text="買い物AIが契約を変えたら誰が対応する？ CMA資料で見る責任と記録 買い物AIの契約変更と責任 英国競争・市場庁（CMA）は2026年3月9日、AIエージェントが買い物、サブスクリプション管理、金融などで消費者に及ぼす影響を分析した報告書と、企業向けの消費者法ガイダンスを公表しました。報告書は、AIが価格や契約を監視し、利用者の条件内で購入・解約・事業者の乗り換えを行う将来像を例示する一方、誤った切替、隠れた販売上の誘因、説明不足をリスクとして挙げています。高影響の操作には確認を求めること、行動記録を残すこと、指示を逸脱した場合の責任を明確にすることも safeguards の例です。これは英国の市場分析と企業向けガイダンスで、日本の個別契約を直接決める規則ではありません。既存のエージェント権限設定記事とは分け、誤操作後に誰へ何を示して相談するか、事前に利用規約と記録を確認する視点を扱います。 情報の見極め 標準 AIエージェント 買い物 契約変更 サブスクリプション 消費者保護 CMA 英国 AIに購入・解約・乗り換えを任せることを検討している人 買い物や契約管理エージェントの利用条件を確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shopping-agent-audit-redress</span>
+              <div>
+                <p>買い物AIの契約変更と責任</p>
+                <h3>買い物AIが契約を変えたら誰が対応する？ CMA資料で見る責任と記録</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-05">2026.10.05</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">英国競争・市場庁（CMA）は2026年3月9日、AIエージェントが買い物、サブスクリプション管理、金融などで消費者に及ぼす影響を分析した報告書と、企業向けの消費者法ガイダンスを公表しました。報告書は、AIが価格や契約を監視し、利用者の条件内で購入・解約・事業者の乗り換えを行う将来像を例示する一方、誤った切替、隠れた販売上の誘因、説明不足をリスクとして挙げています。高影響の操作には確認を求めること、行動記録を残すこと、指示を逸脱した場合の責任を明確にすることも safeguards の例です。これは英国の市場分析と企業向けガイダンスで、日本の個別契約を直接決める規則ではありません。既存のエージェント権限設定記事とは分け、誤操作後に誰へ何を示して相談するか、事前に利用規約と記録を確認する視点を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>契約変更の履歴・問い合わせ先・責任範囲を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIに購入・解約・乗り換えを任せることを検討している人</li><li>買い物や契約管理エージェントの利用条件を確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>買い物</li><li>契約変更</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261002-01" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="beginner" data-search-text="Copilotの会話がBing・Edge・MSNにも影響する？共有設定と広告設定を分けて選ぶ Copilotの共有エクスペリエンスを選ぶ Microsoftは個人向けCopilotの公式サポートで、Bing・Edge・MSNでの利用状況がCopilotの個別化に使われ、Copilotの会話もそれらのサービスの個別化に使われ得ると説明しています。更新版Copilotアプリを個人のMicrosoftアカウントで使う場合、設定の「Personalization」から「One shared experience」を切り替えられます。ただし、この設定はCopilot内のパーソナライズ広告を制御しません。サービス間の個別化と広告設定を別々に判断するための記事です。 情報の見極め はじめて Microsoft Copilot Bing Edge MSN 個別化 設定 個人のMicrosoftアカウントでCopilotを使う人 AIの会話と他サービスの表示を分けて管理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-shared-experience</span>
+              <div>
+                <p>Copilotの共有エクスペリエンスを選ぶ</p>
+                <h3>Copilotの会話がBing・Edge・MSNにも影響する？共有設定と広告設定を分けて選ぶ</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-02">2026.10.02</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは個人向けCopilotの公式サポートで、Bing・Edge・MSNでの利用状況がCopilotの個別化に使われ、Copilotの会話もそれらのサービスの個別化に使われ得ると説明しています。更新版Copilotアプリを個人のMicrosoftアカウントで使う場合、設定の「Personalization」から「One shared experience」を切り替えられます。ただし、この設定はCopilot内のパーソナライズ広告を制御しません。サービス間の個別化と広告設定を別々に判断するための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>サービス間の個別化と広告を分けて確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>個人のMicrosoftアカウントでCopilotを使う人</li><li>AIの会話と他サービスの表示を分けて管理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Bing</li><li>Edge</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261007-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261007-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

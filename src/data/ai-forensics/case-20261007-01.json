@@ -1,0 +1,57 @@
+{
+  "id": "case-20261007-01",
+  "publishedAt": "2026-10-07",
+  "title": "Claudeの高度なサイバー機能、申請できる区分と組織側の条件",
+  "shortTitle": "Claudeのサイバー機能申請区分",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["脆弱性調査を行う企業・団体のセキュリティ担当者", "AIを使うセキュリティ業務の権限とデータ管理を決める管理者"],
+  "summary": "Anthropicは2026年10月6日、検証済みのセキュリティ専門家・組織向けCyber Verification Program（CVP）を3段階に拡張したと発表しました。Defense AccessはSOC・インシデント対応や脆弱性分析等の防御業務、Red Team Accessは許可された侵入テスト等を対象とし、現時点で組織限定です。Specialized Accessは人命や市場に影響し得るシステムの試験を行う限定組織向けで、Anthropicは米国政府と連携した詳細審査を行うとしています。参加組織には不正利用監視のためデータ保持が必要です。これは一般利用者向けモデルの一律変更ではなく、対象業務・資格確認・安全管理に応じた限定プログラムです。セキュリティチームは、申請前に自組織の防御対象、許可範囲、管理者によるワークスペース割当、データ保持条件を確認します。",
+  "scenario": {
+    "headline": "脆弱性調査に強いAIを使いたいが、通常利用と専門プログラムの違いが分からない",
+    "description": "企業や団体のセキュリティ担当が、脆弱性の検証や侵入テストにAIを使うため、どのアクセス区分が必要かを検討する場面です。",
+    "whyItMatters": "同じサイバー能力でも、所有・保守するシステムの防御、許可を得た侵入テスト、重要な安全システムの試験では必要な権限と監督が異なります。"
+  },
+  "question": {
+    "text": "AnthropicのCyber Verification Programを検討する組織が、最初に確認することは？",
+    "choices": [
+      {"id": "scope-controls", "label": "業務の防御・許可範囲と組織の適格性を確認し、該当区分の管理・データ保持条件を審査する", "description": "CVPは防御、許可済みレッドチーム、限定的な重要システム試験を区分し、各段階で確認要件と安全管理が異なります。"},
+      {"id": "any-user", "label": "高度な機能はすべての個人アカウントで申請できると考える", "description": "Red Team Accessは組織限定で、Specialized Accessも検証済みの限定組織向けです。"},
+      {"id": "no-retention", "label": "専門プログラムでも利用データが保持されず監視もないと考える", "description": "Anthropicは不正利用を監視するため参加組織にデータ保持を求めています。"}
+    ],
+    "recommendedAnswers": ["scope-controls"],
+    "explanation": "まず対象システムを自組織が所有・保守しているか、侵入テストの明示的許可があるか、重要インフラ等の特別な安全系統かを整理します。次に組織の確認書類、管理者割当、監視・データ保持条件を確認します。"
+  },
+  "inspectionPoints": [
+    {"title": "Defense Accessは防御業務向け", "description": "AnthropicはSOC・インシデント対応、マルウェアのリバースエンジニアリング、脆弱性の分析・検証等を例示しています。自社・保守対象の防御業務と、他者システムへの無許可操作を混同しません。", "priority": "high"},
+    {"title": "Red Team Accessは許可済み試験", "description": "Red Team Accessは防御用途に加え、許可を得たペネトレーションテストやレッドチーム業務を対象とします。現在は組織限定で、個人研究者は対象外と説明されています。", "priority": "high"},
+    {"title": "Specialized Accessは限定組織向け", "description": "航空運航システム、電力網、通信網、銀行間送金、政府行政ネットワーク等の安全系統を試験する、検証済みの限られた組織向け区分です。Anthropicは各組織を米国政府と連携して詳細審査するとしています。", "priority": "high"},
+    {"title": "アクセスは組織内の特定ワークスペースへ割当", "description": "Anthropicは管理者が該当アクセスを特定のワークスペースへ割り当てる手順を示しています。組織内で誰でも使える状態にせず、担当者・対象業務・認可済み環境を決めます。", "priority": "medium"},
+    {"title": "不正利用監視のデータ保持条件", "description": "CVP参加組織はサイバー不正利用の監視を目的にデータ保持が必要とされています。ゼロデータ保持を利用している顧客向けの例外・Enterprise Frontier Safeguardsの提供時期も、申請前に最新説明を確認します。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "業務範囲・許可・組織管理・保持条件を確認",
+  "verificationMessage": "CVPは検証・審査を伴う専門プログラムです。発表内容だけで申請資格や現在の提供条件を断定せず、最新の公式申請・ヘルプ情報を確認してください。",
+  "verdict": {"label": "アクセス区分は能力ではなく、業務の許可範囲と組織の管理条件で選ぶ", "description": "防御、許可済み侵入テスト、重要システムの試験で対象者・審査・監督が異なります。専門アクセスでも所有権や認可のない対象を試験してよいわけではありません。", "confidence": "high"},
+  "safeActions": [
+    {"action": "試験対象が自組織の所有・保守対象か、文書化された許可があるかを確認する", "reason": "Red Team Accessは許可されたシステムへの試験を前提としています。"},
+    {"action": "業務を防御、認可済みレッドチーム、重要安全系統の試験に分けて申請区分を検討する", "reason": "CVPは業務の範囲に応じて3つのアクセス区分を設けています。"},
+    {"action": "応募に必要な組織・セキュリティ管理の証明と審査条件を確認する", "reason": "Anthropicは応募者を検証し、区分に必要な安全管理の証拠を求めると説明しています。"},
+    {"action": "管理者がアクセスを割り当てるワークスペース、利用者、対象環境を限定する", "reason": "管理者が特定ワークスペースへ割り当てる運用が案内されています。"},
+    {"action": "データ保持・監視条件と、現在使えるゼロデータ保持の選択肢を契約前に確認する", "reason": "不正利用監視のためCVP参加組織にはデータ保持条件があります。"},
+    {"action": "一般提供モデルで対応できるコードレビューや既知脆弱性の修正と、専門アクセスが必要な仕事を切り分ける", "reason": "Anthropicは一般提供モデルでも一部の防御的タスクは継続できるとしています。"}
+  ],
+  "avoidActions": [
+    {"action": "CVP参加を、許可のない第三者システムを試験する許可と解釈する", "reason": "Red Team Accessは試験対象への明示的な認可を条件とします。"},
+    {"action": "高度なサイバー機能が通常のClaude利用者にも一律に開放されたと紹介する", "reason": "CVPは資格確認と段階別アクセスを伴う限定プログラムです。"},
+    {"action": "ゼロデータ保持を利用中ならCVPでも保持・監視条件が一切ないと決めつける", "reason": "参加者には不正利用監視に伴う条件があり、例外や提供状態を個別確認する必要があります。"}
+  ],
+  "positiveUse": {"title": "防御作業に合わせてAIアクセスを管理する", "description": "対象システムへの権限と業務区分を先に定義し、必要な機能だけを審査済み担当者へ割り当てます。", "examples": ["社内SOCのアラート調査に必要なアクセスを整理する", "侵入テストの契約・許可範囲とAIの作業範囲を照合する", "ワークスペース単位で利用者・ログ・保持条件を確認する"]},
+  "makotoComment": "今回の変更の肝は、強いモデルを一律に開放したことではなく、誰が何を守るために使うのかを段階に分けた点です。とりわけレッドチーム区分では『検証目的』だけでは足りず、対象システムへの許可と組織の統制を先にそろえる必要があります。",
+  "oneLineLesson": "Claudeのサイバー専門アクセスは、対象業務・明示的許可・組織管理・データ保持条件を確認して申請する。",
+  "tags": ["Anthropic", "Claude", "Cyber Verification Program", "サイバーセキュリティ", "脆弱性診断", "アクセス管理", "データ保持"],
+  "sources": [
+    {"title": "Expanding the Cyber Verification Program", "publisher": "Anthropic", "sourceType": "official", "publishedAt": "2026-10-06", "url": "https://www.anthropic.com/news/cyber-verification-program"}
+  ],
+  "visualSuggestion": {"mainVisual": "Defense Access（防御）、Red Team Access（許可済み攻撃試験）、Specialized Access（重要安全系統）を階段状に並べ、資格確認・許可範囲・管理・データ保持条件を注記する。一般提供機能の一律変更ではないと示す。", "cardIcon": "cyber-access-tiers", "accentTone": "serious"}
+}

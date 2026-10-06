@@ -87,17 +87,17 @@
       <section class="card-section forensics-latest-section" id="latest-cases" aria-labelledby="latest-cases-title">
         <div class="section-heading"><div><p class="section-kicker">Latest Case</p><h2 id="latest-cases-title">最新の鑑識事例</h2></div></div>
         <div class="forensics-featured-grid">
-          <a class="forensics-card is-index-card is-featured tone-calm" href="case-20261006-01" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="ローカル生成AIで相談データを分析する前に、何を入力し人が何を確かめる？ ローカルAI分析の入力と確認 消費者庁の消費者政策研究センターは2026年6月、PIO-NETの過去の相談情報を対象に、ローカル生成AIを使った分析・要約の研究ディスカッションペーパーを公表しました。研究では相談原文をそのままLLMへ渡さず、トピックモデル等で抽出したキーワード・話題情報を入力し、生成文も人が確認・編集しています。これは研究上の検討であり、消費者庁の本番業務への導入発表ではありません。社内の相談記録をAI分析する際も、モデルを社内で動かすことだけで安心せず、入力を加工して情報を絞る工程、出力の人手確認、試験時の限界を設計する参考になります。 仕事・AI活用 標準 消費者庁 ローカル生成AI データ分析 相談記録 データ最小化 人による確認 研究 生成AIで社内データを分析する人 相談記録や顧客データを要約する担当者">
+          <a class="forensics-card is-index-card is-featured tone-serious" href="case-20261007-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Claudeの高度なサイバー機能、申請できる区分と組織側の条件 Claudeのサイバー機能申請区分 Anthropicは2026年10月6日、検証済みのセキュリティ専門家・組織向けCyber Verification Program（CVP）を3段階に拡張したと発表しました。Defense AccessはSOC・インシデント対応や脆弱性分析等の防御業務、Red Team Accessは許可された侵入テスト等を対象とし、現時点で組織限定です。Specialized Accessは人命や市場に影響し得るシステムの試験を行う限定組織向けで、Anthropicは米国政府と連携した詳細審査を行うとしています。参加組織には不正利用監視のためデータ保持が必要です。これは一般利用者向けモデルの一律変更ではなく、対象業務・資格確認・安全管理に応じた限定プログラムです。セキュリティチームは、申請前に自組織の防御対象、許可範囲、管理者によるワークスペース割当、データ保持条件を確認します。 セキュリティ・権限 標準 Anthropic Claude Cyber Verification Program サイバーセキュリティ 脆弱性診断 アクセス管理 データ保持 脆弱性調査を行う企業・団体のセキュリティ担当者 AIを使うセキュリティ業務の権限とデータ管理を決める管理者">
             <div class="forensics-index-card-meta">
 <span class="forensics-latest-label">Latest</span>
-              <span>仕事・AI活用</span>
-              <time datetime="2026-10-06">2026.10.06</time>
-              <small>確認 3</small>
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-10-07">2026.10.07</time>
+              <small>確認 4</small>
             </div>
-            <h3>ローカル生成AIで相談データを分析する前に、何を入力し人が何を確かめる？</h3>
-            <p class="forensics-card-summary">消費者庁の消費者政策研究センターは2026年6月、PIO-NETの過去の相談情報を対象に、ローカル生成AIを使った分析・要約の研究ディスカッションペーパーを公表しました。研究では相談原文をそのままLLMへ渡さず、トピックモデル等で抽出したキーワード・話題情報を入力し、生成文も人が確認・編集しています。これは研究上の検…</p>
+            <h3>Claudeの高度なサイバー機能、申請できる区分と組織側の条件</h3>
+            <p class="forensics-card-summary">Anthropicは2026年10月6日、検証済みのセキュリティ専門家・組織向けCyber Verification Program（CVP）を3段階に拡張したと発表しました。Defense AccessはSOC・インシデント対応や脆弱性分析等の防御業務、Red Team Accessは許可された侵入テスト等を対象と…</p>
             <p class="forensics-card-lesson"><span>今回の結論</span>
-              ローカルAIでも、原文を入力する前に情報を絞り、生成結果は人が元データと照合する。</p>
+              Claudeのサイバー専門アクセスは、対象業務・明示的許可・組織管理・データ保持条件を確認して申請する。</p>
             <span class="forensics-card-cta">詳しく見る</span>
           </a>
         </div>
@@ -145,6 +145,45 @@
         <p class="forensics-results-status" data-forensics-results aria-live="polite"></p>
         <p class="forensics-empty-message" data-forensics-empty hidden>該当する事例は、現在準備中です。別の条件でも探してみてください。</p>
         <div class="forensics-card-grid">
+          <a class="forensics-card is-index-card tone-caution" href="case-20261007-02" data-forensics-card data-category="media-literacy" data-level="4" data-difficulty="standard" data-search-text="OpenAIの文章透かし、検出結果だけで作者や真偽を決められない AI文章透かしの検出限界 OpenAIは2026年10月5日、EU AI Actの透明性要件への対応として、文章の単語選択に見えない統計的信号を埋め込む透かし方式と導入計画を公表しました。対象モデルのAPI利用者は世界各地で任意に有効化できますが、初期設定はオフです。ChatGPT・Codexへの導入はEUの対象出力から段階的に進める計画で、全世界の一律設定ではありません。透かし検出器は当初、審査済みの研究者・専門組織向けに限定されます。OpenAI自身も短い文章、編集、翻訳等で検出が難しくなり得るとし、透かしは作者、著作権、文章の正確さを証明しないと説明しています。検出・非検出だけで不正利用や人間執筆を断定せず、長さや編集状況、他の出所情報と合わせて扱う必要があります。 情報の見極め 標準 OpenAI AI文章検出 透かし 来歴 EU AI Act 誤検出 メディアリテラシー AI生成文の出所を確かめたい人 学校・編集・採用でAI文章検出を扱う人 文章生成APIを提供する事業者">
+            <div class="forensics-index-card-meta">
+
+              <span>情報の見極め</span>
+              <time datetime="2026-10-07">2026.10.07</time>
+              <small>確認 4</small>
+            </div>
+            <h3>OpenAIの文章透かし、検出結果だけで作者や真偽を決められない</h3>
+            <p class="forensics-card-summary">OpenAIは2026年10月5日、EU AI Actの透明性要件への対応として、文章の単語選択に見えない統計的信号を埋め込む透かし方式と導入計画を公表しました。対象モデルのAPI利用者は世界各地で任意に有効化できますが、初期設定はオ…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              AI文章の透かしは出所の限定的な信号。検出・非検出だけで作者や文章の真偽を断定しない。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-caution" href="case-20261007-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Gemini Sparkをオフにしても残るもの、タスク・ファイル・Chrome履歴の整理 Spark停止後に残るデータ GoogleはGemini Sparkについて、Geminiが端末のローカルChromeまたは別のリモートブラウザーで作業し、端末を閉じてもリモート側でタスクが続く場合があるとヘルプで説明しています。ローカルChromeではログイン中のサイトが見え、許可すればPassword Managerに保存したログイン情報を使うこともあります。Sparkをオフにするとリモートブラウザーとリモートコード実行のデータは削除されますが、ローカルChromeの閲覧データは消えず、タスク・スレッド・スケジュール・Geminiが作成または更新したファイルも削除されません。したがって『Sparkをオフにした＝作業の成果物やブラウザー痕跡も消えた』とは限りません。機微な作業を始める前に実行中タスクを確認し、終了後はリモートデータ、ローカル履歴、作成ファイルを別々に点検・削除するのが実務的です。 セキュリティ・権限 標準 Google Gemini Gemini Spark Chrome AIエージェント ブラウザー権限 タスク停止 データ削除 Gemini Sparkでブラウザー作業を任せる人 Google Chromeのログイン状態でAIエージェントを使う人 家族・チームのAI利用を管理する人">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-10-07">2026.10.07</time>
+              <small>確認 4</small>
+            </div>
+            <h3>Gemini Sparkをオフにしても残るもの、タスク・ファイル・Chrome履歴の整理</h3>
+            <p class="forensics-card-summary">GoogleはGemini Sparkについて、Geminiが端末のローカルChromeまたは別のリモートブラウザーで作業し、端末を閉じてもリモート側でタスクが続く場合があるとヘルプで説明しています。ローカルChromeではログイン中…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              Gemini Sparkを止めた後も、タスク・作成ファイル・ローカルChrome履歴は別途確認して整理する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-calm" href="case-20261006-01" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="ローカル生成AIで相談データを分析する前に、何を入力し人が何を確かめる？ ローカルAI分析の入力と確認 消費者庁の消費者政策研究センターは2026年6月、PIO-NETの過去の相談情報を対象に、ローカル生成AIを使った分析・要約の研究ディスカッションペーパーを公表しました。研究では相談原文をそのままLLMへ渡さず、トピックモデル等で抽出したキーワード・話題情報を入力し、生成文も人が確認・編集しています。これは研究上の検討であり、消費者庁の本番業務への導入発表ではありません。社内の相談記録をAI分析する際も、モデルを社内で動かすことだけで安心せず、入力を加工して情報を絞る工程、出力の人手確認、試験時の限界を設計する参考になります。 仕事・AI活用 標準 消費者庁 ローカル生成AI データ分析 相談記録 データ最小化 人による確認 研究 生成AIで社内データを分析する人 相談記録や顧客データを要約する担当者">
+            <div class="forensics-index-card-meta">
+
+              <span>仕事・AI活用</span>
+              <time datetime="2026-10-06">2026.10.06</time>
+              <small>確認 3</small>
+            </div>
+            <h3>ローカル生成AIで相談データを分析する前に、何を入力し人が何を確かめる？</h3>
+            <p class="forensics-card-summary">消費者庁の消費者政策研究センターは2026年6月、PIO-NETの過去の相談情報を対象に、ローカル生成AIを使った分析・要約の研究ディスカッションペーパーを公表しました。研究では相談原文をそのままLLMへ渡さず、トピックモデル等で抽出…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              ローカルAIでも、原文を入力する前に情報を絞り、生成結果は人が元データと照合する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
           <a class="forensics-card is-index-card tone-caution" href="case-20261006-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="YouTubeの自動商品タグ、売切れ商品の置換と報酬条件を投稿者が確認する YouTube商品タグを公開前に確認 YouTubeはヘルプで、YouTube Shoppingアフィリエイト対象のクリエイター向けに、動画の自動商品タグ付け機能を案内しています。システムは動画・タイトル・説明・字幕等から商品候補を付け、元の商品が在庫切れまたは期限切れの場合は、関連する在庫商品へ自動で置き換えることがあります。その置換商品には元の商品と同じコミッション率が適用されません。投稿者は通知を受けて確認・編集・置換・削除でき、チャンネル設定で自動タグ付けを停止すると既存の自動タグは外れますが、手動タグは残ります。購入導線と報酬条件が変わり得るため、対象クリエイターは動画公開後の通知や商品タグ欄を確認し、自動タグと手動タグを区別して管理する必要があります。 仕事・AI活用 標準 YouTube Shopping 自動商品タグ アフィリエイト クリエイター 商品リンク コミッション YouTube Shoppingアフィリエイトを利用するクリエイター 動画に商品タグを付けるチャンネル運営者">
             <div class="forensics-index-card-meta">
 

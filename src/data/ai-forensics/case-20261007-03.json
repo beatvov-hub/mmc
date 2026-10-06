@@ -1,0 +1,61 @@
+{
+  "id": "case-20261007-03",
+  "publishedAt": "2026-10-07",
+  "title": "Gemini Sparkをオフにしても残るもの、タスク・ファイル・Chrome履歴の整理",
+  "shortTitle": "Spark停止後に残るデータ",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["Gemini Sparkでブラウザー作業を任せる人", "Google Chromeのログイン状態でAIエージェントを使う人", "家族・チームのAI利用を管理する人"],
+  "summary": "GoogleはGemini Sparkについて、Geminiが端末のローカルChromeまたは別のリモートブラウザーで作業し、端末を閉じてもリモート側でタスクが続く場合があるとヘルプで説明しています。ローカルChromeではログイン中のサイトが見え、許可すればPassword Managerに保存したログイン情報を使うこともあります。Sparkをオフにするとリモートブラウザーとリモートコード実行のデータは削除されますが、ローカルChromeの閲覧データは消えず、タスク・スレッド・スケジュール・Geminiが作成または更新したファイルも削除されません。したがって『Sparkをオフにした＝作業の成果物やブラウザー痕跡も消えた』とは限りません。機微な作業を始める前に実行中タスクを確認し、終了後はリモートデータ、ローカル履歴、作成ファイルを別々に点検・削除するのが実務的です。",
+  "scenario": {
+    "headline": "Geminiにログイン済みブラウザーで作業を頼み、端末を閉じてしまった",
+    "description": "買い物・予約・情報収集などをSparkへ頼んだ後、タスクを中断したつもりでChromeや端末を終了する場面です。",
+    "whyItMatters": "タスクがリモートブラウザーへ引き継がれて続く場合があり、あとからSparkをオフにしても、作成したファイルやローカルChrome履歴は別に残る仕様です。"
+  },
+  "question": {
+    "text": "Gemini Sparkをオフにした後、何が削除され、何が別途残る？",
+    "choices": [
+      {"id": "separate-cleanup", "label": "リモート実行データの削除と、ローカルChrome履歴・タスク・作成ファイルの確認を別々に行う", "description": "Sparkをオフにするとリモートデータは削除されますが、ローカル閲覧データやタスク・ファイル等は自動削除されません。"},
+      {"id": "all-gone", "label": "Sparkをオフにすれば、端末のChrome履歴や作業で作ったファイルもすべて消える", "description": "GoogleはローカルChrome履歴とSparkが作成・更新したファイルは残ると説明しています。"},
+      {"id": "close-device", "label": "端末を閉じれば、リモートで進行中のタスクも必ず停止する", "description": "ローカルブラウザーが使えなくなると、タスクがリモートブラウザーに移り続く場合があります。"}
+    ],
+    "recommendedAnswers": ["separate-cleanup"],
+    "explanation": "Sparkをオフにする操作は、すべての実行結果・履歴を一括消去する機能ではありません。タスクの停止、Sparkのリモートデータ削除、Chrome側の履歴削除、作成ファイルの確認を分けて行います。"
+  },
+  "inspectionPoints": [
+    {"title": "ローカルChromeとリモートブラウザーを区別", "description": "Googleは、Sparkが端末のChromeへ接続する方法と、新しいリモートブラウザーを使う方法を案内しています。ローカルChromeではログイン中サイトにアクセスでき、端末やChromeが使えなくなるとリモートへ切り替わる場合があります。", "priority": "high"},
+    {"title": "閉じた端末の後もタスクが続く場合がある", "description": "ローカルChromeを使うには端末とChromeを起動したままにする必要がありますが、端末が使えなくなるとSparkがリモートブラウザーで完了を続けることがあります。タスクを止める操作と端末を閉じる操作は同じではありません。", "priority": "high"},
+    {"title": "保存済みパスワードとタスク入力の注意", "description": "Sparkは許可を得てPassword Managerのログイン情報を使う場合があります。Googleは、ログイン情報・決済情報など機微情報をタスクの会話欄へ直接書かず、必要ならブラウザーを引き継いでウェブページに入力するよう案内しています。", "priority": "high"},
+    {"title": "StopとTake controlの操作を使い分け", "description": "ブラウザー内のStopでウェブ閲覧を止めても、Sparkがリモートブラウザーや別ツールで続きを試みる場合があります。タスクそのもののキャンセルには会話欄のStopを使い、必要ならTake controlでブラウザーを引き取ります。", "priority": "high"},
+    {"title": "Sparkをオフにしたときの削除範囲", "description": "Sparkをオフにするとリモートブラウザー・コード実行データは削除されますが、Chromeのローカル閲覧データは消えず、タスク・スレッド・スケジュール・作成または更新ファイルも残ります。", "priority": "high"},
+    {"title": "利用条件とアクティビティ設定", "description": "Googleのヘルプは個人Googleアカウント、18歳以上、Google AI ProまたはUltra、Keep Activityオン等を要件として示しています。利用可能地域や機能は変更されるため、自分のアカウントの最新表示を確認します。", "priority": "medium"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "タスク停止・リモート削除・ローカル整理を分ける",
+  "verificationMessage": "端末を閉じることやSparkをオフにすることが、すべてのタスク・ファイル・ブラウザー履歴の削除を意味するわけではありません。",
+  "verdict": {"label": "Spark停止後は、リモートデータ・Chrome履歴・タスク成果物を別々に確認する", "description": "Sparkをオフにするとリモート実行データは削除されますが、ローカルChrome閲覧データや作成ファイル等は残ります。タスク自体も明示的に停止・確認してください。", "confidence": "high"},
+  "safeActions": [
+    {"action": "機微な内容を含むタスクやスケジュールは避け、実行中タスクをRecent Tasksで確認する", "reason": "Googleは機微な情報を使うタスク・スケジュールを避けるよう注意しています。"},
+    {"action": "止めたいときは会話欄のStop responseでタスクをキャンセルし、必要ならTake controlでブラウザーを引き取る", "reason": "ブラウザーで閲覧を止める操作だけでは別ブラウザーや別ツールへ続く場合があります。"},
+    {"action": "タスク終了後にGemini Spark Settingsからリモートブラウザー・コード実行データの削除状態を確認する", "reason": "リモートブラウザーでは認証情報を含むCookie等が次回用に保存される場合があります。"},
+    {"action": "ローカルChrome履歴やCookieはChrome側で別途確認・削除する", "reason": "SparkをオフにしてもローカルChromeの閲覧データは削除されません。"},
+    {"action": "Sparkが作成・更新したファイル、タスク、スケジュールを確認し、不要な成果物を個別に整理する", "reason": "Sparkをオフにしてもこれらは自動削除されません。"},
+    {"action": "使用前にアカウント種別、Keep Activity、接続アプリ、保存済みログインの利用許可を見直す", "reason": "Sparkはアクティビティ設定を条件とし、許可されたConnected Appsやログイン済みサイトを利用できます。"}
+  ],
+  "avoidActions": [
+    {"action": "端末を閉じたのでSparkのタスクも止まったと決めつける", "reason": "タスクがリモートブラウザーで続く場合があります。"},
+    {"action": "SparkをオフにしただけでChrome履歴やAIが作ったファイルまで消えたと考える", "reason": "GoogleはこれらをSparkオフ時の削除対象外と明記しています。"},
+    {"action": "パスワードや決済情報をSparkのタスク会話へ直接入力する", "reason": "Googleは機微なサインイン・決済情報を会話へ入れず、ブラウザーを引き継いで入力するよう案内しています。"},
+    {"action": "ブラウザーのStopだけで作業全体がキャンセルされたと思い込む", "reason": "Sparkが別経路やリモート環境で作業を続ける可能性があります。"}
+  ],
+  "positiveUse": {"title": "AIブラウザー作業の後始末をチェックリスト化", "description": "タスクを終了し、遠隔セッション・ローカル閲覧履歴・成果物を別々に確認する手順を決めます。", "examples": ["予約・購入タスク完了後にRecent Tasksを確認する", "Chromeのログイン状態で作業した後にブラウザーデータを確認する", "共有端末でSparkを使った後に作成ファイルを整理する"]},
+  "makotoComment": "『オフにすれば全部消える』と思いやすいところですが、Googleの説明では消える範囲が分かれています。特に、Sparkが作ったファイルやタスクは残る一方、リモート実行データとローカルChrome履歴も別々に扱われます。終了手順を一つのボタンに期待せず、後片付けを分解しておくのが実用的です。",
+  "oneLineLesson": "Gemini Sparkを止めた後も、タスク・作成ファイル・ローカルChrome履歴は別途確認して整理する。",
+  "tags": ["Google Gemini", "Gemini Spark", "Chrome", "AIエージェント", "ブラウザー権限", "タスク停止", "データ削除"],
+  "sources": [
+    {"title": "Use Gemini Spark to manage your tasks & workflows in Gemini Apps", "publisher": "Google Gemini Apps Help", "sourceType": "official", "publishedAt": null, "url": "https://support.google.com/gemini/answer/17094507?hl=en"},
+    {"title": "Gemini Spark now integrates with Chrome", "publisher": "Google Blog", "sourceType": "official", "publishedAt": "2026-07-30", "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-spark-updates-july-2026/"},
+    {"title": "Gemini Apps Privacy Hub", "publisher": "Google Gemini Apps Help", "sourceType": "official", "publishedAt": "2026-06-29", "url": "https://support.google.com/gemini/answer/13594961"}
+  ],
+  "visualSuggestion": {"mainVisual": "Sparkをオフにする前後でデータを三列に分類。削除：リモートブラウザー・コード実行データ。残る：ローカルChrome履歴、タスク・スケジュール・作成ファイル。さらに実行中タスクのStopとTake controlを案内。", "cardIcon": "gemini-spark-cleanup", "accentTone": "caution"}
+}

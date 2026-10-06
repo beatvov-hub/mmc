@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gemini Sparkをオフにしても残るもの、タスク・ファイル・Chrome履歴の整理｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="GoogleはGemini Sparkについて、Geminiが端末のローカルChromeまたは別のリモートブラウザーで作業し、端末を閉じてもリモート側でタスクが続く場合があるとヘルプで説明しています。ローカルChromeではログイン中のサイトが見え、許可すればPassword Managerに保存したログイン情報を使うこともあります。Sparkをオフにするとリモートブラウザーとリモートコード実行のデータは削除されますが、ローカルChromeの閲覧データは消えず、タスク・スレッド・スケジュール・Geminiが作成または更新したファイルも削除されません。したがって『Sparkをオフにした＝作業の成果物やブラウザー痕跡も消えた』とは限りません。機微な作業を始める前に実行中タスクを確認し、終了後はリモートデータ、ローカル履歴、作成ファイルを別々に点検・削除するのが実務的です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261007-03" />
+<meta property="og:title" content="Gemini Sparkをオフにしても残るもの、タスク・ファイル・Chrome履歴の整理｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="GoogleはGemini Sparkについて、Geminiが端末のローカルChromeまたは別のリモートブラウザーで作業し、端末を閉じてもリモート側でタスクが続く場合があるとヘルプで説明しています。ローカルChromeではログイン中のサイトが見え、許可すればPassword Managerに保存したログイン情報を使うこともあります。Sparkをオフにするとリモートブラウザーとリモートコード実行のデータは削除されますが、ローカルChromeの閲覧データは消えず、タスク・スレッド・スケジュール・Geminiが作成または更新したファイルも削除されません。したがって『Sparkをオフにした＝作業の成果物やブラウザー痕跡も消えた』とは限りません。機微な作業を始める前に実行中タスクを確認し、終了後はリモートデータ、ローカル履歴、作成ファイルを別々に点検・削除するのが実務的です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261007-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Spark停止後に残るデータ</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-10-07">2026.10.07</time>
+            </div>
+            <h1>Gemini Sparkをオフにしても残るもの、タスク・ファイル・Chrome履歴の整理</h1>
+            <p>GoogleはGemini Sparkについて、Geminiが端末のローカルChromeまたは別のリモートブラウザーで作業し、端末を閉じてもリモート側でタスクが続く場合があるとヘルプで説明しています。ローカルChromeではログイン中のサイトが見え、許可すればPassword Managerに保存したログイン情報を使うこともあります。Sparkをオフにするとリモートブラウザーとリモートコード実行のデータは削除されますが、ローカルChromeの閲覧データは消えず、タスク・スレッド・スケジュール・Geminiが作成または更新したファイルも削除されません。したがって『Sparkをオフにした＝作業の成果物やブラウザー痕跡も消えた』とは限りません。機微な作業を始める前に実行中タスクを確認し、終了後はリモートデータ、ローカル履歴、作成ファイルを別々に点検・削除するのが実務的です。</p>
+            <ul class="forensics-target-list"><li>Gemini Sparkでブラウザー作業を任せる人</li><li>Google Chromeのログイン状態でAIエージェントを使う人</li><li>家族・チームのAI利用を管理する人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Google Gemini</li><li>Gemini Spark</li><li>Chrome</li><li>AIエージェント</li><li>ブラウザー権限</li><li>タスク停止</li><li>データ削除</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>タスク停止・リモート削除・ローカル整理を分ける</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>端末を閉じることやSparkをオフにすることが、すべてのタスク・ファイル・ブラウザー履歴の削除を意味するわけではありません。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Geminiにログイン済みブラウザーで作業を頼み、端末を閉じてしまった</h3><p>買い物・予約・情報収集などをSparkへ頼んだ後、タスクを中断したつもりでChromeや端末を終了する場面です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>タスクがリモートブラウザーへ引き継がれて続く場合があり、あとからSparkをオフにしても、作成したファイルやローカルChrome履歴は別に残る仕様です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="separate-cleanup">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Gemini Sparkをオフにした後、何が削除され、何が別途残る？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="separate-cleanup" data-choice-id="separate-cleanup" />
+                <span>
+                  <strong>リモート実行データの削除と、ローカルChrome履歴・タスク・作成ファイルの確認を別々に行う</strong>
+                  <small>Sparkをオフにするとリモートデータは削除されますが、ローカル閲覧データやタスク・ファイル等は自動削除されません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="all-gone" data-choice-id="all-gone" />
+                <span>
+                  <strong>Sparkをオフにすれば、端末のChrome履歴や作業で作ったファイルもすべて消える</strong>
+                  <small>GoogleはローカルChrome履歴とSparkが作成・更新したファイルは残ると説明しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="close-device" data-choice-id="close-device" />
+                <span>
+                  <strong>端末を閉じれば、リモートで進行中のタスクも必ず停止する</strong>
+                  <small>ローカルブラウザーが使えなくなると、タスクがリモートブラウザーに移り続く場合があります。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>リモート実行データの削除と、ローカルChrome履歴・タスク・作成ファイルの確認を別々に行う</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Sparkをオフにする操作は、すべての実行結果・履歴を一括消去する機能ではありません。タスクの停止、Sparkのリモートデータ削除、Chrome側の履歴削除、作成ファイルの確認を分けて行います。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ローカルChromeとリモートブラウザーを区別</h3>
+              <p>Googleは、Sparkが端末のChromeへ接続する方法と、新しいリモートブラウザーを使う方法を案内しています。ローカルChromeではログイン中サイトにアクセスでき、端末やChromeが使えなくなるとリモートへ切り替わる場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>閉じた端末の後もタスクが続く場合がある</h3>
+              <p>ローカルChromeを使うには端末とChromeを起動したままにする必要がありますが、端末が使えなくなるとSparkがリモートブラウザーで完了を続けることがあります。タスクを止める操作と端末を閉じる操作は同じではありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>保存済みパスワードとタスク入力の注意</h3>
+              <p>Sparkは許可を得てPassword Managerのログイン情報を使う場合があります。Googleは、ログイン情報・決済情報など機微情報をタスクの会話欄へ直接書かず、必要ならブラウザーを引き継いでウェブページに入力するよう案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>StopとTake controlの操作を使い分け</h3>
+              <p>ブラウザー内のStopでウェブ閲覧を止めても、Sparkがリモートブラウザーや別ツールで続きを試みる場合があります。タスクそのもののキャンセルには会話欄のStopを使い、必要ならTake controlでブラウザーを引き取ります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Sparkをオフにしたときの削除範囲</h3>
+              <p>Sparkをオフにするとリモートブラウザー・コード実行データは削除されますが、Chromeのローカル閲覧データは消えず、タスク・スレッド・スケジュール・作成または更新ファイルも残ります。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>利用条件とアクティビティ設定</h3>
+              <p>Googleのヘルプは個人Googleアカウント、18歳以上、Google AI ProまたはUltra、Keep Activityオン等を要件として示しています。利用可能地域や機能は変更されるため、自分のアカウントの最新表示を確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Spark停止後は、リモートデータ・Chrome履歴・タスク成果物を別々に確認する</strong><p>Sparkをオフにするとリモート実行データは削除されますが、ローカルChrome閲覧データや作成ファイル等は残ります。タスク自体も明示的に停止・確認してください。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>機微な内容を含むタスクやスケジュールは避け、実行中タスクをRecent Tasksで確認する</strong><span>Googleは機微な情報を使うタスク・スケジュールを避けるよう注意しています。</span></li>
+            <li><strong>止めたいときは会話欄のStop responseでタスクをキャンセルし、必要ならTake controlでブラウザーを引き取る</strong><span>ブラウザーで閲覧を止める操作だけでは別ブラウザーや別ツールへ続く場合があります。</span></li>
+            <li><strong>タスク終了後にGemini Spark Settingsからリモートブラウザー・コード実行データの削除状態を確認する</strong><span>リモートブラウザーでは認証情報を含むCookie等が次回用に保存される場合があります。</span></li>
+            <li><strong>ローカルChrome履歴やCookieはChrome側で別途確認・削除する</strong><span>SparkをオフにしてもローカルChromeの閲覧データは削除されません。</span></li>
+            <li><strong>Sparkが作成・更新したファイル、タスク、スケジュールを確認し、不要な成果物を個別に整理する</strong><span>Sparkをオフにしてもこれらは自動削除されません。</span></li>
+            <li><strong>使用前にアカウント種別、Keep Activity、接続アプリ、保存済みログインの利用許可を見直す</strong><span>Sparkはアクティビティ設定を条件とし、許可されたConnected Appsやログイン済みサイトを利用できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>端末を閉じたのでSparkのタスクも止まったと決めつける</strong><span>タスクがリモートブラウザーで続く場合があります。</span></li>
+            <li><strong>SparkをオフにしただけでChrome履歴やAIが作ったファイルまで消えたと考える</strong><span>GoogleはこれらをSparkオフ時の削除対象外と明記しています。</span></li>
+            <li><strong>パスワードや決済情報をSparkのタスク会話へ直接入力する</strong><span>Googleは機微なサインイン・決済情報を会話へ入れず、ブラウザーを引き継いで入力するよう案内しています。</span></li>
+            <li><strong>ブラウザーのStopだけで作業全体がキャンセルされたと思い込む</strong><span>Sparkが別経路やリモート環境で作業を続ける可能性があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIブラウザー作業の後始末をチェックリスト化</h3>
+          <p>タスクを終了し、遠隔セッション・ローカル閲覧履歴・成果物を別々に確認する手順を決めます。</p>
+          <ul class="positive-example-list"><li>予約・購入タスク完了後にRecent Tasksを確認する</li><li>Chromeのログイン状態で作業した後にブラウザーデータを確認する</li><li>共有端末でSparkを使った後に作成ファイルを整理する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>『オフにすれば全部消える』と思いやすいところですが、Googleの説明では消える範囲が分かれています。特に、Sparkが作ったファイルやタスクは残る一方、リモート実行データとローカルChrome履歴も別々に扱われます。終了手順を一つのボタンに期待せず、後片付けを分解しておくのが実用的です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Gemini Sparkを止めた後も、タスク・作成ファイル・ローカルChrome履歴は別途確認して整理する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/gemini/answer/17094507?hl=en" target="_blank" rel="noopener noreferrer">Use Gemini Spark to manage your tasks &amp; workflows in Gemini Apps<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Gemini Apps Help</span>
+              <span>公式発表</span>
+            </li>
+            <li>
+              <strong><a href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-spark-updates-july-2026/" target="_blank" rel="noopener noreferrer">Gemini Spark now integrates with Chrome<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Blog</span>
+              <span>公式発表</span>
+              <time datetime="2026-07-30">2026-07-30</time>
+            </li>
+            <li>
+              <strong><a href="https://support.google.com/gemini/answer/13594961" target="_blank" rel="noopener noreferrer">Gemini Apps Privacy Hub<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Gemini Apps Help</span>
+              <span>公式発表</span>
+              <time datetime="2026-06-29">2026-06-29</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-serious" href="case-20261007-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Claudeの高度なサイバー機能、申請できる区分と組織側の条件 Claudeのサイバー機能申請区分 Anthropicは2026年10月6日、検証済みのセキュリティ専門家・組織向けCyber Verification Program（CVP）を3段階に拡張したと発表しました。Defense AccessはSOC・インシデント対応や脆弱性分析等の防御業務、Red Team Accessは許可された侵入テスト等を対象とし、現時点で組織限定です。Specialized Accessは人命や市場に影響し得るシステムの試験を行う限定組織向けで、Anthropicは米国政府と連携した詳細審査を行うとしています。参加組織には不正利用監視のためデータ保持が必要です。これは一般利用者向けモデルの一律変更ではなく、対象業務・資格確認・安全管理に応じた限定プログラムです。セキュリティチームは、申請前に自組織の防御対象、許可範囲、管理者によるワークスペース割当、データ保持条件を確認します。 セキュリティ・権限 標準 Anthropic Claude Cyber Verification Program サイバーセキュリティ 脆弱性診断 アクセス管理 データ保持 脆弱性調査を行う企業・団体のセキュリティ担当者 AIを使うセキュリティ業務の権限とデータ管理を決める管理者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">cyber-access-tiers</span>
+              <div>
+                <p>Claudeのサイバー機能申請区分</p>
+                <h3>Claudeの高度なサイバー機能、申請できる区分と組織側の条件</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-07">2026.10.07</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Anthropicは2026年10月6日、検証済みのセキュリティ専門家・組織向けCyber Verification Program（CVP）を3段階に拡張したと発表しました。Defense AccessはSOC・インシデント対応や脆弱性分析等の防御業務、Red Team Accessは許可された侵入テスト等を対象とし、現時点で組織限定です。Specialized Accessは人命や市場に影響し得るシステムの試験を行う限定組織向けで、Anthropicは米国政府と連携した詳細審査を行うとしています。参加組織には不正利用監視のためデータ保持が必要です。これは一般利用者向けモデルの一律変更ではなく、対象業務・資格確認・安全管理に応じた限定プログラムです。セキュリティチームは、申請前に自組織の防御対象、許可範囲、管理者によるワークスペース割当、データ保持条件を確認します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>業務範囲・許可・組織管理・保持条件を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>脆弱性調査を行う企業・団体のセキュリティ担当者</li><li>AIを使うセキュリティ業務の権限とデータ管理を決める管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Anthropic</li><li>Claude</li><li>Cyber Verification Program</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261005-02" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="standard" data-search-text="買い物AIが契約を変えたら誰が対応する？ CMA資料で見る責任と記録 買い物AIの契約変更と責任 英国競争・市場庁（CMA）は2026年3月9日、AIエージェントが買い物、サブスクリプション管理、金融などで消費者に及ぼす影響を分析した報告書と、企業向けの消費者法ガイダンスを公表しました。報告書は、AIが価格や契約を監視し、利用者の条件内で購入・解約・事業者の乗り換えを行う将来像を例示する一方、誤った切替、隠れた販売上の誘因、説明不足をリスクとして挙げています。高影響の操作には確認を求めること、行動記録を残すこと、指示を逸脱した場合の責任を明確にすることも safeguards の例です。これは英国の市場分析と企業向けガイダンスで、日本の個別契約を直接決める規則ではありません。既存のエージェント権限設定記事とは分け、誤操作後に誰へ何を示して相談するか、事前に利用規約と記録を確認する視点を扱います。 情報の見極め 標準 AIエージェント 買い物 契約変更 サブスクリプション 消費者保護 CMA 英国 AIに購入・解約・乗り換えを任せることを検討している人 買い物や契約管理エージェントの利用条件を確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shopping-agent-audit-redress</span>
+              <div>
+                <p>買い物AIの契約変更と責任</p>
+                <h3>買い物AIが契約を変えたら誰が対応する？ CMA資料で見る責任と記録</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-05">2026.10.05</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">英国競争・市場庁（CMA）は2026年3月9日、AIエージェントが買い物、サブスクリプション管理、金融などで消費者に及ぼす影響を分析した報告書と、企業向けの消費者法ガイダンスを公表しました。報告書は、AIが価格や契約を監視し、利用者の条件内で購入・解約・事業者の乗り換えを行う将来像を例示する一方、誤った切替、隠れた販売上の誘因、説明不足をリスクとして挙げています。高影響の操作には確認を求めること、行動記録を残すこと、指示を逸脱した場合の責任を明確にすることも safeguards の例です。これは英国の市場分析と企業向けガイダンスで、日本の個別契約を直接決める規則ではありません。既存のエージェント権限設定記事とは分け、誤操作後に誰へ何を示して相談するか、事前に利用規約と記録を確認する視点を扱います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>契約変更の履歴・問い合わせ先・責任範囲を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIに購入・解約・乗り換えを任せることを検討している人</li><li>買い物や契約管理エージェントの利用条件を確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>買い物</li><li>契約変更</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261004-02" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="Siriの音声・文字起こし提供は任意設定、Apple Intelligence学習との違いも確認 Siriの改善データ設定を選ぶ Appleは2026年9月16日付のサポート文書で、「Improve Siri &amp; Apple Intelligence」と「Improve Siri &amp; Dictation」の任意設定をオン・オフする手順とデータ利用を説明しています。オンにするとSiri、音声入力、翻訳のやりとりのサンプル（音声、文字起こし、関連するリクエストデータ）が保存・確認の対象になり、前者では基盤モデルの学習にも使われ得ます。設定は後から変更でき、iPhone・iPadでは「設定」＞「プライバシーとセキュリティ」＞「解析と改善」から確認できます。二つの設定名と対象データを見て、自分の端末で選び直すための記事です。 セキュリティ・権限 はじめて Apple Siri Apple Intelligence 音声入力 プライバシー設定 データ利用 iPhone・iPadでSiriや音声入力を使う人 Apple製品の音声データ利用設定を確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">siri-audio-improvement-setting</span>
+              <div>
+                <p>Siriの改善データ設定を選ぶ</p>
+                <h3>Siriの音声・文字起こし提供は任意設定、Apple Intelligence学習との違いも確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-04">2026.10.04</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Appleは2026年9月16日付のサポート文書で、「Improve Siri &amp; Apple Intelligence」と「Improve Siri &amp; Dictation」の任意設定をオン・オフする手順とデータ利用を説明しています。オンにするとSiri、音声入力、翻訳のやりとりのサンプル（音声、文字起こし、関連するリクエストデータ）が保存・確認の対象になり、前者では基盤モデルの学習にも使われ得ます。設定は後から変更でき、iPhone・iPadでは「設定」＞「プライバシーとセキュリティ」＞「解析と改善」から確認できます。二つの設定名と対象データを見て、自分の端末で選び直すための記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>音声サンプルの任意設定を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhone・iPadでSiriや音声入力を使う人</li><li>Apple製品の音声データ利用設定を確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple</li><li>Siri</li><li>Apple Intelligence</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261006-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261007-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
