@@ -1,0 +1,39 @@
+{
+  "id": "case-20261008-03",
+  "publishedAt": "2026-10-08",
+  "title": "ChatGPT for Teensの学習機能、今使える復習ツールと予告機能",
+  "shortTitle": "ChatGPT for Teensの学習機能",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["ChatGPTで授業の復習をしたい学生", "子どもの学習用AIを一緒に選ぶ保護者・教員"],
+  "summary": "OpenAIは2026年10月7日、ChatGPT for Teensの学習機能として、ノートからのフラッシュカード・クイズ作成や、復習タスクの設定を紹介しました。カードはTeenのLibraryに保存して後から再開できます。複数ページのノートを連続撮影してPDFにする機能はiOSで利用可能とされ、Android版は開発中です。College Plannerは発表時点で『近日追加予定』で、初期対象は米国の高校10〜12年生のうち4年制大学を目指す生徒向けです。学習カードやクイズは復習の入口として使い、進学要件・締切・奨学金などは各学校の公式案内で照合します。予告中のPlannerを現在使える機能と紹介しないことも大切です。",
+  "scenario": {"headline": "授業ノートをクイズにして、次の試験まで計画的に復習したい", "description": "学生が紙のノートを取り込み、暗記カードや確認問題を作って復習を続ける場面です。", "whyItMatters": "どの機能が現在提供され、どれが近日予定か、また端末や地域で条件が異なるかを把握すれば、学習方法を誤解なく選べます。"},
+  "question": {"text": "ChatGPT for Teensの学習機能を使う際、どのように扱うのが適切？", "choices": [{"id": "study-and-verify", "label": "ノートから作ったカードやクイズは復習に使い、公式な締切や要件は学校の情報で確認する", "description": "OpenAIは学習ツールと、今後追加予定のCollege Plannerの提供段階を分けて説明しています。"}, {"id": "planner-live-global", "label": "College Plannerがすでに全地域・全校種で使えると考える", "description": "発表では近日予定で、初期対象は米国の高校生と4年制大学の進学計画に限定されています。"}, {"id": "android-live", "label": "複数ページの連続撮影PDF機能がすでにAndroidにもあると考える", "description": "OpenAIはこの機能をiOSで利用可能、Androidは開発中としています。"}], "recommendedAnswers": ["study-and-verify"], "explanation": "フラッシュカード・クイズなど現在紹介された学習機能と、近日予定の進学計画機能を分けます。AIが整理した締切や入学条件を、そのまま公式決定として扱わないようにします。"},
+  "inspectionPoints": [
+    {"title": "ノートからカードとクイズを作れる", "description": "OpenAIは、Teenがノートをアップロードしてフラッシュカードやインタラクティブなクイズを作れる機能を紹介しています。", "priority": "high"},
+    {"title": "カードはLibraryに保存し復習タスクも設定可能", "description": "作成したカードはTeenのLibraryに保存でき、ChatGPTへカードを呼び出して練習タスクを設定する使い方が案内されています。", "priority": "medium"},
+    {"title": "複数ページ撮影PDFはiOS提供、Androidは開発中", "description": "連続して複数ページを撮影し、1つのPDFへまとめる機能はiOSで利用可能とされ、Androidへの対応は開発中です。", "priority": "high"},
+    {"title": "College Plannerは近日予定で初期対象に制約", "description": "発表時点ではCollege Plannerは今後追加予定です。初期体験は米国で4年制大学を目指す高校10〜12年生向けに設計され、他地域や2年制・専門校への拡張は今後の計画です。", "priority": "high"},
+    {"title": "進学情報の最終確認は各学校へ", "description": "Plannerは要件、締切、奨学金などをまとめる構想ですが、公式ページでの確認に置き換えるものではありません。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "端末・提供段階・進学情報の出典を確認",
+  "verificationMessage": "発表された学習支援機能と近日予定のCollege Plannerを区別し、学校の締切・要件は公式案内を優先してください。",
+  "verdict": {"label": "カードとクイズは復習に、進学の締切・要件は学校の公式情報に", "description": "学習素材を作る便利さと、進路に関わる確定情報の確認先を分けます。", "confidence": "high"},
+  "safeActions": [
+    {"action": "試験範囲のノートから短いクイズや暗記カードを作り、誤りがないか原文と見比べる", "reason": "生成された問題は復習素材であり、ノートにない情報を含む場合があります。"},
+    {"action": "自分の端末で利用できる機能を確かめる。複数ページ撮影PDFはiOS提供とAndroid開発中を区別する", "reason": "OpenAIの発表はOS別の提供状態を明記しています。"},
+    {"action": "College Plannerの提供開始・対象地域を確認し、入学条件や締切を各大学の公式ページで照合する", "reason": "発表時点では近日予定で、初期体験の対象も限られています。"}
+  ],
+  "avoidActions": [
+    {"action": "College Plannerを日本の高校生もすでに使える機能として紹介する", "reason": "発表時点では近日予定で、初期対象は米国の高校生です。"},
+    {"action": "生成されたカードやAIの進学説明を、教師の教材や学校の公式要件の代わりにする", "reason": "生成物や要約の誤り、学校ごとの要件変更を取りこぼす可能性があります。"},
+    {"action": "複数ページを撮影してPDFにする機能がAndroidでも提供済みと案内する", "reason": "OpenAIはAndroid版を開発中としています。"}
+  ],
+  "positiveUse": {"title": "短い復習サイクルにAIを使う", "description": "ノートから出題を作り、間違えた項目を自分で戻って学び直す補助として活用します。", "examples": ["授業ノートから一問一答を作る", "苦手なカードだけ再表示して復習する", "AIの進学要約を大学の公式募集要項と照合する"]},
+  "makotoComment": "今回の発表では、すぐ使う学習機能と『近日予定』のCollege Plannerが同じ記事内にあります。機能の新しさだけでなく、iOSとAndroid、米国の初期対象という境界を案内しないと、読者は使えると思った機能を見つけられません。",
+  "oneLineLesson": "ChatGPT for Teensはノートの復習に使い、端末別の提供状況と進学情報の公式出典を確認する。",
+  "tags": ["OpenAI", "ChatGPT for Teens", "学習", "フラッシュカード", "クイズ", "College Planner", "進学"],
+  "sources": [{"title": "Helping teens learn, plan, and shape the future of AI", "publisher": "OpenAI", "sourceType": "official", "publishedAt": "2026-10-07", "url": "https://openai.com/index/teens-learn-and-plan/"}],
+  "visualSuggestion": {"mainVisual": "ノート撮影からPDF、カード・クイズ、復習タスクへ進む流れを描き、iOS提供とAndroid開発中を表示。College Plannerは別枠で『近日予定・初期は米国の対象学年』と示す。", "cardIcon": "study-cards-and-quiz", "accentTone": "calm"}
+}

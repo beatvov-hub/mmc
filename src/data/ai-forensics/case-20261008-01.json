@@ -1,0 +1,55 @@
+{
+  "id": "case-20261008-01",
+  "publishedAt": "2026-10-08",
+  "title": "SynthID Detectorで動画・音声を調べる、検出結果が示す範囲",
+  "shortTitle": "SynthID Detectorの確認範囲",
+  "category": "media-literacy",
+  "difficulty": "standard",
+  "targetAudience": ["SNSで画像・動画・音声を受け取る人", "報道・広報・学校などでメディアの出所を確認する担当者"],
+  "summary": "Google DeepMindは2026年10月7日、SynthID Detectorを英語で世界の利用者へ拡大し、画像・動画・音声に含まれるSynthIDを確認できると発表しました。Googleの発表ではOpenAI、NVIDIA、Kakaoも対応対象として挙げられ、Appleは今後の予定です。一方、Geminiアプリ内のSynthID確認は現時点でGoogle AI生成物のみが対象です。検出は対応する透かしの有無を示すもので、映像の真実性・撮影者・内容の正しさを証明しません。検出されない場合も、別のAIで作られた可能性や透かしを判定できない場合が残ります。まずファイルの種類と確認ツールを選び、結果を出所確認の手掛かりの一つとして扱います。",
+  "scenario": {
+    "headline": "拡散された動画がAI生成か、手元の検証ツールで確認したい",
+    "description": "ニュース映像や著名人の音声がSNSで共有され、見た目だけでは真偽を判断しにくい場面です。",
+    "whyItMatters": "検出ツールが対応する透かしと、AI生成全般や内容の真偽を混同すると、検出なしを本物の証明にしたり、検出ありを虚偽の証明にしたりするおそれがあります。"
+  },
+  "question": {
+    "text": "SynthIDの検出結果を受け取ったとき、最も適切な読み方は？",
+    "choices": [
+      {"id": "signal-only", "label": "対応する透かしの有無という出所の手掛かりとして使い、内容の真偽は別に確かめる", "description": "Googleは透かし検出をAI生成メディアの確認に使う技術として説明していますが、内容の真偽を保証するものではありません。"},
+      {"id": "no-match-human", "label": "検出されなければ人が撮影・録音したと断定する", "description": "Googleのヘルプは、検出されない素材も他社AIで生成された可能性があると説明しています。"},
+      {"id": "match-false", "label": "検出された素材は、内容も必ず虚偽だと判断する", "description": "透かしは生成・編集ツールに関する信号で、内容の真偽を判定しません。"}
+    ],
+    "recommendedAnswers": ["signal-only"],
+    "explanation": "Googleの発表はSynthID Detectorの対応範囲を示すもので、真偽判定器とは説明していません。Geminiのヘルプも検出なしを人間制作の証明としておらず、別のAIシステムで作られた可能性を明記しています。"
+  },
+  "inspectionPoints": [
+    {"title": "一般公開は英語での提供", "description": "Google DeepMindは2026年10月7日、従来メディア関係者向けに試験していたSynthID Detectorを、英語で世界の利用者へ拡大すると発表しました。", "priority": "high"},
+    {"title": "対象は画像・動画・音声", "description": "発表ではGoogleまたは対応パートナーのAIで作成された画像・動画・音声の確認を案内しています。OpenAI、NVIDIA、Kakaoは対象として列挙され、Appleは『近日』の予定です。", "priority": "high"},
+    {"title": "Geminiアプリ内の検証は別の対応範囲", "description": "Gemini Apps Helpは、アプリ内のSynthID確認について、現時点でGoogle AIツールによる生成・編集物のみを認識すると説明しています。公開Detectorとアプリ内確認を同一機能・同一対応範囲と決めつけません。", "priority": "high"},
+    {"title": "検出なしは非AIの証拠ではない", "description": "Geminiのヘルプは透かしが見つからない場合でも、他のAIシステムが生成した可能性があると説明しています。小さな編集や判定に足る情報の不足も結果が不明瞭になる理由です。", "priority": "high"},
+    {"title": "Content Credentialsは来歴情報の別方式", "description": "Geminiでは対応形式のContent Credentialsがあれば、編集履歴やAI利用に関する情報を確認できます。ただし、この情報だけで素材が確実にAI生成かどうかを断定するものではありません。", "priority": "medium"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "ツールの対象と透かしの意味を確認",
+  "verificationMessage": "検出結果は対応する透かしや来歴情報に関する信号です。非検出を人間制作の証明、検出を内容が虚偽である証明として扱わないでください。",
+  "verdict": {"label": "SynthIDは出所確認の手掛かりで、真偽判定ではない", "description": "検証ツールの提供範囲と認識できる透かしを確認し、内容の真偽や撮影場所などは別の資料で確かめます。", "confidence": "high"},
+  "safeActions": [
+    {"action": "英語対応のSynthID Detectorで、共有された画像・動画・音声に対応する透かしがあるか確認する", "reason": "Google DeepMindはDetectorの対象メディアと提供範囲を発表しています。"},
+    {"action": "Geminiアプリを使う場合は、確認対象がGoogle AI生成物か、Content Credentialsを持つファイルかを区別する", "reason": "アプリ内SynthIDとContent Credentialsでは検証する情報が異なります。"},
+    {"action": "検出・非検出のどちらでも、投稿元、撮影日時、場所、元の報道や記録を別に確認する", "reason": "透かしは内容の真偽や出来事の実在を証明しません。"}
+  ],
+  "avoidActions": [
+    {"action": "検出されなかったので人が撮った本物の映像だと断定する", "reason": "他社AI生成物や透かしを判定できない素材があり得ます。"},
+    {"action": "検出されたことだけを根拠に、映像の出来事や主張を虚偽と決める", "reason": "生成・編集の手掛かりと内容の真偽は別の問題です。"},
+    {"action": "Googleの発表にあるパートナー対応を、Geminiアプリ内でも同じ範囲で確認できると案内する", "reason": "Gemini Apps Helpはアプリ内SynthIDの現行対象をGoogle AIツールに限定して説明しています。"}
+  ],
+  "positiveUse": {"title": "検証結果の限界も一緒に伝える", "description": "視聴者にツール名・確認対象・結果の範囲を説明し、非検出を人間制作の証明にしない運用にします。", "examples": ["報道素材の受領時に元ファイルと投稿元を記録する", "SNS投稿の検証結果を共有するときに対応範囲も添える", "動画の一部分だけに透かしが検出された場合は対象区間を限定して説明する"]},
+  "makotoComment": "今回の新しさは、メディア関係者向けだったDetectorが一般向けに広がり、Google以外の対応パートナーも発表に含まれた点です。ただし、Geminiアプリ内の説明はGoogle AI由来の確認に限っています。『SynthID対応』という一語で、複数の確認画面を同じ能力として扱わないことが実務上の要点です。",
+  "oneLineLesson": "SynthIDの検出は対応する透かしの手掛かりであり、映像の真偽や非AI制作を証明するものではない。",
+  "tags": ["Google DeepMind", "SynthID", "AI生成動画", "画像検証", "音声検証", "Content Credentials", "メディアリテラシー"],
+  "sources": [
+    {"title": "We're making it easier to identify AI-generated content globally", "publisher": "Google DeepMind / Google Blog", "sourceType": "official", "publishedAt": "2026-10-07", "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/"},
+    {"title": "Verify AI-generated images, videos and audio", "publisher": "Google Gemini Apps Help", "sourceType": "official", "publishedAt": null, "url": "https://support.google.com/gemini/answer/16722517?hl=en-yt"}
+  ],
+  "visualSuggestion": {"mainVisual": "ファイルをSynthID DetectorまたはGeminiへ渡し、対応する透かしの検出結果が返る流れを描く。『検出あり＝対応透かし』『検出なし≠人間制作の証明』『真偽は別確認』を明示する。", "cardIcon": "media-provenance-check", "accentTone": "calm"}
+}

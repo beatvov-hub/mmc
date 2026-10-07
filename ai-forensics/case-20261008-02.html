@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WindowsのAIエージェント、ローカル実行とクラウド実行をどう確認する？｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Microsoftは2026年10月7日、WindowsをローカルAIとクラウドAIを使い分ける『ハイブリッド・インテリジェンス』の基盤にする構想を発表しました。発表では、Microsoft Execution Containers（MXC）がWindowsで一般提供となり、エージェントの隔離・識別・管理によって、組織がアクセス範囲や実行主体を管理できると説明しています。一方、CopilotがPC内の文脈を使い、ユーザーに代わって操作する機能は『可能になる』との説明であり、全利用者に提供済みとは確認できません。ローカルで動くという言葉だけで、処理先・権限・ログが自動的に安全になると考えず、利用機能の現在の提供段階と組織の管理設定を確認します。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261008-02" />
+<meta property="og:title" content="WindowsのAIエージェント、ローカル実行とクラウド実行をどう確認する？｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Microsoftは2026年10月7日、WindowsをローカルAIとクラウドAIを使い分ける『ハイブリッド・インテリジェンス』の基盤にする構想を発表しました。発表では、Microsoft Execution Containers（MXC）がWindowsで一般提供となり、エージェントの隔離・識別・管理によって、組織がアクセス範囲や実行主体を管理できると説明しています。一方、CopilotがPC内の文脈を使い、ユーザーに代わって操作する機能は『可能になる』との説明であり、全利用者に提供済みとは確認できません。ローカルで動くという言葉だけで、処理先・権限・ログが自動的に安全になると考えず、利用機能の現在の提供段階と組織の管理設定を確認します。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261008-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Windowsエージェントの実行場所</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-10-08">2026.10.08</time>
+            </div>
+            <h1>WindowsのAIエージェント、ローカル実行とクラウド実行をどう確認する？</h1>
+            <p>Microsoftは2026年10月7日、WindowsをローカルAIとクラウドAIを使い分ける『ハイブリッド・インテリジェンス』の基盤にする構想を発表しました。発表では、Microsoft Execution Containers（MXC）がWindowsで一般提供となり、エージェントの隔離・識別・管理によって、組織がアクセス範囲や実行主体を管理できると説明しています。一方、CopilotがPC内の文脈を使い、ユーザーに代わって操作する機能は『可能になる』との説明であり、全利用者に提供済みとは確認できません。ローカルで動くという言葉だけで、処理先・権限・ログが自動的に安全になると考えず、利用機能の現在の提供段階と組織の管理設定を確認します。</p>
+            <ul class="forensics-target-list"><li>Windows PCでAI機能を使う人</li><li>社内PCのAIエージェントを選定・管理するIT担当者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft</li><li>Windows</li><li>AIエージェント</li><li>ローカルAI</li><li>クラウドAI</li><li>MXC</li><li>権限管理</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>提供段階・処理場所・権限を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>発表上の構想と一般提供済みの機能を分け、ローカル実行という表現だけからデータの保存先やクラウド利用の有無を推測しないでください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>PC上のAIにファイルやアプリ操作を任せる前に、どこで何をするか知りたい</h3><p>WindowsのAI機能やエージェントが、端末内データやクラウドサービスにアクセスする可能性があるため、仕事で使える範囲を判断する場面です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>ローカル実行とクラウド処理はデータの流れや管理方法が異なります。発表された構想と、現在利用可能な製品機能を混同すると、アクセス権や機微情報の扱いを誤る可能性があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-route-and-admin">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>WindowsのAIエージェントを組織データに使う前に、最初にすることは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-route-and-admin" data-choice-id="check-route-and-admin" />
+                <span>
+                  <strong>機能が提供済みかを確認し、実行場所・権限・エージェント識別と管理設定を確認する</strong>
+                  <small>Microsoftの発表は、MXC一般提供と将来のCopilot機能を区別しており、組織がアクセスや動作を管理する仕組みを述べています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="local-equals-private" data-choice-id="local-equals-private" />
+                <span>
+                  <strong>ローカルAIなら情報が端末外へ出ないと決めつける</strong>
+                  <small>発表はローカルとクラウド双方を使う構想で、全処理がローカルに限定されるとは述べていません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="all-now" data-choice-id="all-now" />
+                <span>
+                  <strong>CopilotのPC操作機能がすでに全Windows端末に提供済みとして使い始める</strong>
+                  <small>発表はCopilotが今後ローカル文脈を使い操作できるようになると説明しています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>機能が提供済みかを確認し、実行場所・権限・エージェント識別と管理設定を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>まず発表内容のうち、MXCの一般提供と将来構想を区別します。その上で、自組織の端末設定、対象エージェント、処理先、アクセス範囲をIT管理者と確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ローカルとクラウドを使い分ける構想</h3>
+              <p>Microsoftは、各タスクに応じてPC上またはクラウドでAI処理を行うWindowsの構想を発表しました。常時ローカル実行や、機微データが端末外へ出ない保証として紹介しません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>MXCはWindowsで一般提供</h3>
+              <p>発表はMicrosoft Execution Containers（MXC）がWindowsで一般提供になったとしています。エージェント実行の隔離、識別、管理を支援する仕組みとして説明されています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>エージェントのアクセスと実行主体を管理</h3>
+              <p>Microsoftは、組織がエージェントのアクセス範囲や、どのエージェントが操作したかを把握・管理する仕組みを示しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>CopilotのPC文脈・操作は将来形の説明</h3>
+              <p>CopilotがPC内の文脈を使い、ユーザーの代わりに操作する機能は発表文で将来形です。利用可能な製品・地域・組織設定は個別に確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>ローカルかクラウドかだけでなく、エージェントの権限と提供段階を確認する</strong><p>WindowsのAI機能を業務データに使う際は、実行場所・管理者設定・主体の識別・操作範囲を合わせて確認します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>管理者に対象のCopilot機能が実際に利用可能か、プレビューか構想段階かを確認する</strong><span>今回の発表ではMXCの一般提供とCopilotの将来機能が併記されています。</span></li>
+            <li><strong>社内データへアクセスするエージェントのID、許可範囲、承認経路を確認する</strong><span>発表はエージェントがどの操作をしたか組織が理解・管理できることを重視しています。</span></li>
+            <li><strong>機微情報を使う前に、その機能のローカル・クラウド処理と保存条件を確認する</strong><span>ハイブリッド構想は両方の処理環境を含みます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>ローカルAIという説明だけで、入力や処理がクラウドへ送られないと判断する</strong><span>発表はローカルとクラウドを組み合わせる構想です。</span></li>
+            <li><strong>発表されたCopilotのPC操作がすべてのWindowsユーザーに提供済みと案内する</strong><span>Copilot機能は発表時点で将来形として記載されています。</span></li>
+            <li><strong>MXC一般提供を、すべてのエージェントのアクセスが自動的に安全化された意味に読み替える</strong><span>実際の管理設定や対象機能は組織で確認する必要があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIの実行場所と権限を先に設計する</h3>
+          <p>便利さだけでなく、どの主体がどの情報へアクセスし、どの環境で処理するかを確認して導入します。</p>
+          <ul class="positive-example-list"><li>社内PCの管理者へ、MXCと対象エージェントの適用範囲を尋ねる</li><li>端末内ファイルの利用を許す前に処理・保存条件を確認する</li><li>操作履歴と承認が必要な業務を棚卸しする</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>今回の記事で混同を避けたいのは『MXCが一般提供』と『CopilotがPCの文脈を使って操作できる』の時制です。前者は提供状況として発表され、後者は将来機能の説明です。ローカルAIという看板より、実際に使う機能と権限を管理画面で確かめることが先です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>WindowsのAIエージェントは、ローカルという言葉だけで安心せず、実際の提供状況・処理場所・権限を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://news.microsoft.com/source/emea/2026/10/building-windows-for-hybrid-intelligence/" target="_blank" rel="noopener noreferrer">Building Windows for Hybrid Intelligence<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Source EMEA</span>
+              <span>公式発表</span>
+              <time datetime="2026-10-07">2026-10-07</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261008-03" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="ChatGPT for Teensの学習機能、今使える復習ツールと予告機能 ChatGPT for Teensの学習機能 OpenAIは2026年10月7日、ChatGPT for Teensの学習機能として、ノートからのフラッシュカード・クイズ作成や、復習タスクの設定を紹介しました。カードはTeenのLibraryに保存して後から再開できます。複数ページのノートを連続撮影してPDFにする機能はiOSで利用可能とされ、Android版は開発中です。College Plannerは発表時点で『近日追加予定』で、初期対象は米国の高校10〜12年生のうち4年制大学を目指す生徒向けです。学習カードやクイズは復習の入口として使い、進学要件・締切・奨学金などは各学校の公式案内で照合します。予告中のPlannerを現在使える機能と紹介しないことも大切です。 仕事・AI活用 標準 OpenAI ChatGPT for Teens 学習 フラッシュカード クイズ College Planner 進学 ChatGPTで授業の復習をしたい学生 子どもの学習用AIを一緒に選ぶ保護者・教員">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">study-cards-and-quiz</span>
+              <div>
+                <p>ChatGPT for Teensの学習機能</p>
+                <h3>ChatGPT for Teensの学習機能、今使える復習ツールと予告機能</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-08">2026.10.08</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年10月7日、ChatGPT for Teensの学習機能として、ノートからのフラッシュカード・クイズ作成や、復習タスクの設定を紹介しました。カードはTeenのLibraryに保存して後から再開できます。複数ページのノートを連続撮影してPDFにする機能はiOSで利用可能とされ、Android版は開発中です。College Plannerは発表時点で『近日追加予定』で、初期対象は米国の高校10〜12年生のうち4年制大学を目指す生徒向けです。学習カードやクイズは復習の入口として使い、進学要件・締切・奨学金などは各学校の公式案内で照合します。予告中のPlannerを現在使える機能と紹介しないことも大切です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>端末・提供段階・進学情報の出典を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTで授業の復習をしたい学生</li><li>子どもの学習用AIを一緒に選ぶ保護者・教員</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>OpenAI</li><li>ChatGPT for Teens</li><li>学習</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261007-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Gemini Sparkをオフにしても残るもの、タスク・ファイル・Chrome履歴の整理 Spark停止後に残るデータ GoogleはGemini Sparkについて、Geminiが端末のローカルChromeまたは別のリモートブラウザーで作業し、端末を閉じてもリモート側でタスクが続く場合があるとヘルプで説明しています。ローカルChromeではログイン中のサイトが見え、許可すればPassword Managerに保存したログイン情報を使うこともあります。Sparkをオフにするとリモートブラウザーとリモートコード実行のデータは削除されますが、ローカルChromeの閲覧データは消えず、タスク・スレッド・スケジュール・Geminiが作成または更新したファイルも削除されません。したがって『Sparkをオフにした＝作業の成果物やブラウザー痕跡も消えた』とは限りません。機微な作業を始める前に実行中タスクを確認し、終了後はリモートデータ、ローカル履歴、作成ファイルを別々に点検・削除するのが実務的です。 セキュリティ・権限 標準 Google Gemini Gemini Spark Chrome AIエージェント ブラウザー権限 タスク停止 データ削除 Gemini Sparkでブラウザー作業を任せる人 Google Chromeのログイン状態でAIエージェントを使う人 家族・チームのAI利用を管理する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gemini-spark-cleanup</span>
+              <div>
+                <p>Spark停止後に残るデータ</p>
+                <h3>Gemini Sparkをオフにしても残るもの、タスク・ファイル・Chrome履歴の整理</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-07">2026.10.07</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">GoogleはGemini Sparkについて、Geminiが端末のローカルChromeまたは別のリモートブラウザーで作業し、端末を閉じてもリモート側でタスクが続く場合があるとヘルプで説明しています。ローカルChromeではログイン中のサイトが見え、許可すればPassword Managerに保存したログイン情報を使うこともあります。Sparkをオフにするとリモートブラウザーとリモートコード実行のデータは削除されますが、ローカルChromeの閲覧データは消えず、タスク・スレッド・スケジュール・Geminiが作成または更新したファイルも削除されません。したがって『Sparkをオフにした＝作業の成果物やブラウザー痕跡も消えた』とは限りません。機微な作業を始める前に実行中タスクを確認し、終了後はリモートデータ、ローカル履歴、作成ファイルを別々に点検・削除するのが実務的です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>タスク停止・リモート削除・ローカル整理を分ける</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Gemini Sparkでブラウザー作業を任せる人</li><li>Google Chromeのログイン状態でAIエージェントを使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Gemini</li><li>Gemini Spark</li><li>Chrome</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261006-01" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="ローカル生成AIで相談データを分析する前に、何を入力し人が何を確かめる？ ローカルAI分析の入力と確認 消費者庁の消費者政策研究センターは2026年6月、PIO-NETの過去の相談情報を対象に、ローカル生成AIを使った分析・要約の研究ディスカッションペーパーを公表しました。研究では相談原文をそのままLLMへ渡さず、トピックモデル等で抽出したキーワード・話題情報を入力し、生成文も人が確認・編集しています。これは研究上の検討であり、消費者庁の本番業務への導入発表ではありません。社内の相談記録をAI分析する際も、モデルを社内で動かすことだけで安心せず、入力を加工して情報を絞る工程、出力の人手確認、試験時の限界を設計する参考になります。 仕事・AI活用 標準 消費者庁 ローカル生成AI データ分析 相談記録 データ最小化 人による確認 研究 生成AIで社内データを分析する人 相談記録や顧客データを要約する担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">local-ai-data-analysis-review</span>
+              <div>
+                <p>ローカルAI分析の入力と確認</p>
+                <h3>ローカル生成AIで相談データを分析する前に、何を入力し人が何を確かめる？</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-06">2026.10.06</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">消費者庁の消費者政策研究センターは2026年6月、PIO-NETの過去の相談情報を対象に、ローカル生成AIを使った分析・要約の研究ディスカッションペーパーを公表しました。研究では相談原文をそのままLLMへ渡さず、トピックモデル等で抽出したキーワード・話題情報を入力し、生成文も人が確認・編集しています。これは研究上の検討であり、消費者庁の本番業務への導入発表ではありません。社内の相談記録をAI分析する際も、モデルを社内で動かすことだけで安心せず、入力を加工して情報を絞る工程、出力の人手確認、試験時の限界を設計する参考になります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>入力を絞り、生成文を人が照合</span>
+            </div>
+            <ul class="forensics-card-audience"><li>生成AIで社内データを分析する人</li><li>相談記録や顧客データを要約する担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>消費者庁</li><li>ローカル生成AI</li><li>データ分析</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261008-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261008-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

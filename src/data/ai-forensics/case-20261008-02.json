@@ -1,0 +1,38 @@
+{
+  "id": "case-20261008-02",
+  "publishedAt": "2026-10-08",
+  "title": "WindowsのAIエージェント、ローカル実行とクラウド実行をどう確認する？",
+  "shortTitle": "Windowsエージェントの実行場所",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["Windows PCでAI機能を使う人", "社内PCのAIエージェントを選定・管理するIT担当者"],
+  "summary": "Microsoftは2026年10月7日、WindowsをローカルAIとクラウドAIを使い分ける『ハイブリッド・インテリジェンス』の基盤にする構想を発表しました。発表では、Microsoft Execution Containers（MXC）がWindowsで一般提供となり、エージェントの隔離・識別・管理によって、組織がアクセス範囲や実行主体を管理できると説明しています。一方、CopilotがPC内の文脈を使い、ユーザーに代わって操作する機能は『可能になる』との説明であり、全利用者に提供済みとは確認できません。ローカルで動くという言葉だけで、処理先・権限・ログが自動的に安全になると考えず、利用機能の現在の提供段階と組織の管理設定を確認します。",
+  "scenario": {"headline": "PC上のAIにファイルやアプリ操作を任せる前に、どこで何をするか知りたい", "description": "WindowsのAI機能やエージェントが、端末内データやクラウドサービスにアクセスする可能性があるため、仕事で使える範囲を判断する場面です。", "whyItMatters": "ローカル実行とクラウド処理はデータの流れや管理方法が異なります。発表された構想と、現在利用可能な製品機能を混同すると、アクセス権や機微情報の扱いを誤る可能性があります。"},
+  "question": {"text": "WindowsのAIエージェントを組織データに使う前に、最初にすることは？", "choices": [{"id": "check-route-and-admin", "label": "機能が提供済みかを確認し、実行場所・権限・エージェント識別と管理設定を確認する", "description": "Microsoftの発表は、MXC一般提供と将来のCopilot機能を区別しており、組織がアクセスや動作を管理する仕組みを述べています。"}, {"id": "local-equals-private", "label": "ローカルAIなら情報が端末外へ出ないと決めつける", "description": "発表はローカルとクラウド双方を使う構想で、全処理がローカルに限定されるとは述べていません。"}, {"id": "all-now", "label": "CopilotのPC操作機能がすでに全Windows端末に提供済みとして使い始める", "description": "発表はCopilotが今後ローカル文脈を使い操作できるようになると説明しています。"}], "recommendedAnswers": ["check-route-and-admin"], "explanation": "まず発表内容のうち、MXCの一般提供と将来構想を区別します。その上で、自組織の端末設定、対象エージェント、処理先、アクセス範囲をIT管理者と確認します。"},
+  "inspectionPoints": [
+    {"title": "ローカルとクラウドを使い分ける構想", "description": "Microsoftは、各タスクに応じてPC上またはクラウドでAI処理を行うWindowsの構想を発表しました。常時ローカル実行や、機微データが端末外へ出ない保証として紹介しません。", "priority": "high"},
+    {"title": "MXCはWindowsで一般提供", "description": "発表はMicrosoft Execution Containers（MXC）がWindowsで一般提供になったとしています。エージェント実行の隔離、識別、管理を支援する仕組みとして説明されています。", "priority": "high"},
+    {"title": "エージェントのアクセスと実行主体を管理", "description": "Microsoftは、組織がエージェントのアクセス範囲や、どのエージェントが操作したかを把握・管理する仕組みを示しています。", "priority": "high"},
+    {"title": "CopilotのPC文脈・操作は将来形の説明", "description": "CopilotがPC内の文脈を使い、ユーザーの代わりに操作する機能は発表文で将来形です。利用可能な製品・地域・組織設定は個別に確認します。", "priority": "high"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "提供段階・処理場所・権限を確認",
+  "verificationMessage": "発表上の構想と一般提供済みの機能を分け、ローカル実行という表現だけからデータの保存先やクラウド利用の有無を推測しないでください。",
+  "verdict": {"label": "ローカルかクラウドかだけでなく、エージェントの権限と提供段階を確認する", "description": "WindowsのAI機能を業務データに使う際は、実行場所・管理者設定・主体の識別・操作範囲を合わせて確認します。", "confidence": "high"},
+  "safeActions": [
+    {"action": "管理者に対象のCopilot機能が実際に利用可能か、プレビューか構想段階かを確認する", "reason": "今回の発表ではMXCの一般提供とCopilotの将来機能が併記されています。"},
+    {"action": "社内データへアクセスするエージェントのID、許可範囲、承認経路を確認する", "reason": "発表はエージェントがどの操作をしたか組織が理解・管理できることを重視しています。"},
+    {"action": "機微情報を使う前に、その機能のローカル・クラウド処理と保存条件を確認する", "reason": "ハイブリッド構想は両方の処理環境を含みます。"}
+  ],
+  "avoidActions": [
+    {"action": "ローカルAIという説明だけで、入力や処理がクラウドへ送られないと判断する", "reason": "発表はローカルとクラウドを組み合わせる構想です。"},
+    {"action": "発表されたCopilotのPC操作がすべてのWindowsユーザーに提供済みと案内する", "reason": "Copilot機能は発表時点で将来形として記載されています。"},
+    {"action": "MXC一般提供を、すべてのエージェントのアクセスが自動的に安全化された意味に読み替える", "reason": "実際の管理設定や対象機能は組織で確認する必要があります。"}
+  ],
+  "positiveUse": {"title": "AIの実行場所と権限を先に設計する", "description": "便利さだけでなく、どの主体がどの情報へアクセスし、どの環境で処理するかを確認して導入します。", "examples": ["社内PCの管理者へ、MXCと対象エージェントの適用範囲を尋ねる", "端末内ファイルの利用を許す前に処理・保存条件を確認する", "操作履歴と承認が必要な業務を棚卸しする"]},
+  "makotoComment": "今回の記事で混同を避けたいのは『MXCが一般提供』と『CopilotがPCの文脈を使って操作できる』の時制です。前者は提供状況として発表され、後者は将来機能の説明です。ローカルAIという看板より、実際に使う機能と権限を管理画面で確かめることが先です。",
+  "oneLineLesson": "WindowsのAIエージェントは、ローカルという言葉だけで安心せず、実際の提供状況・処理場所・権限を確認する。",
+  "tags": ["Microsoft", "Windows", "AIエージェント", "ローカルAI", "クラウドAI", "MXC", "権限管理"],
+  "sources": [{"title": "Building Windows for Hybrid Intelligence", "publisher": "Microsoft Source EMEA", "sourceType": "official", "publishedAt": "2026-10-07", "url": "https://news.microsoft.com/source/emea/2026/10/building-windows-for-hybrid-intelligence/"}],
+  "visualSuggestion": {"mainVisual": "PC内で処理する経路とクラウドへ接続する経路を並べ、エージェントID・隔離・管理者設定を共通の確認項目として示す。MXC一般提供とCopilotの将来構想に別ラベルを付ける。", "cardIcon": "hybrid-ai-routing", "accentTone": "serious"}
+}
