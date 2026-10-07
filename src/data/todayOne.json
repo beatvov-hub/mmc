@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-07T07:32:00+09:00",
+  "updatedAt": "2026-10-08T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -1528,6 +1528,55 @@
       ],
       "notes": "公式手順を基にした想定例です。実機でのレポート作成・検証は未実施です。",
       "verifiedAt": "2026-10-07",
+      "status": "published"
+    },
+    {
+      "date": "2026-10-08",
+      "slug": "powertoys-text-extractor",
+      "name": "PowerToys Text Extractor",
+      "category": "OSS",
+      "officialUrl": "https://learn.microsoft.com/en-us/windows/powertoys/text-extractor",
+      "archiveTitle": "PowerToys Text Extractorで画面の文字をコピーできる？",
+      "archiveDescription": "選択できない画面のエラー文や設定表示を手入力せず共有したい人向けに、PowerToys Text Extractorで範囲内の文字をクリップボードへ移す手順と、OCRの確認点を紹介します。",
+      "forWho": "Windowsで、画像・動画・選択できない画面にあるエラー文や設定値を、手入力せずメモや相談相手へ渡したい人向けです。",
+      "summary": "PowerToys Text Extractorは、画面の範囲を選んで文字を読み取り、クリップボードへコピーするWindows用OCR機能です。コピーした文をメモやAIへの相談に使えますが、読み取り結果は誤認識がないか確認してください。",
+      "whyToday": "画面にしか表示されないエラーや設定値は、相談のたびに打ち直すと記号や数字を間違えがちです。範囲を選択するだけで文字をクリップボードへ送れるText Extractorなら、内容を確認してからそのまま相談文へ移せます。",
+      "useFor": "例えば、アプリの画面に出たエラーをサポート担当やAIへ相談する想定です。PowerToysをWindowsへ入れ、Text Extractorを有効にして、既定のWin+Shift+Tを押します。文字のある範囲をドラッグすると認識結果がクリップボードへコピーされるので、メモや相談欄に貼り付け、元画面と数字・記号・改行を照合します。まずエラー文の一部分で試し、貼り付けた文を確認してから共有すれば、再入力を減らした相談メモが作れます。",
+      "recommendedFor": {
+        "employeeId": "MMC-011",
+        "reason": "編集主任のコトちゃんに、画面のコメントや選択できない原稿断片を取り込み、元画面と照合した修正メモを作る想定です。誤読箇所を明示したテキストを成果物として受け取れれば、確認や編集の相談へ正確につなげられます。"
+      },
+      "keiComment": "画面から直接コピーできるのは、細かいエラー文を共有するときに助かりますね。数字や記号はOCRが取り違えることもあるので、貼り付けた後に元画面と一度見比べる運用にしたいです。",
+      "pricing": "PowerToysはMITライセンスで公開されたオープンソースです。ソフト本体の利用料はありません。",
+      "conditions": "Windows 11、またはWindows 10 version 2004以降の64-bit環境が必要です。認識できる言語はWindowsにOCR言語パックが導入されたものに限られます。",
+      "license": "MIT License",
+      "cautions": "OCRの出力は完全とは限らず、公式ガイドも読み直しを勧めています。機密情報を含む画面をコピー・共有する際は、貼り付け先と共有範囲を確認してください。",
+      "faq": [
+        {
+          "question": "MacでもPowerToys Text Extractorを使えますか？",
+          "answer": "使えません。PowerToysはWindows向けで、公式の動作要件はWindows 11またはWindows 10 version 2004以降の64-bit環境です。"
+        },
+        {
+          "question": "日本語の画面もそのまま読み取れますか？",
+          "answer": "Text ExtractorはWindowsにOCR言語パックが導入された言語を認識します。対象言語が利用可能か、WindowsのOCR言語パック一覧と設定を確認してください。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Microsoft Learn：Text Extractorの起動・範囲選択・OCR言語・注意点",
+          "url": "https://learn.microsoft.com/en-us/windows/powertoys/text-extractor"
+        },
+        {
+          "label": "Microsoft Learn：PowerToysの対応Windows・インストール方法",
+          "url": "https://learn.microsoft.com/en-us/windows/powertoys/install"
+        },
+        {
+          "label": "Microsoft PowerToys公式GitHub：MITライセンス",
+          "url": "https://github.com/microsoft/PowerToys/blob/main/LICENSE"
+        }
+      ],
+      "notes": "公式ドキュメントに基づく想定例です。実機検証は未実施です。",
+      "verifiedAt": "2026-10-08",
       "status": "published"
     }
   ]
