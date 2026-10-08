@@ -14,6 +14,9 @@ FOOTER_END = "<!-- SITE_FOOTER_END -->"
 GOOGLE_TAG_START = "<!-- GOOGLE_TAG_START -->"
 GOOGLE_TAG_END = "<!-- GOOGLE_TAG_END -->"
 GOOGLE_TAG_ID = "G-35Q8QP7V1W"
+ADSENSE_START = "<!-- ADSENSE_START -->"
+ADSENSE_END = "<!-- ADSENSE_END -->"
+ADSENSE_CLIENT = "ca-pub-9855736132276938"
 
 HEADER_BLOCK_RE = re.compile(
     r"^[ \t]*<!-- SITE_HEADER_START -->[\s\S]*?^[ \t]*<!-- SITE_HEADER_END -->",
@@ -44,6 +47,14 @@ GOOGLE_TAG_UNMARKED_RE = re.compile(
     r"^[ \t]*<!-- Google tag \(gtag\.js\) -->\s*\n"
     r"[ \t]*<script async src=\"https://www\.googletagmanager\.com/gtag/js\?id=G-35Q8QP7V1W\"></script>\s*\n"
     r"[ \t]*<script>[\s\S]*?gtag\('config', 'G-35Q8QP7V1W'\);[\s\S]*?</script>\s*",
+    re.MULTILINE,
+)
+ADSENSE_BLOCK_RE = re.compile(
+    r"^[ \t]*<!-- ADSENSE_START -->[\s\S]*?^[ \t]*<!-- ADSENSE_END -->\s*",
+    re.MULTILINE,
+)
+ADSENSE_UNMARKED_RE = re.compile(
+    r'^[ \t]*<script async src="https://pagead2\.googlesyndication\.com/pagead/js/adsbygoogle\.js\?client=ca-pub-9855736132276938"\s*\n[ \t]*crossorigin="anonymous"></script>\s*',
     re.MULTILINE,
 )
 HEAD_CLOSE_RE = re.compile(r"^[ \t]*</head>", re.IGNORECASE | re.MULTILINE)
@@ -116,6 +127,15 @@ def render_google_tag() -> str:
     )
 
 
+def render_adsense() -> str:
+    return "\n".join(
+        [
+            f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}"',
+            '  crossorigin="anonymous"></script>',
+        ]
+    )
+
+
 def marked_block(start: str, body: str, end: str) -> str:
     return f"    {start}\n{indent_block(body)}\n    {end}"
 
@@ -179,6 +199,16 @@ def apply_google_tag(html_text: str) -> str:
     block = marked_block(GOOGLE_TAG_START, render_google_tag(), GOOGLE_TAG_END) + "\n"
     html_text = GOOGLE_TAG_BLOCK_RE.sub("", html_text)
     html_text = GOOGLE_TAG_UNMARKED_RE.sub("", html_text)
+    match = HEAD_CLOSE_RE.search(html_text)
+    if not match:
+        raise ValueError("Could not find head end.")
+    return html_text[: match.start()] + block + html_text[match.start() :]
+
+
+def apply_adsense(html_text: str) -> str:
+    block = marked_block(ADSENSE_START, render_adsense(), ADSENSE_END) + "\n"
+    html_text = ADSENSE_BLOCK_RE.sub("", html_text)
+    html_text = ADSENSE_UNMARKED_RE.sub("", html_text)
     match = HEAD_CLOSE_RE.search(html_text)
     if not match:
         raise ValueError("Could not find head end.")
@@ -272,6 +302,7 @@ def page_context(path: Path) -> tuple[str, str]:
 
 def apply_layout_to_html(html_text: str, *, prefix: str, current: str) -> str:
     html_text = apply_google_tag(html_text)
+    html_text = apply_adsense(html_text)
     html_text = replace_block(
         html_text,
         marked_re=HEADER_BLOCK_RE,
