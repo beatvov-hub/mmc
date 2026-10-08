@@ -8,10 +8,18 @@ import hashlib
 import json
 import random
 import re
+import time
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
-from site_layout import ROOT, apply_layout_to_file
+from site_layout import (
+    ROOT,
+    apply_canonical,
+    apply_layout_to_html,
+    canonical_url,
+    normalize_internal_links,
+    page_context,
+)
 
 DATA_PATH = ROOT / "src" / "data" / "dailyQuiz.json"
 QUIZ_DIR = ROOT / "quiz"
@@ -582,9 +590,24 @@ def validate(data: dict) -> None:
 def write_page(path: Path, content: str, depth: int) -> bool:
     previous = path.read_text(encoding="utf-8") if path.exists() else None
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(with_prefix(content, depth), encoding="utf-8")
-    apply_layout_to_file(path)
-    return path.read_text(encoding="utf-8") != previous
+    prefix, current = page_context(path)
+    rendered = apply_canonical(with_prefix(content, depth), url=canonical_url(path))
+    rendered = apply_layout_to_html(rendered, prefix=prefix, current=current)
+    rendered = normalize_internal_links(rendered)
+    if rendered == previous:
+        return False
+    # Windows can transiently reject an in-place write while a local indexer or
+    # preview process has just opened a generated file.  Retry only that I/O
+    # operation; generated content and route handling remain unchanged.
+    for attempt in range(10):
+        try:
+            path.write_text(rendered, encoding="utf-8")
+            break
+        except OSError as error:
+            if attempt == 9:
+                raise
+            time.sleep(0.25 * (attempt + 1))
+    return True
 
 
 def main() -> None:
