@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-08T07:30:00+09:00",
+  "updatedAt": "2026-10-09T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -1577,6 +1577,59 @@
       ],
       "notes": "公式ドキュメントに基づく想定例です。実機検証は未実施です。",
       "verifiedAt": "2026-10-08",
+      "status": "published"
+    },
+    {
+      "date": "2026-10-09",
+      "slug": "mailpit",
+      "name": "Mailpit",
+      "category": "Developer Tool",
+      "officialUrl": "https://mailpit.axllent.org/",
+      "archiveTitle": "Mailpitでパスワード再設定メールを本番送信せず確認できる？",
+      "archiveDescription": "開発中の確認メールを実ユーザーへ送らずに確認したい人向けに、MailpitでローカルSMTPを受けて本文やリンクを見る手順と、ネットワーク公開時の注意を紹介します。",
+      "forWho": "Webアプリの確認メールやパスワード再設定メールを、本番の宛先へ送らずに件名・本文・リンクを点検したい開発担当者向けです。",
+      "summary": "Mailpitは開発用SMTPサーバーとしてテストメールを受け取り、Web画面で内容を確認できるツールです。アプリの開発環境の送信先をMailpitにすれば、実際の受信者へ送らずにメールの見た目やリンクを点検できます。",
+      "whyToday": "確認メールの動作を試すたびに実在のアドレスへ送ると、誤送信やテスト履歴の混在が起きます。アプリのSMTP接続先をMailpitへ向ければ、送信処理を試しながら、届くはずのメールを専用画面に隔離して確認できます。",
+      "useFor": "例えば、開発中のWebアプリでパスワード再設定メールを確認する想定です。Mailpitをローカルで起動し、既定では全ネットワークに公開されるため、UIとSMTPの待受先を`--listen 127.0.0.1:8025 --smtp 127.0.0.1:1025`として自分のPC内に限定します。アプリの開発用SMTP設定を`127.0.0.1:1025`へ向けて再設定メールを発行し、ブラウザーで`http://127.0.0.1:8025`を開いて、件名・宛先・本文・リンク先を確認します。成果物は確認済みのメール表示と修正メモです。テスト用アカウント1件で試し、実際の送信先が開発用SMTPへ向いていることも確かめます。",
+      "recommendedFor": {
+        "employeeId": "MMC-008",
+        "reason": "開発推進のアキトに、テスト用の再設定メールをMailpitで受ける確認手順をまとめてもらいたいです。件名・本文・リンク・SMTP接続先を点検するチェックリストがあれば、実ユーザーへ送る前の開発確認に使えます。"
+      },
+      "keiComment": "本番へ出す前に、届くメールを専用の受け皿で見られるのは安心です。ただ、Mailpitは初期設定のままだと他の端末からも届く待受け方なので、まずは自分のPC内だけに限定して使うのがよさそうです。",
+      "pricing": "MailpitはMITライセンスのオープンソースです。ソフト本体の利用料はありません。",
+      "conditions": "Mailpitをローカルまたは自分で管理する開発環境に用意し、テスト対象アプリでSMTP接続先を設定します。Docker利用時はDocker環境が必要です。サーバーやネットワーク環境の費用は別です。",
+      "license": "MIT License",
+      "cautions": "既定のUI/APIとSMTPは`0.0.0.0`で待ち受け、SMTPに暗号化・認証がありません。開発用メールにはテスト情報だけを使い、外部ネットワークへ公開せずloopbackへ限定してください。共有環境で使う場合は公式の認証・TLS・Host制限を確認します。",
+      "faq": [
+        {
+          "question": "Mailpitで受けたメールは、実際のメールアドレスにも届きますか？",
+          "answer": "通常の開発テストではMailpit内に保存され、Web画面で確認します。SMTPリレーや転送を別途設定した場合は外部へ送れるため、テスト用途ではその設定を有効にしないでください。"
+        },
+        {
+          "question": "Mailpitをチームで共有しても大丈夫ですか？",
+          "answer": "既定のSMTPは全インターフェースで待ち受け、暗号化・認証もありません。共有ネットワークからアクセスできる環境では、公開範囲を制限し、必要に応じてUI認証・SMTP認証・TLS・Host許可リストを設定してください。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Mailpit公式ドキュメント：メールのテスト送信",
+          "url": "https://mailpit.axllent.org/docs/install/testing/"
+        },
+        {
+          "label": "Mailpit公式ドキュメント：待受アドレス・認証・Host制限",
+          "url": "https://mailpit.axllent.org/docs/configuration/runtime-options/"
+        },
+        {
+          "label": "Mailpit公式ドキュメント：SMTPの既定動作・暗号化・認証",
+          "url": "https://mailpit.axllent.org/docs/configuration/smtp/"
+        },
+        {
+          "label": "Mailpit公式GitHub：概要・MITライセンス",
+          "url": "https://github.com/axllent/mailpit"
+        }
+      ],
+      "notes": "公式手順をもとにした開発環境での想定例です。実機検証は未実施です。",
+      "verifiedAt": "2026-10-09",
       "status": "published"
     }
   ]
