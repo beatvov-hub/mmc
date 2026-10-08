@@ -123,7 +123,13 @@ def rotation_day(now: datetime) -> date:
     return (now.astimezone(TOKYO) - timedelta(hours=6)).date()
 
 
-def document(title: str, description: str, body: str, script_path: str | None = None, structured_data: dict | None = None) -> str:
+def document(
+    title: str,
+    description: str,
+    body: str,
+    script_path: str | None = None,
+    structured_data: dict | list[dict] | None = None,
+) -> str:
     script = f'\n  <script src="{script_path}" defer></script>' if script_path else ""
     schema = (
         '\n  <script type="application/ld+json">'
@@ -171,6 +177,29 @@ def breadcrumb_schema(items: list[tuple[str, str | None]]) -> dict:
 
 def answer_term(question: dict) -> str:
     return next(choice["text"] for choice in question["choices"] if choice["id"] == question["correctAnswer"])
+
+
+def question_schema(question: dict, qualification: dict) -> dict:
+    """Describe the visible practice question using Google's education Q&A vocabulary."""
+    return {
+        "@context": "https://schema.org",
+        "@type": "Quiz",
+        "name": f"{qualification['name']}｜{question['title']}",
+        "about": {"@type": "Thing", "name": question["category"]},
+        "hasPart": {
+            "@type": "Question",
+            "eduQuestionType": "Flashcard",
+            "text": question["question"],
+            "acceptedAnswer": {"@type": "Answer", "text": answer_term(question)},
+        },
+    }
+
+
+def question_description(question: dict, qualification: dict) -> str:
+    return (
+        f"{qualification['name']}のオリジナル4択問題「{question['title']}」。"
+        f"{question['question']} 答え・解説と関連用語を確認できます。"
+    )
 
 
 def related_terms(question: dict, questions: list[dict]) -> list[dict]:
@@ -253,7 +282,7 @@ def render_question_body(question: dict, heading_level: int, key: str, *, number
       </section>
       <section class="quiz-answer" id="{answer_id}" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <{heading} class="quiz-answer-title">正解：{escape(question['correctAnswer'])}</{heading}>
+        <{heading} class="quiz-answer-title">正解：{escape(question['correctAnswer'])}｜{escape(answer_term(question))}</{heading}>
         <p>{escape(question['explanation']['correct'])}</p>
         <{subheading}>選択肢のポイント</{subheading}><ul class="quiz-explanation-list">{explanations}</ul>
         <{subheading}>関連キーワード</{subheading}><ul class="quiz-keywords">{keywords}</ul>
@@ -458,7 +487,7 @@ def render_detail(qualification: dict, question: dict, previous: dict | None, ne
       </section>
       <section class="quiz-answer" id="quiz-answer" data-quiz-answer hidden aria-live="polite">
         <p class="section-kicker">ANSWER &amp; EXPLANATION</p>
-        <h2>正解：{escape(question['correctAnswer'])}</h2>
+        <h2>正解：{escape(question['correctAnswer'])}｜{escape(answer_term(question))}</h2>
         <p>{escape(question['explanation']['correct'])}</p>
         <h3>選択肢のポイント</h3><ul class="quiz-explanation-list">{explanations}</ul>
         <h3>関連キーワード</h3><ul class="quiz-keywords">{keyword_list}</ul>
@@ -473,13 +502,11 @@ def render_detail(qualification: dict, question: dict, previous: dict | None, ne
     <nav class="quiz-next-nav" aria-label="問題の移動">{previous_link}{next_link}<a href="{practice_route(qualification['id'], bank_page)}">この資格の問題集</a><a href="/quiz/{qualification['id']}">資格トップ</a><a href="/quiz">毎日一問。トップ</a></nav>
   </div>
 </main>"""
-    description = (
-        f"{qualification['name']}の{question['category']}を学ぶオリジナル4択問題「{question['title']}」。"
-        "答え・解説と、関連する用語の意味や使われる場面を確認できます。"
-    )
+    description = question_description(question, qualification)
     return document(
         f"{qualification['name']}｜{detail_label}", description, body,
-        "../" * depth + "scripts/daily-quiz.js", breadcrumb_schema(crumbs),
+        "../" * depth + "scripts/daily-quiz.js",
+        [breadcrumb_schema(crumbs), question_schema(question, qualification)],
     )
 
 
@@ -532,6 +559,10 @@ def validate(data: dict) -> None:
             raise ValueError(f"Question must have A-D choices: {question['id']}")
         if question["correctAnswer"] not in {"A", "B", "C", "D"}:
             raise ValueError(f"Unknown correct answer: {question['id']}")
+        if len({choice["text"].strip() for choice in question["choices"]}) != 4:
+            raise ValueError(f"Choices must have four distinct texts: {question['id']}")
+        if len(question["question"].strip()) < 12 or len(question["explanation"]["correct"].strip()) < 25:
+            raise ValueError(f"Question or correct explanation is too short: {question['id']}")
         if "slug" in question and not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", question["slug"]):
             raise ValueError(f"Invalid question slug: {question['id']}")
         route = route_for(question)
@@ -540,7 +571,11 @@ def validate(data: dict) -> None:
         seen_ids.add(question["id"])
         seen_routes.add(route)
         date.fromisoformat(question["date"])
-        if not question["sourceUrl"].startswith("https://") or set(question["explanation"]["choices"]) != {"A", "B", "C", "D"}:
+        if (
+            not question["sourceUrl"].startswith("https://")
+            or set(question["explanation"]["choices"]) != {"A", "B", "C", "D"}
+            or any(len(text.strip()) < 8 for text in question["explanation"]["choices"].values())
+        ):
             raise ValueError(f"Incomplete source or explanation: {question['id']}")
 
 

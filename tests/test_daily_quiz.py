@@ -126,11 +126,18 @@ class DailyQuizTest(unittest.TestCase):
             self.assertEqual(page.count('class="quiz-term-context"'), len(related))
             for item in related:
                 self.assertIn(f'href="{quiz.route_for(item)}"', page)
-            schema = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', page).group(1))
-            self.assertEqual(schema["@type"], "BreadcrumbList")
-            self.assertGreaterEqual(len(schema["itemListElement"]), 3)
-            self.assertEqual(schema["itemListElement"][-1]["name"],
+            schemas = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', page).group(1))
+            breadcrumb, quiz_schema = schemas
+            self.assertEqual(breadcrumb["@type"], "BreadcrumbList")
+            self.assertGreaterEqual(len(breadcrumb["itemListElement"]), 3)
+            self.assertEqual(breadcrumb["itemListElement"][-1]["name"],
                              question["title"] if question.get("slug") else f"{quiz.jp_date(question['date'])}の問題")
+            self.assertEqual(quiz_schema["@type"], "Quiz")
+            self.assertEqual(quiz_schema["hasPart"]["eduQuestionType"], "Flashcard")
+            self.assertEqual(quiz_schema["hasPart"]["text"], question["question"])
+            self.assertEqual(quiz_schema["hasPart"]["acceptedAnswer"]["text"], quiz.answer_term(question))
+            description = re.search(r'<meta name="description" content="([^"]*)">', page).group(1)
+            self.assertIn(escape(question["question"]), description)
 
     def test_generated_hub_and_bank_links_resolve_to_answerable_pages(self) -> None:
         data = json.loads(quiz.DATA_PATH.read_text(encoding="utf-8"))
