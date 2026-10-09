@@ -1,0 +1,129 @@
+{
+  "id": "case-20261009-01",
+  "publishedAt": "2026-10-09",
+  "title": "Googleの顔動画でアカウント復旧するなら、締め出される前に設定する",
+  "shortTitle": "顔動画の復旧設定と任意同意",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": [
+    "個人のGoogleアカウントを使う人",
+    "顔認識による復旧手段を検討する人"
+  ],
+  "summary": "Google Account Helpは2026年10月9日の確認時点で、顔動画を登録してGoogleアカウントへのサインインを回復する方法を案内しています。ヘルプの公開日は不明です。この機能はログインできなくなってから登録することはできず、利用できる地域・アカウント・端末にも制限があります。設定するなら、普段ログインできている間に対象か確認し、復旧用の登録と顔認識などのサービス改善への任意同意を分けて選びます。",
+  "scenario": {
+    "headline": "スマホを失う前に、Googleアカウントの復旧手段を増やしたい",
+    "description": "設定にSelfie videoが現れ、顔動画を登録するか迷っています。",
+    "whyItMatters": "復旧のための顔照合と、サービス改善への追加利用は別の選択です。登録できる時期と対象条件を先に確認します。"
+  },
+  "question": {
+    "text": "顔動画を復旧に使いたい場合、いつ何を確認する？",
+    "choices": [
+      {
+        "id": "check-scope",
+        "label": "ログインできる間に対象条件と任意の改善設定を確認して登録する",
+        "description": "Googleの顔動画復旧は締め出される前に登録し、復旧用の照合と任意の改善利用を分けて選ぶ。"
+      },
+      {
+        "id": "assume-all",
+        "label": "締め出されてから顔動画を新規登録すればよい",
+        "description": "公式ヘルプはロックアウト中の追加を認めていません。"
+      }
+    ],
+    "recommendedAnswers": [
+      "check-scope"
+    ],
+    "explanation": "Googleの顔動画復旧は締め出される前に登録し、復旧用の照合と任意の改善利用を分けて選ぶ。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "締め出される前の登録が必要",
+      "description": "復旧で使うには顔動画をあらかじめ登録します。ロックアウト中や復旧手続き中には追加できません。",
+      "priority": "high"
+    },
+    {
+      "title": "すべての利用者が対象ではない",
+      "description": "地域・端末・アカウントで利用可否が異なります。Workspace、子ども用、高度な保護プログラムのアカウントは現時点で追加できません。",
+      "priority": "high"
+    },
+    {
+      "title": "設定する場所",
+      "description": "自分でGoogleアカウントを開き、Security & sign-in → How you sign in to Google → Selfie videoへ進みます。項目がない場合に別サイトへ顔動画を送る必要はありません。",
+      "priority": "high"
+    },
+    {
+      "title": "改善への同意は任意",
+      "description": "Selfie videoページのImprove Google services (optional)は、顔認識・年齢推定などの改善利用への追加設定です。後からオン・オフを変更できます。",
+      "priority": "high"
+    },
+    {
+      "title": "削除後の効果も確認",
+      "description": "復旧用動画を削除すると顔動画によるサインインに使えなくなります。削除は即時完了とは限らず、安全対策などのため一時的に保持される場合があります。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "顔動画の復旧設定と任意同意",
+  "verificationMessage": "Googleの顔動画復旧は締め出される前に登録し、復旧用の照合と任意の改善利用を分けて選ぶ。",
+  "verdict": {
+    "label": "Googleの顔動画復旧は締め出される前に登録し、復旧用の照合と任意の改善利用を分けて選ぶ。",
+    "description": "復旧のための顔照合と、サービス改善への追加利用は別の選択です。登録できる時期と対象条件を先に確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "普段ログインできるうちに設定項目と対象条件を確認する",
+      "reason": "締め出されてからは登録できないためです。"
+    },
+    {
+      "action": "顔動画の登録と任意の改善利用を別々に選ぶ",
+      "reason": "復旧の目的と追加利用への同意を混同しないためです。"
+    },
+    {
+      "action": "削除する前に復旧手段を見直す",
+      "reason": "削除した顔動画はサインインに利用できなくなるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "復旧できなくなってから新規登録できると思う",
+      "reason": "公式ヘルプはロックアウト中の追加を認めていません。"
+    },
+    {
+      "action": "項目がないからと第三者のリンクへ顔動画を送る",
+      "reason": "対象外の場合もあり、別サイトへの提供は公式の設定手順ではありません。"
+    }
+  ],
+  "positiveUse": {
+    "title": "復旧の選択肢を、使えるうちに整える",
+    "description": "対象条件と任意同意を理解して選べば、普段の復旧手段に加える候補になります。",
+    "examples": [
+      "自分のアカウントに項目があるか確認する",
+      "改善利用を選ぶか判断する",
+      "削除時に復旧手段を再確認する"
+    ]
+  },
+  "makotoComment": "『顔を撮ればいつでも戻れる』ではなく、先に保存した動画と比較する仕組みです。私は設定の魅力よりも、困ってからは登録できないという順序を先に伝えたいと思いました。",
+  "oneLineLesson": "Googleの顔動画復旧は締め出される前に登録し、復旧用の照合と任意の改善利用を分けて選ぶ。",
+  "tags": [
+    "Google",
+    "Googleアカウント",
+    "顔動画",
+    "Selfie video",
+    "アカウント復旧",
+    "顔認識"
+  ],
+  "sources": [
+    {
+      "title": "Take, manage & use a selfie video",
+      "publisher": "Google Account Help",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/16675622?hl=En"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "スマホを失う前に、Googleアカウントの復旧手段を増やしたい場面で、確認項目と避ける判断を対比する。",
+    "cardIcon": "case-check-01",
+    "accentTone": "caution"
+  }
+}

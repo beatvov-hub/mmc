@@ -1,0 +1,136 @@
+{
+  "id": "case-20261009-03",
+  "publishedAt": "2026-10-09",
+  "title": "EUのAI苦情窓口は、何でも匿名で通報できるフォームではない",
+  "shortTitle": "EUのAI苦情と内部通報の違い",
+  "category": "media-literacy",
+  "difficulty": "standard",
+  "targetAudience": [
+    "EUに関わるAIサービスの問題を申し立てたい人",
+    "AI Actの相談先を調べる人"
+  ],
+  "summary": "欧州委員会は2026年10月6日更新の案内で、AI Act Complaints ToolとAI Act Whistleblower Toolの対象・提出方法を説明しています。一般の苦情フォームはAI Officeの専属管轄にあるAIシステムが対象で、本人情報と連絡先が必要です。一方、職業上AI事業者と関係する適格者向けの内部通報窓口は匿名の連絡に対応します。EUの制度であり、日本国内のあらゆるAIトラブルを受け付ける万能窓口ではありません。",
+  "scenario": {
+    "headline": "EUに関わるAIの問題を見つけ、欧州委員会へ知らせたい",
+    "description": "検索で苦情フォームと内部通報フォームが見つかり、匿名で送れる方を選ぼうとしています。",
+    "whyItMatters": "二つの窓口は匿名性だけでなく、対象と利用者の条件が異なります。"
+  },
+  "question": {
+    "text": "EUのAI窓口を選ぶ時、先に確認することは？",
+    "choices": [
+      {
+        "id": "check-scope",
+        "label": "問題の管轄と自分の立場を確認し、苦情か内部通報かを選ぶ",
+        "description": "EUのAI苦情と内部通報は、管轄・提出者の立場・匿名性を確かめて使い分ける。"
+      },
+      {
+        "id": "assume-all",
+        "label": "匿名で送りたいので、誰でも内部通報フォームを使う",
+        "description": "苦情フォームは本人情報を必要とします。"
+      }
+    ],
+    "recommendedAnswers": [
+      "check-scope"
+    ],
+    "explanation": "EUのAI苦情と内部通報は、管轄・提出者の立場・匿名性を確かめて使い分ける。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "一般の苦情の範囲",
+      "description": "苦情はArticle 85の範囲かつAI Officeの専属管轄のAIシステムに関するものが対象です。他のEU法・国内法の違反などはこのフォームの対象外です。",
+      "priority": "high"
+    },
+    {
+      "title": "苦情は匿名ではない",
+      "description": "苦情提出には本人・連絡先情報が必要です。秘密に扱われることと匿名で提出できることは別です。",
+      "priority": "high"
+    },
+    {
+      "title": "発生国と具体的な説明を用意",
+      "description": "必須項目に加え、発生国、違反の疑いの詳細を記載します。関連資料を添付でき、EUの公用語で提出できます。送信後の照会に使う受付番号を保存します。",
+      "priority": "high"
+    },
+    {
+      "title": "内部通報は職業上の関係が条件",
+      "description": "内部通報はGPAIモデル提供者、またはAI Office管轄のAIシステム提供者と職業上関係する個人が対象です。安全な受信箱で匿名の追加質問に応答できます。",
+      "priority": "high"
+    },
+    {
+      "title": "対象外の問題は窓口を再確認",
+      "description": "一般の苦情の対象外にはArticles 53〜55の違反なども含まれます。GPAIを組み込む下流提供者向けには別の申立て経路があります。一般消費者用と混同しません。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "EUのAI苦情と内部通報の違い",
+  "verificationMessage": "EUのAI苦情と内部通報は、管轄・提出者の立場・匿名性を確かめて使い分ける。",
+  "verdict": {
+    "label": "EUのAI苦情と内部通報は、管轄・提出者の立場・匿名性を確かめて使い分ける。",
+    "description": "二つの窓口は匿名性だけでなく、対象と利用者の条件が異なります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "フォームを開く前に対象AIと問題が管轄に入るか確認する",
+      "reason": "対象外の窓口へ送って解決したと思うことを防げます。"
+    },
+    {
+      "action": "発生国・問題の詳細・関連資料を整理する",
+      "reason": "苦情の評価に必要な情報を伝えるためです。"
+    },
+    {
+      "action": "提出後の受付番号を保存する",
+      "reason": "AI Officeとの追加の連絡に使います。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "秘密に扱われる苦情を匿名と考える",
+      "reason": "苦情フォームは本人情報を必要とします。"
+    },
+    {
+      "action": "EUの窓口を日本の一般相談窓口として案内する",
+      "reason": "適用制度と対象範囲が異なります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "対象の窓口へ、評価できる情報を届ける",
+    "description": "該当するEUの事例で、立場と管轄を確認したうえで適切な手続きへ進みます。",
+    "examples": [
+      "発生国と具体的な事実を整理",
+      "匿名通報の適格条件を確認",
+      "受付番号で追加照会"
+    ]
+  },
+  "makotoComment": "『秘密に扱います』と『匿名で送れます』は似て見えますが、苦情フォームでは意味が違います。窓口の名前より、対象と提出者の条件を並べると迷いが減ると感じました。",
+  "oneLineLesson": "EUのAI苦情と内部通報は、管轄・提出者の立場・匿名性を確かめて使い分ける。",
+  "tags": [
+    "EU",
+    "AI Act",
+    "AI Office",
+    "苦情",
+    "内部通報",
+    "利用者の権利"
+  ],
+  "sources": [
+    {
+      "title": "AI Act Complaints tool",
+      "publisher": "European Commission",
+      "sourceType": "official",
+      "publishedAt": "2026-10-06",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-act-complaints-tool"
+    },
+    {
+      "title": "AI Act Whistleblower Tool",
+      "publisher": "European Commission",
+      "sourceType": "official",
+      "publishedAt": "2026-10-06",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-act-whistleblower-tool"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "EUに関わるAIの問題を見つけ、欧州委員会へ知らせたい場面で、確認項目と避ける判断を対比する。",
+    "cardIcon": "case-check-03",
+    "accentTone": "caution"
+  }
+}

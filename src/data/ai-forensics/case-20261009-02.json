@@ -1,0 +1,131 @@
+{
+  "id": "case-20261009-02",
+  "publishedAt": "2026-10-09",
+  "title": "CopilotがExcelを直したら、回答のリンクと「変更の表示」で編集箇所を確認する",
+  "shortTitle": "ExcelのAI編集をたどる",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": [
+    "CopilotでExcelを編集する人",
+    "共同編集した表を検収する人"
+  ],
+  "summary": "MicrosoftはMicrosoft 365 Copilotの2026年9月23日掲載のリリースノートで、Excelの回答から変更箇所へ移動するリンクと、変更の表示にCopilotの利用を示す表示を案内しています。回答の説明だけで完了にせず、変更されたセルや数式へ進んで確認できます。ただし通常の変更記録はグラフや書式などすべての編集を網羅しません。回答リンク、変更の表示、バージョン履歴を目的に合わせて使い分けます。",
+  "scenario": {
+    "headline": "Copilotに集計表を修正してもらい、同僚へ渡す前に確認する",
+    "description": "回答には『修正しました』とありますが、どこが変わったのか自分の目で追いたい場面です。",
+    "whyItMatters": "文章の完了報告と実際のセルの内容は別です。変更への導線を使うと確認範囲を絞れます。"
+  },
+  "question": {
+    "text": "Copilotの編集を確認する時、どの組み合わせが適切？",
+    "choices": [
+      {
+        "id": "check-scope",
+        "label": "回答の変更リンクで現物へ進み、変更の表示やバージョン履歴で補う",
+        "description": "ExcelのCopilot編集は回答から現物へ進んで検収し、変更の表示が扱わない部分は過去版との比較で補う。"
+      },
+      {
+        "id": "assume-all",
+        "label": "変更の表示に何もなければ、グラフや書式も変更されていないと判断する",
+        "description": "編集内容を確認する工程が残っています。"
+      }
+    ],
+    "recommendedAnswers": [
+      "check-scope"
+    ],
+    "explanation": "ExcelのCopilot編集は回答から現物へ進んで検収し、変更の表示が扱わない部分は過去版との比較で補う。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "回答から編集箇所へ移動",
+      "description": "新しいシート、テーブル、範囲、グラフや図形などが回答内でリンクとして示され、変更場所へ進めます。機能は段階的に展開されるため、全利用者に同時表示されるとは限りません。",
+      "priority": "high"
+    },
+    {
+      "title": "校閲から変更の表示を開く",
+      "description": "Review → Show ChangesでCopilotによる編集や提案を示すカード表示を確認します。これはAI利用の手掛かりであり、計算の正しさを保証する表示ではありません。",
+      "priority": "high"
+    },
+    {
+      "title": "通常の変更記録の対象",
+      "description": "変更の表示はセルの値や数式の変更を扱います。一方、グラフ・図形・その他オブジェクト、ピボット操作、書式、非表示・フィルターなどは通常の記録で確認できない場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "見えない変更は別の方法で補う",
+      "description": "古い編集はFile → Info → Version Historyで過去版をプレビューします。回答からグラフへ進めることと、その編集が変更の表示に記録されることは同じではありません。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "ExcelのAI編集をたどる",
+  "verificationMessage": "ExcelのCopilot編集は回答から現物へ進んで検収し、変更の表示が扱わない部分は過去版との比較で補う。",
+  "verdict": {
+    "label": "ExcelのCopilot編集は回答から現物へ進んで検収し、変更の表示が扱わない部分は過去版との比較で補う。",
+    "description": "文章の完了報告と実際のセルの内容は別です。変更への導線を使うと確認範囲を絞れます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "回答の変更リンクを開き、対象セルの値・数式と参照範囲を確かめる",
+      "reason": "報告された編集と成果物を対応させられます。"
+    },
+    {
+      "action": "校閲の変更の表示でAI編集と共同編集を確認する",
+      "reason": "編集の経緯を確認する入口になります。"
+    },
+    {
+      "action": "グラフや書式は現物を確認し、必要ならバージョン履歴で比較する",
+      "reason": "通常の変更記録が扱わない変更を補うためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "完了したという回答だけで表を配布する",
+      "reason": "編集内容を確認する工程が残っています。"
+    },
+    {
+      "action": "変更の表示を全編集の完全な監査記録とみなす",
+      "reason": "記録の対象外や欠落があるためです。"
+    }
+  ],
+  "positiveUse": {
+    "title": "確認場所を絞り、AI編集を検収しやすくする",
+    "description": "変更への導線を活用し、数式・参照・見た目をそれぞれ確認します。",
+    "examples": [
+      "修正された数式の参照範囲を確認",
+      "新しいシートへ回答から移動",
+      "過去版とグラフの見た目を比較"
+    ]
+  },
+  "makotoComment": "今回便利なのは、会話の『ここを直した』から表の該当箇所へ飛べる点です。ただ、グラフへのリンクがあることとグラフの編集履歴が残ることは別。導線と記録を混同しない検収にしたいですね。",
+  "oneLineLesson": "ExcelのCopilot編集は回答から現物へ進んで検収し、変更の表示が扱わない部分は過去版との比較で補う。",
+  "tags": [
+    "Microsoft",
+    "Copilot",
+    "Excel",
+    "変更の表示",
+    "検収",
+    "バージョン履歴"
+  ],
+  "sources": [
+    {
+      "title": "Microsoft 365 Copilot release notes",
+      "publisher": "Microsoft Learn",
+      "sourceType": "official",
+      "publishedAt": "2026-09-23",
+      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes?tabs=all"
+    },
+    {
+      "title": "Get help with Show Changes in Excel",
+      "publisher": "Microsoft Support",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/en-us/excel/get-help-with-show-changes-in-excel"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Copilotに集計表を修正してもらい、同僚へ渡す前に確認する場面で、確認項目と避ける判断を対比する。",
+    "cardIcon": "case-check-02",
+    "accentTone": "caution"
+  }
+}

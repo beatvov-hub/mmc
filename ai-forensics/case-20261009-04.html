@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Claudeに実機を動かさせるなら、「停止して」という指示だけでは足りない｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Anthropicは2026年10月9日の確認時点で、11月12日発効の新しいUsage Policyを公開しています。規約ページの公開日は不明です。人の負傷につながり得る機器をClaudeの出力で人の承認なしに動かす対象用途では、適格者が監視して停止できること、接続喪失時に停止または安全状態を保つこと、モデル出力から独立した制限が求められます。これは発効前の利用規約の要件であり、機器の安全認証や法令の代わりではありません。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261009-04" />
+<meta property="og:title" content="Claudeに実機を動かさせるなら、「停止して」という指示だけでは足りない｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Anthropicは2026年10月9日の確認時点で、11月12日発効の新しいUsage Policyを公開しています。規約ページの公開日は不明です。人の負傷につながり得る機器をClaudeの出力で人の承認なしに動かす対象用途では、適格者が監視して停止できること、接続喪失時に停止または安全状態を保つこと、モデル出力から独立した制限が求められます。これは発効前の利用規約の要件であり、機器の安全認証や法令の代わりではありません。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261009-04" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>実機AIの停止と独立した制限</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+              <time datetime="2026-10-09">2026.10.09</time>
+            </div>
+            <h1>Claudeに実機を動かさせるなら、「停止して」という指示だけでは足りない</h1>
+            <p>Anthropicは2026年10月9日の確認時点で、11月12日発効の新しいUsage Policyを公開しています。規約ページの公開日は不明です。人の負傷につながり得る機器をClaudeの出力で人の承認なしに動かす対象用途では、適格者が監視して停止できること、接続喪失時に停止または安全状態を保つこと、モデル出力から独立した制限が求められます。これは発効前の利用規約の要件であり、機器の安全認証や法令の代わりではありません。</p>
+            <ul class="forensics-target-list"><li>AIを機器やロボットへ接続する人</li><li>研究・制作・業務で実機の自動操作を検討する人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Anthropic</li><li>Claude</li><li>利用規約</li><li>実機制御</li><li>ロボット</li><li>安全設計</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>実機AIの停止と独立した制限</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>実機をAIで自動操作する時は、AIの外に停止手段・通信断時の安全状態・独立した制限を置く。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Claudeの出力を、ロボットや温度制御の操作へつなぎたい</h3><p>プロンプトに『危険なら停止する』と書いて、自動操作を試そうとしています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>機器が実際に止まる仕組みは、AIへの文章指示とは別に必要です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-scope">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>負傷の危険がある対象用途で、停止を確実にする設計は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-scope" data-choice-id="check-scope" />
+                <span>
+                  <strong>人が止められ、接続喪失時も安全状態になり、機器側の独立した制限が働く設計</strong>
+                  <small>実機をAIで自動操作する時は、AIの外に停止手段・通信断時の安全状態・独立した制限を置く。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-all" data-choice-id="assume-all" />
+                <span>
+                  <strong>プロンプトに『安全第一、危険なら停止』と書けばよい</strong>
+                  <small>文章指示は機器の停止や制限の強制とは異なります。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>人が止められ、接続喪失時も安全状態になり、機器側の独立した制限が働く設計</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>実機をAIで自動操作する時は、AIの外に停止手段・通信断時の安全状態・独立した制限を置く。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>発効日は11月12日</h3>
+              <p>公開されている新Usage Policyの発効日は2026年11月12日です。10月9日時点で発効済みの新要件として扱わず、導入準備の確認材料にします。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象は負傷につながり得る自動の物理動作</h3>
+              <p>人の承認なしに機器が出力を実行し、共有空間の移動、危険な力や熱などの制御、安全設備の操作などができる用途が対象です。すべての家庭用機器に一律に同じ要件を掛ける説明ではありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>人の監視と停止を確保</h3>
+              <p>適格な人が機器の動作を観察し、いつでも止められる必要があります。その人が介入した時、またはサービスとの接続が失われた時に、機器は停止するか安全状態を保持します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>制限はAIの外で強制する</h3>
+              <p>速度、力、温度、圧力、電圧、作動範囲などの制限は、モデル出力とは独立した機器または制御装置で強制します。文章でのお願いだけではこの条件を満たしません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>例外と法令は別に確認</h3>
+              <p>メーカーの安全制限内で最悪でも不便にとどまる家庭用機器、人が実行前に確認する計画・コード、操作せず監視のみの用途などは規約上の除外例です。規約は機械・職場などの安全法令や認証を置き換えません。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>実機をAIで自動操作する時は、AIの外に停止手段・通信断時の安全状態・独立した制限を置く。</strong><p>機器が実際に止まる仕組みは、AIへの文章指示とは別に必要です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>自動実行の有無と故障時の影響を整理して対象条件を確認する</strong><span>機器をつなぐだけで対象かどうかは決まりません。</span></li>
+            <li><strong>適格者と機器担当者で停止・通信断時の状態を設計する</strong><span>AIが応答できない場合にも安全を保つためです。</span></li>
+            <li><strong>制限値をモデルとは独立した制御で強制する</strong><span>AI出力が制限を変更できない構成が必要です。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>安全指示をプロンプトに書くだけで実機を自動運転する</strong><span>文章指示は機器の停止や制限の強制とは異なります。</span></li>
+            <li><strong>Claude利用規約への対応を機器の安全認証とみなす</strong><span>適用法令や安全認証は別に必要です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>説明や計画の支援から、安全な接続範囲を検討する</h3>
+          <p>いきなり実機の自動操作へ進めず、適格者による実行前確認や操作しない監視も選択肢にします。</p>
+          <ul class="positive-example-list"><li>機器の状態説明だけをAIに頼む</li><li>動作計画を実行前に担当者が確認</li><li>通信断時の安全状態を機器担当者と定義</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>画面の操作なら取り消せる失敗でも、力や熱が出る機器では結果が違います。今回の規約で注目したいのは『AIが止めると判断する』ではなく、AIから切り離した制御が機器を止めるという点です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>実機をAIで自動操作する時は、AIの外に停止手段・通信断時の安全状態・独立した制限を置く。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer">Usage Policy<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Anthropic</span>
+              <span>公式発表</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20261009-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Googleの顔動画でアカウント復旧するなら、締め出される前に設定する 顔動画の復旧設定と任意同意 Google Account Helpは2026年10月9日の確認時点で、顔動画を登録してGoogleアカウントへのサインインを回復する方法を案内しています。ヘルプの公開日は不明です。この機能はログインできなくなってから登録することはできず、利用できる地域・アカウント・端末にも制限があります。設定するなら、普段ログインできている間に対象か確認し、復旧用の登録と顔認識などのサービス改善への任意同意を分けて選びます。 セキュリティ・権限 標準 Google Googleアカウント 顔動画 Selfie video アカウント復旧 顔認識 個人のGoogleアカウントを使う人 顔認識による復旧手段を検討する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">case-check-01</span>
+              <div>
+                <p>顔動画の復旧設定と任意同意</p>
+                <h3>Googleの顔動画でアカウント復旧するなら、締め出される前に設定する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-09">2026.10.09</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Google Account Helpは2026年10月9日の確認時点で、顔動画を登録してGoogleアカウントへのサインインを回復する方法を案内しています。ヘルプの公開日は不明です。この機能はログインできなくなってから登録することはできず、利用できる地域・アカウント・端末にも制限があります。設定するなら、普段ログインできている間に対象か確認し、復旧用の登録と顔認識などのサービス改善への任意同意を分けて選びます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>顔動画の復旧設定と任意同意</span>
+            </div>
+            <ul class="forensics-card-audience"><li>個人のGoogleアカウントを使う人</li><li>顔認識による復旧手段を検討する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google</li><li>Googleアカウント</li><li>顔動画</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20261007-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Claudeの高度なサイバー機能、申請できる区分と組織側の条件 Claudeのサイバー機能申請区分 Anthropicは2026年10月6日、検証済みのセキュリティ専門家・組織向けCyber Verification Program（CVP）を3段階に拡張したと発表しました。Defense AccessはSOC・インシデント対応や脆弱性分析等の防御業務、Red Team Accessは許可された侵入テスト等を対象とし、現時点で組織限定です。Specialized Accessは人命や市場に影響し得るシステムの試験を行う限定組織向けで、Anthropicは米国政府と連携した詳細審査を行うとしています。参加組織には不正利用監視のためデータ保持が必要です。これは一般利用者向けモデルの一律変更ではなく、対象業務・資格確認・安全管理に応じた限定プログラムです。セキュリティチームは、申請前に自組織の防御対象、許可範囲、管理者によるワークスペース割当、データ保持条件を確認します。 セキュリティ・権限 標準 Anthropic Claude Cyber Verification Program サイバーセキュリティ 脆弱性診断 アクセス管理 データ保持 脆弱性調査を行う企業・団体のセキュリティ担当者 AIを使うセキュリティ業務の権限とデータ管理を決める管理者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">cyber-access-tiers</span>
+              <div>
+                <p>Claudeのサイバー機能申請区分</p>
+                <h3>Claudeの高度なサイバー機能、申請できる区分と組織側の条件</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-07">2026.10.07</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Anthropicは2026年10月6日、検証済みのセキュリティ専門家・組織向けCyber Verification Program（CVP）を3段階に拡張したと発表しました。Defense AccessはSOC・インシデント対応や脆弱性分析等の防御業務、Red Team Accessは許可された侵入テスト等を対象とし、現時点で組織限定です。Specialized Accessは人命や市場に影響し得るシステムの試験を行う限定組織向けで、Anthropicは米国政府と連携した詳細審査を行うとしています。参加組織には不正利用監視のためデータ保持が必要です。これは一般利用者向けモデルの一律変更ではなく、対象業務・資格確認・安全管理に応じた限定プログラムです。セキュリティチームは、申請前に自組織の防御対象、許可範囲、管理者によるワークスペース割当、データ保持条件を確認します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>業務範囲・許可・組織管理・保持条件を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>脆弱性調査を行う企業・団体のセキュリティ担当者</li><li>AIを使うセキュリティ業務の権限とデータ管理を決める管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Anthropic</li><li>Claude</li><li>Cyber Verification Program</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261007-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Gemini Sparkをオフにしても残るもの、タスク・ファイル・Chrome履歴の整理 Spark停止後に残るデータ GoogleはGemini Sparkについて、Geminiが端末のローカルChromeまたは別のリモートブラウザーで作業し、端末を閉じてもリモート側でタスクが続く場合があるとヘルプで説明しています。ローカルChromeではログイン中のサイトが見え、許可すればPassword Managerに保存したログイン情報を使うこともあります。Sparkをオフにするとリモートブラウザーとリモートコード実行のデータは削除されますが、ローカルChromeの閲覧データは消えず、タスク・スレッド・スケジュール・Geminiが作成または更新したファイルも削除されません。したがって『Sparkをオフにした＝作業の成果物やブラウザー痕跡も消えた』とは限りません。機微な作業を始める前に実行中タスクを確認し、終了後はリモートデータ、ローカル履歴、作成ファイルを別々に点検・削除するのが実務的です。 セキュリティ・権限 標準 Google Gemini Gemini Spark Chrome AIエージェント ブラウザー権限 タスク停止 データ削除 Gemini Sparkでブラウザー作業を任せる人 Google Chromeのログイン状態でAIエージェントを使う人 家族・チームのAI利用を管理する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gemini-spark-cleanup</span>
+              <div>
+                <p>Spark停止後に残るデータ</p>
+                <h3>Gemini Sparkをオフにしても残るもの、タスク・ファイル・Chrome履歴の整理</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-07">2026.10.07</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">GoogleはGemini Sparkについて、Geminiが端末のローカルChromeまたは別のリモートブラウザーで作業し、端末を閉じてもリモート側でタスクが続く場合があるとヘルプで説明しています。ローカルChromeではログイン中のサイトが見え、許可すればPassword Managerに保存したログイン情報を使うこともあります。Sparkをオフにするとリモートブラウザーとリモートコード実行のデータは削除されますが、ローカルChromeの閲覧データは消えず、タスク・スレッド・スケジュール・Geminiが作成または更新したファイルも削除されません。したがって『Sparkをオフにした＝作業の成果物やブラウザー痕跡も消えた』とは限りません。機微な作業を始める前に実行中タスクを確認し、終了後はリモートデータ、ローカル履歴、作成ファイルを別々に点検・削除するのが実務的です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>タスク停止・リモート削除・ローカル整理を分ける</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Gemini Sparkでブラウザー作業を任せる人</li><li>Google Chromeのログイン状態でAIエージェントを使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Gemini</li><li>Gemini Spark</li><li>Chrome</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261008-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261009-03">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
