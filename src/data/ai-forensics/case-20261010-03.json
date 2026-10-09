@@ -1,0 +1,148 @@
+{
+  "id": "case-20261010-03",
+  "publishedAt": "2026-10-10",
+  "title": "子どもの性的ディープフェイク被害、画像を新たに入手せず拡散を抑える",
+  "shortTitle": "子どもの性的画像を安全に通報",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": [
+    "子どもの性的画像の被害に気づいた保護者",
+    "本人や家族の被害を支援する人"
+  ],
+  "summary": "全米行方不明・被搾取児童センター（NCMEC）は、生成AIで作られた子どもの性的画像も深刻な被害として扱い、警察とCyberTiplineへの報告を呼びかけています。被害画像が出回っている場合、Take It Downでは本人が18歳未満の時に撮影された画像を端末上でハッシュ化し、画像自体を送らず参加プラットフォームに照合用ハッシュを共有できます。提出用に画像を再ダウンロード・転送せず、元の端末にあるファイルを使います。これは参加する公開・非暗号化サービスを対象とした拡散抑止で、全サイトからの削除を保証するものではありません。",
+  "scenario": {
+    "headline": "子どもの性的画像やAIで作られた性的画像がネットで共有されていると分かった",
+    "description": "画像を証拠として保存・転送した方がよいのか、削除申立てと通報をどの順で進めるか迷う場面です。",
+    "whyItMatters": "善意で画像をダウンロード・転送すると二次拡散につながります。公式窓口は通報と削除申立てを案内し、別サービスでは端末上のハッシュによる拡散抑止も提供しています。"
+  },
+  "question": {
+    "text": "画像を持っていない時、Take It Downへ提出するためにすべきことは？",
+    "choices": [
+      {
+        "id": "use-existing-file",
+        "label": "画像を新たにダウンロード・転送せず、警察やCyberTiplineへ相談する",
+        "description": "NCMECは提出のために画像を共有・ダウンロードせず、撮影当時の端末にある画像を使うよう案内しています。"
+      },
+      {
+        "id": "request-copy",
+        "label": "投稿者や友人に画像を送ってもらい、提出用に保存する",
+        "description": "Take It Downは提出のためのダウンロードや再共有を明確に避けるよう案内しています。"
+      }
+    ],
+    "recommendedAnswers": [
+      "use-existing-file"
+    ],
+    "explanation": "手元にない画像を新たに取り寄せる必要はありません。NCMECのCyberTiplineなどへ相談し、警察・プラットフォームへの連絡を進めます。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "AI生成画像も通報・削除申立ての対象",
+      "description": "NCMECは、生成AIで作られた子どもの性的画像も深刻な被害として、警察とCyberTiplineへ報告するよう案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "まず警察とCyberTiplineへ相談",
+      "description": "NCMECは、生成AIで作られた性的画像の被害について警察とCyberTiplineへの報告を案内しています。差し迫った安全上の危険がある場合は現地の緊急窓口を優先します。",
+      "priority": "high"
+    },
+    {
+      "title": "プラットフォームへ削除を申し立てる",
+      "description": "投稿先の報告機能またはヘルプセンターから削除を申し立てます。NCMECも、投稿先のサービスへの報告方法を案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "Take It Downは画像を端末から送らない",
+      "description": "NCMECのサービスは画像・動画からハッシュを端末上で作り、ハッシュ値をNCMECと参加プラットフォームへ提供します。サービス側へ元画像をアップロードしません。",
+      "priority": "high"
+    },
+    {
+      "title": "支援範囲と提出条件",
+      "description": "対象は画像撮影時に本人が18歳未満で、ヌード・一部ヌード・性的状況を含む画像です。対象者は現在18歳以上でも利用できます。暗号化サービスや参加していないサイト、過去投稿の除去を完全に保証するものではありません。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 5,
+  "verificationLabel": "画像を増やさず通報・削除・拡散抑止を進める",
+  "verificationMessage": "画像を証拠として他人へ転送しないでください。警察・CyberTipline・投稿先へ連絡し、Take It Downは手元のファイルだけで利用条件を確認します。",
+  "verdict": {
+    "label": "画像を新たに入手せず、警察・投稿先へ連絡し、手元のファイルで拡散抑止を検討する",
+    "description": "NCMECの案内に沿って警察・CyberTiplineへの通報、投稿先への削除申立て、ハッシュによる拡散抑止を進めます。対象範囲と参加プラットフォームの限界も確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "地域の警察とNCMEC CyberTiplineへ相談する",
+      "reason": "NCMECは生成AIによる性的画像の被害について、警察とCyberTiplineへの報告を案内しています。"
+    },
+    {
+      "action": "プラットフォームの報告機能またはヘルプセンターから削除を申し立てる",
+      "reason": "NCMECは投稿先のインターネットサービスやプラットフォームへ報告するための案内を提供しています。"
+    },
+    {
+      "action": "Take It Downを使う場合は、撮影時に本人が18歳未満だった既存ファイルを元の端末から選ぶ",
+      "reason": "このサービスは元画像をアップロードせずにハッシュを生成します。"
+    },
+    {
+      "action": "画像を持っていない場合はCyberTiplineへ相談し、誰かに送信・ダウンロードを依頼しない",
+      "reason": "NCMECは提出のために画像を取り寄せないよう明記しています。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "証拠集めのために画像を友人や家族へ転送する",
+      "reason": "画像の二次拡散を招き、NCMECの提出手順にも反します。"
+    },
+    {
+      "action": "Take It Downがあらゆるウェブサイトから画像を消すと期待する",
+      "reason": "参加する公開・非暗号化サービスが対象で、過去の投稿などを除去できない場合もあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "被害画像を広げずに通報と拡散抑止へ進む",
+    "description": "画像の再共有を避け、警察・NCMEC・投稿先の窓口を使い分けます。",
+    "examples": [
+      "CyberTiplineへ相談",
+      "投稿先へ削除依頼",
+      "端末上のファイルでハッシュ作成",
+      "参加サービスの範囲を確認"
+    ]
+  },
+  "makotoComment": "支援する側ほど、証拠として画像を手元へ集めたくなるかもしれません。NCMECの手順は、画像そのものを送らずに拡散抑止へつなぐ設計です。まず窓口へ相談し、画像を増やさないことを優先したいです。",
+  "oneLineLesson": "子どもの性的画像の被害では画像を新たに入手・転送せず、警察・投稿先へ相談し端末内ハッシュによる抑止を検討する。",
+  "tags": [
+    "NCMEC",
+    "Take It Down",
+    "AI生成画像",
+    "子どもの安全",
+    "性的ディープフェイク",
+    "通報"
+  ],
+  "sources": [
+    {
+      "title": "Generative AI",
+      "publisher": "National Center for Missing & Exploited Children (NetSmartz)",
+      "sourceType": "official",
+      "publishedAt": null,
+      "url": "https://us.missingkids.org/netsmartz/topics/generative-ai"
+    },
+    {
+      "title": "Take It Down",
+      "publisher": "National Center for Missing & Exploited Children",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://takeitdown.ncmec.org/"
+    },
+    {
+      "title": "Frequently Asked Questions - Take It Down",
+      "publisher": "National Center for Missing & Exploited Children",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://takeitdown.ncmec.org/faq/"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "画像を転送せず、警察・投稿先・CyberTiplineへ相談し、端末内でハッシュを作る流れを示す。",
+    "cardIcon": "child-image-reporting",
+    "accentTone": "alert"
+  }
+}

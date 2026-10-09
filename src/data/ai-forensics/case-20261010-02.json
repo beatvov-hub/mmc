@@ -1,0 +1,137 @@
+{
+  "id": "case-20261010-02",
+  "publishedAt": "2026-10-10",
+  "title": "Gemini Code Assistの新規販売終了、契約別の更新期限を確認する",
+  "shortTitle": "Code Assist契約の終了日と移行",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": [
+    "Gemini Code Assist StandardまたはEnterpriseを契約する組織",
+    "IDE向けAIコーディング支援の契約更新を管理する人"
+  ],
+  "summary": "Google Cloudは2026年10月9日、Gemini Code Assist StandardとEnterpriseの新規購入を終了しました。既存契約は契約期間の終わりまで利用・サポートが続きますが、ライセンス追加と年契約の自動更新は2027年1月31日まで、月契約の自動更新は2027年12月31日までです。契約終了日と更新種別によって余裕が異なるため、管理者は契約情報を確認し、代替として案内されているAntigravityを含めて移行計画を立てます。",
+  "scenario": {
+    "headline": "会社のGemini Code Assistが買えなくなると聞き、いまの契約も止まるのか確認したい",
+    "description": "新規販売終了という告知を見て、現在のライセンスが急に無効になるのか、いつまでに移行すべきか分かりません。",
+    "whyItMatters": "新規購入終了、既存契約の有効期間、ライセンス追加、更新停止は別の日程で進みます。契約の種類を確かめてから代替製品の移行を準備できます。"
+  },
+  "question": {
+    "text": "Gemini Code Assist Standard／Enterpriseの利用者がまず確認することは？",
+    "choices": [
+      {
+        "id": "check-contract",
+        "label": "契約終了日と年契約・月契約の別を確認し、追加・更新期限に合わせて移行を計画する",
+        "description": "Googleは既存契約を契約期間の終わりまで継続しつつ、契約形態ごとに更新期限を示しています。"
+      },
+      {
+        "id": "assume-immediate",
+        "label": "新規購入終了と同時に既存契約も停止すると考える",
+        "description": "既存契約は契約期間終了まで利用・サポートが続きます。"
+      }
+    ],
+    "recommendedAnswers": [
+      "check-contract"
+    ],
+    "explanation": "新規購入終了は既存利用の即時終了ではありません。追加ライセンス、年更新、月更新の期限と各組織の契約終了日を個別に確認してください。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "新規購入は2026年10月9日に終了",
+      "description": "この日以降、Gemini Code Assist StandardとEnterpriseの新しい契約は購入できません。",
+      "priority": "high"
+    },
+    {
+      "title": "既存契約は契約期間まで継続",
+      "description": "現在の契約は契約上の終了日まで使え、サポートも続くとGoogleは説明しています。購入終了とサービス即時停止は別です。",
+      "priority": "high"
+    },
+    {
+      "title": "追加ライセンス期限",
+      "description": "既存契約への新しいライセンス追加は2027年1月31日までです。その後は新規ライセンスを追加できません。",
+      "priority": "high"
+    },
+    {
+      "title": "年契約・月契約で自動更新の期限が異なる",
+      "description": "年契約の自動更新は2027年1月31日まで、月契約の自動更新は2027年12月31日までと案内されています。契約種別と日付を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "代替製品の利用条件",
+      "description": "GoogleはAntigravityを今後のエージェント型開発支援として案内し、Gemini Enterpriseの対象エディションなどを経由する利用条件を示しています。既存契約と同条件で移行できるとは限らないため、契約・機能・データ条件を別に比べます。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "購入終了と契約終了を分ける",
+  "verificationMessage": "新規購入は終了しましたが、既存契約は契約期間まで継続します。ライセンス追加・更新期限を契約の種類ごとに確認してください。",
+  "verdict": {
+    "label": "Gemini Code Assistは新規販売終了。既存契約は契約期限まで利用可能",
+    "description": "契約別の追加・更新期限を確認し、終了前に移行先と必要な機能を検討します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Google Cloudの請求・契約画面でStandard／Enterpriseの契約終了日を確認する",
+      "reason": "既存契約の利用終了日は各契約期間に基づきます。"
+    },
+    {
+      "action": "年契約か月契約か、ライセンス追加が必要かを確認する",
+      "reason": "追加・更新可能な期限が契約形態によって異なります。"
+    },
+    {
+      "action": "移行先Antigravityの対象契約・IDE対応・運用条件を管理者と照合する",
+      "reason": "代替製品の契約・運用条件が現状と同じとは限りません。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "販売終了の日付を既存サービスの停止日として社内へ伝える",
+      "reason": "既存契約は契約期間終了まで継続します。"
+    },
+    {
+      "action": "期限直前までライセンス追加や移行検証を先送りする",
+      "reason": "追加と年更新の期限は月契約の更新期限より早く設定されています。"
+    }
+  ],
+  "positiveUse": {
+    "title": "契約形態に沿って移行時期を決める",
+    "description": "購入終了、追加期限、更新期限、契約満了を分けて一覧化すると、開発チームの利用を段階的に移せます。",
+    "examples": [
+      "契約期限を台帳へ記録",
+      "必要ライセンス数を確認",
+      "代替環境でIDEと権限を検証"
+    ]
+  },
+  "makotoComment": "『販売終了』の一語だけでは、明日使えなくなるように受け取られがちです。Googleの案内は追加ライセンスと年・月更新で締切が違うので、契約台帳に日付を落とす実務がいちばん大切です。",
+  "oneLineLesson": "Gemini Code Assistの契約は、新規購入・追加・更新・契約満了の期限を分けて移行を計画する。",
+  "tags": [
+    "Google Cloud",
+    "Gemini Code Assist",
+    "契約終了",
+    "Standard",
+    "Enterprise",
+    "Antigravity",
+    "ライセンス"
+  ],
+  "sources": [
+    {
+      "title": "Gemini for Google Cloud release notes",
+      "publisher": "Google Cloud Documentation",
+      "sourceType": "official-product-update",
+      "publishedAt": "2026-10-09",
+      "url": "https://docs.cloud.google.com/gemini/docs/release-notes"
+    },
+    {
+      "title": "Gemini Code Assist Standard and Enterprise subscriptions",
+      "publisher": "Google Cloud Documentation",
+      "sourceType": "official-product-documentation",
+      "publishedAt": "2026-10-09",
+      "url": "https://docs.cloud.google.com/gemini/docs/codeassist/sunset"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Gemini Code Assistの新規購入終了と、ライセンス追加・年更新・月更新・契約満了を時系列で分ける。",
+    "cardIcon": "codeassist-contract-timeline",
+    "accentTone": "caution"
+  }
+}

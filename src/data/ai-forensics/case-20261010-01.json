@@ -1,0 +1,129 @@
+{
+  "id": "case-20261010-01",
+  "publishedAt": "2026-10-10",
+  "title": "無料Geminiは「Flash-Liteだけ」？ Autoの振り分けと設定を確認する",
+  "shortTitle": "Gemini無料利用のAutoとモデル選択",
+  "category": "media-literacy",
+  "difficulty": "standard",
+  "targetAudience": [
+    "Geminiを個人アカウントで使う人",
+    "無料利用とGoogle AIプランのモデル差を確認したい人"
+  ],
+  "summary": "GoogleのGemini Apps Helpは、個人アカウントのモデル提供変更が無料利用者には2026年10月9日から適用されると案内しています。無料利用者の既定はAutoで、通常の質問はFlash-Lite、深い推論が必要な場合はFlashやProへ自動で振り分けられる場合があります。スマートモデル選択をオフにすると、無料利用者の会話はすべてFlash-Liteになります。無料ではProが一切使えないという説明ではなく、Autoと手動・スマートモデル選択の状態を自分の画面で確かめて判断します。",
+  "scenario": {
+    "headline": "Geminiの無料利用で上位モデルが使えなくなると聞き、課金するか迷う",
+    "description": "記事やSNSには「無料ではFlash-Liteのみ」とありますが、今の画面で何が選ばれているか分かりません。",
+    "whyItMatters": "モデルの利用可否だけでなく、自動選択の状態によって回答に使われるモデルが変わります。プラン変更前に現在の選び方と利用上限を確認できます。"
+  },
+  "question": {
+    "text": "無料Geminiでモデルがどのように使われるか確認するには？",
+    "choices": [
+      {
+        "id": "check-auto",
+        "label": "モデル選択画面でAuto／スマートモデル選択の状態を見て、必要なら使い方を選ぶ",
+        "description": "Googleは無料利用の既定をAutoとし、オフの場合はFlash-Liteを使うと説明しています。"
+      },
+      {
+        "id": "assume-lite",
+        "label": "無料なら必ずFlash-Liteしか使われないと決めつける",
+        "description": "Autoでは必要に応じてFlashやProへ振り分けられる場合があります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "check-auto"
+    ],
+    "explanation": "Autoは大半の質問にFlash-Liteを使い、より深い推論が必要な質問にはFlashまたはProを使う場合があります。スマート選択をオフにした場合の動きも分けて確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "変更の適用開始日",
+      "description": "Googleの案内では、AIプランに加入していない個人アカウント利用者は2026年10月9日から変更が適用されます。AI Plusは個別メールで適用時期が案内されます。",
+      "priority": "high"
+    },
+    {
+      "title": "無料利用の既定はAuto",
+      "description": "無料利用者の表記はFlash-Lite／Flash／Proの個別選択ではなくAutoです。Autoは質問ごとに適したモデルを選びます。",
+      "priority": "high"
+    },
+    {
+      "title": "Autoが選ぶモデル",
+      "description": "Googleは通常の質問の多くをFlash-Liteに送り、深い推論が必要な質問にはFlashまたはProへ振り分ける場合があると説明しています。常にProが使われるという意味ではありません。",
+      "priority": "high"
+    },
+    {
+      "title": "スマート選択をオフにした時",
+      "description": "スマートモデル選択がオフの場合、AIプランなしの利用者の会話はすべてFlash-Liteを使います。設定状態を確認する時は、実際のモデル選択画面も併せて見ます。",
+      "priority": "high"
+    },
+    {
+      "title": "考える強さと利用量",
+      "description": "利用可能なモデルではlow・medium・highの努力水準を選べます。高い設定はタスク遂行や詳細さを高める一方、利用上限をより多く使うとGoogleは案内しています。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "Auto設定とモデルの使われ方を確認",
+  "verificationMessage": "無料のGeminiではAutoが既定です。モデル選択の状態と、スマート選択を切った場合の動作を確認してからプランを判断してください。",
+  "verdict": {
+    "label": "無料GeminiはAutoが既定で、深い推論にはFlashやProへ振り分けられる場合がある",
+    "description": "AutoとFlash-Lite固定の状態を区別し、自分の画面と利用上限を見てプランを選びます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Geminiアプリを最新にして、モデル選択画面のAutoまたはスマート選択の状態を確認する",
+      "reason": "個人アカウント向けの変更が適用される時期を踏まえて、現在の使い方を把握できます。"
+    },
+    {
+      "action": "無料利用ではAutoが有効か、オフにしてFlash-Lite固定になっているかを確認する",
+      "reason": "同じ無料利用でも選択状態で回答に使うモデルが異なります。"
+    },
+    {
+      "action": "努力水準を上げる前に利用上限への影響を考える",
+      "reason": "highなどはより多くの利用枠を使うと案内されています。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "無料利用ではFlash-Lite以外のモデルが絶対に使われないと決めつける",
+      "reason": "Autoは深い推論が必要な質問をFlashまたはProに送る場合があります。"
+    },
+    {
+      "action": "モデル選択状態を見ず、聞いた話だけで有料プランへ変更する",
+      "reason": "Autoの有無や設定で実際の振り分けが変わります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "課金前にモデル選択と利用上限を照合する",
+    "description": "自分が必要とする作業と、Autoの選択・利用上限の関係を確認してプランを決めます。",
+    "examples": [
+      "Autoがオンか確認",
+      "スマート選択を切った時の挙動を確認",
+      "努力水準と利用上限の兼ね合いを検討"
+    ]
+  },
+  "makotoComment": "「無料はFlash-Liteだけ」という短い説明だと、Autoの振り分けが見えなくなります。私は、画面での選択状態を見てから、どの仕事にどのモデルが必要かを決める順番を伝えたいです。",
+  "oneLineLesson": "Gemini無料利用はAutoが既定。Flash-Lite固定か自動振り分けかを確認してからプランを選ぶ。",
+  "tags": [
+    "Google Gemini",
+    "無料プラン",
+    "Auto",
+    "Flash-Lite",
+    "モデル選択",
+    "利用上限"
+  ],
+  "sources": [
+    {
+      "title": "Changes to Gemini model access and limits",
+      "publisher": "Google Gemini Apps Help",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/gemini/answer/17004136"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Geminiのモデル選択をAutoとFlash-Lite固定に分け、Autoが質問に応じてモデルを振り分ける様子を示す。",
+    "cardIcon": "gemini-model-routing",
+    "accentTone": "info"
+  }
+}
