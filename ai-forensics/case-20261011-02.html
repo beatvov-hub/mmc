@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>医療AIを導入する前、ベンダーに確認したい試験と更新情報｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="米国FDA、カナダ保健省、英国MHRAが共同で示した医療機器向けGood Machine Learning Practice（GMLP）の指針ページは、2026年10月5日に更新されています。10の原則は、学習データとは独立した臨床的に適切な試験、人とAIを組み合わせた性能評価、対象集団やサブグループの情報、許容入力と既知の限界の開示、導入後の性能監視を扱います。これは医療機器の開発・評価に関する国際協調の指針であり、それ自体を各国の一律な法的要件や製品認証と見なすものではありません。導入担当者は、宣伝文句だけでなく、どの患者・環境で評価したか、更新後の変化や性能低下をどう監視するかをベンダーに確認するチェックリストとして活用できます。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261011-02" />
+<meta property="og:title" content="医療AIを導入する前、ベンダーに確認したい試験と更新情報｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="米国FDA、カナダ保健省、英国MHRAが共同で示した医療機器向けGood Machine Learning Practice（GMLP）の指針ページは、2026年10月5日に更新されています。10の原則は、学習データとは独立した臨床的に適切な試験、人とAIを組み合わせた性能評価、対象集団やサブグループの情報、許容入力と既知の限界の開示、導入後の性能監視を扱います。これは医療機器の開発・評価に関する国際協調の指針であり、それ自体を各国の一律な法的要件や製品認証と見なすものではありません。導入担当者は、宣伝文句だけでなく、どの患者・環境で評価したか、更新後の変化や性能低下をどう監視するかをベンダーに確認するチェックリストとして活用できます。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261011-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>医療AIの導入前チェック</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>健康・医療</span>
+              <span>発展</span>
+              <time datetime="2026-10-11">2026.10.11</time>
+            </div>
+            <h1>医療AIを導入する前、ベンダーに確認したい試験と更新情報</h1>
+            <p>米国FDA、カナダ保健省、英国MHRAが共同で示した医療機器向けGood Machine Learning Practice（GMLP）の指針ページは、2026年10月5日に更新されています。10の原則は、学習データとは独立した臨床的に適切な試験、人とAIを組み合わせた性能評価、対象集団やサブグループの情報、許容入力と既知の限界の開示、導入後の性能監視を扱います。これは医療機器の開発・評価に関する国際協調の指針であり、それ自体を各国の一律な法的要件や製品認証と見なすものではありません。導入担当者は、宣伝文句だけでなく、どの患者・環境で評価したか、更新後の変化や性能低下をどう監視するかをベンダーに確認するチェックリストとして活用できます。</p>
+            <ul class="forensics-target-list"><li>医療機関のAI調達・導入担当者</li><li>医療AI製品を評価する医療従事者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>医療AI</li><li>AI医療機器</li><li>GMLP</li><li>FDA</li><li>Health Canada</li><li>MHRA</li><li>AI調達</li><li>データドリフト</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>臨床条件と運用後の根拠まで確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>精度の単一値だけで決めず、対象集団・独立試験・利用者向けの限界・更新後の監視を資料で確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>医療機関がAI医療機器の導入候補を比較している</h3><p>製品説明には精度の数字があるものの、対象患者や試験条件、導入後の更新・監視方法をどう見比べればよいか迷う場面です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>学習データでの成績だけでは、実際の患者集団や診療環境、人が出力を使う工程での安全性を判断できません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="deployment-evidence">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>医療AI製品を選ぶ時、ベンダーに追加で確認する項目は？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="deployment-evidence" data-choice-id="deployment-evidence" />
+                <span>
+                  <strong>対象患者、独立した臨床試験、限界、更新後の監視を確認する</strong>
+                  <small>GMLPは、臨床的に関連する条件、人とAIのチーム、ユーザー情報、運用後の監視を含む指針です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="headline-accuracy" data-choice-id="headline-accuracy" />
+                <span>
+                  <strong>学習時の全体精度だけを見て、導入後の更新確認は省く</strong>
+                  <small>指針は独立した試験と運用後の性能維持、再学習やデータ変化のリスク管理も扱います。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>対象患者、独立した臨床試験、限界、更新後の監視を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>平均的な精度の数字だけでなく、誰にどの環境で使う製品か、限界や更新を含めて判断します。GMLPは調達質問の参考であり、適合・認証を自動的に証明するものではありません。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>試験データは学習データから独立しているか</h3>
+              <p>指針は、学習データセットとは独立した統計的に妥当な試験計画を求め、対象患者群、重要なサブグループ、臨床環境、入力、交絡要因を挙げています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>人とAIを合わせた性能を評価したか</h3>
+              <p>AIモデル単体の指標だけでなく、人が出力を解釈し診療工程で使う時のHuman-AI teamの性能と人的要因を考慮する原則です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>使う人に必要な製品情報があるか</h3>
+              <p>対象用途、サブグループ別性能、学習・試験データの特徴、受け付ける入力、既知の限界、画面表示と診療工程への統合をユーザー向けに示すとしています。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>導入後の変更・更新を知らせるか</h3>
+              <p>実運用の監視をもとにした機器の変更・更新と、判断根拠が利用可能な場合の説明、開発者へ懸念を伝える手段を扱っています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>再学習やデータ変化への制御があるか</h3>
+              <p>運用後の継続学習で起こり得る過学習、意図しない偏り、データドリフトによる性能低下のリスク管理を指針に含めています。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>医療AIの評価は導入前の試験と導入後の監視をセットで見る</strong><p>GMLPの10原則を、製品比較とベンダーへの質問に活用できます。ただし、指針への言及だけで法的適合や製品の安全を断定せず、各地域の規制・個別製品の証拠を別に確認します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>製品の意図された用途、対象患者、重要なサブグループ別の試験結果を入手する</strong><span>適用対象外の患者や環境を見落とさず、導入先との適合を確認できます。</span></li>
+            <li><strong>学習に使ったデータとは独立した臨床関連試験と、人が使う工程での評価を確認する</strong><span>学習成績やモデル単体の数値だけでは現場での性能を把握できないためです。</span></li>
+            <li><strong>更新通知、運用後の性能監視、データドリフトや再学習リスクの管理方法を契約・運用設計に含める</strong><span>導入後も性能や限界が変化する可能性を管理できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>GMLPの原則に触れた資料だけで、製品の認証や法令適合が済んだと判断する</strong><span>共同指針は開発・評価に役立つ原則であり、個別製品への承認や法的判定ではありません。</span></li>
+            <li><strong>学習時の全体精度だけで、患者集団や診療環境を問わず安全だと結論づける</strong><span>指針はサブグループ、臨床環境、人的要因、交絡要因を含む独立試験を重視します。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>調達時の比較質問を標準化する</h3>
+          <p>候補製品ごとに対象、独立試験、既知の限界、更新後の監視を同じ欄で比較できます。</p>
+          <ul class="positive-example-list"><li>対象患者・用途</li><li>サブグループ別の評価</li><li>入力と限界</li><li>更新通知と運用監視</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>この指針で見落としやすいのは、モデルの点数より『どんな患者と現場で試したか』、さらに更新後に誰が変化を見るかです。調達書類では導入前の試験と運用後の監視を別々に尋ねたいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>医療AIは全体精度だけで選ばず、対象患者・独立試験・既知の限界・更新後の監視を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.gov.uk/government/publications/good-machine-learning-practice-for-medical-device-development-guiding-principles/good-machine-learning-practice-for-medical-device-development-guiding-principles" target="_blank" rel="noopener noreferrer">Good machine learning practice for medical device development: guiding principles<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>U.S. Food and Drug Administration (FDA) / Health Canada / Medicines and Healthcare products Regulatory Agency (MHRA), via GOV.UK</span>
+              <span>官公庁</span>
+              <time datetime="2026-10-05">2026-10-05</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261011-01" data-forensics-card data-category="health-ai" data-level="3" data-difficulty="beginner" data-search-text="医療AIの診療で患者は何を聞ける？英国の新方針を確認 医療AI、患者が聞くこと 英国政府は2026年10月6日、医療AIの規制に関する独立委員会の提言を受け入れ、英国全体で実施を進める方針を示しました。患者向け資料は、診療でAIがどう使われるかの情報、導入後も続く安全性・性能の監視、患者の意見を反映する機会、問題時の責任や相談・救済経路の明確化を掲げています。ただし、これは英国で実施予定の方針で、すべての項目がすでに制度化された、または日本の患者にも同じ権利が適用されるという意味ではありません。受診時には、AIが関与する工程、人による確認、結果への異議や相談先を具体的に尋ねるための手掛かりとして使えます。 健康・医療 はじめて 医療AI 患者向けガイド 英国 MHRA AI医療機器 患者の声 相談窓口 AIを使う医療サービスを受ける患者 家族の受診を支援する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">health-ai-patient-questions</span>
+              <div>
+                <p>医療AI、患者が聞くこと</p>
+                <h3>医療AIの診療で患者は何を聞ける？英国の新方針を確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-11">2026.10.11</time>
+              <span>健康・医療</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">英国政府は2026年10月6日、医療AIの規制に関する独立委員会の提言を受け入れ、英国全体で実施を進める方針を示しました。患者向け資料は、診療でAIがどう使われるかの情報、導入後も続く安全性・性能の監視、患者の意見を反映する機会、問題時の責任や相談・救済経路の明確化を掲げています。ただし、これは英国で実施予定の方針で、すべての項目がすでに制度化された、または日本の患者にも同じ権利が適用されるという意味ではありません。受診時には、AIが関与する工程、人による確認、結果への異議や相談先を具体的に尋ねるための手掛かりとして使えます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>方針と現在の権利を分けて確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIを使う医療サービスを受ける患者</li><li>家族の受診を支援する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>医療AI</li><li>患者向けガイド</li><li>英国</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261006-03" data-forensics-card data-category="health-ai" data-level="3" data-difficulty="standard" data-search-text="FDAのAI医療機器リストから個別審査記録へ、申請番号の読み方 FDA医療機器の審査記録を読む FDAのAI対応医療機器リストに掲載された機器は、行のSubmission Numberから個別のFDAデータベース記録へ進めます。たとえばAuto-Segの記録（K253628）では、機器名・申請者・製品分類・受領日・決定日・決定内容を確認でき、Summaryへのリンクから公開要約も開けます。この記録は2026年6月29日付で、決定欄は「Substantially Equivalent（実質的同等）」です。これは当該510(k)記録に記載された米国の規制判断であり、日本国内での承認、すべての患者への適合性、または製品の性能順位を示すものではありません。機器名だけで評価せず、申請番号から対象機器と規制上の決定情報を照合する手順を紹介します。 健康・医療 標準 FDA AI医療機器 医療AI 510(k) 申請番号 公開要約 PMDA 米国 米国FDAの医療機器記録を調べる人 AIを使う医療機器の公開審査情報を読みたい患者・医療関係者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">fda-medical-device-record-lookup</span>
+              <div>
+                <p>FDA医療機器の審査記録を読む</p>
+                <h3>FDAのAI医療機器リストから個別審査記録へ、申請番号の読み方</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-06">2026.10.06</time>
+              <span>健康・医療</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">FDAのAI対応医療機器リストに掲載された機器は、行のSubmission Numberから個別のFDAデータベース記録へ進めます。たとえばAuto-Segの記録（K253628）では、機器名・申請者・製品分類・受領日・決定日・決定内容を確認でき、Summaryへのリンクから公開要約も開けます。この記録は2026年6月29日付で、決定欄は「Substantially Equivalent（実質的同等）」です。これは当該510(k)記録に記載された米国の規制判断であり、日本国内での承認、すべての患者への適合性、または製品の性能順位を示すものではありません。機器名だけで評価せず、申請番号から対象機器と規制上の決定情報を照合する手順を紹介します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>番号・機器・決定欄・公開要約を照合</span>
+            </div>
+            <ul class="forensics-card-audience"><li>米国FDAの医療機器記録を調べる人</li><li>AIを使う医療機器の公開審査情報を読みたい患者・医療関係者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>FDA</li><li>AI医療機器</li><li>医療AI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261003-01" data-forensics-card data-category="health-ai" data-level="3" data-difficulty="beginner" data-search-text="Meta AIの自傷リスク通知、保護者はInstagramの監督設定と対象地域を確認 Meta AIの10代向け危機通知 Metaは2026年7月16日、Meta AIとの会話から10代の自殺・自傷リスクが示唆された場合、Instagramの監督機能を利用する保護者に通知する仕組みを発表しました。AIが検知した会話は通知前に人が確認し、意図が曖昧な場合は通知側に判断する設計です。発表時点で稼働中の地域は米国・英国・オーストラリア・カナダで、年内に世界の監督対象保護者へ展開予定と説明されています。保護者は監督機能と、より制限の強い「Limited Content」設定を確認できますが、この通知は診断ではなく、緊急サービスへの自動連絡機能も開発中で未提供です。 健康・医療 はじめて Meta AI Instagram 保護者向け通知 ペアレンタルコントロール 10代 自傷リスク Meta AIを使う10代の保護者 Instagramのペアレンタルコントロールを確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">meta-teen-safety-alert</span>
+              <div>
+                <p>Meta AIの10代向け危機通知</p>
+                <h3>Meta AIの自傷リスク通知、保護者はInstagramの監督設定と対象地域を確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-03">2026.10.03</time>
+              <span>健康・医療</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Metaは2026年7月16日、Meta AIとの会話から10代の自殺・自傷リスクが示唆された場合、Instagramの監督機能を利用する保護者に通知する仕組みを発表しました。AIが検知した会話は通知前に人が確認し、意図が曖昧な場合は通知側に判断する設計です。発表時点で稼働中の地域は米国・英国・オーストラリア・カナダで、年内に世界の監督対象保護者へ展開予定と説明されています。保護者は監督機能と、より制限の強い「Limited Content」設定を確認できますが、この通知は診断ではなく、緊急サービスへの自動連絡機能も開発中で未提供です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>通知の範囲と提供状況を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Meta AIを使う10代の保護者</li><li>Instagramのペアレンタルコントロールを確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Meta AI</li><li>Instagram</li><li>保護者向け通知</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261011-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261011-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

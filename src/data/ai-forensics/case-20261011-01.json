@@ -1,0 +1,61 @@
+{
+  "id": "case-20261011-01",
+  "publishedAt": "2026-10-11",
+  "title": "医療AIの診療で患者は何を聞ける？英国の新方針を確認",
+  "shortTitle": "医療AI、患者が聞くこと",
+  "category": "health-ai",
+  "difficulty": "beginner",
+  "targetAudience": ["AIを使う医療サービスを受ける患者", "家族の受診を支援する人"],
+  "summary": "英国政府は2026年10月6日、医療AIの規制に関する独立委員会の提言を受け入れ、英国全体で実施を進める方針を示しました。患者向け資料は、診療でAIがどう使われるかの情報、導入後も続く安全性・性能の監視、患者の意見を反映する機会、問題時の責任や相談・救済経路の明確化を掲げています。ただし、これは英国で実施予定の方針で、すべての項目がすでに制度化された、または日本の患者にも同じ権利が適用されるという意味ではありません。受診時には、AIが関与する工程、人による確認、結果への異議や相談先を具体的に尋ねるための手掛かりとして使えます。",
+  "scenario": {
+    "headline": "検査や診断の説明で、医療AIが使われていると知った",
+    "description": "AIの結果が診療判断にどう関係し、誰が確認し、疑問があればどこへ相談できるのかを知りたい場面です。",
+    "whyItMatters": "英国の新方針は患者向けの情報や相談経路を改善する方向を示しますが、将来の実施方針と現時点の個別の権利を混同しないことが大切です。"
+  },
+  "question": {
+    "text": "英国政府の2026年10月の患者向け資料を、受診時にどう使うのが適切？",
+    "choices": [
+      {"id": "ask-specifics", "label": "AIが使われる工程、人の確認、相談先を質問する材料にする", "description": "資料が示す方向性を、医療機関へ確認する具体的な質問に変えます。"},
+      {"id": "assume-rights", "label": "すでに全医療機関にAI利用の説明義務と異議申立て権が新設されたと考える", "description": "政府は提言の実施方針を受け入れましたが、実施ロードマップや今後の制度整備は別途予定されています。"}
+    ],
+    "recommendedAnswers": ["ask-specifics"],
+    "explanation": "政府の受入れは今後の実施に向けた方針です。日本国内の法的権利や個々の医療機関の手順を確定するものではないため、現場で確認できる質問として利用します。"
+  },
+  "inspectionPoints": [
+    {"title": "提言受入れと実施済み制度は別", "description": "英国政府は提言を受け入れましたが、全44提言を実施するロードマップは2027年春に公表予定とされています。", "priority": "high"},
+    {"title": "AIが診療のどこで使われるかを聞く", "description": "患者向け資料は、医療におけるAI利用についてより明確な情報を目指すとしています。診断補助、画像解析、記録作成など、工程と結果への影響を尋ねると具体化できます。", "priority": "high"},
+    {"title": "導入後の安全性監視も論点", "description": "資料は、導入時の一度きりの確認だけでなく、利用開始後に安全性や性能の変化を見つけて対応する監視を掲げています。", "priority": "high"},
+    {"title": "平均性能だけでなく異なる人への働き方", "description": "AIが平均的に良い成績かだけでなく、異なる人々に安全かつ有効に働くかへ注意を向ける方針です。", "priority": "medium"},
+    {"title": "責任者と相談経路を確認", "description": "問題が起きた場合の責任や懸念を伝える経路を明確にする方針が示されています。実際の院内窓口や現在の手続きは医療機関に確認します。", "priority": "high"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "方針と現在の権利を分けて確認",
+  "verificationMessage": "資料をそのまま法的権利とみなさず、AI利用の工程、人の確認、相談先を医療機関へ質問しましょう。",
+  "verdict": {
+    "label": "英国の実施方針を、受診時に確認する質問へ置き換える",
+    "description": "患者向け説明、導入後の監視、個人差、相談経路は重要な確認点です。ただし、実施前の政策方針であり、適用地域と現在の制度を区別します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "AIが診療のどの工程に使われ、医療者がどう確認するかを尋ねる", "reason": "AIの役割と人による判断の関係を理解するためです。"},
+    {"action": "結果に疑問がある場合の相談窓口や再確認方法を尋ねる", "reason": "英国の方針が重視する責任と相談経路を、自分の受診先で確認できます。"},
+    {"action": "資料の対象が英国の政策であり、実施計画が段階的であることを明記する", "reason": "将来の方針を、国内外ですでに有効な権利と誤認しないためです。"}
+  ],
+  "avoidActions": [
+    {"action": "英国の方針だけを根拠に、日本でも同じ説明義務や異議申立て権が新設されたと断定する", "reason": "政策の対象地域と実施状況が異なります。"},
+    {"action": "AIを使ったというだけで診療が不適切だったと決めつける", "reason": "資料はAIの一律禁止ではなく、安全な導入、監視、患者への説明を扱っています。"}
+  ],
+  "positiveUse": {
+    "title": "受診時の質問を具体的にする",
+    "description": "医療AIの役割、人の確認、性能の見守り、相談先を整理して聞けます。",
+    "examples": ["AIが使われる工程", "医療者による確認", "対象患者や限界", "疑問・問題時の相談先"]
+  },
+  "makotoComment": "今回の英国資料の要点は『AIを使うか』だけでなく、利用後の監視と患者の声まで制度設計に含めたことです。一方で、政府が提言を受け入れた段階と現場で使える権利は分けて伝えたいです。",
+  "oneLineLesson": "医療AIの利用を知ったら工程・人の確認・相談先を聞き、外国の実施方針を現在の権利と混同しない。",
+  "tags": ["医療AI", "患者向けガイド", "英国", "MHRA", "AI医療機器", "患者の声", "相談窓口"],
+  "sources": [
+    {"title": "Patients and the Public", "publisher": "Medicines and Healthcare products Regulatory Agency / GOV.UK", "sourceType": "government-consumer-guidance", "publishedAt": "2026-10-06", "url": "https://www.gov.uk/government/publications/what-the-national-commissions-recommendations-mean-for-you/patients-and-the-public"},
+    {"title": "Government backs recommendations of NHS doctors-led AI Commission", "publisher": "Medicines and Healthcare products Regulatory Agency / GOV.UK", "sourceType": "government-regulatory-update", "publishedAt": "2026-10-06", "url": "https://www.gov.uk/government/news/government-backs-recommendations-of-nhs-doctors-led-ai-commission"}
+  ],
+  "visualSuggestion": {"mainVisual": "診療室で患者がAIの役割、人による確認、相談窓口の三点を質問する図。政策の実施前・実施後を混ぜない注記を添える。", "cardIcon": "health-ai-patient-questions", "accentTone": "calm"}
+}

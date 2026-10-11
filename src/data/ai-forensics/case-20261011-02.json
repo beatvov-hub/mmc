@@ -1,0 +1,60 @@
+{
+  "id": "case-20261011-02",
+  "publishedAt": "2026-10-11",
+  "title": "医療AIを導入する前、ベンダーに確認したい試験と更新情報",
+  "shortTitle": "医療AIの導入前チェック",
+  "category": "health-ai",
+  "difficulty": "advanced",
+  "targetAudience": ["医療機関のAI調達・導入担当者", "医療AI製品を評価する医療従事者"],
+  "summary": "米国FDA、カナダ保健省、英国MHRAが共同で示した医療機器向けGood Machine Learning Practice（GMLP）の指針ページは、2026年10月5日に更新されています。10の原則は、学習データとは独立した臨床的に適切な試験、人とAIを組み合わせた性能評価、対象集団やサブグループの情報、許容入力と既知の限界の開示、導入後の性能監視を扱います。これは医療機器の開発・評価に関する国際協調の指針であり、それ自体を各国の一律な法的要件や製品認証と見なすものではありません。導入担当者は、宣伝文句だけでなく、どの患者・環境で評価したか、更新後の変化や性能低下をどう監視するかをベンダーに確認するチェックリストとして活用できます。",
+  "scenario": {
+    "headline": "医療機関がAI医療機器の導入候補を比較している",
+    "description": "製品説明には精度の数字があるものの、対象患者や試験条件、導入後の更新・監視方法をどう見比べればよいか迷う場面です。",
+    "whyItMatters": "学習データでの成績だけでは、実際の患者集団や診療環境、人が出力を使う工程での安全性を判断できません。"
+  },
+  "question": {
+    "text": "医療AI製品を選ぶ時、ベンダーに追加で確認する項目は？",
+    "choices": [
+      {"id": "deployment-evidence", "label": "対象患者、独立した臨床試験、限界、更新後の監視を確認する", "description": "GMLPは、臨床的に関連する条件、人とAIのチーム、ユーザー情報、運用後の監視を含む指針です。"},
+      {"id": "headline-accuracy", "label": "学習時の全体精度だけを見て、導入後の更新確認は省く", "description": "指針は独立した試験と運用後の性能維持、再学習やデータ変化のリスク管理も扱います。"}
+    ],
+    "recommendedAnswers": ["deployment-evidence"],
+    "explanation": "平均的な精度の数字だけでなく、誰にどの環境で使う製品か、限界や更新を含めて判断します。GMLPは調達質問の参考であり、適合・認証を自動的に証明するものではありません。"
+  },
+  "inspectionPoints": [
+    {"title": "試験データは学習データから独立しているか", "description": "指針は、学習データセットとは独立した統計的に妥当な試験計画を求め、対象患者群、重要なサブグループ、臨床環境、入力、交絡要因を挙げています。", "priority": "high"},
+    {"title": "人とAIを合わせた性能を評価したか", "description": "AIモデル単体の指標だけでなく、人が出力を解釈し診療工程で使う時のHuman-AI teamの性能と人的要因を考慮する原則です。", "priority": "high"},
+    {"title": "使う人に必要な製品情報があるか", "description": "対象用途、サブグループ別性能、学習・試験データの特徴、受け付ける入力、既知の限界、画面表示と診療工程への統合をユーザー向けに示すとしています。", "priority": "high"},
+    {"title": "導入後の変更・更新を知らせるか", "description": "実運用の監視をもとにした機器の変更・更新と、判断根拠が利用可能な場合の説明、開発者へ懸念を伝える手段を扱っています。", "priority": "medium"},
+    {"title": "再学習やデータ変化への制御があるか", "description": "運用後の継続学習で起こり得る過学習、意図しない偏り、データドリフトによる性能低下のリスク管理を指針に含めています。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "臨床条件と運用後の根拠まで確認",
+  "verificationMessage": "精度の単一値だけで決めず、対象集団・独立試験・利用者向けの限界・更新後の監視を資料で確認してください。",
+  "verdict": {
+    "label": "医療AIの評価は導入前の試験と導入後の監視をセットで見る",
+    "description": "GMLPの10原則を、製品比較とベンダーへの質問に活用できます。ただし、指針への言及だけで法的適合や製品の安全を断定せず、各地域の規制・個別製品の証拠を別に確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "製品の意図された用途、対象患者、重要なサブグループ別の試験結果を入手する", "reason": "適用対象外の患者や環境を見落とさず、導入先との適合を確認できます。"},
+    {"action": "学習に使ったデータとは独立した臨床関連試験と、人が使う工程での評価を確認する", "reason": "学習成績やモデル単体の数値だけでは現場での性能を把握できないためです。"},
+    {"action": "更新通知、運用後の性能監視、データドリフトや再学習リスクの管理方法を契約・運用設計に含める", "reason": "導入後も性能や限界が変化する可能性を管理できます。"}
+  ],
+  "avoidActions": [
+    {"action": "GMLPの原則に触れた資料だけで、製品の認証や法令適合が済んだと判断する", "reason": "共同指針は開発・評価に役立つ原則であり、個別製品への承認や法的判定ではありません。"},
+    {"action": "学習時の全体精度だけで、患者集団や診療環境を問わず安全だと結論づける", "reason": "指針はサブグループ、臨床環境、人的要因、交絡要因を含む独立試験を重視します。"}
+  ],
+  "positiveUse": {
+    "title": "調達時の比較質問を標準化する",
+    "description": "候補製品ごとに対象、独立試験、既知の限界、更新後の監視を同じ欄で比較できます。",
+    "examples": ["対象患者・用途", "サブグループ別の評価", "入力と限界", "更新通知と運用監視"]
+  },
+  "makotoComment": "この指針で見落としやすいのは、モデルの点数より『どんな患者と現場で試したか』、さらに更新後に誰が変化を見るかです。調達書類では導入前の試験と運用後の監視を別々に尋ねたいです。",
+  "oneLineLesson": "医療AIは全体精度だけで選ばず、対象患者・独立試験・既知の限界・更新後の監視を確認する。",
+  "tags": ["医療AI", "AI医療機器", "GMLP", "FDA", "Health Canada", "MHRA", "AI調達", "データドリフト"],
+  "sources": [
+    {"title": "Good machine learning practice for medical device development: guiding principles", "publisher": "U.S. Food and Drug Administration (FDA) / Health Canada / Medicines and Healthcare products Regulatory Agency (MHRA), via GOV.UK", "sourceType": "government", "publishedAt": "2026-10-05", "url": "https://www.gov.uk/government/publications/good-machine-learning-practice-for-medical-device-development-guiding-principles/good-machine-learning-practice-for-medical-device-development-guiding-principles"}
+  ],
+  "visualSuggestion": {"mainVisual": "医療AIの調達チェックを、導入前の独立試験・対象患者・既知の限界と導入後の更新監視に分けた図。", "cardIcon": "medical-ai-procurement-check", "accentTone": "clinical"}
+}
