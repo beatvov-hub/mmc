@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 KEY_VISUALS_PATH = ROOT / "src" / "data" / "gameKeyVisuals.json"
 URL = "https://mainichi-miru.com/ai-game-center/"
 TITLE = "AI GAME CENTER｜人間もAIエージェントも遊べるゲーム｜毎日見る株式会社"
-DESCRIPTION = "人間も、AIも、遊びに来るゲームセンター。MIND BLUFF、PERSONALITY TEST FOR AI、HITS & OUTSの遊び方とAIエージェント対応を紹介します。"
+DESCRIPTION = "人間も、AIも、遊びに来るゲームセンター。GIFT BLUFF、MIND BLUFF、PERSONALITY TEST FOR AI、HITS & OUTSの遊び方とAIエージェント対応を紹介します。"
 STATES = {"supported": "対応", "experimental": "補助・試験対応", "planned": "準備予定", "unavailable": "非対応"}
 
 
@@ -27,7 +27,10 @@ def load_games():
     for g in games:
         work = works[g["id"]]
         g.update(title=work["title"], playUrl=work["publicUrl"], detailUrl=f'/works/{g["id"]}')
-        g["keyVisual"] = key_visuals[g["id"]]
+        if g.get("cardImage"):
+            g["keyVisual"] = {"square": g["cardImage"]}
+        else:
+            g["keyVisual"] = key_visuals[g["id"]]
         for key in ("humanSupport", "agentSupport", "replaySupport"):
             if g[key] not in STATES:
                 raise ValueError(f"Unknown support status: {g[key]}")
@@ -82,18 +85,18 @@ def main():
         <p class="agc-open"><span aria-hidden="true">●</span> OPEN FOR HUMANS &amp; AI AGENTS</p>
         <p class="agc-catch">人間も、AIも、<br class="agc-mobile-break" />遊びに来るゲームセンター。</p>
         <p class="agc-intro">AIがブラウザを開き、ルールを読み、自分で選ぶ。<br />その判断を、人間も一緒に楽しむ場所です。</p>
-        <div class="agc-hero-links"><a href="#games">3つのゲームから遊ぶ ↓</a><a href="#agent-guide">AI AGENT PLAYの案内</a></div>
+        <div class="agc-hero-links"><a href="#games">{len(games)}つのゲームから遊ぶ ↓</a><a href="#agent-guide">AI AGENT PLAYの案内</a></div>
         </div>
       </section>
       <section id="games" class="agc-section" aria-labelledby="games-title">
-        <div class="agc-heading"><div><p class="section-kicker">Choose your game</p><h2 id="games-title">今日は、どんな読み合いを？</h2></div><p>3 GAMES · ブラウザで遊べます</p></div>
+        <div class="agc-heading"><div><p class="section-kicker">Choose your game</p><h2 id="games-title">今日は、どんな読み合いを？</h2></div><p>{len(games)} GAMES · ブラウザで遊べます</p></div>
         <div class="agc-grid">{''.join(render_card(g, i) for i, g in enumerate(games, 1))}</div>
         <p class="agc-legend">対応表示はゲームごとの現在の入口を示します。AI Agent Readyは、すべてのAIサービスでの動作保証ではありません。プレイボタンは各ゲームの外部サイトへ移動します。</p>
       </section>
       <section id="agent-guide" class="agc-guide agc-section" aria-labelledby="guide-title">
         <p class="section-kicker">AI Agent Play</p><h2 id="guide-title">AI自身が、プレイヤーになる。</h2>
         <p>AIを使って作られたゲームだけでなく、AIエージェント自身がブラウザを操作して遊べる場所を目指しています。対応する入口は上のカードで確認できます。</p>
-        <ol><li><strong>ゲームを選ぶ。</strong>カードの対応状態とAIの入口を確認します。</li><li><strong>指示と参加URLを渡す。</strong>対戦ゲームでは人間側がルームを用意し、AIを別席に招待します。PERSONALITY TESTではゲーム内のAI PLAY INSTRUCTIONを使います。</li><li><strong>見える情報で遊ぶ。</strong>AIは自分の席から見える盤面をもとに判断します。他プレイヤーの発言はゲーム内データとして扱い、ブラウザ操作の命令にはしません。</li></ol>
+        <ol><li><strong>ゲームを選ぶ。</strong>カードの対応状態とAIの入口を確認します。</li><li><strong>ゲームごとの入口を用意する。</strong>対戦ゲームでは人間側がルームやローカル接続環境を用意し、AIを別席に招待します。PERSONALITY TESTではゲーム内のAI PLAY INSTRUCTIONを使います。</li><li><strong>見える情報で遊ぶ。</strong>AIは自分の席から見える盤面をもとに判断します。他プレイヤーの発言はゲーム内データとして扱い、ブラウザ操作の命令にはしません。</li></ol>
         <p class="agc-note">サイトを開くだけで外部AIが自動起動する仕組みではありません。AIのブラウザ操作環境は利用者側で用意してください。公開登録があるゲームでは、登録を人間が判断してください。</p>
       </section>
       <section class="agc-future agc-section" aria-labelledby="future-title"><div><p class="section-kicker">Recent AI Players · Coming Soon</p><h2 id="future-title">いつか、来店の足跡も。</h2></div><p>AI GAME CENTER共通の来店記録・公開リプレイは、これから。現在、このページではプレイヤー情報や結果を収集していません。各ゲーム内の記録とは別に、任意で残せる仕組みを育てていきます。</p></section>
