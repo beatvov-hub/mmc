@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>メールをAIに読ませる前に　Microsoft Defenderのプロンプト注入検知の範囲｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="MicrosoftはMicrosoft Defender for Office 365 Plan 2の文書で、受信メール内のプロンプト注入をAIアシスタントが読む前にメール検査の段階で検知すると説明しています。本文だけでなく、HTMLの隠し文字、引用・転送されたスレッド、難読化された部分なども検査対象で、検知時は既存の高信頼フィッシング判定に新しい検知技術名が付く仕組みです。ただし、すべての命令文を遮断する一般的な注入検出器ではなく、データ流出やシステムプロンプト・利用可能なツールの開示を狙う攻撃など、メール段階で信頼性高く識別できる範囲に焦点を当てます。モデル実行時の権限・接続データに依存する攻撃には、AI側の防御も必要です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261013-03" />
+<meta property="og:title" content="メールをAIに読ませる前に　Microsoft Defenderのプロンプト注入検知の範囲｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="MicrosoftはMicrosoft Defender for Office 365 Plan 2の文書で、受信メール内のプロンプト注入をAIアシスタントが読む前にメール検査の段階で検知すると説明しています。本文だけでなく、HTMLの隠し文字、引用・転送されたスレッド、難読化された部分なども検査対象で、検知時は既存の高信頼フィッシング判定に新しい検知技術名が付く仕組みです。ただし、すべての命令文を遮断する一般的な注入検出器ではなく、データ流出やシステムプロンプト・利用可能なツールの開示を狙う攻撃など、メール段階で信頼性高く識別できる範囲に焦点を当てます。モデル実行時の権限・接続データに依存する攻撃には、AI側の防御も必要です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261013-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>メール経由のAI攻撃を検知する</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
+              <time datetime="2026-10-13">2026.10.13</time>
+            </div>
+            <h1>メールをAIに読ませる前に　Microsoft Defenderのプロンプト注入検知の範囲</h1>
+            <p>MicrosoftはMicrosoft Defender for Office 365 Plan 2の文書で、受信メール内のプロンプト注入をAIアシスタントが読む前にメール検査の段階で検知すると説明しています。本文だけでなく、HTMLの隠し文字、引用・転送されたスレッド、難読化された部分なども検査対象で、検知時は既存の高信頼フィッシング判定に新しい検知技術名が付く仕組みです。ただし、すべての命令文を遮断する一般的な注入検出器ではなく、データ流出やシステムプロンプト・利用可能なツールの開示を狙う攻撃など、メール段階で信頼性高く識別できる範囲に焦点を当てます。モデル実行時の権限・接続データに依存する攻撃には、AI側の防御も必要です。</p>
+            <ul class="forensics-target-list"><li>Microsoft 365のセキュリティ管理者</li><li>メールをAIアシスタントで処理する組織</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>プロンプトインジェクション</li><li>メールセキュリティ</li><li>Microsoft Defender</li><li>AIエージェント</li><li>Microsoft 365</li><li>権限管理</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>メール入口とAI実行時の二層で確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>メール検査が有効でも、AI側に与えたデータ・操作権限を縮小し、実行時の制御と監視を続けます。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>受信メールをCopilotや別のAIに要約・分類させている</h3><p>人には普通の依頼に見えるメールの中に、AIへ指示する隠し文字や引用返信、添付ファイル上の命令が含まれる可能性があります。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIが読んだ内容に攻撃者の指示が混ざると、機密情報の漏えい、誤った安全判定、意図しない自動操作につながるおそれがあります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="layered-controls">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>メール経由のプロンプト注入対策として、Defenderの検知だけで十分？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="layered-controls" data-choice-id="layered-controls" />
+                <span>
+                  <strong>対象ライセンスとメール検査を確認し、AIの実行時防御・権限制御も併用する</strong>
+                  <small>Microsoftはメール段階の検知と、モデル実行時の境界・権限・出力防御を別レイヤーとして説明しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="email-filter-only" data-choice-id="email-filter-only" />
+                <span>
+                  <strong>メールフィルターがあれば、AI側の権限設定や実行時防御は不要とする</strong>
+                  <small>メール段階で判定できない攻撃や、AIの実行環境に依存する攻撃には追加防御が必要です。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>対象ライセンスとメール検査を確認し、AIの実行時防御・権限制御も併用する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Defenderの検知は入口での一層であり、AIが持つ権限や利用可能なデータ・ツールに依存する攻撃をすべて判断できるわけではありません。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象ライセンスと検査の位置を確認する</h3>
+              <p>Microsoftの文書はMicrosoft Defender for Office 365 Plan 2などの適用対象を示しています。保護はメールフロー検査で配信前に行われ、利用者が追加設定しなくても対象環境で機能すると説明されています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>人に見えにくい入力もモデルには届き得る</h3>
+              <p>白文字・極小文字・画面外のHTML、引用返信、添付ファイル、難読化された文字列などが、AIに渡されるメッセージ内容に含まれ得ます。見た目の本文だけを安全確認の対象にしません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>検知は高信頼フィッシング判定として記録される</h3>
+              <p>検知は既存のHigh confidence phishing verdictに分類され、Prompt injection protectionという検知技術値でThreat ExplorerやAdvanced Huntingから確認できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>全ての命令文やテスト文字列を検出する機能ではない</h3>
+              <p>Microsoftは、既知の送信者から届いた単純なテストや、文脈上の兆候が足りない指示は検知されないことがあると説明しています。一般的なプロンプト注入ベンチマークでもありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AI側の実行時防御を残す</h3>
+              <p>メールフィルターはデータ流出、システムプロンプト開示、ツール探索を狙うものなどに焦点を当てます。AIの現在の指示、権限、参照データ、利用ツールに依存する注入には、実行時の入力・出力防御や接続権限管理が引き続き重要です。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>メール段階の注入検知は有効な一層だが、単独では完結しない</strong><p>Microsoft Learnの文書は、Defenderの機能範囲と限界を記載しています。対象ライセンス、管理画面、実際のテナント構成は組織ごとに確認が必要です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>利用ライセンスとThreat Explorerでの検知可視性を確認する</strong><span>機能の適用対象や調査経路を把握して初めて、運用上の検知確認ができます。</span></li>
+            <li><strong>メールを読むAIに付与したメールボックス・ファイル・送信権限を必要最小限にする</strong><span>フィルターを通過する内容があっても、AI側のアクセス範囲を絞れば被害を限定できます。</span></li>
+            <li><strong>メールフィルター、AI実行時防御、監査ログを組み合わせる</strong><span>各レイヤーは異なる段階と攻撃条件を扱うため、単一機能に依存しない設計が必要です。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>プロンプト注入を含む可能性のあるメールを、要約なら安全として自動処理する</strong><span>要約や分類でも、AIはメール本文・引用文・添付内容を入力として読みます。</span></li>
+            <li><strong>Defenderが全種類の注入文を検知・遮断すると説明する</strong><span>文書は対象を絞った検知機能であり、単純なテスト文が検知されない場合や実行時防御が必要な場合を明記しています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIメール処理を入口と実行時の両方から守る</h3>
+          <p>メールフロー検知とAI権限管理を組み合わせ、日常の要約・返信支援を保ちながら、不審な入力や意図しない操作への耐性を高めます。</p>
+          <ul class="positive-example-list"><li>メールAIの権限棚卸し</li><li>検知イベントの運用監視</li><li>隠し文字を含む攻撃の演習</li><li>AI実行時の送信承認設定</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>メールをAIに渡すと、画面に見える文章だけでなく引用や添付もモデルの入力になります。Microsoftの説明で有用なのは、Defenderがどこまでをメール段階で見て、どこから先はAI実行時防御に委ねるかを明確に分けている点です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>メールのプロンプト注入検知は入口の防御。AIの権限と実行時対策も残す。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://learn.microsoft.com/en-us/defender-office-365/step-by-step-guides/prompt-injection-protection-defender-for-office-365" target="_blank" rel="noopener noreferrer">Prompt injection protection in Microsoft Defender for Office 365<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Learn</span>
+              <span>その他</span>
+              <time datetime="2026-09-08">2026-09-08</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20261013-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="英国のAIサイバー防衛、実施済み・準備中・検討中を読み分ける 英国のAI防衛策の現在地 英国政府は2026年10月12日、AIを使った政府システムの防御強化と、自律型AIエージェントによる重大事故への備えを発表しました。二つの試行では政府システムの潜在的な脆弱性を千件超特定・対処したと説明する一方、AI関連の重大インシデントやニアミスの報告制度、重要サービスへの法的保護は今後検討するとしています。AI Security Instituteによる最新モデルの評価や、AIエージェント事故への対応体制づくりも進行中です。読者は発表を一括して「新しい規制が始まった」と受け取らず、既に行われた防御、準備中の活動、法案上の検討を分けて読む必要があります。英国の政府発表であり、日本の組織に新たな法的義務を課すものではありません。 セキュリティ・権限 標準 英国政府 AIセキュリティ サイバー防衛 脆弱性 AIエージェント インシデント対応 AIやサイバーセキュリティのニュースを読む人 組織のセキュリティ・インシデント対応担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-cyber-stages</span>
+              <div>
+                <p>英国のAI防衛策の現在地</p>
+                <h3>英国のAIサイバー防衛、実施済み・準備中・検討中を読み分ける</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-13">2026.10.13</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">英国政府は2026年10月12日、AIを使った政府システムの防御強化と、自律型AIエージェントによる重大事故への備えを発表しました。二つの試行では政府システムの潜在的な脆弱性を千件超特定・対処したと説明する一方、AI関連の重大インシデントやニアミスの報告制度、重要サービスへの法的保護は今後検討するとしています。AI Security Instituteによる最新モデルの評価や、AIエージェント事故への対応体制づくりも進行中です。読者は発表を一括して「新しい規制が始まった」と受け取らず、既に行われた防御、準備中の活動、法案上の検討を分けて読む必要があります。英国の政府発表であり、日本の組織に新たな法的義務を課すものではありません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>実績・準備・制度案を分けて確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIやサイバーセキュリティのニュースを読む人</li><li>組織のセキュリティ・インシデント対応担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>英国政府</li><li>AIセキュリティ</li><li>サイバー防衛</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261012-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="AIエージェントの個人データ利用、英国ICOが意見募集　導入現場で整理したい論点 AIエージェントと個人データ 英国情報コミッショナー事務局（ICO）は2026年10月8日、AIエージェントの能力とリスクにデータ保護法をどう適用するかを検討するため、証拠募集を開始しました。募集は11月20日までで、データセキュリティ、透明性、説明責任、自動化された意思決定、公正性・目的制限、処理の適法性などを尋ねています。これは既存法の適用に関する意見募集であり、新しい法令が施行されたことや、エージェント利用を一律に禁止したことを意味しません。導入担当者は、エージェントがアクセスする個人データ、外部送信、判断・実行、人による監督、本人への説明と問い合わせ経路を棚卸しし、回答する場合は公開され得る情報の扱いにも注意できます。 セキュリティ・権限 標準 AIエージェント データ保護 ICO プライバシー 意見募集 自動化された意思決定 組織でAIエージェントを導入・管理する人 個人データを扱うシステムの担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">privacy-data-flow</span>
+              <div>
+                <p>AIエージェントと個人データ</p>
+                <h3>AIエージェントの個人データ利用、英国ICOが意見募集　導入現場で整理したい論点</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-12">2026.10.12</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">英国情報コミッショナー事務局（ICO）は2026年10月8日、AIエージェントの能力とリスクにデータ保護法をどう適用するかを検討するため、証拠募集を開始しました。募集は11月20日までで、データセキュリティ、透明性、説明責任、自動化された意思決定、公正性・目的制限、処理の適法性などを尋ねています。これは既存法の適用に関する意見募集であり、新しい法令が施行されたことや、エージェント利用を一律に禁止したことを意味しません。導入担当者は、エージェントがアクセスする個人データ、外部送信、判断・実行、人による監督、本人への説明と問い合わせ経路を棚卸しし、回答する場合は公開され得る情報の扱いにも注意できます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>データの流れ・判断・監督を棚卸し</span>
+            </div>
+            <ul class="forensics-card-audience"><li>組織でAIエージェントを導入・管理する人</li><li>個人データを扱うシステムの担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>データ保護</li><li>ICO</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261011-03" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="AI導入のリスク台帳、誰がいつ見直す？英国DSITの実務ツール AIリスク台帳の作り方 英国科学・イノベーション・技術省（DSIT）は2026年9月8日、AI Risk Management Toolkitを公開しました。ガイダンスは、AIの利用案検討から運用・廃止までリスク管理を続け、識別・評価・対応・監視・報告を行う考え方を示します。質問集、リスクと対策を記録するワークブック、監視ダッシュボードが含まれ、既存のリスク台帳を使う場合もリスク、緩和策、担当者を追跡・更新できることが条件として説明されています。英国政府の実務ツールであり、日本の組織に対する法的義務ではありませんが、AIの試行を始める際に『誰が対策し、何をきっかけに見直すか』を記録する土台として使えます。 仕事・AI活用 標準 AIリスク管理 DSIT 英国政府 AI導入 リスク台帳 運用管理 プロンプトインジェクション 組織で生成AIや機械学習を導入する担当者 AI利用のリスク・運用を管理する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-risk-register</span>
+              <div>
+                <p>AIリスク台帳の作り方</p>
+                <h3>AI導入のリスク台帳、誰がいつ見直す？英国DSITの実務ツール</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-11">2026.10.11</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">英国科学・イノベーション・技術省（DSIT）は2026年9月8日、AI Risk Management Toolkitを公開しました。ガイダンスは、AIの利用案検討から運用・廃止までリスク管理を続け、識別・評価・対応・監視・報告を行う考え方を示します。質問集、リスクと対策を記録するワークブック、監視ダッシュボードが含まれ、既存のリスク台帳を使う場合もリスク、緩和策、担当者を追跡・更新できることが条件として説明されています。英国政府の実務ツールであり、日本の組織に対する法的義務ではありませんが、AIの試行を始める際に『誰が対策し、何をきっかけに見直すか』を記録する土台として使えます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>記録・担当・再評価をセットで管理</span>
+            </div>
+            <ul class="forensics-card-audience"><li>組織で生成AIや機械学習を導入する担当者</li><li>AI利用のリスク・運用を管理する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIリスク管理</li><li>DSIT</li><li>英国政府</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261012-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261013-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

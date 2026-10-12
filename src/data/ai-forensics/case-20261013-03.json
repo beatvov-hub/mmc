@@ -1,0 +1,60 @@
+{
+  "id": "case-20261013-03",
+  "publishedAt": "2026-10-13",
+  "title": "メールをAIに読ませる前に　Microsoft Defenderのプロンプト注入検知の範囲",
+  "shortTitle": "メール経由のAI攻撃を検知する",
+  "category": "security",
+  "difficulty": "advanced",
+  "targetAudience": ["Microsoft 365のセキュリティ管理者", "メールをAIアシスタントで処理する組織"],
+  "summary": "MicrosoftはMicrosoft Defender for Office 365 Plan 2の文書で、受信メール内のプロンプト注入をAIアシスタントが読む前にメール検査の段階で検知すると説明しています。本文だけでなく、HTMLの隠し文字、引用・転送されたスレッド、難読化された部分なども検査対象で、検知時は既存の高信頼フィッシング判定に新しい検知技術名が付く仕組みです。ただし、すべての命令文を遮断する一般的な注入検出器ではなく、データ流出やシステムプロンプト・利用可能なツールの開示を狙う攻撃など、メール段階で信頼性高く識別できる範囲に焦点を当てます。モデル実行時の権限・接続データに依存する攻撃には、AI側の防御も必要です。",
+  "scenario": {
+    "headline": "受信メールをCopilotや別のAIに要約・分類させている",
+    "description": "人には普通の依頼に見えるメールの中に、AIへ指示する隠し文字や引用返信、添付ファイル上の命令が含まれる可能性があります。",
+    "whyItMatters": "AIが読んだ内容に攻撃者の指示が混ざると、機密情報の漏えい、誤った安全判定、意図しない自動操作につながるおそれがあります。"
+  },
+  "question": {
+    "text": "メール経由のプロンプト注入対策として、Defenderの検知だけで十分？",
+    "choices": [
+      {"id": "layered-controls", "label": "対象ライセンスとメール検査を確認し、AIの実行時防御・権限制御も併用する", "description": "Microsoftはメール段階の検知と、モデル実行時の境界・権限・出力防御を別レイヤーとして説明しています。"},
+      {"id": "email-filter-only", "label": "メールフィルターがあれば、AI側の権限設定や実行時防御は不要とする", "description": "メール段階で判定できない攻撃や、AIの実行環境に依存する攻撃には追加防御が必要です。"}
+    ],
+    "recommendedAnswers": ["layered-controls"],
+    "explanation": "Defenderの検知は入口での一層であり、AIが持つ権限や利用可能なデータ・ツールに依存する攻撃をすべて判断できるわけではありません。"
+  },
+  "inspectionPoints": [
+    {"title": "対象ライセンスと検査の位置を確認する", "description": "Microsoftの文書はMicrosoft Defender for Office 365 Plan 2などの適用対象を示しています。保護はメールフロー検査で配信前に行われ、利用者が追加設定しなくても対象環境で機能すると説明されています。", "priority": "high"},
+    {"title": "人に見えにくい入力もモデルには届き得る", "description": "白文字・極小文字・画面外のHTML、引用返信、添付ファイル、難読化された文字列などが、AIに渡されるメッセージ内容に含まれ得ます。見た目の本文だけを安全確認の対象にしません。", "priority": "high"},
+    {"title": "検知は高信頼フィッシング判定として記録される", "description": "検知は既存のHigh confidence phishing verdictに分類され、Prompt injection protectionという検知技術値でThreat ExplorerやAdvanced Huntingから確認できます。", "priority": "medium"},
+    {"title": "全ての命令文やテスト文字列を検出する機能ではない", "description": "Microsoftは、既知の送信者から届いた単純なテストや、文脈上の兆候が足りない指示は検知されないことがあると説明しています。一般的なプロンプト注入ベンチマークでもありません。", "priority": "high"},
+    {"title": "AI側の実行時防御を残す", "description": "メールフィルターはデータ流出、システムプロンプト開示、ツール探索を狙うものなどに焦点を当てます。AIの現在の指示、権限、参照データ、利用ツールに依存する注入には、実行時の入力・出力防御や接続権限管理が引き続き重要です。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "メール入口とAI実行時の二層で確認",
+  "verificationMessage": "メール検査が有効でも、AI側に与えたデータ・操作権限を縮小し、実行時の制御と監視を続けます。",
+  "verdict": {
+    "label": "メール段階の注入検知は有効な一層だが、単独では完結しない",
+    "description": "Microsoft Learnの文書は、Defenderの機能範囲と限界を記載しています。対象ライセンス、管理画面、実際のテナント構成は組織ごとに確認が必要です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "利用ライセンスとThreat Explorerでの検知可視性を確認する", "reason": "機能の適用対象や調査経路を把握して初めて、運用上の検知確認ができます。"},
+    {"action": "メールを読むAIに付与したメールボックス・ファイル・送信権限を必要最小限にする", "reason": "フィルターを通過する内容があっても、AI側のアクセス範囲を絞れば被害を限定できます。"},
+    {"action": "メールフィルター、AI実行時防御、監査ログを組み合わせる", "reason": "各レイヤーは異なる段階と攻撃条件を扱うため、単一機能に依存しない設計が必要です。"}
+  ],
+  "avoidActions": [
+    {"action": "プロンプト注入を含む可能性のあるメールを、要約なら安全として自動処理する", "reason": "要約や分類でも、AIはメール本文・引用文・添付内容を入力として読みます。"},
+    {"action": "Defenderが全種類の注入文を検知・遮断すると説明する", "reason": "文書は対象を絞った検知機能であり、単純なテスト文が検知されない場合や実行時防御が必要な場合を明記しています。"}
+  ],
+  "positiveUse": {
+    "title": "AIメール処理を入口と実行時の両方から守る",
+    "description": "メールフロー検知とAI権限管理を組み合わせ、日常の要約・返信支援を保ちながら、不審な入力や意図しない操作への耐性を高めます。",
+    "examples": ["メールAIの権限棚卸し", "検知イベントの運用監視", "隠し文字を含む攻撃の演習", "AI実行時の送信承認設定"]
+  },
+  "makotoComment": "メールをAIに渡すと、画面に見える文章だけでなく引用や添付もモデルの入力になります。Microsoftの説明で有用なのは、Defenderがどこまでをメール段階で見て、どこから先はAI実行時防御に委ねるかを明確に分けている点です。",
+  "oneLineLesson": "メールのプロンプト注入検知は入口の防御。AIの権限と実行時対策も残す。",
+  "tags": ["プロンプトインジェクション", "メールセキュリティ", "Microsoft Defender", "AIエージェント", "Microsoft 365", "権限管理"],
+  "sources": [
+    {"title": "Prompt injection protection in Microsoft Defender for Office 365", "publisher": "Microsoft Learn", "sourceType": "official-product-documentation", "publishedAt": "2026-09-08", "url": "https://learn.microsoft.com/en-us/defender-office-365/step-by-step-guides/prompt-injection-protection-defender-for-office-365"}
+  ],
+  "visualSuggestion": {"mainVisual": "受信メールの隠し指示をメールゲートウェイが検査し、通過時にもAI実行時防御と最小権限が働く二層図", "cardIcon": "email-prompt-defense", "accentTone": "caution"}
+}

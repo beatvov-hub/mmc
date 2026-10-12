@@ -1,0 +1,59 @@
+{
+  "id": "case-20261013-02",
+  "publishedAt": "2026-10-13",
+  "title": "Adobeの制作AIに任せる範囲は？公開前に人が確認する工程を残す",
+  "shortTitle": "制作AIの公開前レビュー",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["Adobe FireflyやCreative Cloudの制作AIを使う人", "生成AIを制作工程に組み込むチーム"],
+  "summary": "Adobeは2026年6月18日、FireflyやCreative Cloudアプリをまたぐクリエイティブエージェントの拡張を発表しました。FireflyのAI Assistantは依頼内容から複数段階の制作工程を実行し、同日発表では公開前に共同作業者を招いてレビューやフィードバックを受けられる機能も案内されています。発表時点でFireflyのWeb版はベータ提供中、Premiere、Photoshop、Illustrator、InDesign、Frame.ioではパブリックベータとして利用可能とされました。仕事で使う際は、素材整理や初稿作成など任せる工程と、権利・事実・ブランド適合性を人が承認する工程を分け、公開前レビューを止めない運用が現実的です。これはAdobeの発表内容であり、全機能が全契約・地域で使えることを保証するものではありません。",
+  "scenario": {
+    "headline": "会話型AIに制作の複数工程を頼み、成果物をチームで公開したい",
+    "description": "一度の依頼で複数アプリにまたがる作業が進むと、どこまでAIに任せ、誰が公開前に確認するのかが曖昧になりがちです。",
+    "whyItMatters": "作業の自動化と公開判断を分け、レビュー担当者が成果物を見てから公開する工程を残すと、効率化と品質管理を両立しやすくなります。"
+  },
+  "question": {
+    "text": "複数工程を進める制作AIをチームで使うとき、何を運用ルールにする？",
+    "choices": [
+      {"id": "retain-human-publish-gate", "label": "AIに任せる作業と、人が確認して公開を承認する工程を分ける", "description": "Adobeは複数段階の作業を支援する機能と、公開前に共同作業者がレビュー・フィードバックする流れを発表しています。"},
+      {"id": "auto-publish-everything", "label": "複数の作業を実行できるなら、生成結果を確認せずそのまま公開する", "description": "作業を進める機能があることは、内容・権利・ブランド適合性の確認まで自動で保証することを意味しません。"}
+    ],
+    "recommendedAnswers": ["retain-human-publish-gate"],
+    "explanation": "工程の実行を任せても、最終成果物の妥当性や公開可否は担当者が確認するゲートとして残します。"
+  },
+  "inspectionPoints": [
+    {"title": "自然文の依頼から複数段階の作業を実行する", "description": "Adobeは、Firefly AI Assistantが利用者の望む結果を自然文で受け取り、Creative Cloudアプリをまたいで複雑な複数工程を調整・実行する構想と機能を説明しています。", "priority": "high"},
+    {"title": "人が途中で指示を調整できる設計", "description": "Adobeの発表では、アシスタントが質問や選択肢を提示し、利用者が作業の途中でも方向を修正できるとされています。すべてを一括委任するのではなく、判断が必要な箇所で介入できる運用にします。", "priority": "high"},
+    {"title": "共同作業者のレビューを公開前に挟める", "description": "Adobeは、AI Assistant内で共同作業者を招き、公開前に成果物をレビューしてフィードバックできる機能を発表しました。公開担当者とレビュー担当者を分ける運用に活用できます。", "priority": "high"},
+    {"title": "ベータ提供と製品ごとの範囲を区別する", "description": "2026年6月18日の発表では、Firefly Web版の新機能は当日から利用可能、Creative Cloud各アプリのAI Assistantはパブリックベータとして案内されました。発表時点の提供状況であり、現在の自分の契約・地域での利用可否は製品画面で確認します。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "委任範囲と公開承認者を確認",
+  "verificationMessage": "制作作業の実行をAIに任せる場合も、レビュー担当者と公開承認者を決め、最終成果物を人が確認します。",
+  "verdict": {
+    "label": "工程の自動化と公開判断は分けて運用する",
+    "description": "Adobeは複数工程を調整する制作AIと、共同作業者による公開前レビューを案内しています。機能の発表は、成果物の正確さや公開適合性が自動で保証されることを意味しません。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "依頼前にAIへ任せる工程と、人が最終判断する工程を書き分ける", "reason": "複数段階の作業が進む場合も、法務・権利・ブランド判断の責任者を明確にできます。"},
+    {"action": "公開担当者とは別のレビュー担当者を設定し、公開前に成果物とフィードバックを確認する", "reason": "Adobeが発表した共同レビューの流れを、実際の承認プロセスに組み込めます。"},
+    {"action": "ベータ機能は自分のアカウントで使える範囲を確認し、小さな案件から試す", "reason": "発表時点の提供対象は、全契約・地域での現在の利用可否を保証しません。"}
+  ],
+  "avoidActions": [
+    {"action": "複数アプリの工程を実行できることを、成果物の確認や公開承認まで不要という意味に受け取る", "reason": "発表されたのは作業支援とレビュー機能であり、利用者側の公開責任がなくなるとは示されていません。"},
+    {"action": "発表時点のベータ提供状況を、現在の自分の契約でも必ず使えると見なす", "reason": "提供範囲は契約、地域、製品の状態によって異なる可能性があります。"}
+  ],
+  "positiveUse": {
+    "title": "反復作業を委任し、公開前の判断に時間を使う",
+    "description": "素材整理や複数工程の初稿づくりを支援させ、担当者はレビュー、権利確認、ブランド判断など人の責任が残る工程に集中します。",
+    "examples": ["委任する工程の明文化", "レビュー担当者の設定", "公開承認チェックリスト", "ベータ機能の小規模試行"]
+  },
+  "makotoComment": "一連の作業を会話で動かせるほど、どの時点で人が判断したかが見えにくくなります。Adobe自身が公開前レビューの協働機能を発表しているので、AIの実行完了を公開許可と同一視しない工程設計が肝になります。",
+  "oneLineLesson": "制作AIに工程を任せても、公開前のレビューと承認は人の仕事として残す。",
+  "tags": ["Adobe Firefly", "AI Assistant", "制作ワークフロー", "公開前レビュー", "ベータ機能", "業務活用"],
+  "sources": [
+    {"title": "Adobe Unveils Major Expansion of Creative Agent Across Firefly and Creative Cloud Apps Including Photoshop and Premiere", "publisher": "Adobe Newsroom", "sourceType": "official-product-update", "publishedAt": "2026-06-18", "url": "https://news.adobe.com/news/2026/06/adobe-unveils-major-expansion"}
+  ],
+  "visualSuggestion": {"mainVisual": "制作AIが複数工程を進め、人のレビュー担当者が公開前に承認するワークフロー", "cardIcon": "creative-review-gate", "accentTone": "practical"}
+}

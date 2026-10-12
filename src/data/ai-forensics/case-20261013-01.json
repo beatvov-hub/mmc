@@ -1,0 +1,60 @@
+{
+  "id": "case-20261013-01",
+  "publishedAt": "2026-10-13",
+  "title": "英国のAIサイバー防衛、実施済み・準備中・検討中を読み分ける",
+  "shortTitle": "英国のAI防衛策の現在地",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["AIやサイバーセキュリティのニュースを読む人", "組織のセキュリティ・インシデント対応担当者"],
+  "summary": "英国政府は2026年10月12日、AIを使った政府システムの防御強化と、自律型AIエージェントによる重大事故への備えを発表しました。二つの試行では政府システムの潜在的な脆弱性を千件超特定・対処したと説明する一方、AI関連の重大インシデントやニアミスの報告制度、重要サービスへの法的保護は今後検討するとしています。AI Security Instituteによる最新モデルの評価や、AIエージェント事故への対応体制づくりも進行中です。読者は発表を一括して「新しい規制が始まった」と受け取らず、既に行われた防御、準備中の活動、法案上の検討を分けて読む必要があります。英国の政府発表であり、日本の組織に新たな法的義務を課すものではありません。",
+  "scenario": {
+    "headline": "AIで政府の脆弱性を大量発見したというニュースを見た",
+    "description": "見出しではAI防衛の大きな転換に見える一方、本文には実施済みの試行と、今後検討する制度や体制が並んでいます。",
+    "whyItMatters": "実証された能力、組織が準備中の対応、成立前の法制度案を混ぜると、現時点で何ができ、何が義務なのかを誤解します。"
+  },
+  "question": {
+    "text": "英国政府の発表で、実施済みと今後の検討をどう読み分ける？",
+    "choices": [
+      {"id": "separate-stages", "label": "試行実績・準備中の対応・法案での検討を段階別に区別する", "description": "発表は、試行での脆弱性対応、エージェント事故への準備、法的保護の検討をそれぞれ異なる進捗として説明しています。"},
+      {"id": "assume-new-law", "label": "AI事故の報告義務を含む新しい規制がすでに施行されたとみなす", "description": "重大事故やニアミスの報告方法は、今後の検討事項として書かれています。"}
+    ],
+    "recommendedAnswers": ["separate-stages"],
+    "explanation": "英国政府は脆弱性対応の試行を既に行った一方、AI関連インシデントの報告制度などはこれから検討すると明記しています。"
+  },
+  "inspectionPoints": [
+    {"title": "実施済みの試行を、将来の制度と分ける", "description": "発表では二つの試行が政府システムの潜在的脆弱性を千件超特定・対処したと説明しています。これは既存の試行実績であり、新法の施行を意味しません。", "priority": "high"},
+    {"title": "自律型エージェントの事故対応は準備段階", "description": "NCSCとAI Security Instituteが、AIエージェントが関わる重大事故にどう対応するか検討しています。具体的な対応体制や手順を既に全国で運用している、とは書かれていません。", "priority": "high"},
+    {"title": "ニアミスの報告制度も今後の検討事項", "description": "政府はAI関連のニアミスをどう特定・報告し、教訓を共有するか検討するとしています。発表時点で組織に新しい報告義務が課されたわけではありません。", "priority": "high"},
+    {"title": "重要サービスへの法的保護は検討中", "description": "病院や公益事業などの重要サービスをAI関連リスクから守るため、Cyber Security and Resilience Billの枠組みを強化する選択肢を検討すると発表しています。成立・施行済みの条文として扱わないようにします。", "priority": "high"},
+    {"title": "モデル評価は機関の評価活動として読む", "description": "AI Security Instituteは最新世代のモデルを評価中です。個々のモデルの安全性を認定済み、またはすべての脅威を評価完了したという発表ではありません。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "実績・準備・制度案を分けて確認",
+  "verificationMessage": "数字が出た試行実績と、今後の制度検討や対応準備を同じ「実施済み」の箱に入れないようにします。",
+  "verdict": {
+    "label": "防御試行は実施済みだが、事故対応や制度の一部は準備・検討段階",
+    "description": "英国政府の2026年10月12日発表は、脆弱性対応の試行実績と、エージェント事故への準備、法制度上の検討事項を併記しています。これは英国の政策発表であり、日本国内の義務や確定した国際標準ではありません。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "発表中の各施策を「完了・実施中・今後検討」に仕分けて読む", "reason": "実績と将来の選択肢を区別すると、現在の状況を正確に説明できます。"},
+    {"action": "自組織では既存の脆弱性対応、重大事故、ニアミスの連絡経路を点検する", "reason": "英国の制度案をそのまま適用するのではなく、自社の現行手順の穴を確認する実務に置き換えられます。"},
+    {"action": "英国の法案や報告制度については成立・施行の公式更新を待って判断する", "reason": "発表時点では、法的保護の拡張やニアミス報告の詳細は検討中です。"}
+  ],
+  "avoidActions": [
+    {"action": "英国でAI関連インシデントの報告義務が既に始まったと社内外へ説明する", "reason": "報告制度の設計は発表で今後の検討事項とされています。"},
+    {"action": "試行での脆弱性発見数を、AIが全脆弱性を見つけられる証明として扱う", "reason": "政府発表は二つの試行での実績を述べているもので、網羅率や一般環境での性能保証は示していません。"}
+  ],
+  "positiveUse": {
+    "title": "AIセキュリティ政策の進捗を正確に追う",
+    "description": "組織や読者が、実験結果を過信せず、準備中の対応を見落とさず、制度の成立状況に応じて行動を更新できます。",
+    "examples": ["試行済み対策の確認", "AI事故対応手順の棚卸し", "ニアミスの記録方法検討", "法案の成立・施行状況の追跡"]
+  },
+  "makotoComment": "この発表は、完了した試行の数字と、これから作る可能性のある事故報告制度が同じニュースに載っています。AIセキュリティの話題では、数字の大きさだけでなく、その施策がどの段階なのかを見出しと本文の両方で確認したいところです。",
+  "oneLineLesson": "AI防衛の発表は、実施済みの実績・準備中の対応・制度案を分けて読む。",
+  "tags": ["英国政府", "AIセキュリティ", "サイバー防衛", "脆弱性", "AIエージェント", "インシデント対応"],
+  "sources": [
+    {"title": "Britain steps up national defences against growing AI risks", "publisher": "Cabinet Office; AI Security Institute; National Cyber Security Centre; Department for Digital, Culture, Media and Sport / GOV.UK", "sourceType": "government-security-advisory", "publishedAt": "2026-10-12", "url": "https://www.gov.uk/government/news/britain-steps-up-national-defences-against-growing-ai-risks"}
+  ],
+  "visualSuggestion": {"mainVisual": "政策の進捗を「試行済み」「準備中」「今後検討」の三段に分け、脆弱性対応・事故対応・制度を配置した図", "cardIcon": "ai-cyber-stages", "accentTone": "caution"}
+}
