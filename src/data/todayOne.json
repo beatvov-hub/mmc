@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-12T07:30:00+09:00",
+  "updatedAt": "2026-10-13T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -1781,6 +1781,59 @@
       ],
       "notes": "公式の現行案内をもとにした想定例です。実機検証は未実施です。",
       "verifiedAt": "2026-10-12",
+      "status": "published"
+    },
+    {
+      "date": "2026-10-13",
+      "slug": "google-trends-compare-search-terms",
+      "name": "Google Trends",
+      "category": "SEO / Research Tool",
+      "officialUrl": "https://trends.google.com/trends/explore",
+      "archiveTitle": "Google Trendsで記事テーマの検索語を比べられる？",
+      "archiveDescription": "記事の見出しやテーマ選びで言葉に迷う広報・編集担当者向けに、Google Trendsで候補語を同じ地域・期間にそろえて比較し、CSVで残す手順を紹介します。数値は絶対検索数ではなく相対的な関心度です。",
+      "forWho": "記事のテーマや見出し候補を選ぶ際、どの言葉が検索されているかをまず比べたい広報・編集担当者向けです。",
+      "summary": "Google Trendsでは検索語やトピックの関心度を地域・期間ごとに比較できます。表示値は絶対検索数ではなく、検索全体に対する相対的な指数です。",
+      "whyToday": "記事の言い回しを決めるとき、社内で自然に使う言葉と読者が検索する表現はずれることがあります。Google Trendsなら同じ画面で候補語の推移や地域差を並べられるため、見出しを決める前の比較材料を用意できます。",
+      "useFor": "例えば、福利厚生の記事で「社内制度」と「福利厚生」のどちらを見出しの軸にするか迷う想定例です。Google TrendsのExploreで一方を検索し、もう一方を比較欄に追加して、対象地域と期間を同じ条件にそろえます。「Interest over time」と「Interest by region」を見て、必要ならグラフをCSVで保存します。成果物は候補語の相対的な推移と地域差を並べた比較メモです。まず2語・日本・同一期間で比べ、どちらを記事の入口にするか判断する材料として使います。",
+      "recommendedFor": {
+        "employeeId": "MMC-002",
+        "reason": "企画営業部長のショウマに、記事テーマの候補語を2つ比較し、見出しの入口を選ぶ根拠メモを作ってもらいたいです。検索関心の推移と、数字だけでは決められない読者との相性を分けた案が成果物です。"
+      },
+      "keiComment": "候補語を同じ期間・地域で見比べられるので、見出しを決める相談のたたき台にしやすいですね。人気の数字だけで言葉を決めず、記事で答える困りごとにその表現が合うかも一緒に見たいです。",
+      "pricing": "Google Trendsの公開ウェブツールは、検索関心を調べる公開データとして無料で利用できます。この例はExplore画面での比較とCSV出力のみを扱い、BigQueryやGoogle Adsは使いません。",
+      "conditions": "Googleアカウントや広告出稿はこのExplore画面での比較に必須ではありません。候補語、地域、期間は比較対象間で条件をそろえてください。CSVを使う場合は表計算ソフトが別途必要になることがあります。",
+      "license": "Googleが提供するホスト型の公開サービスです。データを転載・共有する場合はGoogleの利用規約と公式の出典表記案内に従います。",
+      "cautions": "Google Trendsは検索語の絶対件数を示すものではなく、匿名化・集計・正規化された標本データを0〜100に尺度化した相対値です。検索量の少ない語は0と表示されることがあり、単発の山や地域間の値をそのまま市場規模・需要の差と解釈しないでください。",
+      "faq": [
+        {
+          "question": "Google Trendsの100は月間検索数100回という意味ですか？",
+          "answer": "いいえ。指定した期間と地域の検索全体に対する相対的な関心度を0〜100に正規化した値です。絶対的な検索回数ではなく、地域ごとの総検索数が同じとも限りません。"
+        },
+        {
+          "question": "候補語をCSVに出せますか？",
+          "answer": "はい。グラフ右上のダウンロードからCSVとして書き出せます。Googleの案内では、転載する場合はGoogle Trendsをデータ出典として明記するよう求めています。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Google Trends公式ヘルプ：検索語を比較する",
+          "url": "https://support.google.com/trends/answer/4359550?hl=ja"
+        },
+        {
+          "label": "Google Trends公式ヘルプ：データの正規化・0表示・注意点",
+          "url": "https://support.google.com/trends/answer/4365533?hl=ja"
+        },
+        {
+          "label": "Google Trends公式ヘルプ：CSV出力と出典表記",
+          "url": "https://support.google.com/trends/answer/4365538?hl=ja"
+        },
+        {
+          "label": "Google公式ブログ：Google Trendsの公開提供について",
+          "url": "https://blog.google/products-and-platforms/products/search/helping-people-and-businesses-learn-how-search-works/"
+        }
+      ],
+      "notes": "公式の現行ヘルプに基づく想定例です。実機検証は未実施です。",
+      "verifiedAt": "2026-10-13",
       "status": "published"
     }
   ]
