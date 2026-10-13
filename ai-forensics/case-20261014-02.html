@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGPTの回答が図や操作画面になったら　Intelligent UIの使いどころと提供範囲｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="OpenAIは2026年10月7日、ChatGPTのChatタブでGPT‑6とIntelligent UIの提供を始めたと発表しました。質問に応じて文章だけでなく、図、横並び比較、計算機や割り勘ツールなどの操作できる要素を組み合わせて回答する機能です。形式は自動選択され、適切なら通常の文章回答も使われます。表示が整ったり操作できたりすること自体は、情報や計算の正しさの証明ではありません。比較・計算の補助として利用し、重要な条件や数値は元情報と照合するのが実務的です。提供はプランやChat/Workの切替、職場の管理者設定に左右されるため、見えない機能を不具合と決めつけないことも大切です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261014-02" />
+<meta property="og:title" content="ChatGPTの回答が図や操作画面になったら　Intelligent UIの使いどころと提供範囲｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="OpenAIは2026年10月7日、ChatGPTのChatタブでGPT‑6とIntelligent UIの提供を始めたと発表しました。質問に応じて文章だけでなく、図、横並び比較、計算機や割り勘ツールなどの操作できる要素を組み合わせて回答する機能です。形式は自動選択され、適切なら通常の文章回答も使われます。表示が整ったり操作できたりすること自体は、情報や計算の正しさの証明ではありません。比較・計算の補助として利用し、重要な条件や数値は元情報と照合するのが実務的です。提供はプランやChat/Workの切替、職場の管理者設定に左右されるため、見えない機能を不具合と決めつけないことも大切です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261014-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>ChatGPTの操作できる回答</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+              <time datetime="2026-10-14">2026.10.14</time>
+            </div>
+            <h1>ChatGPTの回答が図や操作画面になったら　Intelligent UIの使いどころと提供範囲</h1>
+            <p>OpenAIは2026年10月7日、ChatGPTのChatタブでGPT‑6とIntelligent UIの提供を始めたと発表しました。質問に応じて文章だけでなく、図、横並び比較、計算機や割り勘ツールなどの操作できる要素を組み合わせて回答する機能です。形式は自動選択され、適切なら通常の文章回答も使われます。表示が整ったり操作できたりすること自体は、情報や計算の正しさの証明ではありません。比較・計算の補助として利用し、重要な条件や数値は元情報と照合するのが実務的です。提供はプランやChat/Workの切替、職場の管理者設定に左右されるため、見えない機能を不具合と決めつけないことも大切です。</p>
+            <ul class="forensics-target-list"><li>ChatGPTを仕事や学習に使う人</li><li>比較・計算・情報整理をAIに頼む人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>ChatGPT</li><li>GPT-6</li><li>Intelligent UI</li><li>対話型AI</li><li>計算</li><li>仕事活用</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 2</strong>
+              <span>表示形式と内容の正しさを分ける</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>操作できる画面は理解や計算を助けますが、前提・数値・結論の確認は別に行います。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>ChatGPTの回答に図や操作できる部品が表示された</h3><p>いつもの文章回答ではなく比較表や計算機のような画面が出てきて、便利そうだがどこまで結果を頼ってよいか迷う。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>表示形式の変化をモデルの正確性保証と取り違えたり、契約や画面モードによる提供差を見落としたりすると、誤った判断や不要なトラブルにつながります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="use-as-interface">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>ChatGPTが操作できる画面で答えたとき、どのように使い分ける？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="use-as-interface" data-choice-id="use-as-interface" />
+                <span>
+                  <strong>比較や計算の操作補助として使い、条件・数字・出典は別に確かめる</strong>
+                  <small>Intelligent UIは質問に合わせて表示を選ぶ機能であり、操作できる形式そのものが正しさを保証するわけではありません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="trust-polished-ui" data-choice-id="trust-polished-ui" />
+                <span>
+                  <strong>図や操作部品が出たら、通常の文章より正確だとみなしてそのまま採用する</strong>
+                  <small>OpenAIの説明は表示形式や提供範囲を説明していますが、見た目による事実性の保証は述べていません。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>比較や計算の操作補助として使い、条件・数字・出典は別に確かめる</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>自動で選ばれるのは回答の形式です。比較条件や計算前提など、判断を左右する情報は利用者が確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>文章・図・操作要素を質問に合わせて組み合わせる</h3>
+              <p>OpenAIは、横並び比較や図、会話内で使える計算機・割り勘ツール・ゲームなどを例に挙げています。すべての質問に操作画面が出るわけではなく、通常のテキストを選ぶこともあります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>回答形式の自動選択は、正確性の自動保証ではない</h3>
+              <p>Intelligent UIの説明は、レイアウトや対話要素を質問に合わせて選ぶ機能を紹介しています。見やすさや操作性を、数値・条件・出典の正しさと混同しないようにします。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>提供場所とプランを確認する</h3>
+              <p>2026年10月7日のリリースノートでは、Intelligent UIはChatタブで段階的に提供され、Enterpriseでは管理者設定に左右されるとされています。WorkとCodexのモデルはこのリリースで変更されていません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>推論モードによって使えない場合がある</h3>
+              <p>OpenAIのリリースノートでは、Intelligent UIはInstantからExtra Highまでに対応し、Pro reasoning optionではGPT‑6 Astraが使われ、Intelligent UIはサポートしないと説明されています。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>途中表示と完成回答を区別する</h3>
+              <p>GPT‑6はツール利用や思考を続けながら回答を始め、後から情報を追加することがあります。途中の表示だけで結論を固定せず、回答がまとまるまで確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>操作性は回答の正しさを保証しない</strong><p>Intelligent UIはChatGPTが回答を見せる形式を広げる機能です。比較や計算の補助には使えますが、重要な判断では入力条件や結果を確認し、必要なら通常の文章回答を求めます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>比較や簡単な計算など、操作できる表示が役立つ問いで使う</strong><span>情報を動かしながら見比べられ、条件整理や理解の補助になります。</span></li>
+            <li><strong>重要な判断に使う数値・条件・出典を、回答内で確認してから採用する</strong><span>回答の見栄えや操作性は、その内容の正確性を保証しません。</span></li>
+            <li><strong>操作表示が不要なら、通常の文章で要点と前提を説明するよう頼む</strong><span>形式が目的に合わない場合でも、ChatGPTはテキスト回答を返すことがあります。</span></li>
+            <li><strong>機能が見当たらない場合はChat/Workのタブ、推論設定、職場の管理者設定を確認する</strong><span>提供場所やプラン、管理者設定によって利用可否が異なります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>自動生成の図や計算結果を、見やすいからという理由だけで正解として扱う</strong><span>UI形式は理解の助けであり、数値や条件の検証を置き換えません。</span></li>
+            <li><strong>最初に表示された途中回答を、ツール利用や追加情報の反映前に確定回答として共有する</strong><span>GPT‑6は回答を始めた後も情報を追加することがあります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>情報を比較・操作しながら理解する</h3>
+          <p>ChatGPTの回答形式を目的に合わせて使い、比較や計算を見通しよく整理したうえで、最終判断に必要な条件を自分で確認します。</p>
+          <ul class="positive-example-list"><li>選択肢の横並び比較</li><li>割り勘額の試算</li><li>図を使った概念整理</li><li>複数条件の見える化</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>画面が便利になるほど、見やすさを正しさと取り違えやすくなります。今回のIntelligent UIは、回答の器を質問に合わせて変える機能。器が変わっても、入力した条件や数字を確かめる役目は利用者に残ります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>ChatGPTの操作できる回答は、考える補助として使い、正しさは条件と数字で確かめる。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://openai.com/index/gpt-6-for-everyone/" target="_blank" rel="noopener noreferrer">GPT-6 and Intelligent UI for everyone<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI</span>
+              <span>その他</span>
+              <time datetime="2026-10-07">2026-10-07</time>
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener noreferrer">ChatGPT release notes<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>その他</span>
+              <time datetime="2026-10-07">2026-10-07</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261014-03" data-forensics-card data-category="work-use" data-level="2" data-difficulty="beginner" data-search-text="Codexの入力予測は送信前にひと呼吸　提案文の確認とオフ設定 Codex入力予測の確認 OpenAIは2026年10月9日、Codexデスクトップアプリに、会話の流れから次のメッセージを提案するComposer predictionsのベータ提供を発表しました。候補はTabキーで入力欄に採用できますが、送信は自動ではありません。現在のスレッドに合わない提案や、実行してほしくない指示が混ざっていないかを確認・編集してから送るのが安全です。この機能は個人向けChatGPT Proの対象ユーザーに提供され、既定でオン。不要ならGeneral settingsのComposer設定でShow predictionsをオフにできます。 仕事・AI活用 はじめて Codex 入力予測 Composer predictions AI補助 プロンプト 開発ワークフロー Codexデスクトップアプリを使う開発者 AIの入力補助を業務で使う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">composer-prediction-review</span>
+              <div>
+                <p>Codex入力予測の確認</p>
+                <h3>Codexの入力予測は送信前にひと呼吸　提案文の確認とオフ設定</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-14">2026.10.14</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年10月9日、Codexデスクトップアプリに、会話の流れから次のメッセージを提案するComposer predictionsのベータ提供を発表しました。候補はTabキーで入力欄に採用できますが、送信は自動ではありません。現在のスレッドに合わない提案や、実行してほしくない指示が混ざっていないかを確認・編集してから送るのが安全です。この機能は個人向けChatGPT Proの対象ユーザーに提供され、既定でオン。不要ならGeneral settingsのComposer設定でShow predictionsをオフにできます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>採用後に内容を読み返す</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Codexデスクトップアプリを使う開発者</li><li>AIの入力補助を業務で使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Codex</li><li>入力予測</li><li>Composer predictions</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261013-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Adobeの制作AIに任せる範囲は？公開前に人が確認する工程を残す 制作AIの公開前レビュー Adobeは2026年6月18日、FireflyやCreative Cloudアプリをまたぐクリエイティブエージェントの拡張を発表しました。FireflyのAI Assistantは依頼内容から複数段階の制作工程を実行し、同日発表では公開前に共同作業者を招いてレビューやフィードバックを受けられる機能も案内されています。発表時点でFireflyのWeb版はベータ提供中、Premiere、Photoshop、Illustrator、InDesign、Frame.ioではパブリックベータとして利用可能とされました。仕事で使う際は、素材整理や初稿作成など任せる工程と、権利・事実・ブランド適合性を人が承認する工程を分け、公開前レビューを止めない運用が現実的です。これはAdobeの発表内容であり、全機能が全契約・地域で使えることを保証するものではありません。 仕事・AI活用 標準 Adobe Firefly AI Assistant 制作ワークフロー 公開前レビュー ベータ機能 業務活用 Adobe FireflyやCreative Cloudの制作AIを使う人 生成AIを制作工程に組み込むチーム">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">creative-review-gate</span>
+              <div>
+                <p>制作AIの公開前レビュー</p>
+                <h3>Adobeの制作AIに任せる範囲は？公開前に人が確認する工程を残す</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-13">2026.10.13</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Adobeは2026年6月18日、FireflyやCreative Cloudアプリをまたぐクリエイティブエージェントの拡張を発表しました。FireflyのAI Assistantは依頼内容から複数段階の制作工程を実行し、同日発表では公開前に共同作業者を招いてレビューやフィードバックを受けられる機能も案内されています。発表時点でFireflyのWeb版はベータ提供中、Premiere、Photoshop、Illustrator、InDesign、Frame.ioではパブリックベータとして利用可能とされました。仕事で使う際は、素材整理や初稿作成など任せる工程と、権利・事実・ブランド適合性を人が承認する工程を分け、公開前レビューを止めない運用が現実的です。これはAdobeの発表内容であり、全機能が全契約・地域で使えることを保証するものではありません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>委任範囲と公開承認者を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Adobe FireflyやCreative Cloudの制作AIを使う人</li><li>生成AIを制作工程に組み込むチーム</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Adobe Firefly</li><li>AI Assistant</li><li>制作ワークフロー</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261012-03" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="外部AIを使っても金融機関の責任は残る　シンガポールMASの新指針 金融機関と外部AIの責任 シンガポール金融管理局（MAS）は2026年10月7日、金融機関向けのAIリスク管理ガイドラインを公表しました。指針は、企業全体と個別ユースケースの両方でAI利用を把握し、データ管理、テスト、人による監督、サイバーセキュリティ、監視、変更管理などをリスクに応じて適用するよう求めています。第三者が開発・運用・提供するAIを使う場合も、金融機関側が責任を負い、提供者から十分な保証を得て、保証の不足を補う管理策を検討します。ガイドラインは2027年10月7日に効力を持ち、一部の節は2028年10月7日までに段階適用されます。これはシンガポール金融セクター向けであり、日本の金融機関に直接適用される制度ではありません。 仕事・AI活用 標準 金融AI AIリスク管理 シンガポール MAS 第三者AI 委託先管理 ガバナンス 金融機関のAI・リスク管理担当者 金融サービスで使うAIの調達・運用担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">financial-ai-controls</span>
+              <div>
+                <p>金融機関と外部AIの責任</p>
+                <h3>外部AIを使っても金融機関の責任は残る　シンガポールMASの新指針</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-12">2026.10.12</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">シンガポール金融管理局（MAS）は2026年10月7日、金融機関向けのAIリスク管理ガイドラインを公表しました。指針は、企業全体と個別ユースケースの両方でAI利用を把握し、データ管理、テスト、人による監督、サイバーセキュリティ、監視、変更管理などをリスクに応じて適用するよう求めています。第三者が開発・運用・提供するAIを使う場合も、金融機関側が責任を負い、提供者から十分な保証を得て、保証の不足を補う管理策を検討します。ガイドラインは2027年10月7日に効力を持ち、一部の節は2028年10月7日までに段階適用されます。これはシンガポール金融セクター向けであり、日本の金融機関に直接適用される制度ではありません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>委託先の保証と自社の責任を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>金融機関のAI・リスク管理担当者</li><li>金融サービスで使うAIの調達・運用担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>金融AI</li><li>AIリスク管理</li><li>シンガポール</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261014-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261014-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "id": "case-20261014-02",
+  "publishedAt": "2026-10-14",
+  "title": "ChatGPTの回答が図や操作画面になったら　Intelligent UIの使いどころと提供範囲",
+  "shortTitle": "ChatGPTの操作できる回答",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": ["ChatGPTを仕事や学習に使う人", "比較・計算・情報整理をAIに頼む人"],
+  "summary": "OpenAIは2026年10月7日、ChatGPTのChatタブでGPT‑6とIntelligent UIの提供を始めたと発表しました。質問に応じて文章だけでなく、図、横並び比較、計算機や割り勘ツールなどの操作できる要素を組み合わせて回答する機能です。形式は自動選択され、適切なら通常の文章回答も使われます。表示が整ったり操作できたりすること自体は、情報や計算の正しさの証明ではありません。比較・計算の補助として利用し、重要な条件や数値は元情報と照合するのが実務的です。提供はプランやChat/Workの切替、職場の管理者設定に左右されるため、見えない機能を不具合と決めつけないことも大切です。",
+  "scenario": {
+    "headline": "ChatGPTの回答に図や操作できる部品が表示された",
+    "description": "いつもの文章回答ではなく比較表や計算機のような画面が出てきて、便利そうだがどこまで結果を頼ってよいか迷う。",
+    "whyItMatters": "表示形式の変化をモデルの正確性保証と取り違えたり、契約や画面モードによる提供差を見落としたりすると、誤った判断や不要なトラブルにつながります。"
+  },
+  "question": {
+    "text": "ChatGPTが操作できる画面で答えたとき、どのように使い分ける？",
+    "choices": [
+      {"id": "use-as-interface", "label": "比較や計算の操作補助として使い、条件・数字・出典は別に確かめる", "description": "Intelligent UIは質問に合わせて表示を選ぶ機能であり、操作できる形式そのものが正しさを保証するわけではありません。"},
+      {"id": "trust-polished-ui", "label": "図や操作部品が出たら、通常の文章より正確だとみなしてそのまま採用する", "description": "OpenAIの説明は表示形式や提供範囲を説明していますが、見た目による事実性の保証は述べていません。"}
+    ],
+    "recommendedAnswers": ["use-as-interface"],
+    "explanation": "自動で選ばれるのは回答の形式です。比較条件や計算前提など、判断を左右する情報は利用者が確認します。"
+  },
+  "inspectionPoints": [
+    {"title": "文章・図・操作要素を質問に合わせて組み合わせる", "description": "OpenAIは、横並び比較や図、会話内で使える計算機・割り勘ツール・ゲームなどを例に挙げています。すべての質問に操作画面が出るわけではなく、通常のテキストを選ぶこともあります。", "priority": "high"},
+    {"title": "回答形式の自動選択は、正確性の自動保証ではない", "description": "Intelligent UIの説明は、レイアウトや対話要素を質問に合わせて選ぶ機能を紹介しています。見やすさや操作性を、数値・条件・出典の正しさと混同しないようにします。", "priority": "high"},
+    {"title": "提供場所とプランを確認する", "description": "2026年10月7日のリリースノートでは、Intelligent UIはChatタブで段階的に提供され、Enterpriseでは管理者設定に左右されるとされています。WorkとCodexのモデルはこのリリースで変更されていません。", "priority": "medium"},
+    {"title": "推論モードによって使えない場合がある", "description": "OpenAIのリリースノートでは、Intelligent UIはInstantからExtra Highまでに対応し、Pro reasoning optionではGPT‑6 Astraが使われ、Intelligent UIはサポートしないと説明されています。", "priority": "medium"},
+    {"title": "途中表示と完成回答を区別する", "description": "GPT‑6はツール利用や思考を続けながら回答を始め、後から情報を追加することがあります。途中の表示だけで結論を固定せず、回答がまとまるまで確認します。", "priority": "medium"}
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "表示形式と内容の正しさを分ける",
+  "verificationMessage": "操作できる画面は理解や計算を助けますが、前提・数値・結論の確認は別に行います。",
+  "verdict": {
+    "label": "操作性は回答の正しさを保証しない",
+    "description": "Intelligent UIはChatGPTが回答を見せる形式を広げる機能です。比較や計算の補助には使えますが、重要な判断では入力条件や結果を確認し、必要なら通常の文章回答を求めます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "比較や簡単な計算など、操作できる表示が役立つ問いで使う", "reason": "情報を動かしながら見比べられ、条件整理や理解の補助になります。"},
+    {"action": "重要な判断に使う数値・条件・出典を、回答内で確認してから採用する", "reason": "回答の見栄えや操作性は、その内容の正確性を保証しません。"},
+    {"action": "操作表示が不要なら、通常の文章で要点と前提を説明するよう頼む", "reason": "形式が目的に合わない場合でも、ChatGPTはテキスト回答を返すことがあります。"},
+    {"action": "機能が見当たらない場合はChat/Workのタブ、推論設定、職場の管理者設定を確認する", "reason": "提供場所やプラン、管理者設定によって利用可否が異なります。"}
+  ],
+  "avoidActions": [
+    {"action": "自動生成の図や計算結果を、見やすいからという理由だけで正解として扱う", "reason": "UI形式は理解の助けであり、数値や条件の検証を置き換えません。"},
+    {"action": "最初に表示された途中回答を、ツール利用や追加情報の反映前に確定回答として共有する", "reason": "GPT‑6は回答を始めた後も情報を追加することがあります。"}
+  ],
+  "positiveUse": {
+    "title": "情報を比較・操作しながら理解する",
+    "description": "ChatGPTの回答形式を目的に合わせて使い、比較や計算を見通しよく整理したうえで、最終判断に必要な条件を自分で確認します。",
+    "examples": ["選択肢の横並び比較", "割り勘額の試算", "図を使った概念整理", "複数条件の見える化"]
+  },
+  "makotoComment": "画面が便利になるほど、見やすさを正しさと取り違えやすくなります。今回のIntelligent UIは、回答の器を質問に合わせて変える機能。器が変わっても、入力した条件や数字を確かめる役目は利用者に残ります。",
+  "oneLineLesson": "ChatGPTの操作できる回答は、考える補助として使い、正しさは条件と数字で確かめる。",
+  "tags": ["ChatGPT", "GPT-6", "Intelligent UI", "対話型AI", "計算", "仕事活用"],
+  "sources": [
+    {"title": "GPT-6 and Intelligent UI for everyone", "publisher": "OpenAI", "sourceType": "official-product-update", "publishedAt": "2026-10-07", "url": "https://openai.com/index/gpt-6-for-everyone/"},
+    {"title": "ChatGPT release notes", "publisher": "OpenAI Help Center", "sourceType": "official-product-documentation", "publishedAt": "2026-10-07", "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"}
+  ],
+  "visualSuggestion": {"mainVisual": "同じ質問に対する文章・比較表示・操作ツールの三つの回答形式と、最後に前提を確認する利用者を描いた図", "cardIcon": "interactive-answer-formats", "accentTone": "calm"}
+}

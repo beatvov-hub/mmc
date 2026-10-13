@@ -1,0 +1,61 @@
+{
+  "id": "case-20261014-03",
+  "publishedAt": "2026-10-14",
+  "title": "Codexの入力予測は送信前にひと呼吸　提案文の確認とオフ設定",
+  "shortTitle": "Codex入力予測の確認",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": ["Codexデスクトップアプリを使う開発者", "AIの入力補助を業務で使う人"],
+  "summary": "OpenAIは2026年10月9日、Codexデスクトップアプリに、会話の流れから次のメッセージを提案するComposer predictionsのベータ提供を発表しました。候補はTabキーで入力欄に採用できますが、送信は自動ではありません。現在のスレッドに合わない提案や、実行してほしくない指示が混ざっていないかを確認・編集してから送るのが安全です。この機能は個人向けChatGPT Proの対象ユーザーに提供され、既定でオン。不要ならGeneral settingsのComposer設定でShow predictionsをオフにできます。",
+  "scenario": {
+    "headline": "Codexが次の依頼文を入力欄に提案した",
+    "description": "Tabを押すと提案が入るが、会話の文脈から自動生成された文をそのまま使ってよいのか迷う。",
+    "whyItMatters": "予測文は現在のスレッドの内容を反映するため、意図しない前提や不要な命令を含む可能性があります。送信前に内容を見直す習慣が必要です。"
+  },
+  "question": {
+    "text": "Codexの入力予測をTabで採用したら、すぐ送信される？",
+    "choices": [
+      {"id": "review-before-send", "label": "入力欄に入った提案を確認・編集してから、自分で送信する", "description": "OpenAIはTabで提案を採用しても自動送信されないと案内しています。"},
+      {"id": "auto-send", "label": "Tabを押した時点で提案内容がCodexに送信される", "description": "リリースノートの説明では、Tabは提案を入力欄に採用する操作で、送信は行いません。"}
+    ],
+    "recommendedAnswers": ["review-before-send"],
+    "explanation": "Tabで行われるのは入力欄への採用です。内容を確認・修正し、送信するかどうかは利用者が決めます。"
+  },
+  "inspectionPoints": [
+    {"title": "予測は現在のCodexスレッドをもとにする", "description": "OpenAIによると、Composer predictionsは現在の会話を手掛かりに次のメッセージを提案し、Codexが応答した後に入力欄へ候補が表示されることがあります。", "priority": "high"},
+    {"title": "Tabは採用操作であって送信ではない", "description": "Tabを押すと提案文がメッセージ欄に入り、送信は自動で行われません。送る前に依頼の目的、参照するファイル、実行してよい操作が意図どおりかを読み返せます。", "priority": "high"},
+    {"title": "機能はベータで、対象範囲が限られる", "description": "2026年10月9日のリリースノートでは、個人向けChatGPT Proユーザーのうち18歳以上が対象で、最新のCodexデスクトップアプリから利用できると案内されています。", "priority": "medium"},
+    {"title": "予測表示は既定でオン、設定から停止できる", "description": "予測は初期状態で有効です。不要な場合はGeneral settingsのComposerセクションにあるShow predictionsをオフにできます。", "priority": "high"},
+    {"title": "提案の生成と送信後の利用は別扱い", "description": "ベータ期間中、予測の生成自体はCodexの使用量上限やクレジットを消費しないとされています。一方、提案を採用して送るメッセージは通常の使用量制限と課金ルールに従います。", "priority": "medium"}
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "採用後に内容を読み返す",
+  "verificationMessage": "Tabで入力しても自動送信されません。提案文を依頼として確定する前に、自分の意図と一致するか見直します。",
+  "verdict": {
+    "label": "予測は入力補助。送信前の確認は利用者が行う",
+    "description": "Composer predictionsは次のメッセージ案を入力欄へ補うベータ機能で、Tabを押しても自動送信しません。候補を採用するか、編集するか、送らないかを利用者が選べます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "Tabで候補を入れた後、命令や前提、対象ファイル、実行範囲を読み返す", "reason": "スレッドの文脈から生成された提案が、現在の意図と完全に一致するとは限りません。"},
+    {"action": "提案に不要な作業が含まれる場合は、送信前に削るか自分の言葉で書き換える", "reason": "入力欄への採用後も編集でき、送信するかは自分で決められます。"},
+    {"action": "使わない場合はGeneral settingsのComposerからShow predictionsをオフにする", "reason": "予測表示は既定でオンですが、設定で無効にできます。"},
+    {"action": "ベータ機能の対象プラン・年齢・アプリ要件を確認する", "reason": "発表された対象は限定されており、全ユーザーへの一般提供ではありません。"}
+  ],
+  "avoidActions": [
+    {"action": "提案文が表示されたことを、自分がその依頼を入力したのと同じ意味だと考える", "reason": "候補はAIが会話文脈から作った提案です。採用前に意図と一致するか確かめます。"},
+    {"action": "Tabで採用した時点で送信済みだと思い、入力欄を確認しない", "reason": "Tabは入力欄へ補う操作で、送信は自動ではありません。"}
+  ],
+  "positiveUse": {
+    "title": "繰り返しの依頼文を素早く整える",
+    "description": "意図に合う候補を下書きとして使い、対象や条件を自分で整えてから送ることで、入力の手間を減らしつつ主導権を保てます。",
+    "examples": ["直前の変更内容を追加で説明させる", "テストや差分確認を依頼する", "長い会話から次の確認事項を作る"]
+  },
+  "makotoComment": "Tab一回で候補が入るのは便利ですが、その文は自分が書いた指示ではなく、会話から推測された提案です。送信されない設計を、確認を省く理由ではなく、落ち着いて書き直せる余白として使いたいですね。",
+  "oneLineLesson": "Codexの入力予測は下書きとして採用し、送る前に意図と範囲を確認する。",
+  "tags": ["Codex", "入力予測", "Composer predictions", "AI補助", "プロンプト", "開発ワークフロー"],
+  "sources": [
+    {"title": "ChatGPT release notes", "publisher": "OpenAI Help Center", "sourceType": "official-product-documentation", "publishedAt": "2026-10-09", "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"}
+  ],
+  "visualSuggestion": {"mainVisual": "Codexの予測文が入力欄に下書きとして入り、開発者が命令・対象・範囲を確認してから送信する画面図", "cardIcon": "composer-prediction-review", "accentTone": "practical"}
+}

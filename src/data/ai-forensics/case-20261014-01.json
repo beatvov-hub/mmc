@@ -1,0 +1,63 @@
+{
+  "id": "case-20261014-01",
+  "publishedAt": "2026-10-14",
+  "title": "Gemini Tasksはオフにしても後始末されない　停止・削除・取り消しを分ける",
+  "shortTitle": "Gemini Tasksの停止と削除",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["Gemini Tasksを試す人", "生成AIにアプリ操作や定期作業を任せる人"],
+  "summary": "Googleは2026年10月13日、GeminiアプリでGemini 4 ArgonとTasksを提供すると発表しました。Tasksでは日時や出来事を指定して作業を実行でき、接続アプリやログイン中のサイト、追加したファイルなどを使う場合があります。ここで大切なのは、タスクの実行停止、スケジュールの一時停止、実行済み操作の取り消しが別だという点です。Taskモードをオフにすると予定は一時停止しますが、タスクやスレッド、Geminiが作成・更新したファイルは残り、再びオンにすると予定が再開します。共有サービスでの変更を戻すには、そのサービス側で確認リンクを使う必要があります。",
+  "scenario": {
+    "headline": "Geminiに予定付きの作業や、アプリをまたぐ操作を任せた",
+    "description": "もう使わないと思ってTaskモードをオフにしたが、過去に設定した予定や作成済みファイルも消えたのか分からない。",
+    "whyItMatters": "停止・削除・取り消しを同じ操作だと思うと、不要な予定が再開したり、共有サービス上の変更が残ったりする可能性があります。"
+  },
+  "question": {
+    "text": "Gemini Tasksを止めたり、実行済みの変更を戻したりするには？",
+    "choices": [
+      {"id": "separate-controls", "label": "予定を個別に一時停止し、タスクやファイルの削除・サービス側の取り消しは別に行う", "description": "Taskモードをオフにするだけでは、タスクや作成済みファイルは削除されず、共有サービスの変更も元に戻りません。"},
+      {"id": "mode-off-cleans-all", "label": "Taskモードをオフにすれば、予定・ファイル・外部サービスへの変更もすべて消える", "description": "Googleのヘルプは、予定やタスク、関連ファイルは削除されないことと、Workspace上の操作はサービス側で戻す方法を案内しています。"}
+    ],
+    "recommendedAnswers": ["separate-controls"],
+    "explanation": "Taskモードをオフにすると予定は一時停止しますが、タスクや作成・更新されたファイルは残ります。Workspaceの操作を戻す場合は、Geminiの確認メッセージにあるリンクから該当サービスで変更します。"
+  },
+  "inspectionPoints": [
+    {"title": "タスクに渡す接続先と情報を確認する", "description": "Geminiはタスクのために、接続アプリ、選んだファイル、ログイン中のウェブサイトなどの情報を使う場合があります。Googleはタスクの完了に必要な情報を第三者サービスと共有する場合があると説明しています。", "priority": "high"},
+    {"title": "ブラウザー作業の許可と実行状況を見る", "description": "Googleのヘルプでは、端末上のChromeで作業する場合は端末とChromeを起動したままにする必要があり、端末が使えないとリモートブラウザーを使う場合があると説明しています。ウェブ閲覧を伴うタスクでは確認を求めるとされています。", "priority": "high"},
+    {"title": "モードを切っても予定は削除されない", "description": "Taskモードをオフにすると予定やタスクは一時停止しますが、削除されません。関連するチャットやGeminiが作成・更新したファイルも残り、モードを再度オンにすると一時停止中の予定が再開します。", "priority": "high"},
+    {"title": "共有サービス上の変更はサービス側で戻す", "description": "Google WorkspaceでGeminiが行った操作を取り消す場合、Geminiの確認に表示されたリンクを開き、CalendarやGmailなどのサービス上で変更します。Taskモードを切ること自体はロールバック操作ではありません。", "priority": "high"},
+    {"title": "機微情報を含む作業は小さく試す", "description": "2026年10月13日更新のGemini Apps Privacy Hubは、タスクの指示、共有ファイル、接続アプリやリモートブラウザーの情報などが処理対象になり得ると記載しています。必要な範囲だけを接続し、機微な情報を含む作業は共有範囲を確認します。", "priority": "medium"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "停止・削除・取り消しを区別",
+  "verificationMessage": "Taskモードをオフにする前に予定を確認し、実行済みの変更は対象サービスで別途戻します。",
+  "verdict": {
+    "label": "モード停止は一時停止であり、削除や取り消しではない",
+    "description": "Googleの製品発表とヘルプは、Gemini Tasksの実行・接続情報・停止後に残るデータをそれぞれ説明しています。Taskモードをオフにしただけで、作成済みファイルや外部サービス上の変更まで消えるとは限りません。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "タスクを作る前に、接続アプリ・追加ファイル・ログイン中のサイトを確認する", "reason": "タスクがアクセスする情報や外部への共有範囲を把握できます。"},
+    {"action": "不要になった予定はタスクのスレッドで個別に一時停止または削除し、Taskモード停止とは分けて扱う", "reason": "Taskモードの停止は予定を消去せず、一時停止する操作だからです。"},
+    {"action": "GeminiがWorkspace上で行った変更は、確認リンクから該当サービスを開いて戻す", "reason": "実行済みの操作を戻す手続きは、Taskモードのオン・オフとは別です。"},
+    {"action": "最初は取り消しやすい低リスクのタスクで動作を確かめる", "reason": "実際に使う接続先、確認のタイミング、成果物の残り方を小さな範囲で把握できます。"}
+  ],
+  "avoidActions": [
+    {"action": "Taskモードをオフにしたから予定や成果物も消えたと思い込む", "reason": "Googleは予定・タスク・関連ファイルが削除されず、予定は一時停止すると説明しています。"},
+    {"action": "ログイン中のサイトや共有アプリを接続したまま、内容を確認せず機微情報を含む作業を任せる", "reason": "タスクは接続情報を使い、完了に必要な情報を外部サービスと共有する場合があります。"}
+  ],
+  "positiveUse": {
+    "title": "繰り返し作業を任せつつ、停止と後始末を自分で管理する",
+    "description": "情報範囲と実行条件を限定したタスクから試し、予定・ファイル・外部サービスの状態をそれぞれ確認すれば、便利さと後からの制御を両立できます。",
+    "examples": ["定期的な情報整理", "低リスクな予定確認", "接続アプリの棚卸し", "実行後のファイル確認"]
+  },
+  "makotoComment": "今回のポイントは、Taskモードのスイッチが“全部を消す非常停止”ではないことです。Googleの説明では、予定は止まっても残り、Workspaceで行った変更はサービス側で戻します。タスクを任せる前に、やめ方と後始末の場所をセットで把握しておきたいですね。",
+  "oneLineLesson": "Gemini Tasksは、実行停止・予定の一時停止・データ削除・外部操作の取り消しを分けて確認する。",
+  "tags": ["Gemini Tasks", "AIエージェント", "接続アプリ", "リモートブラウザー", "タスク停止", "データ管理"],
+  "sources": [
+    {"title": "Gemini 4 Argon is now available in the Gemini app", "publisher": "Google", "sourceType": "official-product-update", "publishedAt": "2026-10-13", "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/"},
+    {"title": "Manage your tasks & workflows in Gemini Apps", "publisher": "Google Gemini Apps Help", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.google.com/gemini/answer/17094507"},
+    {"title": "Gemini Apps Privacy Hub", "publisher": "Google Gemini Apps Help", "sourceType": "official-product-documentation", "publishedAt": "2026-10-13", "url": "https://support.google.com/gemini/answer/13594961?hl=en"}
+  ],
+  "visualSuggestion": {"mainVisual": "Gemini Tasksの流れを「接続先・入力情報」「予定実行」「一時停止」「サービス側で取り消し」に分けた図", "cardIcon": "task-control-boundaries", "accentTone": "caution"}
+}
