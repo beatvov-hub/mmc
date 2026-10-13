@@ -81,61 +81,61 @@
       <article class="today-one-entry" aria-labelledby="today-one-entry-name">
         <header class="today-one-entry-header">
           <div class="today-one-entry-meta">
-            <time datetime="2026-10-13">2026.10.13 TUE</time>
-            <span>SEO / Research Tool</span>
+            <time datetime="2026-10-14">2026.10.14 WED</time>
+            <span>Web Font / Design Tool</span>
           </div>
           <p class="today-one-entry-label">今日のひとつ</p>
-          <h2 id="today-one-entry-name">Google Trends</h2>
-          <a class="today-one-official-link" href="https://trends.google.com/trends/explore" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
+          <h2 id="today-one-entry-name">Google Fonts</h2>
+          <a class="today-one-official-link" href="https://fonts.google.com/specimen/Noto+Sans+JP" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
           <section class="today-one-section today-one-audience" aria-labelledby="today-one-audience-title">
             <p class="section-kicker">For Whom</p>
             <h2 id="today-one-audience-title">こんな人向け</h2>
-            <p>記事のテーマや見出し候補を選ぶ際、どの言葉が検索されているかをまず比べたい広報・編集担当者向けです。</p>
+            <p>会社サイトやLPの日本語フォントを整えたいWeb担当者・デザイナー向けです。商用利用の可否と、ページへの入れ方を手早く確認したいときに役立ちます。</p>
           </section>
           <section class="today-one-section today-one-conclusion" aria-labelledby="today-one-conclusion-title">
             <p class="section-kicker">The Answer</p>
             <h2 id="today-one-conclusion-title">結論</h2>
-            <p>Google Trendsでは検索語やトピックの関心度を地域・期間ごとに比較できます。表示値は絶対検索数ではなく、検索全体に対する相対的な指数です。</p>
+            <p>Google Fontsの書体はオープンソースライセンスで公開され、商用サイトにも利用できます。Noto Sans JPなら、スタイルシートを読み込みCSSで指定して導入できます。</p>
           </section>
           <section class="today-one-section today-one-method" aria-labelledby="today-one-use-title">
             <p class="section-kicker">How to Use</p>
             <h2 id="today-one-use-title">やり方／確認方法</h2>
-            <p>例えば、福利厚生の記事で「社内制度」と「福利厚生」のどちらを見出しの軸にするか迷う想定例です。Google TrendsのExploreで一方を検索し、もう一方を比較欄に追加して、対象地域と期間を同じ条件にそろえます。「Interest over time」と「Interest by region」を見て、必要ならグラフをCSVで保存します。成果物は候補語の相対的な推移と地域差を並べた比較メモです。まず2語・日本・同一期間で比べ、どちらを記事の入口にするか判断する材料として使います。</p>
+            <p>例えば、会社案内の1ページだけ書体を見直す想定例です。ブラウザーで確認できるテストページを用意し、Google FontsのNoto Sans JPから案内されるスタイルシートのリンクをHTMLへ加え、CSSのfont-familyで指定します。最初は本文の標準ウェイトと見出しの太字だけを読み込み、同じ文章を適用前後で見比べます。成果物は、採用ウェイトとCSS指定をまとめた実装メモです。日本語の記号・太字・読み込み前の表示を確認し、必要なウェイトだけをリクエストしてください。これは公式手順に沿った想定例で、実機検証はしていません。</p>
           </section>
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
-            <p>記事の言い回しを決めるとき、社内で自然に使う言葉と読者が検索する表現はずれることがあります。Google Trendsなら同じ画面で候補語の推移や地域差を並べられるため、見出しを決める前の比較材料を用意できます。</p>
+            <p>書体を変えるとブランドの印象は整えやすくなりますが、日本語ページでは読み込みの重さや表示待ちも体験の一部です。Google FontsはCSSから必要な書体・ウェイトを指定できるので、見た目と読み込みの両方を小さな範囲で比べられます。</p>
           </section>
           <section class="today-one-section today-one-faq" aria-labelledby="today-one-faq-title">
             <p class="section-kicker">Cautions & FAQ</p>
             <h2 id="today-one-faq-title">注意点・FAQ</h2>
-            <p class="today-one-caution">Google Trendsは検索語の絶対件数を示すものではなく、匿名化・集計・正規化された標本データを0〜100に尺度化した相対値です。検索量の少ない語は0と表示されることがあり、単発の山や地域間の値をそのまま市場規模・需要の差と解釈しないでください。</p><div class="today-one-faq-item">
-          <h3>Google Trendsの100は月間検索数100回という意味ですか？</h3>
-          <p>いいえ。指定した期間と地域の検索全体に対する相対的な関心度を0〜100に正規化した値です。絶対的な検索回数ではなく、地域ごとの総検索数が同じとも限りません。</p>
+            <p class="today-one-caution">商用利用は可能ですが、フォントデータそのもののライセンスと、Google Fonts APIのサービス利用条件は別です。配信方式を自社ホストへ変えたりフォントを改変・再配布したりする場合は、対象ファイルのライセンスとOFLの条件を確認してください。外部配信を避けたい場合は、自社配信の方法も含めて検討が必要です。</p><div class="today-one-faq-item">
+          <h3>Google Fontsは会社の商用サイトでも使えますか？</h3>
+          <p>はい。Google Fontsは掲載フォントをオープンソースライセンスで提供し、商用プロジェクトでも利用できると案内しています。Noto Sans JPはGoogle Fonts公式リポジトリでOFL 1.1のライセンスが確認できます。</p>
         </div><div class="today-one-faq-item">
-          <h3>候補語をCSVに出せますか？</h3>
-          <p>はい。グラフ右上のダウンロードからCSVとして書き出せます。Googleの案内では、転載する場合はGoogle Trendsをデータ出典として明記するよう求めています。</p>
+          <h3>フォントファイルをダウンロードしなくても使えますか？</h3>
+          <p>はい。公式のCSS API手順ではHTMLにスタイルシートのリンクを加え、CSSでフォントを指定します。この方式では閲覧者のブラウザーがGoogle Fontsからスタイルシートとフォントを取得します。</p>
         </div>
           </section>
           <section class="today-one-section today-one-sources" aria-labelledby="today-one-sources-title">
             <p class="section-kicker">Primary Sources</p>
             <h2 id="today-one-sources-title">公式ソース</h2>
-            <ul><li><a href="https://support.google.com/trends/answer/4359550?hl=ja" target="_blank" rel="noopener noreferrer">Google Trends公式ヘルプ：検索語を比較する <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://support.google.com/trends/answer/4365533?hl=ja" target="_blank" rel="noopener noreferrer">Google Trends公式ヘルプ：データの正規化・0表示・注意点 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://support.google.com/trends/answer/4365538?hl=ja" target="_blank" rel="noopener noreferrer">Google Trends公式ヘルプ：CSV出力と出典表記 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://blog.google/products-and-platforms/products/search/helping-people-and-businesses-learn-how-search-works/" target="_blank" rel="noopener noreferrer">Google公式ブログ：Google Trendsの公開提供について <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
+            <ul><li><a href="https://developers.google.com/fonts?hl=ja" target="_blank" rel="noopener noreferrer">Google Fonts公式：オープンソースライセンスと商用利用 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://developers.google.com/fonts/docs/css2?hl=ja" target="_blank" rel="noopener noreferrer">Google Fonts公式：CSS APIの導入・ウェイト指定 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://developers.google.com/fonts/docs/technical_considerations?hl=ja" target="_blank" rel="noopener noreferrer">Google Fonts公式：APIによるブラウザーへの配信 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://github.com/google/fonts/blob/main/ofl/notosansjp/OFL.txt" target="_blank" rel="noopener noreferrer">Google Fonts公式GitHub：Noto Sans JPのOFL 1.1 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
           </section>
                   <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
           <p class="section-kicker">Recommended For</p>
           <h2 id="today-one-recommendation-title">誰に持たせたい？</h2>
           <div class="today-one-member-card">
-            <img src="image/staff/mmc-002.jpg" alt="ショウマ" loading="lazy" />
+            <img src="image/staff/mmc-007.jpg" alt="レイちゃん" loading="lazy" />
             <div>
-              <small>MMC-002</small>
-              <h3>ショウマ</h3>
-              <p class="today-one-member-role">企画営業部長 <span>企画営業部</span></p>
-              <p>企画営業部長のショウマに、記事テーマの候補語を2つ比較し、見出しの入口を選ぶ根拠メモを作ってもらいたいです。検索関心の推移と、数字だけでは決められない読者との相性を分けた案が成果物です。</p>
-              <a class="today-one-profile-link" href="members/shoma">プロフィールを見る</a>
+              <small>MMC-007</small>
+              <h3>レイちゃん</h3>
+              <p class="today-one-member-role">部長 <span>ブランドデザイン部</span></p>
+              <p>ブランドデザイン部のレイちゃんに、会社案内の見出しと本文で書体を比べる小さな見本を任せたいです。採用候補、使うウェイト、ブランドの印象と読みやすさを確認した結果を一枚の判断メモにして受け取りたいです。</p>
+              <a class="today-one-profile-link" href="members/rei">プロフィールを見る</a>
             </div>
           </div>
         </section>
@@ -148,7 +148,7 @@
                 <img src="image/staff/mmc-009.jpg" alt="ケイ" loading="lazy" />
                 <strong>ケイ｜広報部長</strong>
               </div>
-              <p>候補語を同じ期間・地域で見比べられるので、見出しを決める相談のたたき台にしやすいですね。人気の数字だけで言葉を決めず、記事で答える困りごとにその表現が合うかも一緒に見たいです。</p>
+              <p>Noto Sans JPのような日本語書体を、ページ全体の改修前に一画面だけで比較できるのがいいですね。Google配信のフォントを読み込む構成なので、採用時は自社サイトの外部通信・表示速度の方針にも合うか確認しておきたいです。</p>
             </div>
             <figure class="today-one-kei-visual">
               <img src="image/today-one/kei-note.webp" alt="メガホン、ノート、虫眼鏡のコラージュ" loading="lazy" />
@@ -159,7 +159,7 @@
                   <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
           <p class="section-kicker">Basic Information</p>
           <h2 id="today-one-basic-title">基本情報</h2>
-          <dl><div><dt>種別</dt><dd>SEO / Research Tool</dd></div><div><dt>公式サイト</dt><dd><a href="https://trends.google.com/trends/explore" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-13">2026-10-13</time></dd></div><div><dt>料金</dt><dd>Google Trendsの公開ウェブツールは、検索関心を調べる公開データとして無料で利用できます。この例はExplore画面での比較とCSV出力のみを扱い、BigQueryやGoogle Adsは使いません。</dd></div><div><dt>ライセンス</dt><dd>Googleが提供するホスト型の公開サービスです。データを転載・共有する場合はGoogleの利用規約と公式の出典表記案内に従います。</dd></div><div><dt>補足</dt><dd>公式の現行ヘルプに基づく想定例です。実機検証は未実施です。</dd></div></dl>
+          <dl><div><dt>種別</dt><dd>Web Font / Design Tool</dd></div><div><dt>公式サイト</dt><dd><a href="https://fonts.google.com/specimen/Noto+Sans+JP" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-14">2026-10-14</time></dd></div><div><dt>料金</dt><dd>Google Fontsのフォントはオープンソースライセンスで公開され、フォントソフトウェアの利用・埋め込みは無償です。ホスト型APIの利用条件はGoogle Fonts APIの案内を確認してください。</dd></div><div><dt>ライセンス</dt><dd>Noto Sans JPはSIL Open Font License 1.1（OFL）。フォントファイルを単体で販売することはできません。</dd></div><div><dt>補足</dt><dd>公式情報に基づく想定例です。実機検証は未実施です。</dd></div></dl>
         </section>
         </div>
       </article>
@@ -168,9 +168,9 @@
           <p class="section-kicker">Archive</p>
           <h2 id="today-one-archive-promo-title">これまでのひとつ。</h2>
         </div>
-        <a class="today-one-archive-latest" href="today-one/archive/2026-10-12-tally-prevent-duplicate-submissions">
-          <time datetime="2026-10-12">2026.10.12</time>
-          <strong>Tallyで同じメールからのアンケート重複回答を防げる？</strong>
+        <a class="today-one-archive-latest" href="today-one/archive/2026-10-13-google-trends-compare-search-terms">
+          <time datetime="2026-10-13">2026.10.13</time>
+          <strong>Google Trendsで記事テーマの検索語を比べられる？</strong>
           <span>この日のひとつを見る →</span>
         </a>
         <a class="today-one-archive-index-link" href="today-one/archive/">アーカイブを見る <span aria-hidden="true">→</span></a>

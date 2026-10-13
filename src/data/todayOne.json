@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13T07:30:00+09:00",
+  "updatedAt": "2026-10-14T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -1834,6 +1834,59 @@
       ],
       "notes": "公式の現行ヘルプに基づく想定例です。実機検証は未実施です。",
       "verifiedAt": "2026-10-13",
+      "status": "published"
+    },
+    {
+      "date": "2026-10-14",
+      "slug": "google-fonts-commercial-japanese-webfont",
+      "name": "Google Fonts",
+      "category": "Web Font / Design Tool",
+      "officialUrl": "https://fonts.google.com/specimen/Noto+Sans+JP",
+      "archiveTitle": "Google Fontsは商用サイトで使える？日本語フォントの導入方法",
+      "archiveDescription": "会社サイトやLPに日本語書体を使いたい担当者向けに、Google Fontsの商用利用条件とCSSでの導入方法を紹介します。Noto Sans JPを1ページで試す想定例と、読み込み・ライセンスの確認点をまとめます。",
+      "forWho": "会社サイトやLPの日本語フォントを整えたいWeb担当者・デザイナー向けです。商用利用の可否と、ページへの入れ方を手早く確認したいときに役立ちます。",
+      "summary": "Google Fontsの書体はオープンソースライセンスで公開され、商用サイトにも利用できます。Noto Sans JPなら、スタイルシートを読み込みCSSで指定して導入できます。",
+      "whyToday": "書体を変えるとブランドの印象は整えやすくなりますが、日本語ページでは読み込みの重さや表示待ちも体験の一部です。Google FontsはCSSから必要な書体・ウェイトを指定できるので、見た目と読み込みの両方を小さな範囲で比べられます。",
+      "useFor": "例えば、会社案内の1ページだけ書体を見直す想定例です。ブラウザーで確認できるテストページを用意し、Google FontsのNoto Sans JPから案内されるスタイルシートのリンクをHTMLへ加え、CSSのfont-familyで指定します。最初は本文の標準ウェイトと見出しの太字だけを読み込み、同じ文章を適用前後で見比べます。成果物は、採用ウェイトとCSS指定をまとめた実装メモです。日本語の記号・太字・読み込み前の表示を確認し、必要なウェイトだけをリクエストしてください。これは公式手順に沿った想定例で、実機検証はしていません。",
+      "recommendedFor": {
+        "employeeId": "MMC-007",
+        "reason": "ブランドデザイン部のレイちゃんに、会社案内の見出しと本文で書体を比べる小さな見本を任せたいです。採用候補、使うウェイト、ブランドの印象と読みやすさを確認した結果を一枚の判断メモにして受け取りたいです。"
+      },
+      "keiComment": "Noto Sans JPのような日本語書体を、ページ全体の改修前に一画面だけで比較できるのがいいですね。Google配信のフォントを読み込む構成なので、採用時は自社サイトの外部通信・表示速度の方針にも合うか確認しておきたいです。",
+      "pricing": "Google Fontsのフォントはオープンソースライセンスで公開され、フォントソフトウェアの利用・埋め込みは無償です。ホスト型APIの利用条件はGoogle Fonts APIの案内を確認してください。",
+      "conditions": "HTMLとCSSを編集できるテスト環境が必要です。CSS APIのスタイルシートを使うと、閲覧者のブラウザーがGoogle FontsからCSSとフォントを取得します。使うウェイトを絞り、表示速度と読み込み時の見え方を確認してください。",
+      "license": "Noto Sans JPはSIL Open Font License 1.1（OFL）。フォントファイルを単体で販売することはできません。",
+      "cautions": "商用利用は可能ですが、フォントデータそのもののライセンスと、Google Fonts APIのサービス利用条件は別です。配信方式を自社ホストへ変えたりフォントを改変・再配布したりする場合は、対象ファイルのライセンスとOFLの条件を確認してください。外部配信を避けたい場合は、自社配信の方法も含めて検討が必要です。",
+      "faq": [
+        {
+          "question": "Google Fontsは会社の商用サイトでも使えますか？",
+          "answer": "はい。Google Fontsは掲載フォントをオープンソースライセンスで提供し、商用プロジェクトでも利用できると案内しています。Noto Sans JPはGoogle Fonts公式リポジトリでOFL 1.1のライセンスが確認できます。"
+        },
+        {
+          "question": "フォントファイルをダウンロードしなくても使えますか？",
+          "answer": "はい。公式のCSS API手順ではHTMLにスタイルシートのリンクを加え、CSSでフォントを指定します。この方式では閲覧者のブラウザーがGoogle Fontsからスタイルシートとフォントを取得します。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Google Fonts公式：オープンソースライセンスと商用利用",
+          "url": "https://developers.google.com/fonts?hl=ja"
+        },
+        {
+          "label": "Google Fonts公式：CSS APIの導入・ウェイト指定",
+          "url": "https://developers.google.com/fonts/docs/css2?hl=ja"
+        },
+        {
+          "label": "Google Fonts公式：APIによるブラウザーへの配信",
+          "url": "https://developers.google.com/fonts/docs/technical_considerations?hl=ja"
+        },
+        {
+          "label": "Google Fonts公式GitHub：Noto Sans JPのOFL 1.1",
+          "url": "https://github.com/google/fonts/blob/main/ofl/notosansjp/OFL.txt"
+        }
+      ],
+      "notes": "公式情報に基づく想定例です。実機検証は未実施です。",
+      "verifiedAt": "2026-10-14",
       "status": "published"
     }
   ]
