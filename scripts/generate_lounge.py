@@ -606,6 +606,8 @@ def render_log_article(log: dict, prefix: str, latest: bool = False, daily: bool
     for block in content_log.get("content", []):
         if block.get("type") == "talks":
             block["ariaLabel"] = label
+        elif block.get("type") == "todayWords" and latest:
+            block.update({"type": "dailyWords", "title": "今日の一言", "items": log.get("todayWords", [])})
     article_id = f' id="{esc(log["id"])}"' if not latest else ""
     slot = time_slot_class(log)
     slot_class = f" {slot}" if daily and slot else ""
