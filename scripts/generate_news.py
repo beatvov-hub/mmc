@@ -95,7 +95,7 @@ def render_index_news(data: dict) -> str:
     lines = [
         '        <div class="news-list">',
     ]
-    for item in top_items(data)[:4]:
+    for item in top_items(data)[:data.get("topLimit", 4)]:
         title = item.get("topTitle") or item.get("title", "")
         summary = item.get("topSummary") or item.get("summary", "")
         related_link = render_item_link(item)
@@ -189,7 +189,7 @@ def render_news_items(data: dict) -> str:
         related_link = render_item_link(item)
         lines.extend(
             [
-                '          <article class="news-card">',
+                f'          <article class="news-card"' + (f' id="{esc(item["newsCardId"])}"' if item.get("newsCardId") else "") + ">",
                 '            <div class="news-card-header">',
                 f'              <time datetime="{esc(item["date"])}">{esc(date_dot(item["date"]))}</time>{render_tag(item)}',
                 "            </div>",
@@ -197,6 +197,8 @@ def render_news_items(data: dict) -> str:
                 f'            <p>{esc(item.get("summary", ""))}</p>',
             ]
         )
+        for paragraph in item.get("bodyParagraphs", []):
+            lines.append(f"            <p>{esc(paragraph)}</p>")
         if related_link:
             lines.append(f"            {related_link}")
         bullets = item.get("bullets", [])
@@ -219,7 +221,7 @@ def render_news_items(data: dict) -> str:
             related_link = render_item_link(item)
             lines.extend(
                 [
-                    '            <article class="news-card">',
+                    f'            <article class="news-card"' + (f' id="{esc(item["newsCardId"])}"' if item.get("newsCardId") else "") + ">",
                     '              <div class="news-card-header">',
                     f'                <time datetime="{esc(item["date"])}">{esc(date_dot(item["date"]))}</time>{render_tag(item)}',
                     "              </div>",
@@ -227,6 +229,8 @@ def render_news_items(data: dict) -> str:
                     f'              <p>{esc(item.get("summary", ""))}</p>',
                 ]
             )
+            for paragraph in item.get("bodyParagraphs", []):
+                lines.append(f"              <p>{esc(paragraph)}</p>")
             if related_link:
                 lines.append(f"              {related_link}")
             bullets = item.get("bullets", [])
