@@ -144,7 +144,7 @@ def canonical_path(path: Path) -> str:
     rel = path.resolve().relative_to(ROOT).as_posix()
     if rel == "index.html":
         return "/"
-    if rel in {"ai-forensics/index.html", "ai-game-center/index.html"}:
+    if rel in {"ai-forensics/index.html", "ai-game-center/index.html", "en/index.html"}:
         return f"/{rel[:-len('index.html')]}"
     if rel.endswith("/index.html"):
         rel = rel[: -len("/index.html")]

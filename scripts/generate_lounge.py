@@ -1132,8 +1132,12 @@ def update_sitemap(logs: list[dict]) -> None:
     )
     archive_dates = sorted({log["date"] for log in logs})
     entries.extend((f"{BASE_URL}/lounge-archive/{date}", date) for date in archive_dates)
-    lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    unique_entries: dict[str, str | None] = {}
     for url, lastmod in entries:
+        previous = unique_entries.get(url)
+        unique_entries[url] = max(filter(None, (previous, lastmod)), default=None)
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for url, lastmod in unique_entries.items():
         lastmod_xml = f"<lastmod>{esc(lastmod)}</lastmod>" if lastmod else ""
         lines.append(f"  <url><loc>{esc(url)}</loc>{lastmod_xml}</url>")
     lines.append("</urlset>")

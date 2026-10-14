@@ -5,7 +5,7 @@ import html
 import json
 from pathlib import Path
 
-from site_layout import apply_layout_to_file
+from site_layout import apply_canonical, apply_layout_to_file, canonical_url
 
 ROOT = Path(__file__).resolve().parents[1]
 GALLERY_DATA_PATH = ROOT / "src" / "data" / "galleryItems.json"
@@ -360,6 +360,21 @@ def render_detail_page(item: dict) -> str:
     )
 
 
+def update_redesign_canonicals(items: list[dict]) -> None:
+    for item in items:
+        redesign_url = item.get("redesignUrl")
+        if not redesign_url:
+            continue
+        path = GALLERY_DIR / redesign_url
+        original = path.read_text(encoding="utf-8")
+        url = canonical_url(path)
+        if f'<link rel="canonical" href="{url}"' in original:
+            continue
+        updated = apply_canonical(original, url=url)
+        if updated != original:
+            path.write_text(updated, encoding="utf-8")
+
+
 def main() -> None:
     items = load_items()
     public_items = [item for item in items if not item.get("private")]
@@ -370,6 +385,7 @@ def main() -> None:
         detail_path = GALLERY_DIR / item["detailUrl"]
         detail_path.write_text(render_detail_page(item), encoding="utf-8")
         apply_layout_to_file(detail_path)
+    update_redesign_canonicals(items)
     print(f"Generated {GALLERY_HTML_PATH.relative_to(ROOT)} and {len(items)} gallery detail pages.")
 
 
