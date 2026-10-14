@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Google広告のAIラベルは法令順守の完成形ではない　画像・動画素材の表示手順｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Googleは2026年7月、AIで生成・編集した画像や動画の広告素材に、クリエイティブ上のラベルを追加できるようにし、Google AdsなどでAIラベル設定を段階的に導入すると案内しました。広告主は自分で素材に表示を入れる方法と、広告ツール上で素材をAI生成・編集済みと指定する方法を選べます。Google Ads Editorのヘルプによると、指定した素材は「この広告の作成方法」欄に表示され、EU・インド・ニューヨークを対象とするキャンペーンでは広告自体にもラベルが表示される場合があります。Googleの自動生成機能や外部シグナルによりラベルが自動付与され、上書きできない場合もあります。一方、この設定だけで地域ごとの法令要件を満たす保証はありません。素材の来歴、配信先、必要な表示を広告主自身が確認する運用が必要です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261015-03" />
+<meta property="og:title" content="Google広告のAIラベルは法令順守の完成形ではない　画像・動画素材の表示手順｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Googleは2026年7月、AIで生成・編集した画像や動画の広告素材に、クリエイティブ上のラベルを追加できるようにし、Google AdsなどでAIラベル設定を段階的に導入すると案内しました。広告主は自分で素材に表示を入れる方法と、広告ツール上で素材をAI生成・編集済みと指定する方法を選べます。Google Ads Editorのヘルプによると、指定した素材は「この広告の作成方法」欄に表示され、EU・インド・ニューヨークを対象とするキャンペーンでは広告自体にもラベルが表示される場合があります。Googleの自動生成機能や外部シグナルによりラベルが自動付与され、上書きできない場合もあります。一方、この設定だけで地域ごとの法令要件を満たす保証はありません。素材の来歴、配信先、必要な表示を広告主自身が確認する運用が必要です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261015-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Google広告のAI表示</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-10-15">2026.10.15</time>
+            </div>
+            <h1>Google広告のAIラベルは法令順守の完成形ではない　画像・動画素材の表示手順</h1>
+            <p>Googleは2026年7月、AIで生成・編集した画像や動画の広告素材に、クリエイティブ上のラベルを追加できるようにし、Google AdsなどでAIラベル設定を段階的に導入すると案内しました。広告主は自分で素材に表示を入れる方法と、広告ツール上で素材をAI生成・編集済みと指定する方法を選べます。Google Ads Editorのヘルプによると、指定した素材は「この広告の作成方法」欄に表示され、EU・インド・ニューヨークを対象とするキャンペーンでは広告自体にもラベルが表示される場合があります。Googleの自動生成機能や外部シグナルによりラベルが自動付与され、上書きできない場合もあります。一方、この設定だけで地域ごとの法令要件を満たす保証はありません。素材の来歴、配信先、必要な表示を広告主自身が確認する運用が必要です。</p>
+            <ul class="forensics-target-list"><li>Google広告を運用する人</li><li>生成・編集した画像や動画を広告に使う担当者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Google Ads</li><li>AIラベル</li><li>広告表示</li><li>生成AI画像</li><li>広告クリエイティブ</li><li>透明性</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>素材・地域・表示を照合</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>素材ごとにAI利用を記録し、ツールのラベルと法令上必要な表示を分けて確認します。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>生成AIで作った商品画像を広告に使う前に、AI利用表示をどこで付けるか迷った</h3><p>画像をAIで生成したり、既存写真を大きく編集したりした。広告管理画面にAIラベルの設定があるが、地域ごとの表示や、広告クリエイティブへ直接文字を入れる必要があるか分からない。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>プラットフォームのラベルは消費者への透明性を助けますが、法令や媒体ごとの表示義務を一律に代替するものではありません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="label-and-check-law">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>AIで生成・編集した広告素材を配信する前に、どの表示と確認を行う？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="label-and-check-law" data-choice-id="label-and-check-law" />
+                <span>
+                  <strong>素材のAI利用を記録して適切なラベルを付け、地域の法令・媒体要件を別に確認する</strong>
+                  <small>Googleのラベル設定は素材表示の手段であり、Google自身が各地域の法令順守を保証しないとしています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="platform-is-enough" data-choice-id="platform-is-enough" />
+                <span>
+                  <strong>Google AdsのAIラベルを選べば、どの地域でも法的な表示義務を満たす</strong>
+                  <small>Googleは設定だけでは特定の規制への準拠を保証しないと明記しています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>素材のAI利用を記録して適切なラベルを付け、地域の法令・媒体要件を別に確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Google AdsやAds Editorで素材単位のAI生成・編集ラベルを指定するか、クリエイティブへ独自の表示を加えます。EU・インド・ニューヨークでは広告上のオーバーレイが表示される場合がありますが、表示要件や例外は地域・広告種別ごとに確認してください。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ラベルの対象はAI生成・編集された画像や動画素材</h3>
+              <p>Googleの2026年7月更新では、AIで生成または変更した画像・動画広告にテキストまたは視覚的ラベルを加える方法を案内しています。AIを使った素材の範囲と編集履歴を素材ごとに把握します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>広告ツールの素材ラベルとクリエイティブ内表示は別の方法</h3>
+              <p>広告主は画像・動画の中に直接表示を入れるか、Google Ads、Display &amp; Video 360、Campaign Manager 360、Merchant Center、Ads EditorなどのAIラベル設定を使えます。Google Ads Editorでは素材一覧のAI label列から指定できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>広告主側で指定した情報は「この広告の作成方法」に表示</h3>
+              <p>Google Ads Editorヘルプは、AI生成・編集として指定した素材の情報が、My Ad Centerの「How this ad was made（この広告の作成方法）」欄から閲覧できると説明しています。地域によっては広告面にも表示されます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>地域によって広告上のオーバーレイが出る</h3>
+              <p>Googleは、EU、インド、ニューヨークを対象地域とするキャンペーンで、指定したAI素材に広告上の表示が追加される場合があると案内しています。全地域で同じ見え方になるわけではありません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>自動ラベルは上書きできない場合がある</h3>
+              <p>Googleが全面的に自動生成・配信する機能、法令上の義務、他プラットフォームからのシグナルなどによりラベルが付く場合があり、その場合はラベルを上書きできないとヘルプに記載されています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ラベルを付けても各地域の法令順守は保証されない</h3>
+              <p>Googleは、広告ツール上の設定は規制への準拠を保証しないと明記しています。国・地域の法令、選挙広告などの特則、広告媒体固有の要件を別途確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>広告ツールのAIラベルは表示を助けるが、法令判断を置き換えない</strong><p>GoogleはAI素材の表示経路と地域ごとの見え方を案内する一方、自社のラベル設定だけで各規制への適合を保証しないとしています。広告主は生成・編集の履歴を把握し、配信地域・広告形式に応じた義務を別に点検します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>画像・動画ごとに、AI生成か編集か、どのツールを使ったかを広告入稿前に記録する</strong><span>素材単位のラベル判断と、広告審査・社内確認の根拠を残せます。</span></li>
+            <li><strong>Google Ads Editorでは素材一覧のAI label欄を確認し、該当素材を生成・編集済みとして指定する</strong><span>Googleのヘルプに素材の選択とラベル管理手順が記載されています。</span></li>
+            <li><strong>配信地域がEU・インド・ニューヨークに及ぶか、広告自体に表示される要件があるか確認する</strong><span>地域によって消費者向けオーバーレイ表示が適用される場合があります。</span></li>
+            <li><strong>政治広告や法令上の告知など別の申告欄がある広告は、専用ポリシーも確認する</strong><span>Googleは選挙広告の合成・改変コンテンツについて、別の申告手続きを案内しています。</span></li>
+            <li><strong>法令要件の判断はプラットフォーム設定と分け、配信地域の最新ルールや専門家の確認を使う</strong><span>Google自身がAIラベル設定のみで各地域の規制順守を保証しないとしています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>広告管理画面でAIラベルを設定したことだけをもって、法的開示を完了したとみなす</strong><span>媒体機能と各地域の法令上の義務は別です。</span></li>
+            <li><strong>Googleが自動でラベルを付けるはずだとして、素材の来歴や配信地域を確認しない</strong><span>自動ラベルの適用は一部素材や条件に限られ、広告主自身の確認責任は残ります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>広告素材の透明性を制作フローに組み込む</h3>
+          <p>AI利用の記録、素材単位のラベル設定、地域別の表示確認を入稿前チェックにまとめれば、制作の効率を損なわず消費者への説明と規制対応を整理できます。</p>
+          <ul class="positive-example-list"><li>生成AI素材の台帳づけ</li><li>Ads Editorでの素材ラベル確認</li><li>配信地域別の広告プレビュー</li><li>選挙広告など特別ルールの確認</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>「AIラベルのスイッチがある」ことと「表示義務をすべて果たした」ことは同じではありません。今回のGoogleの説明は、素材ラベルの見せ方と責任の境界を分けています。生成・編集の記録を残し、配信地域の確認を入稿チェックに含めると、あとから根拠をたどりやすくなります。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Google広告のAIラベルを表示補助として使い、素材の来歴と地域ごとの法令要件は別に確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/adspolicy/answer/17257106" target="_blank" rel="noopener noreferrer">Updates to AI labeling requirements (July 2026)<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Ads Advertising Policies Help</span>
+              <span>その他</span>
+              <time datetime="2026-07-09">2026-07-09</time>
+            </li>
+            <li>
+              <strong><a href="https://support.google.com/google-ads/editor/answer/17231795?hl=en" target="_blank" rel="noopener noreferrer">Use AI content label settings and disclosures in Google Ads Editor<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Ads Editor Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261015-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Google検索のAI機能に自分のサイトを含める？　Search Consoleの新設定と除外範囲 検索AIへの掲載設定 Googleは2026年8月31日から、Search Consoleの「検索の生成AI設定」を世界中のウェブサイト向けに提供しています。サイト運営者は、AIによる概要、AIモード、Google Discoverの生成AI機能に自分のサイトのリンクやコンテンツを含めるかを、Search Consoleの［設定］&gt;［検索の生成AI］で選べます。既定は含める設定で、プロパティは親サイトから設定を継承する場合があります。除外を選ぶと、これらの生成AI機能の回答根拠やリンクから外れますが、Google検索全体の掲載順位やAI学習を制御する設定ではありません。検索全体からページを消したい場合は別のnoindex設定が必要です。運営者は変更前に、対象プロパティと親子の継承関係、除外対象の範囲、生成AIパフォーマンスレポートを確認してから選択します。 仕事・AI活用 標準 Google Search Console 検索の生成AI設定 AIによる概要 AIモード Google Discover サイト運営 自社サイトやブログを運営する人 Search Consoleで検索流入を確認する担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">search-ai-inclusion-control</span>
+              <div>
+                <p>検索AIへの掲載設定</p>
+                <h3>Google検索のAI機能に自分のサイトを含める？　Search Consoleの新設定と除外範囲</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-15">2026.10.15</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年8月31日から、Search Consoleの「検索の生成AI設定」を世界中のウェブサイト向けに提供しています。サイト運営者は、AIによる概要、AIモード、Google Discoverの生成AI機能に自分のサイトのリンクやコンテンツを含めるかを、Search Consoleの［設定］&gt;［検索の生成AI］で選べます。既定は含める設定で、プロパティは親サイトから設定を継承する場合があります。除外を選ぶと、これらの生成AI機能の回答根拠やリンクから外れますが、Google検索全体の掲載順位やAI学習を制御する設定ではありません。検索全体からページを消したい場合は別のnoindex設定が必要です。運営者は変更前に、対象プロパティと親子の継承関係、除外対象の範囲、生成AIパフォーマンスレポートを確認してから選択します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>対象プロパティと範囲を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>自社サイトやブログを運営する人</li><li>Search Consoleで検索流入を確認する担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Search Console</li><li>検索の生成AI設定</li><li>AIによる概要</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261014-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="beginner" data-search-text="ChatGPTの回答が図や操作画面になったら　Intelligent UIの使いどころと提供範囲 ChatGPTの操作できる回答 OpenAIは2026年10月7日、ChatGPTのChatタブでGPT‑6とIntelligent UIの提供を始めたと発表しました。質問に応じて文章だけでなく、図、横並び比較、計算機や割り勘ツールなどの操作できる要素を組み合わせて回答する機能です。形式は自動選択され、適切なら通常の文章回答も使われます。表示が整ったり操作できたりすること自体は、情報や計算の正しさの証明ではありません。比較・計算の補助として利用し、重要な条件や数値は元情報と照合するのが実務的です。提供はプランやChat/Workの切替、職場の管理者設定に左右されるため、見えない機能を不具合と決めつけないことも大切です。 仕事・AI活用 はじめて ChatGPT GPT-6 Intelligent UI 対話型AI 計算 仕事活用 ChatGPTを仕事や学習に使う人 比較・計算・情報整理をAIに頼む人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">interactive-answer-formats</span>
+              <div>
+                <p>ChatGPTの操作できる回答</p>
+                <h3>ChatGPTの回答が図や操作画面になったら　Intelligent UIの使いどころと提供範囲</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-14">2026.10.14</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年10月7日、ChatGPTのChatタブでGPT‑6とIntelligent UIの提供を始めたと発表しました。質問に応じて文章だけでなく、図、横並び比較、計算機や割り勘ツールなどの操作できる要素を組み合わせて回答する機能です。形式は自動選択され、適切なら通常の文章回答も使われます。表示が整ったり操作できたりすること自体は、情報や計算の正しさの証明ではありません。比較・計算の補助として利用し、重要な条件や数値は元情報と照合するのが実務的です。提供はプランやChat/Workの切替、職場の管理者設定に左右されるため、見えない機能を不具合と決めつけないことも大切です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>表示形式と内容の正しさを分ける</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTを仕事や学習に使う人</li><li>比較・計算・情報整理をAIに頼む人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>GPT-6</li><li>Intelligent UI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261014-03" data-forensics-card data-category="work-use" data-level="2" data-difficulty="beginner" data-search-text="Codexの入力予測は送信前にひと呼吸　提案文の確認とオフ設定 Codex入力予測の確認 OpenAIは2026年10月9日、Codexデスクトップアプリに、会話の流れから次のメッセージを提案するComposer predictionsのベータ提供を発表しました。候補はTabキーで入力欄に採用できますが、送信は自動ではありません。現在のスレッドに合わない提案や、実行してほしくない指示が混ざっていないかを確認・編集してから送るのが安全です。この機能は個人向けChatGPT Proの対象ユーザーに提供され、既定でオン。不要ならGeneral settingsのComposer設定でShow predictionsをオフにできます。 仕事・AI活用 はじめて Codex 入力予測 Composer predictions AI補助 プロンプト 開発ワークフロー Codexデスクトップアプリを使う開発者 AIの入力補助を業務で使う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">composer-prediction-review</span>
+              <div>
+                <p>Codex入力予測の確認</p>
+                <h3>Codexの入力予測は送信前にひと呼吸　提案文の確認とオフ設定</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-14">2026.10.14</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年10月9日、Codexデスクトップアプリに、会話の流れから次のメッセージを提案するComposer predictionsのベータ提供を発表しました。候補はTabキーで入力欄に採用できますが、送信は自動ではありません。現在のスレッドに合わない提案や、実行してほしくない指示が混ざっていないかを確認・編集してから送るのが安全です。この機能は個人向けChatGPT Proの対象ユーザーに提供され、既定でオン。不要ならGeneral settingsのComposer設定でShow predictionsをオフにできます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>採用後に内容を読み返す</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Codexデスクトップアプリを使う開発者</li><li>AIの入力補助を業務で使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Codex</li><li>入力予測</li><li>Composer predictions</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261014-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261015-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

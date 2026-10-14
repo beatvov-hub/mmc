@@ -1,0 +1,64 @@
+{
+  "id": "case-20261015-01",
+  "publishedAt": "2026-10-15",
+  "title": "Androidの詐欺対策は通知だけじゃない　強化保護・画面共有・電話転送の確認点",
+  "shortTitle": "Androidの詐欺対策を確認",
+  "category": "scam",
+  "difficulty": "standard",
+  "targetAudience": ["Androidスマートフォンを使う人", "SMSやチャット、画面共有を日常的に使う人"],
+  "summary": "Googleは2026年10月14日、Androidの詐欺対策を拡張すると発表しました。Google Messagesには、知らない相手との会話をクラウドGeminiで分析し、未登録番号から届く未知のリンクを端末上のGemini Nanoとウェブ上のシグナルで評価する「Enhanced protection mode」を追加します。これは任意設定で、提供は今後数週間かけて段階的に行われます。さらにAndroid 15以降では、画面共有中にChromeやAndroid WebViewのログイン欄・決済画面を隠す保護が今月から展開され、電話転送を不正に設定する操作にも警告を出す予定です。発表は全端末で即時利用可能という意味ではありません。端末の設定で詐欺検出を確認し、画面共有や転送コードを使う場面ではOSの警告を見落とさないことが実際の備えになります。",
+  "scenario": {
+    "headline": "知らない相手から届いたリンクを開くよう促され、画面共有や電話操作まで案内された",
+    "description": "サポート担当や銀行職員を名乗る相手から、SMSのリンクを開き、画面を共有して確認コードを入力するよう求められた。端末の詐欺検出や警告が有効か分からない。",
+    "whyItMatters": "詐欺はメッセージのリンクだけでなく、画面共有中の認証情報や電話転送によるワンタイムコードの窃取にも及びます。新機能は端末・地域・段階展開に依存するため、発表記事だけで自分の端末に有効だと思い込まないことが大切です。"
+  },
+  "question": {
+    "text": "Androidの詐欺対策を、どこで確認し、どの警告を見逃さないようにする？",
+    "choices": [
+      {"id": "check-settings-and-pause", "label": "設定で詐欺検出を確認し、知らない相手のリンク・画面共有・転送コードの警告で一旦止まる", "description": "Googleはメッセージ検出の設定場所と、段階展開中の強化保護、画面共有・電話転送対策を別々に説明しています。"},
+      {"id": "assume-universal", "label": "Androidなら新機能がすべて有効なので、警告がなければ安全と考える", "description": "Googleの発表は機能ごとの展開時期や対応端末の差を示しており、検出機能がすべての詐欺を捕捉するとはしていません。"}
+    ],
+    "recommendedAnswers": ["check-settings-and-pause"],
+    "explanation": "Androidの設定アプリで「Scam Detection（詐欺検出）」を検索し、メッセージ詐欺検出の有効状態を確認します。Enhanced protection modeは段階展開中なので、見当たらなければ端末の対応・更新状況を確認します。警告の有無だけで相手を信用せず、画面共有中のログイン・決済画面の扱いや、電話アプリで転送コードを入力する危険にも注意します。"
+  },
+  "inspectionPoints": [
+    {"title": "強化保護は任意設定で、段階展開中", "description": "Googleの2026年10月14日の発表では、Google MessagesのEnhanced protection modeはオプトイン式で、今後数週間かけて展開されます。発表直後にすべての端末で設定できるとは限りません。", "priority": "high"},
+    {"title": "会話分析は端末内処理だけではない", "description": "強化保護では、知らない送信者との複雑な会話をGoogleのクラウドGeminiモデルで分析する機能が説明されています。GoogleはPrivate AI Computeで暗号化処理し、Googleを含む他者から内容を隔離すると説明していますが、利用者は任意機能を有効にする前に処理方式を理解しておきます。", "priority": "high"},
+    {"title": "未知リンクの評価はGemini Nanoとウェブシグナル", "description": "既知の悪性URLを照合する従来の保護に加え、強化保護では未登録リンクをタップする前に、端末上のGemini Nanoがリアルタイムのウェブシグナルを組み合わせて評価するとGoogleは説明しています。対応端末は限られます。", "priority": "high"},
+    {"title": "画面共有中はChromeとWebViewのログイン・決済画面を隠す", "description": "Googleは、画面共有中にChromeとAndroid WebViewのログイン欄や決済画面を自動的に隠す機能を発表しました。Android 15以降の端末へ当月から展開予定とされ、端末側の対応状況を確認する必要があります。", "priority": "high"},
+    {"title": "電話転送コードの入力は詐欺の誘導になり得る", "description": "Googleによると、Androidはアプリがバックグラウンドで電話転送を有効にすることをブロックし、利用者がMMI転送コードを手入力しようとした場合も警告します。この保護はPixelなど一部端末で12月初旬から提供予定とされ、10月時点では将来の展開です。", "priority": "medium"},
+    {"title": "既存の詐欺検出設定を確認する", "description": "Androidヘルプは、設定アプリで「Scam Detection」を検索し、Message scamsをオン・オフできると案内しています。機能は対応端末・地域に限られ、日本語と日本も掲載対象ですが、すべての機種で使えるわけではありません。", "priority": "medium"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "端末の対応と警告を確認",
+  "verificationMessage": "機能の発表と自分の端末での提供を分け、リンク・画面共有・転送コードの場面で一旦止まります。",
+  "verdict": {
+    "label": "詐欺対策は機能の有無を端末ごとに確かめる",
+    "description": "Googleはメッセージ強化保護、画面共有時の秘匿、電話転送警告を別の機能として段階展開しています。設定に詐欺検出があるか確認し、警告が出ない場合も安全の証明とは扱わず、相手の誘導で認証情報や転送コードを入力しない運用が必要です。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "Android設定で「Scam Detection」を検索し、メッセージ詐欺検出の状態を確認する", "reason": "端末で既に利用できる詐欺検出の有無と設定を確認できます。"},
+    {"action": "Enhanced protection modeが見当たらない場合は、発表直後の段階展開中と考え、後日再確認する", "reason": "Googleは数週間かけて展開するとしており、即時に全端末へ届く機能ではありません。"},
+    {"action": "知らない相手のリンクを開く前に、警告の理由を読み、相手が急がせても操作を止める", "reason": "強化保護は未知リンクの評価や警告を追加しますが、検出をすり抜けるリンクもあり得ます。"},
+    {"action": "遠隔サポートを名乗る相手との画面共有中に、ログイン情報や決済情報を入力しない", "reason": "画面共有保護の展開に差があるため、画面が隠れない場合も情報が相手に見える前提で行動します。"},
+    {"action": "電話の転送コードを相手の指示で入力せず、必要なら契約先の通信会社へ自分で問い合わせる", "reason": "転送設定が悪用されると、認証コードを含む着信を別番号へ転送されるおそれがあります。"}
+  ],
+  "avoidActions": [
+    {"action": "Androidの警告がないことだけを根拠に、メッセージや電話を安全だと決める", "reason": "Googleヘルプも詐欺検出がすべての詐欺を捕捉するわけではないと注意しています。"},
+    {"action": "相手に言われるまま画面共有、SMSリンク、MMI転送コードの操作を続ける", "reason": "認証情報や着信を相手に渡す経路になり得ます。"}
+  ],
+  "positiveUse": {
+    "title": "端末の防御を補助輪として使い、危険な操作の前に止まる",
+    "description": "詐欺検出を有効にしつつ、画面共有・ログイン・電話転送の各場面で端末の保護が働いているかを確認します。検出機能に判断を丸投げせず、警告や不自然な指示を操作を止めるきっかけにします。",
+    "examples": ["Androidの詐欺検出設定を確認", "知らない送信者のリンクを保留", "画面共有時の入力欄を確認", "転送コードを入力せず通信会社へ確認"]
+  },
+  "makotoComment": "今回の更新で注目したいのは、詐欺対策が「メッセージを見分ける」だけでなく、画面共有中の入力や電話転送の設定まで守ろうとしている点です。ただし、Google自身が端末ごとの展開差を示しています。新機能があるはずと決めつけず、まず設定画面で自分の端末の状態を確かめるのが出発点です。",
+  "oneLineLesson": "Androidの詐欺検出は設定と端末対応を確かめ、リンク・画面共有・転送コードの警告で立ち止まる。",
+  "tags": ["Android", "Google Messages", "詐欺検出", "画面共有", "電話転送", "Gemini Nano", "Private AI Compute"],
+  "sources": [
+    {"title": "New Android protections to help keep you safe from mobile scams", "publisher": "Google Android Security", "sourceType": "official-product-update", "publishedAt": "2026-10-14", "url": "https://blog.google/security/new-android-scam-protections/"},
+    {"title": "Protect yourself with scam detection on your phone", "publisher": "Android Help", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.google.com/android/answer/18633392"}
+  ],
+  "visualSuggestion": {"mainVisual": "スマートフォン上の3場面を並べ、知らないリンクの警告、画面共有時に隠れるログイン欄、電話転送コード入力前の警告を示す図", "cardIcon": "android-scam-checkpoints", "accentTone": "caution"}
+}

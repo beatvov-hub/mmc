@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Google検索のAI機能に自分のサイトを含める？　Search Consoleの新設定と除外範囲｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="Googleは2026年8月31日から、Search Consoleの「検索の生成AI設定」を世界中のウェブサイト向けに提供しています。サイト運営者は、AIによる概要、AIモード、Google Discoverの生成AI機能に自分のサイトのリンクやコンテンツを含めるかを、Search Consoleの［設定］&gt;［検索の生成AI］で選べます。既定は含める設定で、プロパティは親サイトから設定を継承する場合があります。除外を選ぶと、これらの生成AI機能の回答根拠やリンクから外れますが、Google検索全体の掲載順位やAI学習を制御する設定ではありません。検索全体からページを消したい場合は別のnoindex設定が必要です。運営者は変更前に、対象プロパティと親子の継承関係、除外対象の範囲、生成AIパフォーマンスレポートを確認してから選択します。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261015-02" />
+<meta property="og:title" content="Google検索のAI機能に自分のサイトを含める？　Search Consoleの新設定と除外範囲｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="Googleは2026年8月31日から、Search Consoleの「検索の生成AI設定」を世界中のウェブサイト向けに提供しています。サイト運営者は、AIによる概要、AIモード、Google Discoverの生成AI機能に自分のサイトのリンクやコンテンツを含めるかを、Search Consoleの［設定］&gt;［検索の生成AI］で選べます。既定は含める設定で、プロパティは親サイトから設定を継承する場合があります。除外を選ぶと、これらの生成AI機能の回答根拠やリンクから外れますが、Google検索全体の掲載順位やAI学習を制御する設定ではありません。検索全体からページを消したい場合は別のnoindex設定が必要です。運営者は変更前に、対象プロパティと親子の継承関係、除外対象の範囲、生成AIパフォーマンスレポートを確認してから選択します。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261015-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>検索AIへの掲載設定</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-10-15">2026.10.15</time>
+            </div>
+            <h1>Google検索のAI機能に自分のサイトを含める？　Search Consoleの新設定と除外範囲</h1>
+            <p>Googleは2026年8月31日から、Search Consoleの「検索の生成AI設定」を世界中のウェブサイト向けに提供しています。サイト運営者は、AIによる概要、AIモード、Google Discoverの生成AI機能に自分のサイトのリンクやコンテンツを含めるかを、Search Consoleの［設定］&gt;［検索の生成AI］で選べます。既定は含める設定で、プロパティは親サイトから設定を継承する場合があります。除外を選ぶと、これらの生成AI機能の回答根拠やリンクから外れますが、Google検索全体の掲載順位やAI学習を制御する設定ではありません。検索全体からページを消したい場合は別のnoindex設定が必要です。運営者は変更前に、対象プロパティと親子の継承関係、除外対象の範囲、生成AIパフォーマンスレポートを確認してから選択します。</p>
+            <ul class="forensics-target-list"><li>自社サイトやブログを運営する人</li><li>Search Consoleで検索流入を確認する担当者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Google Search Console</li><li>検索の生成AI設定</li><li>AIによる概要</li><li>AIモード</li><li>Google Discover</li><li>サイト運営</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>対象プロパティと範囲を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>設定を変える前に、対象の親子関係と、生成AI機能・通常検索・学習制御の違いを確認します。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>自社記事がGoogleのAI回答に使われているか、掲載を制御できるか気になった</h3><p>Search Consoleに新しい生成AI設定が表示された。AI回答に引用される機会を残すか、コンテンツの表示を制限するか、サイト全体と一部プロパティのどちらに設定すべきか判断できない。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>除外設定の効果を検索全体への非掲載やAI学習停止と誤解すると、意図しない流入減少や過度な期待につながります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="scope-check">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Search Consoleの検索生成AI設定で、何を対象に含めたり除外したりできる？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="scope-check" data-choice-id="scope-check" />
+                <span>
+                  <strong>対象のプロパティと継承を確認し、生成AI機能への表示制御と検索全体・AI学習の制御を分ける</strong>
+                  <small>設定はGoogle検索の指定された生成AI機能向けで、ランキングやAI学習、検索全体の掲載可否は別の仕組みです。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-global-block" data-choice-id="assume-global-block" />
+                <span>
+                  <strong>除外すればGoogle検索から消え、AI学習にも使われなくなると考える</strong>
+                  <small>Googleはこの設定が検索全体のランキング・掲載可否やAI学習には影響しないと説明しています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>対象のプロパティと継承を確認し、生成AI機能への表示制御と検索全体・AI学習の制御を分ける</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>［検索の生成AI］設定が制御するのは、AIによる概要、AIモード、Discoverの生成AI機能にコンテンツやリンクを表示し、回答根拠として使うことです。検索全体から非掲載にするにはnoindex、生成AI機能の回答モデルの学習を制限するにはGoogle-Extendedを別途検討します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象はGoogle検索の生成AI機能</h3>
+              <p>Googleのヘルプでは、対象としてAIによる概要、AIモード、Google Discoverの生成AI機能を挙げています。機能の一覧はGoogle検索の開発に合わせ更新される予定です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>含める設定は既定値</h3>
+              <p>サイトを生成AI機能に含める選択では、リンク表示だけでなく回答の根拠として使われる場合もあります。Googleはこの選択がすべてのプロパティの既定と説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>除外しても通常検索や順位は消えない</h3>
+              <p>生成AI機能から除外すると、その機能内のリンクやコンテンツ、回答・プレビューの入力情報から外れます。一方、Google検索全体のランキングや掲載可否のシグナルには使われず、他サイト経由で類似内容が回答に残る場合もあると説明されています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AI学習を制限する設定とは別</h3>
+              <p>検索生成AI設定は、回答生成モデルの学習を制限しません。Googleはその目的にはGoogle-Extendedを案内しています。検索全体にページを出したくない場合はnoindexが別途必要です。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>親プロパティの設定を継承する場合がある</h3>
+              <p>ドメインプロパティやURLプレフィックスの親子関係に応じ、子プロパティは最も近い親の選択を継承できます。意図したページ範囲に設定が適用されているか、個別プロパティの表示を確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>効果測定と反映時間も確認する</h3>
+              <p>生成AI機能経由のパフォーマンスはSearch Consoleの生成AIパフォーマンスレポートで確認できます。除外は通常数日以内に反映するものの、キャッシュや伝播でさらに時間がかかることがあります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>生成AI掲載設定は検索全体や学習の停止設定ではない</strong><p>Search Consoleの新しい選択は、対象となるGoogle検索の生成AI機能内でのリンク表示・回答根拠利用を制御します。検索全体から消す、またはモデル学習を止める操作とは別なので、目的に応じて個別の仕組みを選びます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Search Consoleで対象サイトを開き、［設定］&gt;［検索の生成AI］を確認する</strong><span>提供状況と現在の選択を実際のプロパティで把握できます。</span></li>
+            <li><strong>変更前に、親プロパティから継承しているか、子プロパティだけ個別設定されているか確認する</strong><span>ドメイン・サブドメイン・URLプレフィックスなどの階層によって適用範囲が変わり得ます。</span></li>
+            <li><strong>AI機能への表示だけを制御したいなら、この設定を使い、検索全体の非掲載や学習制限と混同しない</strong><span>それぞれGoogleが案内する仕組みと影響範囲が異なります。</span></li>
+            <li><strong>選択を変えた後は生成AIパフォーマンスレポートと反映状況を数日単位で確認する</strong><span>除外の反映は通常数日以内ですが、Google全体への伝播に時間を要する場合があります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>この設定をオフにすれば、ページが通常のGoogle検索から消えると思い込む</strong><span>検索全体への掲載やランキングを制御する設定ではありません。</span></li>
+            <li><strong>生成AI機能から除外すれば、サイト内容のAI学習も停止すると解釈する</strong><span>Googleは学習制御にGoogle-Extendedを別途案内しています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>掲載方針を決め、検索経由の変化を計測する</h3>
+          <p>サイト運営者は、生成AI機能での露出を残すかどうかを、プロパティ範囲と事業目的に沿って選べます。選択後は表示・流入の変化をレポートで観察し、必要なら設定を見直せます。</p>
+          <ul class="positive-example-list"><li>公式情報サイトのAI回答への掲載方針</li><li>会員向け情報ページのプロパティ範囲確認</li><li>生成AI経由の流入レポート確認</li><li>noindexやGoogle-Extendedとの役割分担</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>この設定の肝は「AIに使わせる／使わせない」の一括スイッチではなく、検索機能の一部への表示・根拠利用を選ぶ点です。除外しても検索全体や学習の扱いは別に残ります。サイト全体を一度に変える前に、Search Console上の親子プロパティとレポートを見て、目的に合う範囲から判断したいですね。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Search Consoleの検索生成AI設定は対象機能とプロパティ範囲を確認し、検索全体や学習制御とは分けて使う。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/webmasters/answer/16908024?hl=ja" target="_blank" rel="noopener noreferrer">検索の生成 AI 設定<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Search Console ヘルプ</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers?hl=ja#google-extended" target="_blank" rel="noopener noreferrer">Google-Extended<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Search Central</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://developers.google.com/search/docs/crawling-indexing/block-indexing?hl=ja" target="_blank" rel="noopener noreferrer">noindex で検索インデックス登録をブロックする<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Search Central</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261015-03" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="Google広告のAIラベルは法令順守の完成形ではない　画像・動画素材の表示手順 Google広告のAI表示 Googleは2026年7月、AIで生成・編集した画像や動画の広告素材に、クリエイティブ上のラベルを追加できるようにし、Google AdsなどでAIラベル設定を段階的に導入すると案内しました。広告主は自分で素材に表示を入れる方法と、広告ツール上で素材をAI生成・編集済みと指定する方法を選べます。Google Ads Editorのヘルプによると、指定した素材は「この広告の作成方法」欄に表示され、EU・インド・ニューヨークを対象とするキャンペーンでは広告自体にもラベルが表示される場合があります。Googleの自動生成機能や外部シグナルによりラベルが自動付与され、上書きできない場合もあります。一方、この設定だけで地域ごとの法令要件を満たす保証はありません。素材の来歴、配信先、必要な表示を広告主自身が確認する運用が必要です。 仕事・AI活用 標準 Google Ads AIラベル 広告表示 生成AI画像 広告クリエイティブ 透明性 Google広告を運用する人 生成・編集した画像や動画を広告に使う担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-ad-label-workflow</span>
+              <div>
+                <p>Google広告のAI表示</p>
+                <h3>Google広告のAIラベルは法令順守の完成形ではない　画像・動画素材の表示手順</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-15">2026.10.15</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年7月、AIで生成・編集した画像や動画の広告素材に、クリエイティブ上のラベルを追加できるようにし、Google AdsなどでAIラベル設定を段階的に導入すると案内しました。広告主は自分で素材に表示を入れる方法と、広告ツール上で素材をAI生成・編集済みと指定する方法を選べます。Google Ads Editorのヘルプによると、指定した素材は「この広告の作成方法」欄に表示され、EU・インド・ニューヨークを対象とするキャンペーンでは広告自体にもラベルが表示される場合があります。Googleの自動生成機能や外部シグナルによりラベルが自動付与され、上書きできない場合もあります。一方、この設定だけで地域ごとの法令要件を満たす保証はありません。素材の来歴、配信先、必要な表示を広告主自身が確認する運用が必要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>素材・地域・表示を照合</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google広告を運用する人</li><li>生成・編集した画像や動画を広告に使う担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Ads</li><li>AIラベル</li><li>広告表示</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261014-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="beginner" data-search-text="ChatGPTの回答が図や操作画面になったら　Intelligent UIの使いどころと提供範囲 ChatGPTの操作できる回答 OpenAIは2026年10月7日、ChatGPTのChatタブでGPT‑6とIntelligent UIの提供を始めたと発表しました。質問に応じて文章だけでなく、図、横並び比較、計算機や割り勘ツールなどの操作できる要素を組み合わせて回答する機能です。形式は自動選択され、適切なら通常の文章回答も使われます。表示が整ったり操作できたりすること自体は、情報や計算の正しさの証明ではありません。比較・計算の補助として利用し、重要な条件や数値は元情報と照合するのが実務的です。提供はプランやChat/Workの切替、職場の管理者設定に左右されるため、見えない機能を不具合と決めつけないことも大切です。 仕事・AI活用 はじめて ChatGPT GPT-6 Intelligent UI 対話型AI 計算 仕事活用 ChatGPTを仕事や学習に使う人 比較・計算・情報整理をAIに頼む人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">interactive-answer-formats</span>
+              <div>
+                <p>ChatGPTの操作できる回答</p>
+                <h3>ChatGPTの回答が図や操作画面になったら　Intelligent UIの使いどころと提供範囲</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-14">2026.10.14</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年10月7日、ChatGPTのChatタブでGPT‑6とIntelligent UIの提供を始めたと発表しました。質問に応じて文章だけでなく、図、横並び比較、計算機や割り勘ツールなどの操作できる要素を組み合わせて回答する機能です。形式は自動選択され、適切なら通常の文章回答も使われます。表示が整ったり操作できたりすること自体は、情報や計算の正しさの証明ではありません。比較・計算の補助として利用し、重要な条件や数値は元情報と照合するのが実務的です。提供はプランやChat/Workの切替、職場の管理者設定に左右されるため、見えない機能を不具合と決めつけないことも大切です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>表示形式と内容の正しさを分ける</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTを仕事や学習に使う人</li><li>比較・計算・情報整理をAIに頼む人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>GPT-6</li><li>Intelligent UI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261014-03" data-forensics-card data-category="work-use" data-level="2" data-difficulty="beginner" data-search-text="Codexの入力予測は送信前にひと呼吸　提案文の確認とオフ設定 Codex入力予測の確認 OpenAIは2026年10月9日、Codexデスクトップアプリに、会話の流れから次のメッセージを提案するComposer predictionsのベータ提供を発表しました。候補はTabキーで入力欄に採用できますが、送信は自動ではありません。現在のスレッドに合わない提案や、実行してほしくない指示が混ざっていないかを確認・編集してから送るのが安全です。この機能は個人向けChatGPT Proの対象ユーザーに提供され、既定でオン。不要ならGeneral settingsのComposer設定でShow predictionsをオフにできます。 仕事・AI活用 はじめて Codex 入力予測 Composer predictions AI補助 プロンプト 開発ワークフロー Codexデスクトップアプリを使う開発者 AIの入力補助を業務で使う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">composer-prediction-review</span>
+              <div>
+                <p>Codex入力予測の確認</p>
+                <h3>Codexの入力予測は送信前にひと呼吸　提案文の確認とオフ設定</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-14">2026.10.14</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年10月9日、Codexデスクトップアプリに、会話の流れから次のメッセージを提案するComposer predictionsのベータ提供を発表しました。候補はTabキーで入力欄に採用できますが、送信は自動ではありません。現在のスレッドに合わない提案や、実行してほしくない指示が混ざっていないかを確認・編集してから送るのが安全です。この機能は個人向けChatGPT Proの対象ユーザーに提供され、既定でオン。不要ならGeneral settingsのComposer設定でShow predictionsをオフにできます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>採用後に内容を読み返す</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Codexデスクトップアプリを使う開発者</li><li>AIの入力補助を業務で使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Codex</li><li>入力予測</li><li>Composer predictions</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261015-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261015-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <strong>毎日見る<br />株式会社</strong>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

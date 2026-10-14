@@ -1,0 +1,64 @@
+{
+  "id": "case-20261015-03",
+  "publishedAt": "2026-10-15",
+  "title": "Google広告のAIラベルは法令順守の完成形ではない　画像・動画素材の表示手順",
+  "shortTitle": "Google広告のAI表示",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["Google広告を運用する人", "生成・編集した画像や動画を広告に使う担当者"],
+  "summary": "Googleは2026年7月、AIで生成・編集した画像や動画の広告素材に、クリエイティブ上のラベルを追加できるようにし、Google AdsなどでAIラベル設定を段階的に導入すると案内しました。広告主は自分で素材に表示を入れる方法と、広告ツール上で素材をAI生成・編集済みと指定する方法を選べます。Google Ads Editorのヘルプによると、指定した素材は「この広告の作成方法」欄に表示され、EU・インド・ニューヨークを対象とするキャンペーンでは広告自体にもラベルが表示される場合があります。Googleの自動生成機能や外部シグナルによりラベルが自動付与され、上書きできない場合もあります。一方、この設定だけで地域ごとの法令要件を満たす保証はありません。素材の来歴、配信先、必要な表示を広告主自身が確認する運用が必要です。",
+  "scenario": {
+    "headline": "生成AIで作った商品画像を広告に使う前に、AI利用表示をどこで付けるか迷った",
+    "description": "画像をAIで生成したり、既存写真を大きく編集したりした。広告管理画面にAIラベルの設定があるが、地域ごとの表示や、広告クリエイティブへ直接文字を入れる必要があるか分からない。",
+    "whyItMatters": "プラットフォームのラベルは消費者への透明性を助けますが、法令や媒体ごとの表示義務を一律に代替するものではありません。"
+  },
+  "question": {
+    "text": "AIで生成・編集した広告素材を配信する前に、どの表示と確認を行う？",
+    "choices": [
+      {"id": "label-and-check-law", "label": "素材のAI利用を記録して適切なラベルを付け、地域の法令・媒体要件を別に確認する", "description": "Googleのラベル設定は素材表示の手段であり、Google自身が各地域の法令順守を保証しないとしています。"},
+      {"id": "platform-is-enough", "label": "Google AdsのAIラベルを選べば、どの地域でも法的な表示義務を満たす", "description": "Googleは設定だけでは特定の規制への準拠を保証しないと明記しています。"}
+    ],
+    "recommendedAnswers": ["label-and-check-law"],
+    "explanation": "Google AdsやAds Editorで素材単位のAI生成・編集ラベルを指定するか、クリエイティブへ独自の表示を加えます。EU・インド・ニューヨークでは広告上のオーバーレイが表示される場合がありますが、表示要件や例外は地域・広告種別ごとに確認してください。"
+  },
+  "inspectionPoints": [
+    {"title": "ラベルの対象はAI生成・編集された画像や動画素材", "description": "Googleの2026年7月更新では、AIで生成または変更した画像・動画広告にテキストまたは視覚的ラベルを加える方法を案内しています。AIを使った素材の範囲と編集履歴を素材ごとに把握します。", "priority": "high"},
+    {"title": "広告ツールの素材ラベルとクリエイティブ内表示は別の方法", "description": "広告主は画像・動画の中に直接表示を入れるか、Google Ads、Display & Video 360、Campaign Manager 360、Merchant Center、Ads EditorなどのAIラベル設定を使えます。Google Ads Editorでは素材一覧のAI label列から指定できます。", "priority": "high"},
+    {"title": "広告主側で指定した情報は「この広告の作成方法」に表示", "description": "Google Ads Editorヘルプは、AI生成・編集として指定した素材の情報が、My Ad Centerの「How this ad was made（この広告の作成方法）」欄から閲覧できると説明しています。地域によっては広告面にも表示されます。", "priority": "high"},
+    {"title": "地域によって広告上のオーバーレイが出る", "description": "Googleは、EU、インド、ニューヨークを対象地域とするキャンペーンで、指定したAI素材に広告上の表示が追加される場合があると案内しています。全地域で同じ見え方になるわけではありません。", "priority": "high"},
+    {"title": "自動ラベルは上書きできない場合がある", "description": "Googleが全面的に自動生成・配信する機能、法令上の義務、他プラットフォームからのシグナルなどによりラベルが付く場合があり、その場合はラベルを上書きできないとヘルプに記載されています。", "priority": "medium"},
+    {"title": "ラベルを付けても各地域の法令順守は保証されない", "description": "Googleは、広告ツール上の設定は規制への準拠を保証しないと明記しています。国・地域の法令、選挙広告などの特則、広告媒体固有の要件を別途確認します。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "素材・地域・表示を照合",
+  "verificationMessage": "素材ごとにAI利用を記録し、ツールのラベルと法令上必要な表示を分けて確認します。",
+  "verdict": {
+    "label": "広告ツールのAIラベルは表示を助けるが、法令判断を置き換えない",
+    "description": "GoogleはAI素材の表示経路と地域ごとの見え方を案内する一方、自社のラベル設定だけで各規制への適合を保証しないとしています。広告主は生成・編集の履歴を把握し、配信地域・広告形式に応じた義務を別に点検します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "画像・動画ごとに、AI生成か編集か、どのツールを使ったかを広告入稿前に記録する", "reason": "素材単位のラベル判断と、広告審査・社内確認の根拠を残せます。"},
+    {"action": "Google Ads Editorでは素材一覧のAI label欄を確認し、該当素材を生成・編集済みとして指定する", "reason": "Googleのヘルプに素材の選択とラベル管理手順が記載されています。"},
+    {"action": "配信地域がEU・インド・ニューヨークに及ぶか、広告自体に表示される要件があるか確認する", "reason": "地域によって消費者向けオーバーレイ表示が適用される場合があります。"},
+    {"action": "政治広告や法令上の告知など別の申告欄がある広告は、専用ポリシーも確認する", "reason": "Googleは選挙広告の合成・改変コンテンツについて、別の申告手続きを案内しています。"},
+    {"action": "法令要件の判断はプラットフォーム設定と分け、配信地域の最新ルールや専門家の確認を使う", "reason": "Google自身がAIラベル設定のみで各地域の規制順守を保証しないとしています。"}
+  ],
+  "avoidActions": [
+    {"action": "広告管理画面でAIラベルを設定したことだけをもって、法的開示を完了したとみなす", "reason": "媒体機能と各地域の法令上の義務は別です。"},
+    {"action": "Googleが自動でラベルを付けるはずだとして、素材の来歴や配信地域を確認しない", "reason": "自動ラベルの適用は一部素材や条件に限られ、広告主自身の確認責任は残ります。"}
+  ],
+  "positiveUse": {
+    "title": "広告素材の透明性を制作フローに組み込む",
+    "description": "AI利用の記録、素材単位のラベル設定、地域別の表示確認を入稿前チェックにまとめれば、制作の効率を損なわず消費者への説明と規制対応を整理できます。",
+    "examples": ["生成AI素材の台帳づけ", "Ads Editorでの素材ラベル確認", "配信地域別の広告プレビュー", "選挙広告など特別ルールの確認"]
+  },
+  "makotoComment": "「AIラベルのスイッチがある」ことと「表示義務をすべて果たした」ことは同じではありません。今回のGoogleの説明は、素材ラベルの見せ方と責任の境界を分けています。生成・編集の記録を残し、配信地域の確認を入稿チェックに含めると、あとから根拠をたどりやすくなります。",
+  "oneLineLesson": "Google広告のAIラベルを表示補助として使い、素材の来歴と地域ごとの法令要件は別に確認する。",
+  "tags": ["Google Ads", "AIラベル", "広告表示", "生成AI画像", "広告クリエイティブ", "透明性"],
+  "sources": [
+    {"title": "Updates to AI labeling requirements (July 2026)", "publisher": "Google Ads Advertising Policies Help", "sourceType": "official-product-update", "publishedAt": "2026-07-09", "url": "https://support.google.com/adspolicy/answer/17257106"},
+    {"title": "Use AI content label settings and disclosures in Google Ads Editor", "publisher": "Google Ads Editor Help", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.google.com/google-ads/editor/answer/17231795?hl=en"}
+  ],
+  "visualSuggestion": {"mainVisual": "AI生成・編集した広告素材から、Google Adsの素材ラベル、地域別広告表示、法令確認へ続く入稿前チェックの図", "cardIcon": "ai-ad-label-workflow", "accentTone": "practical"}
+}

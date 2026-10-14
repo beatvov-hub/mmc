@@ -1,0 +1,64 @@
+{
+  "id": "case-20261015-02",
+  "publishedAt": "2026-10-15",
+  "title": "Google検索のAI機能に自分のサイトを含める？　Search Consoleの新設定と除外範囲",
+  "shortTitle": "検索AIへの掲載設定",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["自社サイトやブログを運営する人", "Search Consoleで検索流入を確認する担当者"],
+  "summary": "Googleは2026年8月31日から、Search Consoleの「検索の生成AI設定」を世界中のウェブサイト向けに提供しています。サイト運営者は、AIによる概要、AIモード、Google Discoverの生成AI機能に自分のサイトのリンクやコンテンツを含めるかを、Search Consoleの［設定］>［検索の生成AI］で選べます。既定は含める設定で、プロパティは親サイトから設定を継承する場合があります。除外を選ぶと、これらの生成AI機能の回答根拠やリンクから外れますが、Google検索全体の掲載順位やAI学習を制御する設定ではありません。検索全体からページを消したい場合は別のnoindex設定が必要です。運営者は変更前に、対象プロパティと親子の継承関係、除外対象の範囲、生成AIパフォーマンスレポートを確認してから選択します。",
+  "scenario": {
+    "headline": "自社記事がGoogleのAI回答に使われているか、掲載を制御できるか気になった",
+    "description": "Search Consoleに新しい生成AI設定が表示された。AI回答に引用される機会を残すか、コンテンツの表示を制限するか、サイト全体と一部プロパティのどちらに設定すべきか判断できない。",
+    "whyItMatters": "除外設定の効果を検索全体への非掲載やAI学習停止と誤解すると、意図しない流入減少や過度な期待につながります。"
+  },
+  "question": {
+    "text": "Search Consoleの検索生成AI設定で、何を対象に含めたり除外したりできる？",
+    "choices": [
+      {"id": "scope-check", "label": "対象のプロパティと継承を確認し、生成AI機能への表示制御と検索全体・AI学習の制御を分ける", "description": "設定はGoogle検索の指定された生成AI機能向けで、ランキングやAI学習、検索全体の掲載可否は別の仕組みです。"},
+      {"id": "assume-global-block", "label": "除外すればGoogle検索から消え、AI学習にも使われなくなると考える", "description": "Googleはこの設定が検索全体のランキング・掲載可否やAI学習には影響しないと説明しています。"}
+    ],
+    "recommendedAnswers": ["scope-check"],
+    "explanation": "［検索の生成AI］設定が制御するのは、AIによる概要、AIモード、Discoverの生成AI機能にコンテンツやリンクを表示し、回答根拠として使うことです。検索全体から非掲載にするにはnoindex、生成AI機能の回答モデルの学習を制限するにはGoogle-Extendedを別途検討します。"
+  },
+  "inspectionPoints": [
+    {"title": "対象はGoogle検索の生成AI機能", "description": "Googleのヘルプでは、対象としてAIによる概要、AIモード、Google Discoverの生成AI機能を挙げています。機能の一覧はGoogle検索の開発に合わせ更新される予定です。", "priority": "high"},
+    {"title": "含める設定は既定値", "description": "サイトを生成AI機能に含める選択では、リンク表示だけでなく回答の根拠として使われる場合もあります。Googleはこの選択がすべてのプロパティの既定と説明しています。", "priority": "high"},
+    {"title": "除外しても通常検索や順位は消えない", "description": "生成AI機能から除外すると、その機能内のリンクやコンテンツ、回答・プレビューの入力情報から外れます。一方、Google検索全体のランキングや掲載可否のシグナルには使われず、他サイト経由で類似内容が回答に残る場合もあると説明されています。", "priority": "high"},
+    {"title": "AI学習を制限する設定とは別", "description": "検索生成AI設定は、回答生成モデルの学習を制限しません。Googleはその目的にはGoogle-Extendedを案内しています。検索全体にページを出したくない場合はnoindexが別途必要です。", "priority": "high"},
+    {"title": "親プロパティの設定を継承する場合がある", "description": "ドメインプロパティやURLプレフィックスの親子関係に応じ、子プロパティは最も近い親の選択を継承できます。意図したページ範囲に設定が適用されているか、個別プロパティの表示を確認します。", "priority": "medium"},
+    {"title": "効果測定と反映時間も確認する", "description": "生成AI機能経由のパフォーマンスはSearch Consoleの生成AIパフォーマンスレポートで確認できます。除外は通常数日以内に反映するものの、キャッシュや伝播でさらに時間がかかることがあります。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "対象プロパティと範囲を確認",
+  "verificationMessage": "設定を変える前に、対象の親子関係と、生成AI機能・通常検索・学習制御の違いを確認します。",
+  "verdict": {
+    "label": "生成AI掲載設定は検索全体や学習の停止設定ではない",
+    "description": "Search Consoleの新しい選択は、対象となるGoogle検索の生成AI機能内でのリンク表示・回答根拠利用を制御します。検索全体から消す、またはモデル学習を止める操作とは別なので、目的に応じて個別の仕組みを選びます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "Search Consoleで対象サイトを開き、［設定］>［検索の生成AI］を確認する", "reason": "提供状況と現在の選択を実際のプロパティで把握できます。"},
+    {"action": "変更前に、親プロパティから継承しているか、子プロパティだけ個別設定されているか確認する", "reason": "ドメイン・サブドメイン・URLプレフィックスなどの階層によって適用範囲が変わり得ます。"},
+    {"action": "AI機能への表示だけを制御したいなら、この設定を使い、検索全体の非掲載や学習制限と混同しない", "reason": "それぞれGoogleが案内する仕組みと影響範囲が異なります。"},
+    {"action": "選択を変えた後は生成AIパフォーマンスレポートと反映状況を数日単位で確認する", "reason": "除外の反映は通常数日以内ですが、Google全体への伝播に時間を要する場合があります。"}
+  ],
+  "avoidActions": [
+    {"action": "この設定をオフにすれば、ページが通常のGoogle検索から消えると思い込む", "reason": "検索全体への掲載やランキングを制御する設定ではありません。"},
+    {"action": "生成AI機能から除外すれば、サイト内容のAI学習も停止すると解釈する", "reason": "Googleは学習制御にGoogle-Extendedを別途案内しています。"}
+  ],
+  "positiveUse": {
+    "title": "掲載方針を決め、検索経由の変化を計測する",
+    "description": "サイト運営者は、生成AI機能での露出を残すかどうかを、プロパティ範囲と事業目的に沿って選べます。選択後は表示・流入の変化をレポートで観察し、必要なら設定を見直せます。",
+    "examples": ["公式情報サイトのAI回答への掲載方針", "会員向け情報ページのプロパティ範囲確認", "生成AI経由の流入レポート確認", "noindexやGoogle-Extendedとの役割分担"]
+  },
+  "makotoComment": "この設定の肝は「AIに使わせる／使わせない」の一括スイッチではなく、検索機能の一部への表示・根拠利用を選ぶ点です。除外しても検索全体や学習の扱いは別に残ります。サイト全体を一度に変える前に、Search Console上の親子プロパティとレポートを見て、目的に合う範囲から判断したいですね。",
+  "oneLineLesson": "Search Consoleの検索生成AI設定は対象機能とプロパティ範囲を確認し、検索全体や学習制御とは分けて使う。",
+  "tags": ["Google Search Console", "検索の生成AI設定", "AIによる概要", "AIモード", "Google Discover", "サイト運営"],
+  "sources": [
+    {"title": "検索の生成 AI 設定", "publisher": "Google Search Console ヘルプ", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.google.com/webmasters/answer/16908024?hl=ja"},
+    {"title": "Google-Extended", "publisher": "Google Search Central", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers?hl=ja#google-extended"},
+    {"title": "noindex で検索インデックス登録をブロックする", "publisher": "Google Search Central", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://developers.google.com/search/docs/crawling-indexing/block-indexing?hl=ja"}
+  ],
+  "visualSuggestion": {"mainVisual": "Search Consoleの設定を中心に、生成AI機能への表示、通常検索のnoindex、回答モデル学習のGoogle-Extendedを別々の経路として示す図", "cardIcon": "search-ai-inclusion-control", "accentTone": "practical"}
+}
