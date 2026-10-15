@@ -76,6 +76,7 @@ STATIC_SITEMAP_PATHS = [
     "today-one",
     "today-one/archive",
     "news",
+    "news/name-change-20261016",
     "contact",
 ]
 
@@ -1112,6 +1113,7 @@ def update_sitemap(logs: list[dict]) -> None:
         "ai-forensics/": latest_forensics_date,
         "today-one": latest_today_one_date,
         "today-one/archive": latest_today_one_date,
+        "news/name-change-20261016": "2026-10-16",
     }
     entries: list[tuple[str, str | None]] = []
     for path in STATIC_SITEMAP_PATHS:

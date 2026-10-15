@@ -116,12 +116,37 @@ def render_index_news(data: dict) -> str:
     return "\n".join(lines)
 
 
+def render_important_notice(data: dict) -> str:
+    notice = data.get("importantNotice")
+    if not notice:
+        return ""
+    return "\n".join(
+        [
+            "        <!-- IMPORTANT_NOTICE_START -->",
+            '        <section class="news-important-notice" aria-labelledby="news-important-title">',
+            '          <div class="news-important-notice__meta">',
+            f'            <span>{esc(notice.get("label", "重要なお知らせ"))}</span>',
+            f'            <time datetime="{esc(notice["date"])}">{esc(date_dot(notice["date"]))}</time>',
+            "          </div>",
+            f'          <h3 id="news-important-title">{esc(notice["title"])}</h3>',
+            f'          <p>{esc(notice["summary"])}</p>',
+            f'          <a class="news-important-notice__link" href="{esc(notice["href"])}">{esc(notice.get("linkLabel", "詳しく読む"))} <span aria-hidden="true">→</span></a>',
+            "        </section>",
+            "        <!-- IMPORTANT_NOTICE_END -->",
+        ]
+    )
+
+
 def update_index_html(data: dict) -> None:
     html_text = INDEX_HTML_PATH.read_text(encoding="utf-8")
     section_start = html_text.index('<section id="news"')
     list_start = html_text.index('        <div class="news-list">', section_start)
+    notice_start = html_text.find("        <!-- IMPORTANT_NOTICE_START -->", section_start, list_start)
+    content_start = notice_start if notice_start != -1 else list_start
     section_end = html_text.index("      </section>", list_start)
-    html_text = html_text[:list_start] + render_index_news(data) + "\n" + html_text[section_end:]
+    notice = render_important_notice(data)
+    replacement = (notice + "\n" if notice else "") + render_index_news(data)
+    html_text = html_text[:content_start] + replacement + "\n" + html_text[section_end:]
     INDEX_HTML_PATH.write_text(html_text, encoding="utf-8")
 
 

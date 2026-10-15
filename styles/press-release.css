@@ -1,0 +1,29 @@
+.release-main { padding-bottom: 90px; }
+.release-article { width: min(900px, calc(100% - 40px)); margin: 0 auto; }
+.release-breadcrumb { display: flex; flex-wrap: wrap; gap: 8px; padding: 18px 0 38px; color: var(--muted); font-size: .85rem; }
+.release-breadcrumb a { color: var(--coffee); text-decoration: underline; text-underline-offset: 3px; }
+.release-header { padding: 48px clamp(24px, 5vw, 64px); border: 1px solid #decfb8; border-top: 7px solid #9c5a3b; border-radius: 18px; background: #fffaf2; box-shadow: 0 18px 48px rgba(54, 35, 20, .08); }
+.release-label { margin: 0 0 14px; color: #874a32; font-size: .78rem; font-weight: 900; letter-spacing: .14em; }
+.release-date { display: block; margin-bottom: 20px; color: var(--muted); font-size: .88rem; font-weight: 800; }
+.release-header h1 { margin: 0 0 22px; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.4; letter-spacing: .01em; }
+.release-lead { max-width: 720px; margin: 0; font-size: clamp(1rem, 2vw, 1.13rem); font-weight: 700; line-height: 1.9; }
+.release-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; overflow: hidden; margin: 28px 0 0; border: 1px solid #dfd2bf; border-radius: 12px; background: #dfd2bf; }
+.release-facts div { padding: 17px 20px; background: #fffdf8; }
+.release-facts dt { margin-bottom: 5px; color: var(--muted); font-size: .78rem; font-weight: 800; }
+.release-facts dd { margin: 0; font-size: 1.05rem; font-weight: 900; }
+.release-section { padding: 36px clamp(8px, 3vw, 40px); border-bottom: 1px solid #dfd2bf; }
+.release-section h2 { margin: 0 0 18px; font-size: clamp(1.4rem, 3vw, 1.85rem); }
+.release-section p { margin: 0 0 16px; line-height: 1.95; }
+.release-section p:last-child { margin-bottom: 0; }
+.release-section ul { display: grid; gap: 10px; margin: 0; padding-left: 1.3em; line-height: 1.85; }
+.release-note { margin: 28px 0 0; padding: 20px 24px; border-left: 4px solid #9c5a3b; background: #f7ecdc; color: #44372b; font-size: .9rem; line-height: 1.8; }
+.release-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.release-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 18px; border: 1px solid var(--green); border-radius: 999px; color: var(--green); font-weight: 800; }
+.release-links a:hover, .release-links a:focus-visible { color: #fff; background: var(--green); }
+@media (max-width: 620px) {
+  .release-article { width: calc(100% - 24px); }
+  .release-breadcrumb { padding: 8px 0 20px; }
+  .release-header { padding: 28px 20px; }
+  .release-facts { grid-template-columns: 1fr; }
+  .release-section { padding: 30px 8px; }
+}

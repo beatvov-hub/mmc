@@ -290,7 +290,7 @@ def page_context(path: Path) -> tuple[str, str]:
         current = "quiz"
     elif first in {"lounge", "lounge-archive"} or name in {"lounge.html", "lounge-dictionary.html"}:
         current = "lounge"
-    elif name == "news.html":
+    elif first == "news" or name == "news.html":
         current = "news"
     elif name == "contact.html" or name == "thanks.html":
         current = "contact"
