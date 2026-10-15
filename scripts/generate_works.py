@@ -384,7 +384,7 @@ def render_works_main(works: list[dict]) -> str:
         "        <div>",
         '          <p class="section-kicker">Works</p>',
         "          <h1>制作物</h1>",
-        '          <p class="page-lead">完成品、企画、運用中のページまで。毎日見る株式会社で生まれた制作物を、背景ごと読める形で残していきます。</p>',
+        '          <p class="page-lead">完成品、企画、運用中のページまで。毎日見るコワークスで生まれた制作物を、背景ごと読める形で残していきます。</p>',
         "        </div>",
         '        <aside class="page-note works-note">',
         '          <strong>Works Log</strong>',
