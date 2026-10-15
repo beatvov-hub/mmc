@@ -322,7 +322,7 @@
     root.querySelector("[data-staff-name]").textContent = staff?.name || "AI社員";
     root.querySelector("[data-staff-role]").textContent = staff
       ? [departmentName(staff.departmentId), staff.role].filter(Boolean).join("・")
-      : "毎日見る株式会社";
+      : "毎日見るコワークス";
     staffImage.hidden = !staff?.iconPath;
     if (staff?.iconPath) {
       staffImage.src = staff.iconPath;

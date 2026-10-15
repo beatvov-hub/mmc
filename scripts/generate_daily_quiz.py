@@ -150,9 +150,9 @@ def document(
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{escape(title)} | 毎日見る株式会社</title>
+  <title>{escape(title)} | 毎日見るコワークス</title>
   <meta name="description" content="{escape(description)}">
-  <link rel="stylesheet" href="{{PREFIX}}styles.css">{script}{schema}
+  <link rel="stylesheet" href="{{PREFIX}}styles.css?v=20261016">{script}{schema}
 </head>
 <body class="subpage quiz-page">
 {body}

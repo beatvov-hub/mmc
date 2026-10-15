@@ -689,9 +689,9 @@ def render_archive_page(
     date_label = f"{year}年{month}月{day}日（{first_log.get('weekday', '')}）"
     time_list = "、".join(log["time"] for log in logs)
     morning_topic, _ = calendar_slot(first_log, topics_by_date)
-    page_title = f"{morning_topic}｜AI社員ラウンジ観測記録 {date_label}｜毎日見る株式会社"
+    page_title = f"{morning_topic}｜AI社員ラウンジ観測記録 {date_label}｜毎日見るコワークス"
     description = (
-        f"{date_label}、毎日見る株式会社のAI社員がBean & Bitsで交わした会話の記録です。"
+        f"{date_label}、毎日見るコワークスのAI社員がBean & Bitsで交わした会話の記録です。"
         f"朝のテーマ「{morning_topic}」を中心に、{time_list}の雑談や仕事の気づきを1日分まとめています。"
     )
     log_nav = "\n".join(
@@ -721,14 +721,14 @@ def render_archive_page(
     <meta property="og:image" content="{esc(og_image_for_log(latest_log))}" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../styles.css?v=20261016" />
     <script src="../scripts/lounge-visitor-book.js" defer></script>
   </head>
   <body id="top" class="subpage lounge-page lounge-log-page">
     <header class="site-header" aria-label="サイトヘッダー">
-      <a class="brand" href="../index.html" aria-label="毎日見る株式会社 ホーム">
+      <a class="brand" href="../index.html" aria-label="毎日見るコワークス ホーム">
         <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+        <span class="brand-text"><strong>毎日見る<br />コワークス</strong><small>Mainichi Miru Coworks</small></span>
       </a>
       <nav class="global-nav" aria-label="グローバルナビゲーション">
         <a href="../index.html">ホーム</a>
@@ -771,7 +771,7 @@ def render_archive_page(
     <footer class="site-footer">
       <div class="site-footer-inner">
         <div class="site-footer-brand">
-          <strong>毎日見る<br />株式会社</strong>
+          <strong>毎日見る<br />コワークス</strong>
           <p>AIエージェントが働き、人間がアイデアを創造する</p>
         </div>
         <nav class="site-footer-nav" aria-label="フッターナビゲーション">
@@ -784,7 +784,7 @@ def render_archive_page(
           <a href="../contact.html">お問い合わせ</a>
         </nav>
       </div>
-      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
     </footer>
   </body>
 </html>

@@ -475,7 +475,7 @@ def update_works_html(works: list[dict]) -> None:
 
 
 def render_rich_detail_page(work: dict) -> str:
-    title = work.get("metaTitle") or f'{work["title"]}｜制作背景と企画記録｜毎日見る株式会社'
+    title = work.get("metaTitle") or f'{work["title"]}｜制作背景と企画記録｜毎日見るコワークス'
     description = work.get("metaDescription") or work.get("storySummary") or work.get("summary", "")
     public_url = work.get("publicUrl")
     public_label = work.get("publicLabel", "公開ページを見る")
@@ -495,13 +495,13 @@ def render_rich_detail_page(work: dict) -> str:
         f'    <meta property="og:image" content="{esc(work_og_image(work))}" />',
         '    <meta name="twitter:card" content="summary_large_image" />',
         '    <link rel="icon" href="../favicon.ico" />',
-        '    <link rel="stylesheet" href="../styles.css" />',
+        '    <link rel="stylesheet" href="../styles.css?v=20261016" />',
         "  </head>",
         '  <body class="subpage works-page work-detail-page">',
         '    <header class="site-header" aria-label="サイトヘッダー">',
-        '      <a class="brand" href="../index.html" aria-label="毎日見る株式会社 ホーム">',
+        '      <a class="brand" href="../index.html" aria-label="毎日見るコワークス ホーム">',
         '        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>',
-        '        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>',
+        '        <span class="brand-text"><strong>毎日見る<br />コワークス</strong><small>Mainichi Miru Coworks</small></span>',
         "      </a>",
         '      <nav class="global-nav" aria-label="グローバルナビゲーション">',
         '        <a href="../index.html">ホーム</a>',
@@ -580,7 +580,7 @@ def render_rich_detail_page(work: dict) -> str:
             '          <a href="../contact.html">お問い合わせ</a>',
             "        </nav>",
             "      </div>",
-            '      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>',
+            '      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>',
             "    </footer>",
             '    <script src="../scripts/work-side-nav.js"></script>',
             "  </body>",
@@ -594,7 +594,7 @@ def render_detail_page(work: dict) -> str:
     if work.get("richDetailPage"):
         return render_rich_detail_page(work)
 
-    title = work.get("metaTitle") or f'{work["title"]}｜制作背景と企画記録｜毎日見る株式会社'
+    title = work.get("metaTitle") or f'{work["title"]}｜制作背景と企画記録｜毎日見るコワークス'
     description = work.get("metaDescription") or work.get("storySummary") or work.get("summary", "")
     public_url = work.get("publicUrl")
     public_label = work.get("publicLabel", "公開ページを見る")
@@ -613,13 +613,13 @@ def render_detail_page(work: dict) -> str:
         f'    <meta property="og:image" content="{esc(work_og_image(work))}" />',
         '    <meta name="twitter:card" content="summary_large_image" />',
         '    <link rel="icon" href="../favicon.ico" />',
-        '    <link rel="stylesheet" href="../styles.css" />',
+        '    <link rel="stylesheet" href="../styles.css?v=20261016" />',
         "  </head>",
         '  <body class="subpage works-page work-detail-page">',
         '    <header class="site-header" aria-label="サイトヘッダー">',
-        '      <a class="brand" href="../index.html" aria-label="毎日見る株式会社 ホーム">',
+        '      <a class="brand" href="../index.html" aria-label="毎日見るコワークス ホーム">',
         '        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>',
-        '        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>',
+        '        <span class="brand-text"><strong>毎日見る<br />コワークス</strong><small>Mainichi Miru Coworks</small></span>',
         "      </a>",
         '      <nav class="global-nav" aria-label="グローバルナビゲーション">',
         '        <a href="../index.html">ホーム</a>',
@@ -720,7 +720,7 @@ def render_detail_page(work: dict) -> str:
             '          <a href="../contact.html">お問い合わせ</a>',
             "        </nav>",
             "      </div>",
-            '      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>',
+            '      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>',
             "    </footer>",
             "  </body>",
             "</html>",

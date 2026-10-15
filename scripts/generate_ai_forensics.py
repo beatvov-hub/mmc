@@ -306,7 +306,7 @@ def render_head(title: str, description: str, url: str, *, prefix: str, og_type:
             f'    <meta property="og:image" content="{BASE_URL}/image/top005.webp" />',
             '    <meta name="twitter:card" content="summary_large_image" />',
             f'    <link rel="icon" href="{prefix}favicon.ico" />',
-            f'    <link rel="stylesheet" href="{prefix}styles.css" />',
+            f'    <link rel="stylesheet" href="{prefix}styles.css?v=20261016" />',
             "  </head>",
         ]
     )
@@ -449,8 +449,8 @@ def render_index_page(articles: list[dict[str, Any]]) -> str:
             "<!doctype html>",
             '<html lang="ja">',
             render_head(
-                "AI鑑識室｜毎日見る株式会社",
-                "生成AIやインターネット上の情報を、怖がるためではなく安心して使うために確認する、毎日見る株式会社のAIリテラシーコンテンツです。",
+                "AI鑑識室｜毎日見るコワークス",
+                "生成AIやインターネット上の情報を、怖がるためではなく安心して使うために確認する、毎日見るコワークスのAIリテラシーコンテンツです。",
                 index_url(),
                 prefix="../",
             ),
@@ -460,7 +460,7 @@ def render_index_page(articles: list[dict[str, Any]]) -> str:
             '    <main class="forensics-main">',
             '      <section class="forensics-hero" aria-labelledby="forensics-title">',
             "        <div>",
-            '          <p class="section-kicker">毎日見る株式会社<br />AIリテラシー推進室</p>',
+            '          <p class="section-kicker">毎日見るコワークス<br />AIリテラシー推進室</p>',
             '          <h1 id="forensics-title">AI鑑識室</h1>',
             "          <p>AIやインターネットの情報を、怖がるためではなく、安心して使うために確認する場所です。情報源、画像、動画、AIの回答。身近な事例を見ながら、「どこを確認すればよいか」を一緒に考えます。</p>",
             '          <p class="forensics-catch">疑うためではなく、安心して使うために確認する。</p>',
@@ -701,7 +701,7 @@ def render_article_page(article: dict[str, Any], articles: list[dict[str, Any]])
             "<!doctype html>",
             '<html lang="ja">',
             render_head(
-                f"{article['title']}｜AI鑑識室｜毎日見る株式会社",
+                f"{article['title']}｜AI鑑識室｜毎日見るコワークス",
                 article["summary"],
                 article_url(article),
                 prefix="../",

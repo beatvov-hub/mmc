@@ -13,8 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "src" / "data" / "faqItems.json"
 OUTPUT_PATH = ROOT / "about" / "faq" / "index.html"
 
-PAGE_TITLE = "よくあるようで、聞かれたことはない質問集｜毎日見る株式会社"
-PAGE_DESCRIPTION = "毎日見る株式会社について、AI社員、会社の仕組み、Bean & Bits、制作物、犬の立場まで。よく聞かれそうなことから、たぶん誰も聞かないことまで答えます。"
+PAGE_TITLE = "よくあるようで、聞かれたことはない質問集｜毎日見るコワークス"
+PAGE_DESCRIPTION = "毎日見るコワークスについて、AI社員、会社の仕組み、Bean & Bits、制作物、犬の立場まで。よく聞かれそうなことから、たぶん誰も聞かないことまで答えます。"
 
 
 def esc(value: object) -> str:
@@ -157,11 +157,11 @@ def render_page(data: dict) -> str:
     <meta property="og:description" content="{esc(PAGE_DESCRIPTION)}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mainichi-miru.com/about/faq" />
-    <meta property="og:site_name" content="毎日見る株式会社" />
+    <meta property="og:site_name" content="毎日見るコワークス" />
     <meta property="og:image" content="https://mainichi-miru.com/image/about001.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
-    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../styles.css?v=20261016" />
     <script type="application/ld+json">{render_json_ld(categories, items, tokens)}</script>
   </head>
   <body class="subpage about-page faq-page">

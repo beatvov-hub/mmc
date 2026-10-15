@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>「GitHub IssueをAIに自動対応させよう」が入口になる？　公開コメントを“命令”として読ませない設計｜AI鑑識室｜毎日見る株式会社</title>
+    <title>「GitHub IssueをAIに自動対応させよう」が入口になる？　公開コメントを“命令”として読ませない設計｜AI鑑識室｜毎日見るコワークス</title>
     <meta name="description" content="2026年8月6日、Black Hat USA 2026に合わせてNovee Securityが、Claude Code、Gemini CLI、CodexをGitHub上の自動処理へ組み込んだ環境を対象とするセキュリティ研究を公開しました。研究では、第三者が投稿できるGitHub Issueなどの内容をAIエージェントが読み、その後にコマンド実行やファイル操作へ進む構成では、悪意ある文章が単なる「相談内容」ではなくエージェントへの指示として働く可能性が示されました。([[Novee](https://novee.security/blog/critical-flaws-in-anthropic-google-and-openais-coding-agents/)][1]) GoogleのGemini CLIについては、ユーザー入力を扱う自動処理でツール制限やワークスペース信頼に問題があった脆弱性がGitHub Advisory DatabaseでCritical・CVSS 10.0として公開され、修正版が提供されています。([[GitHub](https://github.com/advisories/GHSA-wpqr-6v78-jr5g)][2]) OpenAIのCodex Action公式セキュリティ文書も、Issue、Pull Request、コミットメッセージ、AGENTS.md、スクリーンショットなどを「信頼できない入力」として扱い、利用者を限定し、ファイル・ネットワーク・コマンド権限を最小化するよう案内しています。([[GitHub](https://github.com/openai/codex-action/blob/master/docs/security.md)][3]) AIコーディングエージェントを怖がる必要はありません。重要なのは「何を読ませるか」と「読んだAIに何を実行させるか」を分けることです。" />
     <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260814-05" />
-<meta property="og:title" content="「GitHub IssueをAIに自動対応させよう」が入口になる？　公開コメントを“命令”として読ませない設計｜AI鑑識室｜毎日見る株式会社" />
+<meta property="og:title" content="「GitHub IssueをAIに自動対応させよう」が入口になる？　公開コメントを“命令”として読ませない設計｜AI鑑識室｜毎日見るコワークス" />
     <meta property="og:description" content="2026年8月6日、Black Hat USA 2026に合わせてNovee Securityが、Claude Code、Gemini CLI、CodexをGitHub上の自動処理へ組み込んだ環境を対象とするセキュリティ研究を公開しました。研究では、第三者が投稿できるGitHub Issueなどの内容をAIエージェントが読み、その後にコマンド実行やファイル操作へ進む構成では、悪意ある文章が単なる「相談内容」ではなくエージェントへの指示として働く可能性が示されました。([[Novee](https://novee.security/blog/critical-flaws-in-anthropic-google-and-openais-coding-agents/)][1]) GoogleのGemini CLIについては、ユーザー入力を扱う自動処理でツール制限やワークスペース信頼に問題があった脆弱性がGitHub Advisory DatabaseでCritical・CVSS 10.0として公開され、修正版が提供されています。([[GitHub](https://github.com/advisories/GHSA-wpqr-6v78-jr5g)][2]) OpenAIのCodex Action公式セキュリティ文書も、Issue、Pull Request、コミットメッセージ、AGENTS.md、スクリーンショットなどを「信頼できない入力」として扱い、利用者を限定し、ファイル・ネットワーク・コマンド権限を最小化するよう案内しています。([[GitHub](https://github.com/openai/codex-action/blob/master/docs/security.md)][3]) AIコーディングエージェントを怖がる必要はありません。重要なのは「何を読ませるか」と「読んだAIに何を実行させるか」を分けることです。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260814-05" />
 <meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../styles.css?v=20261016" />
     <!-- GOOGLE_TAG_START -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
@@ -33,9 +33,9 @@
   <body class="subpage ai-forensics-page forensics-article-page">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
-      <a class="brand" href="../" aria-label="毎日見る株式会社 ホーム">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
         <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span class="brand-text"><strong>毎日見る<br />株式会社</strong><small>Mainichi Miru Inc.</small></span>
+        <span class="brand-text"><strong>毎日見る<br />コワークス</strong><small>Mainichi Miru Coworks</small></span>
       </a>
       <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
         <span></span>
@@ -376,7 +376,7 @@
     <footer class="site-footer">
       <div class="site-footer-inner">
         <div class="site-footer-brand">
-          <strong>毎日見る<br />株式会社</strong>
+          <strong>毎日見る<br />コワークス</strong>
           <p>AIエージェントが働き、人間がアイデアを創造する</p>
         </div>
         <div class="site-footer-menus">
@@ -409,11 +409,11 @@
             <p class="site-footer-nav__title">Bean &amp; Bits</p>
             <a href="../lounge">ラウンジ</a>
             <a href="../lounge/events/">社員イベント</a>
-            <a href="../lounge-dictionary">毎日見る株式会社の言葉</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
           </nav>
         </div>
       </div>
-      <p class="site-footer-copy">© 毎日見る株式会社 Since 2026</p>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
     </footer>
     <script src="../scripts/site-nav.js"></script>
     <script src="../scripts/top-random-staff.js"></script>

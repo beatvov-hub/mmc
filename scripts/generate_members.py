@@ -599,8 +599,8 @@ def render_main(
 def update_head(html_text: str, sections: dict[str, list[str]], meta: dict[str, str]) -> str:
     display_name = meta.get("display_name") or first(sections, "氏名")
     role = " / ".join(sections.get("役職", []))
-    desc = f"毎日見る株式会社のAI社員、{display_name}のプロフィール。{role}としての担当業務、考え方、所長や他社員との関係を紹介します。"
-    title = f"{display_name}｜{role}｜毎日見る株式会社"
+    desc = f"毎日見るコワークスのAI社員、{display_name}のプロフィール。{role}としての担当業務、考え方、所長や他社員との関係を紹介します。"
+    title = f"{display_name}｜{role}｜毎日見るコワークス"
     html_text = re.sub(r"<title>.*?</title>", f"<title>{esc(title)}</title>", html_text, count=1, flags=re.S)
     html_text = re.sub(r'<meta name="description" content=".*?" />', f'<meta name="description" content="{esc(desc)}" />', html_text, count=1, flags=re.S)
     html_text = re.sub(r'<meta property="og:title" content=".*?" />', f'<meta property="og:title" content="{esc(title)}" />', html_text, count=1, flags=re.S)

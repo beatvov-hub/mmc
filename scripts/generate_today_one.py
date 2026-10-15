@@ -610,7 +610,7 @@ def render_archive_card(entry: dict) -> str:
 
 
 def render_archive_index_page(entries: list[dict]) -> str:
-    title = "今日ひとつ。アーカイブ｜仕事の困りごとを解決する道具｜毎日見る株式会社"
+    title = "今日ひとつ。アーカイブ｜仕事の困りごとを解決する道具｜毎日見るコワークス"
     description = "仕事の困りごとから、使い方や確認方法が分かる道具を探せる「今日ひとつ。」のアーカイブです。"
     cards = "\n".join(render_archive_card(entry) for entry in entries)
     archive_body = (
@@ -640,11 +640,11 @@ def render_archive_index_page(entries: list[dict]) -> str:
     <meta property="og:description" content="{esc(description)}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{BASE_URL}/today-one/archive" />
-    <meta property="og:site_name" content="毎日見る株式会社" />
+    <meta property="og:site_name" content="毎日見るコワークス" />
     <meta property="og:image" content="{BASE_URL}/image/top009.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
-    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../styles.css?v=20261016" />
     <script type="application/ld+json">{json.dumps(structured_data, ensure_ascii=False)}</script>
   </head>
   <body class="subpage today-one-page today-one-archive-page">
@@ -674,7 +674,7 @@ def render_archive_detail_page(
 ) -> str:
     entry_date = parse_iso_date(entry["date"], label="entry.date")
     archive_title = entry.get("archiveTitle") or f'{entry["name"]}｜{entry["summary"]}'
-    title = f'{archive_title}｜毎日見る株式会社'
+    title = f'{archive_title}｜毎日見るコワークス'
     description = entry.get("archiveDescription") or entry["summary"]
     canonical = archive_url(entry)
     structured_data = {
@@ -705,11 +705,11 @@ def render_archive_detail_page(
     <meta property="og:description" content="{esc(description)}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{canonical}" />
-    <meta property="og:site_name" content="毎日見る株式会社" />
+    <meta property="og:site_name" content="毎日見るコワークス" />
     <meta property="og:image" content="{BASE_URL}/image/top009.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
-    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../styles.css?v=20261016" />
     <script type="application/ld+json">{json.dumps(structured_data, ensure_ascii=False)}</script>
   </head>
   <body class="subpage today-one-page today-one-archive-detail-page">
@@ -744,7 +744,7 @@ def render_page(
     members: dict[str, dict[str, str]],
     target_date: date,
 ) -> str:
-    title = "AGENT SKILLS ライブラリ｜今日ひとつ。｜毎日見る株式会社"
+    title = "AGENT SKILLS ライブラリ｜今日ひとつ。｜毎日見るコワークス"
     description = "AGENT SKILLS ライブラリ「今日ひとつ。」は、AIエージェントや人が仕事で使う道具を毎日1つ選び、用途と持たせたいAI社員を整理するページです。"
     structured_data = {
         "@context": "https://schema.org",
@@ -761,7 +761,7 @@ def render_page(
         },
         "isPartOf": {
             "@type": "WebSite",
-            "name": "毎日見る株式会社",
+            "name": "毎日見るコワークス",
             "url": f"{BASE_URL}/",
         },
     }
@@ -779,11 +779,11 @@ def render_page(
     <meta property="og:description" content="{esc(description)}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{CANONICAL_URL}" />
-    <meta property="og:site_name" content="毎日見る株式会社" />
+    <meta property="og:site_name" content="毎日見るコワークス" />
     <meta property="og:image" content="{BASE_URL}/image/top009.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20261016" />
     <script type="application/ld+json">{json.dumps(structured_data, ensure_ascii=False)}</script>
   </head>
   <body class="subpage today-one-page">

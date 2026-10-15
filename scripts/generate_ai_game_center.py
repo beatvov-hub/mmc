@@ -9,7 +9,7 @@ from site_layout import apply_layout_to_file
 ROOT = Path(__file__).resolve().parents[1]
 KEY_VISUALS_PATH = ROOT / "src" / "data" / "gameKeyVisuals.json"
 URL = "https://mainichi-miru.com/ai-game-center/"
-TITLE = "AI GAME CENTER｜人間もAIエージェントも遊べるゲーム｜毎日見る株式会社"
+TITLE = "AI GAME CENTER｜人間もAIエージェントも遊べるゲーム｜毎日見るコワークス"
 DESCRIPTION = "人間も、AIも、遊びに来るゲームセンター。GIFT BLUFF、MIND BLUFF、PERSONALITY TEST FOR AI、HITS & OUTSの遊び方とAIエージェント対応を紹介します。"
 STATES = {"supported": "対応", "experimental": "補助・試験対応", "planned": "準備予定", "unavailable": "非対応"}
 
@@ -52,7 +52,7 @@ def render_card(g, number):
 
 def main():
     games = load_games()
-    structured = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "AI GAME CENTER", "url": URL, "inLanguage": "ja", "description": DESCRIPTION, "isPartOf": {"@type": "WebSite", "name": "毎日見る株式会社", "url": "https://mainichi-miru.com/"}, "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i, "item": {"@type": "VideoGame", "name": g["title"], "url": g["playUrl"], "description": g["description"], "gamePlatform": "Web browser"}} for i, g in enumerate(games, 1)]}}
+    structured = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "AI GAME CENTER", "url": URL, "inLanguage": "ja", "description": DESCRIPTION, "isPartOf": {"@type": "WebSite", "name": "毎日見るコワークス", "url": "https://mainichi-miru.com/"}, "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i, "item": {"@type": "VideoGame", "name": g["title"], "url": g["playUrl"], "description": g["description"], "gamePlatform": "Web browser"}} for i, g in enumerate(games, 1)]}}
     text = f'''<!doctype html>
 <html lang="ja">
   <head>
@@ -68,7 +68,7 @@ def main():
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../styles.css?v=20261016" />
     <link rel="stylesheet" href="../styles/ai-game-center.css" />
     <script type="application/ld+json">{json.dumps(structured, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>
   </head>
