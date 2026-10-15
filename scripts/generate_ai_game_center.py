@@ -68,7 +68,7 @@ def main():
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../styles.css?v=20261016" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
     <link rel="stylesheet" href="../styles/ai-game-center.css" />
     <script type="application/ld+json">{json.dumps(structured, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>
   </head>

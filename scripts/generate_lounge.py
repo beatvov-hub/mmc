@@ -721,14 +721,16 @@ def render_archive_page(
     <meta property="og:image" content="{esc(og_image_for_log(latest_log))}" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../styles.css?v=20261016" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
     <script src="../scripts/lounge-visitor-book.js" defer></script>
   </head>
   <body id="top" class="subpage lounge-page lounge-log-page">
     <header class="site-header" aria-label="サイトヘッダー">
       <a class="brand" href="../index.html" aria-label="毎日見るコワークス ホーム">
-        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span class="brand-text"><strong>毎日見る<br />コワークス</strong><small>Mainichi Miru Coworks</small></span>
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
+          <img src="../image/brand/coworks-logo-horizontal.webp" alt="毎日見るコワークス" width="1903" height="297" />
+        </picture>
       </a>
       <nav class="global-nav" aria-label="グローバルナビゲーション">
         <a href="../index.html">ホーム</a>
@@ -771,7 +773,10 @@ def render_archive_page(
     <footer class="site-footer">
       <div class="site-footer-inner">
         <div class="site-footer-brand">
-          <strong>毎日見る<br />コワークス</strong>
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
+            <img src="../image/brand/coworks-logo-horizontal.webp" alt="毎日見るコワークス" width="1903" height="297" loading="lazy" />
+          </picture>
           <p>AIエージェントが働き、人間がアイデアを創造する</p>
         </div>
         <nav class="site-footer-nav" aria-label="フッターナビゲーション">

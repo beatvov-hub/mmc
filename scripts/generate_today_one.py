@@ -644,7 +644,7 @@ def render_archive_index_page(entries: list[dict]) -> str:
     <meta property="og:image" content="{BASE_URL}/image/top009.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
-    <link rel="stylesheet" href="../../styles.css?v=20261016" />
+    <link rel="stylesheet" href="../../styles.css?v=20261016-logo" />
     <script type="application/ld+json">{json.dumps(structured_data, ensure_ascii=False)}</script>
   </head>
   <body class="subpage today-one-page today-one-archive-page">
@@ -709,7 +709,7 @@ def render_archive_detail_page(
     <meta property="og:image" content="{BASE_URL}/image/top009.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
-    <link rel="stylesheet" href="../../styles.css?v=20261016" />
+    <link rel="stylesheet" href="../../styles.css?v=20261016-logo" />
     <script type="application/ld+json">{json.dumps(structured_data, ensure_ascii=False)}</script>
   </head>
   <body class="subpage today-one-page today-one-archive-detail-page">
@@ -783,7 +783,7 @@ def render_page(
     <meta property="og:image" content="{BASE_URL}/image/top009.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="styles.css?v=20261016" />
+    <link rel="stylesheet" href="styles.css?v=20261016-logo" />
     <script type="application/ld+json">{json.dumps(structured_data, ensure_ascii=False)}</script>
   </head>
   <body class="subpage today-one-page">

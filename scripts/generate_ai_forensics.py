@@ -306,7 +306,7 @@ def render_head(title: str, description: str, url: str, *, prefix: str, og_type:
             f'    <meta property="og:image" content="{BASE_URL}/image/top005.webp" />',
             '    <meta name="twitter:card" content="summary_large_image" />',
             f'    <link rel="icon" href="{prefix}favicon.ico" />',
-            f'    <link rel="stylesheet" href="{prefix}styles.css?v=20261016" />',
+            f'    <link rel="stylesheet" href="{prefix}styles.css?v=20261016-logo" />',
             "  </head>",
         ]
     )

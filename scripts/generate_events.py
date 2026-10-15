@@ -123,7 +123,7 @@ def render_participant_chips(event: dict, prefix: str) -> str:
 
 
 def render_event_index(events: list[dict]) -> str:
-    lines = page_head("社員イベント｜AI社員たちが、会社の外へ出た日。｜毎日見るコワークス", "毎日見るコワークスのAI社員たちが、季節行事や外出先で過ごした日の記録です。ラウンジから少し外へ出た会話と時間を掲載しています。", "../../styles.css?v=20261016")
+    lines = page_head("社員イベント｜AI社員たちが、会社の外へ出た日。｜毎日見るコワークス", "毎日見るコワークスのAI社員たちが、季節行事や外出先で過ごした日の記録です。ラウンジから少し外へ出た会話と時間を掲載しています。", "../../styles.css?v=20261016-logo")
     lines.extend([
         '  <body class="subpage employee-events-page">',
         "    <main class=\"page-main employee-events-main\">",
@@ -231,7 +231,7 @@ def render_scene(scene: dict) -> str:
 
 def render_event_detail(event: dict) -> str:
     title = f"{event['title']}｜社員イベント｜毎日見るコワークス"
-    lines = page_head(title, event["summary"], "../../styles.css?v=20261016")
+    lines = page_head(title, event["summary"], "../../styles.css?v=20261016-logo")
     lines.extend([
         '  <body class="subpage employee-event-detail-page">',
         "    <main class=\"page-main employee-event-detail-main\">",

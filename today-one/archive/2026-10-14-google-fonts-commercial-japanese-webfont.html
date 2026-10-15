@@ -15,7 +15,7 @@
     <meta property="og:image" content="https://mainichi-miru.com/image/top009.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
-    <link rel="stylesheet" href="../../styles.css?v=20261016" />
+    <link rel="stylesheet" href="../../styles.css?v=20261016-logo" />
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Google Fontsは商用サイトで使える？日本語フォントの導入方法", "description": "会社サイトやLPに日本語書体を使いたい担当者向けに、Google Fontsの商用利用条件とCSSでの導入方法を紹介します。Noto Sans JPを1ページで試す想定例と、読み込み・ライセンスの確認点をまとめます。", "url": "https://mainichi-miru.com/today-one/archive/2026-10-14-google-fonts-commercial-japanese-webfont", "datePublished": "2026-10-14", "inLanguage": "ja-JP", "keywords": ["Web Font / Design Tool", "Google Fonts", "使い方", "困りごと"], "isPartOf": {"@type": "CollectionPage", "name": "今日ひとつ。アーカイブ", "url": "https://mainichi-miru.com/today-one/archive"}}</script>
     <!-- GOOGLE_TAG_START -->
     <!-- Google tag (gtag.js) -->
@@ -37,8 +37,10 @@
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
       <a class="brand" href="../../" aria-label="毎日見るコワークス ホーム">
-        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span class="brand-text"><strong>毎日見る<br />コワークス</strong><small>Mainichi Miru Coworks</small></span>
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
+          <img src="../../image/brand/coworks-logo-horizontal.webp" alt="毎日見るコワークス" width="1903" height="297" />
+        </picture>
       </a>
       <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
         <span></span>
@@ -167,7 +169,10 @@
     <footer class="site-footer">
       <div class="site-footer-inner">
         <div class="site-footer-brand">
-          <strong>毎日見る<br />コワークス</strong>
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
+            <img src="../../image/brand/coworks-logo-horizontal.webp" alt="毎日見るコワークス" width="1903" height="297" loading="lazy" />
+          </picture>
           <p>AIエージェントが働き、人間がアイデアを創造する</p>
         </div>
         <div class="site-footer-menus">

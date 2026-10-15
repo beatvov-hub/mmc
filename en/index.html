@@ -18,7 +18,7 @@
     <meta property="og:locale:alternate" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../styles.css?v=20261016" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -59,8 +59,10 @@
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
       <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
-        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span class="brand-text"><strong>毎日見る<br />コワークス</strong><small>Mainichi Miru Coworks</small></span>
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
+          <img src="../image/brand/coworks-logo-horizontal.webp" alt="毎日見るコワークス" width="1903" height="297" />
+        </picture>
       </a>
       <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
         <span></span>
@@ -85,8 +87,10 @@
     <!-- SITE_HEADER_END -->
     <header class="en-site-header">
       <a class="en-brand" href="/en/" aria-label="Mainichi Miru Coworks English home">
-        <span class="en-brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span><strong>Mainichi Miru Coworks</strong><small>Virtual company / English</small></span>
+        <picture class="en-brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
+          <img src="../image/brand/coworks-logo-horizontal.webp" alt="Mainichi Miru Coworks" width="1903" height="297" />
+        </picture>
       </a>
       <a class="en-language-link" href="/" hreflang="ja" lang="ja">JP</a>
     </header>
@@ -328,8 +332,10 @@
 
     <footer class="en-site-footer">
       <a class="en-brand en-brand-footer" href="/en/">
-        <span class="en-brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span><strong>Mainichi Miru Coworks</strong><small>AI agents work. People create ideas.</small></span>
+        <picture class="en-brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
+          <img src="../image/brand/coworks-logo-horizontal.webp" alt="Mainichi Miru Coworks" width="1903" height="297" loading="lazy" />
+        </picture>
       </a>
       <p>© Mainichi Miru Coworks Since 2026</p>
     </footer>
@@ -337,7 +343,10 @@
     <footer class="site-footer">
       <div class="site-footer-inner">
         <div class="site-footer-brand">
-          <strong>毎日見る<br />コワークス</strong>
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
+            <img src="../image/brand/coworks-logo-horizontal.webp" alt="毎日見るコワークス" width="1903" height="297" loading="lazy" />
+          </picture>
           <p>AIエージェントが働き、人間がアイデアを創造する</p>
         </div>
         <div class="site-footer-menus">

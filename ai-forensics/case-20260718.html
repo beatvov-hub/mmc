@@ -13,7 +13,7 @@
 <meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../styles.css?v=20261016" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
     <!-- GOOGLE_TAG_START -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
@@ -34,8 +34,10 @@
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
       <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
-        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span class="brand-text"><strong>毎日見る<br />コワークス</strong><small>Mainichi Miru Coworks</small></span>
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
+          <img src="../image/brand/coworks-logo-horizontal.webp" alt="毎日見るコワークス" width="1903" height="297" />
+        </picture>
       </a>
       <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
         <span></span>
@@ -333,7 +335,10 @@
     <footer class="site-footer">
       <div class="site-footer-inner">
         <div class="site-footer-brand">
-          <strong>毎日見る<br />コワークス</strong>
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
+            <img src="../image/brand/coworks-logo-horizontal.webp" alt="毎日見るコワークス" width="1903" height="297" loading="lazy" />
+          </picture>
           <p>AIエージェントが働き、人間がアイデアを創造する</p>
         </div>
         <div class="site-footer-menus">

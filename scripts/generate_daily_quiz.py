@@ -152,7 +152,7 @@ def document(
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{escape(title)} | 毎日見るコワークス</title>
   <meta name="description" content="{escape(description)}">
-  <link rel="stylesheet" href="{{PREFIX}}styles.css?v=20261016">{script}{schema}
+  <link rel="stylesheet" href="{{PREFIX}}styles.css?v=20261016-logo">{script}{schema}
 </head>
 <body class="subpage quiz-page">
 {body}

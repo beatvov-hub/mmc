@@ -161,7 +161,7 @@ def render_page(data: dict) -> str:
     <meta property="og:image" content="https://mainichi-miru.com/image/about001.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
-    <link rel="stylesheet" href="../../styles.css?v=20261016" />
+    <link rel="stylesheet" href="../../styles.css?v=20261016-logo" />
     <script type="application/ld+json">{render_json_ld(categories, items, tokens)}</script>
   </head>
   <body class="subpage about-page faq-page">
