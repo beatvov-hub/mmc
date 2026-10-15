@@ -6,7 +6,7 @@
   "category": "work-use",
   "difficulty": "standard",
   "targetAudience": ["自分のWebサイトを運営する人", "AI検索からの流入を管理したい発信者"],
-  "summary": "Googleは2026年8月31日時点で、サイトのリンクや内容をAI Overviews・AI Modeなどの生成AI検索機能に表示するかを選ぶSearch Consoleの設定を全世界のサイトに展開したと案内しています。除外すると対象機能からの表示・流入がなくなる一方、通常の検索順位やAIモデルの学習を制御する設定ではありません。サイト所有者が掲載範囲と流入のトレードオフを判断するための記事です。",
+  "summary": "Googleは2026年8月31日、Search Consoleの『検索の生成AI』設定を全世界のサイトに展開したと案内しました。サイト運営者はAI Overviews、AI Mode、Google Discoverの生成AI機能にリンクやコンテンツを含めるかを選べ、設定は親プロパティから継承される場合があります。除外すると対象AI機能内の表示・回答根拠・流入を失いますが、通常検索の掲載順位を変えたり、GoogleのAI学習を止めたりする設定ではありません。Googleは、検索全体からページを外すにはnoindex、生成AIモデルの学習利用を制御するにはGoogle-Extendedを別に案内しています。変更前に対象プロパティと継承関係、AI検索からの実績を確認し、目的に合う制御だけを選ぶ手順を扱います。",
   "scenario": {"headline": "記事をAI検索の回答に使わせたくないが、通常の検索には残したい", "description": "検索全体を止める設定とAI検索への掲載設定を混同し、どの流入が変わるか分からないまま切り替えようとしています。", "whyItMatters": "この設定はAI検索機能からのリンクと根拠表示を制御し、通常の検索やAI学習とは別です。"},
   "question": {"text": "AI検索への掲載を見直す時、何を区別する？", "choices": [
     {"id": "scope", "label": "AI検索の表示・流入、通常検索、AI学習を別に考える", "description": "Googleが明示する設定の適用範囲です。"},
@@ -37,8 +37,10 @@
   "oneLineLesson": "AI検索からの除外は、通常検索やAI学習の停止とは別。",
   "tags": ["Search Console", "AI Overviews", "AI Mode", "サイト運営", "掲載設定"],
   "sources": [
-    {"title": "Search generative AI control", "publisher": "Google Search Console Help", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.google.com/webmasters/answer/16908024?hl=en"},
-    {"title": "New opportunities, control and insights for website owners", "publisher": "Google", "sourceType": "official-product-update", "publishedAt": "2026-06-03", "url": "https://blog.google/products-and-platforms/products/search/new-controls-website-owners/"}
+    {"title": "検索の生成 AI 設定", "publisher": "Google Search Console ヘルプ", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.google.com/webmasters/answer/16908024?hl=ja"},
+    {"title": "New opportunities, control and insights for website owners", "publisher": "Google", "sourceType": "official-product-update", "publishedAt": "2026-06-03", "url": "https://blog.google/products-and-platforms/products/search/new-controls-website-owners/"},
+    {"title": "Google's common crawlers", "publisher": "Google Search Central", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=en"},
+    {"title": "Block Search Indexing with noindex", "publisher": "Google Search Central", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://developers.google.com/search/docs/crawling-indexing/block-indexing?hl=en"}
   ],
   "visualSuggestion": {"mainVisual": "AI検索への掲載、通常検索、AI学習を別のスイッチとして示す図。", "cardIcon": "search-console-ai-control", "accentTone": "info"}
 }

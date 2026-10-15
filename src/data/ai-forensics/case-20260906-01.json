@@ -9,7 +9,7 @@
     "SNSで見かけた画像や動画の作られ方を確かめたい人",
     "生成AIの表示・透かし・来歴情報を混同せずに読みたい人"
   ],
-  "summary": "Content AuthenticityのInspectは、画像・動画・音声・PDFなどのファイル、またはURLを使って、利用できるContent Credentialsを確認するC2PA準拠の検査ツールです。表示できる場合は、作成者、使用ツール、来歴などの情報を確認できます。Googleも、Content Credentialsはコンテンツの由来や編集履歴、AIツールの利用情報を確認する手がかりになる一方、画像・動画・音声がAI生成だと確定するものではないと説明しています。Content CredentialsはC2PAの業界標準に基づく来歴情報で、署名した提供元を確認できます。検査結果を『本物・偽物の判定』で終わらせず、誰がどのような情報を署名し、何が分からないままかを読む手順を扱います。",
+  "summary": "Adobe Content AuthenticityのInspectは、対応する画像・動画・音声・PDFのファイルをアップロードするか、公開URLを入力してContent Credentialsを調べるC2PA準拠の検証ツールです。URLを使う場合は、認証不要で公開され、配信元がCORSを許可している必要があります。記録があれば作成者、署名者、使用ツール、編集履歴を確認でき、なければ「No Content Credential」と表示されます。Content Authenticity InitiativeのFAQは、Content Credentialsが画像の由来・履歴について肯定的な手がかりを与える一方、記録がないことは真正性を否定する証拠ではないと説明しています。Googleも、Credentialsだけで画像・動画・音声がAI生成かを確定できないと案内しています。検査結果を『本物・偽物』の判定にせず、表示された来歴と、映像が示す出来事の事実確認を分けて読む手順を扱います。",
   "scenario": {
     "headline": "ニュースのように見える動画をSNSで見つけ、AI製かどうかを確かめたい",
     "description": "投稿にはAIラベルが見当たりませんが、動画ファイルまたは元投稿のスクリーンショットは入手できます。来歴情報が出た場合に何を見ればよいか、何も出なかった時にどう扱うかが分かりません。",
@@ -115,10 +115,17 @@
   "sources": [
     {
       "title": "Using the inspect tool on Adobe Content Authenticity (Beta)",
-      "publisher": "Open-source tools for content authenticity and provenance",
-      "sourceType": "official-standard-guidance",
+      "publisher": "Content Authenticity Initiative",
+      "sourceType": "industry-standard-guidance",
       "publishedAt": null,
       "url": "https://opensource.contentauthenticity.org/docs/getting-started/inspect/"
+    },
+    {
+      "title": "Frequently-asked questions",
+      "publisher": "Content Authenticity Initiative",
+      "sourceType": "industry-standard-guidance",
+      "publishedAt": null,
+      "url": "https://opensource.contentauthenticity.org/docs/getting-started/faqs/"
     },
     {
       "title": "Verify AI-generated images, videos, and audio",

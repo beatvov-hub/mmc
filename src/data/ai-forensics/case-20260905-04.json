@@ -6,9 +6,9 @@
   "category": "scam",
   "difficulty": "beginner",
   "targetAudience": ["家族や友人を名乗る緊急の電話を受ける可能性がある人", "親族へAI音声クローン詐欺への対応を共有したい人"],
-  "summary": "米連邦取引委員会（FTC）は、詐欺師がネット上の短い音声を使って家族・友人の声をAIで複製し、事故・逮捕などを理由に送金を急がせる可能性を注意喚起しています。声が本人そっくりでも、声だけを証拠にしません。FTCが示す対応は、いったん電話を切り、本人だと分かっている電話番号へ自分からかけ直すことです。連絡が取れなければ、別の家族や友人を通じて確認します。電信送金、暗号資産、ギフトカードの番号やPINを求める要求は、取り戻しにくい支払い方法を選ばせる危険信号です。緊急性を利用する電話では、声の鑑定ではなく『いつもの連絡先で確認する』という手順を先に決めておく記事です。",
+  "summary": "米消費者金融保護局（CFPB）は、緊急事態を装う詐欺でAI音声クローンが家族・知人の声をまねる可能性を挙げ、本人だと分かっている連絡先へ自分から連絡して確認するよう案内しています。声が本人そっくりでも、声だけを証拠にしません。連絡が取れなければ、別の家族や友人を通じて確認します。電信送金、暗号資産、ギフトカードなど指定された決済手段や、急いで行動させる圧力も警戒サインです。緊急性を利用する電話では、声の鑑定ではなく『いつもの連絡先で確認する』手順を先に決めておく記事です。",
   "scenario": {"headline": "孫を名乗る人から、事故で困っているので今すぐ送金してほしいと電話が来た", "description": "声は本人にとてもよく似ており、電話の相手は家族に連絡しないでほしいと急かします。暗号資産かギフトカードで支払うよう求めています。", "whyItMatters": "AIで作った声は、本人らしさを証明する材料になりません。相手が指定した連絡手段の中で確認しようとすると、詐欺師の急かす流れに巻き込まれます。既知の連絡先から別経路で確認することが重要です。"},
-  "question": {"text": "家族を名乗る緊急電話で、声が本人そっくりに聞こえ、送金を急かされた時の最初の対応として適切なのは？", "choices": [{"id": "hang-up-and-known-number", "label": "電話を切り、本人だと分かっている番号へ自分からかけ直す。必要なら別の家族・友人にも確認する", "description": "声ではなく、詐欺師が用意していない連絡先で事実を確かめる。"}, {"id": "trust-the-voice", "label": "声が本人に似ているので、指定された方法で直ちに送金する", "description": "短い公開音声から声が複製される可能性がある。"}, {"id": "send-gift-card", "label": "被害を防ぐため、まずギフトカード番号だけ伝える", "description": "ギフトカード番号やPINの要求は危険信号で、取り戻しにくい支払いにつながる。"}], "recommendedAnswers": ["hang-up-and-known-number"], "explanation": "FTCは、声を信じず、本人だと分かっている電話番号で本人へかけ直すよう勧めています。連絡が取れない時は別の家族・友人を通じて確認します。送金・暗号資産・ギフトカード番号を急がせる要求は、詐欺の危険信号です。"},
+  "question": {"text": "家族を名乗る緊急電話で、声が本人そっくりに聞こえ、送金を急かされた時の最初の対応として適切なのは？", "choices": [{"id": "hang-up-and-known-number", "label": "電話を切り、本人だと分かっている番号へ自分からかけ直す。必要なら別の家族・友人にも確認する", "description": "声ではなく、自分が知っている別の連絡先で事実を確かめる。"}, {"id": "trust-the-voice", "label": "声が本人に似ているので、指定された方法で直ちに送金する", "description": "AIで声をまねられる可能性があるため、声だけでは本人確認にならない。"}, {"id": "send-gift-card", "label": "被害を防ぐため、まずギフトカード番号だけ伝える", "description": "ギフトカード番号やPINの要求は危険信号で、取り戻しにくい支払いにつながる。"}], "recommendedAnswers": ["hang-up-and-known-number"], "explanation": "CFPBは、AIで声がまねられることを踏まえ、本人だと分かっている連絡先へ自分から連絡し、緊急話の真偽を確認するよう勧めています。連絡が取れない時は、別の家族や友人に確認します。急いで送金させる圧力や、電信送金・暗号資産・ギフトカードなどの要求も警戒サインです。"},
   "inspectionPoints": [
     {"title": "声を本人確認の根拠にしない", "description": "短い音声がネット上にあれば、詐欺師がAIで家族・友人の声を複製する可能性があります。似て聞こえても送金判断をしません。", "priority": "high"},
     {"title": "既知の番号へかけ直す", "description": "着信中の相手が示す番号や折り返し先は使わず、連絡先に登録済みの番号など、本人だと分かっている番号を自分で選びます。", "priority": "high"},
@@ -22,7 +22,7 @@
   "safeActions": [
     {"action": "家族の緊急電話でも、いったん切って登録済みの番号へかけ直す", "reason": "声の似ていることだけでは本人確認にならず、既知の連絡先は詐欺師の指定した経路から外れます。"},
     {"action": "本人に連絡できない時は、別の家族や友人からも確認する", "reason": "一つの電話だけで判断せず、別経路で状況を確認できます。"},
-    {"action": "送金、暗号資産、ギフトカード番号・PINの要求を受けたら支払いを止める", "reason": "FTCは、これらを取り戻しにくい支払い方法を選ばせる危険信号として挙げています。"},
+    {"action": "送金、暗号資産、ギフトカード番号・PINの要求を受けたら支払いを止める", "reason": "CFPBは、これらの支払い方法や即時対応を迫る圧力を詐欺の警戒サインとして挙げています。"},
     {"action": "詐欺が疑われる場合は、記録を残して公的な相談・通報窓口へ相談する", "reason": "被害の拡大を止め、同様の手口への注意喚起につなげられます。"}
   ],
   "avoidActions": [
@@ -34,6 +34,9 @@
   "makotoComment": "声は、私たちがいちばん信じやすい本人確認の材料の一つです。だからこそ、AIで似せられる時代には『声を聞き分ける』より『確認する道を変える』方が頼りになります。急いでいる人を責めるルールではなく、誰でも一度止まれる家族の約束として持っておきたいです。",
   "oneLineLesson": "家族の声でも、送金前には登録済みの番号へ自分からかけ直す。",
   "tags": ["AI音声クローン", "なりすまし", "緊急電話", "送金詐欺", "ギフトカード", "家族"],
-  "sources": [{"title": "Scammers use AI to enhance their family emergency schemes", "publisher": "FTC Consumer Advice", "sourceType": "government-consumer-guidance", "publishedAt": "2023-03-20", "url": "https://consumer.ftc.gov/consumer-alerts/2023/03/scammers-use-ai-enhance-their-family-emergency-schemes"}],
+  "sources": [
+    {"title": "What are some classic warning signs of possible fraud and scams?", "publisher": "Consumer Financial Protection Bureau", "sourceType": "government-consumer-guidance", "publishedAt": null, "url": "https://www.consumerfinance.gov/ask-cfpb/what-are-some-classic-warning-signs-of-possible-fraud-and-scams-en-2094/"},
+    {"title": "Emergency scams", "publisher": "Competition Bureau Canada", "sourceType": "government-consumer-guidance", "publishedAt": null, "url": "https://competition-bureau.canada.ca/en/fraud-and-scams/tips-and-advice/emergency-scams"}
+  ],
   "visualSuggestion": {"mainVisual": "緊急電話を受けた人が、送金ボタンの前でいったん電話を切り、連絡先に登録した家族の番号へかけ直す図解。音声波形には『声だけでは確認しない』、別経路の電話にはチェックマークを添える。", "cardIcon": "voice-clone-call-back", "accentTone": "alert"}
 }

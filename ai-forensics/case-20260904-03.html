@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ChatGPTの連携アプリは、切断しても会話・ファイル・Memoryが消えるわけではない。止める時の3点確認｜AI鑑識室｜毎日見る株式会社</title>
-    <meta name="description" content="OpenAIは、ChatGPTで連携したアプリのアカウントをDisconnectすると、そのアカウント経由の今後のアクセスは止まると案内しています。ただし、別の接続済みアカウントや管理者が設定したワークスペース接続は残ることがあり、Disconnectだけで既存・アーカイブ済みの会話、保存済みファイル、Memory summary、その他の保存済みMemoryが自動削除されるわけではありません。Googleアプリについても、接続解除は個人接続からのファイルアクセスを止めますが、既存の会話・Memoryや、別に管理されたワークスペースのインデックスは別の扱いです。連携を終える時は、(1) 接続アカウントを切る、(2) 残したくない会話・ファイルを削除する、(3) Memoryを確認・削除する、という三つの操作を分けて実施します。" />
+    <title>ChatGPTの連携は『確認・切断・データ削除』を分けて管理する｜AI鑑識室｜毎日見る株式会社</title>
+    <meta name="description" content="OpenAIは、ChatGPTのアプリ権限設定は、接続済みアカウントを使う時に読み取りや操作の確認をいつ求めるかを決めるもので、接続そのものや提供元アカウントの権限を取り消す設定ではないと説明しています。選べる確認方法はアカウント、アプリ、ワークスペースによって異なり、読み取りを許可して変更時に確認する設定や、すべての操作前に確認する設定などがあります。今後のアクセスを止めるにはアプリをDisconnectしますが、別アカウントや管理者管理の接続が残る場合があります。また、Disconnectだけでは既存・アーカイブ済み会話、保存ファイル、Memory summaryや保存済みMemoryは自動削除されません。連携を使う時は確認の粒度を選び、終了時は接続・会話やファイル・Memoryを別々に確認します。" />
     <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260904-03" />
-<meta property="og:title" content="ChatGPTの連携アプリは、切断しても会話・ファイル・Memoryが消えるわけではない。止める時の3点確認｜AI鑑識室｜毎日見る株式会社" />
-    <meta property="og:description" content="OpenAIは、ChatGPTで連携したアプリのアカウントをDisconnectすると、そのアカウント経由の今後のアクセスは止まると案内しています。ただし、別の接続済みアカウントや管理者が設定したワークスペース接続は残ることがあり、Disconnectだけで既存・アーカイブ済みの会話、保存済みファイル、Memory summary、その他の保存済みMemoryが自動削除されるわけではありません。Googleアプリについても、接続解除は個人接続からのファイルアクセスを止めますが、既存の会話・Memoryや、別に管理されたワークスペースのインデックスは別の扱いです。連携を終える時は、(1) 接続アカウントを切る、(2) 残したくない会話・ファイルを削除する、(3) Memoryを確認・削除する、という三つの操作を分けて実施します。" />
+<meta property="og:title" content="ChatGPTの連携は『確認・切断・データ削除』を分けて管理する｜AI鑑識室｜毎日見る株式会社" />
+    <meta property="og:description" content="OpenAIは、ChatGPTのアプリ権限設定は、接続済みアカウントを使う時に読み取りや操作の確認をいつ求めるかを決めるもので、接続そのものや提供元アカウントの権限を取り消す設定ではないと説明しています。選べる確認方法はアカウント、アプリ、ワークスペースによって異なり、読み取りを許可して変更時に確認する設定や、すべての操作前に確認する設定などがあります。今後のアクセスを止めるにはアプリをDisconnectしますが、別アカウントや管理者管理の接続が残る場合があります。また、Disconnectだけでは既存・アーカイブ済み会話、保存ファイル、Memory summaryや保存済みMemoryは自動削除されません。連携を使う時は確認の粒度を選び、終了時は接続・会話やファイル・Memoryを別々に確認します。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260904-03" />
 <meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
@@ -29,7 +29,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
       crossorigin="anonymous"></script>
     <!-- ADSENSE_END -->
-</head>
+  </head>
   <body class="subpage ai-forensics-page forensics-article-page">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
@@ -63,7 +63,7 @@
       <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
         <a href="../">ホーム</a>
         <a href="./">AI鑑識室</a>
-        <strong>ChatGPTアプリの切断と保存データの整理は別操作</strong>
+        <strong>ChatGPT連携は確認設定・切断・データ削除を分ける</strong>
         <a class="profile-back" href="./">記事一覧へ戻る</a>
       </nav>
 
@@ -75,15 +75,15 @@
               <span>標準</span>
               <time datetime="2026-09-04">2026.09.04</time>
             </div>
-            <h1>ChatGPTの連携アプリは、切断しても会話・ファイル・Memoryが消えるわけではない。止める時の3点確認</h1>
-            <p>OpenAIは、ChatGPTで連携したアプリのアカウントをDisconnectすると、そのアカウント経由の今後のアクセスは止まると案内しています。ただし、別の接続済みアカウントや管理者が設定したワークスペース接続は残ることがあり、Disconnectだけで既存・アーカイブ済みの会話、保存済みファイル、Memory summary、その他の保存済みMemoryが自動削除されるわけではありません。Googleアプリについても、接続解除は個人接続からのファイルアクセスを止めますが、既存の会話・Memoryや、別に管理されたワークスペースのインデックスは別の扱いです。連携を終える時は、(1) 接続アカウントを切る、(2) 残したくない会話・ファイルを削除する、(3) Memoryを確認・削除する、という三つの操作を分けて実施します。</p>
-            <ul class="forensics-target-list"><li>ChatGPTにGoogle Drive、メール、予定表などのアカウントを連携している人</li><li>仕事用アカウントとの連携を終える際、残るデータを整理したい人</li></ul>
+            <h1>ChatGPTの連携は『確認・切断・データ削除』を分けて管理する</h1>
+            <p>OpenAIは、ChatGPTのアプリ権限設定は、接続済みアカウントを使う時に読み取りや操作の確認をいつ求めるかを決めるもので、接続そのものや提供元アカウントの権限を取り消す設定ではないと説明しています。選べる確認方法はアカウント、アプリ、ワークスペースによって異なり、読み取りを許可して変更時に確認する設定や、すべての操作前に確認する設定などがあります。今後のアクセスを止めるにはアプリをDisconnectしますが、別アカウントや管理者管理の接続が残る場合があります。また、Disconnectだけでは既存・アーカイブ済み会話、保存ファイル、Memory summaryや保存済みMemoryは自動削除されません。連携を使う時は確認の粒度を選び、終了時は接続・会話やファイル・Memoryを別々に確認します。</p>
+            <ul class="forensics-target-list"><li>ChatGPTにGoogle Drive、メール、予定表などのアカウントを連携している人</li><li>連携アプリの操作確認や接続終了、残るデータの整理をしたい人</li></ul>
             <ul class="pill-list forensics-article-tags"><li>ChatGPT</li><li>連携アプリ</li><li>Google Drive</li><li>接続解除</li><li>Memory</li><li>データ整理</li></ul>
           </div>
           <div class="forensics-level" aria-label="確認レベル">
             <div class="forensics-level-head">
               <strong>確認レベル 2</strong>
-              <span>ChatGPT連携を終える時は、接続・会話・Memoryを別々に片付ける</span>
+              <span>ChatGPT連携は、確認設定・接続・保存情報を別々に管理する</span>
             </div>
             <div class="forensics-level-meter" aria-hidden="true">
               <span class="forensics-level-dot is-active">1</span>
@@ -93,42 +93,42 @@
               <span class="forensics-level-dot">5</span>
             </div>
             <small>危険度ではなく、必要な確認の程度を表しています。</small>
-            <p>アプリのDisconnect後に、Connected accounts、関連会話・ファイル、PersonalizationのMemoryを順に確認しましょう。</p>
+            <p>使う間は確認頻度を選び、終了時はDisconnectと保存データの整理を別々に行いましょう。</p>
           </div>
         </header>
 
         <section class="forensics-article-section">
           <div class="forensics-step-label">Step 1</div>
           <h2>身近な事例を知る</h2>
-          <article class="scenario-card"><h3>試験的に仕事用Google DriveをChatGPTへつないだが、プロジェクト終了で接続を止めたい</h3><p>設定画面でGoogleアカウントのDisconnectを押せば、プロジェクト中に参照した会話や、Memoryに残った内容もまとめて消えると思っています。個人用アカウントも同じアプリに接続しているかもしれません。</p></article>
+          <article class="scenario-card"><h3>ChatGPTに仕事用アプリをつないだ後、確認を増やすか連携自体を終えるか迷っている</h3><p>読み取りは効率化したい一方、メール送信やファイル変更の前には確認したい状況です。設定を厳しくすれば権限まで外れるのか、接続を切れば過去の会話やMemoryも消えるのか、別々の操作を整理できていません。</p></article>
 
-          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>接続の解除は将来のアクセスを止める操作であり、すでにChatGPT側へ作られた会話や保存情報を削除する操作とは別です。さらに、同じアプリへの別アカウント接続や、組織が管理する接続は個人のDisconnectだけでは止まらない場合があります。</p></aside>
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>アプリ権限は確認のタイミング、提供元の認可は接続先が許す範囲、Disconnectは今後のアクセス停止、会話・ファイル・Memoryの削除は保存情報の整理です。それぞれ違う制御なので、一つの設定で全部済むと思うと意図した状態になりません。</p></aside>
         </section>
 
         <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="disconnect-and-clean-separately">
           <div class="forensics-step-label">Step 2</div>
           <h2>あなたならどうする？</h2>
           <fieldset>
-            <legend>ChatGPTと連携した仕事用アカウントを使わなくなった時、最も適切な整理の考え方は？</legend>
+            <legend>ChatGPTの連携アプリを使い終える時、確認設定・アクセス停止・保存データをどう扱う？</legend>
             <div class="forensics-choice-grid">
               <label class="forensics-choice-card" data-choice-card>
                 <input type="checkbox" value="disconnect-and-clean-separately" data-choice-id="disconnect-and-clean-separately" />
                 <span>
-                  <strong>接続を切った後、別アカウント・会話・保存ファイル・Memoryをそれぞれ確認して必要な削除を行う</strong>
-                  <small>将来のアクセス停止と、すでに保存された情報の整理は別の操作である。</small>
+                  <strong>使う間は必要な確認方法を選び、終了時はDisconnect後に別アカウント・会話・ファイル・Memoryを確認する</strong>
+                  <small>承認の頻度、接続停止、保存情報の削除はそれぞれ別の管理操作である。</small>
                 </span>
               </label>
               <label class="forensics-choice-card" data-choice-card>
                 <input type="checkbox" value="disconnect-deletes-all" data-choice-id="disconnect-deletes-all" />
                 <span>
-                  <strong>Disconnectを押せば、そのアカウントに関わる会話やMemoryも自動的に消えると考える</strong>
-                  <small>Disconnectは既存の会話、保存ファイル、Memoryを自動削除しない。</small>
+                  <strong>確認を毎回求める設定にすれば、接続権限も取り消され、以前の会話も消えると考える</strong>
+                  <small>確認設定はアクセスを取り消さず、Disconnectも保存情報を自動削除しない。</small>
                 </span>
               </label>
               <label class="forensics-choice-card" data-choice-card>
                 <input type="checkbox" value="remove-one-account-means-all" data-choice-id="remove-one-account-means-all" />
                 <span>
-                  <strong>一つのアカウントを切れば、同じアプリの他アカウントや組織の接続も必ず止まると考える</strong>
+                  <strong>個人のアプリをDisconnectすれば、組織管理の同期も必ず止まると考える</strong>
                   <small>別の接続済みアカウントや管理者管理の接続が残ることがある。</small>
                 </span>
               </label>
@@ -138,9 +138,9 @@
           <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
             <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
             <strong>推奨される行動</strong>
-<ul><li>接続を切った後、別アカウント・会話・保存ファイル・Memoryをそれぞれ確認して必要な削除を行う</li></ul>
+<ul><li>使う間は必要な確認方法を選び、終了時はDisconnect後に別アカウント・会話・ファイル・Memoryを確認する</li></ul>
             <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
-            <p>ChatGPTのDisconnectは、そのアカウントを通じた将来のアクセスを停止します。一方で、既存・アーカイブ済み会話、保存ファイル、Memory summaryや保存済みMemoryは自動で消えません。接続、会話・ファイル、Memoryを別々に確認する必要があります。</p>
+            <p>OpenAIの現行ヘルプでは、アプリ権限は利用時の確認を制御し、提供元の権限や接続そのものは取り消さないと説明されています。不要になった接続はDisconnectし、別アカウントや管理者管理の接続、残したくない会話・ファイル・Memoryはそれぞれ別に確認します。</p>
           </div>
         </section>
 
@@ -165,8 +165,13 @@
             </article>
             <article class="inspection-card priority-high">
               <span>優先して確認</span>
+              <h3>アプリ権限の確認頻度</h3>
+              <p>現在のヘルプでは、Always ask、Allow read actions、Allow low-risk actionsなど、読み取りや変更の確認方法を案内しています。表示される選択肢はアカウント、アプリ、ワークスペースによって異なり、いずれも提供元アカウントの権限そのものを取り消す設定ではありません。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
               <h3>Memoryの確認</h3>
-              <p>Memoryを有効にしている場合は、SettingsのPersonalizationで保存済みMemoryを確認し、不要な内容を削除します。接続解除だけではMemory summaryや保存済みMemoryは消えません。</p>
+              <p>Memoryを有効にしている場合は、Memoryの設定で保存済み内容を確認し、不要なものを別途削除します。アプリ接続の解除だけではMemory summaryや保存済みMemoryは消えません。</p>
             </article>
           </div>
         </section>
@@ -174,7 +179,7 @@
         <section class="forensics-article-section verdict-section">
           <div class="forensics-step-label">Step 4</div>
           <h2>現時点での見立て</h2>
-          <div class="verdict-card"><span>確度は高め</span><strong>連携を止める操作と、残った情報を消す操作は同じではない</strong><p>ChatGPTのアプリ連携は、Disconnectで将来のアクセスを停止できます。しかし、過去の会話、保存ファイル、Memoryは別の保存場所・設定として残り得ます。接続をやめる時は、入口を閉じる操作と、既に残った情報を整理する操作を一続きの手順にします。</p></div>
+          <div class="verdict-card"><span>確度は高め</span><strong>確認を増やす設定は権限取り消しではなく、Disconnectも保存情報を消さない</strong><p>ChatGPTのアプリ連携は、Disconnectで将来のアクセスを停止できます。しかし、過去の会話、保存ファイル、Memoryは別の保存場所・設定として残り得ます。接続をやめる時は、入口を閉じる操作と、既に残った情報を整理する操作を一続きの手順にします。</p></div>
         </section>
 
         <section class="forensics-article-section action-section">
@@ -182,10 +187,11 @@
           <h2>安全な対処方法</h2>
           <div class="action-grid">
             <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>利用中は、現在のアプリ・アカウント・ワークスペースで選べる確認方法を確認する</strong><span>確認設定の選択肢は一様ではなく、提供元の認可や接続そのものとは別に管理されます。</span></li>
             <li><strong>SettingsのAppsまたはPluginsで、対象アプリに接続されたアカウントを確認してDisconnectする</strong><span>Disconnectは、そのアカウントを通じた今後のアクセスを停止します。</span></li>
             <li><strong>対象アプリの他のConnected accountsや、組織管理の接続が残っていないかを確認する</strong><span>一つのアカウントを切っても、別アカウントや管理者管理の接続は残る場合があります。</span></li>
             <li><strong>連携中に作った会話や保存ファイルを見直し、残さないものを削除する</strong><span>Disconnectは既存・アーカイブ済み会話や保存ファイルを自動削除しません。</span></li>
-            <li><strong>Settings → PersonalizationでMemoryを確認し、不要な保存済みMemoryを削除する</strong><span>Memory summaryや保存済みMemoryは、アプリ連携の解除とは別に管理されます。</span></li>
+            <li><strong>Memoryの設定で保存済みMemoryを確認し、不要な内容を別途削除する</strong><span>Memory summaryや保存済みMemoryは、アプリ連携の解除とは別に管理されます。</span></li>
             </ul></div>
             <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
             <li><strong>Disconnectだけで、プロジェクトに関する会話やファイルがすべて消えたと判断する</strong><span>接続解除は既存の会話や保存ファイルを自動削除しません。</span></li>
@@ -215,7 +221,7 @@
 
         <section class="one-line-lesson">
           <h2>今回、覚えておきたいこと</h2>
-          <p>ChatGPTのアプリ連携は、Disconnect後に会話・ファイル・Memoryも別途確認する。</p>
+          <p>ChatGPTの連携は、確認設定・Disconnect・会話やMemoryの削除を分けて行う。</p>
         </section>
 
         <section class="forensics-article-section sources-section">
@@ -223,6 +229,11 @@
           <ul class="forensics-source-list">
             <li>
               <strong><a href="https://help.openai.com/en/articles/20001494-connecting-and-managing-app-accounts-in-chatgpt" target="_blank" rel="noopener noreferrer">Connecting and managing app accounts in ChatGPT<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/20001495-managing-app-permissions-in-chatgpt" target="_blank" rel="noopener noreferrer">Managing app permissions in ChatGPT<span class="visually-hidden">（外部リンク）</span></a></strong>
               <span>OpenAI Help Center</span>
               <span>その他</span>
             </li>
@@ -236,77 +247,77 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-caution" href="case-20260904-01" data-forensics-card data-category="security" data-level="2" data-difficulty="advanced" data-search-text="Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。 セキュリティ・権限 発展 Notion MCP AIアプリ 権限管理 接続解除 ワークスペース管理 NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人 MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者">
+          <a class="forensics-card tone-caution" href="case-20261014-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Gemini Tasksはオフにしても後始末されない　停止・削除・取り消しを分ける Gemini Tasksの停止と削除 Googleは2026年10月13日、GeminiアプリでGemini 4 ArgonとTasksを提供すると発表しました。Tasksでは日時や出来事を指定して作業を実行でき、接続アプリやログイン中のサイト、追加したファイルなどを使う場合があります。ここで大切なのは、タスクの実行停止、スケジュールの一時停止、実行済み操作の取り消しが別だという点です。Taskモードをオフにすると予定は一時停止しますが、タスクやスレッド、Geminiが作成・更新したファイルは残り、再びオンにすると予定が再開します。共有サービスでの変更を戻すには、そのサービス側で確認リンクを使う必要があります。 セキュリティ・権限 標準 Gemini Tasks AIエージェント 接続アプリ リモートブラウザー タスク停止 データ管理 Gemini Tasksを試す人 生成AIにアプリ操作や定期作業を任せる人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">notion-mcp-access-review</span>
+              <span class="forensics-card-icon" aria-hidden="true">task-control-boundaries</span>
               <div>
-                <p>Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する</p>
-                <h3>Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること</h3>
+                <p>Gemini Tasksの停止と削除</p>
+                <h3>Gemini Tasksはオフにしても後始末されない　停止・削除・取り消しを分ける</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-04">2026.09.04</time>
+              <time datetime="2026-10-14">2026.10.14</time>
               <span>セキュリティ・権限</span>
-              <span>発展</span>
-            </div>
-            <p class="forensics-card-summary">Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>Notion MCPは承認解除後に、遮断状態と再認証の要否を分けて確認する</span>
-            </div>
-            <ul class="forensics-card-audience"><li>NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人</li><li>MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Notion</li><li>MCP</li><li>AIアプリ</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="case-20260904-02" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="FirefoxのAI機能は、チャットだけでなく将来追加分もまとめて止められる。設定で確認する範囲 FirefoxはAI機能を一括停止・個別停止で選べる Mozillaは、デスクトップ版Firefox 148以降でAI Controlsを設け、生成AI・生成MLを使うFirefox機能を設定から確認・停止できるようにしています。ここで「Block AI enhancements」をオンにすると、現在のAI機能だけでなく、今後追加される対象機能と案内表示も既定でブロックされます。一方、翻訳、PDF画像の代替テキスト、タブグループ提案、リンクプレビューの要点、サイドバーのAIチャットなどは、機能ごとに使う・止めるを選べます。個別設定をBlockedにした場合、端末内AI用にすでにダウンロードされたモデルは削除されます。AIを使わない選択を『チャットボットを閉じること』だけで終わらせず、ブラウザが提供する生成AI機能全体を確認して、必要なものだけ残す操作です。 セキュリティ・権限 はじめて Firefox Mozilla 生成AI ブラウザ設定 オンデバイスAI プライバシー Firefoxを日常のブラウザとして使い、搭載されるAI機能を自分で選びたい人 職場や家庭の端末で、AI機能を許可する範囲を設定したい人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">firefox-ai-controls</span>
-              <div>
-                <p>FirefoxはAI機能を一括停止・個別停止で選べる</p>
-                <h3>FirefoxのAI機能は、チャットだけでなく将来追加分もまとめて止められる。設定で確認する範囲</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-09-04">2026.09.04</time>
-              <span>セキュリティ・権限</span>
-              <span>はじめて</span>
-            </div>
-            <p class="forensics-card-summary">Mozillaは、デスクトップ版Firefox 148以降でAI Controlsを設け、生成AI・生成MLを使うFirefox機能を設定から確認・停止できるようにしています。ここで「Block AI enhancements」をオンにすると、現在のAI機能だけでなく、今後追加される対象機能と案内表示も既定でブロックされます。一方、翻訳、PDF画像の代替テキスト、タブグループ提案、リンクプレビューの要点、サイドバーのAIチャットなどは、機能ごとに使う・止めるを選べます。個別設定をBlockedにした場合、端末内AI用にすでにダウンロードされたモデルは削除されます。AIを使わない選択を『チャットボットを閉じること』だけで終わらせず、ブラウザが提供する生成AI機能全体を確認して、必要なものだけ残す操作です。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>Firefoxで許可する生成AI機能を、一括設定と個別設定で分けて確認する</span>
-            </div>
-            <ul class="forensics-card-audience"><li>Firefoxを日常のブラウザとして使い、搭載されるAI機能を自分で選びたい人</li><li>職場や家庭の端末で、AI機能を許可する範囲を設定したい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Firefox</li><li>Mozilla</li><li>生成AI</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="case-20260904-04" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="ChatGPTの連携アプリは『毎回確認』にしても権限を取り消さない。止めたい時は切断する ChatGPTの確認設定とアプリ接続の権限は別物 OpenAIは、ChatGPTの連携アプリに対するApp permissionsは、アプリを使う前にいつ確認を求めるかを決める設定であり、アプリに新しいアクセス権を与えるものでも、既存の接続権限を取り消すものでもないと案内しています。既定のImportant actionsでは、読み取りは自動で行える一方、メール送信・ファイルの移動や共有設定変更・削除など、外部に意味のある影響があり得る操作には確認を求めます。変更のたびに確認したい場合はAny changesを選べます。反対に、アプリのアクセスそのものを止めるにはDisconnect、またはワークスペース管理者による無効化が必要です。『毎回聞かれる設定』と『連携の権限を外す設定』を混同せず、試行時は確認の粒度を、利用停止時は接続状態を確認します。 仕事・AI活用 標準 ChatGPT 連携アプリ 権限設定 確認ダイアログ 外部操作 業務利用 ChatGPTからメール、予定、クラウドファイルなどを扱う連携アプリを使う人 AIに外部サービスの操作を任せる前に、確認の出し方を整えたいチーム">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">chatgpt-app-permission-brake</span>
-              <div>
-                <p>ChatGPTの確認設定とアプリ接続の権限は別物</p>
-                <h3>ChatGPTの連携アプリは『毎回確認』にしても権限を取り消さない。止めたい時は切断する</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-09-04">2026.09.04</time>
-              <span>仕事・AI活用</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">OpenAIは、ChatGPTの連携アプリに対するApp permissionsは、アプリを使う前にいつ確認を求めるかを決める設定であり、アプリに新しいアクセス権を与えるものでも、既存の接続権限を取り消すものでもないと案内しています。既定のImportant actionsでは、読み取りは自動で行える一方、メール送信・ファイルの移動や共有設定変更・削除など、外部に意味のある影響があり得る操作には確認を求めます。変更のたびに確認したい場合はAny changesを選べます。反対に、アプリのアクセスそのものを止めるにはDisconnect、またはワークスペース管理者による無効化が必要です。『毎回聞かれる設定』と『連携の権限を外す設定』を混同せず、試行時は確認の粒度を、利用停止時は接続状態を確認します。</p>
+            <p class="forensics-card-summary">Googleは2026年10月13日、GeminiアプリでGemini 4 ArgonとTasksを提供すると発表しました。Tasksでは日時や出来事を指定して作業を実行でき、接続アプリやログイン中のサイト、追加したファイルなどを使う場合があります。ここで大切なのは、タスクの実行停止、スケジュールの一時停止、実行済み操作の取り消しが別だという点です。Taskモードをオフにすると予定は一時停止しますが、タスクやスレッド、Geminiが作成・更新したファイルは残り、再びオンにすると予定が再開します。共有サービスでの変更を戻すには、そのサービス側で確認リンクを使う必要があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>停止・削除・取り消しを区別</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Gemini Tasksを試す人</li><li>生成AIにアプリ操作や定期作業を任せる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini Tasks</li><li>AIエージェント</li><li>接続アプリ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261014-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="beginner" data-search-text="ChatGPTの回答が図や操作画面になったら　Intelligent UIの使いどころと提供範囲 ChatGPTの操作できる回答 OpenAIは2026年10月7日、ChatGPTのChatタブでGPT‑6とIntelligent UIの提供を始めたと発表しました。質問に応じて文章だけでなく、図、横並び比較、計算機や割り勘ツールなどの操作できる要素を組み合わせて回答する機能です。形式は自動選択され、適切なら通常の文章回答も使われます。表示が整ったり操作できたりすること自体は、情報や計算の正しさの証明ではありません。比較・計算の補助として利用し、重要な条件や数値は元情報と照合するのが実務的です。提供はプランやChat/Workの切替、職場の管理者設定に左右されるため、見えない機能を不具合と決めつけないことも大切です。 仕事・AI活用 はじめて ChatGPT GPT-6 Intelligent UI 対話型AI 計算 仕事活用 ChatGPTを仕事や学習に使う人 比較・計算・情報整理をAIに頼む人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">interactive-answer-formats</span>
+              <div>
+                <p>ChatGPTの操作できる回答</p>
+                <h3>ChatGPTの回答が図や操作画面になったら　Intelligent UIの使いどころと提供範囲</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-14">2026.10.14</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年10月7日、ChatGPTのChatタブでGPT‑6とIntelligent UIの提供を始めたと発表しました。質問に応じて文章だけでなく、図、横並び比較、計算機や割り勘ツールなどの操作できる要素を組み合わせて回答する機能です。形式は自動選択され、適切なら通常の文章回答も使われます。表示が整ったり操作できたりすること自体は、情報や計算の正しさの証明ではありません。比較・計算の補助として利用し、重要な条件や数値は元情報と照合するのが実務的です。提供はプランやChat/Workの切替、職場の管理者設定に左右されるため、見えない機能を不具合と決めつけないことも大切です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 2</strong>
-              <span>ChatGPTアプリの『確認設定』と『接続解除』を目的別に使い分ける</span>
+              <span>表示形式と内容の正しさを分ける</span>
             </div>
-            <ul class="forensics-card-audience"><li>ChatGPTからメール、予定、クラウドファイルなどを扱う連携アプリを使う人</li><li>AIに外部サービスの操作を任せる前に、確認の出し方を整えたいチーム</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>連携アプリ</li><li>権限設定</li></ul>
+            <ul class="forensics-card-audience"><li>ChatGPTを仕事や学習に使う人</li><li>比較・計算・情報整理をAIに頼む人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>GPT-6</li><li>Intelligent UI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261013-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="英国のAIサイバー防衛、実施済み・準備中・検討中を読み分ける 英国のAI防衛策の現在地 英国政府は2026年10月12日、AIを使った政府システムの防御強化と、自律型AIエージェントによる重大事故への備えを発表しました。二つの試行では政府システムの潜在的な脆弱性を千件超特定・対処したと説明する一方、AI関連の重大インシデントやニアミスの報告制度、重要サービスへの法的保護は今後検討するとしています。AI Security Instituteによる最新モデルの評価や、AIエージェント事故への対応体制づくりも進行中です。読者は発表を一括して「新しい規制が始まった」と受け取らず、既に行われた防御、準備中の活動、法案上の検討を分けて読む必要があります。英国の政府発表であり、日本の組織に新たな法的義務を課すものではありません。 セキュリティ・権限 標準 英国政府 AIセキュリティ サイバー防衛 脆弱性 AIエージェント インシデント対応 AIやサイバーセキュリティのニュースを読む人 組織のセキュリティ・インシデント対応担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-cyber-stages</span>
+              <div>
+                <p>英国のAI防衛策の現在地</p>
+                <h3>英国のAIサイバー防衛、実施済み・準備中・検討中を読み分ける</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-13">2026.10.13</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">英国政府は2026年10月12日、AIを使った政府システムの防御強化と、自律型AIエージェントによる重大事故への備えを発表しました。二つの試行では政府システムの潜在的な脆弱性を千件超特定・対処したと説明する一方、AI関連の重大インシデントやニアミスの報告制度、重要サービスへの法的保護は今後検討するとしています。AI Security Instituteによる最新モデルの評価や、AIエージェント事故への対応体制づくりも進行中です。読者は発表を一括して「新しい規制が始まった」と受け取らず、既に行われた防御、準備中の活動、法案上の検討を分けて読む必要があります。英国の政府発表であり、日本の組織に新たな法的義務を課すものではありません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>実績・準備・制度案を分けて確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIやサイバーセキュリティのニュースを読む人</li><li>組織のセキュリティ・インシデント対応担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>英国政府</li><li>AIセキュリティ</li><li>サイバー防衛</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>
         </section>
         <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
           <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
-<a class="mini-button mini-button-secondary" href="case-20260904-04">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20260903-01">前の記事</a>
 <a class="mini-button mini-button-secondary" href="case-20260904-02">次の記事</a>
         </nav>
       </article>

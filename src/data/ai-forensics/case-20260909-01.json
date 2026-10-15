@@ -1,15 +1,15 @@
 {
   "id": "case-20260909-01",
   "publishedAt": "2026-09-09",
-  "title": "YouTubeの「Made with AI」は説明欄で由来まで見る。ラベルの3つの付き方",
-  "shortTitle": "YouTubeのAIラベルは説明欄で由来まで確認する",
+  "title": "YouTubeのAI表示はプレーヤーと説明欄で確認する。ラベルの付き方と範囲",
+  "shortTitle": "YouTubeのAI表示をプレーヤーと説明欄で確かめる",
   "category": "media-literacy",
   "difficulty": "beginner",
   "targetAudience": [
     "YouTubeで見た動画がAIで作られたものか、どこを見ればよいか知りたい人",
     "動画のAIラベルを見ても、どこまで判断材料にしてよいか迷う人"
   ],
-  "summary": "YouTubeは、動画の詳細説明にある「How this content was made」で、動画がAIで大幅に改変・生成されたことを示す「Made with AI」などの情報を表示する場合があります。この情報は、投稿者がYouTube Studioで申告した場合、YouTubeの生成AIツールを使った場合、有効なContent Credentialsが動画全体のAI生成を示す場合などに引き継がれます。署名した主体が分かる場合は「Info from」も表示されます。一方、「Captured with a camera」の表示がないことだけで、映像が改変されたとは判断できません。ラベルを見つけたら、表示の有無だけで本物・偽物を決めず、説明欄を開いて何の情報が表示されているかを読む手順を扱います。",
+  "summary": "YouTubeでは、作られ方の情報が動画プレーヤーまたは展開した説明欄の「How this content was made」に表示される場合があります。「Made with AI」は、投稿者がStudioで申告した場合、YouTubeの生成AIツールを使った場合、動画全体がAI生成だと示す有効なContent Credentialsを含む場合などに表示され、C2PAに署名者情報があれば「Info from」も確認できます。YouTubeは、実在人物の発言・行動を現実的に変える内容、実在の出来事や場所を改変する内容、現実的な場面の生成などを開示対象とし、軽微な補正や非写実的な表現などは対象外の例に挙げています。「Captured with a camera」がないことだけで改変を断定したり、AIラベルだけで出来事の真偽を決めたりせず、プレーヤーと説明欄を見て表示の意味を読む手順を扱います。",
   "scenario": {
     "headline": "SNSで話題のYouTube動画に、AIの表示があるか確かめたい",
     "description": "動画の再生画面だけではAIラベルが見当たりません。説明欄を開くと「How this content was made」が表示される動画もあり、Made with AIという表示や、情報の提供元が何を意味するのか分かりません。",
@@ -20,8 +20,8 @@
     "choices": [
       {
         "id": "open-description-and-read-context",
-        "label": "詳細説明を開き、「How this content was made」と表示があれば「Info from」を確認する",
-        "description": "ラベルがどの経路の情報に基づくかを読み、映像が主張する出来事は別の出典でも確認する。"
+        "label": "プレーヤーと展開した説明欄を確認し、「How this content was made」と「Info from」を読む",
+        "description": "表示はプレーヤーまたは説明欄に出る場合があり、映像が主張する出来事は別の出典でも確認する。"
       },
       {
         "id": "no-label-means-real",
@@ -39,8 +39,8 @@
   },
   "inspectionPoints": [
     {
-      "title": "詳細説明の「How this content was made」",
-      "description": "再生画面だけで判断せず、動画の詳細説明を開きます。YouTubeは、この欄に作られ方や大幅な改変についての情報を表示する場合があります。",
+      "title": "プレーヤーと展開した説明欄",
+      "description": "再生画面と動画の詳細説明の両方を確認します。YouTubeは、作られ方や大幅な改変についての情報をプレーヤーまたは展開した説明欄に表示する場合があります。",
       "priority": "high"
     },
     {
@@ -118,7 +118,7 @@
       "publisher": "YouTube Help",
       "sourceType": "official-product-documentation",
       "publishedAt": null,
-      "url": "https://support.google.com/youtube/answer/15447836?hl=en-uk"
+      "url": "https://support.google.com/youtube/answer/15447836?hl=en"
     },
     {
       "title": "Building trust on YouTube: 'Captured with a camera' disclosure",
@@ -126,6 +126,13 @@
       "sourceType": "official-product-documentation",
       "publishedAt": null,
       "url": "https://support.google.com/youtube/answer/15446725?hl=en"
+    },
+    {
+      "title": "Disclosing use of GenAI content",
+      "publisher": "YouTube Help",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/youtube/answer/14328491?hl=en"
     }
   ],
   "visualSuggestion": {
