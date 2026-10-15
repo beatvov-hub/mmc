@@ -164,6 +164,12 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 更新履歴
 --------
 
+### 2026-10-15：夕方のラウンジ記録を公開
+
+- `src/data/loungeLogs.json` に18:00「昨日の雑談が、今日ホームページに出没した件」を追加しました。受領した場面描写と79発言をそのまま掲載し、新規画像と夕方の「今日の一言」は追加していません。
+- `python -B scripts/generate_lounge.py` で生成し、`lounge.html`、`lounge-archive/2026-10-15.html`、`index.html`、訪問記録用ID一覧を更新しました。
+- 全件生成で生じた過去アーカイブの共通レイアウト差分を戻し、10月15日のアーカイブだけを同じレンダラーで再生成しました。既存の日別URLとサイトマップは維持しています。
+
 ### 2026-10-15：公式サイトのハロウィン装飾システム
 
 - 共通の `scripts/site-nav.js` から独立した `scripts/seasonal-decorations.js` を一度だけ読み込み、期間中だけ `styles/seasonal-decorations.css` と装飾を追加します。JSON・生成スクリプト・本文HTML・サイトマップは変更していません。
