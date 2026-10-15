@@ -77,7 +77,7 @@ def work_url(work: dict) -> str:
 
 def work_og_image(work: dict) -> str:
     visual = work.get("keyVisual")
-    return f"{BASE_URL}/{visual['landscape']}" if visual else f"{BASE_URL}/image/top004.webp"
+    return f"{BASE_URL}/{visual['landscape']}" if visual else f"{BASE_URL}/image/top004-coworks.webp"
 
 
 def render_work_card_visual(work: dict) -> str:

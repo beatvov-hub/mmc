@@ -160,7 +160,7 @@ class TodayOneTest(unittest.TestCase):
             published_entry("2026-08-28"),
             members,
         )
-        self.assertIn('../../image/staff/mmc-008.jpg', rendered)
+        self.assertIn('../../image/staff/mmc-008-coworks.webp', rendered)
         self.assertIn('../../members/akito', rendered)
 
     def test_unsafe_slug_is_skipped(self) -> None:
