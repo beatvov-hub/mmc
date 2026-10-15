@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGPTのSecurity historyで、見覚えのないログインと設定変更を確認する｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="OpenAIは2026年9月25日、ChatGPTのWeb版でアカウントの最近のセキュリティ履歴を確認する機能を案内しました。設定の「Security and login」から「Security history」を開くと、サインイン・サインアウトやMFA、パスキーなどの設定変更を確認できます。時刻・場所・端末の詳細も表示されますが、一部は概算または取得できない場合があります。見覚えのない記録があれば、その表示だけで侵入の全容が分かるとは考えず、OpenAIの案内に沿ってパスワード変更、全セッションのログアウト、MFA設定などを進めます。履歴確認と、現在有効なセッションの終了は別操作です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261016-01" />
+<meta property="og:title" content="ChatGPTのSecurity historyで、見覚えのないログインと設定変更を確認する｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="OpenAIは2026年9月25日、ChatGPTのWeb版でアカウントの最近のセキュリティ履歴を確認する機能を案内しました。設定の「Security and login」から「Security history」を開くと、サインイン・サインアウトやMFA、パスキーなどの設定変更を確認できます。時刻・場所・端末の詳細も表示されますが、一部は概算または取得できない場合があります。見覚えのない記録があれば、その表示だけで侵入の全容が分かるとは考えず、OpenAIの案内に沿ってパスワード変更、全セッションのログアウト、MFA設定などを進めます。履歴確認と、現在有効なセッションの終了は別操作です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261016-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
+          <img src="../image/brand/coworks-logo-horizontal.webp" alt="毎日見るコワークス" width="1903" height="297" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>ChatGPTのSecurity history</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-10-16">2026.10.16</time>
+            </div>
+            <h1>ChatGPTのSecurity historyで、見覚えのないログインと設定変更を確認する</h1>
+            <p>OpenAIは2026年9月25日、ChatGPTのWeb版でアカウントの最近のセキュリティ履歴を確認する機能を案内しました。設定の「Security and login」から「Security history」を開くと、サインイン・サインアウトやMFA、パスキーなどの設定変更を確認できます。時刻・場所・端末の詳細も表示されますが、一部は概算または取得できない場合があります。見覚えのない記録があれば、その表示だけで侵入の全容が分かるとは考えず、OpenAIの案内に沿ってパスワード変更、全セッションのログアウト、MFA設定などを進めます。履歴確認と、現在有効なセッションの終了は別操作です。</p>
+            <ul class="forensics-target-list"><li>ChatGPTを使う人</li><li>OpenAIアカウントの不審なアクセスが心配な人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>ChatGPT</li><li>OpenAIアカウント</li><li>Security history</li><li>MFA</li><li>パスキー</li><li>不正アクセス</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>履歴と現在のログイン状態を分けて確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>不審な記録を見つけたら、履歴の確認だけで終えず、セッション管理とアカウント保護の手順へ進みましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>見覚えのない端末でChatGPTにログインされた気がする</h3><p>共有端末を使った後や、不審な通知を受けた後、アカウントの履歴をどこで見て何をすればよいか分からない。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Security historyは過去のセキュリティイベントを確認する場所で、現在ログイン中の端末を管理するActive sessionsとは別です。履歴を見るだけではセッションは終了しません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="review-history-and-secure">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>ChatGPTアカウントに知らないアクセスがないか確認するとき、まずどこを見て、疑わしい記録があればどうする？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="review-history-and-secure" data-choice-id="review-history-and-secure" />
+                <span>
+                  <strong>Security historyでイベントを確認し、不審なら全セッションのログアウトなどアカウント保護手順に進む</strong>
+                  <small>履歴確認と、現在のセッションを終了する操作を分けて行う。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="history-is-session-control" data-choice-id="history-is-session-control" />
+                <span>
+                  <strong>Security historyを開けば、表示された端末は自動でログアウトされる</strong>
+                  <small>Security historyは過去のイベントを表示する機能で、セッション終了は別操作。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Security historyでイベントを確認し、不審なら全セッションのログアウトなどアカウント保護手順に進む</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>OpenAIの案内では、Security historyでイベントを確認し、Active sessionsから現在のセッションを管理します。不審なアクセスが疑われる場合は、パスワード変更（パスワード利用時）、全セッションのログアウト、MFAやサポート連絡など状況に応じた対応を行います。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>履歴を開く場所</h3>
+              <p>ChatGPTのWeb版でSettings → Security and login → Security historyを開きます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>記録されるイベント</h3>
+              <p>サインイン・サインアウトのほか、MFA、パスキー、その他のセキュリティ設定の変更などを確認できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>位置・端末情報の精度</h3>
+              <p>時刻、場所、端末の詳細が表示されますが、場所など一部情報は概算または利用できない場合があります。表示情報だけで断定しないようにします。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>履歴と有効セッションを分ける</h3>
+              <p>過去の記録を見るSecurity historyと、現在有効な接続を管理するActive sessionsは別画面です。疑わしい場合は全セッションのログアウトも検討します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Security historyは点検の入口。ログアウトは別に行う</strong><p>履歴にはサインインや認証設定の変更が記録されますが、表示された場所・端末情報は一部不確かな場合があります。疑わしい時は履歴を保存し、全セッションのログアウトや認証情報の更新など、現在のアクセスを止める措置を別に行います。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Settings → Security and login → Security historyを開き、時刻とイベントを見覚えのある操作と照合する</strong><span>OpenAIはWeb版でこの画面から最近のセキュリティイベントを確認できると案内しています。</span></li>
+            <li><strong>不審なアクセスがあれば、パスワード利用時は変更し、全セッションのログアウトを検討する</strong><span>履歴を見ても有効なセッションは自動終了しません。</span></li>
+            <li><strong>MFAやパスキーなどの認証設定を確認し、必要なら有効化・再設定する</strong><span>認証設定の変更も履歴で確認でき、MFAは追加のサインイン確認になります。</span></li>
+            <li><strong>時刻・端末・場所の情報を記録してから、必要に応じてOpenAIサポートへ連絡する</strong><span>一部の詳細は概算または欠落するため、記録を含めて状況を伝えると調査や復旧の助けになります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>履歴に知らない場所が出たことだけで、侵入者の位置や本人を断定する</strong><span>OpenAIは位置など一部の詳細が概算または利用できない場合があると説明しています。</span></li>
+            <li><strong>Security historyを見たので、知らない端末もログアウト済みだと考える</strong><span>履歴とActive sessionsによるセッション管理は別です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>定期的なアカウント点検に履歴を加える</h3>
+          <p>不審な通知を受けた時だけでなく、認証設定を見直す際に履歴も確認すると、変更の経緯を把握しやすくなります。</p>
+          <ul class="positive-example-list"><li>新しいサインインの有無を確認</li><li>MFA・パスキー変更を照合</li><li>Active sessionsから不要な端末を終了</li><li>不審イベントの情報をサポート相談用に記録</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>この画面の価値は『どこからログインされたかを完全に特定する』ことではなく、認証設定やアクセスに関する変化を時系列で振り返れることです。履歴とセッション終了を別々の手順として覚えておくと、点検しただけで安心してしまうのを防げます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>履歴を確認した後、不審ならActive sessionsから現在のログインも止める。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener noreferrer">ChatGPT release notes<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>その他</span>
+              <time datetime="2026-09-25">2026-09-25</time>
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/en/articles/8304786-keeping-your-openai-account-secure" target="_blank" rel="noopener noreferrer">Keeping your OpenAI account secure<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20261014-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Gemini Tasksはオフにしても後始末されない　停止・削除・取り消しを分ける Gemini Tasksの停止と削除 Googleは2026年10月13日、GeminiアプリでGemini 4 ArgonとTasksを提供すると発表しました。Tasksでは日時や出来事を指定して作業を実行でき、接続アプリやログイン中のサイト、追加したファイルなどを使う場合があります。ここで大切なのは、タスクの実行停止、スケジュールの一時停止、実行済み操作の取り消しが別だという点です。Taskモードをオフにすると予定は一時停止しますが、タスクやスレッド、Geminiが作成・更新したファイルは残り、再びオンにすると予定が再開します。共有サービスでの変更を戻すには、そのサービス側で確認リンクを使う必要があります。 セキュリティ・権限 標準 Gemini Tasks AIエージェント 接続アプリ リモートブラウザー タスク停止 データ管理 Gemini Tasksを試す人 生成AIにアプリ操作や定期作業を任せる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">task-control-boundaries</span>
+              <div>
+                <p>Gemini Tasksの停止と削除</p>
+                <h3>Gemini Tasksはオフにしても後始末されない　停止・削除・取り消しを分ける</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-14">2026.10.14</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年10月13日、GeminiアプリでGemini 4 ArgonとTasksを提供すると発表しました。Tasksでは日時や出来事を指定して作業を実行でき、接続アプリやログイン中のサイト、追加したファイルなどを使う場合があります。ここで大切なのは、タスクの実行停止、スケジュールの一時停止、実行済み操作の取り消しが別だという点です。Taskモードをオフにすると予定は一時停止しますが、タスクやスレッド、Geminiが作成・更新したファイルは残り、再びオンにすると予定が再開します。共有サービスでの変更を戻すには、そのサービス側で確認リンクを使う必要があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>停止・削除・取り消しを区別</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Gemini Tasksを試す人</li><li>生成AIにアプリ操作や定期作業を任せる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini Tasks</li><li>AIエージェント</li><li>接続アプリ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261014-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="beginner" data-search-text="ChatGPTの回答が図や操作画面になったら　Intelligent UIの使いどころと提供範囲 ChatGPTの操作できる回答 OpenAIは2026年10月7日、ChatGPTのChatタブでGPT‑6とIntelligent UIの提供を始めたと発表しました。質問に応じて文章だけでなく、図、横並び比較、計算機や割り勘ツールなどの操作できる要素を組み合わせて回答する機能です。形式は自動選択され、適切なら通常の文章回答も使われます。表示が整ったり操作できたりすること自体は、情報や計算の正しさの証明ではありません。比較・計算の補助として利用し、重要な条件や数値は元情報と照合するのが実務的です。提供はプランやChat/Workの切替、職場の管理者設定に左右されるため、見えない機能を不具合と決めつけないことも大切です。 仕事・AI活用 はじめて ChatGPT GPT-6 Intelligent UI 対話型AI 計算 仕事活用 ChatGPTを仕事や学習に使う人 比較・計算・情報整理をAIに頼む人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">interactive-answer-formats</span>
+              <div>
+                <p>ChatGPTの操作できる回答</p>
+                <h3>ChatGPTの回答が図や操作画面になったら　Intelligent UIの使いどころと提供範囲</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-14">2026.10.14</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年10月7日、ChatGPTのChatタブでGPT‑6とIntelligent UIの提供を始めたと発表しました。質問に応じて文章だけでなく、図、横並び比較、計算機や割り勘ツールなどの操作できる要素を組み合わせて回答する機能です。形式は自動選択され、適切なら通常の文章回答も使われます。表示が整ったり操作できたりすること自体は、情報や計算の正しさの証明ではありません。比較・計算の補助として利用し、重要な条件や数値は元情報と照合するのが実務的です。提供はプランやChat/Workの切替、職場の管理者設定に左右されるため、見えない機能を不具合と決めつけないことも大切です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 2</strong>
+              <span>表示形式と内容の正しさを分ける</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTを仕事や学習に使う人</li><li>比較・計算・情報整理をAIに頼む人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>GPT-6</li><li>Intelligent UI</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261013-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="英国のAIサイバー防衛、実施済み・準備中・検討中を読み分ける 英国のAI防衛策の現在地 英国政府は2026年10月12日、AIを使った政府システムの防御強化と、自律型AIエージェントによる重大事故への備えを発表しました。二つの試行では政府システムの潜在的な脆弱性を千件超特定・対処したと説明する一方、AI関連の重大インシデントやニアミスの報告制度、重要サービスへの法的保護は今後検討するとしています。AI Security Instituteによる最新モデルの評価や、AIエージェント事故への対応体制づくりも進行中です。読者は発表を一括して「新しい規制が始まった」と受け取らず、既に行われた防御、準備中の活動、法案上の検討を分けて読む必要があります。英国の政府発表であり、日本の組織に新たな法的義務を課すものではありません。 セキュリティ・権限 標準 英国政府 AIセキュリティ サイバー防衛 脆弱性 AIエージェント インシデント対応 AIやサイバーセキュリティのニュースを読む人 組織のセキュリティ・インシデント対応担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">ai-cyber-stages</span>
+              <div>
+                <p>英国のAI防衛策の現在地</p>
+                <h3>英国のAIサイバー防衛、実施済み・準備中・検討中を読み分ける</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-13">2026.10.13</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">英国政府は2026年10月12日、AIを使った政府システムの防御強化と、自律型AIエージェントによる重大事故への備えを発表しました。二つの試行では政府システムの潜在的な脆弱性を千件超特定・対処したと説明する一方、AI関連の重大インシデントやニアミスの報告制度、重要サービスへの法的保護は今後検討するとしています。AI Security Instituteによる最新モデルの評価や、AIエージェント事故への対応体制づくりも進行中です。読者は発表を一括して「新しい規制が始まった」と受け取らず、既に行われた防御、準備中の活動、法案上の検討を分けて読む必要があります。英国の政府発表であり、日本の組織に新たな法的義務を課すものではありません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>実績・準備・制度案を分けて確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIやサイバーセキュリティのニュースを読む人</li><li>組織のセキュリティ・インシデント対応担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>英国政府</li><li>AIセキュリティ</li><li>サイバー防衛</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261016-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
+            <img src="../image/brand/coworks-logo-horizontal.webp" alt="毎日見るコワークス" width="1903" height="297" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
