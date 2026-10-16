@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16T07:30:00+09:00",
+  "updatedAt": "2026-10-17T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -1988,6 +1988,59 @@
         {
           "label": "ShareX公式GitHub：GPL-3.0ライセンス文書",
           "url": "https://github.com/ShareX/ShareX/blob/develop/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-17",
+      "slug": "pdfsam-merge-client-docs",
+      "name": "PDFsam Basic",
+      "category": "PDF Utility / OSS",
+      "officialUrl": "https://pdfsam.org/pdfsam-basic/",
+      "archiveTitle": "PDFsam BasicでPDFを結合できる？複数資料を1つにまとめる手順",
+      "archiveDescription": "PDFsam Basicで複数のPDFを1つに結合する方法を紹介。ファイルの並べ替え、出力先の指定、完成後の確認まで、ローカルで安全に試す手順をまとめます。",
+      "forWho": "案内資料や議事録など、複数のPDFを配布用に1ファイルへまとめたい編集・総務担当者向けです。Webサービスへ社内資料をアップロードせずに結合したい場合にも役立ちます。",
+      "summary": "PDFsam Basicなら、PDFを指定した順に並べ、出力名を決めて結合できます。無料のデスクトップアプリで、ファイルはPC上で処理されます。",
+      "whyToday": "配布資料をまとめる際、オンライン結合サービスへファイルを預けてよいか迷うことがあります。PDFsam Basicは端末内で処理するため、機密資料を外部へ送らずに結合したい場面に向いています。",
+      "useFor": "例えば、公開前の案内PDFと補足資料を1冊にまとめる想定例です。公式サイトからPDFsam Basicを入手してPCに用意し、Mergeで対象ファイルを追加して、一覧を完成後のページ順に並べます。出力ファイル名を指定してRunを実行すると、結合済みPDFができます。まずダミーの2ファイルで試し、出力を開いて先頭・末尾とページ順が意図どおりか確かめます。これは公式手順に基づく想定例で、実機確認は未実施です。",
+      "cautions": "PDFsam Basicはファイルを端末内で処理し、サーバーへアップロードしません。共有前に結合後のPDFを開いて順序や抜けを確認し、社内資料は管理された端末で扱ってください。PDFsam EnhancedとPDFsam Visualは別製品で、Basicと同じ無料条件ではありません。",
+      "faq": [
+        {
+          "question": "PDFsam BasicでPDFを結合すると、ファイルはWebへ送信されますか？",
+          "answer": "いいえ。公式案内ではPDFsam BasicはPC上で処理し、ファイルをサーバーへアップロードしないと説明されています。"
+        },
+        {
+          "question": "PDFsam Basicは無料で使えますか？",
+          "answer": "PDFsam Basicは無料のオープンソースソフトウェアで、公式GitHubではAGPL-3.0ライセンスが確認できます。EnhancedとVisualは別製品で、公式ダウンロード案内ではVisualに14日間の試用条件が記載されています。"
+        }
+      ],
+      "recommendedFor": {
+        "employeeId": "MMC-011",
+        "reason": "コトちゃんに、配布する案内PDFと補足資料の順序を整理し、結合後に確認するページ順チェック表を作ってもらいたいです。成果物を編集担当者へ渡せば、1冊にまとめた後の確認を定型化できます。"
+      },
+      "keiComment": "手元で結合が完了するので、外部アップロードの可否を毎回悩まずに済むのがこの用途のよさです。インストーラーではBasicと別製品の案内が並ぶことがあるため、配布・導入時にBasicを選んだことが分かるようにしておくと安心です。",
+      "pricing": "PDFsam Basicは無料・オープンソースで、公式リポジトリのライセンスはAGPL-3.0です。PDFsam EnhancedとVisualは別製品で、Visualの無料試用は14日間です。",
+      "conditions": "PDFsam BasicをPCへインストールして使います。結合例にアカウント、APIキー、インターネット接続は不要です。アプリの利用料は無料ですが、端末・電気・保管環境などの費用は別途です。",
+      "license": "AGPL-3.0（PDFsam公式GitHubリポジトリ）。",
+      "notes": "公式情報に基づく想定例です。実機検証は未実施です。",
+      "verifiedAt": "2026-10-17",
+      "status": "published",
+      "officialSources": [
+        {
+          "label": "PDFsam Basic公式：結合手順、ローカル処理、無料条件",
+          "url": "https://pdfsam.org/pdf-merge/"
+        },
+        {
+          "label": "PDFsam公式ダウンロード：Basic・Enhanced・Visualの違いと試用条件",
+          "url": "https://pdfsam.org/download-pdfsam-basic/"
+        },
+        {
+          "label": "PDFsam公式GitHub：PDFsam BasicとAGPL-3.0ライセンス",
+          "url": "https://github.com/torakiki/pdfsam"
+        },
+        {
+          "label": "PDFsam公式GitHub：AGPL-3.0ライセンス文書",
+          "url": "https://github.com/torakiki/pdfsam/blob/master/LICENSE"
         }
       ]
     }
