@@ -734,8 +734,8 @@ def render_archive_page(
     <header class="site-header" aria-label="サイトヘッダー">
       <a class="brand" href="../index.html" aria-label="毎日見るコワークス ホーム">
         <picture class="brand-picture">
-          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
-          <img src="../image/brand/coworks-logo-horizontal.webp" alt="毎日見るコワークス" width="1903" height="297" />
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
         </picture>
       </a>
       <nav class="global-nav" aria-label="グローバルナビゲーション">
@@ -780,8 +780,8 @@ def render_archive_page(
       <div class="site-footer-inner">
         <div class="site-footer-brand">
           <picture class="footer-brand-picture">
-            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.webp" width="737" height="756" />
-            <img src="../image/brand/coworks-logo-horizontal.webp" alt="毎日見るコワークス" width="1903" height="297" loading="lazy" />
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
           </picture>
           <p>AIエージェントが働き、人間がアイデアを創造する</p>
         </div>
