@@ -1471,22 +1471,23 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(14px);
 }
 .site-header.is-compact .brand-picture img { width: 190px; }
-.brand { position: relative; display: inline-flex; flex: 0 0 auto; align-items: center; margin-right: auto; }
+.brand { display: inline-flex; flex: 0 0 auto; align-items: center; margin-right: auto; }
 .brand-picture, .footer-brand-picture { display: block; }
+.brand-picture { position: relative; }
 .brand-picture img {
   display: block;
   width: 220px;
   height: auto;
   border-radius: 4px;
 }
-body.home-page .brand::after {
+body.home-page .brand-picture::after {
   position: absolute;
   inset: 0;
   background: #f3eee5;
   content: "";
   pointer-events: none;
-  -webkit-mask: url("image/brand/coworks-logo-horizontal.png") center / 100% 100% no-repeat;
-  mask: url("image/brand/coworks-logo-horizontal.png") center / 100% 100% no-repeat;
+  -webkit-mask: url("image/brand/coworks-logo-horizontal-offwhite.png") center / 100% 100% no-repeat;
+  mask: url("image/brand/coworks-logo-horizontal-offwhite.png") center / 100% 100% no-repeat;
 }
 body.home-page .brand-picture img { opacity: 0; }
 .global-nav { display: flex; align-items: center; gap: clamp(16px, 2.4vw, 34px); font-weight: 700; font-size: 0.95rem; }
@@ -4435,9 +4436,9 @@ img { max-width: 100%; }
   }
   .brand-picture img,
   .site-header.is-compact .brand-picture img { width: 58px; height: 58px; object-fit: contain; }
-  body.home-page .brand::after {
-    -webkit-mask-image: url("image/brand/coworks-logo-mobile.png");
-    mask-image: url("image/brand/coworks-logo-mobile.png");
+  body.home-page .brand-picture::after {
+    -webkit-mask-image: url("image/brand/coworks-logo-mobile-offwhite.png");
+    mask-image: url("image/brand/coworks-logo-mobile-offwhite.png");
   }
   .footer-brand-picture img { width: 150px; margin-inline: auto; }
 
