@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-17T07:30:00+09:00",
+  "updatedAt": "2026-10-18T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2041,6 +2041,63 @@
         {
           "label": "PDFsam公式GitHub：AGPL-3.0ライセンス文書",
           "url": "https://github.com/torakiki/pdfsam/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-18",
+      "slug": "joplin-web-clipper-save-source-pages",
+      "name": "Joplin Web Clipper",
+      "category": "Research Notes / OSS",
+      "officialUrl": "https://joplinapp.org/",
+      "archiveTitle": "Joplin Web Clipperで記事を保存できる？Webページをノートに残す方法",
+      "archiveDescription": "調査中に見つけた公開Webページを後から参照したい人向けに、Joplin Web Clipperでページをノートに保存する準備と手順、同期を使う場合の確認点を紹介します。",
+      "forWho": "海外調査や広報で、参照したWeb資料がブラウザーのタブに埋もれ、記事や企画を書くときに出典を探し直している人向けです。公開ページを調査ノートとして手元に集めたい場合に役立ちます。",
+      "summary": "Joplin Web Clipperは、ブラウザーで開いたWebページやスクリーンショットをJoplinのノートとして保存できる拡張機能です。保存にはJoplinデスクトップアプリが必要で、端末間の同期は別設定です。",
+      "whyToday": "調査の根拠をタブやブックマークだけで管理すると、記事を書く段階で資料を探し直すことがあります。Joplin Web Clipperなら、閲覧中のページをノートとして取り込み、調査メモと同じ場所に整理できます。",
+      "useFor": "例えば、海外調査の公開公式資料を後から参照する想定例です。PCにJoplinデスクトップアプリと対応ブラウザーのWeb Clipper拡張を用意し、アプリの設定にあるWeb Clipper項目の案内に沿って連携を有効にします。調査対象のページをブラウザーからノートとして保存し、Joplinで開いて、何を確認する資料なのか自分の短いメモを添えます。まず公開ページ1件だけで試し、保存したノートを開いて本文が読めるか、出典を特定できる情報が残っているかを確認します。公式手順に基づく想定例で、実機確認は未実施です。",
+      "cautions": "Web Clipper拡張機能とJoplinデスクトップアプリは、デスクトップアプリが起動するサービスを介して連携します。ファイアウォールやプロキシ設定でサービスに接続できない場合があります。同期を有効にすると選択した同期先へノートが送られるため、社内限定資料を保存する前に同期先と情報管理ルールを確認してください。",
+      "faq": [
+        {
+          "question": "Web Clipperを使うのにJoplinデスクトップアプリは必要ですか？",
+          "answer": "はい。公式手順ではデスクトップアプリの設定画面でWeb Clipperを準備し、アプリが起動するサービスを通してブラウザー拡張機能と連携します。"
+        },
+        {
+          "question": "保存したノートを別の端末と同期するにはJoplin Cloudが必須ですか？",
+          "answer": "必須ではありません。同期設定はWeb Clipperとは別で、公式ガイドにはJoplin CloudのほかNextcloud、Dropbox、OneDrive、WebDAV、S3、ローカルファイルシステムなどが掲載されています。Joplin Cloudは別料金のプランです。"
+        }
+      ],
+      "recommendedFor": {
+        "employeeId": "MMC-004",
+        "reason": "マイケルに、台湾の公式発表など公開ページを3件、Web Clipperで調査ノートに集め、各ノートへ「日本向けに確かめたいこと」を一言添えてもらいたいです。受け取りたいのは、原資料と調査視点を一緒に確認できる出典ノート集です。"
+      },
+      "keiComment": "ページを保存しただけでは、企画でどう使う資料なのかまでは残りません。私は導入時に「出典としての内容」と「読者に伝えたい視点」を分けてメモする運用を提案します。",
+      "pricing": "JoplinアプリとWeb Clipperはオープンソースで、単一端末でノートを保存する例にJoplin Cloud契約は不要です。Joplin Cloudで同期・共有する場合は別料金のプランです。",
+      "conditions": "Joplinデスクトップアプリと対応ブラウザーの拡張機能を用意し、アプリ側のWeb Clipperサービスを起動します。端末間同期は任意ですが、別の同期先を選ぶ場合はその提供元の費用や条件が適用されます。",
+      "license": "AGPL-3.0-or-later（Joplin公式リポジトリの既定ライセンス。個別配布物に別ライセンスが定められている場合があります）。",
+      "notes": "公式情報に基づく想定例です。実機検証は未実施です。",
+      "verifiedAt": "2026-10-18",
+      "status": "published",
+      "officialSources": [
+        {
+          "label": "Joplin公式：オープンソースアプリとWeb Clipperの用途",
+          "url": "https://joplinapp.org/"
+        },
+        {
+          "label": "Joplin公式ヘルプ：Web Clipperの準備とデスクトップ連携",
+          "url": "https://joplinapp.org/help/apps/clipper/"
+        },
+        {
+          "label": "Joplin公式ヘルプ：同期先の選択肢",
+          "url": "https://joplinapp.org/help/apps/sync/"
+        },
+        {
+          "label": "Joplin公式プラン：Joplin Cloudの料金プラン",
+          "url": "https://joplinapp.org/plans/"
+        },
+        {
+          "label": "Joplin公式GitHub：AGPL-3.0-or-later（リポジトリ既定）",
+          "url": "https://github.com/laurent22/joplin/blob/dev/LICENSE"
         }
       ]
     }
