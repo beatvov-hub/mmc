@@ -69,22 +69,22 @@ class DailyQuizTest(unittest.TestCase):
         self.assertEqual([page.count('class="quiz-detail quiz-practice-question') for page in pages], [100, 100, 5])
         self.assertEqual([page.count('data-quiz-reveal') for page in pages], [100, 100, 5])
         self.assertEqual([page.count('data-quiz-choice') for page in pages], [400, 400, 20])
-        self.assertIn('href="/quiz/g-kentei/practice/3"', pages[0])
-        self.assertIn('href="/quiz/g-kentei/practice/2" aria-current="page"', pages[1])
+        self.assertIn('href="/quiz/g-kentei/practice/3/"', pages[0])
+        self.assertIn('href="/quiz/g-kentei/practice/2/" aria-current="page"', pages[1])
         self.assertNotIn('公開中：100問', pages[0])
         self.assertIn('src="../../../../scripts/daily-quiz.js"', pages[1])
         self.assertNotIn("テーマ205", pages[2])
         self.assertIn('id="quiz-answer-practice-205"', pages[2])
-        self.assertNotIn('href="/quiz/g-kentei/practice/4"', pages[2])
+        self.assertNotIn('href="/quiz/g-kentei/practice/4/"', pages[2])
         with self.assertRaises(ValueError):
             quiz.render_practice(qualification, questions, 4)
 
     def test_unpublished_ranges_are_visible_without_broken_links(self) -> None:
         ranges = quiz.practice_ranges("g-kentei", 10)
-        self.assertIn('href="/quiz/g-kentei/practice"', ranges)
+        self.assertIn('href="/quiz/g-kentei/practice/"', ranges)
         self.assertIn('101〜200問<small>準備中</small>', ranges)
-        self.assertNotIn('href="/quiz/g-kentei/practice/2"', ranges)
-        self.assertIn('href="/quiz/g-kentei/practice/3"', quiz.practice_ranges("g-kentei", 205))
+        self.assertNotIn('href="/quiz/g-kentei/practice/2/"', ranges)
+        self.assertIn('href="/quiz/g-kentei/practice/3/"', quiz.practice_ranges("g-kentei", 205))
 
     def test_bank_questions_can_share_a_publish_date_without_changing_legacy_routes(self) -> None:
         data = json.loads(quiz.DATA_PATH.read_text(encoding="utf-8"))
@@ -94,14 +94,14 @@ class DailyQuizTest(unittest.TestCase):
         bank_question["slug"] = "bank-route-test"
         data["questions"].append(bank_question)
         quiz.validate(data)
-        self.assertEqual(quiz.route_for(original), f"/quiz/{original['qualification']}/{original['date']}")
-        self.assertEqual(quiz.route_for(bank_question), f"/quiz/{original['qualification']}/questions/bank-route-test")
+        self.assertEqual(quiz.route_for(original), f"/quiz/{original['qualification']}/{original['date']}/")
+        self.assertEqual(quiz.route_for(bank_question), f"/quiz/{original['qualification']}/questions/bank-route-test/")
         qualification = next(item for item in data["qualifications"] if item["id"] == original["qualification"])
         page = quiz.render_detail(qualification, bank_question, None, None, 4)
-        self.assertIn('href="/quiz/' + original["qualification"] + '/practice"', page)
+        self.assertIn('href="/quiz/' + original["qualification"] + '/practice/"', page)
         self.assertIn('src="../../../../scripts/daily-quiz.js"', page)
         page_two = quiz.render_detail(qualification, bank_question, None, None, 4, bank_page=2)
-        self.assertIn('href="/quiz/' + original["qualification"] + '/practice/2"', page_two)
+        self.assertIn('href="/quiz/' + original["qualification"] + '/practice/2/"', page_two)
         duplicate = deepcopy(bank_question)
         duplicate["id"] = "another-id"
         data["questions"].append(duplicate)
@@ -214,7 +214,7 @@ class DailyQuizTest(unittest.TestCase):
         self.assertIn('daily-quiz.js', hub)
         for route in re.findall(r'href="(/quiz(?:/[^"#?]*)?)"', hub):
             page = (quiz.ROOT / route.lstrip("/") / "index.html").read_text(encoding="utf-8")
-            if "/practice" not in route and route.count("/") == 3:
+            if "/practice/" not in route and route.count("/") >= 4:
                 self.assertIn("data-quiz-reveal", page)
                 self.assertIn("daily-quiz.js", page)
         for page_path in quiz.QUIZ_DIR.rglob("index.html"):
