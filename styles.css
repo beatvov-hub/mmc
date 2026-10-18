@@ -1727,16 +1727,20 @@ h1 { margin: 0 0 20px; font-size: clamp(3.1rem, 7vw, 6.7rem); line-height: 1.18;
 .section-heading h2, .feature-section h2 { margin:0; font-size:clamp(1.7rem,3vw,2.5rem); }
 .section-kicker { margin:0 0 4px; font-size:.78rem; }
 .mission-heading-wrap {
-  align-items: end;
+  align-items: flex-start;
   gap: 20px;
 }
 .mission-lead {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   max-width: 660px;
   margin: 0;
   color: var(--muted);
   font-size: .98rem;
   line-height: 1.85;
 }
+.mission-lead p { margin: 0; }
 .mission-grid { display:grid; grid-template-columns: repeat(4, 1fr); }
 .mission-grid article { display:flex; flex-direction:column; gap:10px; padding:20px 26px; border-left:1px solid #ded1c1; }
 .mission-grid article:first-child { border-left:0; }
