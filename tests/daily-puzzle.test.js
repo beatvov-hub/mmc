@@ -43,7 +43,9 @@ test('rejects incomplete or incorrect solved states for every game', () => {
 
 test('minesweeper hints and zero expansion are deterministic and never open a mine', () => {
   const puzzle = at('minesweeper'), hints = core.mineHints(puzzle);
-  assert.equal(hints[0], 0);
+  assert.deepEqual(hints, [0, 0, 0, 2, -1, 0, 0, 0, 2, -1, 1, 1, 0, 1, 1, -1, 2, 1, 1, 0, 1, 2, -1, 1, 0]);
+  assert.equal(hints[8], 2, 'row 2, column 4 counts both neighboring mines');
+  assert.equal(hints[13], 1, 'row 3, column 4 counts the diagonal mine');
   assert.ok(hints[puzzle.mines[0]] < 0);
   const opened = core.openMine(puzzle, [], [], 0);
   assert.ok(opened.length > 1);

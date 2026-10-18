@@ -12,6 +12,14 @@
     return [[r - 1, c], [r + 1, c], [r, c - 1], [r, c + 1]]
       .filter(([y, x]) => inside(y, x, n)).map(([y, x]) => y * n + x);
   };
+  const mineNeighbors = (cell, n) => {
+    const r = Math.floor(cell / n), c = cell % n;
+    const result = [];
+    for (let y = r - 1; y <= r + 1; y++) for (let x = c - 1; x <= c + 1; x++) {
+      if ((y !== r || x !== c) && inside(y, x, n)) result.push(y * n + x);
+    }
+    return result;
+  };
   const components = (cells, n) => {
     const remaining = new Set(cells), groups = [];
     while (remaining.size) {
@@ -30,7 +38,7 @@
     const mines = new Set(puzzle.mines), n = puzzle.size;
     return Array.from({ length: n * n }, (_, cell) => {
       if (mines.has(cell)) return -1;
-      return neighbors(cell, n).filter(next => mines.has(next)).length;
+      return mineNeighbors(cell, n).filter(next => mines.has(next)).length;
     });
   }
 
@@ -41,7 +49,7 @@
       const cell = queue.shift();
       if (result.has(cell) || flags.includes(cell)) continue;
       result.add(cell);
-      if (hints[cell] === 0) for (const next of neighbors(cell, puzzle.size)) {
+      if (hints[cell] === 0) for (const next of mineNeighbors(cell, puzzle.size)) {
         if (!result.has(next) && !puzzle.mines.includes(next)) queue.push(next);
       }
     }
