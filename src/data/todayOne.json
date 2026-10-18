@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T07:30:00+09:00",
+  "updatedAt": "2026-10-19T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2098,6 +2098,58 @@
         {
           "label": "Joplin公式GitHub：AGPL-3.0-or-later（リポジトリ既定）",
           "url": "https://github.com/laurent22/joplin/blob/dev/LICENSE"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "slug": "bitwarden-share-work-passwords-free-two-person",
+      "name": "Bitwarden Password Manager",
+      "category": "Password Manager / Freemium",
+      "officialUrl": "https://bitwarden.com/",
+      "archiveTitle": "Bitwarden Password Managerで社内パスワードを共有できる？無料版の上限と手順",
+      "archiveDescription": "仕事用ログインをBitwardenで共有したい小規模チーム向けに、無料Organizationの人数・コレクション上限と、招待から共有確認までの手順を紹介します。",
+      "forWho": "共通アカウントのログイン情報をチャットや表計算に書いて受け渡している、2名ほどの広報・制作・開発チーム向けです。個人用の保管場所とは分けて、必要な相手だけに共有したいときに読んでください。",
+      "summary": "Bitwardenで仕事用パスワードを共有するには、無料Organizationを作成し、相手を招待・確認したうえで、共有するログインをOrganization所有のコレクションに入れます。無料枠は2名、コレクションは最大2つです。",
+      "whyToday": "共通ログインをチャットで渡すと、誰が見られるかや担当変更後の扱いが曖昧になりがちです。Bitwardenでは共有項目を個人ではなくOrganization所有にし、コレクションごとにメンバーのアクセスを決められるため、まず2名の小さな範囲で共有ルールを試せます。",
+      "useFor": "例えば、制作担当と窓口担当の2名でテスト用アカウント1件を共有する想定例です。2人がメール確認済みのBitwardenアカウントを用意し、所有者がWebアプリでFree organizationとコレクションを作って相手を招待します。相手が招待を承認したら、所有者は双方のfingerprint phraseが一致することを確かめて確認し、ログイン項目の所有先をOrganization、共有先をコレクションにして保存します。まず公開サービスに使わないダミー項目で試し、相手のVaultにもOrganization所有の項目が見えるか確認します。公式手順に基づく想定例で、実機確認は未実施です。",
+      "cautions": "無料Organizationは2名までで、作成できるコレクションは最大2つです。招待は5日で期限切れになり、共有を有効にするには相手の承認後、双方のfingerprint phraseを照合して所有者が確認する必要があります。Organization所有の項目は権限を持つ利用者が変更・削除できるため、個人用ログインは入れず、共有してよいアカウントか社内ルールと提供元の規約を先に確認してください。",
+      "faq": [
+        {
+          "question": "Bitwardenの無料プランで、同僚とパスワードを共有できますか？",
+          "answer": "できます。Free organizationを作成すれば、所有者ともう1名の計2名でOrganization所有の項目を共有できます。無料枠のコレクションは最大2つで、各自の個人Vaultの項目が自動で共有されるわけではありません。"
+        },
+        {
+          "question": "招待を承認したのに共有項目が見えないときは？",
+          "answer": "所有者がAdmin Consoleでメンバーを確認する手順が残っていないか確認します。所有者は相手のfingerprint phraseと画面上のphraseを照合して承認し、その後、共有ログインが相手にアクセス権のあるコレクションに入っているか確認します。招待は5日で期限切れになります。"
+        }
+      ],
+      "recommendedFor": {
+        "employeeId": "MMC-001",
+        "reason": "ほのちゃんに、実際の認証情報ではなくダミーの共有ログイン1件で2名招待・確認・閲覧権限の流れを整理してもらい、担当変更時の確認項目も含む短い利用チェックリストを受け取りたいです。総務の社内調整に沿った小規模な試行の段取り役として推薦します。"
+      },
+      "keiComment": "無料枠の小ささは、最初の共有ルールを決めるにはむしろ扱いやすいサイズです。Organizationの項目は個人ではなく組織の持ち物になるので、実アカウントへ広げる前に共有対象と、担当変更時に誰がアクセスを外すかを決めてください。",
+      "pricing": "公式の無料Organizationは2名まで・最大2コレクションで、テスト用の共有例を継続的に無料で試せます。3名以上やより広いチーム管理が必要なら有料のTeams等が対象です。",
+      "conditions": "2名それぞれにメール確認済みのBitwardenアカウントが必要です。WebアプリでOrganizationを作り、招待→相手の承認→所有者によるphrase確認の順に設定します。無料Organizationの上限を超える利用や有料プランの機能は別条件です。",
+      "notes": "公式の現行手順に基づく想定例です。実機確認は未実施です。",
+      "verifiedAt": "2026-10-19",
+      "status": "published",
+      "officialSources": [
+        {
+          "label": "Bitwarden公式：プランと無料共有の比較",
+          "url": "https://bitwarden.com/pricing/"
+        },
+        {
+          "label": "Bitwarden公式ヘルプ：無料Organization、招待・確認・共有の手順",
+          "url": "https://bitwarden.com/help/getting-started-organizations/"
+        },
+        {
+          "label": "Bitwarden公式ヘルプ：プラン別の人数・コレクション上限",
+          "url": "https://bitwarden.com/help/password-manager-plans/"
+        },
+        {
+          "label": "Bitwarden公式ヘルプ：コレクションとアクセス管理",
+          "url": "https://bitwarden.com/help/about-collections/"
         }
       ]
     }
