@@ -1,0 +1,50 @@
+{
+  "id": "case-20261018-02",
+  "publishedAt": "2026-10-18",
+  "title": "Facebookの「Your algorithm」で、FeedとReelsのおすすめ関心を自分の言葉で調整",
+  "shortTitle": "Facebookのおすすめを言葉で調整",
+  "category": "media-literacy",
+  "difficulty": "beginner",
+  "targetAudience": ["FacebookのFeedやReelsを利用する人", "おすすめ表示を自分で調整したい人"],
+  "summary": "Metaは2026年10月13日、FacebookのFeedとReelsで、利用者が関心のある話題を自分の言葉で伝え、おすすめを調整する「Your algorithm」などの機能を段階的に導入すると発表しました。投稿の三点メニューから話題を追加・管理でき、「Interested（興味あり）」「Not interested（興味なし）」への回答後に理由を文章で補足できる場合もあります。Metaは入力内容と従来の反応シグナルをランキングに使い、同じセッション中におすすめを更新すると説明しています。ただしこれは表示傾向を調整する機能で、投稿の真偽を判定したり、見たい投稿だけを保証したりするものではありません。",
+  "scenario": {
+    "headline": "Facebookのおすすめが好みに合わず、ボタンを押しても理由を伝えきれない",
+    "description": "FeedやReelsに似た話題が続く。興味あり・なしを選んでも、どの種類を増やしたい／減らしたいのかを説明する方法が分からない。",
+    "whyItMatters": "Metaの新機能では、話題を管理する画面と、興味あり・なしの反応に文章の補足を加える選択肢が案内されています。利用者が推薦システムへ具体的な好みを伝える操作を知る一方、調整と情報の正確性確認を混同しないことが重要です。"
+  },
+  "question": {
+    "text": "Facebookのおすすめを自分の関心に近づけたいとき、どう操作する？",
+    "choices": [
+      {"id": "state-specific-preference", "label": "三点メニューからYour algorithmを開いて話題を管理し、必要なら興味あり／なしの理由も具体的に伝える", "description": "Metaが説明するFeed・Reels向けの関心調整を使う。"},
+      {"id": "treat-as-truth-filter", "label": "おすすめに出るよう設定した話題なら、投稿の正確さも確認済みだと考える", "description": "関心の調整は情報の真偽判定とは別の機能。"}
+    ],
+    "recommendedAnswers": ["state-specific-preference"],
+    "explanation": "Metaは、三点メニューから話題を追加・管理し、興味あり／なしへの回答に文章で補足できる機能を発表しました。これは推薦される話題を調整するためのもので、内容の真偽を保証する仕組みではありません。利用できる場合は、増減したい話題を具体的に伝え、表示された投稿は別途内容を判断しましょう。"
+  },
+  "inspectionPoints": [
+    {"title": "対象はFacebookのFeedとReels", "description": "MetaはYour algorithmをFeedとReelsで見たい話題を追加・管理する場所として紹介しています。他のFacebook領域や他のMetaアプリにも同じ設定が適用されるとは読み替えません。", "priority": "high"},
+    {"title": "投稿の三点メニューから関心を管理", "description": "Metaの案内では、投稿の三点メニューからYour algorithmへアクセスできます。自分の画面に項目がない場合は、段階的展開の対象外または未反映の可能性があります。", "priority": "high"},
+    {"title": "興味あり／なしに文章を補足できる場合", "description": "反応後に追加質問が表示される場合、どの特徴が好き／苦手かを自分の言葉で説明できます。Metaはランキングが入力内容や従来の反応を使い、同じセッション中に更新すると説明しています。", "priority": "medium"},
+    {"title": "おすすめ調整は真偽判定ではない", "description": "発表の対象は、関心や反応に応じた推薦の調整です。投稿が事実か、信頼できる発信者かを検証する機能としては説明されていません。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "推薦設定の用途と対象範囲を確認",
+  "verificationMessage": "関心設定はおすすめの調整です。表示された投稿の真偽や安全性を保証するものではありません。",
+  "verdict": {"label": "話題の希望を伝える機能として使い、事実確認とは分ける", "description": "MetaはFacebookのFeedとReelsに関する話題の追加・管理、自然文でのフィードバック機能を段階導入すると発表しました。おすすめを整える操作には使えますが、投稿の内容を検証する仕組みではありません。", "confidence": "high"},
+  "safeActions": [
+    {"action": "投稿の三点メニューにYour algorithmが表示される場合、話題を追加・管理する", "reason": "Metaが案内する関心調整の入口です。"},
+    {"action": "興味あり／なしの後に補足質問が出たら、増やしたい／減らしたい話題を具体的に書く", "reason": "具体的な自然文のフィードバックをランキング調整に使うとMetaは説明しています。"},
+    {"action": "設定の対象をFeedとReelsとして捉え、ほかの画面への適用は別に確認する", "reason": "公式発表が対象としているのはFeedとReelsです。"},
+    {"action": "おすすめに出た情報は、内容や発信元を別途確認してから判断する", "reason": "おすすめ調整は情報の正確性を検証する機能としては発表されていません。"}
+  ],
+  "avoidActions": [
+    {"action": "希望した話題が出てきたことを、その投稿の正確さの証拠にする", "reason": "推薦は関心に合わせるもので、真偽判定とは別です。"},
+    {"action": "機能が見当たらないだけで、自分のアカウントに不具合があると決めつける", "reason": "Metaは新機能を段階的に展開すると説明しており、提供状況が異なる可能性があります。"}
+  ],
+  "positiveUse": {"title": "関心のずれを具体的な言葉で修正", "description": "反応ボタンだけで伝わりにくい好みを話題単位で追加・整理し、FeedとReelsの見え方を自分の用途に近づけます。", "examples": ["見たい話題を追加", "減らしたい話題を明記", "補足質問に具体的な理由を入力", "おすすめ情報の出典は別途確認"]},
+  "makotoComment": "推薦に対して文章で好みを伝えられるのは、単に「興味なし」を押すより調整の意図を細かく伝えやすい点が特徴です。一方で、タイムラインを自分好みにする操作が、誤情報を除く操作に見えてしまわないよう、目的を分けて使うのが大切です。",
+  "oneLineLesson": "おすすめを自分好みに調整しても、投稿の正しさまでは判定されない。",
+  "tags": ["Facebook", "Your algorithm", "Feed", "Reels", "おすすめ", "推薦アルゴリズム", "メディアリテラシー"],
+  "sources": [{"title": "Your Algorithm, Your Words: New Ways to Shape What You See on Facebook", "publisher": "Meta Newsroom", "sourceType": "official-product-update", "publishedAt": "2026-10-13", "url": "https://about.fb.com/news/2026/10/introducing-your-algorithm-facebook/"}],
+  "visualSuggestion": {"mainVisual": "Facebookの投稿メニューから話題の追加・管理、興味あり／なしの文章補足へ進む流れと、真偽確認は別であることを示す図", "cardIcon": "facebook-feed-preferences", "accentTone": "practical"}
+}

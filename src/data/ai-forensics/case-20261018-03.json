@@ -1,0 +1,50 @@
+{
+  "id": "case-20261018-03",
+  "publishedAt": "2026-10-18",
+  "title": "Teams会議でCopilotを使うとき、録音・文字起こしとプロンプト保持を分けて確認",
+  "shortTitle": "Teams Copilotの記録範囲を確認",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["Microsoft Teams会議でCopilotを使う人", "会議の記録・保持設定を管理する担当者"],
+  "summary": "Microsoft Supportは、Teams会議で録音や文字起こしを作らずにCopilotを使う方法を案内しています。主催者は予定表の会議オプションでCopilotを「会議中のみ」に設定でき、このモードでは会議後のRecapでCopilotを使えず、文字起こしや録音も自動では作成されません。ただし、文字起こしがなくてもCopilotへのプロンプトと回答が保持され、組織の設定によってMicrosoft Purviewから検索・確認できる場合があります。つまり「会議を録音しない」と「Copilotとの対話が一切残らない」は同じではありません。会議前に管理者ポリシーと参加者への案内を確認しましょう。",
+  "scenario": {
+    "headline": "会議の音声記録は残したくないが、Copilotの要約や質問応答は使いたい",
+    "description": "機密性のある会議で録音・文字起こしを避けつつ、会議中だけCopilotに質問したい。会議終了後に会話や回答も完全に消えると思ってよいか迷っている。",
+    "whyItMatters": "Microsoftは会議中のみの利用設定を案内する一方、文字起こしなしでもCopilotとのプロンプトと応答は組織の保持・監査設定に応じて残り得ると説明しています。音声記録の有無と、AIへの入力記録の扱いを別々に確認する必要があります。"
+  },
+  "question": {
+    "text": "Teams会議で録音や文字起こしを残さずCopilotを使いたいとき、何を確認する？",
+    "choices": [
+      {"id": "check-meeting-mode-and-retention", "label": "会議オプションを「会議中のみ」にし、Copilotのプロンプト・回答は組織の保持設定で残り得る点も確認する", "description": "音声記録を作らない設定と、Copilot対話の保持を分けて扱う。"},
+      {"id": "assume-no-records", "label": "録音・文字起こしをオフにすれば、Copilotとの質問や回答も一切保存されないと考える", "description": "Microsoftはプロンプトと応答が保持・検索対象となり得ると説明している。"}
+    ],
+    "recommendedAnswers": ["check-meeting-mode-and-retention"],
+    "explanation": "Microsoftの案内では、主催者が会議オプションでCopilotを「会議中のみ」にすると録音・文字起こしなしで利用できますが、会議後のRecapではCopilotを利用できません。また、プロンプトと応答は組織の保持ポリシーに応じて保持され、Purviewから確認できる場合があります。録音設定だけで記録全体を判断しないでください。"
+  },
+  "inspectionPoints": [
+    {"title": "主催者が会議オプションで利用範囲を選ぶ", "description": "予定表上の会議のオプションでCopilotを「会議中のみ」に設定できます。組織の管理者設定や会議種別によって選択肢が異なる場合があります。", "priority": "high"},
+    {"title": "会議中のみなら録音・文字起こしなしで利用", "description": "Microsoftは、会議中のみのCopilot利用では録音や文字起こしを必須としないと案内しています。ただし文字起こしを有効にした場合、Copilotは音声のテキスト化に基づいて応答します。", "priority": "high"},
+    {"title": "会議後のRecapではCopilotを使えない", "description": "「会議中のみ」では会議後のCopilot機能は使えません。会議後にも要約等を使いたい場合は、文字起こし等を有効にする必要があるか会議設定と組織ルールを確認します。", "priority": "medium"},
+    {"title": "Copilotへのプロンプトと回答は別に保持され得る", "description": "録音・文字起こしがない場合でも、プロンプトとCopilotの応答は組織の保持ポリシーに従って保持され、Microsoft Purviewの検索・監査対象となる場合があります。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "会議設定と組織の保持ポリシーを確認",
+  "verificationMessage": "録音・文字起こしを止めても、Copilotとの対話が保持される場合があります。",
+  "verdict": {"label": "音声記録とCopilot対話の保存を別々に確認", "description": "Teamsでは会議中だけCopilotを利用し、録音・文字起こしを作らない設定が可能です。しかし、プロンプトと回答の保持は組織ポリシーに依存します。機密情報を扱う会議では管理者に保持・監査設定を確認し、Copilotへ入力する内容も慎重に選びます。", "confidence": "high"},
+  "safeActions": [
+    {"action": "会議の主催者は予定表の会議オプションでCopilotの利用範囲を確認する", "reason": "会議中のみの利用を選べる設定がMicrosoft Supportに案内されています。"},
+    {"action": "録音・文字起こしの設定と、プロンプト・回答の保持設定を管理者に別々に確認する", "reason": "音声記録がなくてもCopilot対話は保持対象となる場合があります。"},
+    {"action": "会議後のRecapが必要かを先に決め、文字起こしを有効にする場合は参加者に知らせる", "reason": "会議中のみモードでは会議後のCopilot利用ができず、文字起こしの扱いも変わります。"},
+    {"action": "Copilotに入力する質問へ、不要な個人情報や機密情報を含めない", "reason": "プロンプトと応答が組織の保持・監査対象になる可能性を考慮します。"}
+  ],
+  "avoidActions": [
+    {"action": "録音・文字起こしがオフなら、Copilotとの対話も残らないと説明する", "reason": "Microsoftはプロンプトと応答が組織ポリシーにより保持され得ると説明しています。"},
+    {"action": "会議中のみモードで会議後もCopilotのRecapが使えると思い込む", "reason": "Microsoftの案内では、このモードでは会議後にCopilotを利用できません。"}
+  ],
+  "positiveUse": {"title": "会議の目的に応じて記録を最小化", "description": "会議後に記録が必要か、AI対話をどの範囲で保持するかを事前に整理し、参加者と管理者の双方が分かる設定でCopilotを使います。", "examples": ["会議中のみの利用を選択", "録音と文字起こしの要否を決定", "Purview・保持ポリシーを管理者に確認", "会議参加者へ記録範囲を事前案内"]},
+  "makotoComment": "会議の録音を止めても、Copilotへの質問文と回答が別系統の記録として残る可能性がある点は見落としやすいところです。「音声ファイルがない」ことだけをプライバシー説明の根拠にせず、組織の保持ルールまで含めて参加者に伝える必要があります。",
+  "oneLineLesson": "録音なし設定でも、Copilotとの対話が残るかは別途確認する。",
+  "tags": ["Microsoft Teams", "Microsoft Copilot", "会議", "文字起こし", "録音", "Microsoft Purview", "データ保持"],
+  "sources": [{"title": "Use Copilot without transcribing or recording a Teams meeting or call", "publisher": "Microsoft Support", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.microsoft.com/en-us/teams/copilot/use-copilot-without-transcribing-or-recording-a-teams-meeting-or-call"}],
+  "visualSuggestion": {"mainVisual": "Teams会議の録音・文字起こしと、Copilotプロンプト・回答の保持を別々の箱に分けて示す図", "cardIcon": "teams-copilot-retention", "accentTone": "caution"}
+}
