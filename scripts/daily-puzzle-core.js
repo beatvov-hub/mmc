@@ -78,25 +78,78 @@
     return true;
   }
 
-  function validBinary(puzzle, grid) {
-    const n = puzzle.solution.length;
-    if (!grid || grid.length !== n || grid.some(row => row.length !== n || row.some(v => v !== 0 && v !== 1))) return false;
-    for (let r = 0; r < n; r++) {
-      if (grid[r].reduce((a, b) => a + b, 0) !== n / 2) return false;
-      if (grid[r].some((v, c) => c < n - 2 && v === grid[r][c + 1] && v === grid[r][c + 2])) return false;
-      for (let rr = 0; rr < r; rr++) if (same(grid[r], grid[rr])) return false;
+  function rushHourVehicleCells(puzzle, vehicle, position) {
+    const cells = [];
+    for (let offset = 0; offset < vehicle.length; offset++) {
+      const row = vehicle.orientation === "horizontal" ? vehicle.row : position + offset;
+      const col = vehicle.orientation === "horizontal" ? position + offset : vehicle.col;
+      if (inside(row, col, puzzle.size)) cells.push(row * puzzle.size + col);
     }
-    for (let c = 0; c < n; c++) {
-      let ones = 0;
-      for (let r = 0; r < n; r++) {
-        ones += grid[r][c];
-        if (r < n - 2 && grid[r][c] === grid[r + 1][c] && grid[r][c] === grid[r + 2][c]) return false;
+    return cells;
+  }
+
+  function moveRushHourVehicle(puzzle, positions, vehicleId, delta) {
+    const vehicle = puzzle.vehicles.find(item => item.id === vehicleId);
+    if (!vehicle || !Number.isInteger(delta) || delta === 0 || !positions || !Number.isInteger(positions[vehicleId])) return null;
+    const target = vehicle.id === puzzle.target;
+    if (target && (vehicle.orientation !== "horizontal" || vehicle.row !== puzzle.exit.row || puzzle.exit.side !== "right")) return null;
+    const occupied = new Set(puzzle.vehicles.filter(item => item.id !== vehicleId)
+      .flatMap(item => rushHourVehicleCells(puzzle, item, positions[item.id])));
+    const direction = Math.sign(delta), steps = Math.abs(delta);
+    let position = positions[vehicleId];
+    for (let step = 0; step < steps; step++) {
+      position += direction;
+      const maxPosition = target ? puzzle.size : puzzle.size - vehicle.length;
+      if (position < 0 || position > maxPosition) return null;
+      if (rushHourVehicleCells(puzzle, vehicle, position).some(cell => occupied.has(cell))) return null;
+    }
+    return { ...positions, [vehicleId]: position };
+  }
+
+  function starBattleConflicts(puzzle, marks) {
+    const conflicts = new Set();
+    if (!Array.isArray(marks) || marks.length !== puzzle.size * puzzle.size) return conflicts;
+    const stars = marks.flatMap((mark, cell) => mark === "star" ? [cell] : []);
+    const units = [
+      cell => Math.floor(cell / puzzle.size),
+      cell => cell % puzzle.size,
+      cell => puzzle.regions[Math.floor(cell / puzzle.size)][cell % puzzle.size]
+    ];
+    for (const unit of units) {
+      const counts = new Map();
+      for (const cell of stars) {
+        const key = unit(cell);
+        counts.set(key, (counts.get(key) || 0) + 1);
       }
-      if (ones !== n / 2) return false;
-      const column = grid.map(row => row[c]);
-      for (let cc = 0; cc < c; cc++) if (same(column, grid.map(row => row[cc]))) return false;
+      for (const cell of stars) if (counts.get(unit(cell)) > puzzle.starsPerUnit) conflicts.add(cell);
     }
-    return puzzle.givens.every((row, r) => row.every((v, c) => v === null || grid[r][c] === v));
+    for (let i = 0; i < stars.length; i++) for (let j = i + 1; j < stars.length; j++) {
+      const a = stars[i], b = stars[j];
+      if (Math.abs(Math.floor(a / puzzle.size) - Math.floor(b / puzzle.size)) <= 1 && Math.abs((a % puzzle.size) - (b % puzzle.size)) <= 1) {
+        conflicts.add(a); conflicts.add(b);
+      }
+    }
+    return conflicts;
+  }
+
+  function validStarBattle(puzzle, marks) {
+    if (!Array.isArray(marks) || marks.length !== puzzle.size * puzzle.size ||
+        marks.some(mark => mark !== null && mark !== "star" && mark !== "empty") ||
+        !Array.isArray(puzzle.regions) || puzzle.regions.length !== puzzle.size || puzzle.regions.some(row => row.length !== puzzle.size)) return false;
+    const stars = marks.flatMap((mark, cell) => mark === "star" ? [cell] : []);
+    const needed = puzzle.size * puzzle.starsPerUnit;
+    if (stars.length !== needed || starBattleConflicts(puzzle, marks).size) return false;
+    const regionCells = new Map();
+    puzzle.regions.flat().forEach(region => regionCells.set(region, (regionCells.get(region) || 0) + 1));
+    if (regionCells.size !== puzzle.size || [...regionCells.values()].some(count => count !== puzzle.size)) return false;
+    const rows = Array(puzzle.size).fill(0), columns = Array(puzzle.size).fill(0), regions = new Map();
+    for (const cell of stars) {
+      const row = Math.floor(cell / puzzle.size), col = cell % puzzle.size, region = puzzle.regions[row][col];
+      rows[row]++; columns[col]++; regions.set(region, (regions.get(region) || 0) + 1);
+    }
+    return rows.every(count => count === puzzle.starsPerUnit) &&
+      columns.every(count => count === puzzle.starsPerUnit) &&
+      [...regionCells.keys()].every(region => (regions.get(region) || 0) === puzzle.starsPerUnit);
   }
 
   function validNurikabe(puzzle, marks) {
@@ -200,14 +253,14 @@
     if (id === "picross") return same(state.marks, puzzle.solution);
     if (id === "sudoku") return same(state.grid, puzzle.solution);
     if (id === "sokoban") return same([...(state.boxes || [])].sort((a, b) => a - b), [...puzzle.goals].sort((a, b) => a - b));
-    if (id === "lightsout") return (state.lights || []).every(row => row.every(value => value === 0));
+    if (id === "rushhour") return Number.isInteger(state.positions?.[puzzle.target]) && state.positions[puzzle.target] === puzzle.size;
     if (id === "hitblow") return (state.history || []).some(entry => entry.guess === puzzle.answer && entry.hit === 4);
-    if (id === "binary") return validBinary(puzzle, state.grid);
+    if (id === "starbattle") return validStarBattle(puzzle, state.marks);
     if (id === "nurikabe") return validNurikabe(puzzle, state.marks);
     if (id === "shikaku") return validShikaku(puzzle, state.rectangles);
     if (id === "hashi") return validHashi(puzzle, state.bridges);
     return false;
   }
 
-  return { canPlaceSudoku, components, hasBridgeCrossing, hashiPairKeys, hitBlow, isSolved, mineHints, openMine, validBinary, validHashi, validNurikabe, validShikaku };
+  return { canPlaceSudoku, components, hasBridgeCrossing, hashiPairKeys, hitBlow, isSolved, mineHints, moveRushHourVehicle, openMine, starBattleConflicts, validHashi, validNurikabe, validShikaku, validStarBattle };
 });

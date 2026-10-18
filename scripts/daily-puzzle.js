@@ -6,6 +6,7 @@
   const Core = window.MmcDailyPuzzleCore;
   const STATE_KEY = "mmcDailyPuzzleState:v1";
   const CLEAR_KEY = "mmcDailyPuzzleClears:v1";
+  const ACTIVE_KEY = "mmcDailyPuzzleActive:v1";
   let puzzles = [];
   let states = {};
   let clears = [];
@@ -19,6 +20,7 @@
     try {
       localStorage.setItem(STATE_KEY, JSON.stringify(states));
       localStorage.setItem(CLEAR_KEY, JSON.stringify(clears));
+      localStorage.setItem(ACTIVE_KEY, activeId);
     } catch (_) { statusMessage = "このブラウザーでは進捗を保存できません。プレイは続けられます。"; }
   };
   const activePuzzle = () => puzzles.find(puzzle => puzzle.id === activeId);
@@ -29,9 +31,12 @@
     if (puzzle.id === "picross") return { marks: grid(puzzle.solution.length).map(row => row.map(() => -1)) };
     if (puzzle.id === "sudoku") return { grid: puzzle.givens.map(row => row.slice()), selected: null };
     if (puzzle.id === "sokoban") return { player: puzzle.player, boxes: puzzle.boxes.slice(), history: [] };
-    if (puzzle.id === "lightsout") return { lights: puzzle.initial.map(row => row.slice()) };
+    if (puzzle.id === "rushhour") return {
+      positions: Object.fromEntries(puzzle.vehicles.map(vehicle => [vehicle.id, vehicle.orientation === "horizontal" ? vehicle.col : vehicle.row])),
+      selected: puzzle.target, moves: 0, history: []
+    };
     if (puzzle.id === "hitblow") return { history: [], draft: "" };
-    if (puzzle.id === "binary") return { grid: puzzle.givens.map(row => row.slice()) };
+    if (puzzle.id === "starbattle") return { marks: Array(puzzle.size * puzzle.size).fill(null), mode: "star" };
     if (puzzle.id === "nurikabe") {
       const marks = Array(puzzle.size * puzzle.size).fill(null);
       puzzle.clues.forEach(clue => { marks[clue.cell] = 0; });
@@ -119,10 +124,25 @@
     return `${cellGrid(cells, puzzle.size, "dp-sokoban-board")}<div class="dp-direction-pad" aria-label="プレイヤー操作"><button type="button" data-action="move" data-direction="up" aria-label="上へ">↑</button><span><button type="button" data-action="move" data-direction="left" aria-label="左へ">←</button><button type="button" data-action="move" data-direction="down" aria-label="下へ">↓</button><button type="button" data-action="move" data-direction="right" aria-label="右へ">→</button></span></div><p class="dp-help">キーボードの方向キーでも動けます。箱の上の◎が目的地です。</p>`;
   }
 
-  function lightsMarkup(puzzle, s) {
-    const cells = s.lights.flatMap((row, r) => row.map((value, c) => cellButton("light-cell", r * puzzle.size + c,
-      `行${r + 1} 列${c + 1}、${value ? "点灯" : "消灯"}`, value ? "●" : "○", value ? "is-lit" : "is-unlit")));
-    return `${cellGrid(cells, puzzle.size, "dp-lights-board")}<p class="dp-help">盤面をよく見て、消灯する順序を考えてみましょう。</p>`;
+  function rushHourMarkup(puzzle, s) {
+    const floors = Array.from({ length: puzzle.size * puzzle.size }, (_, cell) => {
+      const row = Math.floor(cell / puzzle.size) + 1, col = cell % puzzle.size + 1;
+      return `<span class="dp-rush-floor" aria-hidden="true" style="grid-row:${row};grid-column:${col}"></span>`;
+    }).join("");
+    const cars = puzzle.vehicles.map((vehicle, index) => {
+      const position = s.positions[vehicle.id];
+      if (vehicle.id === puzzle.target && position >= puzzle.size) return "";
+      const row = vehicle.orientation === "horizontal" ? vehicle.row : position;
+      const col = vehicle.orientation === "horizontal" ? position : vehicle.col;
+      const gridRow = vehicle.orientation === "horizontal" ? `${row + 1} / span 1` : `${row + 1} / span ${vehicle.length}`;
+      const gridColumn = vehicle.orientation === "horizontal" ? `${col + 1} / span ${vehicle.length}` : `${col + 1} / span 1`;
+      return `<button type="button" class="dp-rush-car ${vehicle.target ? "is-target" : `car-${index % 5}`} ${s.selected === vehicle.id ? "is-selected" : ""}" data-action="rush-car" data-vehicle="${esc(vehicle.id)}" aria-label="${esc(vehicle.name)}、${vehicle.orientation === "horizontal" ? "横向き" : "縦向き"}、行${row + 1} 列${col + 1}${s.selected === vehicle.id ? "、選択中" : ""}" style="grid-row:${gridRow};grid-column:${gridColumn}">${vehicle.target ? "▶" : esc(vehicle.id)}</button>`;
+    }).join("");
+    const selected = puzzle.vehicles.find(vehicle => vehicle.id === s.selected) || puzzle.vehicles.find(vehicle => vehicle.id === puzzle.target);
+    const directions = selected.orientation === "horizontal" ? [{ dir: "left", label: "←" }, { dir: "right", label: "→" }] : [{ dir: "up", label: "↑" }, { dir: "down", label: "↓" }];
+    const controls = directions.map(({ dir, label }) => `<button type="button" data-action="rush-move" data-direction="${dir}" aria-label="選択した車を${dir === "left" ? "左" : dir === "right" ? "右" : dir === "up" ? "上" : "下"}へ1マス">${label}</button>`).join("");
+    const exitTop = ((puzzle.exit.row + 0.5) / puzzle.size) * 100;
+    return `<div class="dp-rush-wrap"><div class="dp-rush-board" role="group" aria-label="6行6列の駐車場。車を選び、向きに沿って動かします。">${floors}${cars}</div><span class="dp-rush-exit" style="top:${exitTop}%" aria-label="右側の出口">出口 →</span></div><div class="dp-rush-controls"><span>選択：${esc(selected.name)}</span><div class="dp-direction-pad" aria-label="選択した車の操作">${controls}</div></div><p class="dp-help">車をドラッグするか選択して矢印を押すと1マス動きます。移動：${s.moves}回</p>`;
   }
 
   function hitblowMarkup(puzzle, s) {
@@ -131,14 +151,22 @@
     return `<form class="dp-guess-form" data-action="guess-form"><label for="dp-guess">4桁の数字</label><input id="dp-guess" data-draft="guess" inputmode="numeric" autocomplete="off" maxlength="4" pattern="[0-9]{4}" value="${esc(s.draft || "")}" aria-describedby="dp-guess-note"${won ? " disabled" : ""}><button type="submit"${won ? " disabled" : ""}>推理する</button></form><p class="dp-help" id="dp-guess-note">同じ数字を重ねずに入力してください。次は ${s.history.length + 1} 回目。</p><ol class="dp-guess-history" aria-label="推理履歴">${rows || "<li class=dp-history-empty>推理の履歴はここに表示されます。</li>"}</ol>`;
   }
 
-  function binaryMarkup(puzzle, s) {
-    const n = puzzle.solution.length;
-    const cells = s.grid.flatMap((row, r) => row.map((value, c) => {
-      const fixed = puzzle.givens[r][c] !== null;
-      return cellButton("binary-cell", r * n + c, `行${r + 1} 列${c + 1}${fixed ? "、ヒント" : ""}${value === null ? "、未入力" : `、${value}`}`,
-        value === null ? "·" : value, `${fixed ? "is-given" : ""} ${value === 0 ? "is-zero" : value === 1 ? "is-one" : ""} ${c === 1 ? "dp-block-right" : ""} ${r === 1 ? "dp-block-bottom" : ""}`, fixed);
-    }));
-    return `${cellGrid(cells, n, "dp-binary-board")}<p class="dp-help">ヒントは固定です。空欄をタップして 0 → 1 → 空欄 と切り替えます。</p>`;
+  function starBattleMarkup(puzzle, s) {
+    const conflicts = Core.starBattleConflicts(puzzle, s.marks);
+    const cells = s.marks.map((mark, cell) => {
+      const row = Math.floor(cell / puzzle.size), col = cell % puzzle.size, region = puzzle.regions[row][col];
+      const boundary = [
+        row === 0 || puzzle.regions[row - 1][col] !== region ? "region-top" : "",
+        col === puzzle.size - 1 || puzzle.regions[row][col + 1] !== region ? "region-right" : "",
+        row === puzzle.size - 1 || puzzle.regions[row + 1][col] !== region ? "region-bottom" : "",
+        col === 0 || puzzle.regions[row][col - 1] !== region ? "region-left" : ""
+      ].join(" ");
+      const label = mark === "star" ? "星" : mark === "empty" ? "星なし" : "未記入";
+      return cellButton("star-cell", cell, `行${row + 1} 列${col + 1}、領域${Number(region) + 1}、${label}`, mark === "star" ? "★" : mark === "empty" ? "×" : "", `${boundary} ${mark === "star" ? "is-star" : mark === "empty" ? "is-excluded" : ""} ${conflicts.has(cell) ? "is-invalid" : ""}`);
+    });
+    const starCount = s.marks.filter(mark => mark === "star").length;
+    const starMode = s.mode === "star";
+    return `<div class="dp-star-tools"><button type="button" data-action="star-mode" data-mode="star" aria-pressed="${starMode}">★ 星を置く</button><button type="button" data-action="star-mode" data-mode="empty" aria-pressed="${!starMode}">× 星なし</button><span>星：${starCount} / ${puzzle.size}</span></div>${cellGrid(cells, puzzle.size, "dp-star-board")}<p class="dp-help">マスをタップして星または×を記入します。×はメモで、クリア判定には影響しません。赤く示された星はルールに重複があります。</p>`;
   }
 
   function nurikabeMarkup(puzzle, s) {
@@ -205,9 +233,9 @@
     if (puzzle.id === "picross") return picrossMarkup(puzzle, s);
     if (puzzle.id === "sudoku") return sudokuMarkup(puzzle, s);
     if (puzzle.id === "sokoban") return sokobanMarkup(puzzle, s);
-    if (puzzle.id === "lightsout") return lightsMarkup(puzzle, s);
+    if (puzzle.id === "rushhour") return rushHourMarkup(puzzle, s);
     if (puzzle.id === "hitblow") return hitblowMarkup(puzzle, s);
-    if (puzzle.id === "binary") return binaryMarkup(puzzle, s);
+    if (puzzle.id === "starbattle") return starBattleMarkup(puzzle, s);
     if (puzzle.id === "nurikabe") return nurikabeMarkup(puzzle, s);
     if (puzzle.id === "shikaku") return shikakuMarkup(puzzle, s);
     if (puzzle.id === "hashi") return hashiMarkup(puzzle, s);
@@ -220,7 +248,7 @@
     const done = clearCount(), gameDone = solved(puzzle), allDone = done === puzzles.length;
     const menu = puzzles.map(item => `<button type="button" class="dp-menu-item ${item.id === activeId ? "is-active" : ""} ${solved(item) ? "is-cleared" : ""}" data-action="select-game" data-game="${item.id}" aria-pressed="${item.id === activeId}" aria-label="${esc(item.name)}${solved(item) ? "、クリア済み" : ""}"><span class="dp-menu-icon" aria-hidden="true">${item.icon}</span><span>${esc(item.name)}</span>${solved(item) ? '<span class="dp-check" aria-hidden="true">✓</span>' : ""}</button>`).join("");
     const status = allDone ? `<div class="dp-all-clear" role="status"><span aria-hidden="true">✦</span><strong>10種類すべてクリア！</strong><span>MMC DAILY PUZZLE の全ジャンルを制覇しました。</span></div>` : "";
-    host.innerHTML = `<div class="dp-heading"><div><p class="section-kicker">MMC DAILY PUZZLE</p><h2 id="daily-puzzle-title">10種類のミニパズル</h2></div><p class="dp-progress" aria-live="polite"><strong>${done}</strong><span> / ${puzzles.length} 種類クリア</span></p></div><p class="dp-intro">全10ジャンルを各1問ずつ遊べる固定版です。問題は日替わりではありません。</p>${status}<nav class="dp-menu" aria-label="パズルを選ぶ">${menu}</nav><div class="dp-game-panel" aria-labelledby="dp-game-title"><div class="dp-game-heading"><div><p class="dp-puzzle-id">${esc(puzzle.puzzleId)}</p><h3 id="dp-game-title"><span aria-hidden="true">${puzzle.icon}</span> ${esc(puzzle.name)}${gameDone ? ' <span class="dp-title-check">✓クリア</span>' : ""}</h3></div><div class="dp-game-buttons">${puzzle.id === "sokoban" ? '<button type="button" data-action="undo">一手戻す</button>' : ""}${puzzle.id === "shikaku" ? '<button type="button" data-action="undo">長方形を戻す</button>' : ""}<button type="button" class="dp-restart" data-action="restart">リスタート</button></div></div><p class="dp-rule">${esc(puzzle.rule)}</p><p class="dp-status" role="status" aria-live="polite">${esc(statusMessage)}</p><div class="dp-playfield ${gameDone ? "is-cleared" : ""}">${renderGame(puzzle, state())}${gameDone ? '<div class="dp-clear-banner" role="status"><span aria-hidden="true">✓</span><strong>クリア！</strong><span>このパズルの記録を保存しました。</span></div>' : ""}</div></div>`;
+    host.innerHTML = `<div class="dp-heading"><div><p class="section-kicker">MMC DAILY PUZZLE</p><h2 id="daily-puzzle-title">10種類のミニパズル</h2></div><p class="dp-progress" aria-live="polite"><strong>${done}</strong><span> / ${puzzles.length} 種類クリア</span></p></div><p class="dp-intro">全10ジャンルを各1問ずつ遊べる固定版です。問題は日替わりではありません。</p>${status}<nav class="dp-menu" aria-label="パズルを選ぶ">${menu}</nav><div class="dp-game-panel" aria-labelledby="dp-game-title"><div class="dp-game-heading"><div><p class="dp-puzzle-id">${esc(puzzle.puzzleId)}</p><h3 id="dp-game-title"><span aria-hidden="true">${puzzle.icon}</span> ${esc(puzzle.name)}${gameDone ? ' <span class="dp-title-check">✓クリア</span>' : ""}</h3></div><div class="dp-game-buttons">${puzzle.id === "sokoban" || puzzle.id === "rushhour" ? '<button type="button" data-action="undo">一手戻す</button>' : ""}${puzzle.id === "shikaku" ? '<button type="button" data-action="undo">長方形を戻す</button>' : ""}<button type="button" class="dp-restart" data-action="restart">リスタート</button></div></div><p class="dp-rule">${esc(puzzle.rule)}</p><p class="dp-status" role="status" aria-live="polite">${esc(statusMessage)}</p><div class="dp-playfield ${gameDone ? "is-cleared" : ""}">${renderGame(puzzle, state())}${gameDone ? '<div class="dp-clear-banner" role="status"><span aria-hidden="true">✓</span><strong>クリア！</strong><span>このパズルの記録を保存しました。</span></div>' : ""}</div></div>`;
     if (focus) {
       const target = host.querySelector(focus);
       if (target && !target.disabled) target.focus({ preventScroll: true });
@@ -247,6 +275,25 @@
     persistRender(`[data-action="move"][data-direction="${direction}"]`);
   }
 
+  function moveRushCar(vehicleId, delta) {
+    const puzzle = activePuzzle(), s = state();
+    if (!Number.isInteger(delta) || delta === 0) return;
+    const direction = Math.sign(delta), steps = Math.min(Math.abs(delta), puzzle.size);
+    let moved = 0;
+    for (let step = 0; step < steps; step++) {
+      const nextPositions = Core.moveRushHourVehicle(puzzle, s.positions, vehicleId, direction);
+      if (!nextPositions) break;
+      s.history.push({ positions: { ...s.positions }, moves: s.moves, selected: s.selected });
+      s.positions = nextPositions;
+      s.moves++;
+      moved++;
+    }
+    s.selected = vehicleId;
+    if (!moved) { statusMessage = "その方向には動かせません。車や駐車場の端を確認してください。"; return render(); }
+    statusMessage = moved < steps ? "前方がふさがっているため、動けるところまで移動しました。" : "車を移動しました。";
+    persistRender(`[data-action="rush-car"][data-vehicle="${vehicleId}"]`);
+  }
+
   function clickCell(action, cell) {
     const puzzle = activePuzzle(), s = state(), n = puzzle.size;
     if (action === "mine-cell") {
@@ -258,12 +305,10 @@
       s.marks[r][c] = s.marks[r][c] === -1 ? 1 : s.marks[r][c] === 1 ? 0 : -1;
     } else if (action === "sudoku-cell") {
       s.selected = cell;
-    } else if (action === "light-cell") {
-      const r = Math.floor(cell / n), c = cell % n;
-      for (const [y, x] of [[r, c], [r - 1, c], [r + 1, c], [r, c - 1], [r, c + 1]]) if (y >= 0 && x >= 0 && y < n && x < n) s.lights[y][x] ^= 1;
-    } else if (action === "binary-cell") {
-      const r = Math.floor(cell / n), c = cell % n;
-      s.grid[r][c] = s.grid[r][c] === null ? 0 : s.grid[r][c] === 0 ? 1 : null;
+    } else if (action === "star-cell") {
+      const mark = s.mode === "star" ? "star" : "empty";
+      s.marks[cell] = s.marks[cell] === mark ? null : mark;
+      statusMessage = mark === "star" ? "星を置きました。" : "星なしのメモを付けました。";
     } else if (action === "nurikabe-cell") {
       s.marks[cell] = s.marks[cell] === null ? 0 : s.marks[cell] === 0 ? 1 : null;
     } else if (action === "shikaku-cell") {
@@ -281,7 +326,7 @@
         s.corner = null;
       }
     }
-    if (action !== "shikaku-cell" && action !== "sudoku-cell") statusMessage = "操作を反映しました。";
+    if (action !== "shikaku-cell" && action !== "sudoku-cell" && action !== "star-cell") statusMessage = "操作を反映しました。";
     persistRender(action === "sudoku-cell" ? `[data-action="sudoku-cell"][data-cell="${cell}"]` : `[data-action="${action}"][data-cell="${cell}"]`);
   }
 
@@ -301,12 +346,22 @@
     if (!button || !host.contains(button)) return;
     const action = button.dataset.action;
     if (action === "select-game") {
-      activeId = button.dataset.game; statusMessage = "ゲームを選んで遊んでください。"; render(`[data-action="select-game"][data-game="${activeId}"]`); return;
+      activeId = puzzles.some(puzzle => puzzle.id === button.dataset.game) ? button.dataset.game : "minesweeper";
+      statusMessage = "ゲームを選んで遊んでください。"; save(); render(`[data-action="select-game"][data-game="${activeId}"]`); return;
     }
+    if (action === "rush-car") { state().selected = button.dataset.vehicle; statusMessage = "車を選びました。矢印ボタンかドラッグで動かせます。"; save(); return render(); }
+    if (action === "rush-move") {
+      const vehicle = activePuzzle().vehicles.find(item => item.id === state().selected);
+      const direction = button.dataset.direction;
+      const delta = vehicle.orientation === "horizontal" ? (direction === "left" ? -1 : direction === "right" ? 1 : 0) : (direction === "up" ? -1 : direction === "down" ? 1 : 0);
+      return moveRushCar(vehicle.id, delta);
+    }
+    if (action === "star-mode") { state().mode = button.dataset.mode; statusMessage = state().mode === "star" ? "星を置くモードです。" : "星なしのメモを付けるモードです。"; save(); return render(); }
     if (action === "restart") return restart();
     if (action === "undo") {
       const s = state();
       if (activeId === "sokoban") { const previous = s.history.pop(); if (previous) { s.player = previous.player; s.boxes = previous.boxes; } }
+      else if (activeId === "rushhour") { const previous = s.history.pop(); if (previous) { s.positions = previous.positions; s.moves = previous.moves; s.selected = previous.selected; } }
       else if (activeId === "shikaku") { s.rectangles.pop(); s.corner = null; }
       statusMessage = "ひとつ前の操作を戻しました。"; return persistRender('[data-action="undo"]');
     }
@@ -340,9 +395,13 @@
 
   function initialize(data) {
     puzzles = data.games;
-    const savedStates = readStore(STATE_KEY, {}), savedClears = readStore(CLEAR_KEY, []);
+    const storedStates = readStore(STATE_KEY, {}), savedClears = readStore(CLEAR_KEY, []);
+    const savedStates = storedStates && typeof storedStates === "object" && !Array.isArray(storedStates) ? storedStates : {};
+    const savedActive = readStore(ACTIVE_KEY, savedStates.activeId || "minesweeper");
+    activeId = puzzles.some(puzzle => puzzle.id === savedActive) ? savedActive : "minesweeper";
     clears = puzzles.map(puzzle => puzzle.puzzleId).filter(id => Array.isArray(savedClears) && savedClears.includes(id));
     for (const puzzle of puzzles) states[puzzle.id] = savedStates[puzzle.id] || freshState(puzzle);
+    save();
     host.addEventListener("click", event => actionClick(event.target));
     host.addEventListener("contextmenu", event => {
       const cell = event.target.closest('[data-action="mine-cell"]');
@@ -358,6 +417,25 @@
       if (!event.target.matches('[data-action="guess-form"]')) return;
       event.preventDefault(); solveGuess(event.target);
     });
+    let rushGesture = null;
+    host.addEventListener("pointerdown", event => {
+      const button = event.target.closest('button[data-action="rush-car"]');
+      if (!button || activeId !== "rushhour") return;
+      const board = host.querySelector(".dp-rush-board"), rect = board?.getBoundingClientRect();
+      if (!rect || !rect.width || !rect.height) return;
+      const vehicle = activePuzzle().vehicles.find(item => item.id === button.dataset.vehicle);
+      rushGesture = { id: vehicle.id, orientation: vehicle.orientation, x: event.clientX, y: event.clientY, cellWidth: rect.width / activePuzzle().size, cellHeight: rect.height / activePuzzle().size };
+      if (button.setPointerCapture && event.pointerId !== undefined) { try { button.setPointerCapture(event.pointerId); } catch (_) {} }
+    });
+    host.addEventListener("pointerup", event => {
+      if (!rushGesture) return;
+      const gesture = rushGesture; rushGesture = null;
+      const distance = gesture.orientation === "horizontal" ? event.clientX - gesture.x : event.clientY - gesture.y;
+      const unit = gesture.orientation === "horizontal" ? gesture.cellWidth : gesture.cellHeight;
+      const delta = Math.round(distance / unit);
+      if (delta) { if (event.preventDefault) event.preventDefault(); state().selected = gesture.id; moveRushCar(gesture.id, delta); }
+    });
+    host.addEventListener("pointercancel", () => { rushGesture = null; });
     document.addEventListener("keydown", event => {
       if (activeId !== "sokoban" || !host.querySelector(".dp-playfield")?.contains(document.activeElement) || event.altKey || event.ctrlKey || event.metaKey || /input|textarea/i.test(document.activeElement?.tagName || "")) return;
       const directions = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right" };

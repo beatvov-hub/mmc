@@ -9,9 +9,9 @@ const solvedStates = () => ({
   picross: { marks: at('picross').solution.map(row => row.slice()) },
   sudoku: { grid: at('sudoku').solution.map(row => row.slice()) },
   sokoban: { player: at('sokoban').player, boxes: at('sokoban').goals.slice() },
-  lightsout: { lights: Array.from({ length: 3 }, () => [0, 0, 0]) },
+  rushhour: { positions: { R: 6, A: 2, B: 2, C: 0, D: 3, E: 0 } },
   hitblow: { history: [{ guess: at('hitblow').answer, hit: 4, blow: 0 }] },
-  binary: { grid: at('binary').solution.map(row => row.slice()) },
+  starbattle: { marks: Array.from({ length: 25 }, (_, cell) => [0, 7, 14, 16, 23].includes(cell) ? 'star' : null) },
   nurikabe: { marks: at('nurikabe').solution.flat().map(value => value ? 0 : 1) },
   shikaku: { rectangles: [[0, 0, 1, 1], [0, 2, 1, 2], [0, 3, 1, 4], [2, 0, 4, 1], [2, 2, 2, 4], [3, 2, 4, 4]] },
   hashi: { bridges: { 'A|B': 1, 'B|C': 1, 'A|D': 1, 'D|E': 1, 'E|F': 1, 'C|F': 1 } }
@@ -32,9 +32,9 @@ test('rejects incomplete or incorrect solved states for every game', () => {
   wrong.picross.marks[0][0] = 1;
   wrong.sudoku.grid[0][0] = 2;
   wrong.sokoban.boxes.pop();
-  wrong.lightsout.lights[1][1] = 1;
+  wrong.rushhour.positions.R = 5;
   wrong.hitblow.history = [{ guess: '1234', hit: 0, blow: 0 }];
-  wrong.binary.grid[0][0] = 1;
+  wrong.starbattle.marks[1] = 'star';
   wrong.nurikabe.marks[2] = 0;
   wrong.shikaku.rectangles.pop();
   delete wrong.hashi.bridges['A|D'];
@@ -59,14 +59,30 @@ test('hit and blow scoring handles zero and counts each unique digit once', () =
   assert.deepEqual(core.hitBlow('4271', '0274'), { hit: 2, blow: 1 });
 });
 
-test('binary puzzle solution is unique under its published givens', () => {
-  const puzzle = at('binary');
-  let count = 0;
-  for (let mask = 0; mask < 2 ** 16; mask++) {
-    const grid = Array.from({ length: 4 }, (_, r) => Array.from({ length: 4 }, (_, c) => (mask >> (r * 4 + c)) & 1));
-    if (core.validBinary(puzzle, grid)) count++;
+test('Star Battle has exactly one solution under rows, columns, regions and adjacency', () => {
+  const puzzle = at('starbattle'), n = puzzle.size, solutions = [];
+  const columns = new Set(), chosen = [];
+  function search(row) {
+    if (solutions.length > 1) return;
+    if (row === n) {
+      const marks = Array(n * n).fill(null);
+      chosen.forEach(cell => { marks[cell] = 'star'; });
+      if (core.validStarBattle(puzzle, marks)) solutions.push(chosen.slice());
+      return;
+    }
+    for (let col = 0; col < n; col++) {
+      const region = puzzle.regions[row][col];
+      if (columns.has(col) || chosen.some(cell => Math.abs(Math.floor(cell / n) - row) <= 1 && Math.abs(cell % n - col) <= 1) || chosen.some(cell => puzzle.regions[Math.floor(cell / n)][cell % n] === region)) continue;
+      columns.add(col); chosen.push(row * n + col); search(row + 1); chosen.pop(); columns.delete(col);
+    }
   }
-  assert.equal(count, 1);
+  search(0);
+  assert.deepEqual(solutions, [[0, 7, 14, 16, 23]]);
+  for (let region = 0; region < n; region++) {
+    const regionCells = Array.from({ length: n * n }, (_, cell) => cell).filter(cell => puzzle.regions[Math.floor(cell / n)][cell % n] === region);
+    assert.equal(regionCells.length, n);
+    assert.equal(core.components(regionCells, n).length, 1, `region ${region} is connected`);
+  }
 });
 
 test('mini sudoku solution is unique and invalid duplicate input is rejected', () => {
@@ -132,20 +148,30 @@ test('sokoban fixed stage has a route to all goals', () => {
   assert.equal(solved, true);
 });
 
-test('lights out starting board is reachable', () => {
-  const puzzle = at('lightsout'), initial = puzzle.initial.flat();
-  let solved = false;
-  for (let mask = 0; mask < 2 ** initial.length; mask++) {
-    const board = initial.slice();
-    for (let cell = 0; cell < board.length; cell++) if (mask & (1 << cell)) {
-      const r = Math.floor(cell / puzzle.size), c = cell % puzzle.size;
-      for (const [y, x] of [[r, c], [r - 1, c], [r + 1, c], [r, c - 1], [r, c + 1]]) {
-        if (y >= 0 && x >= 0 && y < puzzle.size && x < puzzle.size) board[y * puzzle.size + x] ^= 1;
-      }
+test('Rush Hour stage is solvable and its shortest solution requires several ordered moves', () => {
+  const puzzle = at('rushhour'), ids = puzzle.vehicles.map(vehicle => vehicle.id);
+  const initial = Object.fromEntries(puzzle.vehicles.map(vehicle => [vehicle.id, vehicle.orientation === 'horizontal' ? vehicle.col : vehicle.row]));
+  const key = positions => ids.map(id => positions[id]).join(',');
+  const queue = [{ positions: initial, distance: 0 }], seen = new Set([key(initial)]);
+  let distance = null;
+  for (let index = 0; index < queue.length && distance === null; index++) {
+    const current = queue[index];
+    if (current.positions.R >= puzzle.size) { distance = current.distance; break; }
+    for (const vehicle of puzzle.vehicles) for (const delta of [-1, 1]) {
+      const next = core.moveRushHourVehicle(puzzle, current.positions, vehicle.id, delta);
+      if (!next || seen.has(key(next))) continue;
+      seen.add(key(next)); queue.push({ positions: next, distance: current.distance + 1 });
     }
-    if (board.every(value => value === 0)) { solved = true; break; }
   }
-  assert.equal(solved, true);
+  assert.equal(distance, 9);
+  assert.equal(core.moveRushHourVehicle(puzzle, initial, 'R', 1), null, 'red car is blocked initially');
+  assert.equal(core.moveRushHourVehicle(puzzle, initial, 'A', -1), null, 'car A cannot pass through car B');
+  assert.equal(core.moveRushHourVehicle(puzzle, initial, 'B', 1), null, 'car B cannot pass through car C');
+  const moved = core.moveRushHourVehicle(puzzle, initial, 'C', 1);
+  assert.equal(moved.C, 1);
+  assert.equal(core.moveRushHourVehicle(puzzle, moved, 'C', -2), null, 'a vehicle cannot pass through the edge');
+  assert.equal(core.isSolved(puzzle, { positions: { ...initial, R: 5 } }), false);
+  assert.equal(core.isSolved(puzzle, { positions: { ...initial, R: 99 } }), false, 'out-of-range saved state is not a clear');
 });
 
 test('shikaku and nurikabe answer data obey their region rules', () => {

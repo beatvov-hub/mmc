@@ -5,8 +5,8 @@ const vm = require('node:vm');
 const puzzles = require('../src/data/dailyPuzzle.json').games;
 const core = require('../scripts/daily-puzzle-core.js');
 
-async function mount() {
-  const listeners = {}, values = new Map();
+async function mount(seed = {}) {
+  const listeners = {}, values = new Map(Object.entries(seed));
   const host = {
     innerHTML: '',
     addEventListener(name, handler) { listeners[name] = handler; },
@@ -75,19 +75,21 @@ test('all ten game controls can reach their fixed clear states and persist achie
   for (const direction of ['right', 'left', 'up', 'right']) ui.click('move', { direction });
   assert.match(ui.host.innerHTML, /倉庫番.*クリア/s);
 
-  ui.select('lightsout');
-  for (const index of [1, 2, 5, 8]) ui.cell('light-cell', index);
-  assert.match(ui.host.innerHTML, /ライトアウト.*クリア/s);
+  ui.select('rushhour');
+  ui.click('rush-car', { vehicle: 'C' }); ui.click('rush-move', { direction: 'down' }); ui.click('undo');
+  ui.click('rush-car', { vehicle: 'C' }); for (let step = 0; step < 3; step++) ui.click('rush-move', { direction: 'down' });
+  ui.click('rush-car', { vehicle: 'B' }); ui.click('rush-move', { direction: 'right' });
+  ui.click('rush-car', { vehicle: 'A' }); ui.click('rush-move', { direction: 'up' });
+  ui.click('rush-car', { vehicle: 'R' });
+  for (let step = 0; step < 6; step++) ui.click('rush-move', { direction: 'right' });
+  assert.match(ui.host.innerHTML, /車脱出パズル.*クリア/s);
 
   ui.select('hitblow'); ui.submit('4271');
   assert.match(ui.host.innerHTML, /ヒット＆ブロー.*クリア/s);
 
-  ui.select('binary');
-  const binary = puzzles.find(puzzle => puzzle.id === 'binary');
-  binary.givens.forEach((row, r) => row.forEach((given, c) => {
-    if (given === null) { const index = r * 4 + c; ui.cell('binary-cell', index); if (binary.solution[r][c] === 1) ui.cell('binary-cell', index); }
-  }));
-  assert.match(ui.host.innerHTML, /0と1パズル.*クリア/s);
+  ui.select('starbattle');
+  for (const index of [0, 7, 14, 16, 23]) ui.cell('star-cell', index);
+  assert.match(ui.host.innerHTML, /スターバトル.*クリア/s);
 
   ui.select('nurikabe');
   const nuri = puzzles.find(puzzle => puzzle.id === 'nurikabe');
@@ -114,4 +116,18 @@ test('all ten game controls can reach their fixed clear states and persist achie
   ui.click('restart');
   assert.match(ui.host.innerHTML, /10種類すべてクリア/);
   assert.equal(JSON.parse(ui.localStorage.getItem('mmcDailyPuzzleClears:v1')).length, 10);
+});
+
+test('replaces obsolete game progress without losing the other eight achievements', async () => {
+  const ui = await mount({
+    'mmcDailyPuzzleClears:v1': JSON.stringify(['mine-001', 'picross-001', 'sudoku-001', 'sokoban-001', 'lightsout-001', 'hitblow-001', 'binary-001']),
+    'mmcDailyPuzzleState:v1': JSON.stringify({ lightsout: { lights: [] }, binary: { grid: [] } }),
+    'mmcDailyPuzzleActive:v1': 'lightsout'
+  });
+  assert.match(ui.host.innerHTML, /10種類のミニパズル/);
+  assert.doesNotMatch(ui.host.innerHTML, /0と1パズル|ライトアウト/);
+  assert.equal(JSON.parse(ui.localStorage.getItem('mmcDailyPuzzleClears:v1')).length, 5);
+  assert.equal(JSON.parse(ui.localStorage.getItem('mmcDailyPuzzleState:v1')).lightsout, undefined);
+  assert.equal(JSON.parse(ui.localStorage.getItem('mmcDailyPuzzleState:v1')).binary, undefined);
+  assert.equal(ui.localStorage.getItem('mmcDailyPuzzleActive:v1'), 'minesweeper');
 });
