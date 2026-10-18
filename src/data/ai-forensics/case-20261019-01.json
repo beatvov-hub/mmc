@@ -1,0 +1,53 @@
+{
+  "id": "case-20261019-01",
+  "publishedAt": "2026-10-19",
+  "title": "GoogleのAI検索にGmailをつなぐ前に　学習・人の確認・履歴削除を知る",
+  "shortTitle": "Google検索へのGmail連携を確認",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["Google検索のAI機能を使う人", "GmailやGoogleフォトを検索AIに接続するか迷っている人"],
+  "summary": "Googleは2026年10月16日、WorkspaceアプリをGoogleの検索サービスへ接続する機能について説明を更新し、Google Search Helpでデータ利用や設定方法を案内しています。接続すると、AI ModeやGoogle MapsのAsk Mapsが、関連するメール・ファイル・写真の情報を回答の個人化に使う場合があります。Googleは受信トレイ全体や写真ライブラリそのものを直接学習させるのではなく、関連情報の要約・抜粋・推測などをサービス改善や生成AIモデルの学習に使う場合があると説明しています。接続を解除してもSearch Services Historyのデータは自動削除されないため、連携設定と検索履歴の削除は別々に確認しましょう。",
+  "scenario": {
+    "headline": "検索AIにGmailをつなげば便利そうだが、メールの内容や履歴がどう使われるか分からない",
+    "description": "旅行先や予約情報を検索AIに尋ねたい。GmailやGoogleフォトを接続すると何が参照され、解除すればデータも消えるのか知りたい。",
+    "whyItMatters": "Googleの現行ヘルプは、接続後に検索AIが関連するメール等を参照する仕組みと、要約・抜粋・推測がサービス改善やモデル学習に使われる場合があることを説明しています。連携の解除と検索履歴の削除が別操作である点も明示されています。"
+  },
+  "question": {
+    "text": "GmailなどをGoogle検索のAI機能へ接続する前後に、どの設定を確認する？",
+    "choices": [
+      {"id": "check-connection-and-history", "label": "接続するデータと利用目的を確認し、不要になったら連携解除に加えてSearch Services Historyも確認・削除する", "description": "接続解除だけでは検索サービス履歴のデータは消えない。"},
+      {"id": "assume-disconnect-deletes", "label": "Googleアプリ連携を解除すれば、関連する検索履歴やAI処理データもすべて自動で消えると考える", "description": "GoogleはSearch Services Historyを別に管理・削除するよう案内している。"}
+    ],
+    "recommendedAnswers": ["check-connection-and-history"],
+    "explanation": "Google Search Helpによると、アプリ接続を解除してもSearch Services Historyに保存されたデータは削除されず、サービス改善等に使われる可能性があります。接続する前に利用目的を確認し、不要になった場合は連携設定と検索サービス履歴をそれぞれ確認しましょう。"
+  },
+  "inspectionPoints": [
+    {"title": "接続で検索サービスが個人の文脈を参照", "description": "Googleの説明では、接続後にAI ModeやAsk Mapsが関連するGmail等の情報を参照し、検索回答や案内を個人化する場合があります。検索サービスにはSearchだけでなくMaps等も含まれます。", "priority": "high"},
+    {"title": "受信トレイ全体を直接学習する説明ではない", "description": "GoogleはGmail等の受信トレイ全体やGoogleフォトの画像・音声を直接モデル学習させるのではなく、関連情報の要約・抜粋・生成メディア・推測などを使う場合があると説明しています。ただし短い／関連性の高いメールでは要約がメール自体になる場合もあるとしています。", "priority": "high"},
+    {"title": "一部の関連処理は人が確認する場合がある", "description": "GoogleはAI ModeやAsk Mapsで処理された関連情報の一部が、サービスのデバッグ、安全確保、改善のため人の確認対象になる場合があると説明しています。", "priority": "high"},
+    {"title": "連携解除と検索履歴削除は別", "description": "接続アプリを解除したり、アプリ側のデータを削除したりしてもSearch Services Historyのデータは自動削除されません。Googleは履歴を別に管理・削除するよう案内しています。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "接続範囲・データ利用・履歴を公式ヘルプで確認",
+  "verificationMessage": "Gmail連携の解除と検索AIの履歴削除は別の設定です。接続前に利用範囲を確認しましょう。",
+  "verdict": {"label": "接続は任意。要約等の利用と履歴の残り方まで見て選ぶ", "description": "Googleの説明では、接続したGoogleコンテンツアプリの関連情報がAI検索の回答に使われ、サービス改善やモデル学習、人による確認に使われる場合があります。接続しなくてもAI ModeやAsk Maps自体は利用できます。機密情報を含むアカウントでは、利便性とデータ利用を比べて判断しましょう。", "confidence": "high"},
+  "safeActions": [
+    {"action": "GoogleアカウントのSearch Services PersonalizationからConnected Content Appsの接続状態を確認する", "reason": "Googleは接続設定の画面経路を案内しています。"},
+    {"action": "接続前に、関連メール等の要約・抜粋・推測が回答やサービス改善に使われる場合があることを確認する", "reason": "Google Search Helpにデータの利用目的と対象が記載されています。"},
+    {"action": "個人情報・機密情報をAI検索に渡したくない場合は、コンテンツアプリを接続しない選択をする", "reason": "接続は任意で、Googleは接続しなくてもAI ModeやAsk Mapsが使えると説明しています。"},
+    {"action": "接続を解除した後、必要ならSearch Services Historyを別途確認して削除する", "reason": "連携解除やアプリ内データ削除だけでは検索サービス履歴は消えません。"}
+  ],
+  "avoidActions": [
+    {"action": "接続を解除すれば関連履歴や学習利用の対象も自動で消えると思い込む", "reason": "GoogleはSearch Services Historyが別に残り得ると説明しています。"},
+    {"action": "『受信トレイ全体は直接学習しない』という記述だけを見て、メール由来の要約や推測が学習に使われないと解釈する", "reason": "Googleは関連情報の要約等を学習に使う場合があり、要約がメール自体となる場合もあると説明しています。"}
+  ],
+  "positiveUse": {"title": "便利さに必要なデータだけを接続", "description": "AI検索に個人の文脈を参照させたいか、接続対象や履歴の扱いを理解してから選び、不要になったら接続と検索履歴を別々に見直します。", "examples": ["接続対象アプリの確認", "機密情報の有無を点検", "Search Services Personalizationの見直し", "Search Services Historyの確認・削除"]},
+  "makotoComment": "「受信トレイをそのまま丸ごと学習するわけではない」という説明と、「関連情報の要約等を学習や人の確認に使う場合がある」という説明は、両方セットで読む必要があります。さらに解除と履歴削除が別なので、設定をオフにしただけで後片付けが済んだと思わないことが今回の要点です。",
+  "oneLineLesson": "Google検索にGmailをつなぐなら、連携解除だけでなく検索履歴も別に確認する。",
+  "tags": ["Google Search", "AI Mode", "Gmail", "Google Workspace", "Google Maps", "データ利用", "プライバシー"],
+  "sources": [
+    {"title": "Connect your Workspace apps with the Gemini app for a quick, easy assist.", "publisher": "Google Blog", "sourceType": "official-product-update", "publishedAt": "2025-07-16", "url": "https://blog.google/products-and-platforms/products/workspace/workspace-june-drop-gemini-workspace-apps/"},
+    {"title": "Connect your Google content apps to get a Search services experience that's tailored to you", "publisher": "Google Search Help", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.google.com/websearch/answer/16859283"}
+  ],
+  "visualSuggestion": {"mainVisual": "Google Searchの個人化にGmail等を接続した場合のデータ経路と、連携解除・検索履歴削除が別操作であることを示す図", "cardIcon": "google-search-connected-apps-privacy", "accentTone": "caution"}
+}

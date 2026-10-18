@@ -1,0 +1,50 @@
+{
+  "id": "case-20261019-03",
+  "publishedAt": "2026-10-19",
+  "title": "Meta AIの保護者向け見守り　見えるのは会話全文ではなく話題",
+  "shortTitle": "Meta AIで保護者が確認できる範囲",
+  "category": "media-literacy",
+  "difficulty": "beginner",
+  "targetAudience": ["Meta AIを利用する10代の保護者", "家庭で生成AIの利用ルールを話し合いたい人"],
+  "summary": "Metaは2026年10月5日、Meta AIアプリにも保護者による見守り機能を世界で提供すると発表しました。見守りを設定すると、保護者は子どもがMeta AIに尋ねた話題を過去7日分確認できますが、会話そのものは見られません。Meta AIアプリでは初期設定の13+より制限を強める「Limited Content」も選べ、見守り設定はアプリまたはFamily Centerから行えます。これは会話を常時読む機能ではなく、話題をきっかけに親子で話すための仕組みです。表示範囲と制限設定の意味を確認し、監視の代わりに対話の入口として使いましょう。",
+  "scenario": {
+    "headline": "子どもがAIに何を相談しているか心配だが、会話を全部読むのは適切か迷う",
+    "description": "10代がMeta AIを使い始めた。保護者設定を使えば会話内容まで見えるのか、より制限の強いモードはどこで選ぶのか知りたい。",
+    "whyItMatters": "Metaの見守り機能は過去7日間の話題を共有しますが、会話全文は共有しません。できること・できないことを理解してから設定し、話題を親子の会話につなげることが重要です。"
+  },
+  "question": {
+    "text": "Meta AIの保護者向け見守りを設定すると、保護者には何が見える？",
+    "choices": [
+      {"id": "topics-not-conversations", "label": "過去7日分に尋ねた話題を確認できるが、会話そのものは見えないと理解し、必要ならLimited Contentも検討する", "description": "話題の把握と会話全文の閲覧は別の機能。"},
+      {"id": "full-conversation-monitoring", "label": "子どものMeta AIとの会話全文を保護者がいつでも読めると考える", "description": "Metaは見守りで見えるのは話題で、会話自体は見えないと説明している。"}
+    ],
+    "recommendedAnswers": ["topics-not-conversations"],
+    "explanation": "Metaの2026年10月5日更新によると、保護者は過去7日分の話題を確認できますが、会話自体は見られません。Meta AIアプリでは初期設定の13+より制限するLimited Contentも選べます。設定の目的と見える範囲を子どもと話し合い、年齢や家庭の方針に合わせて使いましょう。"
+  },
+  "inspectionPoints": [
+    {"title": "見守りで表示されるのは過去7日間の話題", "description": "Metaは保護者が子どものMeta AIへの質問に関する話題を過去7日分見られると説明しています。質問と回答の会話全文が見えるわけではありません。", "priority": "high"},
+    {"title": "Limited ContentはMeta AIアプリの制限設定", "description": "Meta AIアプリの初期設定は13+で、より制限の強いLimited Contentへ切り替えられるとMetaは説明しています。これは会話全文を保護者に見せる設定ではありません。", "priority": "high"},
+    {"title": "設定はMeta AIアプリまたはFamily Centerから", "description": "Metaは保護者・後見人がMeta AIアプリ内またはFamily Centerから見守りを設定できると案内しています。実際の画面とアカウント状態を確認します。", "priority": "medium"},
+    {"title": "話題の表示を会話のきっかけとして使う", "description": "Metaは専門家と作成した会話のきっかけも紹介しています。話題を見た保護者が詳細を推測したり決めつけたりせず、子どもが何を知りたいのかを尋ねるのが適切です。", "priority": "medium"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "保護者に見える範囲をMetaの更新で確認",
+  "verificationMessage": "話題は確認できますが、会話全文は見られません。制限設定と家庭での対話を組み合わせましょう。",
+  "verdict": {"label": "話題の把握と対話を支援する見守り機能", "description": "Metaの機能は過去7日分の話題を保護者に見せるもので、会話全文を公開する仕組みではありません。必要に応じてLimited Contentを設定し、見守りの限界と目的を子どもと共有して使います。", "confidence": "high"},
+  "safeActions": [
+    {"action": "Meta AIアプリまたはFamily Centerで保護者向け見守りの設定を確認する", "reason": "Metaが公式に案内する設定場所です。"},
+    {"action": "過去7日分の話題は見えるが、会話全文は見えないことを親子で共有する", "reason": "機能の表示範囲を誤認しないためです。"},
+    {"action": "年齢や家庭の方針に応じて、Meta AIアプリのLimited Content設定を検討する", "reason": "Metaは13+の初期設定に加え、より制限する設定を案内しています。"},
+    {"action": "表示された話題を責める材料にせず、子どもが知りたいことを聞くきっかけにする", "reason": "話題だけでは質問の文脈や意図までは分からないためです。"}
+  ],
+  "avoidActions": [
+    {"action": "保護者がAIとの会話全文を読めると思い込む", "reason": "Metaは見守りで会話そのものは見られないと明記しています。"},
+    {"action": "話題の表示だけで子どもの悩みや行動を決めつける", "reason": "話題一覧には質問の詳しい文脈や、AIの応答は含まれません。"}
+  ],
+  "positiveUse": {"title": "話題をきっかけにAI利用を一緒に考える", "description": "保護者向け機能が見せる範囲を理解し、子どものプライバシーと安全の両方に配慮しながら、AIへの相談内容や困ったときの相談先を話し合います。", "examples": ["設定内容を親子で確認", "話題を入口に会話", "必要に応じてLimited Contentを選択", "困った場合の相談先を家族で決める"]},
+  "makotoComment": "保護者が安心するために、会話を丸ごと見られると期待したり、反対に何も分からないと思ったりしがちですが、今回の機能はその中間で『話題だけが見える』設計です。画面で得られる情報の限界を明示したうえで、対話のきっかけにするのがよさそうです。",
+  "oneLineLesson": "Meta AIの見守りは会話を読む機能ではなく、話題から親子で話すための機能。",
+  "tags": ["Meta AI", "保護者設定", "10代", "見守り", "Family Center", "AIリテラシー", "プライバシー"],
+  "sources": [{"title": "Helping Parents Understand the Conversations Their Teens Are Having With AI", "publisher": "Meta Newsroom", "sourceType": "official-product-update", "publishedAt": "2026-04-23", "url": "https://about.fb.com/news/2026/04/helping-parents-understand-conversations-their-teens-are-having-with-ai/"}],
+  "visualSuggestion": {"mainVisual": "Meta AIの保護者向け見守りで『過去7日間の話題は表示・会話全文は非表示』の範囲とLimited Content設定を示す図", "cardIcon": "meta-ai-parent-supervision", "accentTone": "practical"}
+}

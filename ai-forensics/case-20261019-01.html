@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GoogleのAI検索にGmailをつなぐ前に　学習・人の確認・履歴削除を知る｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="Googleは2026年10月16日、WorkspaceアプリをGoogleの検索サービスへ接続する機能について説明を更新し、Google Search Helpでデータ利用や設定方法を案内しています。接続すると、AI ModeやGoogle MapsのAsk Mapsが、関連するメール・ファイル・写真の情報を回答の個人化に使う場合があります。Googleは受信トレイ全体や写真ライブラリそのものを直接学習させるのではなく、関連情報の要約・抜粋・推測などをサービス改善や生成AIモデルの学習に使う場合があると説明しています。接続を解除してもSearch Services Historyのデータは自動削除されないため、連携設定と検索履歴の削除は別々に確認しましょう。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261019-01" />
+<meta property="og:title" content="GoogleのAI検索にGmailをつなぐ前に　学習・人の確認・履歴削除を知る｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="Googleは2026年10月16日、WorkspaceアプリをGoogleの検索サービスへ接続する機能について説明を更新し、Google Search Helpでデータ利用や設定方法を案内しています。接続すると、AI ModeやGoogle MapsのAsk Mapsが、関連するメール・ファイル・写真の情報を回答の個人化に使う場合があります。Googleは受信トレイ全体や写真ライブラリそのものを直接学習させるのではなく、関連情報の要約・抜粋・推測などをサービス改善や生成AIモデルの学習に使う場合があると説明しています。接続を解除してもSearch Services Historyのデータは自動削除されないため、連携設定と検索履歴の削除は別々に確認しましょう。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261019-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Google検索へのGmail連携を確認</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-10-19">2026.10.19</time>
+            </div>
+            <h1>GoogleのAI検索にGmailをつなぐ前に　学習・人の確認・履歴削除を知る</h1>
+            <p>Googleは2026年10月16日、WorkspaceアプリをGoogleの検索サービスへ接続する機能について説明を更新し、Google Search Helpでデータ利用や設定方法を案内しています。接続すると、AI ModeやGoogle MapsのAsk Mapsが、関連するメール・ファイル・写真の情報を回答の個人化に使う場合があります。Googleは受信トレイ全体や写真ライブラリそのものを直接学習させるのではなく、関連情報の要約・抜粋・推測などをサービス改善や生成AIモデルの学習に使う場合があると説明しています。接続を解除してもSearch Services Historyのデータは自動削除されないため、連携設定と検索履歴の削除は別々に確認しましょう。</p>
+            <ul class="forensics-target-list"><li>Google検索のAI機能を使う人</li><li>GmailやGoogleフォトを検索AIに接続するか迷っている人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Google Search</li><li>AI Mode</li><li>Gmail</li><li>Google Workspace</li><li>Google Maps</li><li>データ利用</li><li>プライバシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>接続範囲・データ利用・履歴を公式ヘルプで確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Gmail連携の解除と検索AIの履歴削除は別の設定です。接続前に利用範囲を確認しましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>検索AIにGmailをつなげば便利そうだが、メールの内容や履歴がどう使われるか分からない</h3><p>旅行先や予約情報を検索AIに尋ねたい。GmailやGoogleフォトを接続すると何が参照され、解除すればデータも消えるのか知りたい。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Googleの現行ヘルプは、接続後に検索AIが関連するメール等を参照する仕組みと、要約・抜粋・推測がサービス改善やモデル学習に使われる場合があることを説明しています。連携の解除と検索履歴の削除が別操作である点も明示されています。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-connection-and-history">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>GmailなどをGoogle検索のAI機能へ接続する前後に、どの設定を確認する？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-connection-and-history" data-choice-id="check-connection-and-history" />
+                <span>
+                  <strong>接続するデータと利用目的を確認し、不要になったら連携解除に加えてSearch Services Historyも確認・削除する</strong>
+                  <small>接続解除だけでは検索サービス履歴のデータは消えない。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-disconnect-deletes" data-choice-id="assume-disconnect-deletes" />
+                <span>
+                  <strong>Googleアプリ連携を解除すれば、関連する検索履歴やAI処理データもすべて自動で消えると考える</strong>
+                  <small>GoogleはSearch Services Historyを別に管理・削除するよう案内している。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>接続するデータと利用目的を確認し、不要になったら連携解除に加えてSearch Services Historyも確認・削除する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Google Search Helpによると、アプリ接続を解除してもSearch Services Historyに保存されたデータは削除されず、サービス改善等に使われる可能性があります。接続する前に利用目的を確認し、不要になった場合は連携設定と検索サービス履歴をそれぞれ確認しましょう。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>接続で検索サービスが個人の文脈を参照</h3>
+              <p>Googleの説明では、接続後にAI ModeやAsk Mapsが関連するGmail等の情報を参照し、検索回答や案内を個人化する場合があります。検索サービスにはSearchだけでなくMaps等も含まれます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>受信トレイ全体を直接学習する説明ではない</h3>
+              <p>GoogleはGmail等の受信トレイ全体やGoogleフォトの画像・音声を直接モデル学習させるのではなく、関連情報の要約・抜粋・生成メディア・推測などを使う場合があると説明しています。ただし短い／関連性の高いメールでは要約がメール自体になる場合もあるとしています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>一部の関連処理は人が確認する場合がある</h3>
+              <p>GoogleはAI ModeやAsk Mapsで処理された関連情報の一部が、サービスのデバッグ、安全確保、改善のため人の確認対象になる場合があると説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>連携解除と検索履歴削除は別</h3>
+              <p>接続アプリを解除したり、アプリ側のデータを削除したりしてもSearch Services Historyのデータは自動削除されません。Googleは履歴を別に管理・削除するよう案内しています。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>接続は任意。要約等の利用と履歴の残り方まで見て選ぶ</strong><p>Googleの説明では、接続したGoogleコンテンツアプリの関連情報がAI検索の回答に使われ、サービス改善やモデル学習、人による確認に使われる場合があります。接続しなくてもAI ModeやAsk Maps自体は利用できます。機密情報を含むアカウントでは、利便性とデータ利用を比べて判断しましょう。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>GoogleアカウントのSearch Services PersonalizationからConnected Content Appsの接続状態を確認する</strong><span>Googleは接続設定の画面経路を案内しています。</span></li>
+            <li><strong>接続前に、関連メール等の要約・抜粋・推測が回答やサービス改善に使われる場合があることを確認する</strong><span>Google Search Helpにデータの利用目的と対象が記載されています。</span></li>
+            <li><strong>個人情報・機密情報をAI検索に渡したくない場合は、コンテンツアプリを接続しない選択をする</strong><span>接続は任意で、Googleは接続しなくてもAI ModeやAsk Mapsが使えると説明しています。</span></li>
+            <li><strong>接続を解除した後、必要ならSearch Services Historyを別途確認して削除する</strong><span>連携解除やアプリ内データ削除だけでは検索サービス履歴は消えません。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>接続を解除すれば関連履歴や学習利用の対象も自動で消えると思い込む</strong><span>GoogleはSearch Services Historyが別に残り得ると説明しています。</span></li>
+            <li><strong>『受信トレイ全体は直接学習しない』という記述だけを見て、メール由来の要約や推測が学習に使われないと解釈する</strong><span>Googleは関連情報の要約等を学習に使う場合があり、要約がメール自体となる場合もあると説明しています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>便利さに必要なデータだけを接続</h3>
+          <p>AI検索に個人の文脈を参照させたいか、接続対象や履歴の扱いを理解してから選び、不要になったら接続と検索履歴を別々に見直します。</p>
+          <ul class="positive-example-list"><li>接続対象アプリの確認</li><li>機密情報の有無を点検</li><li>Search Services Personalizationの見直し</li><li>Search Services Historyの確認・削除</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>「受信トレイをそのまま丸ごと学習するわけではない」という説明と、「関連情報の要約等を学習や人の確認に使う場合がある」という説明は、両方セットで読む必要があります。さらに解除と履歴削除が別なので、設定をオフにしただけで後片付けが済んだと思わないことが今回の要点です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Google検索にGmailをつなぐなら、連携解除だけでなく検索履歴も別に確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://blog.google/products-and-platforms/products/workspace/workspace-june-drop-gemini-workspace-apps/" target="_blank" rel="noopener noreferrer">Connect your Workspace apps with the Gemini app for a quick, easy assist.<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Blog</span>
+              <span>その他</span>
+              <time datetime="2025-07-16">2025-07-16</time>
+            </li>
+            <li>
+              <strong><a href="https://support.google.com/websearch/answer/16859283" target="_blank" rel="noopener noreferrer">Connect your Google content apps to get a Search services experience that&#x27;s tailored to you<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Search Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261019-03" data-forensics-card data-category="media-literacy" data-level="4" data-difficulty="beginner" data-search-text="Meta AIの保護者向け見守り　見えるのは会話全文ではなく話題 Meta AIで保護者が確認できる範囲 Metaは2026年10月5日、Meta AIアプリにも保護者による見守り機能を世界で提供すると発表しました。見守りを設定すると、保護者は子どもがMeta AIに尋ねた話題を過去7日分確認できますが、会話そのものは見られません。Meta AIアプリでは初期設定の13+より制限を強める「Limited Content」も選べ、見守り設定はアプリまたはFamily Centerから行えます。これは会話を常時読む機能ではなく、話題をきっかけに親子で話すための仕組みです。表示範囲と制限設定の意味を確認し、監視の代わりに対話の入口として使いましょう。 情報の見極め はじめて Meta AI 保護者設定 10代 見守り Family Center AIリテラシー プライバシー Meta AIを利用する10代の保護者 家庭で生成AIの利用ルールを話し合いたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">meta-ai-parent-supervision</span>
+              <div>
+                <p>Meta AIで保護者が確認できる範囲</p>
+                <h3>Meta AIの保護者向け見守り　見えるのは会話全文ではなく話題</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-19">2026.10.19</time>
+              <span>情報の見極め</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Metaは2026年10月5日、Meta AIアプリにも保護者による見守り機能を世界で提供すると発表しました。見守りを設定すると、保護者は子どもがMeta AIに尋ねた話題を過去7日分確認できますが、会話そのものは見られません。Meta AIアプリでは初期設定の13+より制限を強める「Limited Content」も選べ、見守り設定はアプリまたはFamily Centerから行えます。これは会話を常時読む機能ではなく、話題をきっかけに親子で話すための仕組みです。表示範囲と制限設定の意味を確認し、監視の代わりに対話の入口として使いましょう。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>保護者に見える範囲をMetaの更新で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Meta AIを利用する10代の保護者</li><li>家庭で生成AIの利用ルールを話し合いたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Meta AI</li><li>保護者設定</li><li>10代</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261018-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Googleのセルフィー動画サインイン、端末ロック解除との保存先の違いを知って選ぶ Googleの動画サインインを選ぶ前に Googleは2026年10月15日、Googleアカウントへサインインする追加手段としてセルフィー動画を使う仕組みの詳細を公開しました。登録時の参照動画は暗号化してGoogleのサーバーに保存され、サインイン時に撮影した動画は顔照合の完了後に削除されると説明しています。これはスマートフォンの顔認証ロック解除とは保存先が異なる仕組みです。利用は任意で、削除・再登録もできますが、顔動画をサーバーに預けることに抵抗がある人は、パスキーや再設定用メールなど別の復旧手段を整えてから選ぶのがポイントです。機能の提供状況はアカウントや地域によって異なる場合があります。 セキュリティ・権限 標準 Googleアカウント セルフィー動画 本人確認 アカウント復旧 パスキー 生体情報 Googleアカウントの復旧手段を見直したい人 パスキーを使っている人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">google-selfie-video-signin</span>
+              <div>
+                <p>Googleの動画サインインを選ぶ前に</p>
+                <h3>Googleのセルフィー動画サインイン、端末ロック解除との保存先の違いを知って選ぶ</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-18">2026.10.18</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年10月15日、Googleアカウントへサインインする追加手段としてセルフィー動画を使う仕組みの詳細を公開しました。登録時の参照動画は暗号化してGoogleのサーバーに保存され、サインイン時に撮影した動画は顔照合の完了後に削除されると説明しています。これはスマートフォンの顔認証ロック解除とは保存先が異なる仕組みです。利用は任意で、削除・再登録もできますが、顔動画をサーバーに預けることに抵抗がある人は、パスキーや再設定用メールなど別の復旧手段を整えてから選ぶのがポイントです。機能の提供状況はアカウントや地域によって異なる場合があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>保存先と削除方法を公式説明で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Googleアカウントの復旧手段を見直したい人</li><li>パスキーを使っている人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Googleアカウント</li><li>セルフィー動画</li><li>本人確認</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261016-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChatGPTのSecurity historyで、見覚えのないログインと設定変更を確認する ChatGPTのSecurity history OpenAIは2026年9月25日、ChatGPTのWeb版でアカウントの最近のセキュリティ履歴を確認する機能を案内しました。設定の「Security and login」から「Security history」を開くと、サインイン・サインアウトやMFA、パスキーなどの設定変更を確認できます。時刻・場所・端末の詳細も表示されますが、一部は概算または取得できない場合があります。見覚えのない記録があれば、その表示だけで侵入の全容が分かるとは考えず、OpenAIの案内に沿ってパスワード変更、全セッションのログアウト、MFA設定などを進めます。履歴確認と、現在有効なセッションの終了は別操作です。 セキュリティ・権限 標準 ChatGPT OpenAIアカウント Security history MFA パスキー 不正アクセス ChatGPTを使う人 OpenAIアカウントの不審なアクセスが心配な人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">account-security-history</span>
+              <div>
+                <p>ChatGPTのSecurity history</p>
+                <h3>ChatGPTのSecurity historyで、見覚えのないログインと設定変更を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-16">2026.10.16</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年9月25日、ChatGPTのWeb版でアカウントの最近のセキュリティ履歴を確認する機能を案内しました。設定の「Security and login」から「Security history」を開くと、サインイン・サインアウトやMFA、パスキーなどの設定変更を確認できます。時刻・場所・端末の詳細も表示されますが、一部は概算または取得できない場合があります。見覚えのない記録があれば、その表示だけで侵入の全容が分かるとは考えず、OpenAIの案内に沿ってパスワード変更、全セッションのログアウト、MFA設定などを進めます。履歴確認と、現在有効なセッションの終了は別操作です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>履歴と現在のログイン状態を分けて確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTを使う人</li><li>OpenAIアカウントの不審なアクセスが心配な人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>OpenAIアカウント</li><li>Security history</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261019-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
