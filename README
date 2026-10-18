@@ -164,6 +164,12 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 更新履歴
 --------
 
+### 2026-10-18：資格クイズの正規URLを末尾スラッシュに統一
+
+- `scripts/site_layout.py` と `scripts/generate_daily_quiz.py` を修正し、クイズ配下のcanonical、資格・問題集・設問への内部リンク、パンくずJSON-LDを末尾スラッシュ付きに統一しました。問題データ（`src/data/dailyQuiz.json`）は変更していません。
+- `python -B scripts/generate_daily_quiz.py` と `python -B scripts/generate_top_quiz_teaser.py` を実行し、クイズページ2,025件、トップページのクイズ案内、`quiz/daily-rotation.json`、`sitemap.xml`、`_redirects` を再生成しました。末尾スラッシュ付きURLからindex.htmlへの内部rewriteに統一し、公開環境で確認済みの末尾スラッシュなしURLからの自動301転送は維持しています。
+- 4資格の先頭・中間・末尾の設問ページで回答・解説UIを確認しました。本番URLは変更前の挙動（スラッシュ付き200、なし301）を確認済みです。今回の変更は作業ブランチ上で未デプロイです。
+
 ### 2026-10-18：夕方のラウンジ記録を公開
 
 - `src/data/loungeLogs.json` に18:00「最後の一個が、四つある」を追加しました。受領した場面描写と55発言を掲載し、新規画像は追加していません。
