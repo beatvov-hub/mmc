@@ -55,6 +55,10 @@
   - 1〜31日と8回答ルートを組み合わせた248曲枠を管理します。
   - 曲の編集方法と公開条件は `docs/music-room-data-guide.md` を参照してください。
 
+- `src/data/dailyPuzzle.json`
+  - トップページのMMC DAILY PUZZLEで遊べる10ジャンルの固定問題を管理します。問題データには一意の `puzzleId` を付け、判定ロジックは `scripts/daily-puzzle-core.js`、画面と操作は `scripts/daily-puzzle.js` に分離しています。
+  - MVPは日替わりではありません。問題データや判定を変更した場合は `npm run test:daily-puzzle` を実行します。ローカル確認はリポジトリ直下で `python -m http.server 8000` を実行し、`http://localhost:8000/` を開きます（問題JSONを読み込むためHTTPサーバーが必要です）。
+
 共通パーツ
 ----------
 
@@ -163,6 +167,12 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 
 更新履歴
 --------
+
+### 2026-10-19：MMC DAILY PUZZLE 10種プレイアブルMVPを追加
+
+- トップページに10種類のパズルを切り替えて遊べるセクションを追加しました。各ジャンル1問の固定版で、日替わり更新は行いません。
+- `src/data/dailyPuzzle.json` に問題を分離し、`scripts/daily-puzzle-core.js` にルール判定、`scripts/daily-puzzle.js` に共通UI・入力・localStorage保存を実装しました。クリア記録はリスタート後も保持します。
+- `tests/daily-puzzle.test.js` と `tests/daily-puzzle-ui.test.js` を追加し、10種の正解・誤答状態、ピクロス・二進パズル・4×4数独・ぬりかべ・しかくに切れ・橋をかけろの一意解、倉庫番の解法、ライトアウトの到達可能性、画面操作から全10種をクリアできることと実績保存を検証します。`npm run test:daily-puzzle` で実行できます。HTTPリクエストでページ・JS・問題JSON・CSSの取得も確認しました。ブラウザーの実画面QAは環境設定でブラウザー操作が無効だったため未確認です。
 
 ### 2026-10-18：トップページの「このサイトの楽しみ方」を拡充
 
