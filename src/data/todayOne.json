@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-19T07:30:00+09:00",
+  "updatedAt": "2026-10-20T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2203,6 +2203,68 @@
         {
           "label": "Bitwarden公式ヘルプ：コレクションとアクセス管理",
           "url": "https://bitwarden.com/help/about-collections/"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "slug": "cryptomator-encrypt-cloud-file-names",
+      "useCategory": "ファイル共有・情報管理",
+      "name": "Cryptomator",
+      "category": "暗号化ソフト",
+      "officialUrl": "https://cryptomator.org/for-individuals/",
+      "archiveTitle": "Cryptomatorでクラウド保存中のファイル名まで暗号化できる？",
+      "archiveDescription": "クラウドに置く資料の中身や名前を見られにくくしたい人向けに、Cryptomatorで暗号化保管庫を作る手順を紹介。同期アプリとの役割分担と、パスワードを失わないための確認点も解説します。",
+      "forWho": "会社で利用が承認されたクラウドストレージに作業ファイルを置く必要があり、アップロード前に中身やファイル名を暗号化したい担当者向けです。",
+      "summary": "できます。Cryptomatorはクラウド同期フォルダーに暗号化保管庫を作り、ファイルの中身だけでなく名前やフォルダー構成も暗号化します。クラウドとの同期は別途そのサービスの同期アプリが行います。",
+      "whyToday": "共有リンクの権限だけでは、クラウド事業者側に預けるデータの見え方までは変わりません。Cryptomatorは端末側でファイルごとに暗号化してから同期対象へ置けるため、保管時の露出を抑える追加策として検討できます。",
+      "useFor": "例えば、会社で利用承認済みのクラウドへ置く作業資料に、追加の暗号化をしたい場合の想定例です。Windows・macOS・Linux向けのデスクトップ版とクラウド事業者の同期アプリを用意し、同期対象フォルダーを保存場所に指定して新しい保管庫を作ります。保管庫を開いて公開可能なテスト文書を入れ、同期フォルダー側では暗号化されたファイル名で見えること、Cryptomatorで開くと原文を読めることを確認します。まずテスト文書1件で同期完了と復旧キーの保管まで確かめてください。これは公式手順に基づく想定例で、実機検証は未実施です。",
+      "cautions": "Cryptomator自体は同期ツールではなく、別途クラウド事業者の同期ソフトが必要です。ファイル名と構成は暗号化されますが、ファイルサイズ・個数・更新時刻など一部のメタデータは暗号化されません。保管庫のパスワードや復旧キーを失うとファイルを復号できないため、安全な場所に保管してください。会社の機密資料を扱う場合は、暗号化の有無にかかわらず、利用するクラウドと保管方法が社内規程で承認されているか先に確認します。",
+      "faq": [
+        {
+          "question": "Cryptomatorを入れれば、クラウドへの同期も自動で行われますか？",
+          "answer": "いいえ。Cryptomatorで暗号化保管庫をクラウド同期フォルダー内に作り、実際の同期はDropboxやGoogle Driveなど、利用するクラウド事業者の同期ソフトに任せます。"
+        },
+        {
+          "question": "Cryptomatorの一覧から保管庫を外すと、クラウド上のファイルも消えますか？",
+          "answer": "消えません。一覧から外す操作はCryptomator上の登録を取り除くだけです。暗号化ファイルを削除するには、ファイル管理アプリで保管庫のフォルダーを削除する必要があります。"
+        }
+      ],
+      "recommendedFor": {
+        "employeeId": "MMC-001",
+        "reason": "ほのちゃんに、実資料ではなくテスト文書1件で保管先・同期担当・復旧キーの扱いを整理してもらい、総務の共有手順チェックリストとして受け取りたいです。"
+      },
+      "keiComment": "暗号化すると、クラウド上でファイル名を見ただけでは内容を推測しにくくできます。一方、鍵の受け渡しと保管を決めずに始めると、守った資料を自分たちも開けなくなるので、復旧担当と保管場所までを一組で運用設計したいですね。",
+      "pricing": "Cryptomatorのデスクトップ版は個人利用で無償です。クラウドストレージ自体の契約費用は別で、スマートフォン版の書き込み機能も別条件です。",
+      "conditions": "Windows・macOS・Linux向けデスクトップアプリと、利用するクラウドの同期ソフトが必要です。会社の資料では、まず社内承認済みの保存先とテスト用ファイルを使ってください。",
+      "license": "デスクトップアプリはGPLv3のFOSS向けライセンスと商用ライセンスで提供されています。",
+      "notes": "公式情報に基づく想定例です。実機検証は未実施です。",
+      "verifiedAt": "2026-10-20",
+      "status": "published",
+      "officialSources": [
+        {
+          "label": "Cryptomator公式ドキュメント：保管庫の作成とクラウド同期フォルダーの選択",
+          "url": "https://docs.cryptomator.org/desktop/adding-vaults/"
+        },
+        {
+          "label": "Cryptomator公式ドキュメント：暗号化されるファイル名・構成と対象外メタデータ",
+          "url": "https://docs.cryptomator.org/security/security-target/"
+        },
+        {
+          "label": "Cryptomator公式：デスクトップ版の料金・無償範囲",
+          "url": "https://cryptomator.org/pricing/"
+        },
+        {
+          "label": "Cryptomator公式ドキュメント：保管庫の解除とファイル操作",
+          "url": "https://docs.cryptomator.org/desktop/accessing-vaults/"
+        },
+        {
+          "label": "Cryptomator公式ドキュメント：一覧から外す操作と保管庫データの削除",
+          "url": "https://docs.cryptomator.org/desktop/vault-management/"
+        },
+        {
+          "label": "Cryptomator公式GitHub：GPL-3.0ライセンス",
+          "url": "https://github.com/cryptomator/cryptomator"
         }
       ]
     }
