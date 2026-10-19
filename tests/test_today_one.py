@@ -18,6 +18,7 @@ def published_entry(day: str, *, slug: str = "sample") -> dict:
         "slug": slug,
         "name": "Sample Tool",
         "category": "MCP",
+        "useCategory": "AI活用・AI開発",
         "officialUrl": "https://example.com/",
         "archiveTitle": f"Sample Toolで確認できる？",
         "archiveDescription": "サンプル作業で困った点を確認する方法と、使う際の注意点を紹介します。",
@@ -115,11 +116,19 @@ class TodayOneTest(unittest.TestCase):
         entry = published_entry("2026-10-06")
         entry.pop("faq")
         entry.pop("archiveDescription")
+        entry.pop("useCategory")
         warnings = today_one.validate_data({"entries": [entry]}, self.members)
         joined = " ".join(warnings)
         self.assertIn("archiveDescription", joined)
         self.assertIn("faq", joined)
+        self.assertIn("useCategory", joined)
         self.assertNotIn("officialSources", joined)
+
+    def test_archive_use_category_must_match_the_published_taxonomy(self) -> None:
+        entry = published_entry("2026-10-06")
+        entry["useCategory"] = "Miscellaneous"
+        warnings = today_one.validate_data({"entries": [entry]}, self.members)
+        self.assertTrue(any("useCategory" in warning for warning in warnings))
 
     def test_archive_title_prioritizes_problem_and_omits_library_phrase(self) -> None:
         data = today_one.load_data()
@@ -149,6 +158,21 @@ class TodayOneTest(unittest.TestCase):
             today_one.archive_filename(entry),
             "2026-08-28-context-seven.html",
         )
+
+    def test_archive_index_exposes_month_use_and_recommended_employee_filters(self) -> None:
+        members = today_one.load_members()
+        entry = published_entry("2026-08-28", slug="context-seven")
+        rendered = today_one.render_archive_index_page([entry], members)
+        self.assertIn('data-archive-filter="month"', rendered)
+        self.assertIn('data-archive-filter="useCategory"', rendered)
+        self.assertIn('data-archive-filter="employee"', rendered)
+        self.assertIn('data-month="2026-08"', rendered)
+        self.assertIn('data-use-category="AI活用・AI開発"', rendered)
+        self.assertIn('data-employee="MMC-008"', rendered)
+        self.assertIn("用途：AI活用・AI開発", rendered)
+        self.assertIn("ツール分類：MCP", rendered)
+        self.assertIn("おすすめ社員：アキト", rendered)
+        self.assertIn("scripts/today-one-archive.js", rendered)
         self.assertEqual(
             today_one.archive_url(entry),
             "https://mainichi-miru.com/today-one/archive/2026-08-28-context-seven",

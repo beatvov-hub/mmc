@@ -9124,6 +9124,25 @@ img { max-width: 100%; }
   line-height: 1.8;
 }
 
+.today-one-archive-filters {
+  margin-top: 28px;
+  padding: 22px 24px 16px;
+  border: 1px solid #d9ccb9;
+  background: rgba(255,255,255,.45);
+}
+
+.today-one-archive-filters .section-kicker { margin:0 0 4px; color:var(--coffee); font-size:.76rem; font-weight:900; letter-spacing:.12em; }
+.today-one-archive-filters h2 { margin:0 0 16px; color:var(--green); font-size:1.2rem; }
+.today-one-archive-filter-note { margin:-8px 0 14px; color:var(--muted); font-size:.84rem; line-height:1.6; }
+.today-one-archive-filter-fields { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)) auto; align-items:end; gap:12px; }
+.today-one-archive-filter-fields label { display:grid; gap:6px; color:var(--ink); font-size:.8rem; font-weight:800; }
+.today-one-archive-filter-fields select,
+.today-one-archive-filter-fields button { width:100%; min-width:0; min-height:46px; padding:9px 12px; border:1px solid #cbbba6; border-radius:5px; background:#fffdfa; color:var(--ink); font:inherit; font-size:.88rem; }
+.today-one-archive-filter-fields button { width:auto; background:var(--green); border-color:var(--green); color:#fff; font-weight:800; cursor:pointer; }
+.today-one-archive-filter-fields select:focus-visible,
+.today-one-archive-filter-fields button:focus-visible { outline:3px solid #c28a41; outline-offset:2px; }
+.today-one-archive-filter-fields button:hover { background:#1b3025; }
+.today-one-archive-result { margin:12px 0 0; color:var(--muted); font-size:.8rem; }
 .today-one-archive-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -9141,6 +9160,8 @@ img { max-width: 100%; }
   background: rgba(255,255,255,.5);
   color: var(--ink);
 }
+.today-one-archive-card[hidden],
+[data-archive-empty][hidden] { display:none; }
 
 .today-one-archive-card:hover,
 .today-one-archive-card:focus-visible {
@@ -9187,6 +9208,7 @@ img { max-width: 100%; }
   color: var(--coffee);
   font-size: .86rem;
 }
+.today-one-archive-recommended { margin:0 0 14px; color:var(--coffee); font-size:.78rem; font-weight:800; }
 
 .today-one-archive-page-empty {
   margin: 30px 0 0;
@@ -9491,6 +9513,9 @@ img { max-width: 100%; }
   .today-one-archive-grid {
     grid-template-columns: 1fr;
   }
+  .today-one-archive-filters { padding:18px 16px 14px; }
+  .today-one-archive-filter-fields { grid-template-columns:1fr; gap:10px; }
+  .today-one-archive-filter-fields button { width:100%; }
   .today-one-archive-card {
     min-height: 0;
     padding: 22px;

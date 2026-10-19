@@ -31,6 +31,7 @@ PUBLISHED_REQUIRED_FIELDS = (
     "slug",
     "name",
     "category",
+    "useCategory",
     "officialUrl",
     "archiveTitle",
     "archiveDescription",
@@ -44,6 +45,16 @@ PUBLISHED_REQUIRED_FIELDS = (
     "keiComment",
     "verifiedAt",
     "status",
+)
+ARCHIVE_USE_CATEGORIES = (
+    "AI活用・AI開発",
+    "開発・テスト",
+    "調査・情報収集",
+    "文書・データ整理",
+    "デザイン・動画・ゲーム制作",
+    "業務効率化・予約",
+    "Web運用・アクセス分析",
+    "ファイル共有・情報管理",
 )
 TEASER_START = "<!-- TODAY_ONE_TEASER_START -->"
 TEASER_END = "<!-- TODAY_ONE_TEASER_END -->"
@@ -101,6 +112,8 @@ def published_entry_issues(entry: object, *, label: str) -> list[str]:
 
     if entry.get("slug") and not SLUG_RE.fullmatch(str(entry["slug"])):
         issues.append(f"{label}.slug must contain lowercase letters, numbers, and hyphens only.")
+    if entry.get("useCategory") and entry["useCategory"] not in ARCHIVE_USE_CATEGORIES:
+        issues.append(f"{label}.useCategory must be one of the archive use categories.")
 
     if entry.get("officialUrl") and not is_safe_external_url(entry["officialUrl"]):
         issues.append(f"{label}.officialUrl must be an https URL.")
@@ -596,25 +609,55 @@ def render_archive_promo(entries: list[dict], target_date: date) -> str:
       </section>'''
 
 
-def render_archive_card(entry: dict) -> str:
-    return f'''          <a class="today-one-archive-card" href="{esc(archive_filename(entry))}">
+def render_archive_card(entry: dict, members: dict[str, dict[str, str]]) -> str:
+    employee_id = entry["recommendedFor"]["employeeId"]
+    employee_name = members.get(employee_id, {}).get("name", employee_id)
+    return f'''          <a class="today-one-archive-card" data-archive-card data-month="{esc(entry["date"][:7])}" data-use-category="{esc(entry["useCategory"])}" data-employee="{esc(employee_id)}" href="{esc(archive_filename(entry))}">
             <div class="today-one-archive-card-meta">
               <time datetime="{esc(entry["date"])}">{esc(entry["date"].replace("-", "."))}</time>
-              <span>{esc(entry["category"])}</span>
+              <span>用途：{esc(entry["useCategory"])}</span>
+              <span>ツール分類：{esc(entry["category"])}</span>
             </div>
             <h2>{esc(entry.get("archiveTitle") or entry["name"])}</h2>
             <p class="today-one-archive-tool-name">{esc(entry["name"])}</p>
             <p>{esc(entry.get("archiveDescription") or entry["summary"])}</p>
+            <span class="today-one-archive-recommended">おすすめ社員：{esc(employee_name)}</span>
             <strong>この日のひとつを見る <span aria-hidden="true">→</span></strong>
           </a>'''
 
 
-def render_archive_index_page(entries: list[dict]) -> str:
+def render_archive_index_page(
+    entries: list[dict], members: dict[str, dict[str, str]]
+) -> str:
     title = "今日ひとつ。アーカイブ｜仕事の困りごとを解決する道具｜毎日見るコワークス"
     description = "仕事の困りごとから、使い方や確認方法が分かる道具を探せる「今日ひとつ。」のアーカイブです。"
-    cards = "\n".join(render_archive_card(entry) for entry in entries)
+    cards = "\n".join(render_archive_card(entry, members) for entry in entries)
+    months = sorted({entry["date"][:7] for entry in entries}, reverse=True)
+    month_options = "".join(
+        f'<option value="{month}">{month[:4]}年{int(month[5:])}月</option>'
+        for month in months
+    )
+    categories = [category for category in ARCHIVE_USE_CATEGORIES if any(entry["useCategory"] == category for entry in entries)]
+    category_options = "".join(f'<option value="{esc(category)}">{esc(category)}</option>' for category in categories)
+    employee_ids = sorted({entry["recommendedFor"]["employeeId"] for entry in entries})
+    employee_options = "".join(
+        f'<option value="{esc(employee_id)}">{esc(members.get(employee_id, {}).get("name", employee_id))}</option>'
+        for employee_id in employee_ids
+    )
+    filter_html = f'''        <section class="today-one-archive-filters" aria-label="アーカイブを絞り込む">
+          <p class="section-kicker">Find a Tool</p>
+          <h2>月・用途・おすすめ社員から探す</h2>
+          <p class="today-one-archive-filter-note">条件を組み合わせて、気になる仕事道具を探せます。</p>
+          <div class="today-one-archive-filter-fields">
+            <label>月<select data-archive-filter="month"><option value="">すべての月</option>{month_options}</select></label>
+            <label>用途<select data-archive-filter="useCategory"><option value="">すべての用途</option>{category_options}</select></label>
+            <label>おすすめ社員<select data-archive-filter="employee"><option value="">すべての社員</option>{employee_options}</select></label>
+            <button type="button" data-archive-reset>条件をクリア</button>
+          </div>
+          <p class="today-one-archive-result" data-archive-result role="status" aria-live="polite">{len(entries)}件を表示中</p>
+        </section>'''
     archive_body = (
-        f'        <div class="today-one-archive-grid">\n{cards}\n        </div>'
+        f'        <div data-today-one-archive>\n{filter_html}\n          <div class="today-one-archive-grid" data-archive-grid>\n{cards}\n          </div>\n          <p class="today-one-archive-page-empty" data-archive-empty hidden>条件に合うアーカイブはありません。</p>\n        </div>'
         if cards
         else '        <p class="today-one-archive-page-empty">アーカイブは、これから少しずつ増えていきます。</p>'
     )
@@ -644,7 +687,7 @@ def render_archive_index_page(entries: list[dict]) -> str:
     <meta property="og:image" content="{BASE_URL}/image/top009.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
-    <link rel="stylesheet" href="../../styles.css?v=20261016-logo" />
+    <link rel="stylesheet" href="../../styles.css?v=20261019-today-one-archive" />
     <script type="application/ld+json">{json.dumps(structured_data, ensure_ascii=False)}</script>
   </head>
   <body class="subpage today-one-page today-one-archive-page">
@@ -662,6 +705,7 @@ def render_archive_index_page(entries: list[dict]) -> str:
       </header>
 {archive_body}
     </main>
+    <script src="../../scripts/today-one-archive.js?v=20261019-filters" defer></script>
     <footer class="site-footer"></footer>
   </body>
 </html>
@@ -888,7 +932,7 @@ def generate(target_date: date | None = None) -> None:
     for path in ARCHIVE_DIR.glob("*.html"):
         path.unlink()
     ARCHIVE_INDEX_PATH.write_text(
-        render_archive_index_page(archive_entries),
+        render_archive_index_page(archive_entries, members),
         encoding="utf-8",
     )
     archive_paths: list[Path] = []
