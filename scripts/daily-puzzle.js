@@ -217,8 +217,10 @@
       const a = puzzle.islands.find(island => island.id === aId), b = puzzle.islands.find(island => island.id === bId);
       const count = s.bridges[pair.key] || 0;
       if (!count) continue;
-      const step = a.cell < b.cell ? 1 : -1;
-      for (let cell = a.cell + step; cell !== b.cell; cell += step) lines.set(cell, { count, horizontal: Math.floor(a.cell / puzzle.size) === Math.floor(b.cell / puzzle.size) });
+      const horizontal = Math.floor(a.cell / puzzle.size) === Math.floor(b.cell / puzzle.size);
+      const direction = a.cell < b.cell ? 1 : -1;
+      const step = direction * (horizontal ? 1 : puzzle.size);
+      for (let cell = a.cell + step; cell !== b.cell; cell += step) lines.set(cell, { count, horizontal });
     }
     const cells = Array.from({ length: puzzle.size ** 2 }, (_, cell) => {
       const island = islands.get(cell), line = lines.get(cell);

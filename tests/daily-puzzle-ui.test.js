@@ -108,10 +108,13 @@ test('all ten game controls can reach their fixed clear states and persist achie
   assert.match(ui.host.innerHTML, /しかくに切れ.*クリア/s);
 
   ui.select('hashi');
+  assert.equal((ui.host.innerHTML.match(/dp-bridge-cell is-(?:horizontal|vertical) is-[12]-bridge/g) || []).length, 0);
   ui.click('hashi-island', { island: 'A' }); ui.click('hashi-island', { island: 'D' });
   assert.match(ui.host.innerHTML, /dp-bridge-cell is-vertical is-1-bridge/);
+  assert.equal((ui.host.innerHTML.match(/dp-bridge-cell is-vertical is-1-bridge/g) || []).length, 3);
   ui.click('hashi-island', { island: 'A' }); ui.click('hashi-island', { island: 'D' });
   assert.match(ui.host.innerHTML, /dp-bridge-cell is-vertical is-2-bridge/);
+  assert.equal((ui.host.innerHTML.match(/dp-bridge-cell is-vertical is-2-bridge/g) || []).length, 3);
   ui.click('hashi-island', { island: 'A' }); ui.click('hashi-island', { island: 'D' });
   assert.doesNotMatch(ui.host.innerHTML, /dp-bridge-cell is-vertical is-[12]-bridge/);
   ui.click('hashi-island', { island: 'A' }); ui.click('hashi-island', { island: 'B' });
