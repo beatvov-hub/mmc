@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Geminiの外部アプリ連携、接続先と呼び出し方を確認する｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="Googleは2026年9月23日、Geminiアプリから利用できる外部のConnected Appsを追加すると発表しました。生産性、制作、生活関連のサービスが対象として紹介され、アプリはGeminiの設定から接続するか、チャット内で@メンションして呼び出せます。これは外部アプリをGeminiから使うための段階的な提供で、全アカウントで一律に利用できるという発表ではありません。便利さだけで接続を増やさず、設定画面で実際に利用可能な連携先を確認し、必要なサービスだけを選びましょう。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261020-01" />
+<meta property="og:title" content="Geminiの外部アプリ連携、接続先と呼び出し方を確認する｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="Googleは2026年9月23日、Geminiアプリから利用できる外部のConnected Appsを追加すると発表しました。生産性、制作、生活関連のサービスが対象として紹介され、アプリはGeminiの設定から接続するか、チャット内で@メンションして呼び出せます。これは外部アプリをGeminiから使うための段階的な提供で、全アカウントで一律に利用できるという発表ではありません。便利さだけで接続を増やさず、設定画面で実際に利用可能な連携先を確認し、必要なサービスだけを選びましょう。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261020-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Geminiに外部アプリをつなぐ前に</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-10-20">2026.10.20</time>
+            </div>
+            <h1>Geminiの外部アプリ連携、接続先と呼び出し方を確認する</h1>
+            <p>Googleは2026年9月23日、Geminiアプリから利用できる外部のConnected Appsを追加すると発表しました。生産性、制作、生活関連のサービスが対象として紹介され、アプリはGeminiの設定から接続するか、チャット内で@メンションして呼び出せます。これは外部アプリをGeminiから使うための段階的な提供で、全アカウントで一律に利用できるという発表ではありません。便利さだけで接続を増やさず、設定画面で実際に利用可能な連携先を確認し、必要なサービスだけを選びましょう。</p>
+            <ul class="forensics-target-list"><li>Geminiアプリを仕事や日常で使う人</li><li>AIアシスタントに外部サービスを接続する前に確認したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Gemini</li><li>Connected Apps</li><li>外部アプリ連携</li><li>権限</li><li>AI活用</li><li>設定</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>連携対象と提供状況を公式発表で確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>紹介されたアプリ名だけで判断せず、自分のGemini設定に出ている接続先と利用可能な操作を確かめましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Geminiから仕事用・生活用アプリを操作できると聞き、何をつなぐか迷う</h3><p>Geminiのチャットからプロジェクト管理や制作サービスを使いたい。アプリ連携を設定する方法と、機能が使える状態かを確認したい。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>外部サービスをつなぐと、Gemini内で作業を始めやすくなります。一方、接続するサービスが増えるほど、AIに頼む作業の範囲も広がるため、目的ごとに接続先を選ぶ判断が必要です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="review-needed-apps">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Geminiで新しいConnected Appsを使う前に何を確認する？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="review-needed-apps" data-choice-id="review-needed-apps" />
+                <span>
+                  <strong>設定に表示される連携先を確認し、必要なサービスだけ接続して、@メンション等で使う</strong>
+                  <small>Googleは設定から接続する方法と、チャット内でアプリを呼び出す方法を案内しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="connect-everything" data-choice-id="connect-everything" />
+                <span>
+                  <strong>紹介されたアプリをすべて接続すれば、どのアカウントでもすぐ使えると考える</strong>
+                  <small>発表は段階的な提供としており、全アプリ・全アカウントでの一律利用を保証していません。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>設定に表示される連携先を確認し、必要なサービスだけ接続して、@メンション等で使う</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Googleの発表では、外部アプリはGemini設定から接続するか、チャットで@メンションして呼び出せます。発表は段階的提供なので、実際に使えるかは自分の設定画面で確認します。目的に必要な接続先に絞り、依頼する作業と対象サービスを具体的に指定しましょう。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>追加対象は複数の用途カテゴリに分かれる</h3>
+              <p>Googleは生産性、制作、生活関連としてConnected Appsを紹介しています。発表にあるカテゴリとサービス名を、実際の設定画面の表示と区別して確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>接続方法は設定またはチャット内の呼び出し</h3>
+              <p>Geminiの設定でアプリを接続する方法に加え、チャット内で@メンションする方法もGoogleが案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>発表は段階的なロールアウト</h3>
+              <p>2026年9月23日の発表は提供開始を段階的に進める内容です。紹介記事に載った全サービスが直ちに自分のアカウントで使えるとは限りません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>外部アプリに頼む作業の範囲を具体化する</h3>
+              <p>接続済みであることと、すべての依頼を無条件に実行させることは別です。送信、共有、購入など影響のある操作は実行前に対象と内容を確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>必要な外部アプリだけを選んで接続</strong><p>GeminiのConnected Appsは外部サービスを会話から使う入口です。提供状況はアカウントごとに確認し、接続先と頼む操作を必要な範囲に絞るのが実用的です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Gemini設定のConnected Appsを開き、現在利用可能な連携先を確認する</strong><span>Googleは設定からアプリを接続する方法を案内しています。</span></li>
+            <li><strong>使う目的があるアプリだけを接続し、不要になった連携は設定を見直す</strong><span>外部サービスへの接続範囲を自分の用途に合わせるためです。</span></li>
+            <li><strong>チャット内で@メンションする場合は、対象アプリと頼む作業を明示する</strong><span>どのサービスに何を依頼するのかを会話上で確認しやすくなります。</span></li>
+            <li><strong>送信・共有など影響のある操作は、実行対象と内容を確認してから進める</strong><span>AIへの依頼文だけで外部サービス上の結果まで意図どおりとは限らないためです。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>発表に載っているアプリがすべて自分のアカウントで使えると思い込む</strong><span>Googleは段階的な提供として案内しています。</span></li>
+            <li><strong>目的を決めずに、使う予定のないサービスまで接続する</strong><span>利便性に必要な範囲を超えて接続先を増やす必要はありません。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>必要な連携だけで作業の行き来を減らす</h3>
+          <p>Geminiから扱いたいサービスを用途ごとに選び、接続・呼び出し・実行確認を一続きの手順として運用します。</p>
+          <ul class="positive-example-list"><li>設定画面で利用可能な連携先を確認</li><li>使うサービスだけ接続</li><li>@メンションで対象を明示</li><li>共有や送信の前に内容を確認</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>今回の発表で実用上大切なのは、Geminiが外部サービスの入口になり始めた点です。アプリ名の一覧を見て一斉に接続するより、日々の作業で本当に必要な連携をひとつ選び、チャットから何を実行できるかを小さく試すのが安全です。段階的提供なので、記事の一覧と自分の設定画面の差も記録しておきたいところです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>GeminiのConnected Appsは、使う目的と接続先を選び、設定画面で提供状況を確かめてから使う。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-gemini/" target="_blank" rel="noopener noreferrer">A new wave of Connected Apps is rolling out to Gemini.<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google</span>
+              <span>その他</span>
+              <time datetime="2026-09-23">2026-09-23</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261020-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="YouTube StudioのAI機能、発表・テスト・提供予定を分けて使う YouTube投稿者向けAI機能の段階 YouTubeのAparna Pappu副社長は2026年9月23日、Made on YouTubeで投稿者向けの新しい制作・運営支援を発表しました。会話型編集アシスタントはShortsとYouTube CreateにGeminiを組み込み、編集案をチャットで調整する構想です。コメント管理AIはチャンネル固有の方針を学習するオプトインのテスト中で、顔の検出に声の検出を加える機能とモバイル対応は今後の計画として説明されました。すべてが一般提供済みではありません。Studioに実際に表示される機能だけを試し、AIの編集提案やモデレーション結果は公開前に人が確認しましょう。 仕事・AI活用 標準 YouTube Studio 動画編集 コメント管理 Gemini AI機能の提供段階 クリエイター YouTubeで動画やShortsを制作する人 YouTube StudioのAI機能を業務に取り入れたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">youtube-studio-ai-stages</span>
+              <div>
+                <p>YouTube投稿者向けAI機能の段階</p>
+                <h3>YouTube StudioのAI機能、発表・テスト・提供予定を分けて使う</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-20">2026.10.20</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeのAparna Pappu副社長は2026年9月23日、Made on YouTubeで投稿者向けの新しい制作・運営支援を発表しました。会話型編集アシスタントはShortsとYouTube CreateにGeminiを組み込み、編集案をチャットで調整する構想です。コメント管理AIはチャンネル固有の方針を学習するオプトインのテスト中で、顔の検出に声の検出を加える機能とモバイル対応は今後の計画として説明されました。すべてが一般提供済みではありません。Studioに実際に表示される機能だけを試し、AIの編集提案やモデレーション結果は公開前に人が確認しましょう。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>各機能の提供段階を公式発表で区別</span>
+            </div>
+            <ul class="forensics-card-audience"><li>YouTubeで動画やShortsを制作する人</li><li>YouTube StudioのAI機能を業務に取り入れたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube Studio</li><li>動画編集</li><li>コメント管理</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261019-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="GoogleのAI検索にGmailをつなぐ前に　学習・人の確認・履歴削除を知る Google検索へのGmail連携を確認 Googleは2026年10月16日、WorkspaceアプリをGoogleの検索サービスへ接続する機能について説明を更新し、Google Search Helpでデータ利用や設定方法を案内しています。接続すると、AI ModeやGoogle MapsのAsk Mapsが、関連するメール・ファイル・写真の情報を回答の個人化に使う場合があります。Googleは受信トレイ全体や写真ライブラリそのものを直接学習させるのではなく、関連情報の要約・抜粋・推測などをサービス改善や生成AIモデルの学習に使う場合があると説明しています。接続を解除してもSearch Services Historyのデータは自動削除されないため、連携設定と検索履歴の削除は別々に確認しましょう。 セキュリティ・権限 標準 Google Search AI Mode Gmail Google Workspace Google Maps データ利用 プライバシー Google検索のAI機能を使う人 GmailやGoogleフォトを検索AIに接続するか迷っている人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">google-search-connected-apps-privacy</span>
+              <div>
+                <p>Google検索へのGmail連携を確認</p>
+                <h3>GoogleのAI検索にGmailをつなぐ前に　学習・人の確認・履歴削除を知る</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-19">2026.10.19</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年10月16日、WorkspaceアプリをGoogleの検索サービスへ接続する機能について説明を更新し、Google Search Helpでデータ利用や設定方法を案内しています。接続すると、AI ModeやGoogle MapsのAsk Mapsが、関連するメール・ファイル・写真の情報を回答の個人化に使う場合があります。Googleは受信トレイ全体や写真ライブラリそのものを直接学習させるのではなく、関連情報の要約・抜粋・推測などをサービス改善や生成AIモデルの学習に使う場合があると説明しています。接続を解除してもSearch Services Historyのデータは自動削除されないため、連携設定と検索履歴の削除は別々に確認しましょう。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>接続範囲・データ利用・履歴を公式ヘルプで確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google検索のAI機能を使う人</li><li>GmailやGoogleフォトを検索AIに接続するか迷っている人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Search</li><li>AI Mode</li><li>Gmail</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261018-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Googleのセルフィー動画サインイン、端末ロック解除との保存先の違いを知って選ぶ Googleの動画サインインを選ぶ前に Googleは2026年10月15日、Googleアカウントへサインインする追加手段としてセルフィー動画を使う仕組みの詳細を公開しました。登録時の参照動画は暗号化してGoogleのサーバーに保存され、サインイン時に撮影した動画は顔照合の完了後に削除されると説明しています。これはスマートフォンの顔認証ロック解除とは保存先が異なる仕組みです。利用は任意で、削除・再登録もできますが、顔動画をサーバーに預けることに抵抗がある人は、パスキーや再設定用メールなど別の復旧手段を整えてから選ぶのがポイントです。機能の提供状況はアカウントや地域によって異なる場合があります。 セキュリティ・権限 標準 Googleアカウント セルフィー動画 本人確認 アカウント復旧 パスキー 生体情報 Googleアカウントの復旧手段を見直したい人 パスキーを使っている人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">google-selfie-video-signin</span>
+              <div>
+                <p>Googleの動画サインインを選ぶ前に</p>
+                <h3>Googleのセルフィー動画サインイン、端末ロック解除との保存先の違いを知って選ぶ</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-18">2026.10.18</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年10月15日、Googleアカウントへサインインする追加手段としてセルフィー動画を使う仕組みの詳細を公開しました。登録時の参照動画は暗号化してGoogleのサーバーに保存され、サインイン時に撮影した動画は顔照合の完了後に削除されると説明しています。これはスマートフォンの顔認証ロック解除とは保存先が異なる仕組みです。利用は任意で、削除・再登録もできますが、顔動画をサーバーに預けることに抵抗がある人は、パスキーや再設定用メールなど別の復旧手段を整えてから選ぶのがポイントです。機能の提供状況はアカウントや地域によって異なる場合があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>保存先と削除方法を公式説明で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Googleアカウントの復旧手段を見直したい人</li><li>パスキーを使っている人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Googleアカウント</li><li>セルフィー動画</li><li>本人確認</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261020-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

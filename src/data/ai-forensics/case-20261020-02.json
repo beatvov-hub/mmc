@@ -1,0 +1,50 @@
+{
+  "id": "case-20261020-02",
+  "publishedAt": "2026-10-20",
+  "title": "YouTube StudioのAI機能、発表・テスト・提供予定を分けて使う",
+  "shortTitle": "YouTube投稿者向けAI機能の段階",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["YouTubeで動画やShortsを制作する人", "YouTube StudioのAI機能を業務に取り入れたい人"],
+  "summary": "YouTubeのAparna Pappu副社長は2026年9月23日、Made on YouTubeで投稿者向けの新しい制作・運営支援を発表しました。会話型編集アシスタントはShortsとYouTube CreateにGeminiを組み込み、編集案をチャットで調整する構想です。コメント管理AIはチャンネル固有の方針を学習するオプトインのテスト中で、顔の検出に声の検出を加える機能とモバイル対応は今後の計画として説明されました。すべてが一般提供済みではありません。Studioに実際に表示される機能だけを試し、AIの編集提案やモデレーション結果は公開前に人が確認しましょう。",
+  "scenario": {
+    "headline": "YouTubeの新しいAI編集・コメント管理機能を、今日から使えるものとして運用してよいか迷う",
+    "description": "動画制作の時間を減らすため、YouTube Studioで紹介されたAI機能をチームの作業手順に加えたい。発表内容と利用可能な機能の違いを知りたい。",
+    "whyItMatters": "発表記事には、提供中の機能だけでなく、テスト中や今後提供予定の内容も含まれています。段階を取り違えると、存在しない設定を探したり、未検証のAI出力をそのまま公開したりするおそれがあります。"
+  },
+  "question": {
+    "text": "YouTubeが発表した投稿者向けAI機能を使うとき、最初に何をする？",
+    "choices": [
+      {"id": "check-stage-review-output", "label": "機能ごとの提供段階を確認し、表示された提案を人が見直してから採用する", "description": "会話型編集、テスト中のコメント管理、今後の声検出計画は同じ提供段階ではありません。"},
+      {"id": "assume-generally-available", "label": "発表記事に載った機能はすべて利用可能で、AIの提案もそのまま公開できると考える", "description": "YouTubeはコメント管理をテスト中、声検出等を今後の計画として説明しています。"}
+    ],
+    "recommendedAnswers": ["check-stage-review-output"],
+    "explanation": "YouTubeは会話型編集アシスタントをShortsとYouTube Createに統合する発表を行い、コメント管理AIはオプトインのテスト中と明記しています。声検出の統合やモバイル対応も今後の計画です。Studioの画面で利用可能かを確かめ、編集やコメントの最終判断は投稿者が行いましょう。"
+  },
+  "inspectionPoints": [
+    {"title": "会話型編集はShortsとYouTube Create向けとして発表", "description": "YouTubeはGeminiを組み込んだ編集アシスタントについて、会話で素材の並べ替え、トリミング、音楽同期などを調整する機能として説明しています。", "priority": "medium"},
+    {"title": "コメント管理AIはオプトインのテスト中", "description": "有効化した場合にチャンネル固有のモデレーションの傾向を学ぶ仕組みとして紹介されていますが、発表時点ではテスト中です。", "priority": "high"},
+    {"title": "声検出とモバイル対応は今後の計画", "description": "YouTubeは顔の似姿検出に話し声の検出を統合することと、モバイルアプリから設定・確認・対応できるようにすることを今後の計画として述べています。", "priority": "high"},
+    {"title": "編集案は素材と意図に照らして確認", "description": "AIが提案する並べ替えやトリミング、音楽同期は編集支援です。権利、文脈、視聴者に伝えたい内容を確認して採用します。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "各機能の提供段階を公式発表で区別",
+  "verificationMessage": "発表されたことと、今すぐ自分のチャンネルで使えることは別です。",
+  "verdict": {"label": "発表・テスト・今後の計画を分けて導入", "description": "YouTubeの新機能発表には複数の提供段階が混在しています。Studioに表示される機能から試し、AIの編集案やコメント判定を投稿者が検証する運用が適切です。", "confidence": "high"},
+  "safeActions": [
+    {"action": "YouTube Studioで機能の表示と、自分のチャンネルでの提供状態を確認する", "reason": "発表された計画が全ユーザーに提供済みとは限らないためです。"},
+    {"action": "会話型編集の提案を、元素材・権利・動画の意図に照らしてから採用する", "reason": "編集支援の出力が内容や権利関係まで保証するとは発表されていません。"},
+    {"action": "コメント管理AIを試せる場合は、オプトインであることと判定結果を確認する", "reason": "YouTubeは機能をテスト中のオプトイン方式と説明しています。"},
+    {"action": "AIによる非表示・保留の結果を定期的に見直し、必要なら人が判断する", "reason": "チャンネルの文脈や皮肉、批判の意味を誤判定する可能性に備えるためです。"}
+  ],
+  "avoidActions": [
+    {"action": "発表記事だけを根拠に、未提供の機能を制作手順の必須工程に組み込む", "reason": "一部はテスト中または今後の計画です。"},
+    {"action": "AIの編集案やコメント管理結果を、人の確認なしでそのまま公開・適用する", "reason": "発表は支援機能を説明しており、個々の判断の正確さを保証するものではありません。"}
+  ],
+  "positiveUse": {"title": "反復作業をAIに任せ、公開判断は投稿者が担う", "description": "編集のたたき台やコメント整理を効率化しながら、内容・権利・コミュニティ方針の確認を人の工程として残します。", "examples": ["利用可能な機能から小さく試す", "編集前後の素材を見比べる", "保留コメントを抜き取り確認", "提供段階と利用開始日を記録"]},
+  "makotoComment": "この発表は、AI機能の『便利さ』だけでなく、どこまで実装されたかを読む教材になります。会話型編集の発表、コメント管理のテスト、声検出やモバイル対応の将来計画をひとまとめにすると、利用者が今できる操作を誤認します。Studio上の表示と発表文の動詞を照らし合わせるのが、この話題に固有の確認点です。",
+  "oneLineLesson": "YouTubeのAI機能は、発表済み・テスト中・今後の計画を分け、出力は人が確認して使う。",
+  "tags": ["YouTube Studio", "動画編集", "コメント管理", "Gemini", "AI機能の提供段階", "クリエイター"],
+  "sources": [{"title": "New tools to power your creation journey from start to finish", "publisher": "YouTube Blog", "sourceType": "official-product-update", "publishedAt": "2026-09-23", "url": "https://blog.youtube/news-and-events/made-on-youtube-new-tools-power-creation-journey/"}],
+  "visualSuggestion": {"mainVisual": "YouTube投稿者向けAI機能を『発表』『テスト中』『今後の計画』に分けて表示する制作チェック表", "cardIcon": "youtube-studio-ai-stages", "accentTone": "practical"}
+}

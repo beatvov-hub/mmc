@@ -1,0 +1,50 @@
+{
+  "id": "case-20261020-01",
+  "publishedAt": "2026-10-20",
+  "title": "Geminiの外部アプリ連携、接続先と呼び出し方を確認する",
+  "shortTitle": "Geminiに外部アプリをつなぐ前に",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": ["Geminiアプリを仕事や日常で使う人", "AIアシスタントに外部サービスを接続する前に確認したい人"],
+  "summary": "Googleは2026年9月23日、Geminiアプリから利用できる外部のConnected Appsを追加すると発表しました。生産性、制作、生活関連のサービスが対象として紹介され、アプリはGeminiの設定から接続するか、チャット内で@メンションして呼び出せます。これは外部アプリをGeminiから使うための段階的な提供で、全アカウントで一律に利用できるという発表ではありません。便利さだけで接続を増やさず、設定画面で実際に利用可能な連携先を確認し、必要なサービスだけを選びましょう。",
+  "scenario": {
+    "headline": "Geminiから仕事用・生活用アプリを操作できると聞き、何をつなぐか迷う",
+    "description": "Geminiのチャットからプロジェクト管理や制作サービスを使いたい。アプリ連携を設定する方法と、機能が使える状態かを確認したい。",
+    "whyItMatters": "外部サービスをつなぐと、Gemini内で作業を始めやすくなります。一方、接続するサービスが増えるほど、AIに頼む作業の範囲も広がるため、目的ごとに接続先を選ぶ判断が必要です。"
+  },
+  "question": {
+    "text": "Geminiで新しいConnected Appsを使う前に何を確認する？",
+    "choices": [
+      {"id": "review-needed-apps", "label": "設定に表示される連携先を確認し、必要なサービスだけ接続して、@メンション等で使う", "description": "Googleは設定から接続する方法と、チャット内でアプリを呼び出す方法を案内しています。"},
+      {"id": "connect-everything", "label": "紹介されたアプリをすべて接続すれば、どのアカウントでもすぐ使えると考える", "description": "発表は段階的な提供としており、全アプリ・全アカウントでの一律利用を保証していません。"}
+    ],
+    "recommendedAnswers": ["review-needed-apps"],
+    "explanation": "Googleの発表では、外部アプリはGemini設定から接続するか、チャットで@メンションして呼び出せます。発表は段階的提供なので、実際に使えるかは自分の設定画面で確認します。目的に必要な接続先に絞り、依頼する作業と対象サービスを具体的に指定しましょう。"
+  },
+  "inspectionPoints": [
+    {"title": "追加対象は複数の用途カテゴリに分かれる", "description": "Googleは生産性、制作、生活関連としてConnected Appsを紹介しています。発表にあるカテゴリとサービス名を、実際の設定画面の表示と区別して確認します。", "priority": "medium"},
+    {"title": "接続方法は設定またはチャット内の呼び出し", "description": "Geminiの設定でアプリを接続する方法に加え、チャット内で@メンションする方法もGoogleが案内しています。", "priority": "high"},
+    {"title": "発表は段階的なロールアウト", "description": "2026年9月23日の発表は提供開始を段階的に進める内容です。紹介記事に載った全サービスが直ちに自分のアカウントで使えるとは限りません。", "priority": "high"},
+    {"title": "外部アプリに頼む作業の範囲を具体化する", "description": "接続済みであることと、すべての依頼を無条件に実行させることは別です。送信、共有、購入など影響のある操作は実行前に対象と内容を確認します。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "連携対象と提供状況を公式発表で確認",
+  "verificationMessage": "紹介されたアプリ名だけで判断せず、自分のGemini設定に出ている接続先と利用可能な操作を確かめましょう。",
+  "verdict": {"label": "必要な外部アプリだけを選んで接続", "description": "GeminiのConnected Appsは外部サービスを会話から使う入口です。提供状況はアカウントごとに確認し、接続先と頼む操作を必要な範囲に絞るのが実用的です。", "confidence": "high"},
+  "safeActions": [
+    {"action": "Gemini設定のConnected Appsを開き、現在利用可能な連携先を確認する", "reason": "Googleは設定からアプリを接続する方法を案内しています。"},
+    {"action": "使う目的があるアプリだけを接続し、不要になった連携は設定を見直す", "reason": "外部サービスへの接続範囲を自分の用途に合わせるためです。"},
+    {"action": "チャット内で@メンションする場合は、対象アプリと頼む作業を明示する", "reason": "どのサービスに何を依頼するのかを会話上で確認しやすくなります。"},
+    {"action": "送信・共有など影響のある操作は、実行対象と内容を確認してから進める", "reason": "AIへの依頼文だけで外部サービス上の結果まで意図どおりとは限らないためです。"}
+  ],
+  "avoidActions": [
+    {"action": "発表に載っているアプリがすべて自分のアカウントで使えると思い込む", "reason": "Googleは段階的な提供として案内しています。"},
+    {"action": "目的を決めずに、使う予定のないサービスまで接続する", "reason": "利便性に必要な範囲を超えて接続先を増やす必要はありません。"}
+  ],
+  "positiveUse": {"title": "必要な連携だけで作業の行き来を減らす", "description": "Geminiから扱いたいサービスを用途ごとに選び、接続・呼び出し・実行確認を一続きの手順として運用します。", "examples": ["設定画面で利用可能な連携先を確認", "使うサービスだけ接続", "@メンションで対象を明示", "共有や送信の前に内容を確認"]},
+  "makotoComment": "今回の発表で実用上大切なのは、Geminiが外部サービスの入口になり始めた点です。アプリ名の一覧を見て一斉に接続するより、日々の作業で本当に必要な連携をひとつ選び、チャットから何を実行できるかを小さく試すのが安全です。段階的提供なので、記事の一覧と自分の設定画面の差も記録しておきたいところです。",
+  "oneLineLesson": "GeminiのConnected Appsは、使う目的と接続先を選び、設定画面で提供状況を確かめてから使う。",
+  "tags": ["Gemini", "Connected Apps", "外部アプリ連携", "権限", "AI活用", "設定"],
+  "sources": [{"title": "A new wave of Connected Apps is rolling out to Gemini.", "publisher": "Google", "sourceType": "official-product-update", "publishedAt": "2026-09-23", "url": "https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-gemini/"}],
+  "visualSuggestion": {"mainVisual": "Gemini設定で外部アプリを選び、チャットで対象を呼び出し、実行前に内容を確かめる3段階の図", "cardIcon": "gemini-connected-apps", "accentTone": "practical"}
+}

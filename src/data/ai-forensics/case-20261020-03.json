@@ -1,0 +1,51 @@
+{
+  "id": "case-20261020-03",
+  "publishedAt": "2026-10-20",
+  "title": "Firefly AI Assistantのクレジットと提携モデルを使う前に確認",
+  "shortTitle": "Firefly AI Assistantの料金とモデル",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["Adobe Firefly AI Assistantを試すクリエイター", "生成AIの利用料や素材の扱いを管理する人"],
+  "summary": "AdobeのFirefly AI Assistant FAQは、有料プランでは2026年10月1日から一部のAssistant操作が保有AIクレジットを消費すると案内しています。生成・編集など多くのAI操作が対象で、消費量は操作によって異なり、実行後にクレジットアイコンから確認できます。AssistantはFirefly系に加えて提携先モデルも使い、提携モデルの出力が自分の用途に適切かは利用者の判断とされています。FAQは、クリエイティブアプリ内のコンテンツを生成AIモデルの学習に使わないとも説明しています。操作前にモデルと用途、操作後にクレジット残量を確認しましょう。",
+  "scenario": {
+    "headline": "Fireflyの会話型Assistantに画像編集を頼みたいが、料金や提携モデルの扱いが気になる",
+    "description": "有料Creative Cloudプランを使い、AI Assistantに生成や編集を頼む予定だ。何の操作でクレジットが減るか、提携モデルの出力を商用制作に使えるか確認したい。",
+    "whyItMatters": "チャット形式でも、裏側では複数のAIモデルや制作操作が実行される場合があります。会話の便利さだけでなく、クレジット消費、選択されたモデル、ベータ機能の条件を把握しておく必要があります。"
+  },
+  "question": {
+    "text": "Firefly AI Assistantで生成・編集を頼む前後に何を確認する？",
+    "choices": [
+      {"id": "check-model-credit", "label": "用途に合うモデルかを確認し、実行後に操作ごとのクレジット消費を確かめる", "description": "Adobeは操作により消費量が異なると案内し、提携モデルの適切性は利用者の責任としています。"},
+      {"id": "assume-no-cost-commercial", "label": "会話型Assistantの操作はすべて無料で、どのモデルの出力も同じ条件で商用利用できると考える", "description": "有料プランの一部操作はクレジットを使い、提携モデルには別途適切性の判断が必要です。"}
+    ],
+    "recommendedAnswers": ["check-model-credit"],
+    "explanation": "AdobeのFAQによると、有料ユーザーの一部操作は2026年10月1日からクレジットを消費し、消費量は操作ごとに異なります。Assistantは提携先モデルも利用し得るため、用途への適合性を確認し、操作後はクレジットアイコンで消費量を確認します。"
+  },
+  "inspectionPoints": [
+    {"title": "有料プランの一部操作は2026年10月1日からクレジット対象", "description": "Adobe FAQは、有料プラン利用者の一部AI Assistant操作が同日から保有AIクレジットを使うと案内しています。", "priority": "high"},
+    {"title": "消費量は操作ごとに異なり、完了後に確認できる", "description": "生成・編集などの操作でクレジットを使用し、消費量は操作により異なります。Adobeは実行後にクレジットアイコンへカーソルを合わせて使用量を見る方法を案内しています。", "priority": "high"},
+    {"title": "Firefly系と提携先のモデルを使う", "description": "Assistantは依頼に応じてFireflyモデルと提携先モデルを選ぶとFAQにあります。Fireflyモデル出力と提携モデル出力について、FAQは利用者の確認責任を区別しています。", "priority": "high"},
+    {"title": "学習利用の説明とベータ版の注意を併せて読む", "description": "Adobeはクリエイティブアプリ内のコンテンツを生成AIモデルの学習に利用しないと説明しています。一方、ベータ機能には不具合やデータ損失の可能性があるとの注意も掲載しています。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "クレジット条件とモデル区分をAdobe FAQで確認",
+  "verificationMessage": "会話の回数だけで料金を推測せず、操作ごとの表示と選択モデルを確認しましょう。",
+  "verdict": {"label": "操作単位でクレジットとモデルの適合性を確認", "description": "Firefly AI Assistantは会話型でも生成・編集操作ごとにクレジットを使う場合があります。実行後の使用量確認と、提携モデル利用時の用途確認を制作フローに含めましょう。", "confidence": "high"},
+  "safeActions": [
+    {"action": "制作に使う素材や成果物の用途を決めてからAssistantに操作を依頼する", "reason": "用途に応じて必要なモデルや確認事項が異なるためです。"},
+    {"action": "提携モデルを使った出力は、利用条件とプロジェクト要件に適合するか確認する", "reason": "Adobe FAQは提携モデルが適切かの判断を利用者に求めています。"},
+    {"action": "生成・編集操作の後にクレジットアイコンで消費量を確認する", "reason": "Adobeは消費量が操作ごとに異なり、操作完了後に確認できると案内しています。"},
+    {"action": "ベータ機能では重要な元データのバックアップを残す", "reason": "Adobeはベータ版で不具合やシステム障害、データ損失が起こり得ると注意しています。"}
+  ],
+  "avoidActions": [
+    {"action": "会話形式だから操作が無料、または一律のクレジット消費だと決めつける", "reason": "消費対象と量は操作によって異なります。"},
+    {"action": "提携モデルの出力を、Fireflyモデルと同じ利用条件だとみなす", "reason": "Adobeは提携モデルの用途適合性を利用者が判断するよう案内しています。"},
+    {"action": "ベータ版に唯一の原本を預け、バックアップを取らずに作業する", "reason": "ベータ版にはデータ損失等のリスクがあるとAdobeが記載しています。"}
+  ],
+  "positiveUse": {"title": "クレジットを見える化してAI編集を予算内で試す", "description": "少量のテスト操作で使用量と出力品質を確かめ、用途に合ったモデル・機能だけを制作工程へ取り入れます。", "examples": ["テスト操作後にクレジット消費を記録", "提携モデルかFireflyモデルかを確認", "ベータ利用前に元データを複製", "チームで月次クレジットの確認担当を決める"]},
+  "makotoComment": "ここで見落としやすいのは、チャット欄への入力回数とクレジット消費が同じ単位とは限らない点です。ひとつの会話から複数の生成・編集操作を頼める設計だからこそ、実行後に操作別の使用量を記録する習慣が予算管理に直結します。また『Fireflyの画面で使う』ことと『Fireflyモデルだけが出力する』ことも同義ではありません。",
+  "oneLineLesson": "Firefly AI Assistantは、操作後のクレジット使用量と提携モデルの用途適合性を確認して使う。",
+  "tags": ["Adobe Firefly", "AI Assistant", "生成AIクレジット", "提携モデル", "ベータ版", "データ利用"],
+  "sources": [{"title": "Firefly AI Assistant FAQ", "publisher": "Adobe Help Center", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://helpx.adobe.com/firefly/web/firefly-ai-assistant/ai-assistant-faq.html"}],
+  "visualSuggestion": {"mainVisual": "Firefly AI Assistantで用途とモデルを確認し、生成後にクレジットアイコンで使用量を見る手順図", "cardIcon": "firefly-ai-assistant-credits", "accentTone": "practical"}
+}
