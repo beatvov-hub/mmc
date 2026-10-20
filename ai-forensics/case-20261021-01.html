@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plaudの個人設定は要約に反映されない　Ask Plaudとの使い分け｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="Plaud Supportは2026年10月20日、モバイルアプリv4.0.x以降のPersonalization設定について案内を更新しました。職種や業界、会議の種類、回答の言語・文体などを設定するとAsk PlaudのChat／Workでの応答に反映されますが、録音の文字起こしや要約には反映されません。要約の形式を変えたい場合はSummary Templateを別に設定します。設定を一つ変えれば録音後の全出力が変わると思い込まず、どの作業の設定なのかを分けて確認しましょう。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261021-01" />
+<meta property="og:title" content="Plaudの個人設定は要約に反映されない　Ask Plaudとの使い分け｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="Plaud Supportは2026年10月20日、モバイルアプリv4.0.x以降のPersonalization設定について案内を更新しました。職種や業界、会議の種類、回答の言語・文体などを設定するとAsk PlaudのChat／Workでの応答に反映されますが、録音の文字起こしや要約には反映されません。要約の形式を変えたい場合はSummary Templateを別に設定します。設定を一つ変えれば録音後の全出力が変わると思い込まず、どの作業の設定なのかを分けて確認しましょう。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261021-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Plaud個人設定の適用範囲</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+              <time datetime="2026-10-21">2026.10.21</time>
+            </div>
+            <h1>Plaudの個人設定は要約に反映されない　Ask Plaudとの使い分け</h1>
+            <p>Plaud Supportは2026年10月20日、モバイルアプリv4.0.x以降のPersonalization設定について案内を更新しました。職種や業界、会議の種類、回答の言語・文体などを設定するとAsk PlaudのChat／Workでの応答に反映されますが、録音の文字起こしや要約には反映されません。要約の形式を変えたい場合はSummary Templateを別に設定します。設定を一つ変えれば録音後の全出力が変わると思い込まず、どの作業の設定なのかを分けて確認しましょう。</p>
+            <ul class="forensics-target-list"><li>Plaudを会議や取材で使う人</li><li>AIの個人設定と要約テンプレートを使い分けたい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Plaud</li><li>Ask Plaud</li><li>Personalization</li><li>Summary Template</li><li>会議要約</li><li>AI設定</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>設定の適用範囲をPlaud公式ヘルプで確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>会話の個人設定と録音要約の設定は別です。変えたい出力に対応する設定項目を選びましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Plaudに好みを設定したのに、録音の要約が思った形に変わらない</h3><p>会議の文字起こしや要約を自分の仕事に合わせたい。Personalizationに情報を入力すれば、録音後の出力にも反映されるのか知りたい。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Plaudの案内では、Ask Plaudの応答設定と、録音の文字起こし・要約の設定は別です。設定の適用先を把握すると、不要なプロフィール情報を追加せず、要約テンプレートを目的に合わせて調整できます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="separate-chat-summary">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>Plaudで会話の好みと録音要約をそれぞれ変えたいとき、どう設定する？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="separate-chat-summary" data-choice-id="separate-chat-summary" />
+                <span>
+                  <strong>Ask Plaud向けのPersonalizationと、要約向けのSummary Templateを別々に設定する</strong>
+                  <small>PlaudはPersonalizationが文字起こしや要約を変えないと案内しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="one-profile-controls-all" data-choice-id="one-profile-controls-all" />
+                <span>
+                  <strong>Personalizationに詳しいプロフィールを書けば、文字起こしと要約も同じ設定に従うと考える</strong>
+                  <small>公式案内でPersonalizationの適用先はAsk Plaudの会話とされています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Ask Plaud向けのPersonalizationと、要約向けのSummary Templateを別々に設定する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Plaud Supportによると、PersonalizationはAsk PlaudのChat／Workで使われ、文字起こしや要約には影響しません。会話の返答スタイルはPersonalization、要約の書式はSummary Templateで調整します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>適用先はAsk PlaudのChatとWork</h3>
+              <p>職務、業界、役割、会議の種類、継続中のプロジェクト、回答スタイル、言語などの設定がAsk Plaudでの会話に使われます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>文字起こしや要約には反映されない</h3>
+              <p>PlaudはPersonalizationがtranscriptionやsummariesを変更しないと明記しています。要約の書式はSummary Templateで扱います。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>モバイルアプリのバージョンで案内が分かれる</h3>
+              <p>今回のPersonalization案内はモバイルアプリv4.0.x以降が対象です。v3.30.x以前には別のMemory案内があります。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>設定場所を確認して変更する</h3>
+              <p>Plaudの案内するモバイル経路は、メニューからSettingsを開き、Workspace内のPersonalizationへ進む方法です。Work detailsを編集するとオンボーディング質問が再度始まります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>会話はPersonalization、要約はSummary Template</strong><p>PersonalizationはAsk Plaud向けで、文字起こしや要約には適用されません。設定を追加する前に対象の出力を見極め、要約を整えたい場合はテンプレートを編集します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>自分のモバイルアプリがv4.0.x以降かを確認してから、対応するPersonalizationの案内を使う</strong><span>Plaudの現行案内は対象バージョンを限定し、旧版には別のMemory案内を示しています。</span></li>
+            <li><strong>Ask Plaudの会話を変えたい場合は、Settings内のWorkspace &gt; Personalizationを確認する</strong><span>公式ヘルプがこの設定経路を案内しています。</span></li>
+            <li><strong>録音要約の形式を変えたい場合は、Summary Templateを編集する</strong><span>Personalizationは要約に適用されないとPlaudが説明しています。</span></li>
+            <li><strong>Work detailsを編集する前に、オンボーディング質問が再度始まることを見込む</strong><span>PlaudはWork detailsの編集でオンボーディングが再開すると案内しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>Personalizationの変更だけで録音の文字起こしや要約も変わると期待する</strong><span>公式案内ではこれらの出力はPersonalizationの適用対象外です。</span></li>
+            <li><strong>目的を決めず、会話の回答に不要な個人情報や業務情報までプロフィールへ追加する</strong><span>回答スタイルなど、目的に必要な項目に絞れば設定内容を管理しやすくなります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>設定を出力ごとに分けて、必要な応答だけ整える</h3>
+          <p>Ask Plaudでの相談と録音要約を別工程として設定し、変更がどの出力に反映されるか小さく確認します。</p>
+          <ul class="positive-example-list"><li>会話で使う言語・文体を設定</li><li>会議要約のテンプレートを編集</li><li>テスト用の短い録音で出力を比較</li><li>アプリのバージョンと設定経路を記録</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>この案内で実務上のポイントになるのは、同じPlaudの中でも『会話への個人化』と『録音から作る要約』の設定が別系統なことです。プロフィールを詳しく書き足す前に、変えたい出力がAsk Plaudなのか要約なのかを決めれば、設定の試行錯誤を減らせます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>PlaudではAsk Plaudの個人設定と録音要約のテンプレートを分けて調整する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.plaud.ai/hc/en-us/articles/63429953841817-Personalize-Plaud-Agent-for-v4-0-x-or-later" target="_blank" rel="noopener noreferrer">Personalize Plaud Agent — for v4.0.x or later<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Plaud Support</span>
+              <span>その他</span>
+              <time datetime="2026-10-20">2026-10-20</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261020-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="YouTube StudioのAI機能、発表・テスト・提供予定を分けて使う YouTube投稿者向けAI機能の段階 YouTubeのAparna Pappu副社長は2026年9月23日、Made on YouTubeで投稿者向けの新しい制作・運営支援を発表しました。会話型編集アシスタントはShortsとYouTube CreateにGeminiを組み込み、編集案をチャットで調整する構想です。コメント管理AIはチャンネル固有の方針を学習するオプトインのテスト中で、顔の検出に声の検出を加える機能とモバイル対応は今後の計画として説明されました。すべてが一般提供済みではありません。Studioに実際に表示される機能だけを試し、AIの編集提案やモデレーション結果は公開前に人が確認しましょう。 仕事・AI活用 標準 YouTube Studio 動画編集 コメント管理 Gemini AI機能の提供段階 クリエイター YouTubeで動画やShortsを制作する人 YouTube StudioのAI機能を業務に取り入れたい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">youtube-studio-ai-stages</span>
+              <div>
+                <p>YouTube投稿者向けAI機能の段階</p>
+                <h3>YouTube StudioのAI機能、発表・テスト・提供予定を分けて使う</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-20">2026.10.20</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">YouTubeのAparna Pappu副社長は2026年9月23日、Made on YouTubeで投稿者向けの新しい制作・運営支援を発表しました。会話型編集アシスタントはShortsとYouTube CreateにGeminiを組み込み、編集案をチャットで調整する構想です。コメント管理AIはチャンネル固有の方針を学習するオプトインのテスト中で、顔の検出に声の検出を加える機能とモバイル対応は今後の計画として説明されました。すべてが一般提供済みではありません。Studioに実際に表示される機能だけを試し、AIの編集提案やモデレーション結果は公開前に人が確認しましょう。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>各機能の提供段階を公式発表で区別</span>
+            </div>
+            <ul class="forensics-card-audience"><li>YouTubeで動画やShortsを制作する人</li><li>YouTube StudioのAI機能を業務に取り入れたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>YouTube Studio</li><li>動画編集</li><li>コメント管理</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261020-03" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="Firefly AI Assistantのクレジットと提携モデルを使う前に確認 Firefly AI Assistantの料金とモデル AdobeのFirefly AI Assistant FAQは、有料プランでは2026年10月1日から一部のAssistant操作が保有AIクレジットを消費すると案内しています。生成・編集など多くのAI操作が対象で、消費量は操作によって異なり、実行後にクレジットアイコンから確認できます。AssistantはFirefly系に加えて提携先モデルも使い、提携モデルの出力が自分の用途に適切かは利用者の判断とされています。FAQは、クリエイティブアプリ内のコンテンツを生成AIモデルの学習に使わないとも説明しています。操作前にモデルと用途、操作後にクレジット残量を確認しましょう。 仕事・AI活用 標準 Adobe Firefly AI Assistant 生成AIクレジット 提携モデル ベータ版 データ利用 Adobe Firefly AI Assistantを試すクリエイター 生成AIの利用料や素材の扱いを管理する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">firefly-ai-assistant-credits</span>
+              <div>
+                <p>Firefly AI Assistantの料金とモデル</p>
+                <h3>Firefly AI Assistantのクレジットと提携モデルを使う前に確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-20">2026.10.20</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">AdobeのFirefly AI Assistant FAQは、有料プランでは2026年10月1日から一部のAssistant操作が保有AIクレジットを消費すると案内しています。生成・編集など多くのAI操作が対象で、消費量は操作によって異なり、実行後にクレジットアイコンから確認できます。AssistantはFirefly系に加えて提携先モデルも使い、提携モデルの出力が自分の用途に適切かは利用者の判断とされています。FAQは、クリエイティブアプリ内のコンテンツを生成AIモデルの学習に使わないとも説明しています。操作前にモデルと用途、操作後にクレジット残量を確認しましょう。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>クレジット条件とモデル区分をAdobe FAQで確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Adobe Firefly AI Assistantを試すクリエイター</li><li>生成AIの利用料や素材の扱いを管理する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Adobe Firefly</li><li>AI Assistant</li><li>生成AIクレジット</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261018-03" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="Teams会議でCopilotを使うとき、録音・文字起こしとプロンプト保持を分けて確認 Teams Copilotの記録範囲を確認 Microsoft Supportは、Teams会議で録音や文字起こしを作らずにCopilotを使う方法を案内しています。主催者は予定表の会議オプションでCopilotを「会議中のみ」に設定でき、このモードでは会議後のRecapでCopilotを使えず、文字起こしや録音も自動では作成されません。ただし、文字起こしがなくてもCopilotへのプロンプトと回答が保持され、組織の設定によってMicrosoft Purviewから検索・確認できる場合があります。つまり「会議を録音しない」と「Copilotとの対話が一切残らない」は同じではありません。会議前に管理者ポリシーと参加者への案内を確認しましょう。 仕事・AI活用 標準 Microsoft Teams Microsoft Copilot 会議 文字起こし 録音 Microsoft Purview データ保持 Microsoft Teams会議でCopilotを使う人 会議の記録・保持設定を管理する担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">teams-copilot-retention</span>
+              <div>
+                <p>Teams Copilotの記録範囲を確認</p>
+                <h3>Teams会議でCopilotを使うとき、録音・文字起こしとプロンプト保持を分けて確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-18">2026.10.18</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoft Supportは、Teams会議で録音や文字起こしを作らずにCopilotを使う方法を案内しています。主催者は予定表の会議オプションでCopilotを「会議中のみ」に設定でき、このモードでは会議後のRecapでCopilotを使えず、文字起こしや録音も自動では作成されません。ただし、文字起こしがなくてもCopilotへのプロンプトと回答が保持され、組織の設定によってMicrosoft Purviewから検索・確認できる場合があります。つまり「会議を録音しない」と「Copilotとの対話が一切残らない」は同じではありません。会議前に管理者ポリシーと参加者への案内を確認しましょう。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>会議設定と組織の保持ポリシーを確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft Teams会議でCopilotを使う人</li><li>会議の記録・保持設定を管理する担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Teams</li><li>Microsoft Copilot</li><li>会議</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261021-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

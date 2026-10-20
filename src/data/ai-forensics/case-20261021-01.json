@@ -1,0 +1,50 @@
+{
+  "id": "case-20261021-01",
+  "publishedAt": "2026-10-21",
+  "title": "Plaudの個人設定は要約に反映されない　Ask Plaudとの使い分け",
+  "shortTitle": "Plaud個人設定の適用範囲",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": ["Plaudを会議や取材で使う人", "AIの個人設定と要約テンプレートを使い分けたい人"],
+  "summary": "Plaud Supportは2026年10月20日、モバイルアプリv4.0.x以降のPersonalization設定について案内を更新しました。職種や業界、会議の種類、回答の言語・文体などを設定するとAsk PlaudのChat／Workでの応答に反映されますが、録音の文字起こしや要約には反映されません。要約の形式を変えたい場合はSummary Templateを別に設定します。設定を一つ変えれば録音後の全出力が変わると思い込まず、どの作業の設定なのかを分けて確認しましょう。",
+  "scenario": {
+    "headline": "Plaudに好みを設定したのに、録音の要約が思った形に変わらない",
+    "description": "会議の文字起こしや要約を自分の仕事に合わせたい。Personalizationに情報を入力すれば、録音後の出力にも反映されるのか知りたい。",
+    "whyItMatters": "Plaudの案内では、Ask Plaudの応答設定と、録音の文字起こし・要約の設定は別です。設定の適用先を把握すると、不要なプロフィール情報を追加せず、要約テンプレートを目的に合わせて調整できます。"
+  },
+  "question": {
+    "text": "Plaudで会話の好みと録音要約をそれぞれ変えたいとき、どう設定する？",
+    "choices": [
+      {"id": "separate-chat-summary", "label": "Ask Plaud向けのPersonalizationと、要約向けのSummary Templateを別々に設定する", "description": "PlaudはPersonalizationが文字起こしや要約を変えないと案内しています。"},
+      {"id": "one-profile-controls-all", "label": "Personalizationに詳しいプロフィールを書けば、文字起こしと要約も同じ設定に従うと考える", "description": "公式案内でPersonalizationの適用先はAsk Plaudの会話とされています。"}
+    ],
+    "recommendedAnswers": ["separate-chat-summary"],
+    "explanation": "Plaud Supportによると、PersonalizationはAsk PlaudのChat／Workで使われ、文字起こしや要約には影響しません。会話の返答スタイルはPersonalization、要約の書式はSummary Templateで調整します。"
+  },
+  "inspectionPoints": [
+    {"title": "適用先はAsk PlaudのChatとWork", "description": "職務、業界、役割、会議の種類、継続中のプロジェクト、回答スタイル、言語などの設定がAsk Plaudでの会話に使われます。", "priority": "high"},
+    {"title": "文字起こしや要約には反映されない", "description": "PlaudはPersonalizationがtranscriptionやsummariesを変更しないと明記しています。要約の書式はSummary Templateで扱います。", "priority": "high"},
+    {"title": "モバイルアプリのバージョンで案内が分かれる", "description": "今回のPersonalization案内はモバイルアプリv4.0.x以降が対象です。v3.30.x以前には別のMemory案内があります。", "priority": "medium"},
+    {"title": "設定場所を確認して変更する", "description": "Plaudの案内するモバイル経路は、メニューからSettingsを開き、Workspace内のPersonalizationへ進む方法です。Work detailsを編集するとオンボーディング質問が再度始まります。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "設定の適用範囲をPlaud公式ヘルプで確認",
+  "verificationMessage": "会話の個人設定と録音要約の設定は別です。変えたい出力に対応する設定項目を選びましょう。",
+  "verdict": {"label": "会話はPersonalization、要約はSummary Template", "description": "PersonalizationはAsk Plaud向けで、文字起こしや要約には適用されません。設定を追加する前に対象の出力を見極め、要約を整えたい場合はテンプレートを編集します。", "confidence": "high"},
+  "safeActions": [
+    {"action": "自分のモバイルアプリがv4.0.x以降かを確認してから、対応するPersonalizationの案内を使う", "reason": "Plaudの現行案内は対象バージョンを限定し、旧版には別のMemory案内を示しています。"},
+    {"action": "Ask Plaudの会話を変えたい場合は、Settings内のWorkspace > Personalizationを確認する", "reason": "公式ヘルプがこの設定経路を案内しています。"},
+    {"action": "録音要約の形式を変えたい場合は、Summary Templateを編集する", "reason": "Personalizationは要約に適用されないとPlaudが説明しています。"},
+    {"action": "Work detailsを編集する前に、オンボーディング質問が再度始まることを見込む", "reason": "PlaudはWork detailsの編集でオンボーディングが再開すると案内しています。"}
+  ],
+  "avoidActions": [
+    {"action": "Personalizationの変更だけで録音の文字起こしや要約も変わると期待する", "reason": "公式案内ではこれらの出力はPersonalizationの適用対象外です。"},
+    {"action": "目的を決めず、会話の回答に不要な個人情報や業務情報までプロフィールへ追加する", "reason": "回答スタイルなど、目的に必要な項目に絞れば設定内容を管理しやすくなります。"}
+  ],
+  "positiveUse": {"title": "設定を出力ごとに分けて、必要な応答だけ整える", "description": "Ask Plaudでの相談と録音要約を別工程として設定し、変更がどの出力に反映されるか小さく確認します。", "examples": ["会話で使う言語・文体を設定", "会議要約のテンプレートを編集", "テスト用の短い録音で出力を比較", "アプリのバージョンと設定経路を記録"]},
+  "makotoComment": "この案内で実務上のポイントになるのは、同じPlaudの中でも『会話への個人化』と『録音から作る要約』の設定が別系統なことです。プロフィールを詳しく書き足す前に、変えたい出力がAsk Plaudなのか要約なのかを決めれば、設定の試行錯誤を減らせます。",
+  "oneLineLesson": "PlaudではAsk Plaudの個人設定と録音要約のテンプレートを分けて調整する。",
+  "tags": ["Plaud", "Ask Plaud", "Personalization", "Summary Template", "会議要約", "AI設定"],
+  "sources": [{"title": "Personalize Plaud Agent — for v4.0.x or later", "publisher": "Plaud Support", "sourceType": "official-product-documentation", "publishedAt": "2026-10-20", "url": "https://support.plaud.ai/hc/en-us/articles/63429953841817-Personalize-Plaud-Agent-for-v4-0-x-or-later"}],
+  "visualSuggestion": {"mainVisual": "Plaudの設定を『Ask PlaudのPersonalization』と『録音要約のSummary Template』の2列に分けて示す図", "cardIcon": "plaud-personalization-scope", "accentTone": "practical"}
+}
