@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-20T07:30:00+09:00",
+  "updatedAt": "2026-10-21T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2265,6 +2265,68 @@
         {
           "label": "Cryptomator公式GitHub：GPL-3.0ライセンス",
           "url": "https://github.com/cryptomator/cryptomator"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-21",
+      "slug": "exiftool-remove-photo-gps-location",
+      "useCategory": "ファイル共有・情報管理",
+      "name": "ExifTool",
+      "category": "画像メタデータ編集",
+      "officialUrl": "https://exiftool.org/",
+      "archiveTitle": "ExifToolで写真のGPS位置情報を消せる？_originalの残り方も確認",
+      "archiveDescription": "公開写真から撮影場所を消したい人向けに、ExifToolでJPEGのGPSタグを確認・削除する方法を紹介。書き換え後の確認と_originalバックアップの扱いも解説します。",
+      "forWho": "イベントや広報の写真をWebへ掲載する前に、JPEGへ撮影場所のGPS情報が記録されていないか確認したい担当者向けです。",
+      "summary": "JPEGならExifToolでGPSタグを削除できます。削除後にもう一度タグを確認し、元画像のバックアップに位置情報が残っていないかも公開前に確認します。",
+      "whyToday": "写真の見た目を整えても、ファイルに埋め込まれた位置情報は別に残ることがあります。ExifToolは画像内のタグを一覧し、対象のGPSタグを選んで削除できるため、掲載用コピーの確認手順を作る入口になります。",
+      "useFor": "例えば、イベントで撮影した公開予定のJPEGに撮影場所が記録されているかを確認する想定例です。公式配布のExifToolと、元画像ではなく複製した写真1枚を用意し、コマンドラインで「exiftool -a -G1 -s photo.jpg」と実行してタグ名と保存場所を確認します。GPS情報があれば複製側に「exiftool \"-gps*=\" photo.jpg」を実行し、同じ確認をやり直してGPSタグが出力されないかを見ます。ExifToolは書き換え時に元画像を「_original」付きで残すため、バックアップを公開用フォルダーへ混ぜないことまで確認します。公式資料に基づく想定例で、実機検証は未実施です。",
+      "cautions": "この例はJPEGのGPSタグ確認・削除に絞っています。GPS以外の撮影日時やカメラ情報まで消す操作ではなく、動画の埋め込みトラックなど形式によっては対象外の情報があります。まず複製に実行し、出力を再確認してください。ExifToolは書き換え前の画像を「_original」付きで保存するため、公開用データからバックアップを分けます。",
+      "faq": [
+        {
+          "question": "ExifToolでGPSタグを削除すると、元の写真はどうなりますか？",
+          "answer": "既定では書き換え後の写真と別に、元画像がファイル名末尾「_original」付きで残ります。削除結果を確認するまではこのバックアップを保管し、公開フォルダーへ入れないでください。"
+        },
+        {
+          "question": "この手順で動画の位置情報もすべて消せますか？",
+          "answer": "一律には言えません。動画ではGPSタグやトラックが形式ごとに異なり、ExifToolが編集できない埋め込み情報もあります。ここではJPEGのタグを扱い、別形式は公式の対応形式・制限を個別に確認してください。"
+        }
+      ],
+      "recommendedFor": {
+        "employeeId": "MMC-005",
+        "reason": "人狼広報のDGに、実際の参加者写真ではなく公開可能なテストJPEG1枚の確認手順を整理してもらい、掲載前に見るGPSタグと_originalバックアップの扱いを含む短いチェックリストを受け取りたいです。"
+      },
+      "keiComment": "GPSを消したつもりでも、元画像のバックアップを同じ公開フォルダーへ置けば位置情報が戻ってしまいます。掲載用コピー・退避用原本・_originalを分けるところまでを、写真の受け渡しルールにしておきたいですね。",
+      "pricing": "ExifToolは無償のフリーソフトウェアとして配布され、寄付は任意です。",
+      "conditions": "アカウントやAPIキーは不要です。Windowsでは公式Windows実行ファイルをダウンロードして展開し、複製したJPEGで試せます。改変・再配布する場合はPerlと同じ条件のライセンスを確認してください。",
+      "license": "Perlと同じ条件で再配布・改変できるフリーソフトウェア。",
+      "notes": "公式情報に基づく想定例です。実機検証は未実施です。",
+      "verifiedAt": "2026-10-21",
+      "status": "published",
+      "officialSources": [
+        {
+          "label": "ExifTool公式：機能・無償配布・ライセンス",
+          "url": "https://exiftool.org/"
+        },
+        {
+          "label": "ExifTool公式ドキュメント：Windows実行ファイルとセットアップ方法",
+          "url": "https://exiftool.org/install.html"
+        },
+        {
+          "label": "ExifTool公式FAQ：重複タグを含むメタデータの確認方法",
+          "url": "https://exiftool.org/faq.html"
+        },
+        {
+          "label": "ExifTool公式フォーラム：GPSタグをグループ横断で削除する例",
+          "url": "https://exiftool.org/forum/index.php?topic=7868.0"
+        },
+        {
+          "label": "ExifTool公式フォーラム：動画ストリームのGPSトラックに関する制限",
+          "url": "https://exiftool.org/forum/index.php?topic=14214.0"
+        },
+        {
+          "label": "ExifTool公式コマンド資料：_originalバックアップの既定動作",
+          "url": "https://exiftool.org/exiftool_pod.html"
         }
       ]
     }

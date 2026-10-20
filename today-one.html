@@ -83,61 +83,61 @@
       <article class="today-one-entry" aria-labelledby="today-one-entry-name">
         <header class="today-one-entry-header">
           <div class="today-one-entry-meta">
-            <time datetime="2026-10-20">2026.10.20 TUE</time>
-            <span>暗号化ソフト</span>
+            <time datetime="2026-10-21">2026.10.21 WED</time>
+            <span>画像メタデータ編集</span>
           </div>
           <p class="today-one-entry-label">今日のひとつ</p>
-          <h2 id="today-one-entry-name">Cryptomator</h2>
-          <a class="today-one-official-link" href="https://cryptomator.org/for-individuals/" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
+          <h2 id="today-one-entry-name">ExifTool</h2>
+          <a class="today-one-official-link" href="https://exiftool.org/" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
           <section class="today-one-section today-one-audience" aria-labelledby="today-one-audience-title">
             <p class="section-kicker">For Whom</p>
             <h2 id="today-one-audience-title">こんな人向け</h2>
-            <p>会社で利用が承認されたクラウドストレージに作業ファイルを置く必要があり、アップロード前に中身やファイル名を暗号化したい担当者向けです。</p>
+            <p>イベントや広報の写真をWebへ掲載する前に、JPEGへ撮影場所のGPS情報が記録されていないか確認したい担当者向けです。</p>
           </section>
           <section class="today-one-section today-one-conclusion" aria-labelledby="today-one-conclusion-title">
             <p class="section-kicker">The Answer</p>
             <h2 id="today-one-conclusion-title">結論</h2>
-            <p>できます。Cryptomatorはクラウド同期フォルダーに暗号化保管庫を作り、ファイルの中身だけでなく名前やフォルダー構成も暗号化します。クラウドとの同期は別途そのサービスの同期アプリが行います。</p>
+            <p>JPEGならExifToolでGPSタグを削除できます。削除後にもう一度タグを確認し、元画像のバックアップに位置情報が残っていないかも公開前に確認します。</p>
           </section>
           <section class="today-one-section today-one-method" aria-labelledby="today-one-use-title">
             <p class="section-kicker">How to Use</p>
             <h2 id="today-one-use-title">やり方／確認方法</h2>
-            <p>例えば、会社で利用承認済みのクラウドへ置く作業資料に、追加の暗号化をしたい場合の想定例です。Windows・macOS・Linux向けのデスクトップ版とクラウド事業者の同期アプリを用意し、同期対象フォルダーを保存場所に指定して新しい保管庫を作ります。保管庫を開いて公開可能なテスト文書を入れ、同期フォルダー側では暗号化されたファイル名で見えること、Cryptomatorで開くと原文を読めることを確認します。まずテスト文書1件で同期完了と復旧キーの保管まで確かめてください。これは公式手順に基づく想定例で、実機検証は未実施です。</p>
+            <p>例えば、イベントで撮影した公開予定のJPEGに撮影場所が記録されているかを確認する想定例です。公式配布のExifToolと、元画像ではなく複製した写真1枚を用意し、コマンドラインで「exiftool -a -G1 -s photo.jpg」と実行してタグ名と保存場所を確認します。GPS情報があれば複製側に「exiftool &quot;-gps*=&quot; photo.jpg」を実行し、同じ確認をやり直してGPSタグが出力されないかを見ます。ExifToolは書き換え時に元画像を「_original」付きで残すため、バックアップを公開用フォルダーへ混ぜないことまで確認します。公式資料に基づく想定例で、実機検証は未実施です。</p>
           </section>
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
-            <p>共有リンクの権限だけでは、クラウド事業者側に預けるデータの見え方までは変わりません。Cryptomatorは端末側でファイルごとに暗号化してから同期対象へ置けるため、保管時の露出を抑える追加策として検討できます。</p>
+            <p>写真の見た目を整えても、ファイルに埋め込まれた位置情報は別に残ることがあります。ExifToolは画像内のタグを一覧し、対象のGPSタグを選んで削除できるため、掲載用コピーの確認手順を作る入口になります。</p>
           </section>
           <section class="today-one-section today-one-faq" aria-labelledby="today-one-faq-title">
             <p class="section-kicker">Cautions & FAQ</p>
             <h2 id="today-one-faq-title">注意点・FAQ</h2>
-            <p class="today-one-caution">Cryptomator自体は同期ツールではなく、別途クラウド事業者の同期ソフトが必要です。ファイル名と構成は暗号化されますが、ファイルサイズ・個数・更新時刻など一部のメタデータは暗号化されません。保管庫のパスワードや復旧キーを失うとファイルを復号できないため、安全な場所に保管してください。会社の機密資料を扱う場合は、暗号化の有無にかかわらず、利用するクラウドと保管方法が社内規程で承認されているか先に確認します。</p><div class="today-one-faq-item">
-          <h3>Cryptomatorを入れれば、クラウドへの同期も自動で行われますか？</h3>
-          <p>いいえ。Cryptomatorで暗号化保管庫をクラウド同期フォルダー内に作り、実際の同期はDropboxやGoogle Driveなど、利用するクラウド事業者の同期ソフトに任せます。</p>
+            <p class="today-one-caution">この例はJPEGのGPSタグ確認・削除に絞っています。GPS以外の撮影日時やカメラ情報まで消す操作ではなく、動画の埋め込みトラックなど形式によっては対象外の情報があります。まず複製に実行し、出力を再確認してください。ExifToolは書き換え前の画像を「_original」付きで保存するため、公開用データからバックアップを分けます。</p><div class="today-one-faq-item">
+          <h3>ExifToolでGPSタグを削除すると、元の写真はどうなりますか？</h3>
+          <p>既定では書き換え後の写真と別に、元画像がファイル名末尾「_original」付きで残ります。削除結果を確認するまではこのバックアップを保管し、公開フォルダーへ入れないでください。</p>
         </div><div class="today-one-faq-item">
-          <h3>Cryptomatorの一覧から保管庫を外すと、クラウド上のファイルも消えますか？</h3>
-          <p>消えません。一覧から外す操作はCryptomator上の登録を取り除くだけです。暗号化ファイルを削除するには、ファイル管理アプリで保管庫のフォルダーを削除する必要があります。</p>
+          <h3>この手順で動画の位置情報もすべて消せますか？</h3>
+          <p>一律には言えません。動画ではGPSタグやトラックが形式ごとに異なり、ExifToolが編集できない埋め込み情報もあります。ここではJPEGのタグを扱い、別形式は公式の対応形式・制限を個別に確認してください。</p>
         </div>
           </section>
           <section class="today-one-section today-one-sources" aria-labelledby="today-one-sources-title">
             <p class="section-kicker">Primary Sources</p>
             <h2 id="today-one-sources-title">公式ソース</h2>
-            <ul><li><a href="https://docs.cryptomator.org/desktop/adding-vaults/" target="_blank" rel="noopener noreferrer">Cryptomator公式ドキュメント：保管庫の作成とクラウド同期フォルダーの選択 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://docs.cryptomator.org/security/security-target/" target="_blank" rel="noopener noreferrer">Cryptomator公式ドキュメント：暗号化されるファイル名・構成と対象外メタデータ <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://cryptomator.org/pricing/" target="_blank" rel="noopener noreferrer">Cryptomator公式：デスクトップ版の料金・無償範囲 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://docs.cryptomator.org/desktop/accessing-vaults/" target="_blank" rel="noopener noreferrer">Cryptomator公式ドキュメント：保管庫の解除とファイル操作 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://docs.cryptomator.org/desktop/vault-management/" target="_blank" rel="noopener noreferrer">Cryptomator公式ドキュメント：一覧から外す操作と保管庫データの削除 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://github.com/cryptomator/cryptomator" target="_blank" rel="noopener noreferrer">Cryptomator公式GitHub：GPL-3.0ライセンス <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
+            <ul><li><a href="https://exiftool.org/" target="_blank" rel="noopener noreferrer">ExifTool公式：機能・無償配布・ライセンス <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://exiftool.org/install.html" target="_blank" rel="noopener noreferrer">ExifTool公式ドキュメント：Windows実行ファイルとセットアップ方法 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://exiftool.org/faq.html" target="_blank" rel="noopener noreferrer">ExifTool公式FAQ：重複タグを含むメタデータの確認方法 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://exiftool.org/forum/index.php?topic=7868.0" target="_blank" rel="noopener noreferrer">ExifTool公式フォーラム：GPSタグをグループ横断で削除する例 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://exiftool.org/forum/index.php?topic=14214.0" target="_blank" rel="noopener noreferrer">ExifTool公式フォーラム：動画ストリームのGPSトラックに関する制限 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://exiftool.org/exiftool_pod.html" target="_blank" rel="noopener noreferrer">ExifTool公式コマンド資料：_originalバックアップの既定動作 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
           </section>
                   <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
           <p class="section-kicker">Recommended For</p>
           <h2 id="today-one-recommendation-title">誰に持たせたい？</h2>
           <div class="today-one-member-card">
-            <img src="image/staff/mmc-001-coworks.webp" alt="ほのちゃん" loading="lazy" />
+            <img src="image/staff/mmc-005-coworks.webp" alt="DG" loading="lazy" />
             <div>
-              <small>MMC-001</small>
-              <h3>ほのちゃん</h3>
-              <p class="today-one-member-role">総務担当 <span>総務課</span></p>
-              <p>ほのちゃんに、実資料ではなくテスト文書1件で保管先・同期担当・復旧キーの扱いを整理してもらい、総務の共有手順チェックリストとして受け取りたいです。</p>
-              <a class="today-one-profile-link" href="members/hono">プロフィールを見る</a>
+              <small>MMC-005</small>
+              <h3>DG</h3>
+              <p class="today-one-member-role">人狼界隈観測課長 <span>ゲーム制作部 人狼広報課</span></p>
+              <p>人狼広報のDGに、実際の参加者写真ではなく公開可能なテストJPEG1枚の確認手順を整理してもらい、掲載前に見るGPSタグと_originalバックアップの扱いを含む短いチェックリストを受け取りたいです。</p>
+              <a class="today-one-profile-link" href="members/dg">プロフィールを見る</a>
             </div>
           </div>
         </section>
@@ -150,7 +150,7 @@
                 <img src="image/staff/mmc-009-coworks.webp" alt="ケイ" loading="lazy" />
                 <strong>ケイ｜広報部長</strong>
               </div>
-              <p>暗号化すると、クラウド上でファイル名を見ただけでは内容を推測しにくくできます。一方、鍵の受け渡しと保管を決めずに始めると、守った資料を自分たちも開けなくなるので、復旧担当と保管場所までを一組で運用設計したいですね。</p>
+              <p>GPSを消したつもりでも、元画像のバックアップを同じ公開フォルダーへ置けば位置情報が戻ってしまいます。掲載用コピー・退避用原本・_originalを分けるところまでを、写真の受け渡しルールにしておきたいですね。</p>
             </div>
             <figure class="today-one-kei-visual">
               <img src="image/today-one/kei-note.webp" alt="メガホン、ノート、虫眼鏡のコラージュ" loading="lazy" />
@@ -161,7 +161,7 @@
                   <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
           <p class="section-kicker">Basic Information</p>
           <h2 id="today-one-basic-title">基本情報</h2>
-          <dl><div><dt>種別</dt><dd>暗号化ソフト</dd></div><div><dt>公式サイト</dt><dd><a href="https://cryptomator.org/for-individuals/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-20">2026-10-20</time></dd></div><div><dt>料金</dt><dd>Cryptomatorのデスクトップ版は個人利用で無償です。クラウドストレージ自体の契約費用は別で、スマートフォン版の書き込み機能も別条件です。</dd></div><div><dt>ライセンス</dt><dd>デスクトップアプリはGPLv3のFOSS向けライセンスと商用ライセンスで提供されています。</dd></div><div><dt>補足</dt><dd>公式情報に基づく想定例です。実機検証は未実施です。</dd></div></dl>
+          <dl><div><dt>種別</dt><dd>画像メタデータ編集</dd></div><div><dt>公式サイト</dt><dd><a href="https://exiftool.org/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-21">2026-10-21</time></dd></div><div><dt>料金</dt><dd>ExifToolは無償のフリーソフトウェアとして配布され、寄付は任意です。</dd></div><div><dt>ライセンス</dt><dd>Perlと同じ条件で再配布・改変できるフリーソフトウェア。</dd></div><div><dt>補足</dt><dd>公式情報に基づく想定例です。実機検証は未実施です。</dd></div></dl>
         </section>
         </div>
       </article>
@@ -170,9 +170,9 @@
           <p class="section-kicker">Archive</p>
           <h2 id="today-one-archive-promo-title">これまでのひとつ。</h2>
         </div>
-        <a class="today-one-archive-latest" href="today-one/archive/2026-10-19-bitwarden-share-work-passwords-free-two-person">
-          <time datetime="2026-10-19">2026.10.19</time>
-          <strong>Bitwarden Password Managerで社内パスワードを共有できる？無料版の上限と手順</strong>
+        <a class="today-one-archive-latest" href="today-one/archive/2026-10-20-cryptomator-encrypt-cloud-file-names">
+          <time datetime="2026-10-20">2026.10.20</time>
+          <strong>Cryptomatorでクラウド保存中のファイル名まで暗号化できる？</strong>
           <span>この日のひとつを見る →</span>
         </a>
         <a class="today-one-archive-index-link" href="today-one/archive/">アーカイブを見る <span aria-hidden="true">→</span></a>
