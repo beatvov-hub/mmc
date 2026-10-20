@@ -108,6 +108,16 @@ test('all ten game controls can reach their fixed clear states and persist achie
   assert.match(ui.host.innerHTML, /しかくに切れ.*クリア/s);
 
   ui.select('hashi');
+  ui.click('hashi-island', { island: 'A' }); ui.click('hashi-island', { island: 'D' });
+  assert.match(ui.host.innerHTML, /dp-bridge-cell is-vertical is-1-bridge/);
+  ui.click('hashi-island', { island: 'A' }); ui.click('hashi-island', { island: 'D' });
+  assert.match(ui.host.innerHTML, /dp-bridge-cell is-vertical is-2-bridge/);
+  ui.click('hashi-island', { island: 'A' }); ui.click('hashi-island', { island: 'D' });
+  assert.doesNotMatch(ui.host.innerHTML, /dp-bridge-cell is-vertical is-[12]-bridge/);
+  ui.click('hashi-island', { island: 'A' }); ui.click('hashi-island', { island: 'B' });
+  assert.match(ui.host.innerHTML, /dp-bridge-cell is-horizontal is-1-bridge/);
+  ui.click('hashi-island', { island: 'A' }); ui.click('hashi-island', { island: 'B' });
+  ui.click('hashi-island', { island: 'A' }); ui.click('hashi-island', { island: 'B' });
   for (const [a, b] of [['A', 'B'], ['B', 'C'], ['A', 'D'], ['D', 'E'], ['E', 'F'], ['C', 'F']]) {
     ui.click('hashi-island', { island: a }); ui.click('hashi-island', { island: b });
   }

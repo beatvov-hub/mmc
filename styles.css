@@ -1884,8 +1884,12 @@ h1 { margin: 0 0 20px; font-size: clamp(3.1rem, 7vw, 6.7rem); line-height: 1.18;
 .dp-hashi-board > * { display:grid; min-width:48px; min-height:48px; place-items:center; border:0; }
 .dp-hashi-board .dp-island { border:2px solid #9b6a35; border-radius:50%; background:#f3dfb7; color:#47321e; font:inherit; font-size:1.02rem; font-weight:900; cursor:pointer; touch-action:manipulation; }
 .dp-hashi-board .dp-island.is-selected { outline:3px solid #547849; outline-offset:2px; }
-.dp-hashi-board .dp-bridge-cell { color:#526b49; font-size:1.25rem; font-weight:900; }
-.dp-hashi-board .dp-bridge-cell.is-horizontal { color:#9a6737; }
+.dp-hashi-board .dp-bridge-cell { position:relative; }
+.dp-hashi-board .dp-bridge-cell::before { content:""; display:block; border-radius:2px; background:#526b49; }
+.dp-hashi-board .dp-bridge-cell.is-horizontal::before { width:100%; height:3px; }
+.dp-hashi-board .dp-bridge-cell.is-vertical::before { width:3px; height:100%; }
+.dp-hashi-board .dp-bridge-cell.is-2-bridge.is-horizontal::before { height:100%; background:linear-gradient(to bottom, transparent calc(50% - 4px), #9a6737 calc(50% - 4px) calc(50% - 1px), transparent calc(50% - 1px) calc(50% + 1px), #9a6737 calc(50% + 1px) calc(50% + 4px), transparent calc(50% + 4px)); }
+.dp-hashi-board .dp-bridge-cell.is-2-bridge.is-vertical::before { width:100%; background:linear-gradient(to right, transparent calc(50% - 4px), #526b49 calc(50% - 4px) calc(50% - 1px), transparent calc(50% - 1px) calc(50% + 1px), #526b49 calc(50% + 1px) calc(50% + 4px), transparent calc(50% + 4px)); }
 .dp-clear-banner { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; margin:14px auto 0; padding:12px; border:1px solid #c5d5b8; border-radius:7px; background:#eaf2e4; color:#2d5235; animation:dp-clear-in .32s ease-out both; }
 .dp-clear-banner span:first-child { display:grid; width:25px; height:25px; place-items:center; border-radius:50%; background:#547d4e; color:#fff; }
 .dp-clear-banner span:last-child { width:100%; color:#4d6447; font-size:.8rem; text-align:center; }

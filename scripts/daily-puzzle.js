@@ -223,7 +223,7 @@
     const cells = Array.from({ length: puzzle.size ** 2 }, (_, cell) => {
       const island = islands.get(cell), line = lines.get(cell);
       if (island) return `<button type="button" class="dp-cell dp-island ${s.selected === island.id ? "is-selected" : ""}" data-action="hashi-island" data-island="${island.id}" aria-label="島 ${island.id}、橋 ${island.bridges} 本、現在 ${Object.entries(s.bridges).filter(([key]) => key.split("|").includes(island.id)).reduce((sum, [, count]) => sum + count, 0)} 本">${island.bridges}</button>`;
-      return `<span class="dp-bridge-cell ${line ? line.horizontal ? "is-horizontal" : "is-vertical" : ""}" aria-hidden="true">${line ? line.horizontal ? (line.count === 2 ? "═" : "─") : (line.count === 2 ? "║" : "│") : ""}</span>`;
+      return `<span class="dp-bridge-cell ${line ? line.horizontal ? "is-horizontal" : "is-vertical" : ""} ${line ? `is-${line.count}-bridge` : ""}" aria-hidden="true"></span>`;
     });
     return `${cellGrid(cells, puzzle.size, "dp-hashi-board")}<p class="dp-help">島を2つ選ぶと橋が切り替わります。選択中の島：${s.selected ? esc(s.selected) : "なし"}。橋の交差は置けません。</p>`;
   }
