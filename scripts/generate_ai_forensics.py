@@ -19,16 +19,14 @@ REDIRECTS_PATH = ROOT / "_redirects"
 BASE_URL = "https://mainichi-miru.com"
 MAKOTO_ICON = "image/icon/icon_mmc010.jpg"
 PICKUP_ARTICLE_IDS = [
-    "case-20260826-04",
-    "case-20260825-03",
-    "case-20260824-01",
-    "case-20260822-01",
-    "case-20260820-02",
-    "case-20260820-01",
-    "case-20260819-03",
-    "case-20260818-01",
-    "case-20260814-03",
     "case-20260813-01",
+    "case-20260728",
+    "case-20260906-01",
+    "case-20260804-01",
+    "case-20260806-01",
+    "case-20260812-03",
+    "case-20260928-01",
+    "case-20260924-02",
 ]
 
 # Consolidated duplicate pages keep their older article as the canonical page.
@@ -203,7 +201,7 @@ def render_pickup_links(articles: list[dict[str, Any]]) -> str:
     return "\n".join(
         [
             '      <section class="forensics-pickup card-section" aria-labelledby="forensics-pickup-title">',
-            '        <div class="section-heading"><div><p class="section-kicker">Pickup</p><h2 id="forensics-pickup-title">まず読んでほしいAIリテラシー記事</h2></div><p>生成AIを安心して使うための、確認・判断・運用の基礎をまとめました。</p></div>',
+            '        <div class="section-heading"><div><p class="section-kicker">Start Here</p><h2 id="forensics-pickup-title">まず読んでほしいAIリテラシー記事</h2></div><p>AIの表示・出典・入力・権限・相談先。使う場面で役立つ基本を、テーマ別に選びました。</p></div>',
             '        <nav aria-label="AIリテラシーの注目記事">',
             '          <ol class="forensics-pickup-list">',
             *links,
@@ -495,15 +493,15 @@ def render_index_page(articles: list[dict[str, Any]]) -> str:
             "",
             '      <section class="card-section forensics-query-links-section" aria-labelledby="forensics-query-links-title">',
             '        <div class="section-heading"><div><p class="section-kicker">Search Topics</p><h2 id="forensics-query-links-title">検索で見つけられているテーマ</h2></div></div>',
-            '        <p class="forensics-query-links-intro">読者が検索している疑問に近い、AI鑑識室の関連記事をまとめました。</p>',
+            '        <p class="forensics-query-links-intro">検索で寄せられている疑問に近い記事を、設定・確認・具体的な対処から探せます。</p>',
             '        <nav aria-label="検索されているテーマの関連記事">',
             '          <ul class="forensics-query-links">',
-            '            <li><a href="case-20260918-04">Zoomの字幕と文字起こし、保存先の違い</a></li>',
-            '            <li><a href="case-20260921-01">Google AI Modeの検索履歴を削除する</a></li>',
-            '            <li><a href="case-20260927-01">Pixel Watchの血圧トレンドをどう読む？</a></li>',
-            '            <li><a href="case-20260928-01">iPhoneのなりすましリスク検出と設定</a></li>',
-            '            <li><a href="case-20260907-03">Galaxy AIの「端末内のみで処理」</a></li>',
-            '            <li><a href="case-20260919-02">Copilotの会話共有リンクを停止する</a></li>',
+            '            <li><a href="case-20260928-01">iPhoneの「なりすましリスク検出」は何を見て、何を保証しない？</a></li>',
+            '            <li><a href="case-20260818-02">AIを使った攻撃でも、脆弱性・更新・MFAの基本が重要</a></li>',
+            '            <li><a href="case-20261006-01">仕事の相談データを生成AIに入力する前の確認</a></li>',
+            '            <li><a href="case-20260806-01">AIエージェントの行動ログをどこまで確認する？</a></li>',
+            '            <li><a href="case-20261016-02">AI検索の回答から公式ページ・出典をたどる</a></li>',
+            '            <li><a href="case-20260930-01">自分のサイトをGoogleのAI検索に表示するか選ぶ</a></li>',
             '          </ul>',
             '        </nav>',
             '      </section>',

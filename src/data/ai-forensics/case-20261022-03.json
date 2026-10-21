@@ -1,0 +1,53 @@
+{
+  "id": "case-20261022-03",
+  "publishedAt": "2026-10-22",
+  "title": "Veo 3.1のAPIプレビュー3種は10月22日終了予定　生成動画の移行先をテストする",
+  "shortTitle": "Veo 3.1プレビュー終了への備え",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": ["Gemini APIで動画生成を使う開発者", "AI動画生成を業務システムへ組み込む人"],
+  "summary": "Google AI for DevelopersはGemini APIの廃止一覧で、Veo 3.1 Lite、通常版、Fastのプレビュー用モデルIDについて、シャットダウン日を2026年10月22日、推奨置換先を`gemini-omni-1.1-flash`と掲載しています。これはAPI経由のプレビューIDに関する案内で、Adobe等の別アプリでの提供可否を示すものではありません。すでに今日が終了予定日なので、該当IDを使う開発者は呼び出しコード、ジョブ設定、保存済みプロンプトを検索し、置換先で映像品質・処理結果・失敗時の扱いを検証してから本番を切り替えます。プレビューでない別プラットフォーム上のモデルまで一律に終了すると解釈しないことも重要です。",
+  "scenario": {
+    "headline": "動画生成APIが突然動かなくなる前に、プレビューIDを棚卸ししたい",
+    "description": "Gemini API経由の動画生成をサービスや社内ツールに組み込んでおり、使用中のVeoモデルがプレビュー版か確認しています。",
+    "whyItMatters": "プレビューIDの廃止日と後継候補が公式一覧に記載されています。コード中のモデル名だけでなく、予約ジョブや環境変数も確認し、置換後の出力と運用を試す必要があります。"
+  },
+  "question": {
+    "text": "Gemini APIのVeo 3.1プレビューIDを使っていたら、どう移行する？",
+    "choices": [
+      {"id": "inventory-test-replacement", "label": "プレビューIDを全環境で検索し、推奨後継モデルへ切り替えて生成・失敗時の処理を検証する", "description": "Googleは3つのVeo 3.1プレビューIDの終了日と置換先を一覧で案内しています。"},
+      {"id": "assume-still-works", "label": "停止予定日を過ぎても呼び出せるなら、何も変えず本番利用を続ける", "description": "シャットダウン日は2026年10月22日と示されており、呼び出せたとしても継続性の保証にはなりません。"}
+    ],
+    "recommendedAnswers": ["inventory-test-replacement"],
+    "explanation": "GoogleのGemini API廃止表は、Veo 3.1のLite・通常・FastのプレビューIDを2026年10月22日に停止予定とし、推奨置換先を`gemini-omni-1.1-flash`としています。まずすべての環境のIDを見つけ、置換モデルで用途別に検証します。"
+  },
+  "inspectionPoints": [
+    {"title": "対象は3つのプレビューID", "description": "公式表の対象は`veo-3.1-lite-generate-preview`、`veo-3.1-generate-preview`、`veo-3.1-fast-generate-preview`です。安定版や別サービスのモデルと混同しないよう、IDを正確に照合します。", "priority": "high"},
+    {"title": "停止日は2026年10月22日", "description": "Google AI for Developersの廃止一覧にシャットダウン日として掲載されています。今日は停止予定日なので、将来の作業ではなく使用有無の確認をすぐ行います。", "priority": "high"},
+    {"title": "置換候補はgemini-omni-1.1-flash", "description": "同じ行のRecommended replacement欄にこのモデルIDが掲載されています。代替先をそのまま本番採用する前に、アプリの要件で評価します。", "priority": "high"},
+    {"title": "別プラットフォームの提供と区別", "description": "このページはGemini APIのモデルIDとAPI関連情報を扱います。Adobe製品内のパートナーモデル等の別提供面まで、同じ日に一律停止すると読み替えません。", "priority": "medium"},
+    {"title": "終了日が迫ったら失敗時の経路も試験", "description": "API停止後は該当プレビューIDを呼ぶ処理が利用できなくなる可能性があります。置換モデルの応答だけでなく、再試行・代替・利用者への通知も検証しておきます。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "Google AI for Developersのモデル廃止一覧を確認",
+  "verificationMessage": "Veo 3.1プレビューのAPI IDは本日が終了予定日です。使用中の呼び出しを検索し、後継候補で動作確認してください。",
+  "verdict": {"label": "該当IDを検索し、後継候補で用途別の再試験をする", "description": "Googleの一覧はVeo 3.1の3つのプレビューIDに2026年10月22日のシャットダウン日と置換先を示しています。単に文字列を変更するだけでなく、出力、処理時間、エラー時の挙動、費用など実装上の要件をテストし、該当するGemini API利用者だけが移行します。", "confidence": "high"},
+  "safeActions": [
+    {"action": "コード、環境変数、ジョブ定義、テンプレートから3つのプレビューIDを検索する", "reason": "終了対象を正確なモデルIDで特定でき、別のVeoや別提供面との誤認を避けられます。"},
+    {"action": "該当するGemini API呼び出しを`gemini-omni-1.1-flash`へ置換した検証環境を用意する", "reason": "Googleの廃止一覧がこのIDを推奨置換先として示しています。"},
+    {"action": "代表的な入力で画質、プロンプト追従、動画の長さや処理、生成失敗時の挙動を比較する", "reason": "モデル名の変更だけでは、実務要件を満たすことを確認できません。"},
+    {"action": "定期実行や本番の切り替え時刻、ロールバック・代替手段をチームで確認する", "reason": "終了日が明記されており、移行漏れはサービス中断につながり得ます。"},
+    {"action": "Gemini API利用者でない場合は、自分が使う製品のモデル表示と公式案内を個別に確認する", "reason": "この廃止表の対象はGemini APIのモデルIDです。"}
+  ],
+  "avoidActions": [
+    {"action": "`veo-3.1-*-preview`を使っているか調べず、利用している全動画AIが停止すると考える", "reason": "公式情報はGemini API内の特定IDを示しており、別サービス全体の終了告知ではありません。"},
+    {"action": "置換先モデルIDだけを変え、出力テストや障害時の対応を省略する", "reason": "モデル移行後の動作や品質は利用側の実装で確認する必要があります。"},
+    {"action": "停止予定日を過ぎても一時的に応答することを、今後も使える保証と見なす", "reason": "掲載されたシャットダウン日後の継続提供は案内されていません。"}
+  ],
+  "positiveUse": {"title": "モデル終了を見越したAPI依存の棚卸し", "description": "モデルIDを設定として集約し、終了日・後継・回帰テストを記録することで、プレビュー利用を本番処理へ埋め込んだままにしないようにします。", "examples": ["モデルIDの使用箇所をリポジトリ検索", "開発環境で置換モデルを試験", "生成例と出力基準を更新", "停止予定と検証担当を変更記録に残す"]},
+  "makotoComment": "この告知の実務上のポイントは、モデルの新機能よりも“今日止まる可能性があるID”を正確に見分けることです。Veoという製品名だけでは対象範囲が広すぎます。APIのコードでプレビューIDを検索し、置換モデルで実データに近いテストを行うところまでが、今回の移行作業になります。",
+  "oneLineLesson": "Gemini APIでVeo 3.1プレビューを使うなら、対象IDを確認し、終了日までに推奨モデルで検証する。",
+  "tags": ["Gemini API", "Veo 3.1", "モデル廃止", "プレビュー", "動画生成API", "モデル移行"],
+  "sources": [{"title": "Gemini deprecations", "publisher": "Google AI for Developers", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://ai.google.dev/gemini-api/docs/deprecations/"}],
+  "visualSuggestion": {"mainVisual": "コード中のVeo 3.1プレビューID検索からgemini-omni-1.1-flashへの検証移行を示す開発者向けチェック図", "cardIcon": "veo-api-deprecation", "accentTone": "warning"}
+}

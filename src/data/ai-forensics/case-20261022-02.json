@@ -1,0 +1,53 @@
+{
+  "id": "case-20261022-02",
+  "publishedAt": "2026-10-22",
+  "title": "ChatGPT SlidesはSpaceで共同編集　利用可否と書き出し先を先に確かめる",
+  "shortTitle": "ChatGPT Slidesの共同編集",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": ["ChatGPTでプレゼン資料を作る人", "チームでスライドを共同編集する人"],
+  "summary": "OpenAIは2026年10月16日、ChatGPTのSpaceでプレゼンを作成し、チームと共同編集できるSlides機能を発表しました。会話・ファイル・アウトラインから開始でき、テキスト、画像、図形、グラフを直接編集し、メンバーを招待してリアルタイム編集や共有コメントを使えます。WebではPowerPoint、PDF、Google Slidesへ書き出せますが、提供対象はSpaceにアクセスできる対象Pro・Business・Enterprise利用者で、段階展開中です。チーム資料では、まずワークスペース設定と共有範囲を確認し、下書きのレビュー後に適切な形式で書き出す運用が実用的です。",
+  "scenario": {
+    "headline": "チーム会話からスライドを作り、同僚と一緒に仕上げたい",
+    "description": "会話や資料をもとにプレゼンを作り、別々のファイルを送り合わず同じデッキを共同編集できるか確かめています。",
+    "whyItMatters": "ChatGPT SlidesはSpaceの中で共同作業する機能です。対象プランだけでなくSpaceアクセスが条件となり、Webとデスクトップで利用方法や書き出し先が異なります。"
+  },
+  "question": {
+    "text": "ChatGPT Slidesを仕事のチーム資料に使う前に、何を確認する？",
+    "choices": [
+      {"id": "check-space-access", "label": "自分のプランとSpaceへのアクセスを確認し、共有メンバー・編集内容・書き出し先を決める", "description": "OpenAIは対象プランに加えてSpace accessを条件にし、共同編集と書き出し機能を案内しています。"},
+      {"id": "assume-all-users", "label": "全プランで通常チャットに表示されると考え、共有範囲を確認せず資料を作る", "description": "段階提供中で、対象プランとSpaceアクセスに条件があります。"}
+    ],
+    "recommendedAnswers": ["check-space-access"],
+    "explanation": "Slidesの発表資料では、利用可能なプランとSpace権限を確認し、誰を招待するかを決めるのが先です。WebではPowerPoint・PDF・Google Slidesへ書き出せます。共同編集の下書きと正式版を区別し、内容をレビューしてから配布します。"
+  },
+  "inspectionPoints": [
+    {"title": "作成の入口は会話・ファイル・アウトライン", "description": "ChatGPT Slidesは会話、ファイル、アウトラインからプレゼンを作成でき、見本デッキを共有してスタイルやレイアウトの参考にできます。", "priority": "medium"},
+    {"title": "デッキ上で直接編集できる", "description": "テキスト、画像、図形、グラフの編集や、ChatGPTへの変更依頼ができます。独自画像の追加や生成も案内されています。", "priority": "medium"},
+    {"title": "Space内でリアルタイム共同作業", "description": "同じデッキの編集にチームメンバーを招待し、共同コメントを残せます。招待先を決め、草稿を誰が見られるかを確認します。", "priority": "high"},
+    {"title": "Webとデスクトップの書き出し先が異なる", "description": "WebではPowerPoint、PDF、Google Slidesへ書き出せます。デスクトップアプリではPowerPointまたはKeynoteがインストール済みなら開けます。", "priority": "medium"},
+    {"title": "段階提供でSpace権限も必要", "description": "対象はSpaceアクセスのある適格なPro、Business、Enterprise利用者で、Webとデスクトップアプリへ段階展開中です。", "priority": "high"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "OpenAIの機能発表で作成・共有・対象条件を確認",
+  "verificationMessage": "ChatGPT SlidesはSpaceでの共同作業機能です。対象プランとSpace権限を確認し、共有範囲を決めてから使いましょう。",
+  "verdict": {"label": "Spaceへのアクセスを確かめ、レビュー用デッキとして共有する", "description": "対象ユーザーには、作成から同時編集・コメント・書き出しまで一続きの作業環境になります。段階提供中のため、利用条件とSpace内の共有対象を先に確かめ、公開前のレビュー工程を残します。", "confidence": "high"},
+  "safeActions": [
+    {"action": "機能が見えない場合は、対象プランだけでなくSpaceアクセスと段階提供状況を確認する", "reason": "OpenAIはSpace accessのある適格ユーザーへの段階展開として説明しています。"},
+    {"action": "新規作成時に、入力元を会話・ファイル・アウトラインのどれにするか決める", "reason": "Slidesはこれらを作成の入口として案内しています。"},
+    {"action": "共有前に招待するメンバーと共同コメントの利用範囲を確認する", "reason": "同じデッキのリアルタイム編集と共有コメントが可能です。"},
+    {"action": "Webで書き出す場合は受け取り側に合わせてPowerPoint、PDF、Google Slidesから選ぶ", "reason": "Web版では三つの形式への書き出しが案内されています。"},
+    {"action": "AI生成の文章・数値・図表を担当者が確認してから正式配布する", "reason": "作成・編集機能の説明は、生成内容の正確性や社内承認を保証するものではありません。"}
+  ],
+  "avoidActions": [
+    {"action": "Pro、Business、Enterpriseなら全員に直ちに使えると決めつける", "reason": "Spaceアクセス条件があり、段階提供中です。"},
+    {"action": "共有メンバーを決めないまま、社外秘の会話や資料からデッキを作成・招待する", "reason": "共有デッキへの招待は共同作業者に内容を見せる操作です。"},
+    {"action": "生成された資料を事実確認や社内レビューなしで外部へ配布する", "reason": "公式機能説明は編集や生成の機能を案内するもので、内容の検証を代替しません。"}
+  ],
+  "positiveUse": {"title": "共同編集で初稿を早め、レビューは人が担当する", "description": "Space内の同一デッキにチームでコメントを集め、事実・数字・権利関係を確認した版だけを配布形式へ書き出します。", "examples": ["会議メモから初稿を作る", "担当者を招待し共同コメントを集める", "数値や引用元を担当者が点検", "用途に合わせてPDFやPowerPointで共有"]},
+  "makotoComment": "今回の実用上の変化は、スライド作成を一人のチャット出力で終わらせず、Spaceのチーム作業へつなげられる点です。一方で、共有を始める境界も同じSpaceにあります。生成を急ぐより、誰が見て編集できる草稿なのかを決めてから招待する運用が合います。",
+  "oneLineLesson": "ChatGPT SlidesはSpaceで共同編集できるが、利用条件と共有範囲を確かめてレビュー後に配布する。",
+  "tags": ["ChatGPT Slides", "プレゼン作成", "共同編集", "Space", "チーム共有", "AI活用"],
+  "sources": [{"title": "ChatGPT release notes — Create and collaborate on slides in ChatGPT", "publisher": "OpenAI Help Center", "sourceType": "official-product-update", "publishedAt": "2026-10-16", "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"}],
+  "visualSuggestion": {"mainVisual": "会話・ファイル・アウトラインからSpaceの共有デッキを作り、招待・コメント・人のレビュー後に各形式へ書き出す流れ", "cardIcon": "chatgpt-slides-collaboration", "accentTone": "practical"}
+}

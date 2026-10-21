@@ -1,0 +1,56 @@
+{
+  "id": "case-20261022-01",
+  "publishedAt": "2026-10-22",
+  "title": "ChatGPTのロックした会話は暗号化保管庫ではない　PIN忘れの前に知る削除範囲",
+  "shortTitle": "ロック会話とPINリセットの注意点",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": ["ChatGPTで会話を一覧から隠したい人", "ロック会話にファイルや記憶を保管する人"],
+  "summary": "OpenAIは2026年10月20日、選んだ会話を通常の履歴・検索から隠し、アカウントPIN等で開く「ロックした会話」の段階提供を発表しました。これは表示場所とアクセス方法を変える機能で、エンドツーエンド暗号化や別の暗号化保管庫ではなく、保持期間やモデル改善設定も変更しません。忘れたPINをリセットすると、ロック会話とそこだけに保存された記憶・ファイルが復元不能で削除されます。共有リンクも別途削除が必要です。画面共有や端末貸与の前に一覧表示の更新を確かめ、機密情報の保護や長期保管の代替として扱わないことが実用上の要点です。",
+  "scenario": {
+    "headline": "会話を一覧から隠したいが、PINを忘れたときの削除が心配",
+    "description": "ChatGPTで選択した会話をロックし、通常の履歴や検索に表示されない状態にしたい。",
+    "whyItMatters": "ロックは会話の見え方と開き方を変える機能です。PINの変更と忘れたPINのリセットでは結果が違い、共有リンクや既に開いている他端末にも別の確認が必要です。"
+  },
+  "question": {
+    "text": "会話をロックするとき、事前に確認しておくべきことは？",
+    "choices": [
+      {"id": "understand-lock-scope", "label": "暗号化や保持設定とは別の機能と理解し、PINリセット・共有リンク・他端末表示を確認する", "description": "ロックは表示とアクセスを変えるだけで、PINリセットはロック内容を削除し、既存共有リンクは別管理です。"},
+      {"id": "lock-as-vault", "label": "ロックすれば暗号化保管され、保持期間や共有リンクも自動で変わると考える", "description": "公式説明では暗号化保管庫ではなく、保持設定や既存リンクも自動変更されません。"}
+    ],
+    "recommendedAnswers": ["understand-lock-scope"],
+    "explanation": "ロックで通常の履歴や検索から隠れますが、暗号化保管庫になるわけではありません。現在のPINを知っている場合の変更は会話を残しますが、忘れたPINのリセットはロック会話と専用ファイル等を削除します。共有リンクの停止は別操作です。"
+  },
+  "inspectionPoints": [
+    {"title": "ロックは非表示とアクセス制御", "description": "ロック会話は通常の履歴・検索から隠れ、4桁のアカウントPINまたは対応する端末認証で開きます。エンドツーエンド暗号化や独立した暗号化保管庫ではありません。", "priority": "high"},
+    {"title": "忘れたPINのリセットは復元不能な削除", "description": "ロック会話、そこにだけ保存された記憶、旧PINだけで保護されるファイル等が削除されます。現在のPINを入力して変更する操作は削除を伴いません。", "priority": "high"},
+    {"title": "共有リンクとロックは別管理", "description": "ロック前からある共有リンクは残り、以前共有した内容を見られる場合があります。リンクを止めるには共有リンクを別途削除します。", "priority": "high"},
+    {"title": "他端末の表示更新を確認", "description": "既に開いている別端末では、一覧が更新されるまでタイトルや、iOSでは読み込み済みの内容が見えることがあります。", "priority": "medium"},
+    {"title": "保持期間や学習設定は変わらない", "description": "ロック自体はOpenAIの保持期間やモデル改善設定を変更しません。機微情報の保存・処理可否は別の設定や組織ポリシーで確認します。", "priority": "high"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "OpenAIの機能発表と操作・削除仕様を確認",
+  "verificationMessage": "ロックは履歴の暗号化・削除とは別です。PINリセットと共有リンクの扱いを先に確認してください。",
+  "verdict": {"label": "一覧から隠す機能として使い、PINリセット前に退避する", "description": "ロックした会話は通常画面から見つかりにくくできますが、秘密の保管庫として扱う機能ではありません。忘れたPINのリセットはロック会話等を消去するため、必要な内容を別に保管し、既存リンクと他端末の表示も点検します。", "confidence": "high"},
+  "safeActions": [
+    {"action": "•••メニューからロックする前に、重要な内容や必要なファイルを別の保管先に保存する", "reason": "忘れたPINのリセットでロック会話と専用ファイルが復元不能で削除されます。"},
+    {"action": "PINを覚えている場合は、リセットではなく設定のSecurity and login > Account PINから変更する", "reason": "現在のPINを使った変更は会話を削除しません。"},
+    {"action": "会話をロックした後、既存の共有リンクを止めたいならリンク管理画面から別途削除する", "reason": "ロックしても、以前に共有した内容へのリンクは自動削除されません。"},
+    {"action": "画面共有・端末貸与の前に、他のログイン済み端末で会話一覧を更新する", "reason": "他端末では更新前にタイトル等が一時的に残る場合があります。"},
+    {"action": "機密情報の保護が目的なら、ロックだけで足りると判断せず、保持・学習・組織設定を別に確認する", "reason": "ロックは暗号化保管庫ではなく、保持期間やモデル改善設定も変えません。"}
+  ],
+  "avoidActions": [
+    {"action": "忘れたPINを軽い再設定だと思ってリセットする", "reason": "ロック会話等が完全に削除され、OpenAI Supportも復旧できないと案内されています。"},
+    {"action": "会話をロックしただけで、共有済みリンクや他端末からも内容が消えたと考える", "reason": "リンク削除と端末側の表示更新は別に必要です。"},
+    {"action": "ロック機能をエンドツーエンド暗号化や保存期間短縮の代わりに使う", "reason": "公式資料は暗号化保管庫ではなく、保持設定も不変と説明しています。"}
+  ],
+  "positiveUse": {"title": "表示を整理する用途に絞ってロックする", "description": "端末を他人に見られる場面で会話を通常一覧から分けつつ、データ保持や共有停止は各専用設定で管理します。", "examples": ["ロック前に必要な会話を退避", "PINを忘れないよう安全な方法で管理", "共有リンクを別途点検", "他の端末の一覧を更新"]},
+  "makotoComment": "この機能で特に誤解しやすいのは、ロックとPINリセットが「隠す／開く」の操作に見えながら、後者は内容そのものの削除を伴う点です。共有リンクも残り得るので、会話を隠すことと相手の閲覧を止めることを別の作業として扱う必要があります。",
+  "oneLineLesson": "ChatGPTのロック会話は一覧から隠す機能で、忘れたPINのリセットは会話等を削除する。",
+  "tags": ["ChatGPT", "ロックした会話", "Account PIN", "共有リンク", "会話の保持", "セキュリティ"],
+  "sources": [
+    {"title": "ChatGPT release notes — Introducing locked chats", "publisher": "OpenAI Help Center", "sourceType": "official-product-update", "publishedAt": "2026-10-20", "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"},
+    {"title": "Using locked chats in ChatGPT", "publisher": "OpenAI Help Center", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://help.openai.com/en/articles/20001411-using-locked-chats-in-chatgpt"}
+  ],
+  "visualSuggestion": {"mainVisual": "ChatGPTのロックを『一覧から隠す』『既存リンクは別削除』『PIN忘れのリセットは会話を消去』の三つに分けた注意図", "cardIcon": "chat-lock-pin-reset", "accentTone": "caution"}
+}

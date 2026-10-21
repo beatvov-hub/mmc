@@ -1,0 +1,56 @@
+{
+  "id": "case-20261022-04",
+  "publishedAt": "2026-10-22",
+  "title": "MHRAのAI Airlock第3期は市販後監視を検討　参加と医療機器の承認は別",
+  "shortTitle": "英国AI Airlock第3期の位置づけ",
+  "category": "health-ai",
+  "difficulty": "standard",
+  "targetAudience": ["AI医療機器を開発・導入する人", "医療AIの規制情報を読む医療者・利用者"],
+  "summary": "英国の医薬品・医療製品規制庁MHRAは2026年10月6日、AI医療機器の規制サンドボックス「AI Airlock」第3期の参加募集を開始しました。今回の焦点は、市販後監視と、製品ライフサイクル全体を通じたより広い監督です。AI Airlockは規制上の課題を探る試験的なプログラムで、参加や過去フェーズの報告書は医療機器の販売承認・正式な規制ガイダンスを意味しません。医療AIの採用検討では「サンドボックス参加」を安全性や承認の証明と扱わず、実際の認証状態、対象用途、市販後の監視体制を別々に確認します。",
+  "scenario": {
+    "headline": "AI医療機器が規制サンドボックスに参加したと聞いた",
+    "description": "新しい医療AIの紹介資料に英国MHRAのAI Airlock参加が記されており、製品が規制当局から承認されたと受け取ってよいか迷っています。",
+    "whyItMatters": "サンドボックスは規制上の課題や監督方法を検討する枠組みです。参加・検討と、個別製品の販売承認・臨床上の有効性は異なるので、医療現場や購入判断では表示の意味を読み分けます。"
+  },
+  "question": {
+    "text": "AI Airlockへの参加情報を見たとき、医療機器の承認を確認するには？",
+    "choices": [
+      {"id": "verify-authorization-separately", "label": "参加は規制課題の検討と捉え、製品ごとの承認・用途・監視体制を別に確認する", "description": "MHRAはAirlockを探索的なサンドボックスとしており、報告書は正式ガイダンスではないと説明しています。"},
+      {"id": "sandbox-equals-approval", "label": "当局のサンドボックスに選ばれた時点で安全性と販売承認が確認済みとみなす", "description": "参加募集の目的は規制課題の探索で、個別製品の承認を示す説明ではありません。"}
+    ],
+    "recommendedAnswers": ["verify-authorization-separately"],
+    "explanation": "AI AirlockはAI医療機器に特有の規制課題を調べ、将来の枠組みに役立つ知見を得るプログラムです。第3期は市販後監視や製品のライフサイクル全体の監督をテーマにします。参加実績や報告書を製品承認の代わりにせず、製品ごとの承認・用途・監視の根拠を確認します。"
+  },
+  "inspectionPoints": [
+    {"title": "第3期の募集開始は2026年10月6日", "description": "MHRAは第3期の申請を受け付け、医療機器製造者に限らず、学術研究者や関連する開発者など幅広い候補を募集しています。", "priority": "medium"},
+    {"title": "焦点は市販後監視とライフサイクル監督", "description": "募集ページは、市販後監視とAI医療機器のライフサイクル全体にわたるより広い監督を今回の波の規制課題として挙げています。", "priority": "high"},
+    {"title": "Airlockは探索的サンドボックス", "description": "MHRAは2024年春に開始した同機関初の探索的な規制サンドボックスと説明し、AI医療機器の新しい規制課題を理解することを目的としています。", "priority": "high"},
+    {"title": "成果は将来の枠組みへ情報提供", "description": "プログラムの成果は、英国のAI医療機器に適した規制枠組みの検討に役立てるとされています。参加者の製品が自動的に承認されるとの説明ではありません。", "priority": "high"},
+    {"title": "過去フェーズの報告書は正式ガイダンスではない", "description": "MHRAは過去のAirlock報告書について、手法・ケーススタディ・独立評価をまとめた資料であり、正式ガイダンスを構成しないと明記しています。", "priority": "high"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "MHRAの募集要項と制度説明を確認",
+  "verificationMessage": "AI Airlockは規制課題を探るサンドボックスです。参加を製品の承認や有効性の証明として扱わないでください。",
+  "verdict": {"label": "サンドボックス参加と製品ごとの承認を分けて確認する", "description": "MHRAの第3期募集は市販後監視とライフサイクル監督の規制課題を探るものです。参加やプログラム報告書は正式な承認・ガイダンスではないため、医療機関や購入者は製品の用途、認証、臨床的根拠、運用後の監視をそれぞれ確かめます。", "confidence": "high"},
+  "safeActions": [
+    {"action": "医療機器の導入資料にAI Airlock参加歴があれば、製品の規制上の承認状態と対象用途を別欄で確認する", "reason": "サンドボックス参加は個別製品の承認とは異なります。"},
+    {"action": "導入前に、市販後の性能・安全性を誰がどう監視するかを確認する", "reason": "第3期の焦点は市販後監視とライフサイクル全体の監督です。"},
+    {"action": "MHRAの募集対象や選定状況を確認する際は、第3期の公式募集ページを参照する", "reason": "申請対象やプログラムの焦点は公式ページで更新されます。"},
+    {"action": "Airlock報告書を読むときは、ケーススタディや評価結果と正式な規制ガイダンスを区別する", "reason": "MHRAはこれらの報告書は正式ガイダンスを構成しないと明記しています。"},
+    {"action": "販売可否や臨床用途は、該当する地域の医療機器規制情報と製品文書で確かめる", "reason": "英国の探索的プログラムの結果だけでは、日本など別地域の規制上の扱いは判断できません。"}
+  ],
+  "avoidActions": [
+    {"action": "『MHRAのAI Airlock参加』だけを根拠に、その製品が英国で承認済み・安全確認済みと宣伝する", "reason": "募集と探索プログラムの説明は個別の承認を示しません。"},
+    {"action": "過去フェーズの報告書を正式な規制ガイダンスとして引用する", "reason": "MHRA自身が報告書は正式ガイダンスではないとしています。"},
+    {"action": "サンドボックスでの検討結果を、そのまま日本の医療機器規制や院内導入判断へ当てはめる", "reason": "AI Airlockは英国の枠組みであり、他地域の要件を代替しません。"}
+  ],
+  "positiveUse": {"title": "規制実験を、導入時の監視項目を考える資料として読む", "description": "プログラムが扱う市販後監視やライフサイクル管理の課題を参考にしつつ、個別製品の承認・臨床根拠・監視責任者を別々に確認します。", "examples": ["製品の対象用途と規制状態を確認", "導入後の性能監視の担当者を決める", "更新時の再評価条件を契約に含める", "英国の試験制度と国内規制を分けて読む"]},
+  "makotoComment": "このニュースで大事なのは、AI Airlockの“参加”という肩書きが、審査済み・承認済みという印象を与えやすいことです。今回の第3期は、導入後に性能や安全をどう見続けるかという制度設計の問いを扱います。読者は参加実績の有無より、自分の現場で監視と再評価を誰が担うかに結び付けて読むのが有用です。",
+  "oneLineLesson": "MHRAのAI Airlockは規制課題を探る場であり、参加実績は医療機器の承認を意味しない。",
+  "tags": ["MHRA", "AI Airlock", "医療AI", "医療機器", "市販後監視", "規制サンドボックス"],
+  "sources": [
+    {"title": "AI Airlock: a regulatory sandbox for AI enabled Medical Devices", "publisher": "Medicines and Healthcare products Regulatory Agency (MHRA), GOV.UK", "sourceType": "government-regulatory-update", "publishedAt": "2024-05-09", "url": "https://www.gov.uk/government/collections/ai-airlock-a-regulatory-sandbox-for-ai-enabled-medical-devices"},
+    {"title": "AI Airlock Phase 3 application", "publisher": "Medicines and Healthcare products Regulatory Agency (MHRA), GOV.UK", "sourceType": "government-regulatory-guidance", "publishedAt": "2026-10-06", "url": "https://www.gov.uk/government/publications/ai-airlock-phase-3-application"}
+  ],
+  "visualSuggestion": {"mainVisual": "AI医療機器の『サンドボックス参加・規制課題の検討』と『製品ごとの承認・市販後監視』を別レーンにした図", "cardIcon": "mhra-ai-airlock-sandbox", "accentTone": "caution"}
+}
