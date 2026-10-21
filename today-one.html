@@ -83,61 +83,61 @@
       <article class="today-one-entry" aria-labelledby="today-one-entry-name">
         <header class="today-one-entry-header">
           <div class="today-one-entry-meta">
-            <time datetime="2026-10-21">2026.10.21 WED</time>
-            <span>画像メタデータ編集</span>
+            <time datetime="2026-10-22">2026.10.22 THU</time>
+            <span>Audio Editing / OSS</span>
           </div>
           <p class="today-one-entry-label">今日のひとつ</p>
-          <h2 id="today-one-entry-name">ExifTool</h2>
-          <a class="today-one-official-link" href="https://exiftool.org/" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
+          <h2 id="today-one-entry-name">Audacity</h2>
+          <a class="today-one-official-link" href="https://www.audacityteam.org/" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
           <section class="today-one-section today-one-audience" aria-labelledby="today-one-audience-title">
             <p class="section-kicker">For Whom</p>
             <h2 id="today-one-audience-title">こんな人向け</h2>
-            <p>イベントや広報の写真をWebへ掲載する前に、JPEGへ撮影場所のGPS情報が記録されていないか確認したい担当者向けです。</p>
+            <p>複数の案内音声やインタビューを公開するとき、録音ごとの聞こえる音量差を抑えたい広報・編集担当者向けです。</p>
           </section>
           <section class="today-one-section today-one-conclusion" aria-labelledby="today-one-conclusion-title">
             <p class="section-kicker">The Answer</p>
             <h2 id="today-one-conclusion-title">結論</h2>
-            <p>JPEGならExifToolでGPSタグを削除できます。削除後にもう一度タグを確認し、元画像のバックアップに位置情報が残っていないかも公開前に確認します。</p>
+            <p>Audacityは、複数の録音の聞こえる音量をそろえて、音声ファイルに書き出せる無料のデスクトップ編集ソフトです。</p>
           </section>
           <section class="today-one-section today-one-method" aria-labelledby="today-one-use-title">
             <p class="section-kicker">How to Use</p>
             <h2 id="today-one-use-title">やり方／確認方法</h2>
-            <p>例えば、イベントで撮影した公開予定のJPEGに撮影場所が記録されているかを確認する想定例です。公式配布のExifToolと、元画像ではなく複製した写真1枚を用意し、コマンドラインで「exiftool -a -G1 -s photo.jpg」と実行してタグ名と保存場所を確認します。GPS情報があれば複製側に「exiftool &quot;-gps*=&quot; photo.jpg」を実行し、同じ確認をやり直してGPSタグが出力されないかを見ます。ExifToolは書き換え時に元画像を「_original」付きで残すため、バックアップを公開用フォルダーへ混ぜないことまで確認します。公式資料に基づく想定例で、実機検証は未実施です。</p>
+            <p>例えば、収録条件の異なる短い案内音声を公開用に整える想定例です。デスクトップ版Audacityを入れ、音声ファイルを読み込んで対象を選び、Loudness Normalizationで公開先が指定するLUFS値を設定します。処理後は書き出したファイルを再生し、音量差や音割れがないか確認します。最初は複製した短い音声2本で試し、公開先の基準に合うか、声の聞き取りやすさが保たれるかを確かめます。ここで行うのは音量調整で、ノイズ除去や内容編集は別の作業です。</p>
           </section>
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
-            <p>写真の見た目を整えても、ファイルに埋め込まれた位置情報は別に残ることがあります。ExifToolは画像内のタグを一覧し、対象のGPSタグを選んで削除できるため、掲載用コピーの確認手順を作る入口になります。</p>
+            <p>案内音声やインタビューを別々に録ると、再生するたびに音量つまみを動かしたくなることがあります。AudacityのLoudness Normalizationはピーク値ではなくLUFSなどの音量基準に合わせられるため、納品先の基準が決まっている素材の仕上げに向いています。</p>
           </section>
           <section class="today-one-section today-one-faq" aria-labelledby="today-one-faq-title">
             <p class="section-kicker">Cautions & FAQ</p>
             <h2 id="today-one-faq-title">注意点・FAQ</h2>
-            <p class="today-one-caution">この例はJPEGのGPSタグ確認・削除に絞っています。GPS以外の撮影日時やカメラ情報まで消す操作ではなく、動画の埋め込みトラックなど形式によっては対象外の情報があります。まず複製に実行し、出力を再確認してください。ExifToolは書き換え前の画像を「_original」付きで保存するため、公開用データからバックアップを分けます。</p><div class="today-one-faq-item">
-          <h3>ExifToolでGPSタグを削除すると、元の写真はどうなりますか？</h3>
-          <p>既定では書き換え後の写真と別に、元画像がファイル名末尾「_original」付きで残ります。削除結果を確認するまではこのバックアップを保管し、公開フォルダーへ入れないでください。</p>
+            <p class="today-one-caution">音量の基準値は配信先や用途で異なります。ピークではなくLUFS等の指定値を確認し、処理後の音声を再生してください。Loudness Normalizationは音量を調整する機能で、ノイズ除去や音質の修復を代行しません。</p><div class="today-one-faq-item">
+          <h3>AudacityのLoudness Normalizationで複数の録音の音量をそろえられますか？</h3>
+          <p>はい。公式マニュアルではLUFSまたはRMSによる正規化で、異なる音声プロジェクトを比較的そろった音量にできると説明しています。公開先が指定する値を使い、書き出し後に再生して確認してください。</p>
         </div><div class="today-one-faq-item">
-          <h3>この手順で動画の位置情報もすべて消せますか？</h3>
-          <p>一律には言えません。動画ではGPSタグやトラックが形式ごとに異なり、ExifToolが編集できない埋め込み情報もあります。ここではJPEGのタグを扱い、別形式は公式の対応形式・制限を個別に確認してください。</p>
+          <h3>Audacityは無料で使えますか？アカウント登録は必要ですか？</h3>
+          <p>公式FAQとインストール案内では、Audacityは無料のオープンソースソフトで、インストール後の利用にアカウントやライセンスキーは不要と案内されています。デスクトップ版の導入には端末の空き容量とインストール権限が必要です。</p>
         </div>
           </section>
           <section class="today-one-section today-one-sources" aria-labelledby="today-one-sources-title">
             <p class="section-kicker">Primary Sources</p>
             <h2 id="today-one-sources-title">公式ソース</h2>
-            <ul><li><a href="https://exiftool.org/" target="_blank" rel="noopener noreferrer">ExifTool公式：機能・無償配布・ライセンス <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://exiftool.org/install.html" target="_blank" rel="noopener noreferrer">ExifTool公式ドキュメント：Windows実行ファイルとセットアップ方法 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://exiftool.org/faq.html" target="_blank" rel="noopener noreferrer">ExifTool公式FAQ：重複タグを含むメタデータの確認方法 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://exiftool.org/forum/index.php?topic=7868.0" target="_blank" rel="noopener noreferrer">ExifTool公式フォーラム：GPSタグをグループ横断で削除する例 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://exiftool.org/forum/index.php?topic=14214.0" target="_blank" rel="noopener noreferrer">ExifTool公式フォーラム：動画ストリームのGPSトラックに関する制限 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://exiftool.org/exiftool_pod.html" target="_blank" rel="noopener noreferrer">ExifTool公式コマンド資料：_originalバックアップの既定動作 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
+            <ul><li><a href="https://manual.audacityteam.org/man/loudness_normalization.html" target="_blank" rel="noopener noreferrer">Audacity公式マニュアル：Loudness Normalizationの対象とLUFS設定 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://www.audacityteam.org/faq/" target="_blank" rel="noopener noreferrer">Audacity公式FAQ：無料・オープンソースと対応OS <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://www.audacityteam.org/manual/getting-started/install-audacity/" target="_blank" rel="noopener noreferrer">Audacity公式インストール案内：準備条件とアカウント不要の説明 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
           </section>
                   <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
           <p class="section-kicker">Recommended For</p>
           <h2 id="today-one-recommendation-title">誰に持たせたい？</h2>
           <div class="today-one-member-card">
-            <img src="image/staff/mmc-005-coworks.webp" alt="DG" loading="lazy" />
+            <img src="image/staff/mmc-009-coworks.webp" alt="ケイ" loading="lazy" />
             <div>
-              <small>MMC-005</small>
-              <h3>DG</h3>
-              <p class="today-one-member-role">人狼界隈観測課長 <span>ゲーム制作部 人狼広報課</span></p>
-              <p>人狼広報のDGに、実際の参加者写真ではなく公開可能なテストJPEG1枚の確認手順を整理してもらい、掲載前に見るGPSタグと_originalバックアップの扱いを含む短いチェックリストを受け取りたいです。</p>
-              <a class="today-one-profile-link" href="members/dg">プロフィールを見る</a>
+              <small>MMC-009</small>
+              <h3>ケイ</h3>
+              <p class="today-one-member-role">広報部長 <span>広報部</span></p>
+              <p>広報部長のケイに、短い告知音声2本の音量調整案と確認用チェック項目を作ってもらい、公開先の基準値・再生確認・書き出し形式が並んだ運用メモを受け取りたいです。</p>
+              <a class="today-one-profile-link" href="members/kei">プロフィールを見る</a>
             </div>
           </div>
         </section>
@@ -150,7 +150,7 @@
                 <img src="image/staff/mmc-009-coworks.webp" alt="ケイ" loading="lazy" />
                 <strong>ケイ｜広報部長</strong>
               </div>
-              <p>GPSを消したつもりでも、元画像のバックアップを同じ公開フォルダーへ置けば位置情報が戻ってしまいます。掲載用コピー・退避用原本・_originalを分けるところまでを、写真の受け渡しルールにしておきたいですね。</p>
+              <p>声ごとの音量差を抑えると、聞く人が再生機器の音量を何度も調整せずに済みます。LUFSの指定は配信先や用途で異なるので、書き出し前に公開先の仕様をメモへ残しておくと、次回の告知にも同じ基準を使いやすいですね。</p>
             </div>
             <figure class="today-one-kei-visual">
               <img src="image/today-one/kei-note.webp" alt="メガホン、ノート、虫眼鏡のコラージュ" loading="lazy" />
@@ -161,7 +161,7 @@
                   <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
           <p class="section-kicker">Basic Information</p>
           <h2 id="today-one-basic-title">基本情報</h2>
-          <dl><div><dt>種別</dt><dd>画像メタデータ編集</dd></div><div><dt>公式サイト</dt><dd><a href="https://exiftool.org/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-21">2026-10-21</time></dd></div><div><dt>料金</dt><dd>ExifToolは無償のフリーソフトウェアとして配布され、寄付は任意です。</dd></div><div><dt>ライセンス</dt><dd>Perlと同じ条件で再配布・改変できるフリーソフトウェア。</dd></div><div><dt>補足</dt><dd>公式情報に基づく想定例です。実機検証は未実施です。</dd></div></dl>
+          <dl><div><dt>種別</dt><dd>Audio Editing / OSS</dd></div><div><dt>公式サイト</dt><dd><a href="https://www.audacityteam.org/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-22">2026-10-22</time></dd></div><div><dt>料金</dt><dd>Audacityは無料で利用できるデスクトップソフトです。</dd></div><div><dt>ライセンス</dt><dd>公式FAQはAudacityを無料のオープンソースソフトウェアと案内し、GNU General Public Licenseで提供すると説明しています。</dd></div><div><dt>補足</dt><dd>公式マニュアルに基づく想定例です。実機での音声処理・再生確認はしていません。</dd></div></dl>
         </section>
         </div>
       </article>
@@ -170,9 +170,9 @@
           <p class="section-kicker">Archive</p>
           <h2 id="today-one-archive-promo-title">これまでのひとつ。</h2>
         </div>
-        <a class="today-one-archive-latest" href="today-one/archive/2026-10-20-cryptomator-encrypt-cloud-file-names">
-          <time datetime="2026-10-20">2026.10.20</time>
-          <strong>Cryptomatorでクラウド保存中のファイル名まで暗号化できる？</strong>
+        <a class="today-one-archive-latest" href="today-one/archive/2026-10-21-exiftool-remove-photo-gps-location">
+          <time datetime="2026-10-21">2026.10.21</time>
+          <strong>ExifToolで写真のGPS位置情報を消せる？_originalの残り方も確認</strong>
           <span>この日のひとつを見る →</span>
         </a>
         <a class="today-one-archive-index-link" href="today-one/archive/">アーカイブを見る <span aria-hidden="true">→</span></a>

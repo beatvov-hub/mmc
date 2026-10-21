@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-21T07:30:00+09:00",
+  "updatedAt": "2026-10-22T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2327,6 +2327,56 @@
         {
           "label": "ExifTool公式コマンド資料：_originalバックアップの既定動作",
           "url": "https://exiftool.org/exiftool_pod.html"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-22",
+      "slug": "audacity-normalize-recording-loudness",
+      "useCategory": "デザイン・動画・ゲーム制作",
+      "name": "Audacity",
+      "category": "Audio Editing / OSS",
+      "officialUrl": "https://www.audacityteam.org/",
+      "summary": "Audacityは、複数の録音の聞こえる音量をそろえて、音声ファイルに書き出せる無料のデスクトップ編集ソフトです。",
+      "whyToday": "案内音声やインタビューを別々に録ると、再生するたびに音量つまみを動かしたくなることがあります。AudacityのLoudness Normalizationはピーク値ではなくLUFSなどの音量基準に合わせられるため、納品先の基準が決まっている素材の仕上げに向いています。",
+      "useFor": "例えば、収録条件の異なる短い案内音声を公開用に整える想定例です。デスクトップ版Audacityを入れ、音声ファイルを読み込んで対象を選び、Loudness Normalizationで公開先が指定するLUFS値を設定します。処理後は書き出したファイルを再生し、音量差や音割れがないか確認します。最初は複製した短い音声2本で試し、公開先の基準に合うか、声の聞き取りやすさが保たれるかを確かめます。ここで行うのは音量調整で、ノイズ除去や内容編集は別の作業です。",
+      "recommendedFor": {
+        "employeeId": "MMC-009",
+        "reason": "広報部長のケイに、短い告知音声2本の音量調整案と確認用チェック項目を作ってもらい、公開先の基準値・再生確認・書き出し形式が並んだ運用メモを受け取りたいです。"
+      },
+      "keiComment": "声ごとの音量差を抑えると、聞く人が再生機器の音量を何度も調整せずに済みます。LUFSの指定は配信先や用途で異なるので、書き出し前に公開先の仕様をメモへ残しておくと、次回の告知にも同じ基準を使いやすいですね。",
+      "verifiedAt": "2026-10-22",
+      "status": "published",
+      "pricing": "Audacityは無料で利用できるデスクトップソフトです。",
+      "conditions": "Windows・macOS・Linux向けのデスクトップアプリをインストールします。公式案内では利用にアカウントやライセンスキーは不要です。音声の公開先が指定するLUFS値や書き出し形式は別途確認してください。",
+      "license": "公式FAQはAudacityを無料のオープンソースソフトウェアと案内し、GNU General Public Licenseで提供すると説明しています。",
+      "notes": "公式マニュアルに基づく想定例です。実機での音声処理・再生確認はしていません。",
+      "archiveTitle": "Audacityで録音ごとの音量差をそろえられる？",
+      "archiveDescription": "収録条件の異なる案内音声を公開するとき、AudacityのLoudness NormalizationでLUFS基準に音量を整える手順を紹介します。公開先の値を確認して処理し、書き出した音声を聞き比べる方法と、音量調整だけでは解決しない点をまとめます。",
+      "forWho": "複数の案内音声やインタビューを公開するとき、録音ごとの聞こえる音量差を抑えたい広報・編集担当者向けです。",
+      "cautions": "音量の基準値は配信先や用途で異なります。ピークではなくLUFS等の指定値を確認し、処理後の音声を再生してください。Loudness Normalizationは音量を調整する機能で、ノイズ除去や音質の修復を代行しません。",
+      "faq": [
+        {
+          "question": "AudacityのLoudness Normalizationで複数の録音の音量をそろえられますか？",
+          "answer": "はい。公式マニュアルではLUFSまたはRMSによる正規化で、異なる音声プロジェクトを比較的そろった音量にできると説明しています。公開先が指定する値を使い、書き出し後に再生して確認してください。"
+        },
+        {
+          "question": "Audacityは無料で使えますか？アカウント登録は必要ですか？",
+          "answer": "公式FAQとインストール案内では、Audacityは無料のオープンソースソフトで、インストール後の利用にアカウントやライセンスキーは不要と案内されています。デスクトップ版の導入には端末の空き容量とインストール権限が必要です。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Audacity公式マニュアル：Loudness Normalizationの対象とLUFS設定",
+          "url": "https://manual.audacityteam.org/man/loudness_normalization.html"
+        },
+        {
+          "label": "Audacity公式FAQ：無料・オープンソースと対応OS",
+          "url": "https://www.audacityteam.org/faq/"
+        },
+        {
+          "label": "Audacity公式インストール案内：準備条件とアカウント不要の説明",
+          "url": "https://www.audacityteam.org/manual/getting-started/install-audacity/"
         }
       ]
     }
