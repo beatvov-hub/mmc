@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>学校で生成AIに児童生徒の情報を入れる前に　承認ツールとデータ利用を確認｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="英国教育省は、学校で生成AIを使う際の個人データ保護ガイダンスを2026年10月14日に更新しました。学校は、使うツールが承認済みか、個人データがどう処理されるか、学校の方針に適合するかを確認し、児童生徒の情報を入力する場合はデータ保護責任者またはIT担当者へ相談するよう案内しています。ガイダンスの例では、保護者向け文面を作る時に児童の情報を含めずに下書きを生成し、氏名や学級を後から加えます。これは英国の学校向け指針なので、日本の法令や校内規程を置き換えるものではありませんが、個人情報をAIへ渡さずに作業できる場面を考える具体例になります。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261023-02" />
+<meta property="og:title" content="学校で生成AIに児童生徒の情報を入れる前に　承認ツールとデータ利用を確認｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="英国教育省は、学校で生成AIを使う際の個人データ保護ガイダンスを2026年10月14日に更新しました。学校は、使うツールが承認済みか、個人データがどう処理されるか、学校の方針に適合するかを確認し、児童生徒の情報を入力する場合はデータ保護責任者またはIT担当者へ相談するよう案内しています。ガイダンスの例では、保護者向け文面を作る時に児童の情報を含めずに下書きを生成し、氏名や学級を後から加えます。これは英国の学校向け指針なので、日本の法令や校内規程を置き換えるものではありませんが、個人情報をAIへ渡さずに作業できる場面を考える具体例になります。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261023-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>学校でAIに児童生徒データを入れる前に</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-10-23">2026.10.23</time>
+            </div>
+            <h1>学校で生成AIに児童生徒の情報を入れる前に　承認ツールとデータ利用を確認</h1>
+            <p>英国教育省は、学校で生成AIを使う際の個人データ保護ガイダンスを2026年10月14日に更新しました。学校は、使うツールが承認済みか、個人データがどう処理されるか、学校の方針に適合するかを確認し、児童生徒の情報を入力する場合はデータ保護責任者またはIT担当者へ相談するよう案内しています。ガイダンスの例では、保護者向け文面を作る時に児童の情報を含めずに下書きを生成し、氏名や学級を後から加えます。これは英国の学校向け指針なので、日本の法令や校内規程を置き換えるものではありませんが、個人情報をAIへ渡さずに作業できる場面を考える具体例になります。</p>
+            <ul class="forensics-target-list"><li>学校で生成AIを使う教職員</li><li>教育機関の個人情報保護・IT担当者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>生成AI</li><li>学校</li><li>児童生徒</li><li>個人情報</li><li>データ保護</li><li>英国教育省</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>英国教育省の学校向けガイダンスを確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>児童生徒の個人データは、学校の承認・処理条件を確認してから扱いましょう。下書きだけなら識別情報を後から加える方法もあります。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>保護者への連絡文を生成AIで整えたい</h3><p>児童の行動について保護者へ説明するメールを作るため、無料の生成AIへメモを入力しようとしています。氏名や学級を含めてよいか判断できません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIに文面を整えてもらう作業と、児童の個人データを外部ツールへ渡すことは切り分けられます。匿名化した下書きで済むか、学校の承認とデータ保護条件を満たすかを先に確認します。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="draft-without-identifiers">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>児童生徒に関する文章を生成AIで作るとき、どの順番で扱う？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="draft-without-identifiers" data-choice-id="draft-without-identifiers" />
+                <span>
+                  <strong>承認済みツールか確認し、識別情報なしで下書きしてから必要な情報を加える</strong>
+                  <small>英国教育省の例では、個人情報を含めず文面を生成し、児童の氏名や学級を後から加えています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="paste-full-record" data-choice-id="paste-full-record" />
+                <span>
+                  <strong>文面の正確さを上げるため、氏名・学級・行動メモをまず無料AIへ入力する</strong>
+                  <small>個人データを入力する場合は、ツールの承認状態や保護・学習利用の条件を確認するよう指針が案内しています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>承認済みツールか確認し、識別情報なしで下書きしてから必要な情報を加える</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>まず学校で承認されたツールか、個人データがどのように扱われるかを確認します。識別情報が不要な下書きなら、情報を外した状態で生成し、必要な氏名等を校内で後から加える方法があります。個人データをAIへ入力する必要があるときは、校内のデータ保護責任者やIT担当者に相談してください。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>学校の承認ツールかを先に確認</h3>
+              <p>英国教育省は、使用するAIツールが学校で承認されているか、学校のデータ保護方針に沿うかを確認するよう案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>個人データの処理と学習利用を確認</h3>
+              <p>児童生徒の情報を入力する場合、ツール内で保護され、AIの追加学習に使われないことを担当者と確認するよう指針は説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>識別情報を後から追加する具体例</h3>
+              <p>保護者向けメールの例では、個人データを含めずに文面を生成し、生成後に児童の氏名と学級を加えます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>年齢制限と利用者への説明も確認</h3>
+              <p>指針は、児童にAIツールを使わせる前に年齢制限を確認することや、教職員・児童・保護者などへ個人データの処理を透明に説明することも挙げています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>英国の学校向けガイダンス</h3>
+              <p>この資料は英国教育省による学校向けの案内です。日本の法令や各校の規程そのものではないため、国内での実施条件は所属校の担当者へ確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>識別情報なしで作れる下書きは、個人情報を外して生成する</strong><p>学校で承認されたツールとデータ処理条件を確かめ、児童生徒の情報を入力する必要がある場合は担当者へ相談します。英国教育省の例は、個人情報を含めずに文案を作り、識別情報を後から加える手順です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>生成AIへ入力する前に、学校で承認されたツールか確認する</strong><span>承認ツールかどうかと校内データ保護方針への適合を先に判断できます。</span></li>
+            <li><strong>文案作成には児童の氏名・学級・連絡先を含めず、必要な識別情報を後から加える</strong><span>英国教育省の具体例は個人データを含めずに生成し、氏名と学級を後で加えています。</span></li>
+            <li><strong>個人データを入力する必要があるときは、DPOまたはIT担当者へ相談する</strong><span>指針はデータが保護され、追加学習に使われないか確認するよう求めています。</span></li>
+            <li><strong>児童が利用するツールの年齢制限と保護者・児童への説明を確認する</strong><span>指針は年齢制限の確認と、データ処理の透明な説明を挙げています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>校内で未承認の無料AIへ、児童の氏名と詳細な行動記録をそのまま貼り付ける</strong><span>ツールの承認と個人データの処理条件が確認できていません。</span></li>
+            <li><strong>ツールのプライバシー設定を確かめず、入力データが学習に使われないと思い込む</strong><span>指針は入力する個人データが保護され、追加学習に使われないことを確認するよう案内しています。</span></li>
+            <li><strong>英国教育省の案内だけで、日本の法令・学校規程への適合を判断する</strong><span>このガイダンスは英国の学校向けで、国内の要件を代替しません。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>個人情報を渡さずに文面作成を効率化</h3>
+          <p>AIには一般化した状況だけを伝えて下書きを作らせ、学校内で必要な識別情報を付け加える方法を検討できます。</p>
+          <ul class="positive-example-list"><li>児童名を伏せて保護者向け文面を整える</li><li>架空の例で授業案や小テストを作る</li><li>校内承認済みツールと入力ルールを教職員で共有する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>この指針の実務的な価値は、『AIを使うか、使わないか』だけでなく、個人情報を入れなくても済む作業工程を示しているところです。文案の構成をAIに任せ、児童を特定する情報は後から校内で加えるなら、作業の便利さを残しながら入力データを減らせます。英国の制度を日本へそのまま移さず、この分け方を自校の規程で検討するのがよさそうです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>学校で児童生徒の情報をAIへ渡す前に、承認ツールとデータ処理条件を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.gov.uk/guidance/data-protection-in-schools/generative-artificial-intelligence-ai-and-data-protection-in-schools" target="_blank" rel="noopener noreferrer">Generative artificial intelligence (AI) and data protection in schools<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Department for Education, GOV.UK</span>
+              <span>その他</span>
+              <time datetime="2026-10-14">2026-10-14</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20261023-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Google PlayでAI生成アプリを自分の端末へ　個人用と公開審査を混同しない AI生成アプリを個人端末で試す前に Googleは2026年10月13日、Google AI Studioで作ったカスタムAndroidアプリをGoogle Play経由で自分の端末に導入する機能の展開を発表しました。個人用アプリは公開ストアのカタログと分離され、通常のGoogleアカウントで試せますが、公開範囲が個人的だからといって安全性の審査を通過したという意味にはなりません。Googleはアプリを世界へ公開する段階で、通常の開発者アカウントとTrust &amp; Safety審査が必要になると説明しています。提供は一部市場の18歳以上から始まるため、試作段階では権限と挙動を確かめ、個人情報や重要なアカウント情報を扱わせないところから始めます。 セキュリティ・権限 標準 Google Play Google AI Studio AI生成アプリ Android アプリ権限 プライバシー AIでAndroidアプリを試作する人 Google Playで個人用アプリを端末に入れる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">google-play-private-ai-app</span>
+              <div>
+                <p>AI生成アプリを個人端末で試す前に</p>
+                <h3>Google PlayでAI生成アプリを自分の端末へ　個人用と公開審査を混同しない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-23">2026.10.23</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年10月13日、Google AI Studioで作ったカスタムAndroidアプリをGoogle Play経由で自分の端末に導入する機能の展開を発表しました。個人用アプリは公開ストアのカタログと分離され、通常のGoogleアカウントで試せますが、公開範囲が個人的だからといって安全性の審査を通過したという意味にはなりません。Googleはアプリを世界へ公開する段階で、通常の開発者アカウントとTrust &amp; Safety審査が必要になると説明しています。提供は一部市場の18歳以上から始まるため、試作段階では権限と挙動を確かめ、個人情報や重要なアカウント情報を扱わせないところから始めます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Google Playの公式発表を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIでAndroidアプリを試作する人</li><li>Google Playで個人用アプリを端末に入れる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Play</li><li>Google AI Studio</li><li>AI生成アプリ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261022-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="ChatGPTのロックした会話は暗号化保管庫ではない　PIN忘れの前に知る削除範囲 ロック会話とPINリセットの注意点 OpenAIは2026年10月20日、選んだ会話を通常の履歴・検索から隠し、アカウントPIN等で開く「ロックした会話」の段階提供を発表しました。これは表示場所とアクセス方法を変える機能で、エンドツーエンド暗号化や別の暗号化保管庫ではなく、保持期間やモデル改善設定も変更しません。忘れたPINをリセットすると、ロック会話とそこだけに保存された記憶・ファイルが復元不能で削除されます。共有リンクも別途削除が必要です。画面共有や端末貸与の前に一覧表示の更新を確かめ、機密情報の保護や長期保管の代替として扱わないことが実用上の要点です。 セキュリティ・権限 はじめて ChatGPT ロックした会話 Account PIN 共有リンク 会話の保持 セキュリティ ChatGPTで会話を一覧から隠したい人 ロック会話にファイルや記憶を保管する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chat-lock-pin-reset</span>
+              <div>
+                <p>ロック会話とPINリセットの注意点</p>
+                <h3>ChatGPTのロックした会話は暗号化保管庫ではない　PIN忘れの前に知る削除範囲</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-22">2026.10.22</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年10月20日、選んだ会話を通常の履歴・検索から隠し、アカウントPIN等で開く「ロックした会話」の段階提供を発表しました。これは表示場所とアクセス方法を変える機能で、エンドツーエンド暗号化や別の暗号化保管庫ではなく、保持期間やモデル改善設定も変更しません。忘れたPINをリセットすると、ロック会話とそこだけに保存された記憶・ファイルが復元不能で削除されます。共有リンクも別途削除が必要です。画面共有や端末貸与の前に一覧表示の更新を確かめ、機密情報の保護や長期保管の代替として扱わないことが実用上の要点です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>OpenAIの機能発表と操作・削除仕様を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTで会話を一覧から隠したい人</li><li>ロック会話にファイルや記憶を保管する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>ロックした会話</li><li>Account PIN</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261020-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Geminiの外部アプリ連携、接続先と呼び出し方を確認する Geminiに外部アプリをつなぐ前に Googleは2026年9月23日、Geminiアプリから利用できる外部のConnected Appsを追加すると発表しました。生産性、制作、生活関連のサービスが対象として紹介され、アプリはGeminiの設定から接続するか、チャット内で@メンションして呼び出せます。これは外部アプリをGeminiから使うための段階的な提供で、全アカウントで一律に利用できるという発表ではありません。便利さだけで接続を増やさず、設定画面で実際に利用可能な連携先を確認し、必要なサービスだけを選びましょう。 セキュリティ・権限 はじめて Gemini Connected Apps 外部アプリ連携 権限 AI活用 設定 Geminiアプリを仕事や日常で使う人 AIアシスタントに外部サービスを接続する前に確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gemini-connected-apps</span>
+              <div>
+                <p>Geminiに外部アプリをつなぐ前に</p>
+                <h3>Geminiの外部アプリ連携、接続先と呼び出し方を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-20">2026.10.20</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年9月23日、Geminiアプリから利用できる外部のConnected Appsを追加すると発表しました。生産性、制作、生活関連のサービスが対象として紹介され、アプリはGeminiの設定から接続するか、チャット内で@メンションして呼び出せます。これは外部アプリをGeminiから使うための段階的な提供で、全アカウントで一律に利用できるという発表ではありません。便利さだけで接続を増やさず、設定画面で実際に利用可能な連携先を確認し、必要なサービスだけを選びましょう。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>連携対象と提供状況を公式発表で確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Geminiアプリを仕事や日常で使う人</li><li>AIアシスタントに外部サービスを接続する前に確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>Connected Apps</li><li>外部アプリ連携</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261023-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261023-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

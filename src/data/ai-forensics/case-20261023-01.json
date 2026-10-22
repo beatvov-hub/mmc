@@ -1,0 +1,54 @@
+{
+  "id": "case-20261023-01",
+  "publishedAt": "2026-10-23",
+  "title": "Google PlayでAI生成アプリを自分の端末へ　個人用と公開審査を混同しない",
+  "shortTitle": "AI生成アプリを個人端末で試す前に",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["AIでAndroidアプリを試作する人", "Google Playで個人用アプリを端末に入れる人"],
+  "summary": "Googleは2026年10月13日、Google AI Studioで作ったカスタムAndroidアプリをGoogle Play経由で自分の端末に導入する機能の展開を発表しました。個人用アプリは公開ストアのカタログと分離され、通常のGoogleアカウントで試せますが、公開範囲が個人的だからといって安全性の審査を通過したという意味にはなりません。Googleはアプリを世界へ公開する段階で、通常の開発者アカウントとTrust & Safety審査が必要になると説明しています。提供は一部市場の18歳以上から始まるため、試作段階では権限と挙動を確かめ、個人情報や重要なアカウント情報を扱わせないところから始めます。",
+  "scenario": {
+    "headline": "AIで作った便利そうなアプリを自分のAndroid端末で試したい",
+    "description": "AI Studioで作成したアプリを個人端末へ入れられると知りました。Google Play経由なので、一般公開アプリと同じ審査を通ったものとして使ってよいか迷っています。",
+    "whyItMatters": "個人端末への導入と、公開ストアへ配布する際の審査は別の段階です。試作品に連絡先、位置情報、写真、認証情報などを渡す前に、どこまでの権限が必要かを確認します。"
+  },
+  "question": {
+    "text": "AIで作った個人用Androidアプリを入れるとき、最初にどう扱う？",
+    "choices": [
+      {"id": "test-as-prototype", "label": "試作品として扱い、権限と挙動を確認してから限定的に使う", "description": "個人用導入は公開ストアのカタログや公開時のTrust & Safety審査と同じものではありません。"},
+      {"id": "assume-reviewed", "label": "Google Play経由なら公開アプリと同じ審査済みとみなし、機密データも渡す", "description": "Googleは世界へ公開する場合に通常の審査を受けると説明しており、個人用アプリの導入とは区別されています。"}
+    ],
+    "recommendedAnswers": ["test-as-prototype"],
+    "explanation": "Googleの発表では、AI Studioで作ったアプリを個人の端末で非公開に実行できる一方、一般公開に進む際にはプロの開発者アカウントと通常のTrust & Safety審査が必要です。したがって、個人用として入れられることを審査済みの保証と受け取らず、まず権限、入力データ、動作を確認します。"
+  },
+  "inspectionPoints": [
+    {"title": "AI Studioから個人用Androidアプリを作成・導入", "description": "GoogleはGoogle AI Studioでアプリを作成し、Google Playを通じて自分の端末で実行できると発表しました。", "priority": "high"},
+    {"title": "個人用アプリは公開カタログと分離", "description": "発表では、個人用アプリは公開Playストアのカタログとは別に保たれると説明されています。個人用の配布形態と公開アプリの審査段階を区別します。", "priority": "high"},
+    {"title": "公開時には開発者アカウントと通常の審査", "description": "世界へ公開したい場合はプロの開発者アカウントへ移行し、通常のTrust & Safety審査と品質基準を受けるとGoogleは説明しています。", "priority": "high"},
+    {"title": "初期展開は一部市場の18歳以上", "description": "発表時点では米国を含む一部市場の18歳以上から展開を開始するとされています。日本で直ちに利用できると決めつけず、アカウント上の提供状況を確認します。", "priority": "medium"},
+    {"title": "個人用での導入を安全審査の証明にしない", "description": "Googleの説明で公開時の審査が別途示されているため、個人用として導入可能なことだけを、一般公開アプリと同等の審査済みという根拠にしないのが安全です。これは公開条件から導く利用上の注意です。", "priority": "high"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "Google Playの公式発表を確認",
+  "verificationMessage": "個人用アプリの導入と、一般公開時の審査は別です。試作段階では必要な権限と入力情報を絞りましょう。",
+  "verdict": {"label": "個人用アプリは試作品として、権限を絞って試す", "description": "Google Play経由で自分の端末に導入できることは、一般公開時の審査を経たことを示しません。連絡先・位置情報・写真などへのアクセスが本当に必要かを確認し、機密情報を使わないテストから始めます。", "confidence": "high"},
+  "safeActions": [
+    {"action": "導入直後にアプリが求める権限を確認し、目的に合わない権限は許可しない", "reason": "個人用アプリの便利さと、アプリが端末データへアクセスする必要性は別々に判断できます。"},
+    {"action": "個人情報や認証情報を入力せず、ダミーデータで主要な動作を試す", "reason": "公開前の試作段階では、実データが必要かを確かめる前に影響を小さくできます。"},
+    {"action": "公開範囲を広げる前に、公開用アカウント要件とTrust & Safety審査を確認する", "reason": "Googleは個人用導入と世界への公開を別の段階として案内しています。"},
+    {"action": "機能の提供地域と年齢条件を公式発表やアプリ内表示で確認する", "reason": "発表時点の展開対象は一部市場の18歳以上です。"}
+  ],
+  "avoidActions": [
+    {"action": "自分の端末に入れられたことだけで、安全審査済みと判断する", "reason": "個人用アプリの導入と一般公開時の審査は別に説明されています。"},
+    {"action": "試作品へ本物の連絡先、顧客情報、パスワードを入力して動作確認する", "reason": "試験に必要なデータを限定すれば、意図しない送信や保存の影響を抑えられます。"},
+    {"action": "米国など一部市場からの展開を、日本での提供開始と読み替える", "reason": "発表は選択された市場からの展開としており、地域ごとの提供時期は異なり得ます。"}
+  ],
+  "positiveUse": {"title": "小さな個人用ツールを安全に試作する", "description": "公開配布を急がず、まず個人端末でダミーデータを使って試し、必要な権限と用途を確かめます。", "examples": ["買い物リストを試作して架空データで操作する", "位置情報や連絡先を使わない構成で動作を確認する", "第三者に渡す前に公開条件と審査を確認する"]},
+  "makotoComment": "今回の発表で見落としやすいのは、『Google Playで動く』ことと『公開アプリとして審査を通った』ことの距離です。個人用アプリを気軽に試せる利便性はありますが、権限や入力データの確認まで不要になるわけではありません。まずダミーデータで作り、公開へ進む時点で審査条件を読み直す順序が現実的です。",
+  "oneLineLesson": "AI生成の個人用アプリは、公開審査済みと決めつけず、権限を絞って試す。",
+  "tags": ["Google Play", "Google AI Studio", "AI生成アプリ", "Android", "アプリ権限", "プライバシー"],
+  "sources": [
+    {"title": "New on Google Play: More ways to create, discover, and play", "publisher": "Google", "sourceType": "official-product-update", "publishedAt": "2026-10-13", "url": "https://blog.google/products-and-platforms/platforms/google-play/google-play-updates-october-2026/?authuser=2"}
+  ],
+  "visualSuggestion": {"mainVisual": "AI Studioで作った個人用Androidアプリを試作環境で動かし、端末権限を点検してから公開審査へ進む二段階図", "cardIcon": "google-play-private-ai-app", "accentTone": "caution"}
+}

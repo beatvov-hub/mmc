@@ -1,0 +1,54 @@
+{
+  "id": "case-20261023-03",
+  "publishedAt": "2026-10-23",
+  "title": "GmailのAI Inboxがメールからタスクを抽出　提供条件と元メールの確認方法",
+  "shortTitle": "Gmail AI Inboxの提供条件を確認",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": ["Google WorkspaceでGmailを使う人", "Workspaceの利用機能を案内する管理担当者"],
+  "summary": "Google Workspace Updatesは2026年10月15日、GmailのAI Inboxを有料Workspaceユーザーへ拡大すると発表しました。AI Inboxはメールの会話から対応項目・成果物・期限を抽出し、重要な話題の要約を表示します。ただし発表時点で利用できるのは米国にいて言語設定が英語（米国）のユーザーに限られ、対象エディションも指定されています。また管理者向けのオン・オフ設定はないとされています。日本の利用者や管理者は、契約だけを見て利用可能と判断せず、実際の地域・言語・画面への展開を確認し、要約から作業を始めるときは元のメールで期限や依頼内容を確認します。",
+  "scenario": {
+    "headline": "GmailにAI Inboxが追加されたと聞いたが、自分の組織で使える？",
+    "description": "WorkspaceのGmailでメールの要約や対応タスクを自動表示できると聞きました。管理者設定で有効にすべきか、表示されないのは設定ミスなのか判断できません。",
+    "whyItMatters": "AI Inboxには対象エディション、地域、言語、段階展開の条件があります。管理者用スイッチはないとされているため、利用可否を設定だけの問題として扱わず、対象条件と元メールの確認方法を押さえます。"
+  },
+  "question": {
+    "text": "AI InboxがGmailに見当たらないとき、何を確かめる？",
+    "choices": [
+      {"id": "check-eligibility-and-rollout", "label": "エディション、米国・英語設定の条件、段階展開を確認する", "description": "Googleは発表時点の地域・言語条件と、Rapid Release / Scheduled Releaseごとの展開開始日を示しています。"},
+      {"id": "ask-admin-toggle", "label": "管理者にAI Inboxの専用オン・オフスイッチを有効化してもらう", "description": "Google Workspace Updatesは、この機能に管理者用の制御設定はないと案内しています。"}
+    ],
+    "recommendedAnswers": ["check-eligibility-and-rollout"],
+    "explanation": "AI Inboxは段階的に展開され、発表時点では米国かつ英語（米国）設定のユーザーのみが対象です。対象エディションでもすぐ全員に表示されるとは限りません。専用の管理者設定を探すより、契約エディション、利用地域、言語、展開方式を確認します。"
+  },
+  "inspectionPoints": [
+    {"title": "メールから対応項目と期限を抽出", "description": "GoogleはAI Inboxがメール会話中のaction items、deliverables、deadlinesを抽出すると説明しています。", "priority": "high"},
+    {"title": "重要な話題を複数メールから要約", "description": "急なやり取りや複数メッセージの話題について、重要な更新をまとめてキャッチアップする機能として案内されています。", "priority": "high"},
+    {"title": "管理者用の制御設定はない", "description": "発表ではAdmins: There is no admin control for this feature と明記されています。利用者に表示されない場合、まず専用スイッチの有無ではなく対象条件を確認します。", "priority": "high"},
+    {"title": "対象プランと地域・言語が限定", "description": "対象エディションとしてBusiness、Enterprise、AI Pro for Education、Frontline Plusが挙げられていますが、発表時点では米国の英語（米国）ユーザーのみ利用可能です。", "priority": "high"},
+    {"title": "リリース方式で展開開始日が異なる", "description": "Rapid Releaseは10月12日開始、Scheduled Releaseは10月26日開始の段階展開で、表示まで最大15日かかる場合があると案内されています。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "Google Workspaceの提供条件を確認",
+  "verificationMessage": "AI Inboxは地域・言語・エディションに条件があり、管理者用スイッチもありません。表示された要約から動く前に元メールを確認しましょう。",
+  "verdict": {"label": "設定ミスと決めつけず、対象条件と段階展開を確認する", "description": "AI Inboxは米国・英語（米国）などの条件付きで展開中です。対象ユーザーでも表示時期に差があり、管理者が切り替える専用設定はないとされています。タスクや期限は要約から拾う手掛かりとして使い、実際に対応する前に元スレッドで文脈を確かめます。", "confidence": "high"},
+  "safeActions": [
+    {"action": "Workspaceのエディション、利用地域、Gmailの言語設定を確認する", "reason": "Googleが発表した対象条件に合うかを切り分けられます。"},
+    {"action": "Rapid ReleaseかScheduled Releaseかを管理者に確認し、展開期間を考慮する", "reason": "展開方式ごとに開始日が異なり、画面表示まで段階展開があります。"},
+    {"action": "AI Inboxのタスクや期限を使う前に、該当する元メールを開いて依頼者・日付・条件を照合する", "reason": "要約は受信トレイ整理の補助として使い、実際の業務判断はメール本文に戻って確認できます。"},
+    {"action": "管理者向けに専用スイッチがないことを踏まえ、ユーザーへ提供条件を案内する", "reason": "機能が見えない原因を存在しない管理設定の探索へ誤誘導しないためです。"}
+  ],
+  "avoidActions": [
+    {"action": "対象外の国・言語でも、対象プランならすぐ利用できると思い込む", "reason": "発表時点の提供は米国かつ英語（米国）に限られています。"},
+    {"action": "管理コンソールにAI Inboxの専用オン・オフ設定がある前提で探し続ける", "reason": "Googleは管理者向け制御がないと案内しています。"},
+    {"action": "AI Inboxの要約だけで期限や対応内容を確定し、元メールを見ずに処理する", "reason": "要約はメール確認の入口であり、依頼の条件や文脈は元の会話で確かめる必要があります。"}
+  ],
+  "positiveUse": {"title": "受信トレイの見落としを減らす補助として使う", "description": "AI Inboxが表示されたら、未処理タスクや重要な話題を見つける入口にし、実作業の前に元メールで文脈を確かめます。", "examples": ["長いメールスレッドの更新点を把握する", "期限候補を抽出して元メールで確認する", "対象外地域で表示されない場合に提供時期を待つ"]},
+  "makotoComment": "この発表で実務上いちばん重要なのは、AIの要約機能そのものだけでなく、『管理者が有効化する設定はない』『現時点では米国・英語（米国）』という提供条件です。日本の組織で画面に見えなくても、まず設定ミスと決めつける必要はありません。もし使える環境でも、要約から拾った期限や依頼は元のメールを開いて確定する運用が安心です。",
+  "oneLineLesson": "Gmail AI Inboxは地域・言語・展開条件を確認し、タスク候補は元メールで確定する。",
+  "tags": ["Gmail", "Google Workspace", "AI Inbox", "メール要約", "タスク抽出", "段階展開"],
+  "sources": [
+    {"title": "Gmail’s AI Inbox is rolling out to paid Workspace users", "publisher": "Google Workspace Updates", "sourceType": "official-product-update", "publishedAt": "2026-10-15", "url": "https://workspaceupdates.googleblog.com/2026/10/gmails-ai-inbox-is-rolling-out-to-paid-Workspace-users.html"}
+  ],
+  "visualSuggestion": {"mainVisual": "Gmail AI Inboxがメールスレッドからタスクと期限候補を示し、利用者が提供条件と元メールを確認する画面フロー", "cardIcon": "gmail-ai-inbox-rollout", "accentTone": "calm"}
+}
