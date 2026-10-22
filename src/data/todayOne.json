@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T07:30:00+09:00",
+  "updatedAt": "2026-10-23T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2377,6 +2377,60 @@
         {
           "label": "Audacity公式インストール案内：準備条件とアカウント不要の説明",
           "url": "https://www.audacityteam.org/manual/getting-started/install-audacity/"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "slug": "krokiet-protect-reference-folder-duplicates",
+      "useCategory": "ファイル共有・情報管理",
+      "name": "Krokiet",
+      "category": "Duplicate File Finder / OSS",
+      "officialUrl": "https://github.com/qarmin/czkawka",
+      "summary": "Krokietは、残したいフォルダーを保護しながら、別フォルダーにある内容が同じファイルを見つけて整理できる無料のデスクトップアプリです。",
+      "whyToday": "配布素材を受け取るたび、社内ライブラリにある画像や資料のコピーが混ざり、どちらを残すか迷うことがあります。Krokietは照合用フォルダーをReference Pathにして削除対象から守れるため、整理する側の範囲を限定した確認に向いています。",
+      "useFor": "例えば、受け取った素材フォルダーに、社内ライブラリと同じ画像ファイルが重複しているか確認する想定例です。Krokietを起動し、受け取り側と残したいライブラリ側の両方をIncluded Pathsへ加え、ライブラリ側にRefを設定します。Duplicate FilesでHash（既定のBlake3）を使ってScanすると、内容が一致する候補がグループで表示されます。候補と選択状態を確認し、不要と判断した受け取り側のコピーだけをTrashへ移します。まずは複製した小さなフォルダーで試し、保護側が選択されないことと、残すファイルを取り違えないことを確かめます。",
+      "recommendedFor": {
+        "employeeId": "MMC-007",
+        "reason": "ブランドデザイン部長のレイちゃんに、公開用素材フォルダーと受け取り素材を照合する確認手順を作ってもらい、残す原本の場所とTrashへ移す候補を分けた一覧を受け取りたいです。"
+      },
+      "keiComment": "原本を置いたフォルダーを保護対象にできるので、受け取り素材の整理範囲を絞りやすいのがいいですね。Hash検索は内容が完全一致するファイル向けなので、サイズ違いや再保存した画像も探したい場合は別の類似画像検索として扱い、用途を混ぜないようにしましょう。",
+      "verifiedAt": "2026-10-23",
+      "status": "published",
+      "pricing": "Krokietは無料のオープンソースソフトウェアです。",
+      "conditions": "公式リポジトリのKrokietリリース版はWindows 10/11、macOS、Ubuntu 22.04以降向けの実行ファイルが案内されています。例に使うフォルダーへアクセスできる端末が必要です。削除ではなくTrashへ移す操作を選ぶと、システムのごみ箱を使って戻せる状態にできます。",
+      "license": "KrokietはGPL-3.0-onlyです。Czkawka GTK版・CLI版とはライセンスが異なるため、配布・改変時は対象フロントエンドの条件を確認してください。",
+      "notes": "公式リポジトリの現行Krokietマニュアルに基づく想定例です。実機でのスキャン・削除は行っていません。",
+      "archiveTitle": "Krokietで原本フォルダーを守りながら重複ファイルを整理できる？",
+      "archiveDescription": "受け取り素材と社内ライブラリの重複を調べたいとき、Krokietで原本フォルダーを保護して内容一致のファイルを探す手順を紹介します。候補の見方、保護範囲の確認、Trashを使う判断点をまとめます。",
+      "forWho": "受け取った画像や資料を整理するとき、保管済みの原本を残したまま重複ファイルだけを見つけたい担当者向けです。",
+      "cautions": "Hash検索は内容が一致するファイルを探します。ファイル名やサイズだけの照合は誤候補があり得ます。参照フォルダー内だけで重複するグループは結果に出ない仕様なので、検索対象とRefの設定を先に確認してください。",
+      "faq": [
+        {
+          "question": "Refを設定した原本フォルダーのファイルも削除対象になりますか？",
+          "answer": "いいえ。公式マニュアルでは、Reference Path内のファイルは比較用に結果へ表示されても、選択や削除の対象にはならないと説明されています。処理前にRef設定と選択状態を確認してください。"
+        },
+        {
+          "question": "Krokietの重複ファイル検索は、名前が似た画像やサイズ違いも見つけますか？",
+          "answer": "Duplicate FilesのHash検索はファイル内容が同じかを調べる機能です。サイズ変更や再保存などで内容が異なる画像は、別機能のSimilar Imagesで探します。Similar Imagesは類似判定なので、結果を比較して残すファイルを判断してください。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Czkawka公式GitHub：Krokietの現行位置付け・無料提供・ライセンス",
+          "url": "https://github.com/qarmin/czkawka"
+        },
+        {
+          "label": "Krokiet公式マニュアル：保護フォルダーを使った重複検索・Trash操作",
+          "url": "https://github.com/qarmin/czkawka/blob/master/instructions/Instruction_Krokiet.md"
+        },
+        {
+          "label": "Czkawka公式FAQ：Reference Pathの保護・検索結果の仕様",
+          "url": "https://github.com/qarmin/czkawka/blob/master/instructions/FAQ.md"
+        },
+        {
+          "label": "Czkawka公式リリース：最新安定版とGTK版終了後の案内",
+          "url": "https://github.com/qarmin/czkawka/releases"
         }
       ]
     }
