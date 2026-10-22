@@ -1,0 +1,59 @@
+{
+  "id": "case-20261023-04",
+  "publishedAt": "2026-10-23",
+  "title": "PHPの未認証RCE 2件に修正版　Webサイト管理者はPHP稼働箇所を棚卸し",
+  "shortTitle": "PHPの重大脆弱性と修正版の確認",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["PHP製サイトやCMSを運用する人", "レンタルサーバー・クラウドのWeb管理者", "PHPアプリを保守する開発者"],
+  "summary": "PHP開発チームは2026年10月21日、未認証のリモートコード実行につながり得る2件の重大な脆弱性（CVE-2026-109618、CVE-2026-109619）を公表し、PHP 8.5.12、8.4.27、8.3.36、8.2.35などの修正版を公開しました。対象はPHPアプリのコードだけではなく、Webリクエストを処理するPHP実行環境です。PHP-FPM、Apache mod_php、php-cgiなどの構成や、PHPを同梱する機器・サービスも棚卸し対象になります。サイト運営者は管理画面やホスティング会社へ稼働バージョンと修正版の適用状況を確認し、ディストリビューション独自の修正がある場合は提供元の告知で照合します。PHP公式は暫定設定だけでは完全な対策にならないと明記しており、更新できない場合は公式の一時緩和策を専門担当者と確認し、露出を抑える必要があります。",
+  "scenario": {
+    "headline": "PHP製サイトを運用しているが、PHP本体を自分で更新しているか分からない",
+    "description": "WordPressなどのCMSや業務サイトを使っています。PHPの重大な脆弱性が出たと聞いたものの、サイトの更新ボタンだけで直るのか、サーバー側へ問い合わせるべきか判断できません。",
+    "whyItMatters": "今回の問題はアプリケーションの不具合ではなくPHP実行環境にあります。サイトのテーマやCMSを更新しても、サーバーや同梱機器のPHPが修正版へ置き換わったとは限らないため、稼働箇所と更新責任者を特定します。"
+  },
+  "question": {
+    "text": "PHPの脆弱性が公表されたとき、サイト管理者は何を確認する？",
+    "choices": [
+      {"id": "inventory-and-patch-runtime", "label": "Web向けPHP稼働箇所を洗い出し、ホストやベンダーに修正版適用を確認する", "description": "PHP公式は複数の実行方式を対象に挙げ、NCSCはインターネット公開システムを優先した棚卸しと更新を勧めています。"},
+      {"id": "update-only-cms", "label": "サイトのテーマやプラグインだけ更新すれば、PHP本体も修正済みとみなす", "description": "今回の脆弱性はPHP本体にあり、アプリケーション更新とサーバー実行環境の更新は別の作業です。"}
+    ],
+    "recommendedAnswers": ["inventory-and-patch-runtime"],
+    "explanation": "まずPHPを実行している場所とバージョンを確認し、PHP公式の修正版または利用中のOS・ホスティング会社が提供するバックポート済みパッケージを照合します。サイトのCMSだけを更新してもPHP実行環境が更新されたとは限りません。即時更新できないときは自己判断で設定を変更せず、PHP公式の緩和策と提供元の案内を確認し、必要なら公開停止や隔離を検討します。"
+  },
+  "inspectionPoints": [
+    {"title": "対象はPHP本体の重大な脆弱性2件", "description": "PHP開発チームはCVE-2026-109618（メモリ不足処理に伴う破損）とCVE-2026-109619（古いグローバル状態の残存）を掲載し、未認証の遠隔コード実行につながり得ると説明しています。", "priority": "high"},
+    {"title": "Webリクエストを受けるPHP環境を広く確認", "description": "PHP公式はPHP-FPM、Apache mod_php、php-cgi、FrankenPHP、LiteSpeedなどを含む、Webリクエストを処理するPHPインストールを対象に挙げています。CMSだけでなく、PHP同梱の機器やサービスも確認します。", "priority": "high"},
+    {"title": "修正版の目安はPHP 8.5.12・8.4.27・8.3.36・8.2.35", "description": "PHP公式の2026年10月21日付告知は各系列の修正版を示しています。LinuxディストリビューションやLTS提供元は独自パッケージへ修正をバックポートすることがあるため、単純な番号比較だけで未修正と断定せずベンダー告知を確認します。", "priority": "high"},
+    {"title": "古い系列は保守提供元へ確認", "description": "PHP公式は8.1以前にはプロジェクトから更新を提供しない一方、ディストリビューションやLTSベンダーが修正をバックポートする場合があるとしています。提供元の修正有無を確認できなければ、サポート対象系列への移行計画が必要です。", "priority": "high"},
+    {"title": "設定による一時緩和は完全な修正ではない", "description": "PHP公式は暫定策が特定の攻撃経路を弱めてもインストールを安全にするものではなく、完全な対策は修正版への更新だと警告しています。設定例をそのまま本番へ貼り付けず、公式ページと運用環境を確認します。", "priority": "high"},
+    {"title": "更新できない間は公開継続の可否も判断", "description": "英国NCSCは、修正版や緩和策を適用できない場合はシステムのオフライン化を検討し、すぐ更新も停止もできない場合は更新前に侵害やバックドアの兆候を調査するよう勧めています。これは英国機関の勧告ですが、技術上の選択肢を整理する材料になります。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "PHP公式告知と公的機関の対応案内を確認",
+  "verificationMessage": "CMSの更新だけではPHP本体の更新確認になりません。PHPを実行するサーバー・機器・ホスティングの修正版適用状況を確認してください。",
+  "verdict": {"label": "PHP稼働箇所を洗い出し、修正版またはベンダー修正を確認する", "description": "今回の2件はWebリクエストを処理するPHP実行環境が対象です。運営者は公開サーバーを優先して実行場所とバージョンを棚卸しし、PHP公式の修正版か、利用中のディストリビューション・ホスティング会社が提供する修正済みパッケージを確認します。更新できない場合の緩和策は完全な修正ではありません。", "confidence": "high"},
+  "safeActions": [
+    {"action": "Webサイト、API、管理画面、コンテナ、PHP同梱機器を含め、インターネット公開のPHP環境を一覧化する", "reason": "PHP公式とNCSCは、アプリや実行方式を限定せずPHP稼働環境を確認するよう促しています。"},
+    {"action": "各環境のPHP系列・パッチ番号と、修正済みベンダーパッケージの有無を記録する", "reason": "PHP公式は系列ごとの修正版を示し、ディストリビューションやLTS提供元によるバックポートも案内しています。"},
+    {"action": "ホスティング利用者は、サポート窓口にCVE-2026-109618とCVE-2026-109619の修正適用状況と実施予定を問い合わせる", "reason": "サーバー管理権限がない利用者でも、提供会社の対応と対象サイトを確認できます。"},
+    {"action": "修正版をすぐ適用できない場合は、PHP公式の緩和策を運用担当者と確認し、公開継続・隔離・停止を判断する", "reason": "暫定策は完全な解決ではなく、NCSCは更新や緩和ができない場合に停止を検討するよう勧告しています。"},
+    {"action": "更新・緩和前に侵害が疑われる場合や対応が遅れる場合は、ログやファイルを保全し専門家へ調査を相談する", "reason": "NCSCは、即時更新・停止ができないとき、更新や緩和の前に侵害やバックドアの兆候を調べるよう案内しています。"}
+  ],
+  "avoidActions": [
+    {"action": "CMS、テーマ、プラグインを更新しただけでPHP本体も修正版になったと判断する", "reason": "PHP実行環境はホスティングやOS側で管理され、CMSの更新と別に適用される場合があります。"},
+    {"action": "PHP 8.1以前なら必ず未修正、または必ず修正済みと番号だけで決める", "reason": "PHPプロジェクトは8.1以前へ通常の更新を提供していませんが、一部のディストリビューションやLTSベンダーはバックポートを提供する場合があります。"},
+    {"action": "公式の一時緩和設定を環境確認なしにコピーし、更新の代替として長期運用する", "reason": "PHP公式は設定による緩和が完全な対策ではなく、修正版への更新が完全な解決だと説明しています。"}
+  ],
+  "positiveUse": {"title": "PHPを含むサービスの更新責任を見える化", "description": "アプリ、OS、ホスティング、組み込み機器のどこがPHPを提供し、誰が更新するかを一覧にして、今後の脆弱性情報にも使える運用台帳にします。", "examples": ["公開サーバーごとにPHP系列と提供元を記録", "ホスティング会社の修正告知を確認", "修正後の稼働バージョンを管理画面や診断で再確認", "保守終了したPHP系列の移行計画を作る"]},
+  "makotoComment": "今回の対応でつまずきやすいのは、PHPを使っている場所がサイトの管理画面から見える範囲だけとは限らない点です。CMSの更新担当者と、PHPランタイムやサーバーを更新する担当者が別なら、脆弱性情報を転送するだけでなく『修正済みのバージョンまたはベンダーパッケージを確認したか』まで返答をもらう必要があります。古い系列では番号だけで判断せず、バックポートの有無と保守提供元を確認するのが実務的です。",
+  "oneLineLesson": "PHPの重大脆弱性では、CMSだけでなくWeb向けPHP実行環境を棚卸しし、修正版適用を確認する。",
+  "tags": ["PHP", "CVE-2026-109618", "CVE-2026-109619", "リモートコード実行", "セキュリティ更新", "PHP-FPM", "サーバー管理"],
+  "sources": [
+    {"title": "Security advisory: Critical remote code execution vulnerabilities, update now", "publisher": "The PHP Group (PHP.net)", "sourceType": "security", "publishedAt": "2026-10-21", "url": "https://www.php.net/archive/2026.php#2026-10-21-5"},
+    {"title": "RCE via OOM corruption (GHSA-w8hw-w9fx-j79w)", "publisher": "PHP / GitHub Security Advisories", "sourceType": "security", "publishedAt": "2026-10-21", "url": "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w"},
+    {"title": "RCE via stale global state (GHSA-6wmf-4rv5-p3rp)", "publisher": "PHP / GitHub Security Advisories", "sourceType": "security", "publishedAt": "2026-10-21", "url": "https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp"},
+    {"title": "Critical security issue affecting PHP", "publisher": "National Cyber Security Centre (NCSC), UK", "sourceType": "government-security-advisory", "publishedAt": "2026-10-21", "url": "https://www.ncsc.gov.uk/news/critical-security-issue-affecting-php"}
+  ],
+  "visualSuggestion": {"mainVisual": "Webサイト、コンテナ、PHP同梱機器のPHP稼働箇所を一覧化し、修正版またはベンダー修正の適用確認へ進む手順図", "cardIcon": "php-critical-rce-patching", "accentTone": "serious"}
+}

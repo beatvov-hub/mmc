@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PHPの未認証RCE 2件に修正版　Webサイト管理者はPHP稼働箇所を棚卸し｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="PHP開発チームは2026年10月21日、未認証のリモートコード実行につながり得る2件の重大な脆弱性（CVE-2026-109618、CVE-2026-109619）を公表し、PHP 8.5.12、8.4.27、8.3.36、8.2.35などの修正版を公開しました。対象はPHPアプリのコードだけではなく、Webリクエストを処理するPHP実行環境です。PHP-FPM、Apache mod_php、php-cgiなどの構成や、PHPを同梱する機器・サービスも棚卸し対象になります。サイト運営者は管理画面やホスティング会社へ稼働バージョンと修正版の適用状況を確認し、ディストリビューション独自の修正がある場合は提供元の告知で照合します。PHP公式は暫定設定だけでは完全な対策にならないと明記しており、更新できない場合は公式の一時緩和策を専門担当者と確認し、露出を抑える必要があります。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261023-04" />
+<meta property="og:title" content="PHPの未認証RCE 2件に修正版　Webサイト管理者はPHP稼働箇所を棚卸し｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="PHP開発チームは2026年10月21日、未認証のリモートコード実行につながり得る2件の重大な脆弱性（CVE-2026-109618、CVE-2026-109619）を公表し、PHP 8.5.12、8.4.27、8.3.36、8.2.35などの修正版を公開しました。対象はPHPアプリのコードだけではなく、Webリクエストを処理するPHP実行環境です。PHP-FPM、Apache mod_php、php-cgiなどの構成や、PHPを同梱する機器・サービスも棚卸し対象になります。サイト運営者は管理画面やホスティング会社へ稼働バージョンと修正版の適用状況を確認し、ディストリビューション独自の修正がある場合は提供元の告知で照合します。PHP公式は暫定設定だけでは完全な対策にならないと明記しており、更新できない場合は公式の一時緩和策を専門担当者と確認し、露出を抑える必要があります。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261023-04" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>PHPの重大脆弱性と修正版の確認</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-10-23">2026.10.23</time>
+            </div>
+            <h1>PHPの未認証RCE 2件に修正版　Webサイト管理者はPHP稼働箇所を棚卸し</h1>
+            <p>PHP開発チームは2026年10月21日、未認証のリモートコード実行につながり得る2件の重大な脆弱性（CVE-2026-109618、CVE-2026-109619）を公表し、PHP 8.5.12、8.4.27、8.3.36、8.2.35などの修正版を公開しました。対象はPHPアプリのコードだけではなく、Webリクエストを処理するPHP実行環境です。PHP-FPM、Apache mod_php、php-cgiなどの構成や、PHPを同梱する機器・サービスも棚卸し対象になります。サイト運営者は管理画面やホスティング会社へ稼働バージョンと修正版の適用状況を確認し、ディストリビューション独自の修正がある場合は提供元の告知で照合します。PHP公式は暫定設定だけでは完全な対策にならないと明記しており、更新できない場合は公式の一時緩和策を専門担当者と確認し、露出を抑える必要があります。</p>
+            <ul class="forensics-target-list"><li>PHP製サイトやCMSを運用する人</li><li>レンタルサーバー・クラウドのWeb管理者</li><li>PHPアプリを保守する開発者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>PHP</li><li>CVE-2026-109618</li><li>CVE-2026-109619</li><li>リモートコード実行</li><li>セキュリティ更新</li><li>PHP-FPM</li><li>サーバー管理</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>PHP公式告知と公的機関の対応案内を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>CMSの更新だけではPHP本体の更新確認になりません。PHPを実行するサーバー・機器・ホスティングの修正版適用状況を確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>PHP製サイトを運用しているが、PHP本体を自分で更新しているか分からない</h3><p>WordPressなどのCMSや業務サイトを使っています。PHPの重大な脆弱性が出たと聞いたものの、サイトの更新ボタンだけで直るのか、サーバー側へ問い合わせるべきか判断できません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>今回の問題はアプリケーションの不具合ではなくPHP実行環境にあります。サイトのテーマやCMSを更新しても、サーバーや同梱機器のPHPが修正版へ置き換わったとは限らないため、稼働箇所と更新責任者を特定します。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="inventory-and-patch-runtime">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>PHPの脆弱性が公表されたとき、サイト管理者は何を確認する？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="inventory-and-patch-runtime" data-choice-id="inventory-and-patch-runtime" />
+                <span>
+                  <strong>Web向けPHP稼働箇所を洗い出し、ホストやベンダーに修正版適用を確認する</strong>
+                  <small>PHP公式は複数の実行方式を対象に挙げ、NCSCはインターネット公開システムを優先した棚卸しと更新を勧めています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="update-only-cms" data-choice-id="update-only-cms" />
+                <span>
+                  <strong>サイトのテーマやプラグインだけ更新すれば、PHP本体も修正済みとみなす</strong>
+                  <small>今回の脆弱性はPHP本体にあり、アプリケーション更新とサーバー実行環境の更新は別の作業です。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Web向けPHP稼働箇所を洗い出し、ホストやベンダーに修正版適用を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>まずPHPを実行している場所とバージョンを確認し、PHP公式の修正版または利用中のOS・ホスティング会社が提供するバックポート済みパッケージを照合します。サイトのCMSだけを更新してもPHP実行環境が更新されたとは限りません。即時更新できないときは自己判断で設定を変更せず、PHP公式の緩和策と提供元の案内を確認し、必要なら公開停止や隔離を検討します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象はPHP本体の重大な脆弱性2件</h3>
+              <p>PHP開発チームはCVE-2026-109618（メモリ不足処理に伴う破損）とCVE-2026-109619（古いグローバル状態の残存）を掲載し、未認証の遠隔コード実行につながり得ると説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Webリクエストを受けるPHP環境を広く確認</h3>
+              <p>PHP公式はPHP-FPM、Apache mod_php、php-cgi、FrankenPHP、LiteSpeedなどを含む、Webリクエストを処理するPHPインストールを対象に挙げています。CMSだけでなく、PHP同梱の機器やサービスも確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>修正版の目安はPHP 8.5.12・8.4.27・8.3.36・8.2.35</h3>
+              <p>PHP公式の2026年10月21日付告知は各系列の修正版を示しています。LinuxディストリビューションやLTS提供元は独自パッケージへ修正をバックポートすることがあるため、単純な番号比較だけで未修正と断定せずベンダー告知を確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>古い系列は保守提供元へ確認</h3>
+              <p>PHP公式は8.1以前にはプロジェクトから更新を提供しない一方、ディストリビューションやLTSベンダーが修正をバックポートする場合があるとしています。提供元の修正有無を確認できなければ、サポート対象系列への移行計画が必要です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>設定による一時緩和は完全な修正ではない</h3>
+              <p>PHP公式は暫定策が特定の攻撃経路を弱めてもインストールを安全にするものではなく、完全な対策は修正版への更新だと警告しています。設定例をそのまま本番へ貼り付けず、公式ページと運用環境を確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>更新できない間は公開継続の可否も判断</h3>
+              <p>英国NCSCは、修正版や緩和策を適用できない場合はシステムのオフライン化を検討し、すぐ更新も停止もできない場合は更新前に侵害やバックドアの兆候を調査するよう勧めています。これは英国機関の勧告ですが、技術上の選択肢を整理する材料になります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>PHP稼働箇所を洗い出し、修正版またはベンダー修正を確認する</strong><p>今回の2件はWebリクエストを処理するPHP実行環境が対象です。運営者は公開サーバーを優先して実行場所とバージョンを棚卸しし、PHP公式の修正版か、利用中のディストリビューション・ホスティング会社が提供する修正済みパッケージを確認します。更新できない場合の緩和策は完全な修正ではありません。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Webサイト、API、管理画面、コンテナ、PHP同梱機器を含め、インターネット公開のPHP環境を一覧化する</strong><span>PHP公式とNCSCは、アプリや実行方式を限定せずPHP稼働環境を確認するよう促しています。</span></li>
+            <li><strong>各環境のPHP系列・パッチ番号と、修正済みベンダーパッケージの有無を記録する</strong><span>PHP公式は系列ごとの修正版を示し、ディストリビューションやLTS提供元によるバックポートも案内しています。</span></li>
+            <li><strong>ホスティング利用者は、サポート窓口にCVE-2026-109618とCVE-2026-109619の修正適用状況と実施予定を問い合わせる</strong><span>サーバー管理権限がない利用者でも、提供会社の対応と対象サイトを確認できます。</span></li>
+            <li><strong>修正版をすぐ適用できない場合は、PHP公式の緩和策を運用担当者と確認し、公開継続・隔離・停止を判断する</strong><span>暫定策は完全な解決ではなく、NCSCは更新や緩和ができない場合に停止を検討するよう勧告しています。</span></li>
+            <li><strong>更新・緩和前に侵害が疑われる場合や対応が遅れる場合は、ログやファイルを保全し専門家へ調査を相談する</strong><span>NCSCは、即時更新・停止ができないとき、更新や緩和の前に侵害やバックドアの兆候を調べるよう案内しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>CMS、テーマ、プラグインを更新しただけでPHP本体も修正版になったと判断する</strong><span>PHP実行環境はホスティングやOS側で管理され、CMSの更新と別に適用される場合があります。</span></li>
+            <li><strong>PHP 8.1以前なら必ず未修正、または必ず修正済みと番号だけで決める</strong><span>PHPプロジェクトは8.1以前へ通常の更新を提供していませんが、一部のディストリビューションやLTSベンダーはバックポートを提供する場合があります。</span></li>
+            <li><strong>公式の一時緩和設定を環境確認なしにコピーし、更新の代替として長期運用する</strong><span>PHP公式は設定による緩和が完全な対策ではなく、修正版への更新が完全な解決だと説明しています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>PHPを含むサービスの更新責任を見える化</h3>
+          <p>アプリ、OS、ホスティング、組み込み機器のどこがPHPを提供し、誰が更新するかを一覧にして、今後の脆弱性情報にも使える運用台帳にします。</p>
+          <ul class="positive-example-list"><li>公開サーバーごとにPHP系列と提供元を記録</li><li>ホスティング会社の修正告知を確認</li><li>修正後の稼働バージョンを管理画面や診断で再確認</li><li>保守終了したPHP系列の移行計画を作る</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>今回の対応でつまずきやすいのは、PHPを使っている場所がサイトの管理画面から見える範囲だけとは限らない点です。CMSの更新担当者と、PHPランタイムやサーバーを更新する担当者が別なら、脆弱性情報を転送するだけでなく『修正済みのバージョンまたはベンダーパッケージを確認したか』まで返答をもらう必要があります。古い系列では番号だけで判断せず、バックポートの有無と保守提供元を確認するのが実務的です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>PHPの重大脆弱性では、CMSだけでなくWeb向けPHP実行環境を棚卸しし、修正版適用を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.php.net/archive/2026.php#2026-10-21-5" target="_blank" rel="noopener noreferrer">Security advisory: Critical remote code execution vulnerabilities, update now<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>The PHP Group (PHP.net)</span>
+              <span>セキュリティ機関</span>
+              <time datetime="2026-10-21">2026-10-21</time>
+            </li>
+            <li>
+              <strong><a href="https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w" target="_blank" rel="noopener noreferrer">RCE via OOM corruption (GHSA-w8hw-w9fx-j79w)<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>PHP / GitHub Security Advisories</span>
+              <span>セキュリティ機関</span>
+              <time datetime="2026-10-21">2026-10-21</time>
+            </li>
+            <li>
+              <strong><a href="https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp" target="_blank" rel="noopener noreferrer">RCE via stale global state (GHSA-6wmf-4rv5-p3rp)<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>PHP / GitHub Security Advisories</span>
+              <span>セキュリティ機関</span>
+              <time datetime="2026-10-21">2026-10-21</time>
+            </li>
+            <li>
+              <strong><a href="https://www.ncsc.gov.uk/news/critical-security-issue-affecting-php" target="_blank" rel="noopener noreferrer">Critical security issue affecting PHP<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>National Cyber Security Centre (NCSC), UK</span>
+              <span>その他</span>
+              <time datetime="2026-10-21">2026-10-21</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20261023-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Google PlayでAI生成アプリを自分の端末へ　個人用と公開審査を混同しない AI生成アプリを個人端末で試す前に Googleは2026年10月13日、Google AI Studioで作ったカスタムAndroidアプリをGoogle Play経由で自分の端末に導入する機能の展開を発表しました。個人用アプリは公開ストアのカタログと分離され、通常のGoogleアカウントで試せますが、公開範囲が個人的だからといって安全性の審査を通過したという意味にはなりません。Googleはアプリを世界へ公開する段階で、通常の開発者アカウントとTrust &amp; Safety審査が必要になると説明しています。提供は一部市場の18歳以上から始まるため、試作段階では権限と挙動を確かめ、個人情報や重要なアカウント情報を扱わせないところから始めます。 セキュリティ・権限 標準 Google Play Google AI Studio AI生成アプリ Android アプリ権限 プライバシー AIでAndroidアプリを試作する人 Google Playで個人用アプリを端末に入れる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">google-play-private-ai-app</span>
+              <div>
+                <p>AI生成アプリを個人端末で試す前に</p>
+                <h3>Google PlayでAI生成アプリを自分の端末へ　個人用と公開審査を混同しない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-23">2026.10.23</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年10月13日、Google AI Studioで作ったカスタムAndroidアプリをGoogle Play経由で自分の端末に導入する機能の展開を発表しました。個人用アプリは公開ストアのカタログと分離され、通常のGoogleアカウントで試せますが、公開範囲が個人的だからといって安全性の審査を通過したという意味にはなりません。Googleはアプリを世界へ公開する段階で、通常の開発者アカウントとTrust &amp; Safety審査が必要になると説明しています。提供は一部市場の18歳以上から始まるため、試作段階では権限と挙動を確かめ、個人情報や重要なアカウント情報を扱わせないところから始めます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Google Playの公式発表を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIでAndroidアプリを試作する人</li><li>Google Playで個人用アプリを端末に入れる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Play</li><li>Google AI Studio</li><li>AI生成アプリ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261023-02" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="学校で生成AIに児童生徒の情報を入れる前に　承認ツールとデータ利用を確認 学校でAIに児童生徒データを入れる前に 英国教育省は、学校で生成AIを使う際の個人データ保護ガイダンスを2026年10月14日に更新しました。学校は、使うツールが承認済みか、個人データがどう処理されるか、学校の方針に適合するかを確認し、児童生徒の情報を入力する場合はデータ保護責任者またはIT担当者へ相談するよう案内しています。ガイダンスの例では、保護者向け文面を作る時に児童の情報を含めずに下書きを生成し、氏名や学級を後から加えます。これは英国の学校向け指針なので、日本の法令や校内規程を置き換えるものではありませんが、個人情報をAIへ渡さずに作業できる場面を考える具体例になります。 セキュリティ・権限 はじめて 生成AI 学校 児童生徒 個人情報 データ保護 英国教育省 学校で生成AIを使う教職員 教育機関の個人情報保護・IT担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">school-ai-data-protection</span>
+              <div>
+                <p>学校でAIに児童生徒データを入れる前に</p>
+                <h3>学校で生成AIに児童生徒の情報を入れる前に　承認ツールとデータ利用を確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-23">2026.10.23</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">英国教育省は、学校で生成AIを使う際の個人データ保護ガイダンスを2026年10月14日に更新しました。学校は、使うツールが承認済みか、個人データがどう処理されるか、学校の方針に適合するかを確認し、児童生徒の情報を入力する場合はデータ保護責任者またはIT担当者へ相談するよう案内しています。ガイダンスの例では、保護者向け文面を作る時に児童の情報を含めずに下書きを生成し、氏名や学級を後から加えます。これは英国の学校向け指針なので、日本の法令や校内規程を置き換えるものではありませんが、個人情報をAIへ渡さずに作業できる場面を考える具体例になります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>英国教育省の学校向けガイダンスを確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>学校で生成AIを使う教職員</li><li>教育機関の個人情報保護・IT担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>生成AI</li><li>学校</li><li>児童生徒</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261022-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="ChatGPTのロックした会話は暗号化保管庫ではない　PIN忘れの前に知る削除範囲 ロック会話とPINリセットの注意点 OpenAIは2026年10月20日、選んだ会話を通常の履歴・検索から隠し、アカウントPIN等で開く「ロックした会話」の段階提供を発表しました。これは表示場所とアクセス方法を変える機能で、エンドツーエンド暗号化や別の暗号化保管庫ではなく、保持期間やモデル改善設定も変更しません。忘れたPINをリセットすると、ロック会話とそこだけに保存された記憶・ファイルが復元不能で削除されます。共有リンクも別途削除が必要です。画面共有や端末貸与の前に一覧表示の更新を確かめ、機密情報の保護や長期保管の代替として扱わないことが実用上の要点です。 セキュリティ・権限 はじめて ChatGPT ロックした会話 Account PIN 共有リンク 会話の保持 セキュリティ ChatGPTで会話を一覧から隠したい人 ロック会話にファイルや記憶を保管する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chat-lock-pin-reset</span>
+              <div>
+                <p>ロック会話とPINリセットの注意点</p>
+                <h3>ChatGPTのロックした会話は暗号化保管庫ではない　PIN忘れの前に知る削除範囲</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-22">2026.10.22</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年10月20日、選んだ会話を通常の履歴・検索から隠し、アカウントPIN等で開く「ロックした会話」の段階提供を発表しました。これは表示場所とアクセス方法を変える機能で、エンドツーエンド暗号化や別の暗号化保管庫ではなく、保持期間やモデル改善設定も変更しません。忘れたPINをリセットすると、ロック会話とそこだけに保存された記憶・ファイルが復元不能で削除されます。共有リンクも別途削除が必要です。画面共有や端末貸与の前に一覧表示の更新を確かめ、機密情報の保護や長期保管の代替として扱わないことが実用上の要点です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>OpenAIの機能発表と操作・削除仕様を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTで会話を一覧から隠したい人</li><li>ロック会話にファイルや記憶を保管する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>ロックした会話</li><li>Account PIN</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261022-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261023-03">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
