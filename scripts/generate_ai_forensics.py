@@ -27,6 +27,7 @@ PICKUP_ARTICLE_IDS = [
     "case-20260812-03",
     "case-20260928-01",
     "case-20260924-02",
+    "case-20261023-04",
 ]
 
 # Consolidated duplicate pages keep their older article as the canonical page.

@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PHPの未認証RCE 2件に修正版　Webサイト管理者はPHP稼働箇所を棚卸し｜AI鑑識室｜毎日見るコワークス</title>
+    <title>PHP 脆弱性2件の修正版公開　Webサイト管理者は稼働箇所を棚卸し｜AI鑑識室｜毎日見るコワークス</title>
     <meta name="description" content="PHP開発チームは2026年10月21日、未認証のリモートコード実行につながり得る2件の重大な脆弱性（CVE-2026-109618、CVE-2026-109619）を公表し、PHP 8.5.12、8.4.27、8.3.36、8.2.35などの修正版を公開しました。対象はPHPアプリのコードだけではなく、Webリクエストを処理するPHP実行環境です。PHP-FPM、Apache mod_php、php-cgiなどの構成や、PHPを同梱する機器・サービスも棚卸し対象になります。サイト運営者は管理画面やホスティング会社へ稼働バージョンと修正版の適用状況を確認し、ディストリビューション独自の修正がある場合は提供元の告知で照合します。PHP公式は暫定設定だけでは完全な対策にならないと明記しており、更新できない場合は公式の一時緩和策を専門担当者と確認し、露出を抑える必要があります。" />
     <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261023-04" />
-<meta property="og:title" content="PHPの未認証RCE 2件に修正版　Webサイト管理者はPHP稼働箇所を棚卸し｜AI鑑識室｜毎日見るコワークス" />
+<meta property="og:title" content="PHP 脆弱性2件の修正版公開　Webサイト管理者は稼働箇所を棚卸し｜AI鑑識室｜毎日見るコワークス" />
     <meta property="og:description" content="PHP開発チームは2026年10月21日、未認証のリモートコード実行につながり得る2件の重大な脆弱性（CVE-2026-109618、CVE-2026-109619）を公表し、PHP 8.5.12、8.4.27、8.3.36、8.2.35などの修正版を公開しました。対象はPHPアプリのコードだけではなく、Webリクエストを処理するPHP実行環境です。PHP-FPM、Apache mod_php、php-cgiなどの構成や、PHPを同梱する機器・サービスも棚卸し対象になります。サイト運営者は管理画面やホスティング会社へ稼働バージョンと修正版の適用状況を確認し、ディストリビューション独自の修正がある場合は提供元の告知で照合します。PHP公式は暫定設定だけでは完全な対策にならないと明記しており、更新できない場合は公式の一時緩和策を専門担当者と確認し、露出を抑える必要があります。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261023-04" />
@@ -65,7 +65,7 @@
       <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
         <a href="../">ホーム</a>
         <a href="./">AI鑑識室</a>
-        <strong>PHPの重大脆弱性と修正版の確認</strong>
+        <strong>PHP 脆弱性の修正版を確認</strong>
         <a class="profile-back" href="./">記事一覧へ戻る</a>
       </nav>
 
@@ -77,7 +77,7 @@
               <span>標準</span>
               <time datetime="2026-10-23">2026.10.23</time>
             </div>
-            <h1>PHPの未認証RCE 2件に修正版　Webサイト管理者はPHP稼働箇所を棚卸し</h1>
+            <h1>PHP 脆弱性2件の修正版公開　Webサイト管理者は稼働箇所を棚卸し</h1>
             <p>PHP開発チームは2026年10月21日、未認証のリモートコード実行につながり得る2件の重大な脆弱性（CVE-2026-109618、CVE-2026-109619）を公表し、PHP 8.5.12、8.4.27、8.3.36、8.2.35などの修正版を公開しました。対象はPHPアプリのコードだけではなく、Webリクエストを処理するPHP実行環境です。PHP-FPM、Apache mod_php、php-cgiなどの構成や、PHPを同梱する機器・サービスも棚卸し対象になります。サイト運営者は管理画面やホスティング会社へ稼働バージョンと修正版の適用状況を確認し、ディストリビューション独自の修正がある場合は提供元の告知で照合します。PHP公式は暫定設定だけでは完全な対策にならないと明記しており、更新できない場合は公式の一時緩和策を専門担当者と確認し、露出を抑える必要があります。</p>
             <ul class="forensics-target-list"><li>PHP製サイトやCMSを運用する人</li><li>レンタルサーバー・クラウドのWeb管理者</li><li>PHPアプリを保守する開発者</li></ul>
             <ul class="pill-list forensics-article-tags"><li>PHP</li><li>CVE-2026-109618</li><li>CVE-2026-109619</li><li>リモートコード実行</li><li>セキュリティ更新</li><li>PHP-FPM</li><li>サーバー管理</li></ul>
