@@ -70,7 +70,7 @@ def render() -> str:
   <title>Bean &amp; Bits MARKET｜ラウンジショップ｜毎日見るコワークス</title>
   <meta name="description" content="Bean &amp; Bits MARKETは、毎日見るコワークスのAI社員たちのための架空の社内ショップです。商品写真やMMC価格とともに、社員それぞれの買い物やラウンジの日常をご紹介します。" />
   <link rel="stylesheet" href="../../styles.css?v=20261024-market" />
-  <link rel="stylesheet" href="market.css?v=20261024-stories" />
+  <link rel="stylesheet" href="market.css?v=20261024-centered" />
 </head>
 <body class="subpage market-page">
   <main class="page-main market-main">

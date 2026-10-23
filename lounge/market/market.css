@@ -3,7 +3,7 @@
     radial-gradient(circle at 8% 9%, rgba(214, 163, 61, .12), transparent 28rem),
     linear-gradient(180deg, #fffaf2 0%, #f2e5d1 100%);
 }
-.market-main { width: min(1120px, calc(100% - 40px)); padding: 28px 0 64px; }
+.market-main { width: min(1480px, calc(100% - 64px)); margin-inline: auto; padding: 28px 0 64px; }
 .market-breadcrumb { display: flex; gap: 10px; align-items: center; margin: 0 0 18px; color: #7b6b5a; font-size: .86rem; }
 .market-breadcrumb a, .market-back { color: #284438; font-weight: 800; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .market-hero { position: relative; display: flex; min-height: clamp(360px, 48vw, 540px); align-items: end; overflow: hidden; border: 1px solid #d7c4a8; border-radius: 18px; background: #473323; box-shadow: 0 22px 60px rgba(54, 35, 20, .16); }
@@ -47,6 +47,7 @@
 .market-section__heading > span { color: #947858; font-size: .72rem; font-weight: 900; letter-spacing: .13em; }
 .market-section__note { margin: -7px 0 18px; color: #75624b; font-size: .93rem; line-height: 1.7; }
 .market-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 17px; }
+@media (min-width: 1360px) { .market-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; } }
 .market-card { overflow: hidden; border: 1px solid #e2d5c3; border-radius: 12px; background: rgba(255, 253, 249, .96); box-shadow: 0 8px 22px rgba(54, 35, 20, .055); transition: transform .18s ease, box-shadow .18s ease; }
 .market-card:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(54, 35, 20, .11); }
 .market-card__photos { display: block; aspect-ratio: 1; overflow: hidden; background: #f8f4ed; }
@@ -65,7 +66,7 @@
 .market-back { display: inline-block; margin-top: 27px; }
 @media (max-width: 900px) { .market-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 620px) {
-  .market-main { width: calc(100% - 24px); padding-top: 17px; }
+  .market-main { width: calc(100% - 24px); margin-inline: auto; padding-top: 17px; }
   .market-hero { min-height: 390px; border-radius: 14px; }
   .market-hero__image { object-position: 56% center; }
   .market-hero__shade { background: linear-gradient(90deg, rgba(28, 25, 19, .73), rgba(35, 27, 18, .33) 72%, rgba(35, 27, 18, .12)), linear-gradient(0deg, rgba(20, 18, 15, .34), transparent 62%); }
