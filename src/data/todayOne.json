@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T07:30:00+09:00",
+  "updatedAt": "2026-10-24T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2431,6 +2431,52 @@
         {
           "label": "Czkawka公式リリース：最新安定版とGTK版終了後の案内",
           "url": "https://github.com/qarmin/czkawka/releases"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "slug": "devtoys-compare-config-changes",
+      "useCategory": "開発・テスト",
+      "name": "DevToys",
+      "category": "テキスト比較・開発ユーティリティ",
+      "officialUrl": "https://devtoys.app/",
+      "summary": "DevToysのText Comparerは、設定ファイルなど2つのテキストを見比べ、変更箇所を確認できる開発者向けツールです。",
+      "whyToday": "設定を更新するとき、変更した行と意図せず触れた行を目視で探すのは手間がかかります。DevToysにはテキスト比較機能がまとまっているため、ブラウザー上の変換サイトへ貼り付けず、手元で差分を見比べる選択肢になります。",
+      "useFor": "例えば、アプリの設定ファイルを更新する前に、変更前と変更後の内容を比べる想定例です。公式配布ページからDevToysを用意し、Text Comparerに2つのテキストを貼り付けて差分を表示します。変更した項目だけでなく、意図しない行まで変わっていないかを確認すれば、レビュー用の差分メモを作れます。まずは機密情報を含まない短いサンプルで試し、表示された変更が編集内容と一致するか確かめてください。",
+      "recommendedFor": {
+        "employeeId": "MMC-008",
+        "reason": "開発推進のアキトに、設定変更の前後を比較して意図しない差分がないか整理してもらい、レビュー担当へ渡せる変更箇所メモを受け取りたいです。"
+      },
+      "keiComment": "差分をすぐ見渡せるのは、レビューの入口として助かりますね。表示は変更箇所の発見を助けるものなので、値の意味や本番反映の影響までは判断させず、確認メモと設定の承認は分けて運用したいです。",
+      "verifiedAt": "2026-10-24",
+      "status": "published",
+      "pricing": "DevToysはMITライセンスのオープンソースソフトウェアで、無償で利用できます。",
+      "conditions": "Windowsでは公式ダウンロードページのMicrosoft StoreまたはWinGetから導入できます。端末へのアプリ導入が必要です。機密情報や個人情報を含む実データを試験目的で貼り付けず、まずダミーの設定内容で確認してください。",
+      "license": "MIT License",
+      "notes": "公式README・ライセンス・配布案内を確認しました。利用例は想定例で、実機検証は行っていません。",
+      "archiveTitle": "DevToysで設定ファイルの変更箇所を見比べられる？",
+      "archiveDescription": "設定ファイルの更新前後を比べ、意図しない変更がないか確認したい開発者向けに、DevToysのText Comparerを使う手順と、差分表示だけでは判断できない点を紹介します。",
+      "forWho": "設定ファイルやテキストの更新をレビューするとき、変更行を見落とさず確認したい開発担当者向けです。",
+      "cautions": "差分表示はテキストの変更箇所を見せるもので、設定値の正しさや本番環境への影響までは検証しません。機密情報を含む実ファイルではなく、許可された環境で扱ってください。",
+      "faq": [
+        {
+          "question": "差分を表示すれば、設定変更が安全かどうかも分かりますか？",
+          "answer": "いいえ。Text Comparerで確認できるのはテキスト上の違いです。値の妥当性や実行時の影響は、設定の仕様と利用環境に照らして別途確認してください。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "DevToys公式GitHub：Text Comparerを含むツール一覧",
+          "url": "https://github.com/DevToys-app/DevToys"
+        },
+        {
+          "label": "DevToys公式ライセンス：MIT License",
+          "url": "https://github.com/DevToys-app/DevToys/blob/main/LICENSE.md"
+        },
+        {
+          "label": "DevToys公式ダウンロード：Microsoft Store・WinGet案内",
+          "url": "https://devtoys.app/download"
         }
       ]
     }
