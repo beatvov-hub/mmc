@@ -72,6 +72,7 @@ STATIC_SITEMAP_PATHS = [
     "lounge/events/summer-river-bbq-2026",
     "lounge",
     "lounge/events",
+    "lounge/market",
     "lounge-dictionary",
     "today-one",
     "today-one/archive",
@@ -985,6 +986,8 @@ def update_lounge_html(logs: list[dict]) -> None:
         + "\n\n"
         + render_events_promo()
         + "\n\n"
+        + render_market_promo()
+        + "\n\n"
         + html_text[dictionary_start:]
     )
     LOUNGE_HTML_PATH.write_text(html_text, encoding="utf-8")
@@ -1003,6 +1006,25 @@ def render_events_promo() -> str:
             '        <div class="lounge-events-promo__note" aria-hidden="true">',
             '          <span>OUTSIDE</span>',
             '          <strong>From Bean &amp; Bits</strong>',
+            '        </div>',
+            '      </section>',
+        ]
+    )
+
+
+def render_market_promo() -> str:
+    return "\n".join(
+        [
+            '      <section class="lounge-market-promo" aria-labelledby="lounge-market-title">',
+            '        <div class="lounge-market-promo__copy">',
+            '          <p class="section-kicker">Bean &amp; Bits MARKET</p>',
+            '          <h2 id="lounge-market-title">ラウンジショップ</h2>',
+            '          <p>文房具やおやつが並ぶ、Bean &amp; Bitsの小さなお店。商品写真とMMCの価格をのぞいてみませんか。</p>',
+            '          <a class="lounge-log-link" href="lounge/market/">ショップをのぞく</a>',
+            '        </div>',
+            '        <div class="lounge-market-promo__note" aria-hidden="true">',
+            '          <span>OPEN IN THE LOUNGE</span>',
+            '          <strong>Bean &amp; Bits MARKET</strong>',
             '        </div>',
             '      </section>',
         ]

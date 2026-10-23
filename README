@@ -48,6 +48,11 @@
 - `src/data/pechiLoungeMemos.json`
   - ラウンジ内のペチ関連メモ用データです。
 
+- `src/data/beanBitsMarketProducts.json`
+  - Bean & Bits MARKETの商品名、MMC価格、カテゴリー、画像ファイルを管理します。
+  - 商品ページは `python -B scripts/generate_market.py` で `lounge/market/index.html` に生成します。
+  - 商品画像は `lounge/market/assets/` のWebPを使用します。35枚の商品写真を含み、ボールペンは別アングル写真も同じ商品カードに掲載します。
+
 - `src/data/music-room-config.json`
   - 「毎日聴く音楽室」の公開状態、質問文、画面文言、使用する31日セットを管理します。
 
@@ -167,6 +172,14 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 
 更新履歴
 --------
+
+### 2026-10-24：Bean & Bits MARKETの商品ページを作成
+
+- `src/data/beanBitsMarketProducts.json` に商品34点、設定資料に沿ったMMC価格、6カテゴリーを登録しました。
+- Driveで共有された棚の雰囲気画像1枚と商品写真35枚をWebPに変換し、合計約75.6MBから約4.6MBへ軽量化して `lounge/market/assets/` に配置しました。
+- `scripts/generate_market.py` を追加し、`lounge/market/index.html` を生成。商品一覧、カテゴリー内リンク、架空ショップの説明を掲載しました。
+- `scripts/generate_lounge.py` にラウンジのショップ案内とサイトマップ項目を追加しました。既存ログを巻き込む全件生成は避け、同じ案内を `lounge.html` に限定反映しました。
+- `lounge/market/market.css` を追加し、モバイル幅では商品を2列で表示します。実物販売・発送・決済がないこと、MMCと現実通貨を換算しないことを明記しています。
 
 ### 2026-10-23：閉店前のラウンジ記録を公開
 

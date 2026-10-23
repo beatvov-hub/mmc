@@ -3636,13 +3636,15 @@ body.subpage { padding-top: 88px; }
   font-weight: 700;
 }
 .lounge-events-promo,
+.lounge-market-promo,
 .employee-events-hero,
 .employee-event-listing,
 .employee-event-detail {
   width: min(1120px, calc(100% - 40px));
   margin-inline: auto;
 }
-.lounge-events-promo {
+.lounge-events-promo,
+.lounge-market-promo {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(240px, .42fr);
   gap: 26px;
@@ -3654,8 +3656,10 @@ body.subpage { padding-top: 88px; }
   background: rgba(255,250,242,.76);
   box-shadow: 0 14px 36px rgba(54,35,20,.06);
 }
-.lounge-events-promo__copy p:not(.section-kicker) { max-width: 620px; margin-bottom: 0; color: var(--muted); line-height: 1.85; }
+.lounge-events-promo__copy p:not(.section-kicker),
+.lounge-market-promo__copy p:not(.section-kicker) { max-width: 620px; margin-bottom: 0; color: var(--muted); line-height: 1.85; }
 .lounge-events-promo__note,
+.lounge-market-promo__note,
 .employee-events-hero-note,
 .employee-event-card__placeholder {
   display: grid;
@@ -3670,6 +3674,7 @@ body.subpage { padding-top: 88px; }
   text-align: center;
 }
 .lounge-events-promo__note span,
+.lounge-market-promo__note span,
 .employee-events-hero-note span,
 .employee-event-card__placeholder span {
   color: var(--coffee);
@@ -3677,7 +3682,8 @@ body.subpage { padding-top: 88px; }
   font-weight: 900;
   letter-spacing: .16em;
 }
-.lounge-events-promo__note strong { font-size: 1.05rem; }
+.lounge-events-promo__note strong,
+.lounge-market-promo__note strong { font-size: 1.05rem; }
 .employee-events-page,
 .employee-event-detail-page {
   background:
@@ -4491,7 +4497,7 @@ body.has-night-lounge { overflow: hidden; }
   50% { transform: rotate(2deg) translateY(-5px); }
 }
 @media (max-width: 980px) {
-  .lounge-hero, .lounge-post-grid, .lounge-note-grid, .archive-grid, .lounge-archive-layout, .lounge-dictionary-samples, .lounge-events-promo, .employee-events-hero {
+  .lounge-hero, .lounge-post-grid, .lounge-note-grid, .archive-grid, .lounge-archive-layout, .lounge-dictionary-samples, .lounge-events-promo, .lounge-market-promo, .employee-events-hero {
     grid-template-columns: 1fr;
   }
   .employee-event-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -4509,7 +4515,7 @@ body.has-night-lounge { overflow: hidden; }
   }
 }
 @media (max-width: 620px) {
-  .lounge-hero, .lounge-today, .lounge-archive, .lounge-dictionary-promo, .pechi-memo, .lounge-log-main, .lounge-events-promo, .employee-events-hero, .employee-event-listing, .employee-event-detail { width: calc(100% - 24px); }
+  .lounge-hero, .lounge-today, .lounge-archive, .lounge-dictionary-promo, .pechi-memo, .lounge-log-main, .lounge-events-promo, .lounge-market-promo, .employee-events-hero, .employee-event-listing, .employee-event-detail { width: calc(100% - 24px); }
   .lounge-main { padding-top: 22px; }
   .lounge-hero-copy, .lounge-today { padding: 22px; }
   .lounge-status { padding: 16px; }
@@ -4583,7 +4589,7 @@ body.has-night-lounge { overflow: hidden; }
   .employee-event-detail__hero,
   .employee-event-members,
   .employee-event-scene,
-  .lounge-events-promo { padding: 22px; }
+  .lounge-events-promo, .lounge-market-promo { padding: 22px; }
   .employee-event-grid,
   .employee-event-meta { grid-template-columns: 1fr; }
   .employee-event-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
