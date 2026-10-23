@@ -173,6 +173,13 @@ Codexでサイトを更新した場合は、作業完了時にこのREADMEへ更
 更新履歴
 --------
 
+### 2026-10-24：Bean & Bits MARKETの紹介文と店内画像を追加
+
+- ショップページの紹介文を更新し、社内通貨MMCでの買い物、社員ごとの使い方、創作上の会社生活が伝わる構成にしました。実際の商品販売や金銭取引がないことも明記しています。
+- Driveに追加された `bean-bits-market-hono.png` と `bean-bits-market-danran.png` をWebPに変換し、ほのちゃんの店内写真と社員・ペチの団らん写真として掲載しました。
+- スマートフォンで見出しが不自然に折り返されないよう短く調整しました。
+- `scripts/generate_market.py` から `lounge/market/index.html` を再生成しました。商品データやラウンジ会話ログは変更していません。
+
 ### 2026-10-24：Bean & Bits MARKETの商品ページを作成
 
 - `src/data/beanBitsMarketProducts.json` に商品34点、設定資料に沿ったMMC価格、6カテゴリーを登録しました。
