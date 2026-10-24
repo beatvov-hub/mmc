@@ -1744,6 +1744,13 @@ h1 { margin: 0 0 20px; font-size: clamp(3.1rem, 7vw, 6.7rem); line-height: 1.18;
 .mission-grid { display:grid; grid-template-columns: repeat(4, 1fr); }
 .mission-grid article { display:flex; flex-direction:column; gap:10px; padding:20px 26px; border-left:1px solid #ded1c1; }
 .mission-grid article:first-child { border-left:0; }
+.office-tour-promo { display:flex; justify-content:space-between; align-items:center; gap:28px; width:min(1180px,calc(100% - 40px)); margin:30px auto 54px; padding:30px 36px; border:1px solid #dfd1bd; border-radius:20px; color:#fff8ed; background:linear-gradient(115deg,#263f34 0%,#49644d 60%,#8c6b4c 100%); box-shadow:var(--shadow); }
+.office-tour-promo .section-kicker { margin:0 0 7px; color:#e5c18b; font-size:.74rem; font-weight:800; letter-spacing:.15em; }
+.office-tour-promo h2 { margin:0 0 8px; color:#fff8ed; font-size:clamp(1.2rem,2.4vw,1.75rem); }
+.office-tour-promo p:not(.section-kicker) { max-width:720px; margin:0; color:rgba(255,248,237,.82); line-height:1.7; }
+.office-tour-promo__link { flex:none; display:inline-flex; gap:10px; align-items:center; padding:13px 18px; border:1px solid rgba(255,248,237,.55); border-radius:999px; color:#fffaf2; font-weight:750; text-decoration:none; }
+.office-tour-promo__link:hover { color:#243d32; background:#fffaf2; }
+.office-tour-promo__link:focus-visible { outline:3px solid #e5c18b; outline-offset:3px; }
 
 /* MMC DAILY PUZZLE */
 .daily-puzzle-section {
@@ -2016,6 +2023,8 @@ h3 { margin:0 0 8px; font-size:1.05rem; }.mission-grid p{margin:0;font-size:.95r
   }
   h1 { font-size: clamp(2.7rem, 14vw, 4.2rem); }
   .mission-card { width:calc(100% - 24px); padding:24px 20px; margin-top:24px; }
+  .office-tour-promo { width:calc(100% - 24px); align-items:flex-start; flex-direction:column; gap:16px; margin:22px auto 38px; padding:23px 20px; border-radius:17px; }
+  .office-tour-promo__link { min-height:44px; }
   .today-words, .today-one-teaser, .today-game, .news-section, .daily-quiz-teaser { width:calc(100% - 24px); padding:24px 20px; border-radius:18px; }
   .section-heading { display:block; }
   .feature-section { width:calc(100% - 24px); padding:30px 22px; }

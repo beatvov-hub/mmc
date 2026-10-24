@@ -1,0 +1,138 @@
+.office-tour-page { background: #f7f2e9; }
+.office-tour-main { width: min(1320px, calc(100% - 48px)); margin: 0 auto; padding: 24px 0 80px; }
+.office-tour-breadcrumb { display: flex; align-items: center; gap: 10px; margin: 0 0 24px; color: #8a7666; font-size: .88rem; }
+.office-tour-breadcrumb a { color: #375246; text-decoration: none; }
+.office-tour-breadcrumb a:hover { text-decoration: underline; }
+.office-tour-intro { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, .8fr); gap: clamp(28px, 5vw, 72px); align-items: center; padding: 44px clamp(28px, 5vw, 76px); border: 1px solid #e0d4c1; border-radius: 24px; background: linear-gradient(125deg, #fffdf8 0%, #f2e8d9 100%); box-shadow: 0 18px 50px rgba(56, 42, 26, .08); }
+.office-tour-kicker { margin: 0 0 10px; color: #a4663f; font-size: .72rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.office-tour-intro h1 { margin: 0; color: #2c443a; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.4rem, 5vw, 4.4rem); letter-spacing: .025em; line-height: 1.06; }
+.office-tour-intro__lead { margin: 20px 0 12px; color: #334a3e; font-size: clamp(1.1rem, 2vw, 1.38rem); font-weight: 700; line-height: 1.65; }
+.office-tour-intro__copy > p:not(.office-tour-kicker) { max-width: 740px; line-height: 1.9; }
+.office-tour-fiction-note { margin-top: 20px; padding: 12px 15px; border-left: 3px solid #bb835c; color: #75695f; background: rgba(255,255,255,.52); font-size: .88rem; }
+.office-tour-start-row { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; margin-top: 23px; }
+.office-tour-start, .office-tour-toolbar button, .office-tour-info__actions button { border: 0; border-radius: 999px; color: #fffaf3; background: #294438; font: inherit; font-weight: 700; cursor: pointer; transition: transform .18s ease, background .18s ease; }
+.office-tour-start { padding: 15px 22px; box-shadow: 0 8px 18px rgba(41,68,56,.16); }
+.office-tour-start:hover, .office-tour-toolbar button:hover, .office-tour-info__actions button:hover { transform: translateY(-2px); background: #3b5d4d; }
+.office-tour-start:focus-visible, .office-tour-toolbar button:focus-visible, .office-tour-map button:focus-visible, .office-tour-map g:focus-visible, .office-tour-info button:focus-visible, .office-tour-info a:focus-visible, .office-tour-room-guide button:focus-visible { outline: 3px solid #dba55f; outline-offset: 3px; }
+.office-tour-start span { margin-left: 10px; }
+.office-tour-load-status { color: #786a60; font-size: .82rem; }
+.office-tour-controls-card { padding: 23px 24px; border: 1px solid rgba(106,86,64,.18); border-radius: 18px; background: rgba(255,255,255,.72); }
+.office-tour-controls-card h2 { margin: 0 0 13px; color: #294438; font-size: 1.05rem; }
+.office-tour-controls-card > p { margin: 12px 0 0; color: #73675f; font-size: .82rem; line-height: 1.6; }
+.office-tour-controls-list { margin: 0; }
+.office-tour-controls-list > div { display: grid; grid-template-columns: 58px 1fr; gap: 12px; padding: 7px 0; border-top: 1px solid #ece4d8; font-size: .83rem; }
+.office-tour-controls-list dt { color: #a4663f; font-weight: 750; }
+.office-tour-controls-list dd { margin: 0; color: #514940; }
+.office-tour-controls-list__mobile { display: none !important; }
+.office-tour-experience { margin-top: 36px; }
+.office-tour-toolbar { position: sticky; z-index: 20; top: 94px; display: flex; justify-content: space-between; gap: 14px; align-items: center; margin: 0 0 12px; padding: 10px 12px 10px 18px; border: 1px solid #e0d4c1; border-radius: 15px; background: rgba(255,253,249,.97); box-shadow: 0 8px 24px rgba(48,37,25,.1); }
+.office-tour-toolbar[hidden], .office-tour-stage[hidden], .office-tour-map[hidden], .office-tour-info[hidden], .office-tour-error[hidden] { display: none; }
+.office-tour-toolbar__location { display: flex; align-items: center; gap: 9px; color: #75695f; font-size: .8rem; }
+.office-tour-toolbar__location strong { color: #294438; font-size: .94rem; }
+.office-tour-location-dot { width: 8px; height: 8px; border-radius: 50%; background: #bd855b; box-shadow: 0 0 0 4px #f4eadb; }
+.office-tour-toolbar__actions { display: flex; flex-wrap: wrap; gap: 7px; }
+.office-tour-toolbar button { padding: 9px 14px; font-size: .78rem; }
+.office-tour-toolbar .office-tour-exit { color: #675b50; background: #efe7dc; }
+.office-tour-stage { position: relative; isolation: isolate; height: min(72vh, 790px); min-height: 520px; overflow: hidden; border: 1px solid #d8c9b4; border-radius: 20px; background: #d4c3a6; box-shadow: 0 18px 48px rgba(56, 42, 26, .16); }
+.office-tour-canvas-host, .office-tour-canvas-host canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.office-tour-canvas-host canvas { touch-action: none; outline: none; }
+.office-tour-crosshair { position: absolute; top: 50%; left: 50%; width: 13px; height: 13px; display: grid; place-items: center; transform: translate(-50%,-50%); pointer-events: none; opacity: .78; }
+.office-tour-crosshair span { width: 4px; height: 4px; border: 1px solid #fffdf5; border-radius: 50%; box-shadow: 0 1px 4px #3d2a1a; }
+.office-tour-scene-tip { position: absolute; top: 13px; left: 50%; max-width: min(620px, calc(100% - 30px)); margin: 0; padding: 8px 13px; border: 1px solid rgba(255,255,255,.5); border-radius: 999px; color: #fffdf8; background: rgba(38,53,43,.74); font-size: .76rem; text-align: center; transform: translateX(-50%); pointer-events: none; }
+.office-tour-touch-look { display: none; }
+.office-tour-joystick { display: none; }
+.office-tour-map { position: absolute; z-index: 5; top: 15px; left: 15px; width: min(360px, calc(100% - 30px)); max-height: calc(100% - 30px); overflow: auto; padding: 16px; border: 1px solid rgba(121,102,77,.3); border-radius: 17px; color: #41372e; background: rgba(255,252,245,.96); box-shadow: 0 16px 42px rgba(40,31,22,.2); }
+.office-tour-map__header { display: flex; justify-content: space-between; align-items: flex-start; }
+.office-tour-map__header .office-tour-kicker { margin-bottom: 2px; }
+.office-tour-map__header h2 { margin: 0; color: #294438; font-size: 1.15rem; }
+.office-tour-map__close, .office-tour-info__close { width: 34px; height: 34px; border: 1px solid #ddd0be; border-radius: 50%; color: #5e5146; background: #fffdf9; font-size: 1.4rem; line-height: 1; cursor: pointer; }
+.office-tour-map__hint { margin: 9px 0; color: #81766c; font-size: .77rem; }
+.office-tour-map__diagram { display: block; width: 100%; max-height: 330px; margin: 0 auto 10px; }
+.map-outline { fill: #e7dece; stroke: #8c755c; stroke-width: 2; }
+.map-area { cursor: pointer; }
+.map-area rect { fill: #f8f4ec; stroke: #aa9278; stroke-width: 1.4; transition: fill .16s ease, stroke .16s ease; }
+.map-area:hover rect, .map-area:focus rect, .map-area.is-current rect { fill: #dce9dc; stroke: #44634f; stroke-width: 2.4; }
+.map-area text { fill: #405447; font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: middle; pointer-events: none; }
+.map-area .map-small { fill: #897869; font-size: 10px; font-weight: 500; }
+.map-area--market rect { fill: #f1dfbd; stroke: #b6874e; }
+.map-area--market text { font-size: 11px; }
+.map-area--hall rect { fill: #e1d3bf; }
+.map-area .map-hall-label { font-size: 11px; writing-mode: vertical-rl; }
+.map-future rect { fill: rgba(255,255,255,.55); stroke: #bd855b; stroke-width: 1.5; stroke-dasharray: 4 3; }
+.map-future text { fill: #95714e; font-size: 7px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; pointer-events: none; }
+.map-area--entrance rect { fill: #dfe9de; }
+.map-area--toilet rect { fill: #e6edf0; stroke: #708b97; }
+.map-area--toilet text { font-size: 9px; }
+.map-route { fill: none; stroke: #bd855b; stroke-width: 3; stroke-dasharray: 5 6; opacity: .75; pointer-events: none; }
+.map-player { fill: #a74734; stroke: white; stroke-width: 2; filter: drop-shadow(0 2px 3px #6a4735); pointer-events: none; transition: cx .25s ease, cy .25s ease; }
+.office-tour-map__current { margin: 0 0 9px; color: #71675c; font-size: .8rem; }
+.office-tour-map__current strong { color: #294438; }
+.office-tour-map__destinations { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6px; }
+.office-tour-map__destinations button { min-height: 38px; padding: 7px; border: 1px solid #e2d7c8; border-radius: 8px; color: #3e5146; background: #fffdf8; font: inherit; font-size: .76rem; cursor: pointer; }
+.office-tour-map__destinations button:hover { border-color: #69836d; background: #eff5ed; }
+.office-tour-info { position: absolute; z-index: 4; right: 16px; bottom: 16px; width: min(370px, calc(100% - 32px)); max-height: calc(100% - 32px); overflow: auto; padding: 23px 22px 20px; border: 1px solid rgba(121,102,77,.3); border-radius: 17px; color: #4c4237; background: rgba(255,252,246,.97); box-shadow: 0 16px 42px rgba(40,31,22,.2); }
+.office-tour-info__close { position: absolute; top: 13px; right: 13px; }
+.office-tour-info .office-tour-kicker { padding-right: 42px; }
+.office-tour-info h2 { margin: 0 36px 10px 0; color: #294438; font-size: 1.32rem; }
+.office-tour-info > p:not(.office-tour-kicker) { line-height: 1.75; }
+.office-tour-info__residents { color: #a4663f; font-size: .84rem; font-weight: 700; }
+.office-tour-info__actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 15px; }
+.office-tour-info__actions a { color: #365a47; font-size: .83rem; font-weight: 700; text-underline-offset: 3px; }
+.office-tour-info__actions button { padding: 10px 14px; font-size: .8rem; }
+.office-tour-error { margin: 10px 0; padding: 13px 16px; border: 1px solid #ddc399; border-radius: 12px; color: #62472a; background: #fff7e7; line-height: 1.65; }
+.office-tour-room-guide { margin-top: 27px; padding: clamp(23px, 3vw, 36px); border: 1px solid #e0d4c1; border-radius: 20px; background: #fffdf9; }
+.office-tour-room-guide__heading { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 15px; }
+.office-tour-room-guide__heading .office-tour-kicker { margin-bottom: 4px; }
+.office-tour-room-guide__heading h2 { margin: 0; color: #294438; font-size: 1.55rem; }
+.office-tour-room-guide__heading > p { max-width: 440px; margin: 0; color: #83766b; font-size: .85rem; }
+.office-tour-room-guide__grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
+.office-tour-room-guide__card { min-height: 118px; padding: 15px 16px; border: 1px solid #e9dfd1; border-radius: 13px; color: #4d4339; background: #fcf9f3; text-align: left; cursor: pointer; }
+.office-tour-room-guide__card:hover { border-color: #9bb29e; background: #f3f7f0; }
+.office-tour-room-guide__card strong { display: block; margin-bottom: 6px; color: #31503f; font-size: .98rem; }
+.office-tour-room-guide__card span { display: block; color: #82766c; font-size: .8rem; line-height: 1.55; }
+.office-tour-room-guide__card .office-tour-room-guide__residents { margin: -2px 0 7px; color: #a4663f; font-weight: 700; }
+.office-tour-room-guide__card a { display: inline-block; margin-top: 9px; color: #355e48; font-size: .8rem; font-weight: 750; text-underline-offset: 3px; }
+.office-tour-no-webgl { padding: 18px; }
+
+@media (max-width: 860px) {
+  .office-tour-toolbar { top: 160px; }
+  .office-tour-main { width: min(100% - 30px, 720px); padding-top: 18px; }
+  .office-tour-intro { grid-template-columns: 1fr; gap: 23px; padding: 31px 28px; }
+  .office-tour-controls-card { max-width: none; }
+  .office-tour-controls-list__mobile { display: grid !important; }
+  .office-tour-room-guide__grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .office-tour-stage { height: min(76vh, 750px); min-height: 500px; }
+}
+@media (max-width: 600px) {
+  .office-tour-main { width: calc(100% - 22px); padding-bottom: 46px; }
+  .office-tour-breadcrumb { margin-bottom: 15px; font-size: .8rem; }
+  .office-tour-intro { padding: 25px 20px; border-radius: 18px; }
+  .office-tour-intro h1 { font-size: clamp(2rem, 11vw, 3.1rem); }
+  .office-tour-intro__lead { font-size: 1.02rem; }
+  .office-tour-load-status { flex-basis: 100%; }
+  .office-tour-controls-card { padding: 17px; }
+  .office-tour-toolbar { align-items: flex-start; flex-direction: column; padding: 11px; }
+  .office-tour-toolbar__actions { width: 100%; }
+  .office-tour-toolbar button { flex: 1; padding: 10px 8px; font-size: .74rem; }
+  .office-tour-stage { height: min(76svh, 720px); min-height: 470px; border-radius: 15px; }
+  .office-tour-scene-tip { top: 10px; max-width: calc(100% - 22px); border-radius: 12px; font-size: .69rem; line-height: 1.45; }
+  .office-tour-crosshair { display: none; }
+  .office-tour-touch-look { position: absolute; z-index: 2; inset: 25% 0 0 42%; display: block; touch-action: none; }
+  .office-tour-joystick { position: absolute; z-index: 4; bottom: 21px; left: 18px; display: block; width: 126px; height: 126px; touch-action: none; user-select: none; }
+  .office-tour-joystick__ring { position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.64); border-radius: 50%; background: rgba(48,61,50,.33); box-shadow: inset 0 0 18px rgba(255,255,255,.14); }
+  .office-tour-joystick__knob { position: absolute; top: 50%; left: 50%; width: 52px; height: 52px; border: 2px solid rgba(255,255,255,.86); border-radius: 50%; background: rgba(255,250,237,.75); box-shadow: 0 2px 9px rgba(25,28,23,.24); transform: translate(-50%,-50%); pointer-events: none; }
+  .office-tour-joystick__label { position: absolute; right: -10px; bottom: 4px; color: white; font-size: .56rem; font-weight: 800; letter-spacing: .16em; text-shadow: 0 1px 4px #26352b; }
+  .office-tour-map { top: 10px; left: 10px; width: min(340px, calc(100% - 20px)); max-height: calc(100% - 20px); padding: 13px; }
+  .office-tour-map__diagram { max-height: 280px; }
+  .office-tour-map__destinations button { min-height: 44px; }
+  .office-tour-info { right: 10px; bottom: 10px; width: calc(100% - 20px); max-height: min(54%, 350px); padding: 18px; }
+  .office-tour-info__actions button { min-height: 44px; }
+  .office-tour-room-guide { padding: 20px 15px; }
+  .office-tour-room-guide__heading { display: block; }
+  .office-tour-room-guide__heading > p { margin-top: 8px; }
+  .office-tour-room-guide__grid { grid-template-columns: 1fr; gap: 8px; }
+  .office-tour-room-guide__card { min-height: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .office-tour-page *, .office-tour-page *::before, .office-tour-page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
