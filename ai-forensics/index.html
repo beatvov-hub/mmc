@@ -93,17 +93,17 @@
       <section class="card-section forensics-latest-section" id="latest-cases" aria-labelledby="latest-cases-title">
         <div class="section-heading"><div><p class="section-kicker">Latest Case</p><h2 id="latest-cases-title">最新の鑑識事例</h2></div></div>
         <div class="forensics-featured-grid">
-          <a class="forensics-card is-index-card is-featured tone-caution" href="case-20261023-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Google PlayでAI生成アプリを自分の端末へ　個人用と公開審査を混同しない AI生成アプリを個人端末で試す前に Googleは2026年10月13日、Google AI Studioで作ったカスタムAndroidアプリをGoogle Play経由で自分の端末に導入する機能の展開を発表しました。個人用アプリは公開ストアのカタログと分離され、通常のGoogleアカウントで試せますが、公開範囲が個人的だからといって安全性の審査を通過したという意味にはなりません。Googleはアプリを世界へ公開する段階で、通常の開発者アカウントとTrust &amp; Safety審査が必要になると説明しています。提供は一部市場の18歳以上から始まるため、試作段階では権限と挙動を確かめ、個人情報や重要なアカウント情報を扱わせないところから始めます。 セキュリティ・権限 標準 Google Play Google AI Studio AI生成アプリ Android アプリ権限 プライバシー AIでAndroidアプリを試作する人 Google Playで個人用アプリを端末に入れる人">
+          <a class="forensics-card is-index-card is-featured tone-serious" href="case-20261024-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動 LiteLLM侵害版の安全な初動 LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだけで悪性の起動フックが実行され得るため、確認のために suspect環境で python や pip を動かしてはいけません。依存関係・キャッシュ・ミラー・コンテナを信頼できる端末から特定し、隔離、証拠保全、クリーンな環境での再構築、アクセス可能だった認証情報の失効・再発行を順に進めます。LiteLLMの10月23日版はそれ以前の調査中の説明に不正確な部分があったと明示しているため、初報だけで判断せず調査完了版を使います。 セキュリティ・権限 標準 LiteLLM サプライチェーン攻撃 Python 依存関係 CI/CD 認証情報 インシデント対応 LiteLLMを利用する開発・運用担当者 Python環境やコンテナを管理するセキュリティ担当者">
             <div class="forensics-index-card-meta">
 <span class="forensics-latest-label">Latest</span>
               <span>セキュリティ・権限</span>
-              <time datetime="2026-10-23">2026.10.23</time>
-              <small>確認 3</small>
+              <time datetime="2026-10-24">2026.10.24</time>
+              <small>確認 4</small>
             </div>
-            <h3>Google PlayでAI生成アプリを自分の端末へ　個人用と公開審査を混同しない</h3>
-            <p class="forensics-card-summary">Googleは2026年10月13日、Google AI Studioで作ったカスタムAndroidアプリをGoogle Play経由で自分の端末に導入する機能の展開を発表しました。個人用アプリは公開ストアのカタログと分離され、通常のGoogleアカウントで試せますが、公開範囲が個人的だからといって安全性の審査を通過…</p>
+            <h3>LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動</h3>
+            <p class="forensics-card-summary">LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだ…</p>
             <p class="forensics-card-lesson"><span>今回の結論</span>
-              AI生成の個人用アプリは、公開審査済みと決めつけず、権限を絞って試す。</p>
+              LiteLLM 1.107.0の疑いがある環境ではPythonを起動せず、隔離・外部調査・クリーン再構築・資格情報の更新を行う。</p>
             <span class="forensics-card-cta">詳しく見る</span>
           </a>
         </div>
@@ -151,6 +151,45 @@
         <p class="forensics-results-status" data-forensics-results aria-live="polite"></p>
         <p class="forensics-empty-message" data-forensics-empty hidden>該当する事例は、現在準備中です。別の条件でも探してみてください。</p>
         <div class="forensics-card-grid">
+          <a class="forensics-card is-index-card tone-caution" href="case-20261024-02" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="生成AIに社内データを誤アップロードしたら　削除・社内報告・保持期間の確認 生成AIへの誤入力後にすること パナソニック オペレーショナルエクセレンスは2026年10月23日、社内で利用禁止としていた外部生成AIへ、人事情報システムの個人情報を含むデータの一部がプロジェクトメンバーによりアップロードされたと公表しました。同社の説明では、これは外部からの不正操作ではなく社内ルール違反で、チャット履歴と業務PC上のファイルを削除し、サービス事業者の保持条件も確認しています。誤入力に気づいた人は、まず追加送信を止め、利用サービス・アカウント・日時・データの種類を記録して社内の情報セキュリティ／個人情報担当へすぐ連絡します。チャット画面から消す操作と事業者側の保持が同じとは限らず、本人通知や個人情報保護委員会への報告要否は事実に応じて事業者側の担当者が判断します。なおPanasonicの告知は対象者に必要な対応はないと明記しており、一般向けの手順を同社対象者へ追加対応として求めるものではありません。 セキュリティ・権限 はじめて 生成AI 個人情報 誤送信 社内ルール データ保持 個人情報保護委員会 インシデント対応 業務で生成AIを使う従業員 個人情報・情報セキュリティの管理担当者 中小企業の経営者・現場責任者">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-10-24">2026.10.24</time>
+              <small>確認 4</small>
+            </div>
+            <h3>生成AIに社内データを誤アップロードしたら　削除・社内報告・保持期間の確認</h3>
+            <p class="forensics-card-summary">パナソニック オペレーショナルエクセレンスは2026年10月23日、社内で利用禁止としていた外部生成AIへ、人事情報システムの個人情報を含むデータの一部がプロジェクトメンバーによりアップロードされたと公表しました。同社の説明では、これ…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              生成AIへの誤入力は追加送信を止めて記録・社内報告し、画面削除と事業者側の保持を分けて確認する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-serious" href="case-20261024-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="公開アプリからAPIが狙われる「A2B攻撃」　運営者が点検するサーバー側の穴 A2B攻撃とAPI点検 情報通信研究機構（NICT）は2026年10月13日、公開Androidアプリを解析して接続先APIや仕様を調べ、対応するバックエンドサーバを狙う手法を「A2B攻撃（App-to-Backend Attack）」として注意喚起しました。アプリ自体に欠陥がなくても、サーバー側の認証・認可や入力検証に不備があれば情報漏えいにつながり得ます。NICTは事業者に、公開API・サーバーの棚卸しとログ確認、認可不備などの点検、不要APIの停止・アクセス制限・監視強化・資格情報の更新を勧めています。これは個々のサービスが攻撃を受けたという診断ではなく、公開アプリを提供する事業者向けの確認項目です。アプリ利用者はアプリを削除するだけで防げる問題ではなく、サービス運営者へ告知や影響情報を確認するのが現実的です。 セキュリティ・権限 標準 A2B攻撃 Androidアプリ APIセキュリティ バックエンド NICT 認証・認可 情報漏えい スマートフォンアプリの開発・運用担当者 Web API・バックエンドの管理者 セキュリティ委託先を管理する事業者">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-10-24">2026.10.24</time>
+              <small>確認 4</small>
+            </div>
+            <h3>公開アプリからAPIが狙われる「A2B攻撃」　運営者が点検するサーバー側の穴</h3>
+            <p class="forensics-card-summary">情報通信研究機構（NICT）は2026年10月13日、公開Androidアプリを解析して接続先APIや仕様を調べ、対応するバックエンドサーバを狙う手法を「A2B攻撃（App-to-Backend Attack）」として注意喚起しました…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              公開アプリの通信先は知られる前提で、運営者はAPIの権限・ログ・不要機能を点検する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-caution" href="case-20261023-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Google PlayでAI生成アプリを自分の端末へ　個人用と公開審査を混同しない AI生成アプリを個人端末で試す前に Googleは2026年10月13日、Google AI Studioで作ったカスタムAndroidアプリをGoogle Play経由で自分の端末に導入する機能の展開を発表しました。個人用アプリは公開ストアのカタログと分離され、通常のGoogleアカウントで試せますが、公開範囲が個人的だからといって安全性の審査を通過したという意味にはなりません。Googleはアプリを世界へ公開する段階で、通常の開発者アカウントとTrust &amp; Safety審査が必要になると説明しています。提供は一部市場の18歳以上から始まるため、試作段階では権限と挙動を確かめ、個人情報や重要なアカウント情報を扱わせないところから始めます。 セキュリティ・権限 標準 Google Play Google AI Studio AI生成アプリ Android アプリ権限 プライバシー AIでAndroidアプリを試作する人 Google Playで個人用アプリを端末に入れる人">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-10-23">2026.10.23</time>
+              <small>確認 3</small>
+            </div>
+            <h3>Google PlayでAI生成アプリを自分の端末へ　個人用と公開審査を混同しない</h3>
+            <p class="forensics-card-summary">Googleは2026年10月13日、Google AI Studioで作ったカスタムAndroidアプリをGoogle Play経由で自分の端末に導入する機能の展開を発表しました。個人用アプリは公開ストアのカタログと分離され、通常の…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              AI生成の個人用アプリは、公開審査済みと決めつけず、権限を絞って試す。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
           <a class="forensics-card is-index-card tone-caution" href="case-20261023-02" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="学校で生成AIに児童生徒の情報を入れる前に　承認ツールとデータ利用を確認 学校でAIに児童生徒データを入れる前に 英国教育省は、学校で生成AIを使う際の個人データ保護ガイダンスを2026年10月14日に更新しました。学校は、使うツールが承認済みか、個人データがどう処理されるか、学校の方針に適合するかを確認し、児童生徒の情報を入力する場合はデータ保護責任者またはIT担当者へ相談するよう案内しています。ガイダンスの例では、保護者向け文面を作る時に児童の情報を含めずに下書きを生成し、氏名や学級を後から加えます。これは英国の学校向け指針なので、日本の法令や校内規程を置き換えるものではありませんが、個人情報をAIへ渡さずに作業できる場面を考える具体例になります。 セキュリティ・権限 はじめて 生成AI 学校 児童生徒 個人情報 データ保護 英国教育省 学校で生成AIを使う教職員 教育機関の個人情報保護・IT担当者">
             <div class="forensics-index-card-meta">
 

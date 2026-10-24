@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだけで悪性の起動フックが実行され得るため、確認のために suspect環境で python や pip を動かしてはいけません。依存関係・キャッシュ・ミラー・コンテナを信頼できる端末から特定し、隔離、証拠保全、クリーンな環境での再構築、アクセス可能だった認証情報の失効・再発行を順に進めます。LiteLLMの10月23日版はそれ以前の調査中の説明に不正確な部分があったと明示しているため、初報だけで判断せず調査完了版を使います。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261024-01" />
+<meta property="og:title" content="LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだけで悪性の起動フックが実行され得るため、確認のために suspect環境で python や pip を動かしてはいけません。依存関係・キャッシュ・ミラー・コンテナを信頼できる端末から特定し、隔離、証拠保全、クリーンな環境での再構築、アクセス可能だった認証情報の失効・再発行を順に進めます。LiteLLMの10月23日版はそれ以前の調査中の説明に不正確な部分があったと明示しているため、初報だけで判断せず調査完了版を使います。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261024-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>LiteLLM侵害版の安全な初動</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-10-24">2026.10.24</time>
+            </div>
+            <h1>LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動</h1>
+            <p>LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだけで悪性の起動フックが実行され得るため、確認のために suspect環境で python や pip を動かしてはいけません。依存関係・キャッシュ・ミラー・コンテナを信頼できる端末から特定し、隔離、証拠保全、クリーンな環境での再構築、アクセス可能だった認証情報の失効・再発行を順に進めます。LiteLLMの10月23日版はそれ以前の調査中の説明に不正確な部分があったと明示しているため、初報だけで判断せず調査完了版を使います。</p>
+            <ul class="forensics-target-list"><li>LiteLLMを利用する開発・運用担当者</li><li>Python環境やコンテナを管理するセキュリティ担当者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>LiteLLM</li><li>サプライチェーン攻撃</li><li>Python</li><li>依存関係</li><li>CI/CD</li><li>認証情報</li><li>インシデント対応</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 4</strong>
+              <span>LiteLLMの調査完了版とMicrosoftの分析を照合</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot is-active">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>侵害の疑いがある環境ではPythonやpipを起動せず、別のクリーンな端末から調査・隔離・復旧を進めてください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>LiteLLMを入れた環境で、脆弱な版があるか今すぐ調べたい</h3><p>開発PCやCI、コンテナにLiteLLM 1.107.0が入っていた可能性があります。いつものように pip show や Python の起動で確認してよいか迷っています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>今回の悪性ファイルはPythonの通常の初期化時に実行され得るとMicrosoftが説明しています。調査操作そのものが再実行になる恐れがあるため、対象環境のPythonを使わず、信頼できる別端末・ツールから確認する必要があります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="isolate-and-inspect-externally">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>LiteLLM 1.107.0の侵害可能性がある環境を確認するとき、最初に何をする？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="isolate-and-inspect-externally" data-choice-id="isolate-and-inspect-externally" />
+                <span>
+                  <strong>対象のPython実行を止めて環境を隔離し、信頼できる別端末から依存・イメージ・認証情報を調べる</strong>
+                  <small>Microsoftは疑わしい環境内でpythonやpipを実行せず、既知のクリーンなシステムから調査するよう勧めています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="run-pip-show" data-choice-id="run-pip-show" />
+                <span>
+                  <strong>対象環境で pip show litellm を実行し、そのまま最新版へ更新する</strong>
+                  <small>影響版ではPythonの起動処理に悪性コードが仕込まれたとされ、pip自体の実行も安全な確認方法とは限りません。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>対象のPython実行を止めて環境を隔離し、信頼できる別端末から依存・イメージ・認証情報を調べる</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>まず対象端末・CI実行機・コンテナのPython起動を止め、影響版や侵害タグを使った可能性を別のクリーンな環境から洗い出します。証拠を記録した後、影響環境を信頼できる成果物から再構築し、そこからアクセスできた資格情報をクリーンな端末で失効・再発行します。パッケージを削除しただけで復旧完了とは判断しません。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>確認対象はパッケージと可変コンテナタグの両方</h3>
+              <p>LiteLLMの告知はPyPIの litellm==1.107.0 と、Docker Hub・GHCRの v1.107.0、latest、main-latest、main-stable の侵害時間帯を示しています。タグが現在指す先だけでなく、当時pull・mirror・buildした成果物を調べます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Pythonを起動せずに調べる</h3>
+              <p>Microsoftの分析によると、悪性コードは .pth と sitecustomize.py を通じてPythonの初期化時に動作し得ます。LiteLLMをimportしない単純なPython起動や pip コマンドでも実行経路になり得るため、対象環境内で診断コマンドを打たないようにします。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>開発PC・CI・テスト環境も対象候補</h3>
+              <p>LiteLLMのゲートウェイ本番機だけでなく、影響パッケージを入れた開発端末、CI/CDエージェント、テスト環境、コンテナでPythonが起動していないか確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>パッケージ削除だけでは復旧にならない</h3>
+              <p>Microsoftは悪性の起動ファイルが通常の litellm アプリケーションディレクトリ外へ配置され得ると説明し、クリーンな成果物からの再構築と資格情報の対応を勧めています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>調査中の初報と10月23日の確定版を区別</h3>
+              <p>LiteLLMは10月23日の攻撃経路報告で、調査中の更新に不正確または不完全な前提があったと明記し、同記事をcanonical source of truthとしています。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>対象環境でPythonを起動せず、隔離とクリーンな復旧を優先</strong><p>影響版が実行された可能性がある場合、まず端末・CI・コンテナを隔離し、信頼できる別環境から履歴、依存、イメージ、資格情報の露出範囲を調査します。再構築後もアクセス可能だったキーやセッションの失効・再発行が必要です。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>LiteLLMの告知にある版・イメージタグと公開時間を基に、対象端末、CI、ミラー、キャッシュ、コンテナ成果物を別の信頼できる端末から特定する</strong><span>現在のタグだけでなく、侵害時間中に保存・展開された成果物が残っている可能性を確認できます。</span></li>
+            <li><strong>影響版が実行された疑いのある環境をネットワークやCI実行から隔離し、Python・pipを起動しない</strong><span>Python初期化時に起動する悪性フックの再実行を避けるためです。</span></li>
+            <li><strong>監査ログ・実行履歴・イメージダイジェストなどを保全し、組織のインシデント対応責任者へ連絡する</strong><span>削除や再buildの前に、実際に何が実行されたかを判断する材料を残せます。</span></li>
+            <li><strong>確認後、既知のクリーンな成果物から環境を再構築し、露出し得たモデルAPIキー、クラウド・CI・Git・SSH等の資格情報をクリーンな端末から失効・再発行する</strong><span>悪性コードは実行プロセスから到達できる認証情報を収集する設計だったと報告されています。</span></li>
+            <li><strong>今後は依存ファイルのハッシュ固定、成果物の来歴確認、コンテナの不変digest指定を検討する</strong><span>mutable tagだけでなく、実際に配布された成果物の同一性を確認しやすくなります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>疑わしい環境で python、pip、アプリ起動を試して影響有無を確認する</strong><span>Pythonの起動処理自体が悪性コードを動かし得ると分析されています。</span></li>
+            <li><strong>litellmのフォルダやDockerタグを削除しただけで、端末と資格情報も復旧したと判断する</strong><span>起動ファイルがアプリ本体の外に残る可能性や、資格情報流出の可能性が別途あります。</span></li>
+            <li><strong>ログやイメージを保存せずに再構築し、侵害の有無を調べないまま通常運用へ戻す</strong><span>証拠が失われ、潜在的なプロセスや資格情報の悪用を見落とす恐れがあります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AI基盤の依存関係をインシデント対応訓練へつなぐ</h3>
+          <p>AIゲートウェイだけでなく、開発端末・CI・パッケージミラーまで含めて依存関係と資格情報の所在を記録しておくと、侵害時に影響範囲を切り分けやすくなります。</p>
+          <ul class="positive-example-list"><li>CIが使うシークレットの一覧と失効担当を整備する</li><li>コンテナをタグではなくdigestで記録する</li><li>Python実行環境を安全に隔離・再構築する手順を訓練する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>この事案で見落としやすいのは、LiteLLMを本番サービスとして使ったかだけで影響を考えないことです。侵害版が入った開発PCやCIでPythonを起動した可能性も調査対象になります。しかも確認のためのpip実行が危険になり得るという、初動の手順そのものが普段と逆になる点を記事の中心にしました。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>LiteLLM 1.107.0の疑いがある環境ではPythonを起動せず、隔離・外部調査・クリーン再構築・資格情報の更新を行う。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain" target="_blank" rel="noopener noreferrer">The attack chain behind the v1.107.0 LiteLLM release<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>LiteLLM</span>
+              <span>セキュリティ機関</span>
+              <time datetime="2026-10-23">2026-10-23</time>
+            </li>
+            <li>
+              <strong><a href="https://docs.litellm.ai/blog/security-incident-oct-21-2026" target="_blank" rel="noopener noreferrer">Contained: Oct 21, 2026 LiteLLM release v1.107.0 Compromised<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>LiteLLM</span>
+              <span>セキュリティ機関</span>
+              <time datetime="2026-10-21">2026-10-21</time>
+            </li>
+            <li>
+              <strong><a href="https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/" target="_blank" rel="noopener noreferrer">Inside the LiteLLM 1.107.0 supply chain compromise: Credential theft through Python startup hooks<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Security Blog</span>
+              <span>その他</span>
+              <time datetime="2026-10-23">2026-10-23</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20261024-02" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="生成AIに社内データを誤アップロードしたら　削除・社内報告・保持期間の確認 生成AIへの誤入力後にすること パナソニック オペレーショナルエクセレンスは2026年10月23日、社内で利用禁止としていた外部生成AIへ、人事情報システムの個人情報を含むデータの一部がプロジェクトメンバーによりアップロードされたと公表しました。同社の説明では、これは外部からの不正操作ではなく社内ルール違反で、チャット履歴と業務PC上のファイルを削除し、サービス事業者の保持条件も確認しています。誤入力に気づいた人は、まず追加送信を止め、利用サービス・アカウント・日時・データの種類を記録して社内の情報セキュリティ／個人情報担当へすぐ連絡します。チャット画面から消す操作と事業者側の保持が同じとは限らず、本人通知や個人情報保護委員会への報告要否は事実に応じて事業者側の担当者が判断します。なおPanasonicの告知は対象者に必要な対応はないと明記しており、一般向けの手順を同社対象者へ追加対応として求めるものではありません。 セキュリティ・権限 はじめて 生成AI 個人情報 誤送信 社内ルール データ保持 個人情報保護委員会 インシデント対応 業務で生成AIを使う従業員 個人情報・情報セキュリティの管理担当者 中小企業の経営者・現場責任者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">genai-data-misupload-response</span>
+              <div>
+                <p>生成AIへの誤入力後にすること</p>
+                <h3>生成AIに社内データを誤アップロードしたら　削除・社内報告・保持期間の確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-24">2026.10.24</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">パナソニック オペレーショナルエクセレンスは2026年10月23日、社内で利用禁止としていた外部生成AIへ、人事情報システムの個人情報を含むデータの一部がプロジェクトメンバーによりアップロードされたと公表しました。同社の説明では、これは外部からの不正操作ではなく社内ルール違反で、チャット履歴と業務PC上のファイルを削除し、サービス事業者の保持条件も確認しています。誤入力に気づいた人は、まず追加送信を止め、利用サービス・アカウント・日時・データの種類を記録して社内の情報セキュリティ／個人情報担当へすぐ連絡します。チャット画面から消す操作と事業者側の保持が同じとは限らず、本人通知や個人情報保護委員会への報告要否は事実に応じて事業者側の担当者が判断します。なおPanasonicの告知は対象者に必要な対応はないと明記しており、一般向けの手順を同社対象者へ追加対応として求めるものではありません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>企業の公表文と個人情報保護委員会の指針を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>業務で生成AIを使う従業員</li><li>個人情報・情報セキュリティの管理担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>生成AI</li><li>個人情報</li><li>誤送信</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20261024-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="公開アプリからAPIが狙われる「A2B攻撃」　運営者が点検するサーバー側の穴 A2B攻撃とAPI点検 情報通信研究機構（NICT）は2026年10月13日、公開Androidアプリを解析して接続先APIや仕様を調べ、対応するバックエンドサーバを狙う手法を「A2B攻撃（App-to-Backend Attack）」として注意喚起しました。アプリ自体に欠陥がなくても、サーバー側の認証・認可や入力検証に不備があれば情報漏えいにつながり得ます。NICTは事業者に、公開API・サーバーの棚卸しとログ確認、認可不備などの点検、不要APIの停止・アクセス制限・監視強化・資格情報の更新を勧めています。これは個々のサービスが攻撃を受けたという診断ではなく、公開アプリを提供する事業者向けの確認項目です。アプリ利用者はアプリを削除するだけで防げる問題ではなく、サービス運営者へ告知や影響情報を確認するのが現実的です。 セキュリティ・権限 標準 A2B攻撃 Androidアプリ APIセキュリティ バックエンド NICT 認証・認可 情報漏えい スマートフォンアプリの開発・運用担当者 Web API・バックエンドの管理者 セキュリティ委託先を管理する事業者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">app-to-backend-api-security</span>
+              <div>
+                <p>A2B攻撃とAPI点検</p>
+                <h3>公開アプリからAPIが狙われる「A2B攻撃」　運営者が点検するサーバー側の穴</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-24">2026.10.24</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">情報通信研究機構（NICT）は2026年10月13日、公開Androidアプリを解析して接続先APIや仕様を調べ、対応するバックエンドサーバを狙う手法を「A2B攻撃（App-to-Backend Attack）」として注意喚起しました。アプリ自体に欠陥がなくても、サーバー側の認証・認可や入力検証に不備があれば情報漏えいにつながり得ます。NICTは事業者に、公開API・サーバーの棚卸しとログ確認、認可不備などの点検、不要APIの停止・アクセス制限・監視強化・資格情報の更新を勧めています。これは個々のサービスが攻撃を受けたという診断ではなく、公開アプリを提供する事業者向けの確認項目です。アプリ利用者はアプリを削除するだけで防げる問題ではなく、サービス運営者へ告知や影響情報を確認するのが現実的です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>NICTの注意喚起と技術レポートを確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>スマートフォンアプリの開発・運用担当者</li><li>Web API・バックエンドの管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>A2B攻撃</li><li>Androidアプリ</li><li>APIセキュリティ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261023-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Google PlayでAI生成アプリを自分の端末へ　個人用と公開審査を混同しない AI生成アプリを個人端末で試す前に Googleは2026年10月13日、Google AI Studioで作ったカスタムAndroidアプリをGoogle Play経由で自分の端末に導入する機能の展開を発表しました。個人用アプリは公開ストアのカタログと分離され、通常のGoogleアカウントで試せますが、公開範囲が個人的だからといって安全性の審査を通過したという意味にはなりません。Googleはアプリを世界へ公開する段階で、通常の開発者アカウントとTrust &amp; Safety審査が必要になると説明しています。提供は一部市場の18歳以上から始まるため、試作段階では権限と挙動を確かめ、個人情報や重要なアカウント情報を扱わせないところから始めます。 セキュリティ・権限 標準 Google Play Google AI Studio AI生成アプリ Android アプリ権限 プライバシー AIでAndroidアプリを試作する人 Google Playで個人用アプリを端末に入れる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">google-play-private-ai-app</span>
+              <div>
+                <p>AI生成アプリを個人端末で試す前に</p>
+                <h3>Google PlayでAI生成アプリを自分の端末へ　個人用と公開審査を混同しない</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-23">2026.10.23</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年10月13日、Google AI Studioで作ったカスタムAndroidアプリをGoogle Play経由で自分の端末に導入する機能の展開を発表しました。個人用アプリは公開ストアのカタログと分離され、通常のGoogleアカウントで試せますが、公開範囲が個人的だからといって安全性の審査を通過したという意味にはなりません。Googleはアプリを世界へ公開する段階で、通常の開発者アカウントとTrust &amp; Safety審査が必要になると説明しています。提供は一部市場の18歳以上から始まるため、試作段階では権限と挙動を確かめ、個人情報や重要なアカウント情報を扱わせないところから始めます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Google Playの公式発表を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIでAndroidアプリを試作する人</li><li>Google Playで個人用アプリを端末に入れる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Play</li><li>Google AI Studio</li><li>AI生成アプリ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261024-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

@@ -1,0 +1,57 @@
+{
+  "id": "case-20261024-01",
+  "publishedAt": "2026-10-24",
+  "title": "LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動",
+  "shortTitle": "LiteLLM侵害版の安全な初動",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": ["LiteLLMを利用する開発・運用担当者", "Python環境やコンテナを管理するセキュリティ担当者"],
+  "summary": "LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだけで悪性の起動フックが実行され得るため、確認のために suspect環境で python や pip を動かしてはいけません。依存関係・キャッシュ・ミラー・コンテナを信頼できる端末から特定し、隔離、証拠保全、クリーンな環境での再構築、アクセス可能だった認証情報の失効・再発行を順に進めます。LiteLLMの10月23日版はそれ以前の調査中の説明に不正確な部分があったと明示しているため、初報だけで判断せず調査完了版を使います。",
+  "scenario": {
+    "headline": "LiteLLMを入れた環境で、脆弱な版があるか今すぐ調べたい",
+    "description": "開発PCやCI、コンテナにLiteLLM 1.107.0が入っていた可能性があります。いつものように pip show や Python の起動で確認してよいか迷っています。",
+    "whyItMatters": "今回の悪性ファイルはPythonの通常の初期化時に実行され得るとMicrosoftが説明しています。調査操作そのものが再実行になる恐れがあるため、対象環境のPythonを使わず、信頼できる別端末・ツールから確認する必要があります。"
+  },
+  "question": {
+    "text": "LiteLLM 1.107.0の侵害可能性がある環境を確認するとき、最初に何をする？",
+    "choices": [
+      {"id": "isolate-and-inspect-externally", "label": "対象のPython実行を止めて環境を隔離し、信頼できる別端末から依存・イメージ・認証情報を調べる", "description": "Microsoftは疑わしい環境内でpythonやpipを実行せず、既知のクリーンなシステムから調査するよう勧めています。"},
+      {"id": "run-pip-show", "label": "対象環境で pip show litellm を実行し、そのまま最新版へ更新する", "description": "影響版ではPythonの起動処理に悪性コードが仕込まれたとされ、pip自体の実行も安全な確認方法とは限りません。"}
+    ],
+    "recommendedAnswers": ["isolate-and-inspect-externally"],
+    "explanation": "まず対象端末・CI実行機・コンテナのPython起動を止め、影響版や侵害タグを使った可能性を別のクリーンな環境から洗い出します。証拠を記録した後、影響環境を信頼できる成果物から再構築し、そこからアクセスできた資格情報をクリーンな端末で失効・再発行します。パッケージを削除しただけで復旧完了とは判断しません。"
+  },
+  "inspectionPoints": [
+    {"title": "確認対象はパッケージと可変コンテナタグの両方", "description": "LiteLLMの告知はPyPIの litellm==1.107.0 と、Docker Hub・GHCRの v1.107.0、latest、main-latest、main-stable の侵害時間帯を示しています。タグが現在指す先だけでなく、当時pull・mirror・buildした成果物を調べます。", "priority": "high"},
+    {"title": "Pythonを起動せずに調べる", "description": "Microsoftの分析によると、悪性コードは .pth と sitecustomize.py を通じてPythonの初期化時に動作し得ます。LiteLLMをimportしない単純なPython起動や pip コマンドでも実行経路になり得るため、対象環境内で診断コマンドを打たないようにします。", "priority": "high"},
+    {"title": "開発PC・CI・テスト環境も対象候補", "description": "LiteLLMのゲートウェイ本番機だけでなく、影響パッケージを入れた開発端末、CI/CDエージェント、テスト環境、コンテナでPythonが起動していないか確認します。", "priority": "high"},
+    {"title": "パッケージ削除だけでは復旧にならない", "description": "Microsoftは悪性の起動ファイルが通常の litellm アプリケーションディレクトリ外へ配置され得ると説明し、クリーンな成果物からの再構築と資格情報の対応を勧めています。", "priority": "high"},
+    {"title": "調査中の初報と10月23日の確定版を区別", "description": "LiteLLMは10月23日の攻撃経路報告で、調査中の更新に不正確または不完全な前提があったと明記し、同記事をcanonical source of truthとしています。", "priority": "high"}
+  ],
+  "verificationLevel": 4,
+  "verificationLabel": "LiteLLMの調査完了版とMicrosoftの分析を照合",
+  "verificationMessage": "侵害の疑いがある環境ではPythonやpipを起動せず、別のクリーンな端末から調査・隔離・復旧を進めてください。",
+  "verdict": {"label": "対象環境でPythonを起動せず、隔離とクリーンな復旧を優先", "description": "影響版が実行された可能性がある場合、まず端末・CI・コンテナを隔離し、信頼できる別環境から履歴、依存、イメージ、資格情報の露出範囲を調査します。再構築後もアクセス可能だったキーやセッションの失効・再発行が必要です。", "confidence": "high"},
+  "safeActions": [
+    {"action": "LiteLLMの告知にある版・イメージタグと公開時間を基に、対象端末、CI、ミラー、キャッシュ、コンテナ成果物を別の信頼できる端末から特定する", "reason": "現在のタグだけでなく、侵害時間中に保存・展開された成果物が残っている可能性を確認できます。"},
+    {"action": "影響版が実行された疑いのある環境をネットワークやCI実行から隔離し、Python・pipを起動しない", "reason": "Python初期化時に起動する悪性フックの再実行を避けるためです。"},
+    {"action": "監査ログ・実行履歴・イメージダイジェストなどを保全し、組織のインシデント対応責任者へ連絡する", "reason": "削除や再buildの前に、実際に何が実行されたかを判断する材料を残せます。"},
+    {"action": "確認後、既知のクリーンな成果物から環境を再構築し、露出し得たモデルAPIキー、クラウド・CI・Git・SSH等の資格情報をクリーンな端末から失効・再発行する", "reason": "悪性コードは実行プロセスから到達できる認証情報を収集する設計だったと報告されています。"},
+    {"action": "今後は依存ファイルのハッシュ固定、成果物の来歴確認、コンテナの不変digest指定を検討する", "reason": "mutable tagだけでなく、実際に配布された成果物の同一性を確認しやすくなります。"}
+  ],
+  "avoidActions": [
+    {"action": "疑わしい環境で python、pip、アプリ起動を試して影響有無を確認する", "reason": "Pythonの起動処理自体が悪性コードを動かし得ると分析されています。"},
+    {"action": "litellmのフォルダやDockerタグを削除しただけで、端末と資格情報も復旧したと判断する", "reason": "起動ファイルがアプリ本体の外に残る可能性や、資格情報流出の可能性が別途あります。"},
+    {"action": "ログやイメージを保存せずに再構築し、侵害の有無を調べないまま通常運用へ戻す", "reason": "証拠が失われ、潜在的なプロセスや資格情報の悪用を見落とす恐れがあります。"}
+  ],
+  "positiveUse": {"title": "AI基盤の依存関係をインシデント対応訓練へつなぐ", "description": "AIゲートウェイだけでなく、開発端末・CI・パッケージミラーまで含めて依存関係と資格情報の所在を記録しておくと、侵害時に影響範囲を切り分けやすくなります。", "examples": ["CIが使うシークレットの一覧と失効担当を整備する", "コンテナをタグではなくdigestで記録する", "Python実行環境を安全に隔離・再構築する手順を訓練する"]},
+  "makotoComment": "この事案で見落としやすいのは、LiteLLMを本番サービスとして使ったかだけで影響を考えないことです。侵害版が入った開発PCやCIでPythonを起動した可能性も調査対象になります。しかも確認のためのpip実行が危険になり得るという、初動の手順そのものが普段と逆になる点を記事の中心にしました。",
+  "oneLineLesson": "LiteLLM 1.107.0の疑いがある環境ではPythonを起動せず、隔離・外部調査・クリーン再構築・資格情報の更新を行う。",
+  "tags": ["LiteLLM", "サプライチェーン攻撃", "Python", "依存関係", "CI/CD", "認証情報", "インシデント対応"],
+  "sources": [
+    {"title": "The attack chain behind the v1.107.0 LiteLLM release", "publisher": "LiteLLM", "sourceType": "security", "publishedAt": "2026-10-23", "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"},
+    {"title": "Contained: Oct 21, 2026 LiteLLM release v1.107.0 Compromised", "publisher": "LiteLLM", "sourceType": "security", "publishedAt": "2026-10-21", "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026"},
+    {"title": "Inside the LiteLLM 1.107.0 supply chain compromise: Credential theft through Python startup hooks", "publisher": "Microsoft Security Blog", "sourceType": "security-research-explainer", "publishedAt": "2026-10-23", "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/"}
+  ],
+  "visualSuggestion": {"mainVisual": "侵害の疑いがあるPython環境を隔離し、クリーンな端末で依存・成果物を調査して再構築と資格情報更新へ進む初動フロー", "cardIcon": "python-supply-chain-response", "accentTone": "serious"}
+}
