@@ -20,6 +20,7 @@ def render() -> str:
     data = json.loads(DATA.read_text(encoding="utf-8"))
     products = data["products"]
     categories = data["categories"]
+    limited_menu = data.get("limitedMenu", {})
     by_category = {
         category["id"]: [p for p in products if p["category"] == category["id"]]
         for category in categories
@@ -54,6 +55,7 @@ def render() -> str:
             if category["id"] == "pechi"
             else ""
         )
+
         note_line = f"  {note}\n" if note else ""
         sections.append(
             f'''<section class="market-section" id="{esc(category["id"])}" aria-labelledby="heading-{esc(category["id"])}">
@@ -61,6 +63,27 @@ def render() -> str:
 {note_line}  <div class="market-grid">{"".join(cards)}</div>
 </section>'''
         )
+
+    limited_sections = []
+    for section in limited_menu.get("sections", []):
+        items = "".join(
+            f'''<li><span>{esc(item["name"])}</span><strong>{int(item["price"])}<small> MMC</small></strong></li>'''
+            for item in section["items"]
+        )
+        limited_sections.append(
+            f'''<section class="market-limited__group" aria-labelledby="limited-{esc(section["id"])}">
+  <img src="assets/{esc(section["image"])}?v=20261024" alt="{esc(section["alt"])}" loading="lazy" decoding="async" />
+  <h3 id="limited-{esc(section["id"])}">{esc(section["name"])}</h3>
+  <ul>{items}</ul>
+</section>'''
+        )
+    limited_menu_markup = (
+        f'''<section class="market-limited" aria-labelledby="market-limited-title">
+  <header class="market-limited__heading"><p class="market-eyebrow">{esc(limited_menu.get("eyebrow", "LIMITED MENU"))}</p><h2 id="market-limited-title">{esc(limited_menu.get("title", "期間限定メニュー"))}</h2><p>秋の味覚と焼きたてトーストを、今月だけの組み合わせで。</p></header>
+  <div class="market-limited__grid">{"".join(limited_sections)}</div>
+</section>'''
+        if limited_sections else ""
+    )
 
     return f'''<!doctype html>
 <html lang="ja">
@@ -115,6 +138,7 @@ def render() -> str:
       </div>
     </section>
     <section class="market-catalog" aria-labelledby="market-catalog-title">
+    {limited_menu_markup}
       <header class="market-catalog__heading"><p class="market-eyebrow">TAKE A LOOK AROUND</p><h2 id="market-catalog-title">お店の商品</h2><p>カテゴリーを選んで、気になる棚をのぞいてみてください。</p></header>
     <nav class="market-category-nav" aria-label="商品カテゴリー">{nav}</nav>
     <div class="market-collection">{"".join(sections)}</div>
