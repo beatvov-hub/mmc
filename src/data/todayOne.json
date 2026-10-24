@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T07:30:00+09:00",
+  "updatedAt": "2026-10-25T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2477,6 +2477,64 @@
         {
           "label": "DevToys公式ダウンロード：Microsoft Store・WinGet案内",
           "url": "https://devtoys.app/download"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-25",
+      "slug": "ocrmypdf-searchable-japanese-scanned-pdf",
+      "useCategory": "文書・データ整理",
+      "name": "OCRmyPDF",
+      "category": "OCR・検索可能PDF作成",
+      "officialUrl": "https://ocrmypdf.readthedocs.io/en/latest/",
+      "summary": "OCRmyPDFは、スキャンしたPDFに文字レイヤーを加えて、紙面の文字を検索・コピーできるPDFにするツールです。",
+      "whyToday": "紙の資料を画像として保存しただけでは、ファイル名しか手がかりがなく、必要なページを開いて探すことになります。OCRmyPDFは画像ページの見た目を保ちながら検索用の文字レイヤーを加えるので、スキャン後の保管資料を本文から探せる形に整える入口になります。",
+      "useFor": "例えば、紙の社内手順書をスキャンした1ページのPDFを、あとで文言検索できる状態にする想定例です。OCRmyPDFを実行できる端末にOCRmyPDFとTesseract、日本語の学習データ（jpn）を用意し、コピーしたPDFへ ocrmypdf -l jpn --output-type pdf scan.pdf searchable.pdf を実行します。出力をPDFビューアーで開き、紙面上の語句を検索・選択できるか、見えている文字と抽出文字が一致するか確認します。まずは公開資料かダミーの1ページで試してください。",
+      "recommendedFor": {
+        "employeeId": "MMC-001",
+        "reason": "総務担当のほのちゃんに、スキャン資料を検索可能にする受入手順を1件の公開資料で整理してもらい、必要な言語データと出力確認を含む短い保管チェックリストを受け取りたいです。"
+      },
+      "keiComment": "紙面の見た目を残したまま本文検索できるのは、あとから探す担当者にうれしいですね。OCRの誤認識や段組みの読み順違いは起こり得るので、登録前に重要な固有名詞や数字をいくつか検索して、画像の記載と照らす運用にしたいです。",
+      "verifiedAt": "2026-10-25",
+      "status": "published",
+      "pricing": "OCRmyPDFは無償で利用できるオープンソースソフトウェアです。",
+      "conditions": "端末でコマンドを実行できる環境と、OCRmyPDF・TesseractおよびOS別の依存ソフトが必要です。日本語文書にはTesseractの日本語データ（jpn）を用意します。ソフトウェアの利用料は無償ですが、端末や保管環境などの費用は別です。",
+      "license": "Mozilla Public License 2.0（MPL-2.0）。OCRmyPDF自体を改変して配布する場合は、改変したソースコードの公開義務などライセンス条件を確認してください。",
+      "notes": "公式README・現行ドキュメント・ライセンスを2026-10-25に確認しました。活用例は想定例で、実機検証は行っていません。",
+      "archiveTitle": "OCRmyPDFでスキャンPDFを文字検索できる？日本語OCRの準備と確認",
+      "archiveDescription": "スキャンした日本語PDFを本文検索したい人向けに、OCRmyPDFで文字レイヤーを加える手順、jpn言語データの準備、出力の確認方法とOCRの注意点を紹介します。",
+      "forWho": "紙の手順書や配布資料をスキャンして保管しており、ファイルを開かず本文の語句から探せるようにしたい総務・文書管理担当者向けです。",
+      "cautions": "OCRの結果は文字の誤認識や段組みの読み順違いがあり、手書き文字は認識できません。すでにテキストを含むPDFは既定動作で処理が止まる場合があるため、まず既存PDFが検索可能か確認してください。",
+      "faq": [
+        {
+          "question": "日本語のスキャンPDFをOCRするには何を準備しますか？",
+          "answer": "OCRmyPDFの実行環境に加え、Tesseractの日本語学習データが必要です。公式の言語コード一覧では日本語はjpnで、コマンドに -l jpn を指定します。"
+        },
+        {
+          "question": "すでに文字を含むPDFも同じコマンドで処理できますか？",
+          "answer": "既定では、ページに印字可能な文字やOCR文字レイヤーがあるとOCRmyPDFが処理を中止する場合があります。先にPDFビューアーで文字検索を試し、すでに検索できる資料か確認してください。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "OCRmyPDF公式GitHub：機能・対応言語・依存関係・ライセンス",
+          "url": "https://github.com/ocrmypdf/OCRmyPDF"
+        },
+        {
+          "label": "OCRmyPDF公式Cookbook：基本コマンドと日本語以外の言語指定",
+          "url": "https://ocrmypdf.readthedocs.io/en/latest/cookbook.html"
+        },
+        {
+          "label": "OCRmyPDF公式インストール案内：OSごとの依存ソフト",
+          "url": "https://ocrmypdf.readthedocs.io/en/latest/installation.html"
+        },
+        {
+          "label": "OCRmyPDF公式エラー案内：既存テキストを含むPDFの挙動",
+          "url": "https://ocrmypdf.readthedocs.io/en/latest/errors.html"
+        },
+        {
+          "label": "Tesseract公式言語データ一覧：jpnは日本語",
+          "url": "https://tesseract-ocr.github.io/tessdoc/Data-Files"
         }
       ]
     }
