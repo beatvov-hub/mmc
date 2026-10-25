@@ -1,50 +1,142 @@
 {
   "id": "case-20261020-01",
   "publishedAt": "2026-10-20",
-  "title": "Geminiの外部アプリ連携、接続先と呼び出し方を確認する",
-  "shortTitle": "Geminiに外部アプリをつなぐ前に",
+  "title": "GeminiからNotebookを編集・削除できる　Connected Appsの設定を確認",
+  "shortTitle": "Gemini Notebook連携の削除権限を確認",
   "category": "security",
   "difficulty": "beginner",
-  "targetAudience": ["Geminiアプリを仕事や日常で使う人", "AIアシスタントに外部サービスを接続する前に確認したい人"],
-  "summary": "Googleは2026年9月23日、Geminiアプリから利用できる外部のConnected Appsを追加すると発表しました。生産性、制作、生活関連のサービスが対象として紹介され、アプリはGeminiの設定から接続するか、チャット内で@メンションして呼び出せます。これは外部アプリをGeminiから使うための段階的な提供で、全アカウントで一律に利用できるという発表ではありません。便利さだけで接続を増やさず、設定画面で実際に利用可能な連携先を確認し、必要なサービスだけを選びましょう。",
+  "targetAudience": [
+    "Geminiアプリを仕事や日常で使う人",
+    "AIアシスタントに外部サービスを接続する前に確認したい人"
+  ],
+  "summary": "Google Workspace Updatesは2026年10月23日、Gemini NotebookをGeminiアプリのConnected Appとして利用できる機能を案内しました。Geminiのチャットからノートブックやソースの作成・編集・削除、一覧表示、内容への質問ができます。一般には連携が既定でオン（欧州経済領域ではオフ）で、Google Workspaceでは対象のグループまたは組織部門でGeminiとGemini Notebookの両方をオンにする必要があります。Geminiアプリの「設定 > Connected Apps」で連携状態を確認し、削除を頼むときは対象のノートブックとソースを明示してから実行しましょう。",
   "scenario": {
-    "headline": "Geminiから仕事用・生活用アプリを操作できると聞き、何をつなぐか迷う",
-    "description": "Geminiのチャットからプロジェクト管理や制作サービスを使いたい。アプリ連携を設定する方法と、機能が使える状態かを確認したい。",
-    "whyItMatters": "外部サービスをつなぐと、Gemini内で作業を始めやすくなります。一方、接続するサービスが増えるほど、AIに頼む作業の範囲も広がるため、目的ごとに接続先を選ぶ判断が必要です。"
+    "headline": "Geminiの会話から、自分のノートブックや資料を変更できる",
+    "description": "Gemini Notebook連携は質問への回答だけでなく、ノートブックや登録済みソースの作成・編集・削除も扱います。チャットで自然文を送るだけで操作が進むため、連携のオン・オフと、削除対象を確かめる手順を知っておく必要があります。",
+    "whyItMatters": "以前のConnected Apps紹介だけでは、連携後に何ができるかが分かりにくい状態でした。今回の公式案内はNotebookの読み取りに加えて、ノートとソースへの変更・削除を明記しています。"
   },
   "question": {
-    "text": "Geminiで新しいConnected Appsを使う前に何を確認する？",
+    "text": "Gemini NotebookをGeminiアプリに連携するとき、最初に何を確認する？",
     "choices": [
-      {"id": "review-needed-apps", "label": "設定に表示される連携先を確認し、必要なサービスだけ接続して、@メンション等で使う", "description": "Googleは設定から接続する方法と、チャット内でアプリを呼び出す方法を案内しています。"},
-      {"id": "connect-everything", "label": "紹介されたアプリをすべて接続すれば、どのアカウントでもすぐ使えると考える", "description": "発表は段階的な提供としており、全アプリ・全アカウントでの一律利用を保証していません。"}
+      {
+        "id": "review-actions",
+        "label": "連携設定を確認し、削除依頼の前に対象ノートとソースを特定する",
+        "description": "連携後は作成・編集・削除まで依頼できるため、設定と対象を操作前に確認します。"
+      },
+      {
+        "id": "assume-readonly",
+        "label": "質問に答えるだけの連携だと考えて、そのまま使う",
+        "description": "公式案内にはノートやソースの編集・削除も含まれています。"
+      },
+      {
+        "id": "disable-all",
+        "label": "機能があるだけで危険と考え、全ての連携を一律に停止する",
+        "description": "必要性や管理設定を見ずに全停止するのではなく、利用範囲に応じて選びます。"
+      }
     ],
-    "recommendedAnswers": ["review-needed-apps"],
-    "explanation": "Googleの発表では、外部アプリはGemini設定から接続するか、チャットで@メンションして呼び出せます。発表は段階的提供なので、実際に使えるかは自分の設定画面で確認します。目的に必要な接続先に絞り、依頼する作業と対象サービスを具体的に指定しましょう。"
+    "recommendedAnswers": [
+      "review-actions"
+    ],
+    "explanation": "Googleの案内ではノートブックやソースの作成・編集・削除が可能です。利用者はGeminiアプリのConnected Appsで状態を確認でき、Workspace管理者はGeminiとGemini Notebook双方のアクセス設定をグループまたは組織部門ごとに管理できます。"
   },
   "inspectionPoints": [
-    {"title": "追加対象は複数の用途カテゴリに分かれる", "description": "Googleは生産性、制作、生活関連としてConnected Appsを紹介しています。発表にあるカテゴリとサービス名を、実際の設定画面の表示と区別して確認します。", "priority": "medium"},
-    {"title": "接続方法は設定またはチャット内の呼び出し", "description": "Geminiの設定でアプリを接続する方法に加え、チャット内で@メンションする方法もGoogleが案内しています。", "priority": "high"},
-    {"title": "発表は段階的なロールアウト", "description": "2026年9月23日の発表は提供開始を段階的に進める内容です。紹介記事に載った全サービスが直ちに自分のアカウントで使えるとは限りません。", "priority": "high"},
-    {"title": "外部アプリに頼む作業の範囲を具体化する", "description": "接続済みであることと、すべての依頼を無条件に実行させることは別です。送信、共有、購入など影響のある操作は実行前に対象と内容を確認します。", "priority": "medium"}
+    {
+      "title": "ノートだけでなくソースも変更・削除できる",
+      "description": "公式発表はノートブックの作成・編集・削除と、ソースの追加・更新・削除を列挙しています。読み取りだけの連携ではありません。",
+      "priority": "high"
+    },
+    {
+      "title": "既定のオン設定と地域差",
+      "description": "Googleの発表では一般に機能は既定でオン、欧州経済領域では既定でオフです。自分の画面の設定を確認してください。",
+      "priority": "high"
+    },
+    {
+      "title": "Workspaceでは2つのアクセス設定が関係する",
+      "description": "対象グループまたは組織部門でGeminiとGemini Notebookの両方がオンの場合に利用できます。",
+      "priority": "medium"
+    },
+    {
+      "title": "削除は対象を指定してから依頼する",
+      "description": "Geminiは自然文で対象ノートやソースの削除を実行できます。名前や用途を特定し、意図しない共有資料を指定していないか確認します。",
+      "priority": "high"
+    }
   ],
   "verificationLevel": 3,
-  "verificationLabel": "連携対象と提供状況を公式発表で確認",
-  "verificationMessage": "紹介されたアプリ名だけで判断せず、自分のGemini設定に出ている接続先と利用可能な操作を確かめましょう。",
-  "verdict": {"label": "必要な外部アプリだけを選んで接続", "description": "GeminiのConnected Appsは外部サービスを会話から使う入口です。提供状況はアカウントごとに確認し、接続先と頼む操作を必要な範囲に絞るのが実用的です。", "confidence": "high"},
+  "verificationLabel": "Googleの機能説明と設定場所を確認",
+  "verificationMessage": "Gemini Notebook連携は読み取りだけでなく変更・削除も扱います。Connected Appsの状態とWorkspace管理設定を確かめ、削除前には対象を特定してください。",
+  "verdict": {
+    "label": "連携状態と削除対象を先に確認",
+    "description": "GeminiアプリのConnected Appsから連携を確認できます。Workspaceでは管理者がGeminiとGemini Notebook双方を制御します。ノートやソースの編集・削除を依頼する前に、対象を具体的に確認してください。",
+    "confidence": "high"
+  },
   "safeActions": [
-    {"action": "Gemini設定のConnected Appsを開き、現在利用可能な連携先を確認する", "reason": "Googleは設定からアプリを接続する方法を案内しています。"},
-    {"action": "使う目的があるアプリだけを接続し、不要になった連携は設定を見直す", "reason": "外部サービスへの接続範囲を自分の用途に合わせるためです。"},
-    {"action": "チャット内で@メンションする場合は、対象アプリと頼む作業を明示する", "reason": "どのサービスに何を依頼するのかを会話上で確認しやすくなります。"},
-    {"action": "送信・共有など影響のある操作は、実行対象と内容を確認してから進める", "reason": "AIへの依頼文だけで外部サービス上の結果まで意図どおりとは限らないためです。"}
+    {
+      "action": "Geminiアプリの「設定 > Connected Apps」でGemini Notebookの状態を見る",
+      "reason": "機能の既定状態は地域で異なり、実際のアカウント設定が利用可否を決めます。"
+    },
+    {
+      "action": "不要ならGemini Notebookの連携をオフにする",
+      "reason": "利用しない連携を有効に保つ必要はありません。"
+    },
+    {
+      "action": "Workspace管理者は対象グループ／組織部門でGeminiとGemini Notebook双方の設定を確認する",
+      "reason": "発表では両方がオンのユーザーに機能が提供されるとしています。"
+    },
+    {
+      "action": "ノートやソースの削除を依頼する前に、対象名と用途を確かめる",
+      "reason": "連携機能は自然文で削除も実行できるため、対象の取り違えを防ぎます。"
+    }
   ],
   "avoidActions": [
-    {"action": "発表に載っているアプリがすべて自分のアカウントで使えると思い込む", "reason": "Googleは段階的な提供として案内しています。"},
-    {"action": "目的を決めずに、使う予定のないサービスまで接続する", "reason": "利便性に必要な範囲を超えて接続先を増やす必要はありません。"}
+    {
+      "action": "Connected Appsは閲覧だけだと思い、削除依頼を曖昧な表現で送る",
+      "reason": "公式にノートブックとソースの削除機能が明記されています。"
+    },
+    {
+      "action": "Google Workspaceで片方の設定だけを見て、全員に一律提供されたと判断する",
+      "reason": "対象ユーザーにはGeminiとGemini Notebook双方のアクセス設定が関係します。"
+    }
   ],
-  "positiveUse": {"title": "必要な連携だけで作業の行き来を減らす", "description": "Geminiから扱いたいサービスを用途ごとに選び、接続・呼び出し・実行確認を一続きの手順として運用します。", "examples": ["設定画面で利用可能な連携先を確認", "使うサービスだけ接続", "@メンションで対象を明示", "共有や送信の前に内容を確認"]},
-  "makotoComment": "今回の発表で実用上大切なのは、Geminiが外部サービスの入口になり始めた点です。アプリ名の一覧を見て一斉に接続するより、日々の作業で本当に必要な連携をひとつ選び、チャットから何を実行できるかを小さく試すのが安全です。段階的提供なので、記事の一覧と自分の設定画面の差も記録しておきたいところです。",
-  "oneLineLesson": "GeminiのConnected Appsは、使う目的と接続先を選び、設定画面で提供状況を確かめてから使う。",
-  "tags": ["Gemini", "Connected Apps", "外部アプリ連携", "権限", "AI活用", "設定"],
-  "sources": [{"title": "A new wave of Connected Apps is rolling out to Gemini.", "publisher": "Google", "sourceType": "official-product-update", "publishedAt": "2026-09-23", "url": "https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-gemini/"}],
-  "visualSuggestion": {"mainVisual": "Gemini設定で外部アプリを選び、チャットで対象を呼び出し、実行前に内容を確かめる3段階の図", "cardIcon": "gemini-connected-apps", "accentTone": "practical"}
+  "positiveUse": {
+    "title": "自然文でNotebookを探し、必要な更新を行う",
+    "description": "適切な設定のもとで、チャットからノートブック内の情報を検索したり、明示した資料を追加したりできます。変更・削除は対象を確認してから使います。",
+    "examples": [
+      "@Gemini Notebookで対象ノートの情報を質問する",
+      "設定 > Connected Appsで連携状態を確認する",
+      "Workspaceの対象グループで2つのアクセス設定を照合する",
+      "削除前にノート名と対象ソースを読み返す"
+    ]
+  },
+  "makotoComment": "今回の更新で見落としたくないのは、Gemini Notebookが「チャットから参照できる」段階を越え、ノートやソースの変更・削除まで受け持つ点です。連携を使うかどうかだけでなく、削除を依頼する前に対象名を言葉にして確かめる運用が実務的です。",
+  "oneLineLesson": "Gemini Notebook連携では、オン・オフと削除対象を操作前に確かめる。",
+  "tags": [
+    "Gemini",
+    "Gemini Notebook",
+    "Connected Apps",
+    "連携設定",
+    "ノート削除",
+    "ソース管理",
+    "Workspace管理"
+  ],
+  "sources": [
+    {
+      "title": "Take actions on your notebooks from Gemini Notebook directly in the Gemini app",
+      "publisher": "Google Workspace Updates",
+      "sourceType": "official-product-update",
+      "publishedAt": "2026-10-23",
+      "url": "https://workspaceupdates.googleblog.com/2026/10/take-actions-on-your-notebooks-from-Gemini-Notebook-directly-in-the-Gemini-app.html"
+    },
+    {
+      "title": "Gemini アプリのノートブックでプロジェクトを整理する",
+      "publisher": "Google Gemini アプリ ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/gemini/answer/16972047?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "GeminiチャットのConnected Apps設定と、対象を確認してからノートブック／ソースを削除する操作前チェックを並べた図",
+    "cardIcon": "gemini-notebook-connected-app",
+    "accentTone": "practical"
+  }
 }

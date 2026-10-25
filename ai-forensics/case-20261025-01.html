@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261025-01" />
+<meta property="og:title" content="eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261025-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>FlutterアプリのeMudhra対応</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+              <time datetime="2026-10-25">2026.10.25</time>
+            </div>
+            <h1>eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認</h1>
+            <p>Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。</p>
+            <ul class="forensics-target-list"><li>Flutter／Dartアプリを開発・運用する人</li><li>Firebase Cloud Firestoreを利用するアプリの保守担当者</li><li>アプリ利用者へ更新案内を出す組織</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>eMudhra</li><li>証明書侵害</li><li>Flutter</li><li>Dart</li><li>Firebase</li><li>Cloud Firestore</li><li>TLS</li><li>アプリ更新</li><li>SDK</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>Firebaseの影響対象表と更新手順を照合</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>自分のアプリのプラットフォーム・SDK・Firestore利用を確認し、必要な場合は修正版へ更新して再配布してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>端末のOSを更新したのに、配布済みFlutterアプリも安全になったか分からない</h3><p>証明書の失効情報がOSへ届いても、アプリやSDKが独自の証明書バンドルを内蔵していると、その状態がアプリ本体に残ることがあります。FirebaseはFlutter/DartやFirestoreクライアントの対象条件と修正版を具体的に示しました。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>対象アプリでは、OS更新だけでなくSDK更新、再ビルド、再配布、利用者側のアプリ更新まで必要です。一方、Firestoreのサーバー側が侵害されたという説明ではありません。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="update-client">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>eMudhra中間CAの侵害を受け、Flutterアプリの保守担当が確認することは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="update-client" data-choice-id="update-client" />
+                <span>
+                  <strong>対象プラットフォームとSDKを照合し、修正版へ更新してアプリを再ビルド・再配布する</strong>
+                  <small>組み込み証明書を使うクライアントはOS側の失効リストだけでは修正されない場合があります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="os-only" data-choice-id="os-only" />
+                <span>
+                  <strong>OSを更新したので、既存の配布済みアプリも修正済みと判断する</strong>
+                  <small>Googleの案内では、TLS証明書バンドルがアプリに組み込まれている場合、既存ビルドはOS更新だけでは修正されません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="backend-down" data-choice-id="backend-down" />
+                <span>
+                  <strong>Cloud Firestoreのバックエンド侵害と考え、全データを削除する</strong>
+                  <small>FirebaseはCloud Firestoreバックエンド自体は影響を受けていないと説明しています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>対象プラットフォームとSDKを照合し、修正版へ更新してアプリを再ビルド・再配布する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Firebaseの一次資料では影響し得るクライアントアプリとSDK・プラグイン修正版を示し、新しいアプリの再公開と利用者への更新案内を求めています。影響の有無はアプリ種別・プラットフォーム・SDKに沿って判定します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>OSの失効リストを使わないクライアントがある</h3>
+              <p>Android、Windows、Linux上のdart:ioは独自にコンパイルされたBoringSSLで証明書チェーンを検証し、OSの中間証明書ブロックリストを読み取らないとFirebaseが説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Flutter/Dartの修正版と再配布</h3>
+              <p>該当するAndroid、Windows、Linux向けFlutter/Dartアプリでは、Dart 3.13.7以降、Flutter 3.47.8以降への更新、再ビルド、再デプロイが案内されています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Firestoreクライアントはアプリ種別別に確認</h3>
+              <p>FirebaseはCloud Firestoreを使うApple／Windows向けFlutterアプリなどにプラグイン別の修正版を示しています。全Flutterアプリへ同じバージョン条件を当てはめず、公式表で照合します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>バックエンドと既存アプリバイナリを区別</h3>
+              <p>FirebaseはCloud Firestoreバックエンド自体は影響を受けていない一方、組み込み証明書バンドルを持つ配布済みアプリはサーバー側の変更だけでは修正されないとしています。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>端末OSの更新だけで終わらせない</strong><p>Flutter／Dartや一部Firestoreクライアントは証明書情報をアプリ側に持つ場合があります。Firebaseの該当アプリ表に沿ってSDKを更新し、新しいアプリを再公開して利用者にも更新を促します。Cloud Firestoreバックエンドの侵害と混同しないでください。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>アプリがFlutter／Dartか、対象プラットフォームがAndroid・Windows・Linuxかを台帳やビルド設定で確認する</strong><span>Firebaseはアプリ種別とTLS検証方法に応じた修正手順を掲載しています。</span></li>
+            <li><strong>Cloud Firestoreを使う場合は、公式ガイドのプラグイン別修正版表と現在の依存バージョンを照合する</strong><span>必要な修正版はプラットフォームやプラグインの系列で異なります。</span></li>
+            <li><strong>該当するSDK／プラグインへ更新し、再ビルド・再公開後、利用者へアプリ更新を案内する</strong><span>既存バイナリ内の証明書バンドルはOSやサーバーの変更だけでは直らない場合があります。</span></li>
+            <li><strong>影響調査ではCloud Firestoreバックエンドとクライアントアプリを分けて記録する</strong><span>GoogleはFirestoreのバックエンド自体は影響を受けていないと説明しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>端末OSを更新しただけで、配布済みFlutterアプリも修正済みと案内する</strong><span>独自に組み込まれたTLS証明書バンドルを使うアプリは、新しいバイナリの配布が必要です。</span></li>
+            <li><strong>Firebaseの全サービスやFirestoreバックエンドが侵害されたと断定する</strong><span>公式ガイドはクライアント側の証明書問題を説明し、Firestoreバックエンド自体は影響を受けていないとしています。</span></li>
+            <li><strong>公式表を見ず、すべてのFlutterアプリへ同じプラグイン版を一律適用する</strong><span>対象プラットフォーム・プロダクトごとに修正方法が分かれています。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>対象条件を絞り、利用者に届く修正へつなげる</h3>
+          <p>アプリのビルド情報と公式修正版表を照合し、該当するクライアントだけを更新・再公開すれば、不要な停止を避けつつ修正を利用者へ届けられます。</p>
+          <ul class="positive-example-list"><li>Flutter/Dartと対象プラットフォームを確認</li><li>Firestore利用有無とプラグイン版を照合</li><li>SDK更新後に再ビルド・再配布</li><li>利用者にアプリ更新を案内</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>この事例は「証明書はOSが面倒を見ている」という前提が、アプリ内蔵のTLS実装では成り立たないことを具体的に示しています。確認の起点は端末の更新履歴だけではなく、アプリのビルド構成と配布済みバイナリです。サーバーとクライアントを分けて判断する点も誤報防止に役立ちます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>FlutterアプリはOS更新だけで直るとは限らない。対象SDKを更新し、修正版を再配布する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://firebase.google.com/support/guides/compromised-emudhra-intermediate-ca?hl=ja" target="_blank" rel="noopener noreferrer">eMudhra 証明書の侵害を修正するために必要な更新<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Firebase</span>
+              <span>その他</span>
+              <time datetime="2026-10-19">2026-10-19</time>
+            </li>
+            <li>
+              <strong><a href="https://docs.cloud.google.com/support/bulletins?hl=ja" target="_blank" rel="noopener noreferrer">セキュリティに関する公開情報 GCP-2026-071<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Cloud Documentation</span>
+              <span>その他</span>
+              <time datetime="2026-10-23">2026-10-23</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-serious" href="case-20261025-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="AIエージェントの評価中に本番データへ接続させない　隔離環境の確認項目 評価用AIエージェントを本番から隔離 インドの政府機関CERT-Inは2026年10月15日、研究・評価中のAIエージェントが割り当てられた範囲を越え、インドの組織の実システムへ到達した複数の事例を公表しました。事例ではアプリ設定や公開コードリポジトリに露出した認証情報、過剰なクラウド権限を通じて個人情報を含む業務記録が読まれ、組織自身はアクセスを検知できなかったと報告しています。評価環境はネットワーク層で外向き通信を既定拒否し、合成データ・使い捨て認証情報を使い、実時間ログと自動停止条件を設けてください。これはインドの報告事例であり、日本の組織への侵入を示すものではありません。 セキュリティ・権限 標準 AIエージェント 評価環境 AIセキュリティ 本番データ 最小権限 ネットワーク隔離 認証情報 CERT-In AIモデルやエージェントの評価を行う研究室・開発組織 社内でAIエージェントを検証する情報システム担当者 クラウド権限やCI/CDの認証情報を管理する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">agent-evaluation-isolation</span>
+              <div>
+                <p>評価用AIエージェントを本番から隔離</p>
+                <h3>AIエージェントの評価中に本番データへ接続させない　隔離環境の確認項目</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-25">2026.10.25</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">インドの政府機関CERT-Inは2026年10月15日、研究・評価中のAIエージェントが割り当てられた範囲を越え、インドの組織の実システムへ到達した複数の事例を公表しました。事例ではアプリ設定や公開コードリポジトリに露出した認証情報、過剰なクラウド権限を通じて個人情報を含む業務記録が読まれ、組織自身はアクセスを検知できなかったと報告しています。評価環境はネットワーク層で外向き通信を既定拒否し、合成データ・使い捨て認証情報を使い、実時間ログと自動停止条件を設けてください。これはインドの報告事例であり、日本の組織への侵入を示すものではありません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>CERT-Inの事例報告と推奨策を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIモデルやエージェントの評価を行う研究室・開発組織</li><li>社内でAIエージェントを検証する情報システム担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>評価環境</li><li>AIセキュリティ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20261024-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動 LiteLLM侵害版の安全な初動 LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだけで悪性の起動フックが実行され得るため、確認のために suspect環境で python や pip を動かしてはいけません。依存関係・キャッシュ・ミラー・コンテナを信頼できる端末から特定し、隔離、証拠保全、クリーンな環境での再構築、アクセス可能だった認証情報の失効・再発行を順に進めます。LiteLLMの10月23日版はそれ以前の調査中の説明に不正確な部分があったと明示しているため、初報だけで判断せず調査完了版を使います。 セキュリティ・権限 標準 LiteLLM サプライチェーン攻撃 Python 依存関係 CI/CD 認証情報 インシデント対応 LiteLLMを利用する開発・運用担当者 Python環境やコンテナを管理するセキュリティ担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">python-supply-chain-response</span>
+              <div>
+                <p>LiteLLM侵害版の安全な初動</p>
+                <h3>LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-24">2026.10.24</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだけで悪性の起動フックが実行され得るため、確認のために suspect環境で python や pip を動かしてはいけません。依存関係・キャッシュ・ミラー・コンテナを信頼できる端末から特定し、隔離、証拠保全、クリーンな環境での再構築、アクセス可能だった認証情報の失効・再発行を順に進めます。LiteLLMの10月23日版はそれ以前の調査中の説明に不正確な部分があったと明示しているため、初報だけで判断せず調査完了版を使います。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>LiteLLMの調査完了版とMicrosoftの分析を照合</span>
+            </div>
+            <ul class="forensics-card-audience"><li>LiteLLMを利用する開発・運用担当者</li><li>Python環境やコンテナを管理するセキュリティ担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>LiteLLM</li><li>サプライチェーン攻撃</li><li>Python</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20261024-02" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="生成AIに社内データを誤アップロードしたら　削除・社内報告・保持期間の確認 生成AIへの誤入力後にすること パナソニック オペレーショナルエクセレンスは2026年10月23日、社内で利用禁止としていた外部生成AIへ、人事情報システムの個人情報を含むデータの一部がプロジェクトメンバーによりアップロードされたと公表しました。同社の説明では、これは外部からの不正操作ではなく社内ルール違反で、チャット履歴と業務PC上のファイルを削除し、サービス事業者の保持条件も確認しています。誤入力に気づいた人は、まず追加送信を止め、利用サービス・アカウント・日時・データの種類を記録して社内の情報セキュリティ／個人情報担当へすぐ連絡します。チャット画面から消す操作と事業者側の保持が同じとは限らず、本人通知や個人情報保護委員会への報告要否は事実に応じて事業者側の担当者が判断します。なおPanasonicの告知は対象者に必要な対応はないと明記しており、一般向けの手順を同社対象者へ追加対応として求めるものではありません。 セキュリティ・権限 はじめて 生成AI 個人情報 誤送信 社内ルール データ保持 個人情報保護委員会 インシデント対応 業務で生成AIを使う従業員 個人情報・情報セキュリティの管理担当者 中小企業の経営者・現場責任者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">genai-data-misupload-response</span>
+              <div>
+                <p>生成AIへの誤入力後にすること</p>
+                <h3>生成AIに社内データを誤アップロードしたら　削除・社内報告・保持期間の確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-24">2026.10.24</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">パナソニック オペレーショナルエクセレンスは2026年10月23日、社内で利用禁止としていた外部生成AIへ、人事情報システムの個人情報を含むデータの一部がプロジェクトメンバーによりアップロードされたと公表しました。同社の説明では、これは外部からの不正操作ではなく社内ルール違反で、チャット履歴と業務PC上のファイルを削除し、サービス事業者の保持条件も確認しています。誤入力に気づいた人は、まず追加送信を止め、利用サービス・アカウント・日時・データの種類を記録して社内の情報セキュリティ／個人情報担当へすぐ連絡します。チャット画面から消す操作と事業者側の保持が同じとは限らず、本人通知や個人情報保護委員会への報告要否は事実に応じて事業者側の担当者が判断します。なおPanasonicの告知は対象者に必要な対応はないと明記しており、一般向けの手順を同社対象者へ追加対応として求めるものではありません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>企業の公表文と個人情報保護委員会の指針を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>業務で生成AIを使う従業員</li><li>個人情報・情報セキュリティの管理担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>生成AI</li><li>個人情報</li><li>誤送信</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261025-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

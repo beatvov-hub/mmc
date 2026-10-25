@@ -38,6 +38,15 @@ class AiForensicsValidatorTest(unittest.TestCase):
         self.assertTrue(any("absolute HTTPS" in error for error in errors))
         self.assertTrue(any("publishedAt" in error for error in errors))
 
+    def test_source_link_check_uses_html_escaped_url(self) -> None:
+        url = "https://example.com/advisory?id=one&section=two"
+        rendered = generator.render_article_page(
+            {**self.article, "sources": [{**self.article["sources"][0], "url": url}]},
+            [{**self.article, "sources": [{**self.article["sources"][0], "url": url}]}],
+        )
+        self.assertIn('href="https://example.com/advisory?id=one&amp;section=two"', rendered)
+        self.assertNotIn(url, rendered)
+
     def test_recommended_answers_must_reference_choices(self) -> None:
         article = copy.deepcopy(self.article)
         article["question"]["recommendedAnswers"] = ["not-a-choice"]

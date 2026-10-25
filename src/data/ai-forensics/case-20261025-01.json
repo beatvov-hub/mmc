@@ -1,0 +1,149 @@
+{
+  "id": "case-20261025-01",
+  "publishedAt": "2026-10-25",
+  "title": "eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認",
+  "shortTitle": "FlutterアプリのeMudhra対応",
+  "category": "security",
+  "difficulty": "standard",
+  "targetAudience": [
+    "Flutter／Dartアプリを開発・運用する人",
+    "Firebase Cloud Firestoreを利用するアプリの保守担当者",
+    "アプリ利用者へ更新案内を出す組織"
+  ],
+  "summary": "Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。",
+  "scenario": {
+    "headline": "端末のOSを更新したのに、配布済みFlutterアプリも安全になったか分からない",
+    "description": "証明書の失効情報がOSへ届いても、アプリやSDKが独自の証明書バンドルを内蔵していると、その状態がアプリ本体に残ることがあります。FirebaseはFlutter/DartやFirestoreクライアントの対象条件と修正版を具体的に示しました。",
+    "whyItMatters": "対象アプリでは、OS更新だけでなくSDK更新、再ビルド、再配布、利用者側のアプリ更新まで必要です。一方、Firestoreのサーバー側が侵害されたという説明ではありません。"
+  },
+  "question": {
+    "text": "eMudhra中間CAの侵害を受け、Flutterアプリの保守担当が確認することは？",
+    "choices": [
+      {
+        "id": "update-client",
+        "label": "対象プラットフォームとSDKを照合し、修正版へ更新してアプリを再ビルド・再配布する",
+        "description": "組み込み証明書を使うクライアントはOS側の失効リストだけでは修正されない場合があります。"
+      },
+      {
+        "id": "os-only",
+        "label": "OSを更新したので、既存の配布済みアプリも修正済みと判断する",
+        "description": "Googleの案内では、TLS証明書バンドルがアプリに組み込まれている場合、既存ビルドはOS更新だけでは修正されません。"
+      },
+      {
+        "id": "backend-down",
+        "label": "Cloud Firestoreのバックエンド侵害と考え、全データを削除する",
+        "description": "FirebaseはCloud Firestoreバックエンド自体は影響を受けていないと説明しています。"
+      }
+    ],
+    "recommendedAnswers": [
+      "update-client"
+    ],
+    "explanation": "Firebaseの一次資料では影響し得るクライアントアプリとSDK・プラグイン修正版を示し、新しいアプリの再公開と利用者への更新案内を求めています。影響の有無はアプリ種別・プラットフォーム・SDKに沿って判定します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "OSの失効リストを使わないクライアントがある",
+      "description": "Android、Windows、Linux上のdart:ioは独自にコンパイルされたBoringSSLで証明書チェーンを検証し、OSの中間証明書ブロックリストを読み取らないとFirebaseが説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "Flutter/Dartの修正版と再配布",
+      "description": "該当するAndroid、Windows、Linux向けFlutter/Dartアプリでは、Dart 3.13.7以降、Flutter 3.47.8以降への更新、再ビルド、再デプロイが案内されています。",
+      "priority": "high"
+    },
+    {
+      "title": "Firestoreクライアントはアプリ種別別に確認",
+      "description": "FirebaseはCloud Firestoreを使うApple／Windows向けFlutterアプリなどにプラグイン別の修正版を示しています。全Flutterアプリへ同じバージョン条件を当てはめず、公式表で照合します。",
+      "priority": "high"
+    },
+    {
+      "title": "バックエンドと既存アプリバイナリを区別",
+      "description": "FirebaseはCloud Firestoreバックエンド自体は影響を受けていない一方、組み込み証明書バンドルを持つ配布済みアプリはサーバー側の変更だけでは修正されないとしています。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "Firebaseの影響対象表と更新手順を照合",
+  "verificationMessage": "自分のアプリのプラットフォーム・SDK・Firestore利用を確認し、必要な場合は修正版へ更新して再配布してください。",
+  "verdict": {
+    "label": "端末OSの更新だけで終わらせない",
+    "description": "Flutter／Dartや一部Firestoreクライアントは証明書情報をアプリ側に持つ場合があります。Firebaseの該当アプリ表に沿ってSDKを更新し、新しいアプリを再公開して利用者にも更新を促します。Cloud Firestoreバックエンドの侵害と混同しないでください。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "アプリがFlutter／Dartか、対象プラットフォームがAndroid・Windows・Linuxかを台帳やビルド設定で確認する",
+      "reason": "Firebaseはアプリ種別とTLS検証方法に応じた修正手順を掲載しています。"
+    },
+    {
+      "action": "Cloud Firestoreを使う場合は、公式ガイドのプラグイン別修正版表と現在の依存バージョンを照合する",
+      "reason": "必要な修正版はプラットフォームやプラグインの系列で異なります。"
+    },
+    {
+      "action": "該当するSDK／プラグインへ更新し、再ビルド・再公開後、利用者へアプリ更新を案内する",
+      "reason": "既存バイナリ内の証明書バンドルはOSやサーバーの変更だけでは直らない場合があります。"
+    },
+    {
+      "action": "影響調査ではCloud Firestoreバックエンドとクライアントアプリを分けて記録する",
+      "reason": "GoogleはFirestoreのバックエンド自体は影響を受けていないと説明しています。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "端末OSを更新しただけで、配布済みFlutterアプリも修正済みと案内する",
+      "reason": "独自に組み込まれたTLS証明書バンドルを使うアプリは、新しいバイナリの配布が必要です。"
+    },
+    {
+      "action": "Firebaseの全サービスやFirestoreバックエンドが侵害されたと断定する",
+      "reason": "公式ガイドはクライアント側の証明書問題を説明し、Firestoreバックエンド自体は影響を受けていないとしています。"
+    },
+    {
+      "action": "公式表を見ず、すべてのFlutterアプリへ同じプラグイン版を一律適用する",
+      "reason": "対象プラットフォーム・プロダクトごとに修正方法が分かれています。"
+    }
+  ],
+  "positiveUse": {
+    "title": "対象条件を絞り、利用者に届く修正へつなげる",
+    "description": "アプリのビルド情報と公式修正版表を照合し、該当するクライアントだけを更新・再公開すれば、不要な停止を避けつつ修正を利用者へ届けられます。",
+    "examples": [
+      "Flutter/Dartと対象プラットフォームを確認",
+      "Firestore利用有無とプラグイン版を照合",
+      "SDK更新後に再ビルド・再配布",
+      "利用者にアプリ更新を案内"
+    ]
+  },
+  "makotoComment": "この事例は「証明書はOSが面倒を見ている」という前提が、アプリ内蔵のTLS実装では成り立たないことを具体的に示しています。確認の起点は端末の更新履歴だけではなく、アプリのビルド構成と配布済みバイナリです。サーバーとクライアントを分けて判断する点も誤報防止に役立ちます。",
+  "oneLineLesson": "FlutterアプリはOS更新だけで直るとは限らない。対象SDKを更新し、修正版を再配布する。",
+  "tags": [
+    "eMudhra",
+    "証明書侵害",
+    "Flutter",
+    "Dart",
+    "Firebase",
+    "Cloud Firestore",
+    "TLS",
+    "アプリ更新",
+    "SDK"
+  ],
+  "sources": [
+    {
+      "title": "eMudhra 証明書の侵害を修正するために必要な更新",
+      "publisher": "Firebase",
+      "sourceType": "official-product-documentation",
+      "publishedAt": "2026-10-19",
+      "url": "https://firebase.google.com/support/guides/compromised-emudhra-intermediate-ca?hl=ja"
+    },
+    {
+      "title": "セキュリティに関する公開情報 GCP-2026-071",
+      "publisher": "Google Cloud Documentation",
+      "sourceType": "official-product-documentation",
+      "publishedAt": "2026-10-23",
+      "url": "https://docs.cloud.google.com/support/bulletins?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Flutterアプリの端末OS trust storeとアプリ内蔵TLS証明書を対比し、該当する場合はSDK更新・再ビルド・再配布へ進む確認フロー",
+    "cardIcon": "emudhra-flutter-app-update",
+    "accentTone": "serious"
+  }
+}

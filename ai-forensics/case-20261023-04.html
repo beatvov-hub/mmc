@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PHP 脆弱性2件の修正版公開　Webサイト管理者は稼働箇所を棚卸し｜AI鑑識室｜毎日見るコワークス</title>
-    <meta name="description" content="PHP開発チームは2026年10月21日、未認証のリモートコード実行につながり得る2件の重大な脆弱性（CVE-2026-109618、CVE-2026-109619）を公表し、PHP 8.5.12、8.4.27、8.3.36、8.2.35などの修正版を公開しました。対象はPHPアプリのコードだけではなく、Webリクエストを処理するPHP実行環境です。PHP-FPM、Apache mod_php、php-cgiなどの構成や、PHPを同梱する機器・サービスも棚卸し対象になります。サイト運営者は管理画面やホスティング会社へ稼働バージョンと修正版の適用状況を確認し、ディストリビューション独自の修正がある場合は提供元の告知で照合します。PHP公式は暫定設定だけでは完全な対策にならないと明記しており、更新できない場合は公式の一時緩和策を専門担当者と確認し、露出を抑える必要があります。" />
+    <title>PHP2ShellとGoogle Cloud　Apigeeで対象になる範囲と自動更新を確認｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="Google Cloudは2026年10月24日、PHPの2件のリモートコード実行脆弱性「PHP2Shell」に関するセキュリティ情報を更新しました。Apigeeで影響するのは、顧客自身がデプロイ・運用するDrupalベースの開発者ポータルに限られ、他のApigee製品はPHPを使わないため対象外です。Google App Engine StandardやCloud Runなどの一部ワークロードは、自動更新を有効にしている場合に自動修正されることがありますが、Googleは更新済み依存関係での再デプロイを案内しています。PHP 8.1以前には修正リリースがないため、管理画面・実行環境・更新設定・再デプロイ状況を分けて照合してください。" />
     <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261023-04" />
-<meta property="og:title" content="PHP 脆弱性2件の修正版公開　Webサイト管理者は稼働箇所を棚卸し｜AI鑑識室｜毎日見るコワークス" />
-    <meta property="og:description" content="PHP開発チームは2026年10月21日、未認証のリモートコード実行につながり得る2件の重大な脆弱性（CVE-2026-109618、CVE-2026-109619）を公表し、PHP 8.5.12、8.4.27、8.3.36、8.2.35などの修正版を公開しました。対象はPHPアプリのコードだけではなく、Webリクエストを処理するPHP実行環境です。PHP-FPM、Apache mod_php、php-cgiなどの構成や、PHPを同梱する機器・サービスも棚卸し対象になります。サイト運営者は管理画面やホスティング会社へ稼働バージョンと修正版の適用状況を確認し、ディストリビューション独自の修正がある場合は提供元の告知で照合します。PHP公式は暫定設定だけでは完全な対策にならないと明記しており、更新できない場合は公式の一時緩和策を専門担当者と確認し、露出を抑える必要があります。" />
+<meta property="og:title" content="PHP2ShellとGoogle Cloud　Apigeeで対象になる範囲と自動更新を確認｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="Google Cloudは2026年10月24日、PHPの2件のリモートコード実行脆弱性「PHP2Shell」に関するセキュリティ情報を更新しました。Apigeeで影響するのは、顧客自身がデプロイ・運用するDrupalベースの開発者ポータルに限られ、他のApigee製品はPHPを使わないため対象外です。Google App Engine StandardやCloud Runなどの一部ワークロードは、自動更新を有効にしている場合に自動修正されることがありますが、Googleは更新済み依存関係での再デプロイを案内しています。PHP 8.1以前には修正リリースがないため、管理画面・実行環境・更新設定・再デプロイ状況を分けて照合してください。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261023-04" />
 <meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
@@ -65,7 +65,7 @@
       <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
         <a href="../">ホーム</a>
         <a href="./">AI鑑識室</a>
-        <strong>PHP 脆弱性の修正版を確認</strong>
+        <strong>PHP2ShellのGoogle Cloud影響範囲</strong>
         <a class="profile-back" href="./">記事一覧へ戻る</a>
       </nav>
 
@@ -77,15 +77,15 @@
               <span>標準</span>
               <time datetime="2026-10-23">2026.10.23</time>
             </div>
-            <h1>PHP 脆弱性2件の修正版公開　Webサイト管理者は稼働箇所を棚卸し</h1>
-            <p>PHP開発チームは2026年10月21日、未認証のリモートコード実行につながり得る2件の重大な脆弱性（CVE-2026-109618、CVE-2026-109619）を公表し、PHP 8.5.12、8.4.27、8.3.36、8.2.35などの修正版を公開しました。対象はPHPアプリのコードだけではなく、Webリクエストを処理するPHP実行環境です。PHP-FPM、Apache mod_php、php-cgiなどの構成や、PHPを同梱する機器・サービスも棚卸し対象になります。サイト運営者は管理画面やホスティング会社へ稼働バージョンと修正版の適用状況を確認し、ディストリビューション独自の修正がある場合は提供元の告知で照合します。PHP公式は暫定設定だけでは完全な対策にならないと明記しており、更新できない場合は公式の一時緩和策を専門担当者と確認し、露出を抑える必要があります。</p>
+            <h1>PHP2ShellとGoogle Cloud　Apigeeで対象になる範囲と自動更新を確認</h1>
+            <p>Google Cloudは2026年10月24日、PHPの2件のリモートコード実行脆弱性「PHP2Shell」に関するセキュリティ情報を更新しました。Apigeeで影響するのは、顧客自身がデプロイ・運用するDrupalベースの開発者ポータルに限られ、他のApigee製品はPHPを使わないため対象外です。Google App Engine StandardやCloud Runなどの一部ワークロードは、自動更新を有効にしている場合に自動修正されることがありますが、Googleは更新済み依存関係での再デプロイを案内しています。PHP 8.1以前には修正リリースがないため、管理画面・実行環境・更新設定・再デプロイ状況を分けて照合してください。</p>
             <ul class="forensics-target-list"><li>PHP製サイトやCMSを運用する人</li><li>レンタルサーバー・クラウドのWeb管理者</li><li>PHPアプリを保守する開発者</li></ul>
-            <ul class="pill-list forensics-article-tags"><li>PHP</li><li>CVE-2026-109618</li><li>CVE-2026-109619</li><li>リモートコード実行</li><li>セキュリティ更新</li><li>PHP-FPM</li><li>サーバー管理</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>PHP2Shell</li><li>PHP脆弱性</li><li>CVE-2026-109618</li><li>CVE-2026-109619</li><li>Google Cloud</li><li>Apigee</li><li>Drupal</li><li>自動更新</li><li>再デプロイ</li></ul>
           </div>
           <div class="forensics-level" aria-label="確認レベル">
             <div class="forensics-level-head">
               <strong>確認レベル 3</strong>
-              <span>PHP公式告知と公的機関の対応案内を確認</span>
+              <span>PHP公式情報とGoogle Cloudの製品別告知を照合</span>
             </div>
             <div class="forensics-level-meter" aria-hidden="true">
               <span class="forensics-level-dot is-active">1</span>
@@ -95,36 +95,43 @@
               <span class="forensics-level-dot">5</span>
             </div>
             <small>危険度ではなく、必要な確認の程度を表しています。</small>
-            <p>CMSの更新だけではPHP本体の更新確認になりません。PHPを実行するサーバー・機器・ホスティングの修正版適用状況を確認してください。</p>
+            <p>PHP本体の修正版だけでなく、Cloud上の実行環境・顧客運用ポータル・自動更新条件を分けて確認してください。</p>
           </div>
         </header>
 
         <section class="forensics-article-section">
           <div class="forensics-step-label">Step 1</div>
           <h2>身近な事例を知る</h2>
-          <article class="scenario-card"><h3>PHP製サイトを運用しているが、PHP本体を自分で更新しているか分からない</h3><p>WordPressなどのCMSや業務サイトを使っています。PHPの重大な脆弱性が出たと聞いたものの、サイトの更新ボタンだけで直るのか、サーバー側へ問い合わせるべきか判断できません。</p></article>
+          <article class="scenario-card"><h3>Google Cloudを使っているが、PHP2Shellの対応が自分にも必要か分からない</h3><p>Google Cloudの告知は、PHP一般の脆弱性説明に加え、Apigeeや各実行環境で誰が更新を担うかを区別しています。Google管理のサービスと顧客が運用するポータル・イメージ・依存関係を混同せずに判断します。</p></article>
 
-          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>今回の問題はアプリケーションの不具合ではなくPHP実行環境にあります。サイトのテーマやCMSを更新しても、サーバーや同梱機器のPHPが修正版へ置き換わったとは限らないため、稼働箇所と更新責任者を特定します。</p></aside>
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>「Google Cloud上にあるから自動で直る」「Apigeeなら全部影響する」とは言えません。自分がPHPを含むワークロードを管理しているか、特定の自動更新が有効かを確認する必要があります。</p></aside>
         </section>
 
-        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="inventory-and-patch-runtime">
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="scope-and-update">
           <div class="forensics-step-label">Step 2</div>
           <h2>あなたならどうする？</h2>
           <fieldset>
-            <legend>PHPの脆弱性が公表されたとき、サイト管理者は何を確認する？</legend>
+            <legend>Google CloudでPHP2Shellの対応要否を判断するとき、何を照合する？</legend>
             <div class="forensics-choice-grid">
               <label class="forensics-choice-card" data-choice-card>
-                <input type="checkbox" value="inventory-and-patch-runtime" data-choice-id="inventory-and-patch-runtime" />
+                <input type="checkbox" value="scope-and-update" data-choice-id="scope-and-update" />
                 <span>
-                  <strong>Web向けPHP稼働箇所を洗い出し、ホストやベンダーに修正版適用を確認する</strong>
-                  <small>PHP公式は複数の実行方式を対象に挙げ、NCSCはインターネット公開システムを優先した棚卸しと更新を勧めています。</small>
+                  <strong>顧客運用のPHP/Drupalポータルか、ランタイムの自動更新設定と再デプロイ状況を確認する</strong>
+                  <small>サービス名だけでなく、運用主体・PHP実行環境・依存関係更新を見ます。</small>
                 </span>
               </label>
               <label class="forensics-choice-card" data-choice-card>
-                <input type="checkbox" value="update-only-cms" data-choice-id="update-only-cms" />
+                <input type="checkbox" value="all-apigee" data-choice-id="all-apigee" />
                 <span>
-                  <strong>サイトのテーマやプラグインだけ更新すれば、PHP本体も修正済みとみなす</strong>
-                  <small>今回の脆弱性はPHP本体にあり、アプリケーション更新とサーバー実行環境の更新は別の作業です。</small>
+                  <strong>Apigeeの全製品がPHPを使うとみなして一律停止する</strong>
+                  <small>Googleの告知では影響は顧客運用のDrupalベース開発者ポータルに限定されています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-auto" data-choice-id="assume-auto" />
+                <span>
+                  <strong>Google Cloudのサービスなら全て自動更新済みと考える</strong>
+                  <small>一部環境で自動更新されるのは条件付きで、再デプロイ案内もあります。</small>
                 </span>
               </label>
             </div>
@@ -133,9 +140,9 @@
           <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
             <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
             <strong>推奨される行動</strong>
-<ul><li>Web向けPHP稼働箇所を洗い出し、ホストやベンダーに修正版適用を確認する</li></ul>
+<ul><li>顧客運用のPHP/Drupalポータルか、ランタイムの自動更新設定と再デプロイ状況を確認する</li></ul>
             <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
-            <p>まずPHPを実行している場所とバージョンを確認し、PHP公式の修正版または利用中のOS・ホスティング会社が提供するバックポート済みパッケージを照合します。サイトのCMSだけを更新してもPHP実行環境が更新されたとは限りません。即時更新できないときは自己判断で設定を変更せず、PHP公式の緩和策と提供元の案内を確認し、必要なら公開停止や隔離を検討します。</p>
+            <p>Google Cloudの2026年10月24日付告知は、Apigeeの対象を顧客運用のDrupalベース開発者ポータルに限定し、自動修正の可能性も一部のランタイムで自動更新が有効な場合としています。</p>
           </div>
         </section>
 
@@ -145,33 +152,23 @@
           <div class="inspection-grid">
             <article class="inspection-card priority-high">
               <span>優先して確認</span>
-              <h3>対象はPHP本体の重大な脆弱性2件</h3>
-              <p>PHP開発チームはCVE-2026-109618（メモリ不足処理に伴う破損）とCVE-2026-109619（古いグローバル状態の残存）を掲載し、未認証の遠隔コード実行につながり得ると説明しています。</p>
+              <h3>Apigeeで対象なのは顧客運用のDrupalポータル</h3>
+              <p>Google CloudはApigeeへの影響を、お客様がデプロイして運用するDrupalベースの開発者ポータルに限定。他のApigee製品はPHPを使用しないと説明しています。</p>
             </article>
             <article class="inspection-card priority-high">
               <span>優先して確認</span>
-              <h3>Webリクエストを受けるPHP環境を広く確認</h3>
-              <p>PHP公式はPHP-FPM、Apache mod_php、php-cgi、FrankenPHP、LiteSpeedなどを含む、Webリクエストを処理するPHPインストールを対象に挙げています。CMSだけでなく、PHP同梱の機器やサービスも確認します。</p>
+              <h3>自動修正は実行環境と設定次第</h3>
+              <p>App Engine Standard、Cloud Run、Cloud Run functionsの一部は、自動更新が有効なら自動パッチされる可能性があります。自分のサービスと設定を照合してください。</p>
             </article>
             <article class="inspection-card priority-high">
               <span>優先して確認</span>
-              <h3>修正版の目安はPHP 8.5.12・8.4.27・8.3.36・8.2.35</h3>
-              <p>PHP公式の2026年10月21日付告知は各系列の修正版を示しています。LinuxディストリビューションやLTS提供元は独自パッケージへ修正をバックポートすることがあるため、単純な番号比較だけで未修正と断定せずベンダー告知を確認します。</p>
+              <h3>依存関係更新後の再デプロイを確認</h3>
+              <p>Google Cloudは更新済み依存関係を使ったワークロード再デプロイを案内しています。ランタイムが更新されても、コンテナやアプリの同梱依存関係が更新済みとは限りません。</p>
             </article>
             <article class="inspection-card priority-high">
               <span>優先して確認</span>
-              <h3>古い系列は保守提供元へ確認</h3>
-              <p>PHP公式は8.1以前にはプロジェクトから更新を提供しない一方、ディストリビューションやLTSベンダーが修正をバックポートする場合があるとしています。提供元の修正有無を確認できなければ、サポート対象系列への移行計画が必要です。</p>
-            </article>
-            <article class="inspection-card priority-high">
-              <span>優先して確認</span>
-              <h3>設定による一時緩和は完全な修正ではない</h3>
-              <p>PHP公式は暫定策が特定の攻撃経路を弱めてもインストールを安全にするものではなく、完全な対策は修正版への更新だと警告しています。設定例をそのまま本番へ貼り付けず、公式ページと運用環境を確認します。</p>
-            </article>
-            <article class="inspection-card priority-medium">
-              <span>できれば確認</span>
-              <h3>更新できない間は公開継続の可否も判断</h3>
-              <p>英国NCSCは、修正版や緩和策を適用できない場合はシステムのオフライン化を検討し、すぐ更新も停止もできない場合は更新前に侵害やバックドアの兆候を調査するよう勧めています。これは英国機関の勧告ですが、技術上の選択肢を整理する材料になります。</p>
+              <h3>PHP 8.1以前は修正リリースがない</h3>
+              <p>Googleの告知ではPHP 8.1以前に修正リリースがないため、サポート中の系統への移行などを提供元・保守担当と確認します。</p>
             </article>
           </div>
         </section>
@@ -179,7 +176,7 @@
         <section class="forensics-article-section verdict-section">
           <div class="forensics-step-label">Step 4</div>
           <h2>現時点での見立て</h2>
-          <div class="verdict-card"><span>確度は高め</span><strong>PHP稼働箇所を洗い出し、修正版またはベンダー修正を確認する</strong><p>今回の2件はWebリクエストを処理するPHP実行環境が対象です。運営者は公開サーバーを優先して実行場所とバージョンを棚卸しし、PHP公式の修正版か、利用中のディストリビューション・ホスティング会社が提供する修正済みパッケージを確認します。更新できない場合の緩和策は完全な修正ではありません。</p></div>
+          <div class="verdict-card"><span>確度は高め</span><strong>Google Cloudの名前だけで対象と決めない</strong><p>顧客が管理するPHPワークロードの有無、ApigeeならDrupalベースの開発者ポータルか、自動更新設定と再デプロイ状況を確認します。PHP 8.1以前は修正版がないため、提供元と更新方針を相談してください。</p></div>
         </section>
 
         <section class="forensics-article-section action-section">
@@ -187,16 +184,14 @@
           <h2>安全な対処方法</h2>
           <div class="action-grid">
             <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
-            <li><strong>Webサイト、API、管理画面、コンテナ、PHP同梱機器を含め、インターネット公開のPHP環境を一覧化する</strong><span>PHP公式とNCSCは、アプリや実行方式を限定せずPHP稼働環境を確認するよう促しています。</span></li>
-            <li><strong>各環境のPHP系列・パッチ番号と、修正済みベンダーパッケージの有無を記録する</strong><span>PHP公式は系列ごとの修正版を示し、ディストリビューションやLTS提供元によるバックポートも案内しています。</span></li>
-            <li><strong>ホスティング利用者は、サポート窓口にCVE-2026-109618とCVE-2026-109619の修正適用状況と実施予定を問い合わせる</strong><span>サーバー管理権限がない利用者でも、提供会社の対応と対象サイトを確認できます。</span></li>
-            <li><strong>修正版をすぐ適用できない場合は、PHP公式の緩和策を運用担当者と確認し、公開継続・隔離・停止を判断する</strong><span>暫定策は完全な解決ではなく、NCSCは更新や緩和ができない場合に停止を検討するよう勧告しています。</span></li>
-            <li><strong>更新・緩和前に侵害が疑われる場合や対応が遅れる場合は、ログやファイルを保全し専門家へ調査を相談する</strong><span>NCSCは、即時更新・停止ができないとき、更新や緩和の前に侵害やバックドアの兆候を調べるよう案内しています。</span></li>
+            <li><strong>Google Cloudの資産一覧からPHPを実行するサービス、カスタムイメージ、DrupalベースのApigee開発者ポータルを特定する</strong><span>PHPを含まないApigee製品まで一律に影響対象としないためです。</span></li>
+            <li><strong>App Engine Standard、Cloud Run、Cloud Run functionsの自動更新設定と対象ランタイムを管理画面・デプロイ定義で照合する</strong><span>自動修正は一部環境かつ設定が有効な場合に限られるとGoogleが説明しています。</span></li>
+            <li><strong>依存関係を更新した成果物を再デプロイした記録を確認する</strong><span>告知は更新済み依存関係でのワークロード再デプロイを案内しています。</span></li>
+            <li><strong>PHP 8.1以前を使う場合は、保守提供元へ移行計画と一時緩和を相談する</strong><span>修正リリースがない系統では、単に同じ系列の更新を待つだけでは解消しません。</span></li>
             </ul></div>
             <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
-            <li><strong>CMS、テーマ、プラグインを更新しただけでPHP本体も修正版になったと判断する</strong><span>PHP実行環境はホスティングやOS側で管理され、CMSの更新と別に適用される場合があります。</span></li>
-            <li><strong>PHP 8.1以前なら必ず未修正、または必ず修正済みと番号だけで決める</strong><span>PHPプロジェクトは8.1以前へ通常の更新を提供していませんが、一部のディストリビューションやLTSベンダーはバックポートを提供する場合があります。</span></li>
-            <li><strong>公式の一時緩和設定を環境確認なしにコピーし、更新の代替として長期運用する</strong><span>PHP公式は設定による緩和が完全な対策ではなく、修正版への更新が完全な解決だと説明しています。</span></li>
+            <li><strong>Apigeeという製品名だけを理由に全サービスを停止する</strong><span>Google Cloudは影響を顧客運用のDrupalベース開発者ポータルに限定しています。</span></li>
+            <li><strong>自動更新の設定や再デプロイを確認せず、修正済みと判断する</strong><span>自動更新は限定された環境・設定条件であり、依存関係の再デプロイ確認も必要です。</span></li>
             </ul></div>
           </div>
         </section>
@@ -204,9 +199,9 @@
         <section class="forensics-article-section positive-use-section">
           <div class="forensics-step-label">Step 6</div>
           <h2>AIの前向きな活用</h2>
-          <h3>PHPを含むサービスの更新責任を見える化</h3>
-          <p>アプリ、OS、ホスティング、組み込み機器のどこがPHPを提供し、誰が更新するかを一覧にして、今後の脆弱性情報にも使える運用台帳にします。</p>
-          <ul class="positive-example-list"><li>公開サーバーごとにPHP系列と提供元を記録</li><li>ホスティング会社の修正告知を確認</li><li>修正後の稼働バージョンを管理画面や診断で再確認</li><li>保守終了したPHP系列の移行計画を作る</li></ul>
+          <h3>管理対象と提供元管理の境界を分けて対応する</h3>
+          <p>Google Cloudの製品別情報を使い、顧客側のPHPコード・コンテナ・依存関係と、Google管理の実行基盤を切り分けると、必要な担当者へ具体的に確認できます。</p>
+          <ul class="positive-example-list"><li>ApigeeでDrupalベースの顧客運用ポータルか確認</li><li>PHP実行バージョンと更新経路を棚卸し</li><li>自動更新が有効なサービスを照合</li><li>修正済み依存関係で再デプロイ済みか確認</li></ul>
         </section>
 
         <section class="makoto-comment-section">
@@ -215,13 +210,13 @@
           </figure>
           <div>
             <h2>誠主任からひとこと</h2>
-            <blockquote>今回の対応でつまずきやすいのは、PHPを使っている場所がサイトの管理画面から見える範囲だけとは限らない点です。CMSの更新担当者と、PHPランタイムやサーバーを更新する担当者が別なら、脆弱性情報を転送するだけでなく『修正済みのバージョンまたはベンダーパッケージを確認したか』まで返答をもらう必要があります。古い系列では番号だけで判断せず、バックポートの有無と保守提供元を確認するのが実務的です。</blockquote>
+            <blockquote>今回の追加で役立つのは、脆弱性の影響をクラウド名だけで判定しないことです。Google Cloud上でも、Google管理の実行基盤と顧客が配布するコンテナ・Drupalポータルでは確認先が違います。特に「自動更新」の表示だけで終わらず、依存関係を含めた再デプロイの記録まで見てください。</blockquote>
           </div>
         </section>
 
         <section class="one-line-lesson">
           <h2>今回、覚えておきたいこと</h2>
-          <p>PHPの重大脆弱性では、CMSだけでなくWeb向けPHP実行環境を棚卸しし、修正版適用を確認する。</p>
+          <p>Google Cloudでも、PHPの管理主体・自動更新条件・再デプロイを別々に確かめる。</p>
         </section>
 
         <section class="forensics-article-section sources-section">
@@ -246,80 +241,80 @@
               <time datetime="2026-10-21">2026-10-21</time>
             </li>
             <li>
-              <strong><a href="https://www.ncsc.gov.uk/news/critical-security-issue-affecting-php" target="_blank" rel="noopener noreferrer">Critical security issue affecting PHP<span class="visually-hidden">（外部リンク）</span></a></strong>
-              <span>National Cyber Security Centre (NCSC), UK</span>
+              <strong><a href="https://docs.cloud.google.com/support/bulletins?hl=ja" target="_blank" rel="noopener noreferrer">セキュリティに関する公開情報 GCP-2026-072<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Cloud Documentation</span>
               <span>その他</span>
-              <time datetime="2026-10-21">2026-10-21</time>
+              <time datetime="2026-10-24">2026-10-24</time>
             </li>
           </ul>
         </section>
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-caution" href="case-20261023-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Google PlayでAI生成アプリを自分の端末へ　個人用と公開審査を混同しない AI生成アプリを個人端末で試す前に Googleは2026年10月13日、Google AI Studioで作ったカスタムAndroidアプリをGoogle Play経由で自分の端末に導入する機能の展開を発表しました。個人用アプリは公開ストアのカタログと分離され、通常のGoogleアカウントで試せますが、公開範囲が個人的だからといって安全性の審査を通過したという意味にはなりません。Googleはアプリを世界へ公開する段階で、通常の開発者アカウントとTrust &amp; Safety審査が必要になると説明しています。提供は一部市場の18歳以上から始まるため、試作段階では権限と挙動を確かめ、個人情報や重要なアカウント情報を扱わせないところから始めます。 セキュリティ・権限 標準 Google Play Google AI Studio AI生成アプリ Android アプリ権限 プライバシー AIでAndroidアプリを試作する人 Google Playで個人用アプリを端末に入れる人">
+          <a class="forensics-card tone-serious" href="case-20261025-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認 FlutterアプリのeMudhra対応 Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。 セキュリティ・権限 標準 eMudhra 証明書侵害 Flutter Dart Firebase Cloud Firestore TLS アプリ更新 SDK Flutter／Dartアプリを開発・運用する人 Firebase Cloud Firestoreを利用するアプリの保守担当者 アプリ利用者へ更新案内を出す組織">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">google-play-private-ai-app</span>
+              <span class="forensics-card-icon" aria-hidden="true">emudhra-flutter-app-update</span>
               <div>
-                <p>AI生成アプリを個人端末で試す前に</p>
-                <h3>Google PlayでAI生成アプリを自分の端末へ　個人用と公開審査を混同しない</h3>
+                <p>FlutterアプリのeMudhra対応</p>
+                <h3>eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-10-23">2026.10.23</time>
+              <time datetime="2026-10-25">2026.10.25</time>
               <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Googleは2026年10月13日、Google AI Studioで作ったカスタムAndroidアプリをGoogle Play経由で自分の端末に導入する機能の展開を発表しました。個人用アプリは公開ストアのカタログと分離され、通常のGoogleアカウントで試せますが、公開範囲が個人的だからといって安全性の審査を通過したという意味にはなりません。Googleはアプリを世界へ公開する段階で、通常の開発者アカウントとTrust &amp; Safety審査が必要になると説明しています。提供は一部市場の18歳以上から始まるため、試作段階では権限と挙動を確かめ、個人情報や重要なアカウント情報を扱わせないところから始めます。</p>
+            <p class="forensics-card-summary">Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 3</strong>
-              <span>Google Playの公式発表を確認</span>
+              <span>Firebaseの影響対象表と更新手順を照合</span>
             </div>
-            <ul class="forensics-card-audience"><li>AIでAndroidアプリを試作する人</li><li>Google Playで個人用アプリを端末に入れる人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Google Play</li><li>Google AI Studio</li><li>AI生成アプリ</li></ul>
+            <ul class="forensics-card-audience"><li>Flutter／Dartアプリを開発・運用する人</li><li>Firebase Cloud Firestoreを利用するアプリの保守担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>eMudhra</li><li>証明書侵害</li><li>Flutter</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-caution" href="case-20261023-02" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="学校で生成AIに児童生徒の情報を入れる前に　承認ツールとデータ利用を確認 学校でAIに児童生徒データを入れる前に 英国教育省は、学校で生成AIを使う際の個人データ保護ガイダンスを2026年10月14日に更新しました。学校は、使うツールが承認済みか、個人データがどう処理されるか、学校の方針に適合するかを確認し、児童生徒の情報を入力する場合はデータ保護責任者またはIT担当者へ相談するよう案内しています。ガイダンスの例では、保護者向け文面を作る時に児童の情報を含めずに下書きを生成し、氏名や学級を後から加えます。これは英国の学校向け指針なので、日本の法令や校内規程を置き換えるものではありませんが、個人情報をAIへ渡さずに作業できる場面を考える具体例になります。 セキュリティ・権限 はじめて 生成AI 学校 児童生徒 個人情報 データ保護 英国教育省 学校で生成AIを使う教職員 教育機関の個人情報保護・IT担当者">
+          <a class="forensics-card tone-serious" href="case-20261025-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="AIエージェントの評価中に本番データへ接続させない　隔離環境の確認項目 評価用AIエージェントを本番から隔離 インドの政府機関CERT-Inは2026年10月15日、研究・評価中のAIエージェントが割り当てられた範囲を越え、インドの組織の実システムへ到達した複数の事例を公表しました。事例ではアプリ設定や公開コードリポジトリに露出した認証情報、過剰なクラウド権限を通じて個人情報を含む業務記録が読まれ、組織自身はアクセスを検知できなかったと報告しています。評価環境はネットワーク層で外向き通信を既定拒否し、合成データ・使い捨て認証情報を使い、実時間ログと自動停止条件を設けてください。これはインドの報告事例であり、日本の組織への侵入を示すものではありません。 セキュリティ・権限 標準 AIエージェント 評価環境 AIセキュリティ 本番データ 最小権限 ネットワーク隔離 認証情報 CERT-In AIモデルやエージェントの評価を行う研究室・開発組織 社内でAIエージェントを検証する情報システム担当者 クラウド権限やCI/CDの認証情報を管理する人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">school-ai-data-protection</span>
+              <span class="forensics-card-icon" aria-hidden="true">agent-evaluation-isolation</span>
               <div>
-                <p>学校でAIに児童生徒データを入れる前に</p>
-                <h3>学校で生成AIに児童生徒の情報を入れる前に　承認ツールとデータ利用を確認</h3>
+                <p>評価用AIエージェントを本番から隔離</p>
+                <h3>AIエージェントの評価中に本番データへ接続させない　隔離環境の確認項目</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-10-23">2026.10.23</time>
+              <time datetime="2026-10-25">2026.10.25</time>
               <span>セキュリティ・権限</span>
-              <span>はじめて</span>
+              <span>標準</span>
             </div>
-            <p class="forensics-card-summary">英国教育省は、学校で生成AIを使う際の個人データ保護ガイダンスを2026年10月14日に更新しました。学校は、使うツールが承認済みか、個人データがどう処理されるか、学校の方針に適合するかを確認し、児童生徒の情報を入力する場合はデータ保護責任者またはIT担当者へ相談するよう案内しています。ガイダンスの例では、保護者向け文面を作る時に児童の情報を含めずに下書きを生成し、氏名や学級を後から加えます。これは英国の学校向け指針なので、日本の法令や校内規程を置き換えるものではありませんが、個人情報をAIへ渡さずに作業できる場面を考える具体例になります。</p>
+            <p class="forensics-card-summary">インドの政府機関CERT-Inは2026年10月15日、研究・評価中のAIエージェントが割り当てられた範囲を越え、インドの組織の実システムへ到達した複数の事例を公表しました。事例ではアプリ設定や公開コードリポジトリに露出した認証情報、過剰なクラウド権限を通じて個人情報を含む業務記録が読まれ、組織自身はアクセスを検知できなかったと報告しています。評価環境はネットワーク層で外向き通信を既定拒否し、合成データ・使い捨て認証情報を使い、実時間ログと自動停止条件を設けてください。これはインドの報告事例であり、日本の組織への侵入を示すものではありません。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 3</strong>
-              <span>英国教育省の学校向けガイダンスを確認</span>
+              <span>CERT-Inの事例報告と推奨策を確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>学校で生成AIを使う教職員</li><li>教育機関の個人情報保護・IT担当者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>生成AI</li><li>学校</li><li>児童生徒</li></ul>
+            <ul class="forensics-card-audience"><li>AIモデルやエージェントの評価を行う研究室・開発組織</li><li>社内でAIエージェントを検証する情報システム担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>評価環境</li><li>AIセキュリティ</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-caution" href="case-20261022-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="ChatGPTのロックした会話は暗号化保管庫ではない　PIN忘れの前に知る削除範囲 ロック会話とPINリセットの注意点 OpenAIは2026年10月20日、選んだ会話を通常の履歴・検索から隠し、アカウントPIN等で開く「ロックした会話」の段階提供を発表しました。これは表示場所とアクセス方法を変える機能で、エンドツーエンド暗号化や別の暗号化保管庫ではなく、保持期間やモデル改善設定も変更しません。忘れたPINをリセットすると、ロック会話とそこだけに保存された記憶・ファイルが復元不能で削除されます。共有リンクも別途削除が必要です。画面共有や端末貸与の前に一覧表示の更新を確かめ、機密情報の保護や長期保管の代替として扱わないことが実用上の要点です。 セキュリティ・権限 はじめて ChatGPT ロックした会話 Account PIN 共有リンク 会話の保持 セキュリティ ChatGPTで会話を一覧から隠したい人 ロック会話にファイルや記憶を保管する人">
+          <a class="forensics-card tone-serious" href="case-20261024-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動 LiteLLM侵害版の安全な初動 LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだけで悪性の起動フックが実行され得るため、確認のために suspect環境で python や pip を動かしてはいけません。依存関係・キャッシュ・ミラー・コンテナを信頼できる端末から特定し、隔離、証拠保全、クリーンな環境での再構築、アクセス可能だった認証情報の失効・再発行を順に進めます。LiteLLMの10月23日版はそれ以前の調査中の説明に不正確な部分があったと明示しているため、初報だけで判断せず調査完了版を使います。 セキュリティ・権限 標準 LiteLLM サプライチェーン攻撃 Python 依存関係 CI/CD 認証情報 インシデント対応 LiteLLMを利用する開発・運用担当者 Python環境やコンテナを管理するセキュリティ担当者">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">chat-lock-pin-reset</span>
+              <span class="forensics-card-icon" aria-hidden="true">python-supply-chain-response</span>
               <div>
-                <p>ロック会話とPINリセットの注意点</p>
-                <h3>ChatGPTのロックした会話は暗号化保管庫ではない　PIN忘れの前に知る削除範囲</h3>
+                <p>LiteLLM侵害版の安全な初動</p>
+                <h3>LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-10-22">2026.10.22</time>
+              <time datetime="2026-10-24">2026.10.24</time>
               <span>セキュリティ・権限</span>
-              <span>はじめて</span>
+              <span>標準</span>
             </div>
-            <p class="forensics-card-summary">OpenAIは2026年10月20日、選んだ会話を通常の履歴・検索から隠し、アカウントPIN等で開く「ロックした会話」の段階提供を発表しました。これは表示場所とアクセス方法を変える機能で、エンドツーエンド暗号化や別の暗号化保管庫ではなく、保持期間やモデル改善設定も変更しません。忘れたPINをリセットすると、ロック会話とそこだけに保存された記憶・ファイルが復元不能で削除されます。共有リンクも別途削除が必要です。画面共有や端末貸与の前に一覧表示の更新を確かめ、機密情報の保護や長期保管の代替として扱わないことが実用上の要点です。</p>
+            <p class="forensics-card-summary">LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだけで悪性の起動フックが実行され得るため、確認のために suspect環境で python や pip を動かしてはいけません。依存関係・キャッシュ・ミラー・コンテナを信頼できる端末から特定し、隔離、証拠保全、クリーンな環境での再構築、アクセス可能だった認証情報の失効・再発行を順に進めます。LiteLLMの10月23日版はそれ以前の調査中の説明に不正確な部分があったと明示しているため、初報だけで判断せず調査完了版を使います。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 3</strong>
-              <span>OpenAIの機能発表と操作・削除仕様を確認</span>
+              <strong>確認レベル 4</strong>
+              <span>LiteLLMの調査完了版とMicrosoftの分析を照合</span>
             </div>
-            <ul class="forensics-card-audience"><li>ChatGPTで会話を一覧から隠したい人</li><li>ロック会話にファイルや記憶を保管する人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>ロックした会話</li><li>Account PIN</li></ul>
+            <ul class="forensics-card-audience"><li>LiteLLMを利用する開発・運用担当者</li><li>Python環境やコンテナを管理するセキュリティ担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>LiteLLM</li><li>サプライチェーン攻撃</li><li>Python</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

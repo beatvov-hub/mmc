@@ -260,7 +260,7 @@ def validate_generated(targets: list[tuple[Path, dict[str, Any]]]) -> list[str]:
                 fail(errors, f"{page_path.relative_to(ROOT)}: generated page is missing expected content")
                 break
         for source in article["sources"]:
-            if source["url"] not in page:
+            if html.escape(source["url"], quote=True) not in page:
                 fail(errors, f"{page_path.relative_to(ROOT)}: source is not rendered as a link")
         sitemap_entry = f"<loc>{BASE_URL}/ai-forensics/{article_id}</loc><lastmod>{article['publishedAt']}</lastmod>"
         if sitemap_entry not in sitemap:
