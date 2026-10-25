@@ -414,7 +414,6 @@ function createWorld(THREE) {
 
   for (const rect of exteriorWalls()) addWallRect(rect);
   for (const rect of segmentWalls()) addWallRect(rect);
-  addFutureZones();
   addDoorFrames();
   addRoomSigns();
   addReceptionDesk();
@@ -490,38 +489,6 @@ function createWorld(THREE) {
           addBox((start + end) / 2, 2.42, wall.pos, openingWidth, 0.17, 0.34, mats.woodLight);
         }
       }
-    }
-  }
-  function addFutureZones() {
-    const stripe = new THREE.MeshStandardMaterial({ color: 0xd1a571, roughness: 0.88, emissive: 0x4b2e12, emissiveIntensity: 0.08 });
-    for (const zone of OFFICE_CONFIG.futureZones) {
-      const { minX, maxX, minZ, maxZ } = zone.bounds;
-      const spanX = maxX - minX;
-      const spanZ = maxZ - minZ;
-      const dash = 0.34;
-      const gap = 0.24;
-      const step = dash + gap;
-      for (let x = minX + dash / 2; x < maxX; x += step) {
-        addBox(x, 0.04, minZ, dash, 0.035, 0.06, stripe, { castShadow: false, receiveShadow: false });
-        addBox(x, 0.04, maxZ, dash, 0.035, 0.06, stripe, { castShadow: false, receiveShadow: false });
-      }
-      for (let z = minZ + dash / 2; z < maxZ; z += step) {
-        addBox(minX, 0.04, z, 0.06, 0.035, dash, stripe, { castShadow: false, receiveShadow: false });
-        addBox(maxX, 0.04, z, 0.06, 0.035, dash, stripe, { castShadow: false, receiveShadow: false });
-      }
-      const labelCanvas = document.createElement("canvas");
-      labelCanvas.width = 512; labelCanvas.height = 220;
-      const context = labelCanvas.getContext("2d");
-      context.fillStyle = "rgba(248,241,228,.77)";
-      context.fillRect(12, 12, 488, 196);
-      context.fillStyle = "#806346"; context.textAlign = "center"; context.textBaseline = "middle";
-      context.font = "bold 52px sans-serif"; context.fillText(zone.label, 256, 89, 455);
-      context.font = "30px sans-serif"; context.fillText(`（${zone.note}）`, 256, 151, 450);
-      const texture = new THREE.CanvasTexture(labelCanvas); texture.colorSpace = THREE.SRGBColorSpace;
-      const label = new THREE.Mesh(new THREE.PlaneGeometry(spanX - 0.22, spanZ - 0.24), new THREE.MeshBasicMaterial({ map: texture, transparent: true, side: THREE.DoubleSide, depthWrite: false }));
-      label.rotation.x = -Math.PI / 2;
-      label.position.set((minX + maxX) / 2, 0.055, (minZ + maxZ) / 2);
-      scene.add(label);
     }
   }
   function addRoomSigns() {

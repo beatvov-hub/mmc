@@ -32,7 +32,7 @@ export const OFFICE_CONFIG = {
     {
       id: "hallway", name: "中央廊下", shortName: "廊下", type: "corridor",
       bounds: { minX: -2.0, maxX: 2.0, minZ: -8, maxZ: 14 }, spawn: { x: 0, z: 1.4 },
-      description: "エントランスから執務室、会議室、社員ラウンジへ続くメイン通路です。新しい施設を加えやすいよう、通路沿いに余白を残しています。",
+      description: "エントランスから執務室、会議室、社員ラウンジへ続くメイン通路です。",
       points: [],
     },
     {
@@ -91,10 +91,6 @@ export const OFFICE_CONFIG = {
     { axis: "x", pos: 7.8, from: 14, to: 20, openings: [[14.7, 16.1], [17.6, 19]] },
     { axis: "z", pos: 17, from: 7.8, to: 14, openings: [] },
     { axis: "z", pos: 14, from: 7.8, to: 14, openings: [] },
-  ],
-  futureZones: [
-    { id: "future-benefits", label: "福利厚生施設", note: "今後追加", bounds: { minX: -1.55, maxX: 1.55, minZ: -6.6, maxZ: -3.4 } },
-    { id: "future-expansion", label: "拡張エリア", note: "今後追加", bounds: { minX: -1.55, maxX: 1.55, minZ: 4.4, maxZ: 7.6 } },
   ],
   fixtures: {
     entrance: { desk: { x: 5.2, z: 16.3 }, sofa: { x: -9, z: 17.8 } },

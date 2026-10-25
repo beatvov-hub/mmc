@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import { OFFICE_CONFIG } from "../office-tour/assets/office-config.mjs";
 import { isBlocked, movePlayer, roomAt } from "../office-tour/assets/office-tour-core.mjs";
 
@@ -9,6 +10,7 @@ test("floor plan defines the requested seven visitor areas plus the lounge shop 
     assert.ok(ids.has(id), `missing configured area: ${id}`);
   }
   assert.equal(ids.size, OFFICE_CONFIG.rooms.length, "area IDs must be unique");
+  assert.equal("futureZones" in OFFICE_CONFIG, false, "the corridor has no marked placeholder areas");
   assert.equal(OFFICE_CONFIG.rooms.find((room) => room.id === "market").type, "market");
   assert.equal(OFFICE_CONFIG.wallSegments.some((wall) => wall.pos > 7 && wall.from < -16 && wall.to > -23), false,
     "the shop is not enclosed as a separate room");
@@ -52,4 +54,18 @@ test("solid furniture collision prevents entering a desk footprint", () => {
   const start = { x: 0, z: -14.5 };
   const moved = movePlayer(start, { x: 0, z: -0.5 }, OFFICE_CONFIG, 0.3, [table]);
   assert.equal(moved.z, start.z, "the player stops before the table instead of moving through it");
+});
+
+test("the tour page explains desktop and mobile controls and includes the illustrated floor map", async () => {
+  const page = await readFile(new URL("../office-tour/index.html", import.meta.url), "utf8");
+  const floorplan = await readFile(new URL("../office-tour/assets/office-floorplan.svg", import.meta.url), "utf8");
+  for (const phrase of ["3Dツアーの操作方法", "W・A・S・D", "左下のスティック", "右側をスワイプ", "フロアマップ"]) {
+    assert.ok(page.includes(phrase), `missing help text: ${phrase}`);
+  }
+  assert.match(page, /office-floorplan\.svg/);
+  assert.match(floorplan, /Bean &amp; Bits/);
+  assert.match(floorplan, /男性用トイレ/);
+  assert.match(floorplan, /女性用トイレ/);
+  assert.doesNotMatch(page, /拡張エリア|今後追加/);
+  assert.doesNotMatch(floorplan, /拡張エリア|今後追加/);
 });

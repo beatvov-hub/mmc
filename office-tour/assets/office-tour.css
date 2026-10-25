@@ -19,11 +19,14 @@
 .office-tour-controls-card { padding: 23px 24px; border: 1px solid rgba(106,86,64,.18); border-radius: 18px; background: rgba(255,255,255,.72); }
 .office-tour-controls-card h2 { margin: 0 0 13px; color: #294438; font-size: 1.05rem; }
 .office-tour-controls-card > p { margin: 12px 0 0; color: #73675f; font-size: .82rem; line-height: 1.6; }
-.office-tour-controls-list { margin: 0; }
-.office-tour-controls-list > div { display: grid; grid-template-columns: 58px 1fr; gap: 12px; padding: 7px 0; border-top: 1px solid #ece4d8; font-size: .83rem; }
-.office-tour-controls-list dt { color: #a4663f; font-weight: 750; }
-.office-tour-controls-list dd { margin: 0; color: #514940; }
-.office-tour-controls-list__mobile { display: none !important; }
+.office-tour-control-mode { padding: 10px 0 8px; border-top: 1px solid #ece4d8; }
+.office-tour-control-mode h3 { margin: 0 0 7px; color: #355343; font-size: .89rem; }
+.office-tour-control-mode h3 span { display: inline-grid; width: 23px; height: 23px; margin-right: 4px; place-items: center; border-radius: 7px; color: #9a633c; background: #f3e8d8; }
+.office-tour-control-mode ul { margin: 0; padding-left: 1.2rem; color: #514940; font-size: .79rem; line-height: 1.65; }
+.office-tour-control-mode li + li { margin-top: 3px; }
+.office-tour-control-mode li::marker { color: #bc8b5b; }
+.office-tour-control-mode--mobile { margin-top: 5px; }
+.office-tour-controls-note { margin: 10px 0 0; padding-top: 10px; border-top: 1px solid #ece4d8; color: #73675f; font-size: .77rem; line-height: 1.65; }
 .office-tour-experience { margin-top: 36px; }
 .office-tour-toolbar { position: sticky; z-index: 20; top: 94px; display: flex; justify-content: space-between; gap: 14px; align-items: center; margin: 0 0 12px; padding: 10px 12px 10px 18px; border: 1px solid #e0d4c1; border-radius: 15px; background: rgba(255,253,249,.97); box-shadow: 0 8px 24px rgba(48,37,25,.1); }
 .office-tour-toolbar[hidden], .office-tour-stage[hidden], .office-tour-map[hidden], .office-tour-info[hidden], .office-tour-error[hidden] { display: none; }
@@ -58,8 +61,6 @@
 .map-area--market text { font-size: 11px; }
 .map-area--hall rect { fill: #e1d3bf; }
 .map-area .map-hall-label { font-size: 11px; writing-mode: vertical-rl; }
-.map-future rect { fill: rgba(255,255,255,.55); stroke: #bd855b; stroke-width: 1.5; stroke-dasharray: 4 3; }
-.map-future text { fill: #95714e; font-size: 7px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; pointer-events: none; }
 .map-area--entrance rect { fill: #dfe9de; }
 .map-area--toilet rect { fill: #e6edf0; stroke: #708b97; }
 .map-area--toilet text { font-size: 9px; }
@@ -86,6 +87,9 @@
 .office-tour-room-guide__heading h2 { margin: 0; color: #294438; font-size: 1.55rem; }
 .office-tour-room-guide__heading > p { max-width: 440px; margin: 0; color: #83766b; font-size: .85rem; }
 .office-tour-room-guide__grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
+.office-tour-floorplan { margin: 0 0 24px; overflow: hidden; border: 1px solid #e5d7c2; border-radius: 17px; background: #f5eddf; box-shadow: 0 12px 32px rgba(56,42,26,.08); }
+.office-tour-floorplan__art { display: block; width: 100%; height: auto; }
+.office-tour-floorplan figcaption { padding: 13px 19px 16px; border-top: 1px solid #e6dac8; color: #75695f; font-size: .85rem; line-height: 1.65; }
 .office-tour-room-guide__card { min-height: 118px; padding: 15px 16px; border: 1px solid #e9dfd1; border-radius: 13px; color: #4d4339; background: #fcf9f3; text-align: left; cursor: pointer; }
 .office-tour-room-guide__card:hover { border-color: #9bb29e; background: #f3f7f0; }
 .office-tour-room-guide__card strong { display: block; margin-bottom: 6px; color: #31503f; font-size: .98rem; }
@@ -99,7 +103,6 @@
   .office-tour-main { width: min(100% - 30px, 720px); padding-top: 18px; }
   .office-tour-intro { grid-template-columns: 1fr; gap: 23px; padding: 31px 28px; }
   .office-tour-controls-card { max-width: none; }
-  .office-tour-controls-list__mobile { display: grid !important; }
   .office-tour-room-guide__grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .office-tour-stage { height: min(76vh, 750px); min-height: 500px; }
 }

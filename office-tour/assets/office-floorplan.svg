@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 790" role="img" aria-labelledby="title desc">
+  <title id="title">毎日見るコワークス オフィスフロアマップ</title>
+  <desc id="desc">手前のエントランスから中央廊下を通って、開発ルーム、企画ルーム、会議室、最奥のBean &amp; Bits社員ラウンジへ進む間取りです。エントランス右手に男女別トイレがあります。</desc>
+  <defs>
+    <pattern id="floor" width="54" height="54" patternUnits="userSpaceOnUse">
+      <rect width="54" height="54" fill="#e9ddc9"/>
+      <path d="M0 27h54M27 0v27M0 27v27" fill="none" stroke="#ddceb7" stroke-width="1" opacity=".55"/>
+    </pattern>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#57432d" flood-opacity=".13"/>
+    </filter>
+    <style>
+      .room{fill:#f8f3e9;stroke:#b79a79;stroke-width:3}.room-title{fill:#294438;font:700 25px sans-serif}.kicker{fill:#a06d46;font:800 13px sans-serif;letter-spacing:2.3px}.small{fill:#75695f;font:500 14px sans-serif}.lounge{fill:#efe2cd;stroke:#765b42;stroke-width:4}.entry{fill:#e7eddf;stroke:#82927a}.meeting{fill:#f6f0e5;stroke:#bda98c}.work{fill:#edf0e6;stroke:#8c9a82}.counter,.reception{fill:#9a704b;stroke:#765337;stroke-width:2}.item{fill:#fff9ef;font:750 14px sans-serif;letter-spacing:.7px;text-anchor:middle}.market{fill:#f1dfbd;stroke:#b6874e;stroke-width:3}.market-title{fill:#815934;font:800 15px sans-serif;letter-spacing:1px;text-anchor:middle}.market-small{fill:#806b55;font:500 12px sans-serif;text-anchor:middle}.shelf{fill:none;stroke:#b78b59;stroke-width:6;stroke-linecap:round}.table{fill:#bd9b72;stroke:#98734f;stroke-width:2}.chair{fill:#718575;stroke:#526b58;stroke-width:2}.sofa{fill:#84917c;stroke:#5f715d;stroke-width:3}.monitor{fill:#50635a;stroke:#354a40;stroke-width:2}.desk{fill:#bb9166;stroke:#98704c;stroke-width:2}.plant{fill:#8d9e72;stroke:#65754e;stroke-width:3}.restroom{fill:#e4ebeb;stroke:#84999b;stroke-width:2}.restroom-text{fill:#536b70;font:700 11px sans-serif;text-anchor:middle;dominant-baseline:middle}
+    </style>
+  </defs>
+
+  <rect x="22" y="22" width="1156" height="746" rx="30" fill="url(#floor)" stroke="#745640" stroke-width="8"/>
+  <rect x="46" y="46" width="1108" height="698" rx="18" fill="#f5eddf" stroke="#b69772" stroke-width="2"/>
+
+  <!-- Back lounge -->
+  <g filter="url(#shadow)">
+    <rect class="room lounge" x="70" y="68" width="1060" height="210" rx="18"/>
+    <text class="kicker" x="98" y="105">BACK LOUNGE</text>
+    <text x="98" y="144" fill="#294438" font-family="Georgia,serif" font-size="32" font-weight="700">Bean &amp; Bits</text>
+    <text class="small" x="98" y="169">社員ラウンジ</text>
+    <rect class="counter" x="100" y="185" width="255" height="67" rx="12"/>
+    <text class="item" x="227" y="215">COFFEE COUNTER</text><text x="227" y="238" fill="#f6ead9" font-family="sans-serif" font-size="12" text-anchor="middle">コーヒー・休憩スペース</text>
+    <g><ellipse class="table" cx="490" cy="223" rx="53" ry="16"/><circle class="chair" cx="438" cy="199" r="10"/><circle class="chair" cx="542" cy="199" r="10"/><circle class="chair" cx="438" cy="247" r="10"/><circle class="chair" cx="542" cy="247" r="10"/></g>
+    <g><ellipse class="table" cx="670" cy="223" rx="53" ry="16"/><circle class="chair" cx="618" cy="199" r="10"/><circle class="chair" cx="722" cy="199" r="10"/><circle class="chair" cx="618" cy="247" r="10"/><circle class="chair" cx="722" cy="247" r="10"/></g>
+    <rect class="sofa" x="794" y="190" width="94" height="50" rx="17"/><circle class="plant" cx="910" cy="226" r="13"/><text class="small" x="840" y="174" text-anchor="middle">ラウンジ席</text>
+    <rect class="market" x="940" y="95" width="164" height="158" rx="14"/><text class="market-title" x="1022" y="129">MARKET</text><text class="market-small" x="1022" y="151">ラウンジショップ</text><path class="shelf" d="M963 174h118M963 199h118M963 224h118"/>
+    <text class="small" x="840" y="263" text-anchor="middle">ペチの休憩スペース</text>
+  </g>
+
+  <!-- Meeting rooms -->
+  <g>
+    <rect class="room meeting" x="70" y="298" width="440" height="128" rx="16"/><text class="kicker" x="94" y="330">MEETING</text><text class="room-title" x="94" y="365">会議室 A</text>
+    <rect class="table" x="302" y="336" width="156" height="48" rx="9"/><circle class="chair" cx="326" cy="323" r="9"/><circle class="chair" cx="380" cy="323" r="9"/><circle class="chair" cx="434" cy="323" r="9"/><circle class="chair" cx="326" cy="397" r="9"/><circle class="chair" cx="380" cy="397" r="9"/><circle class="chair" cx="434" cy="397" r="9"/>
+    <rect class="room meeting" x="690" y="298" width="440" height="128" rx="16"/><text class="kicker" x="714" y="330">MEETING</text><text class="room-title" x="714" y="365">会議室 B</text>
+    <rect class="table" x="922" y="336" width="156" height="48" rx="9"/><circle class="chair" cx="946" cy="323" r="9"/><circle class="chair" cx="1000" cy="323" r="9"/><circle class="chair" cx="1054" cy="323" r="9"/><circle class="chair" cx="946" cy="397" r="9"/><circle class="chair" cx="1000" cy="397" r="9"/><circle class="chair" cx="1054" cy="397" r="9"/>
+  </g>
+
+  <!-- Work areas -->
+  <g>
+    <rect class="room work" x="70" y="446" width="440" height="178" rx="16"/><text class="kicker" x="94" y="480">DEVELOPMENT</text><text class="room-title" x="94" y="516">開発ルーム</text><text class="small" x="94" y="540">ゲーム・Web・技術開発</text>
+    <g><rect class="desk" x="106" y="578" width="136" height="38" rx="5"/><rect class="monitor" x="153" y="552" width="43" height="26" rx="3"/><path d="M174 578v-5" stroke="#765b42" stroke-width="3"/><rect class="desk" x="274" y="578" width="136" height="38" rx="5"/><rect class="monitor" x="321" y="552" width="43" height="26" rx="3"/><path d="M342 578v-5" stroke="#765b42" stroke-width="3"/></g>
+    <rect class="room work" x="690" y="446" width="440" height="178" rx="16"/><text class="kicker" x="714" y="480">PLANNING</text><text class="room-title" x="714" y="516">企画ルーム</text><text class="small" x="714" y="540">企画・デザイン・運営</text>
+    <g><rect class="desk" x="726" y="578" width="136" height="38" rx="5"/><rect class="monitor" x="773" y="552" width="43" height="26" rx="3"/><path d="M794 578v-5" stroke="#765b42" stroke-width="3"/><rect class="desk" x="894" y="578" width="136" height="38" rx="5"/><rect class="monitor" x="941" y="552" width="43" height="26" rx="3"/><path d="M962 578v-5" stroke="#765b42" stroke-width="3"/></g>
+  </g>
+
+  <!-- Main hallway -->
+  <g>
+    <rect x="526" y="286" width="148" height="354" rx="20" fill="#ead8ba" stroke="#c8ae87" stroke-width="2"/>
+    <text x="602" y="341" fill="#294438" font-family="sans-serif" font-size="18" font-weight="700" text-anchor="middle">中央廊下</text>
+    <path d="M602 590V377m0 0-13 18m13-18 13 18" fill="none" stroke="#ad7c4d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Entrance and restrooms -->
+  <g>
+    <rect class="room entry" x="70" y="644" width="1060" height="82" rx="16"/>
+    <text class="kicker" x="94" y="678">WELCOME</text><text class="room-title" x="94" y="710">エントランス</text>
+    <rect class="sofa" x="344" y="669" width="112" height="38" rx="14"/><text class="small" x="400" y="720" text-anchor="middle">来客スペース</text>
+    <rect class="reception" x="502" y="661" width="184" height="48" rx="10"/><text class="item" x="594" y="692">受付</text>
+    <rect class="restroom" x="884" y="652" width="112" height="31" rx="8"/><text class="restroom-text" x="940" y="668">男性用トイレ</text>
+    <rect class="restroom" x="1006" y="688" width="112" height="31" rx="8"/><text class="restroom-text" x="1062" y="704">女性用トイレ</text>
+  </g>
+  <path d="M594 758v-24m0 0-9 10m9-10 9 10" fill="none" stroke="#ad7c4d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="594" y="783" fill="#8d6846" font-family="sans-serif" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="2">ENTRANCE</text>
+</svg>

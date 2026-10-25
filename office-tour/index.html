@@ -78,15 +78,25 @@
         </div>
       </div>
       <aside class="office-tour-controls-card" aria-labelledby="controls-title">
-        <h2 id="controls-title">操作方法</h2>
-        <dl class="office-tour-controls-list">
-          <div><dt>歩く</dt><dd>WASD または方向キー</dd></div>
-          <div><dt>見る</dt><dd>画面クリック後にマウスを動かす</dd></div>
-          <div><dt>走る</dt><dd>Shift キー</dd></div>
-          <div><dt>解除</dt><dd>Esc キー</dd></div>
-          <div class="office-tour-controls-list__mobile"><dt>スマホ</dt><dd>左のスティックで移動、右側をスワイプして視点操作</dd></div>
-        </dl>
-        <p>マップから行きたいエリアへ移動することもできます。</p>
+        <h2 id="controls-title">3Dツアーの操作方法</h2>
+        <div class="office-tour-control-mode">
+          <h3><span aria-hidden="true">⌨</span> パソコン</h3>
+          <ul>
+            <li><strong>移動</strong>：W・A・S・D または方向キー</li>
+            <li><strong>視点</strong>：3D画面をクリックしてからマウスを動かす</li>
+            <li><strong>案内</strong>：画面の案内マーカーをクリック</li>
+            <li><strong>ダッシュ</strong>：Shift キーを押しながら移動</li>
+          </ul>
+        </div>
+        <div class="office-tour-control-mode office-tour-control-mode--mobile">
+          <h3><span aria-hidden="true">☝</span> スマートフォン・タブレット</h3>
+          <ul>
+            <li><strong>移動</strong>：画面左下のスティックを動かす</li>
+            <li><strong>視点</strong>：画面右側をスワイプ</li>
+            <li><strong>案内</strong>：案内マーカーをタップ</li>
+          </ul>
+        </div>
+        <p class="office-tour-controls-note">上部の「フロアマップ」から部屋を選ぶと、そのエリアの案内を読んだり、現地へ移動したりできます。パソコンで視点操作を終えるときは Esc キーを押してください。</p>
       </aside>
     </section>
 
@@ -112,7 +122,7 @@
         </div>
         <div class="office-tour-map" id="tour-map" hidden>
           <div class="office-tour-map__header"><div><p class="office-tour-kicker">FLOOR MAP</p><h2>フロアマップ</h2></div><button type="button" class="office-tour-map__close" id="map-close" aria-label="フロアマップを閉じる">×</button></div>
-          <p class="office-tour-map__hint">部屋を選ぶと説明が開き、そこへ移動できます。破線区画は未設置の将来スペースです。</p>
+          <p class="office-tour-map__hint">部屋を選ぶと説明が開き、そこへ移動できます。</p>
           <svg class="office-tour-map__diagram" viewBox="0 0 420 570" role="group" aria-label="オフィス各エリアのマップ">
             <rect class="map-outline" x="14" y="14" width="392" height="542" rx="14" />
             <g class="map-area" data-map-area="lounge" role="button" tabindex="0" aria-label="社員ラウンジ Bean and Bits"><rect x="28" y="28" width="364" height="128" rx="8"/><text x="210" y="84">Bean &amp; Bits</text><text class="map-small" x="210" y="112">社員ラウンジ</text></g>
@@ -120,8 +130,6 @@
             <g class="map-area" data-map-area="meeting-a" role="button" tabindex="0" aria-label="会議室A"><rect x="28" y="174" width="146" height="116" rx="8"/><text x="101" y="238">会議室 A</text></g>
             <g class="map-area" data-map-area="meeting-b" role="button" tabindex="0" aria-label="会議室B"><rect x="246" y="174" width="146" height="116" rx="8"/><text x="319" y="238">会議室 B</text></g>
             <g class="map-area map-area--hall" data-map-area="hallway" role="button" tabindex="0" aria-label="中央廊下"><rect x="177" y="166" width="62" height="312" rx="8"/><text class="map-hall-label" x="208" y="323">中央廊下</text></g>
-            <g class="map-future"><rect x="184" y="211" width="48" height="58" rx="5"/><text x="208" y="235">福利厚生</text><text x="208" y="252">今後追加</text></g>
-            <g class="map-future"><rect x="184" y="345" width="48" height="58" rx="5"/><text x="208" y="369">拡張エリア</text><text x="208" y="386">今後追加</text></g>
             <g class="map-area" data-map-area="development" role="button" tabindex="0" aria-label="開発系ルーム"><rect x="28" y="306" width="146" height="148" rx="8"/><text x="101" y="380">開発系</text><text class="map-small" x="101" y="406">ゲーム・技術</text></g>
             <g class="map-area" data-map-area="planning" role="button" tabindex="0" aria-label="企画系ルーム"><rect x="246" y="306" width="146" height="148" rx="8"/><text x="319" y="380">企画系</text><text class="map-small" x="319" y="406">企画・デザイン</text></g>
             <g class="map-area map-area--entrance" data-map-area="entrance" role="button" tabindex="0" aria-label="エントランス"><rect x="112" y="484" width="196" height="58" rx="8"/><text x="210" y="519">エントランス</text></g>
@@ -146,6 +154,10 @@
       <div class="office-tour-error" id="tour-error" role="status" hidden></div>
       <div class="office-tour-room-guide" id="fallback-guide" aria-labelledby="fallback-guide-title">
         <div class="office-tour-room-guide__heading"><div><p class="office-tour-kicker">EXPLORE THE OFFICE</p><h2 id="fallback-guide-title">オフィスのエリア</h2></div><p>3D表示が使えない場合も、各部屋の案内はこちらから読めます。</p></div>
+        <figure class="office-tour-floorplan">
+          <img class="office-tour-floorplan__art" src="assets/office-floorplan.svg" alt="エントランスを手前に置き、左右に開発ルームと企画ルーム、その奥に会議室、最奥にBean &amp; Bitsを配置したオフィスのフロアマップ。エントランス右手に男女別トイレがあります。" width="1200" height="790" loading="lazy" />
+          <figcaption>手前のエントランスから中央廊下を進むと、左右の執務室と会議室、その先に社員ラウンジが広がります。</figcaption>
+        </figure>
         <div class="office-tour-room-guide__grid" id="fallback-rooms"></div>
       </div>
     </section>
