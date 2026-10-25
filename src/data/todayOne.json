@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25T07:30:00+09:00",
+  "updatedAt": "2026-10-26T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2535,6 +2535,64 @@
         {
           "label": "Tesseract公式言語データ一覧：jpnは日本語",
           "url": "https://tesseract-ocr.github.io/tessdoc/Data-Files"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "slug": "libreoffice-calc-csv-keep-leading-zeros",
+      "useCategory": "文書・データ整理",
+      "name": "LibreOffice Calc",
+      "category": "CSVインポート・表計算",
+      "officialUrl": "https://www.libreoffice.org/download/",
+      "summary": "LibreOffice Calcなら、CSVの取り込み時に番号列を「テキスト」に指定し、先頭の0を保った表として読み込めます。",
+      "whyToday": "社員番号や商品コードは計算する数値ではなく、照合に使う文字列です。CalcはCSVの取込プレビューで列ごとに型を選べるため、表全体の設定を変えずに、必要な番号列だけ先頭の0を残せます。",
+      "useFor": "例えば、先頭が0の番号を含む名簿CSVを照合する想定例です。配布元CSVの複製をCalcで開き、取込設定の編集を有効にしてプレビューを表示します。番号列を選んで列の型を「テキスト」にし、文字コードと列の区切りも確認して読み込みます。少数行で0付き番号と列の並びを元データと照合し、確認用の表はODS形式で保存します。",
+      "recommendedFor": {
+        "employeeId": "MMC-001",
+        "reason": "総務担当のほのちゃんに、個人情報を含まない見本CSVで番号列の取込設定を整理してもらい、先頭ゼロと列分割の確認項目を含む受入手順を受け取りたいです。"
+      },
+      "keiComment": "番号を計算値ではなく文字列として扱う、という基準が伝わると受け入れ後の照合作業が安定します。CSVで保存し直すと書式などが落ちるので、確認用の表はODSで残す運用を案内したいですね。",
+      "verifiedAt": "2026-10-26",
+      "status": "published",
+      "pricing": "LibreOffice Calcは無償でダウンロードでき、公式FAQでは企業利用でもライセンス料は不要と案内されています。",
+      "conditions": "CalcはLibreOfficeデスクトップスイートに含まれます。公式サイトからソフトを入手して利用します。取込設定を試す際は、まず個人情報のないCSV複製を使ってください。",
+      "license": "Mozilla Public License 2.0（MPL-2.0）およびGNU Lesser General Public License v3以降（LGPL-3.0+）を含むオープンソースライセンス。",
+      "notes": "公式のCalcヘルプ、LibreOfficeの料金案内とライセンス情報を2026-10-26に確認しました。活用例は想定例で、実機検証は行っていません。",
+      "archiveTitle": "LibreOffice CalcでCSVの先頭ゼロを保てる？番号を文字列で取り込む方法",
+      "archiveDescription": "社員番号など先頭の0を保ってCSVを開きたい人向けに、LibreOffice Calcの取込プレビューで列をテキストにする方法、文字コードの確認、保存時の注意点を紹介します。",
+      "forWho": "CSVで受け取った社員番号や商品コードなど、先頭の0が欠けると照合できないデータを表で確認したい総務・営業事務担当者向けです。",
+      "cautions": "配布元のCSVは複製して作業してください。CSVで保存し直すと、現在のシートのデータだけが書き出され、書式や数式などは失われます。確認用の表はODS形式で保存すると扱いやすくなります。",
+      "faq": [
+        {
+          "question": "CSVの日本語が文字化けするときはどうしますか？",
+          "answer": "取込画面には文字コードを選ぶ項目があります。配布元のCSVで使われている文字コードが分かる場合は、それに合わせてからプレビューで日本語を確認してください。"
+        },
+        {
+          "question": "先頭ゼロを残した表をCSVで保存できますか？",
+          "answer": "CSVへ書き出す場合、保存されるのは現在のシートのデータだけで、書式や数式などは失われます。確認用の表はODS形式で保存し、CSVが必要な場合は出力内容を別途確認してください。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "LibreOffice Calc公式ヘルプ：Text Importと列型・先頭ゼロの保持",
+          "url": "https://help.libreoffice.org/latest/en-US/text/shared/00/00000208.html"
+        },
+        {
+          "label": "LibreOffice Calc公式ヘルプ：CSVの取込・保存と書き出し時の注意",
+          "url": "https://help.libreoffice.org/latest/en-US/text/scalc/guide/csv_files.html"
+        },
+        {
+          "label": "LibreOffice公式FAQ：企業利用のライセンス料",
+          "url": "https://www.libreoffice.org/faq/"
+        },
+        {
+          "label": "LibreOffice公式ダウンロード",
+          "url": "https://www.libreoffice.org/download/"
+        },
+        {
+          "label": "LibreOffice公式ライセンス案内",
+          "url": "https://www.libreoffice.org/about-us/licenses/"
         }
       ]
     }
