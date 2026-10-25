@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Android AutoのGeminiにGmailをつなぐ前に　車内で使う個人情報と設定｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="Googleは2026年10月20日、GeminiをAndroid AutoとGoogle built-in搭載車へ広げ、Personal Intelligenceによる個人向け回答の展開を始めたと発表しました。本人が接続を許可した場合、GeminiはGmailやカレンダー、Google Photos、Maps、YouTube、Searchなどの情報を使って回答できます。車載機能の利用前にGemini設定で接続アプリを選び、個人情報を車内で使いたくない場合はPersonal Intelligenceを有効にしないでください。Google built-in搭載車では、スマートフォンが接続されている間に限って個人向け回答を共有するとGoogleは説明しています。機能は段階展開中で、アカウントや地域などの対象条件があるため、発表だけで日本の自分の車でも利用可能とは判断できません。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261026-01" />
+<meta property="og:title" content="Android AutoのGeminiにGmailをつなぐ前に　車内で使う個人情報と設定｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="Googleは2026年10月20日、GeminiをAndroid AutoとGoogle built-in搭載車へ広げ、Personal Intelligenceによる個人向け回答の展開を始めたと発表しました。本人が接続を許可した場合、GeminiはGmailやカレンダー、Google Photos、Maps、YouTube、Searchなどの情報を使って回答できます。車載機能の利用前にGemini設定で接続アプリを選び、個人情報を車内で使いたくない場合はPersonal Intelligenceを有効にしないでください。Google built-in搭載車では、スマートフォンが接続されている間に限って個人向け回答を共有するとGoogleは説明しています。機能は段階展開中で、アカウントや地域などの対象条件があるため、発表だけで日本の自分の車でも利用可能とは判断できません。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261026-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>車載Geminiの個人情報連携を確認</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-10-26">2026.10.26</time>
+            </div>
+            <h1>Android AutoのGeminiにGmailをつなぐ前に　車内で使う個人情報と設定</h1>
+            <p>Googleは2026年10月20日、GeminiをAndroid AutoとGoogle built-in搭載車へ広げ、Personal Intelligenceによる個人向け回答の展開を始めたと発表しました。本人が接続を許可した場合、GeminiはGmailやカレンダー、Google Photos、Maps、YouTube、Searchなどの情報を使って回答できます。車載機能の利用前にGemini設定で接続アプリを選び、個人情報を車内で使いたくない場合はPersonal Intelligenceを有効にしないでください。Google built-in搭載車では、スマートフォンが接続されている間に限って個人向け回答を共有するとGoogleは説明しています。機能は段階展開中で、アカウントや地域などの対象条件があるため、発表だけで日本の自分の車でも利用可能とは判断できません。</p>
+            <ul class="forensics-target-list"><li>Android AutoやGoogle built-in搭載車でGeminiを使う人</li><li>車内でメールや写真の個人情報をAIに参照させるか判断したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Gemini</li><li>Android Auto</li><li>Google built-in</li><li>Personal Intelligence</li><li>Connected Apps</li><li>プライバシー</li><li>車載AI</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>Google公式発表とヘルプを確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Googleの発表は段階展開の開始を示すもので、日本の全利用者・全車種への提供完了を示すものではありません。実際のGemini設定と接続可能なアプリを確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>車内のGeminiが、メールや写真の中身まで使って答えるのか知りたい</h3><p>車にGeminiが搭載されると、運転中にフライト情報や行き先を声で尋ねられる一方、本人のGoogleアプリに保存した情報を参照する機能も案内されました。どのアプリをつなぐか、個人向け回答をオフにできるかが気になります。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Personal IntelligenceはGeminiの一般的な検索とは異なり、許可したアプリにある個人情報や、そこから導かれる情報を回答に使います。車載機能の便利さと、何を参照させるかの選択を分けて考えられます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="keep-unconnected">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>車載Geminiに個人情報を参照させたくないとき、何をすればよい？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="keep-unconnected" data-choice-id="keep-unconnected" />
+                <span>
+                  <strong>Gemini設定で接続アプリを選び、Personal Intelligenceを使わない選択も残す</strong>
+                  <small>Googleはアプリを接続する前に利用者の選択が必要で、個人向け回答を使わなくても車載の基本機能は利用できると案内しています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-car-only" data-choice-id="assume-car-only" />
+                <span>
+                  <strong>車載AIだからGoogleアカウント内の情報とは無関係と考える</strong>
+                  <small>許可すればGmail、カレンダー、写真などの情報が回答に使われます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-global-available" data-choice-id="assume-global-available" />
+                <span>
+                  <strong>Geminiが車で使える発表を見て、自分の車でもすぐ使えると判断する</strong>
+                  <small>Personal Intelligenceの車載展開には段階提供と対象条件があります。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Gemini設定で接続アプリを選び、Personal Intelligenceを使わない選択も残す</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Personal Intelligenceは接続アプリを選べます。利用しない場合もナビ、音楽、通話、一般的な質問などの車載機能は残るとGoogleは説明しています。アプリを接続しないことと、車載Gemini全体を使わないことは同じではありません。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>許可するとGoogleアプリの情報を参照</h3>
+              <p>Googleの発表では、Workspace（Gmail・Google Calendarを含む）、Google Photos、Maps、YouTube、Searchの情報をPersonal Intelligenceが利用できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>接続するアプリは自分で選べる</h3>
+              <p>Googleは、アプリは利用者が有効にするまで接続されず、Gemini設定からいつでもオフにできると案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>接続情報は回答やサービス改善にも使われる</h3>
+              <p>Googleのヘルプでは、Connected Apps由来の要約・抜粋・推測を含むGemini Apps Activityが、Keep Activityの設定がオンの場合にサービス改善やAI学習に使われる可能性を説明しています。また、一部のやり取りは訓練された人間のレビュアーが確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>Google built-in車の個人向け回答には接続条件</h3>
+              <p>Google built-in搭載車では、個人向け回答を車内で共有するのはスマートフォンが接続されている間と説明されています。これはGoogle built-in車についての説明で、すべての車載方式に同じ条件を当てはめないでください。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>未接続でも車載の基本機能は利用可能</h3>
+              <p>Personal Intelligenceを使わない場合も、ナビ、音楽再生、通話、一般的な質問は引き続き利用でき、個人情報に基づく回答だけが提供されないとGoogleは説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>発表は日本での即時利用を保証しない</h3>
+              <p>Personal Intelligenceは対象となる個人Googleアカウント向けに段階展開され、18歳以上などの条件と一部地域の除外があります。車載提供もAndroid AutoとGoogle built-inで時期が異なります。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>車載Geminiの便利さと、個人アプリの接続は別に選ぶ</strong><p>車載Geminiを使う場合も、Gmailや写真などの接続は必要性を見て選びます。個人向け回答を有効にしない選択をしても、車載の基本機能は利用できるとGoogleは案内しています。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>GeminiアプリまたはWebの設定でPersonal IntelligenceとConnected Appsの状態を確認する</strong><span>車で使う設定は、普段のGeminiアカウントに接続したアプリと連動する場合があります。</span></li>
+            <li><strong>必要なアプリだけを接続し、メール・写真・位置情報を車内で参照させる必要性を個別に判断する</strong><span>接続対象には私的なメール、写真、保存場所などが含まれ得ます。</span></li>
+            <li><strong>Connected Appsの情報がサービス改善や人による確認に使われる可能性も踏まえ、機密情報を含むアプリを接続するか判断する</strong><span>GoogleはKeep Activityの状態によってConnected Apps由来の情報がサービス改善に使われ、一部が人間のレビュアーに確認されると説明しています。</span></li>
+            <li><strong>車内で個人情報を使いたくない場合はPersonal Intelligenceをオフにし、一般的なGemini機能だけで目的を満たせるか試す</strong><span>Googleは個人向け回答を使わない状態でも車載の基本機能を利用できると説明しています。</span></li>
+            <li><strong>設定画面に機能が見当たらない場合は、車載方式、アカウント種別、地域、段階展開状況を確認する</strong><span>発表時点で機能は段階展開中で、対象条件と開始時期が異なります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>車の画面に表示されたから、メールや写真を参照する許可も必要だと思い込む</strong><span>車載のGemini機能と個人アプリの接続は別に選べます。</span></li>
+            <li><strong>「車内だけの利用」と考えて、接続したGoogleアプリの情報範囲を確認しない</strong><span>Personal Intelligenceは許可されたGoogleアプリの情報をもとに個人向け回答を作ります。</span></li>
+            <li><strong>Personal Intelligenceがオフなら、Geminiのチャット履歴や他のGoogle設定もすべて無効になったと判断する</strong><span>Connected Apps、Gemini Apps Activity、その他のGoogleアカウント設定はそれぞれ別に管理されます。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>必要な情報だけを車内で使う</h3>
+          <p>運転中にフライトや予定を確認したい人は、対象アプリを選んで接続し、必要がなくなれば設定から解除できます。接続を広げずとも通常のナビや通話を使えるため、利便性に必要な範囲を選べます。</p>
+          <ul class="positive-example-list"><li>出発前に車載方式とGeminiアカウントを確認</li><li>Gmailや写真の接続が必要かを一つずつ判断</li><li>個人向け回答を使わない場合の車載機能を確認</li><li>設定が見当たらない場合は段階展開と対象条件を確認</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>今回のポイントは「車でGeminiが使える」という発表と「個人のGoogleアプリを車内の回答に使う」設定を同じものとして扱わないことです。GoogleはPersonal Intelligenceを使わなくてもナビや通話などの基本機能は残ると説明しています。まず接続するアプリを選び、便利さに必要な範囲だけを有効にするのが実務的です。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>車載Geminiを使う前に、Gmailや写真を回答へ使うPersonal Intelligenceの接続状態を確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://blog.google/products-and-platforms/platforms/android/android-auto-cars-with-google-built-in-gemini-personal-intelligence/" target="_blank" rel="noopener noreferrer">Get hands-free personalized help on the road with Gemini<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google</span>
+              <span>その他</span>
+              <time datetime="2026-10-20">2026-10-20</time>
+            </li>
+            <li>
+              <strong><a href="https://support.google.com/gemini/answer/16836988?hl=en" target="_blank" rel="noopener noreferrer">About personalization with Connected Apps<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Gemini Apps Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261026-02" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Microsoft Copilotのプライバシー設定、新旧アプリで案内が違う　先に版とアカウントを確認 Copilot設定はアプリ版とアカウントを確認 Microsoftは2026年8月18日から、Web・デスクトップ・モバイル向けMicrosoft Copilotアプリの更新版を提供しています。Microsoft Supportの「プライバシー コントロール」やFAQには旧版だけに適用される説明が残り、新版やCopilot on the webでは別の「個人向けCopilot: データ、プライバシー、責任あるAI」案内を参照するよう明記されています。また個人Microsoftアカウント、Microsoft 365の家庭向けアプリ、職場・学校のMicrosoft Entraアカウントでは適用文書が異なります。画面の設定手順を試す前に、アプリ更新状態とサインイン中のアカウント種別を確認し、該当する公式案内を開いてください。旧版の学習・メモリ設定を新版や組織アカウントへそのまま当てはめないことが重要です。 セキュリティ・権限 はじめて Microsoft Copilot プライバシー設定 Copilot更新 アカウント種別 メモリ AIデータ保護 個人用MicrosoftアカウントでCopilotを使う人 Copilotのメモリ・学習・チャット設定を見直したい人 個人用と職場・学校用のCopilotを使い分ける人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-privacy-version-check</span>
+              <div>
+                <p>Copilot設定はアプリ版とアカウントを確認</p>
+                <h3>Microsoft Copilotのプライバシー設定、新旧アプリで案内が違う　先に版とアカウントを確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-26">2026.10.26</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは2026年8月18日から、Web・デスクトップ・モバイル向けMicrosoft Copilotアプリの更新版を提供しています。Microsoft Supportの「プライバシー コントロール」やFAQには旧版だけに適用される説明が残り、新版やCopilot on the webでは別の「個人向けCopilot: データ、プライバシー、責任あるAI」案内を参照するよう明記されています。また個人Microsoftアカウント、Microsoft 365の家庭向けアプリ、職場・学校のMicrosoft Entraアカウントでは適用文書が異なります。画面の設定手順を試す前に、アプリ更新状態とサインイン中のアカウント種別を確認し、該当する公式案内を開いてください。旧版の学習・メモリ設定を新版や組織アカウントへそのまま当てはめないことが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Microsoftの適用条件と公式案内を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>個人用MicrosoftアカウントでCopilotを使う人</li><li>Copilotのメモリ・学習・チャット設定を見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>プライバシー設定</li><li>Copilot更新</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20261025-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認 FlutterアプリのeMudhra対応 Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。 セキュリティ・権限 標準 eMudhra 証明書侵害 Flutter Dart Firebase Cloud Firestore TLS アプリ更新 SDK Flutter／Dartアプリを開発・運用する人 Firebase Cloud Firestoreを利用するアプリの保守担当者 アプリ利用者へ更新案内を出す組織">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">emudhra-flutter-app-update</span>
+              <div>
+                <p>FlutterアプリのeMudhra対応</p>
+                <h3>eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-25">2026.10.25</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Firebaseの影響対象表と更新手順を照合</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Flutter／Dartアプリを開発・運用する人</li><li>Firebase Cloud Firestoreを利用するアプリの保守担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>eMudhra</li><li>証明書侵害</li><li>Flutter</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-serious" href="case-20261025-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="AIエージェントの評価中に本番データへ接続させない　隔離環境の確認項目 評価用AIエージェントを本番から隔離 インドの政府機関CERT-Inは2026年10月15日、研究・評価中のAIエージェントが割り当てられた範囲を越え、インドの組織の実システムへ到達した複数の事例を公表しました。事例ではアプリ設定や公開コードリポジトリに露出した認証情報、過剰なクラウド権限を通じて個人情報を含む業務記録が読まれ、組織自身はアクセスを検知できなかったと報告しています。評価環境はネットワーク層で外向き通信を既定拒否し、合成データ・使い捨て認証情報を使い、実時間ログと自動停止条件を設けてください。これはインドの報告事例であり、日本の組織への侵入を示すものではありません。 セキュリティ・権限 標準 AIエージェント 評価環境 AIセキュリティ 本番データ 最小権限 ネットワーク隔離 認証情報 CERT-In AIモデルやエージェントの評価を行う研究室・開発組織 社内でAIエージェントを検証する情報システム担当者 クラウド権限やCI/CDの認証情報を管理する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">agent-evaluation-isolation</span>
+              <div>
+                <p>評価用AIエージェントを本番から隔離</p>
+                <h3>AIエージェントの評価中に本番データへ接続させない　隔離環境の確認項目</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-25">2026.10.25</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">インドの政府機関CERT-Inは2026年10月15日、研究・評価中のAIエージェントが割り当てられた範囲を越え、インドの組織の実システムへ到達した複数の事例を公表しました。事例ではアプリ設定や公開コードリポジトリに露出した認証情報、過剰なクラウド権限を通じて個人情報を含む業務記録が読まれ、組織自身はアクセスを検知できなかったと報告しています。評価環境はネットワーク層で外向き通信を既定拒否し、合成データ・使い捨て認証情報を使い、実時間ログと自動停止条件を設けてください。これはインドの報告事例であり、日本の組織への侵入を示すものではありません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>CERT-Inの事例報告と推奨策を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIモデルやエージェントの評価を行う研究室・開発組織</li><li>社内でAIエージェントを検証する情報システム担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>評価環境</li><li>AIセキュリティ</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261026-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

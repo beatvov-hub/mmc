@@ -1,0 +1,69 @@
+{
+  "id": "case-20261026-02",
+  "publishedAt": "2026-10-26",
+  "title": "Microsoft Copilotのプライバシー設定、新旧アプリで案内が違う　先に版とアカウントを確認",
+  "shortTitle": "Copilot設定はアプリ版とアカウントを確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "個人用MicrosoftアカウントでCopilotを使う人",
+    "Copilotのメモリ・学習・チャット設定を見直したい人",
+    "個人用と職場・学校用のCopilotを使い分ける人"
+  ],
+  "summary": "Microsoftは2026年8月18日から、Web・デスクトップ・モバイル向けMicrosoft Copilotアプリの更新版を提供しています。Microsoft Supportの「プライバシー コントロール」やFAQには旧版だけに適用される説明が残り、新版やCopilot on the webでは別の「個人向けCopilot: データ、プライバシー、責任あるAI」案内を参照するよう明記されています。また個人Microsoftアカウント、Microsoft 365の家庭向けアプリ、職場・学校のMicrosoft Entraアカウントでは適用文書が異なります。画面の設定手順を試す前に、アプリ更新状態とサインイン中のアカウント種別を確認し、該当する公式案内を開いてください。旧版の学習・メモリ設定を新版や組織アカウントへそのまま当てはめないことが重要です。",
+  "scenario": {
+    "headline": "Copilotのプライバシー設定を探したが、画面とヘルプの手順が一致しない",
+    "description": "Copilotの設定を見直そうとして、検索結果の手順と自分のアプリの画面が違うことに気づきました。個人アカウントか職場アカウントか、新版か旧版かも分からず、学習利用やメモリ設定を切り替えてよいか迷います。",
+    "whyItMatters": "Microsoftの公式案内は、2026年8月18日以降の更新版と旧版で適用ページを分けています。製品名が同じでも、画面手順やデータ保護の説明を別のアカウント種別に流用すると、設定を変えたつもりで目的の制御ができていない可能性があります。"
+  },
+  "question": {
+    "text": "Copilotのプライバシー設定手順が画面に見つからないとき、最初に何を確認する？",
+    "choices": [
+      {"id": "identify-version-account", "label": "更新版か旧版か、個人・家庭用・職場学校用のどのアカウントかを先に確認する", "description": "Microsoftはアプリ版とアカウントの用途ごとに適用するプライバシー案内を分けています。"},
+      {"id": "reuse-old-steps", "label": "旧版のプライバシーFAQにある設定手順を、そのまま新しいアプリで探す", "description": "Microsoft自身が旧版の説明は更新版には適用されないと案内しています。"},
+      {"id": "assume-work-account", "label": "Copilotアプリを開いているので、職場アカウントのデータ保護が適用されると考える", "description": "アプリ名だけでは個人アカウントとEntra組織アカウントを区別できません。"}
+    ],
+    "recommendedAnswers": ["identify-version-account"],
+    "explanation": "Microsoft Supportは更新版を2026年8月18日から提供とし、旧版のプライバシー設定FAQは旧版に限ると明記しています。さらに職場・学校用Entraアカウント、家庭向けMicrosoft 365アプリ、個人向けCopilotでは参照先が異なります。"
+  },
+  "inspectionPoints": [
+    {"title": "更新版は2026年8月18日から提供", "description": "Microsoft SupportはWeb、デスクトップ、モバイル向けCopilotアプリの更新版を2026年8月18日から利用可能と記載しています。", "priority": "high"},
+    {"title": "旧版向けの設定FAQが残っている", "description": "旧版の「プライバシー コントロール」と「Privacy FAQ」は、更新版またはWeb版には適用されないとページ冒頭で注意しています。", "priority": "high"},
+    {"title": "個人・家庭向けMicrosoft 365・組織アカウントは別の案内", "description": "個人MicrosoftアカウントでCopilotアプリを使う場合と、家庭向けMicrosoft 365アプリ、職場・学校のMicrosoft Entraアカウントでは適用される説明が異なります。", "priority": "high"},
+    {"title": "旧版では複数のプライバシー制御が独立", "description": "旧版の説明では、モデル学習からの除外を選んでもパーソナライズは維持でき、広告の個人設定はさらに別です。旧版限定の説明として扱い、新版にも同じ画面や挙動があるとは断定しません。", "priority": "medium"},
+    {"title": "新しいCopilotは機能も拡大", "description": "Microsoftは2026年9月25日、Home、Code、Autopilotを含む新しいCopilotを発表しました。プランによって利用できる機能は異なります。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "Microsoftの適用条件と公式案内を確認",
+  "verificationMessage": "旧版向けプライバシーFAQの内容を新版へ一般化していません。設定の具体的な場所や挙動は、現在のアプリとアカウントに対応したMicrosoftの案内を確認してください。",
+  "verdict": {
+    "label": "設定操作の前にCopilotの版とアカウント種別を特定する",
+    "description": "同じCopilotという名前でも、アプリ更新版、個人用、Microsoft 365家庭向け、職場・学校向けで適用されるプライバシー説明が分かれています。画面の違いは設定ミスと決めつけず、公式ページの適用範囲を見ます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "Microsoft Copilotのプロフィールやアカウント欄で、個人Microsoftアカウントか職場・学校アカウントかを確認する", "reason": "職場・学校のEntraアカウントは個人向けプライバシー案内の対象外です。"},
+    {"action": "アプリの更新状態を確認し、2026年8月18日以降の更新版か旧版かを切り分ける", "reason": "Microsoftは旧版FAQを新版に適用しないよう明記しています。"},
+    {"action": "該当アカウントに対応するMicrosoft公式ページを開いてから、メモリ・学習・広告の設定を操作する", "reason": "複数の設定は目的と適用範囲が異なります。"},
+    {"action": "組織アカウントでデータ取扱いを確認するときは、Microsoft 365管理者または組織向けデータ保護文書を参照する", "reason": "個人アプリの説明を組織管理下のCopilotへ流用しないためです。"}
+  ],
+  "avoidActions": [
+    {"action": "検索で見つけた旧版Copilotの設定手順を、新版で同じ効果があると見なす", "reason": "Microsoft自身が旧版ページの適用対象を限定しています。"},
+    {"action": "モデル学習の設定をオフにすれば、履歴・メモリ・広告・製品改善もすべて止まると考える", "reason": "旧版の公式説明でも、各制御は別目的とされています。"},
+    {"action": "Copilotという名称だけで、個人向けと職場・学校向けのデータ保護を同一視する", "reason": "アカウントとサービスの区分により適用される文書が異なります。"}
+  ],
+  "positiveUse": {
+    "title": "画面が違うときに、誤った設定を探し続けない",
+    "description": "Copilotの設定を変更する前に版とアカウントの組み合わせを確認すれば、古い手順を探し回らず、目的に合う公式説明へ進めます。",
+    "examples": ["サインイン中のMicrosoftアカウント種別を確認", "アプリの更新状態を確認", "旧版FAQの適用範囲を読む", "組織利用は管理者向け文書で確認"]
+  },
+  "makotoComment": "この件は「Copilotの設定がどこか」という操作案内より、まずどのCopilotについての説明かを見分ける話です。Microsoftのサポートページ自体が更新版と旧版を分け、個人・家庭向け・組織向けで参照先を案内しています。設定画面が見つからないときは、記事の手順を無理に再現せず、ページ冒頭の適用条件へ戻るのが確実です。",
+  "oneLineLesson": "Copilotのプライバシー設定は、アプリの版とサインイン中のアカウントに合う公式案内で確認する。",
+  "tags": ["Microsoft Copilot", "プライバシー設定", "Copilot更新", "アカウント種別", "メモリ", "AIデータ保護"],
+  "sources": [
+    {"title": "Microsoft Copilot for individuals: your data, privacy, and responsible AI", "publisher": "Microsoft Support", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.microsoft.com/en-us/privacy/microsoft-copilot/overview"},
+    {"title": "Microsoft Copilot privacy controls", "publisher": "Microsoft Support", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-privacy-controls"},
+    {"title": "Introducing the new Copilot with Home, Code and Autopilot", "publisher": "The Official Microsoft Blog", "sourceType": "official-product-update", "publishedAt": "2026-09-25", "url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"}
+  ],
+  "visualSuggestion": {"mainVisual": "Copilotの画面と公式ヘルプを並べ、アプリ版・個人アカウント・組織アカウントの確認分岐を示す図", "cardIcon": "copilot-privacy-version-check", "accentTone": "calm"}
+}

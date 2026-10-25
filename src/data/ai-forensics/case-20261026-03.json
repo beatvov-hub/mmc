@@ -1,0 +1,70 @@
+{
+  "id": "case-20261026-03",
+  "publishedAt": "2026-10-26",
+  "title": "ChatGPT Recordで会議を録音する前に　音声・文字起こし・メモの保存先を確認",
+  "shortTitle": "ChatGPT Recordの保存と同意を確認",
+  "category": "work-use",
+  "difficulty": "standard",
+  "targetAudience": [
+    "ChatGPT Recordで会議やインタビューを記録する人",
+    "音声の保存期間とAI学習への利用を確認したい人",
+    "会議録音を組織の保持ポリシーに合わせたい管理者"
+  ],
+  "summary": "OpenAIのChatGPT Record公式ヘルプによると、Recordは会話を文字起こししてメモを作り、音声ファイルは文字起こし後に自動削除します。一方、生成された文字起こしとキャンバスは会話の保持設定に従って保存され、会話を削除すると通常30日以内にシステムから削除されます（法的保持等の例外あり）。個人向けFree・Plus・Proでは「すべての人のためにモデルを改善する」が有効なら文字起こしやキャンバスが学習に使われることがあり、Business・Enterprise・Eduは既定で学習対象外です。他人を録音する前には適用法令と必要な同意を確認してください。録音の音声が消えることと、会議の文字起こし・要約が消えることは同じではありません。",
+  "scenario": {
+    "headline": "会議メモを作りたいが、音声と文字起こしがどこまで残るか分からない",
+    "description": "ChatGPT Recordを使えば、会議を録音して要約や議事録の下書きを作れます。ただ、録音データが削除されても、会話内容や生成されたメモが履歴に残るのか、学習に使われるのかが気になります。",
+    "whyItMatters": "Recordでは、音声ファイル、文字起こし、キャンバスの扱いが異なります。会議参加者への説明・同意、組織の保存方針、個人アカウントの学習設定を録音開始前に分けて確認できます。"
+  },
+  "question": {
+    "text": "ChatGPT Recordで録音した会議の記録を消したいとき、何を削除する？",
+    "choices": [
+      {"id": "delete-chat-content", "label": "音声だけでなく、文字起こしとキャンバスが保存された会話も確認して削除する", "description": "音声ファイルは文字起こし後に自動削除されますが、文字起こしとメモには会話の保持設定が適用されます。"},
+      {"id": "assume-audio-delete-all", "label": "音声ファイルが自動削除されるので、文字起こしや要約も残らないと考える", "description": "音声と生成された記録は別のデータとして扱われます。"},
+      {"id": "delete-only-canvas", "label": "会話を残したままキャンバスだけを消せば、全ての録音情報が消えると考える", "description": "公式案内では関連する文字起こし・会話の保存先も確認する必要があります。"}
+    ],
+    "recommendedAnswers": ["delete-chat-content"],
+    "explanation": "OpenAIは、音声ファイルは文字起こしの後に自動削除される一方、Recordで生成されたキャンバスと関連文字起こしにはワークスペースの保持設定が適用されると説明しています。会話を削除した場合も、システムから削除されるまで通常最大30日かかります。"
+  },
+  "inspectionPoints": [
+    {"title": "音声と文字起こしは保存の扱いが異なる", "description": "Recordの音声ファイルは文字起こし後に自動削除されます。文字起こしとキャンバスは会話・ワークスペースの保持ルールに従います。", "priority": "high"},
+    {"title": "個人プランは学習設定を確認", "description": "Free、Plus、Proで「すべての人のためにモデルを改善する」が有効な場合、Recordの文字起こしとキャンバスがモデル改善に使われることがあります。", "priority": "high"},
+    {"title": "Business・Enterprise・Eduは既定で学習対象外", "description": "OpenAIはBusiness、Enterprise、EduワークスペースのRecord文字起こしとキャンバスを、既定でモデル学習対象から除外すると説明しています。", "priority": "medium"},
+    {"title": "会話削除後もシステム削除まで時間がかかる", "description": "会話削除後、文字起こしとキャンバスは法的保持等の例外を除き30日以内にシステムから削除されます。音声は文字起こし後に削除されると別途説明されています。", "priority": "high"},
+    {"title": "録音前の同意確認は利用者の責任", "description": "OpenAIは他人の音声を録音する前に現地の法律を確認し、必要な同意を得るよう案内しています。会議録音を法律上常に許容するという説明ではありません。", "priority": "high"},
+    {"title": "英語以外は文字起こし精度にばらつき", "description": "OpenAIはRecordの精度が英語で最も高く、他言語にはばらつきがあると説明しています。重要な決定事項は元の会話と照合してください。", "priority": "medium"}
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "OpenAIのRecord・保持説明を確認",
+  "verificationMessage": "Recordの機能条件や保持設定はプラン・ワークスペースにより異なる場合があります。利用前に所属組織の規程と現在の公式ヘルプを確認してください。",
+  "verdict": {
+    "label": "音声が消えても、会話内の文字起こしやメモは別に確認する",
+    "description": "録音音声は文字起こし後に削除されますが、文字起こしとキャンバスは会話記録として保持されます。会議参加者への説明・同意、学習設定、削除後の保持期間を別々に確認しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {"action": "録音を始める前に参加者へ用途とAI処理を説明し、必要な同意と組織規程を確認する", "reason": "OpenAIは他人を録音する前に現地法を確認し必要な同意を得る責任がユーザーにあるとしています。"},
+    {"action": "個人アカウントでは設定の「すべての人のためにモデルを改善する」を確認し、学習利用を望まない場合はオフにする", "reason": "個人向けプランでは設定によって文字起こしとキャンバスがモデル改善に使われる場合があります。"},
+    {"action": "録音後は会話内のキャンバスと文字起こしを確認し、不要なら会話を削除する", "reason": "音声ファイルが自動削除されても、生成した記録には会話の保持設定が適用されます。"},
+    {"action": "重要な日時・金額・決定事項・発言者を元音声や会議資料と照合する", "reason": "文字起こしと話者識別には誤りがあり得て、英語以外の精度にはばらつきがあるとOpenAIは説明しています。"},
+    {"action": "Business・Enterprise・Eduでは管理者の保持設定とRecord機能の有効状態を確認する", "reason": "ワークスペースの保持設定が文字起こしやキャンバスに適用され、Enterprise・Eduでは管理者が録音機能を制御できます。"}
+  ],
+  "avoidActions": [
+    {"action": "音声ファイルの自動削除を、文字起こし・要約・会話履歴の自動削除と同じだと思う", "reason": "これらは別の保存対象で、文字起こしとキャンバスには会話の保持設定が適用されます。"},
+    {"action": "同意や組織の許可を確認せず、他の参加者がいる会議でRecordを開始する", "reason": "録音に適用される法律や必要な同意は地域・参加者の状況によって異なります。"},
+    {"action": "AIの文字起こしを正式議事録として無確認で共有する", "reason": "話者の判別や他言語の認識には誤りがあり得るため、重要事項を原音・資料で照合する必要があります。"}
+  ],
+  "positiveUse": {
+    "title": "会議の記録を、保存範囲を理解して活用する",
+    "description": "参加者への説明を済ませ、用途に合う保持・学習設定を確認してからRecordを使えば、音声からメモを作る利便性を活かしつつ、保存される文字起こしや要約も管理できます。",
+    "examples": ["会議前に録音目的と同意を確認", "個人向け設定または組織ポリシーを確認", "音声と文字起こし・キャンバスを別々に把握", "重要な決定事項を原音や配布資料で照合"]
+  },
+  "makotoComment": "Recordは「音声を文字にしたら音声ファイルは消える」という点だけを見ると、記録全体も消えるように誤解しやすい機能です。実際には文字起こしとキャンバスが会話に残り、過去の録音を新しい会話の文脈として参照する設定もあります。会議前の同意、学習設定、会話削除を一続きの確認手順にするのがよさそうです。",
+  "oneLineLesson": "ChatGPT Recordでは音声ファイルと文字起こし・キャンバスの保存ルールを分けて確認する。",
+  "tags": ["ChatGPT Record", "会議録音", "文字起こし", "議事録", "音声データ", "AI学習", "同意", "データ保持"],
+  "sources": [
+    {"title": "ChatGPT Record", "publisher": "OpenAI Help Center", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://help.openai.com/ja-jp/articles/11487532-chatgpt-record"},
+    {"title": "ChatGPT でのチャットとファイルの保持", "publisher": "OpenAI Help Center", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://help.openai.com/ja-jp/articles/8983778-chat-and-file-retention-in-chatgpt"}
+  ],
+  "visualSuggestion": {"mainVisual": "会議録音の音声ファイルから文字起こし・キャンバスが分岐し、それぞれ異なる保存ルールを持つ図", "cardIcon": "chatgpt-record-retention", "accentTone": "caution"}
+}

@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGPT Recordで会議を録音する前に　音声・文字起こし・メモの保存先を確認｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="OpenAIのChatGPT Record公式ヘルプによると、Recordは会話を文字起こししてメモを作り、音声ファイルは文字起こし後に自動削除します。一方、生成された文字起こしとキャンバスは会話の保持設定に従って保存され、会話を削除すると通常30日以内にシステムから削除されます（法的保持等の例外あり）。個人向けFree・Plus・Proでは「すべての人のためにモデルを改善する」が有効なら文字起こしやキャンバスが学習に使われることがあり、Business・Enterprise・Eduは既定で学習対象外です。他人を録音する前には適用法令と必要な同意を確認してください。録音の音声が消えることと、会議の文字起こし・要約が消えることは同じではありません。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261026-03" />
+<meta property="og:title" content="ChatGPT Recordで会議を録音する前に　音声・文字起こし・メモの保存先を確認｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="OpenAIのChatGPT Record公式ヘルプによると、Recordは会話を文字起こししてメモを作り、音声ファイルは文字起こし後に自動削除します。一方、生成された文字起こしとキャンバスは会話の保持設定に従って保存され、会話を削除すると通常30日以内にシステムから削除されます（法的保持等の例外あり）。個人向けFree・Plus・Proでは「すべての人のためにモデルを改善する」が有効なら文字起こしやキャンバスが学習に使われることがあり、Business・Enterprise・Eduは既定で学習対象外です。他人を録音する前には適用法令と必要な同意を確認してください。録音の音声が消えることと、会議の文字起こし・要約が消えることは同じではありません。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261026-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>ChatGPT Recordの保存と同意を確認</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+              <time datetime="2026-10-26">2026.10.26</time>
+            </div>
+            <h1>ChatGPT Recordで会議を録音する前に　音声・文字起こし・メモの保存先を確認</h1>
+            <p>OpenAIのChatGPT Record公式ヘルプによると、Recordは会話を文字起こししてメモを作り、音声ファイルは文字起こし後に自動削除します。一方、生成された文字起こしとキャンバスは会話の保持設定に従って保存され、会話を削除すると通常30日以内にシステムから削除されます（法的保持等の例外あり）。個人向けFree・Plus・Proでは「すべての人のためにモデルを改善する」が有効なら文字起こしやキャンバスが学習に使われることがあり、Business・Enterprise・Eduは既定で学習対象外です。他人を録音する前には適用法令と必要な同意を確認してください。録音の音声が消えることと、会議の文字起こし・要約が消えることは同じではありません。</p>
+            <ul class="forensics-target-list"><li>ChatGPT Recordで会議やインタビューを記録する人</li><li>音声の保存期間とAI学習への利用を確認したい人</li><li>会議録音を組織の保持ポリシーに合わせたい管理者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>ChatGPT Record</li><li>会議録音</li><li>文字起こし</li><li>議事録</li><li>音声データ</li><li>AI学習</li><li>同意</li><li>データ保持</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>OpenAIのRecord・保持説明を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>Recordの機能条件や保持設定はプラン・ワークスペースにより異なる場合があります。利用前に所属組織の規程と現在の公式ヘルプを確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>会議メモを作りたいが、音声と文字起こしがどこまで残るか分からない</h3><p>ChatGPT Recordを使えば、会議を録音して要約や議事録の下書きを作れます。ただ、録音データが削除されても、会話内容や生成されたメモが履歴に残るのか、学習に使われるのかが気になります。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>Recordでは、音声ファイル、文字起こし、キャンバスの扱いが異なります。会議参加者への説明・同意、組織の保存方針、個人アカウントの学習設定を録音開始前に分けて確認できます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="delete-chat-content">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>ChatGPT Recordで録音した会議の記録を消したいとき、何を削除する？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-chat-content" data-choice-id="delete-chat-content" />
+                <span>
+                  <strong>音声だけでなく、文字起こしとキャンバスが保存された会話も確認して削除する</strong>
+                  <small>音声ファイルは文字起こし後に自動削除されますが、文字起こしとメモには会話の保持設定が適用されます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-audio-delete-all" data-choice-id="assume-audio-delete-all" />
+                <span>
+                  <strong>音声ファイルが自動削除されるので、文字起こしや要約も残らないと考える</strong>
+                  <small>音声と生成された記録は別のデータとして扱われます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-only-canvas" data-choice-id="delete-only-canvas" />
+                <span>
+                  <strong>会話を残したままキャンバスだけを消せば、全ての録音情報が消えると考える</strong>
+                  <small>公式案内では関連する文字起こし・会話の保存先も確認する必要があります。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>音声だけでなく、文字起こしとキャンバスが保存された会話も確認して削除する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>OpenAIは、音声ファイルは文字起こしの後に自動削除される一方、Recordで生成されたキャンバスと関連文字起こしにはワークスペースの保持設定が適用されると説明しています。会話を削除した場合も、システムから削除されるまで通常最大30日かかります。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>音声と文字起こしは保存の扱いが異なる</h3>
+              <p>Recordの音声ファイルは文字起こし後に自動削除されます。文字起こしとキャンバスは会話・ワークスペースの保持ルールに従います。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>個人プランは学習設定を確認</h3>
+              <p>Free、Plus、Proで「すべての人のためにモデルを改善する」が有効な場合、Recordの文字起こしとキャンバスがモデル改善に使われることがあります。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>Business・Enterprise・Eduは既定で学習対象外</h3>
+              <p>OpenAIはBusiness、Enterprise、EduワークスペースのRecord文字起こしとキャンバスを、既定でモデル学習対象から除外すると説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>会話削除後もシステム削除まで時間がかかる</h3>
+              <p>会話削除後、文字起こしとキャンバスは法的保持等の例外を除き30日以内にシステムから削除されます。音声は文字起こし後に削除されると別途説明されています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>録音前の同意確認は利用者の責任</h3>
+              <p>OpenAIは他人の音声を録音する前に現地の法律を確認し、必要な同意を得るよう案内しています。会議録音を法律上常に許容するという説明ではありません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>英語以外は文字起こし精度にばらつき</h3>
+              <p>OpenAIはRecordの精度が英語で最も高く、他言語にはばらつきがあると説明しています。重要な決定事項は元の会話と照合してください。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>音声が消えても、会話内の文字起こしやメモは別に確認する</strong><p>録音音声は文字起こし後に削除されますが、文字起こしとキャンバスは会話記録として保持されます。会議参加者への説明・同意、学習設定、削除後の保持期間を別々に確認しましょう。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>録音を始める前に参加者へ用途とAI処理を説明し、必要な同意と組織規程を確認する</strong><span>OpenAIは他人を録音する前に現地法を確認し必要な同意を得る責任がユーザーにあるとしています。</span></li>
+            <li><strong>個人アカウントでは設定の「すべての人のためにモデルを改善する」を確認し、学習利用を望まない場合はオフにする</strong><span>個人向けプランでは設定によって文字起こしとキャンバスがモデル改善に使われる場合があります。</span></li>
+            <li><strong>録音後は会話内のキャンバスと文字起こしを確認し、不要なら会話を削除する</strong><span>音声ファイルが自動削除されても、生成した記録には会話の保持設定が適用されます。</span></li>
+            <li><strong>重要な日時・金額・決定事項・発言者を元音声や会議資料と照合する</strong><span>文字起こしと話者識別には誤りがあり得て、英語以外の精度にはばらつきがあるとOpenAIは説明しています。</span></li>
+            <li><strong>Business・Enterprise・Eduでは管理者の保持設定とRecord機能の有効状態を確認する</strong><span>ワークスペースの保持設定が文字起こしやキャンバスに適用され、Enterprise・Eduでは管理者が録音機能を制御できます。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>音声ファイルの自動削除を、文字起こし・要約・会話履歴の自動削除と同じだと思う</strong><span>これらは別の保存対象で、文字起こしとキャンバスには会話の保持設定が適用されます。</span></li>
+            <li><strong>同意や組織の許可を確認せず、他の参加者がいる会議でRecordを開始する</strong><span>録音に適用される法律や必要な同意は地域・参加者の状況によって異なります。</span></li>
+            <li><strong>AIの文字起こしを正式議事録として無確認で共有する</strong><span>話者の判別や他言語の認識には誤りがあり得るため、重要事項を原音・資料で照合する必要があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>会議の記録を、保存範囲を理解して活用する</h3>
+          <p>参加者への説明を済ませ、用途に合う保持・学習設定を確認してからRecordを使えば、音声からメモを作る利便性を活かしつつ、保存される文字起こしや要約も管理できます。</p>
+          <ul class="positive-example-list"><li>会議前に録音目的と同意を確認</li><li>個人向け設定または組織ポリシーを確認</li><li>音声と文字起こし・キャンバスを別々に把握</li><li>重要な決定事項を原音や配布資料で照合</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>Recordは「音声を文字にしたら音声ファイルは消える」という点だけを見ると、記録全体も消えるように誤解しやすい機能です。実際には文字起こしとキャンバスが会話に残り、過去の録音を新しい会話の文脈として参照する設定もあります。会議前の同意、学習設定、会話削除を一続きの確認手順にするのがよさそうです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>ChatGPT Recordでは音声ファイルと文字起こし・キャンバスの保存ルールを分けて確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://help.openai.com/ja-jp/articles/11487532-chatgpt-record" target="_blank" rel="noopener noreferrer">ChatGPT Record<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://help.openai.com/ja-jp/articles/8983778-chat-and-file-retention-in-chatgpt" target="_blank" rel="noopener noreferrer">ChatGPT でのチャットとファイルの保持<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>OpenAI Help Center</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20261024-02" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="生成AIに社内データを誤アップロードしたら　削除・社内報告・保持期間の確認 生成AIへの誤入力後にすること パナソニック オペレーショナルエクセレンスは2026年10月23日、社内で利用禁止としていた外部生成AIへ、人事情報システムの個人情報を含むデータの一部がプロジェクトメンバーによりアップロードされたと公表しました。同社の説明では、これは外部からの不正操作ではなく社内ルール違反で、チャット履歴と業務PC上のファイルを削除し、サービス事業者の保持条件も確認しています。誤入力に気づいた人は、まず追加送信を止め、利用サービス・アカウント・日時・データの種類を記録して社内の情報セキュリティ／個人情報担当へすぐ連絡します。チャット画面から消す操作と事業者側の保持が同じとは限らず、本人通知や個人情報保護委員会への報告要否は事実に応じて事業者側の担当者が判断します。なおPanasonicの告知は対象者に必要な対応はないと明記しており、一般向けの手順を同社対象者へ追加対応として求めるものではありません。 セキュリティ・権限 はじめて 生成AI 個人情報 誤送信 社内ルール データ保持 個人情報保護委員会 インシデント対応 業務で生成AIを使う従業員 個人情報・情報セキュリティの管理担当者 中小企業の経営者・現場責任者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">genai-data-misupload-response</span>
+              <div>
+                <p>生成AIへの誤入力後にすること</p>
+                <h3>生成AIに社内データを誤アップロードしたら　削除・社内報告・保持期間の確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-24">2026.10.24</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">パナソニック オペレーショナルエクセレンスは2026年10月23日、社内で利用禁止としていた外部生成AIへ、人事情報システムの個人情報を含むデータの一部がプロジェクトメンバーによりアップロードされたと公表しました。同社の説明では、これは外部からの不正操作ではなく社内ルール違反で、チャット履歴と業務PC上のファイルを削除し、サービス事業者の保持条件も確認しています。誤入力に気づいた人は、まず追加送信を止め、利用サービス・アカウント・日時・データの種類を記録して社内の情報セキュリティ／個人情報担当へすぐ連絡します。チャット画面から消す操作と事業者側の保持が同じとは限らず、本人通知や個人情報保護委員会への報告要否は事実に応じて事業者側の担当者が判断します。なおPanasonicの告知は対象者に必要な対応はないと明記しており、一般向けの手順を同社対象者へ追加対応として求めるものではありません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>企業の公表文と個人情報保護委員会の指針を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>業務で生成AIを使う従業員</li><li>個人情報・情報セキュリティの管理担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>生成AI</li><li>個人情報</li><li>誤送信</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261023-03" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="GmailのAI Inboxがメールからタスクを抽出　提供条件と元メールの確認方法 Gmail AI Inboxの提供条件を確認 Google Workspace Updatesは2026年10月15日、GmailのAI Inboxを有料Workspaceユーザーへ拡大すると発表しました。AI Inboxはメールの会話から対応項目・成果物・期限を抽出し、重要な話題の要約を表示します。ただし発表時点で利用できるのは米国にいて言語設定が英語（米国）のユーザーに限られ、対象エディションも指定されています。また管理者向けのオン・オフ設定はないとされています。日本の利用者や管理者は、契約だけを見て利用可能と判断せず、実際の地域・言語・画面への展開を確認し、要約から作業を始めるときは元のメールで期限や依頼内容を確認します。 仕事・AI活用 はじめて Gmail Google Workspace AI Inbox メール要約 タスク抽出 段階展開 Google WorkspaceでGmailを使う人 Workspaceの利用機能を案内する管理担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gmail-ai-inbox-rollout</span>
+              <div>
+                <p>Gmail AI Inboxの提供条件を確認</p>
+                <h3>GmailのAI Inboxがメールからタスクを抽出　提供条件と元メールの確認方法</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-23">2026.10.23</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Google Workspace Updatesは2026年10月15日、GmailのAI Inboxを有料Workspaceユーザーへ拡大すると発表しました。AI Inboxはメールの会話から対応項目・成果物・期限を抽出し、重要な話題の要約を表示します。ただし発表時点で利用できるのは米国にいて言語設定が英語（米国）のユーザーに限られ、対象エディションも指定されています。また管理者向けのオン・オフ設定はないとされています。日本の利用者や管理者は、契約だけを見て利用可能と判断せず、実際の地域・言語・画面への展開を確認し、要約から作業を始めるときは元のメールで期限や依頼内容を確認します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Google Workspaceの提供条件を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Google WorkspaceでGmailを使う人</li><li>Workspaceの利用機能を案内する管理担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gmail</li><li>Google Workspace</li><li>AI Inbox</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261022-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="ChatGPT SlidesはSpaceで共同編集　利用可否と書き出し先を先に確かめる ChatGPT Slidesの共同編集 OpenAIは2026年10月16日、ChatGPTのSpaceでプレゼンを作成し、チームと共同編集できるSlides機能を発表しました。会話・ファイル・アウトラインから開始でき、テキスト、画像、図形、グラフを直接編集し、メンバーを招待してリアルタイム編集や共有コメントを使えます。WebではPowerPoint、PDF、Google Slidesへ書き出せますが、提供対象はSpaceにアクセスできる対象Pro・Business・Enterprise利用者で、段階展開中です。チーム資料では、まずワークスペース設定と共有範囲を確認し、下書きのレビュー後に適切な形式で書き出す運用が実用的です。 仕事・AI活用 はじめて ChatGPT Slides プレゼン作成 共同編集 Space チーム共有 AI活用 ChatGPTでプレゼン資料を作る人 チームでスライドを共同編集する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">chatgpt-slides-collaboration</span>
+              <div>
+                <p>ChatGPT Slidesの共同編集</p>
+                <h3>ChatGPT SlidesはSpaceで共同編集　利用可否と書き出し先を先に確かめる</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-22">2026.10.22</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIは2026年10月16日、ChatGPTのSpaceでプレゼンを作成し、チームと共同編集できるSlides機能を発表しました。会話・ファイル・アウトラインから開始でき、テキスト、画像、図形、グラフを直接編集し、メンバーを招待してリアルタイム編集や共有コメントを使えます。WebではPowerPoint、PDF、Google Slidesへ書き出せますが、提供対象はSpaceにアクセスできる対象Pro・Business・Enterprise利用者で、段階展開中です。チーム資料では、まずワークスペース設定と共有範囲を確認し、下書きのレビュー後に適切な形式で書き出す運用が実用的です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>OpenAIの機能発表で作成・共有・対象条件を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTでプレゼン資料を作る人</li><li>チームでスライドを共同編集する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT Slides</li><li>プレゼン作成</li><li>共同編集</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261025-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261026-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

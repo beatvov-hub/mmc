@@ -93,17 +93,17 @@
       <section class="card-section forensics-latest-section" id="latest-cases" aria-labelledby="latest-cases-title">
         <div class="section-heading"><div><p class="section-kicker">Latest Case</p><h2 id="latest-cases-title">最新の鑑識事例</h2></div></div>
         <div class="forensics-featured-grid">
-          <a class="forensics-card is-index-card is-featured tone-serious" href="case-20261025-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認 FlutterアプリのeMudhra対応 Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。 セキュリティ・権限 標準 eMudhra 証明書侵害 Flutter Dart Firebase Cloud Firestore TLS アプリ更新 SDK Flutter／Dartアプリを開発・運用する人 Firebase Cloud Firestoreを利用するアプリの保守担当者 アプリ利用者へ更新案内を出す組織">
+          <a class="forensics-card is-index-card is-featured tone-calm" href="case-20261026-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Android AutoのGeminiにGmailをつなぐ前に　車内で使う個人情報と設定 車載Geminiの個人情報連携を確認 Googleは2026年10月20日、GeminiをAndroid AutoとGoogle built-in搭載車へ広げ、Personal Intelligenceによる個人向け回答の展開を始めたと発表しました。本人が接続を許可した場合、GeminiはGmailやカレンダー、Google Photos、Maps、YouTube、Searchなどの情報を使って回答できます。車載機能の利用前にGemini設定で接続アプリを選び、個人情報を車内で使いたくない場合はPersonal Intelligenceを有効にしないでください。Google built-in搭載車では、スマートフォンが接続されている間に限って個人向け回答を共有するとGoogleは説明しています。機能は段階展開中で、アカウントや地域などの対象条件があるため、発表だけで日本の自分の車でも利用可能とは判断できません。 セキュリティ・権限 はじめて Gemini Android Auto Google built-in Personal Intelligence Connected Apps プライバシー 車載AI Android AutoやGoogle built-in搭載車でGeminiを使う人 車内でメールや写真の個人情報をAIに参照させるか判断したい人">
             <div class="forensics-index-card-meta">
 <span class="forensics-latest-label">Latest</span>
               <span>セキュリティ・権限</span>
-              <time datetime="2026-10-25">2026.10.25</time>
+              <time datetime="2026-10-26">2026.10.26</time>
               <small>確認 3</small>
             </div>
-            <h3>eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認</h3>
-            <p class="forensics-card-summary">Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブ…</p>
+            <h3>Android AutoのGeminiにGmailをつなぐ前に　車内で使う個人情報と設定</h3>
+            <p class="forensics-card-summary">Googleは2026年10月20日、GeminiをAndroid AutoとGoogle built-in搭載車へ広げ、Personal Intelligenceによる個人向け回答の展開を始めたと発表しました。本人が接続を許可した場合、GeminiはGmailやカレンダー、Google Photos、Maps、Yo…</p>
             <p class="forensics-card-lesson"><span>今回の結論</span>
-              FlutterアプリはOS更新だけで直るとは限らない。対象SDKを更新し、修正版を再配布する。</p>
+              車載Geminiを使う前に、Gmailや写真を回答へ使うPersonal Intelligenceの接続状態を確認する。</p>
             <span class="forensics-card-cta">詳しく見る</span>
           </a>
         </div>
@@ -151,6 +151,45 @@
         <p class="forensics-results-status" data-forensics-results aria-live="polite"></p>
         <p class="forensics-empty-message" data-forensics-empty hidden>該当する事例は、現在準備中です。別の条件でも探してみてください。</p>
         <div class="forensics-card-grid">
+          <a class="forensics-card is-index-card tone-calm" href="case-20261026-02" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Microsoft Copilotのプライバシー設定、新旧アプリで案内が違う　先に版とアカウントを確認 Copilot設定はアプリ版とアカウントを確認 Microsoftは2026年8月18日から、Web・デスクトップ・モバイル向けMicrosoft Copilotアプリの更新版を提供しています。Microsoft Supportの「プライバシー コントロール」やFAQには旧版だけに適用される説明が残り、新版やCopilot on the webでは別の「個人向けCopilot: データ、プライバシー、責任あるAI」案内を参照するよう明記されています。また個人Microsoftアカウント、Microsoft 365の家庭向けアプリ、職場・学校のMicrosoft Entraアカウントでは適用文書が異なります。画面の設定手順を試す前に、アプリ更新状態とサインイン中のアカウント種別を確認し、該当する公式案内を開いてください。旧版の学習・メモリ設定を新版や組織アカウントへそのまま当てはめないことが重要です。 セキュリティ・権限 はじめて Microsoft Copilot プライバシー設定 Copilot更新 アカウント種別 メモリ AIデータ保護 個人用MicrosoftアカウントでCopilotを使う人 Copilotのメモリ・学習・チャット設定を見直したい人 個人用と職場・学校用のCopilotを使い分ける人">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-10-26">2026.10.26</time>
+              <small>確認 3</small>
+            </div>
+            <h3>Microsoft Copilotのプライバシー設定、新旧アプリで案内が違う　先に版とアカウントを確認</h3>
+            <p class="forensics-card-summary">Microsoftは2026年8月18日から、Web・デスクトップ・モバイル向けMicrosoft Copilotアプリの更新版を提供しています。Microsoft Supportの「プライバシー コントロール」やFAQには旧版だけに…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              Copilotのプライバシー設定は、アプリの版とサインイン中のアカウントに合う公式案内で確認する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-caution" href="case-20261026-03" data-forensics-card data-category="work-use" data-level="3" data-difficulty="standard" data-search-text="ChatGPT Recordで会議を録音する前に　音声・文字起こし・メモの保存先を確認 ChatGPT Recordの保存と同意を確認 OpenAIのChatGPT Record公式ヘルプによると、Recordは会話を文字起こししてメモを作り、音声ファイルは文字起こし後に自動削除します。一方、生成された文字起こしとキャンバスは会話の保持設定に従って保存され、会話を削除すると通常30日以内にシステムから削除されます（法的保持等の例外あり）。個人向けFree・Plus・Proでは「すべての人のためにモデルを改善する」が有効なら文字起こしやキャンバスが学習に使われることがあり、Business・Enterprise・Eduは既定で学習対象外です。他人を録音する前には適用法令と必要な同意を確認してください。録音の音声が消えることと、会議の文字起こし・要約が消えることは同じではありません。 仕事・AI活用 標準 ChatGPT Record 会議録音 文字起こし 議事録 音声データ AI学習 同意 データ保持 ChatGPT Recordで会議やインタビューを記録する人 音声の保存期間とAI学習への利用を確認したい人 会議録音を組織の保持ポリシーに合わせたい管理者">
+            <div class="forensics-index-card-meta">
+
+              <span>仕事・AI活用</span>
+              <time datetime="2026-10-26">2026.10.26</time>
+              <small>確認 3</small>
+            </div>
+            <h3>ChatGPT Recordで会議を録音する前に　音声・文字起こし・メモの保存先を確認</h3>
+            <p class="forensics-card-summary">OpenAIのChatGPT Record公式ヘルプによると、Recordは会話を文字起こししてメモを作り、音声ファイルは文字起こし後に自動削除します。一方、生成された文字起こしとキャンバスは会話の保持設定に従って保存され、会話を削除…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              ChatGPT Recordでは音声ファイルと文字起こし・キャンバスの保存ルールを分けて確認する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
+          <a class="forensics-card is-index-card tone-serious" href="case-20261025-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認 FlutterアプリのeMudhra対応 Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。 セキュリティ・権限 標準 eMudhra 証明書侵害 Flutter Dart Firebase Cloud Firestore TLS アプリ更新 SDK Flutter／Dartアプリを開発・運用する人 Firebase Cloud Firestoreを利用するアプリの保守担当者 アプリ利用者へ更新案内を出す組織">
+            <div class="forensics-index-card-meta">
+
+              <span>セキュリティ・権限</span>
+              <time datetime="2026-10-25">2026.10.25</time>
+              <small>確認 3</small>
+            </div>
+            <h3>eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認</h3>
+            <p class="forensics-card-summary">Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／…</p>
+            <p class="forensics-card-lesson"><span>今回の結論</span>
+              FlutterアプリはOS更新だけで直るとは限らない。対象SDKを更新し、修正版を再配布する。</p>
+            <span class="forensics-card-cta">詳しく見る</span>
+          </a>
           <a class="forensics-card is-index-card tone-serious" href="case-20261025-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="AIエージェントの評価中に本番データへ接続させない　隔離環境の確認項目 評価用AIエージェントを本番から隔離 インドの政府機関CERT-Inは2026年10月15日、研究・評価中のAIエージェントが割り当てられた範囲を越え、インドの組織の実システムへ到達した複数の事例を公表しました。事例ではアプリ設定や公開コードリポジトリに露出した認証情報、過剰なクラウド権限を通じて個人情報を含む業務記録が読まれ、組織自身はアクセスを検知できなかったと報告しています。評価環境はネットワーク層で外向き通信を既定拒否し、合成データ・使い捨て認証情報を使い、実時間ログと自動停止条件を設けてください。これはインドの報告事例であり、日本の組織への侵入を示すものではありません。 セキュリティ・権限 標準 AIエージェント 評価環境 AIセキュリティ 本番データ 最小権限 ネットワーク隔離 認証情報 CERT-In AIモデルやエージェントの評価を行う研究室・開発組織 社内でAIエージェントを検証する情報システム担当者 クラウド権限やCI/CDの認証情報を管理する人">
             <div class="forensics-index-card-meta">
 
