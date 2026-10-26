@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T07:30:00+09:00",
+  "updatedAt": "2026-10-27T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2593,6 +2593,60 @@
         {
           "label": "LibreOffice公式ライセンス案内",
           "url": "https://www.libreoffice.org/about-us/licenses/"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "slug": "thunderbird-filter-booking-notifications",
+      "useCategory": "業務効率化・予約",
+      "name": "Thunderbird",
+      "category": "メールフィルター・受信箱整理",
+      "officialUrl": "https://www.thunderbird.net/en-US/thunderbird/",
+      "summary": "Thunderbirdのメッセージフィルターを使うと、差出人や件名などの条件に合う受信メールを専用フォルダーへ自動で移動できます。",
+      "whyToday": "予約や申込の通知が通常のメールと同じ受信箱に並ぶと、確認待ちの連絡を追いにくくなります。Thunderbirdでは、差出人や件名などの条件と移動先を組み合わせ、受信箱に届いたメールをアカウントごとのルールで振り分けられます。",
+      "useFor": "例えば、予約システムから届く確認通知を「受付通知」フォルダーへ分ける想定例です。Thunderbirdに対象メールアカウントを設定し、アプリメニューの「ツール」から「メッセージフィルター」を開いて新規ルールを作ります。条件は差出人アドレスなど一つに絞り、該当メールの移動先フォルダーを指定します。対象アカウントを選び、まず個人情報を含まない受信済みのテストメールに「今すぐ実行」して、対象だけが移動するか確認します。問題なければ新着メール用に保存します。",
+      "recommendedFor": {
+        "employeeId": "MMC-001",
+        "reason": "総務担当のほのちゃんに、通知メールを一種類だけ振り分ける条件を整理してもらい、確認待ちフォルダーの運用案と誤振り分けを防ぐテスト手順を受け取りたいです。"
+      },
+      "keiComment": "まず差出人を一つに絞って試すと、通知専用フォルダーをチームで共有するときもルールの説明が簡単です。フィルターはメールアカウントごとに設定されるので、複数アカウントを使う場合は対象の選択を確認したいですね。",
+      "verifiedAt": "2026-10-27",
+      "status": "published",
+      "pricing": "Thunderbird Desktopは無償のオープンソースソフトウェアです。",
+      "conditions": "Thunderbird Desktopと設定済みのメールアカウントが必要です。メールアカウントの提供条件や料金は利用するメール事業者によります。",
+      "license": "Mozilla Public License（MPL）。",
+      "notes": "公式のメッセージフィルター説明、Desktop配布情報、権利・ライセンス案内を2026-10-27に確認しました。活用例は想定例で、実機検証は行っていません。",
+      "archiveTitle": "Thunderbirdで受付メールを自動振り分けできる？差出人フィルターの作り方",
+      "archiveDescription": "Thunderbirdで予約通知などの受信メールを自動で振り分けたい人向けに、差出人や件名を条件にしたフィルターの作成、既存メールへの適用、対象フォルダーの注意点を紹介します。",
+      "forWho": "予約・申込通知や定型の取引先メールが受信箱に埋もれやすく、確認待ちの連絡だけを整理したい総務・運営担当者向けです。",
+      "cautions": "メッセージフィルターはアカウントごとの設定で、自動受信時のフィルターは原則として受信箱に適用されます。条件を広げる前に、対象を一種類に絞って誤って別のメールまで移動しないか確かめてください。",
+      "faq": [
+        {
+          "question": "すでに届いたメールにもフィルターを適用できますか？",
+          "answer": "できます。メッセージフィルター画面で対象アカウントを選び、新しいフィルターの「今すぐ実行」を選ぶと、受信済みのメールにも適用できます。"
+        },
+        {
+          "question": "受信箱以外のフォルダーにも自動で適用されますか？",
+          "answer": "自動で適用するフィルターは原則として受信箱が対象です。過去メールに手動で実行する場合は、対象フォルダーを選べます。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Thunderbird公式ヘルプ：フィルターの作成・受信メールと既存メールへの適用",
+          "url": "https://support.mozilla.org/en-US/kb/organize-your-messages-using-filters"
+        },
+        {
+          "label": "Thunderbird公式ダウンロード：Desktopの公式配布",
+          "url": "https://www.thunderbird.net/en-US/thunderbird/all/"
+        },
+        {
+          "label": "Thunderbird公式権利案内：無償・オープンソースとMPL",
+          "url": "https://updates.thunderbird.net/en-US/thunderbird/about/rights/"
+        },
+        {
+          "label": "Thunderbird公式リリースノート：現行Desktopの提供状況",
+          "url": "https://www.thunderbird.net/en-US/thunderbird/140.17.0esr/releasenotes/"
         }
       ]
     }
