@@ -27,7 +27,7 @@ def render_card(question: dict, qualification: dict) -> str:
     return f'''          <article class="daily-quiz-teaser-card quiz-accent-{esc(qualification['accent'])}" data-home-quiz-card>
             <div class="daily-quiz-teaser-card__heading">
               <span class="daily-quiz-teaser-card__icon" aria-hidden="true">{esc(qualification['icon'])}</span>
-              <h3><a href="{esc(quiz.qualification_route(qualification['id']))}">{esc(qualification['name'])}</a></h3>
+              <h4><a href="{esc(quiz.qualification_route(qualification['id']))}">{esc(qualification['name'])}</a></h4>
             </div>
             <p class="daily-quiz-teaser-card__meta"><span>{esc(question['category'])}</span><span>{esc(question['difficulty'])}</span></p>
             <p class="daily-quiz-teaser-card__question">{esc(question['question'])}</p>
@@ -45,7 +45,7 @@ def render(data: dict, featured: dict[str, dict], day: str) -> str:
         <div class="section-heading">
           <div>
             <p class="section-kicker">Daily Quiz</p>
-            <h2 id="daily-quiz-teaser-title">毎日一問。</h2>
+            <h3 id="daily-quiz-teaser-title">毎日一問。</h3>
           </div>
           <a class="text-link" href="/quiz/">問題集を見る →</a>
         </div>

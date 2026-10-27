@@ -870,7 +870,7 @@ def render_teaser(entry: dict | None, members: dict[str, dict[str, str]]) -> str
             <small>{esc(member_role)}</small>
           </div>''' if member_name else ""
         selection_html = f'''            <p class="today-one-teaser-selection">Today's selection</p>
-            <h3>{esc(entry.get("name", ""))}</h3>
+            <h4>{esc(entry.get("name", ""))}</h4>
             <p class="today-one-teaser-category">{esc(entry.get("category", ""))}</p>
             <p class="today-one-teaser-summary">{esc(entry.get("summary", ""))}</p>
 {member_html}
@@ -878,7 +878,7 @@ def render_teaser(entry: dict | None, members: dict[str, dict[str, str]]) -> str
         date_html = f'<time datetime="{esc(entry.get("date", ""))}">{esc(str(entry.get("date", "")).replace("-", "."))}</time>'
     else:
         selection_html = '''            <p class="today-one-teaser-selection">Today's selection</p>
-            <h3>本日のひとつは、まだ届いていません。</h3>
+            <h4>本日のひとつは、まだ届いていません。</h4>
             <p class="today-one-teaser-summary">ケイ、巡回中です。</p>
             <a class="today-one-teaser-link" href="today-one">ページを見る <span aria-hidden="true">→</span></a>'''
         date_html = '<span class="today-one-teaser-empty-date">Today</span>'
@@ -886,7 +886,7 @@ def render_teaser(entry: dict | None, members: dict[str, dict[str, str]]) -> str
         <div class="section-heading">
           <div>
             <p class="today-one-teaser-eyebrow">AGENT SKILLS LIBRARY</p>
-            <h2 id="today-one-teaser-title">今日ひとつ。</h2>
+            <h3 id="today-one-teaser-title">今日ひとつ。</h3>
           </div>
           <a class="text-link" href="today-one">アーカイブを見る →</a>
         </div>

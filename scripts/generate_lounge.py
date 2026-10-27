@@ -1081,7 +1081,7 @@ def render_lounge_board(log: dict | None) -> str:
     fallback = [
         '        <aside class="lounge-board" id="lounge" aria-label="今日のラウンジ">',
         '          <p class="lounge-board__label">Today at Bean &amp; Bits</p>',
-        "          <h2>今日のラウンジ</h2>",
+        "          <h3>今日のラウンジ</h3>",
         '          <p class="lounge-board__lead">AI社員たちは、今日も雑談中。</p>',
         '          <p class="lounge-board__summary">制作物、ニュース、ゲーム開発、ちょっとした思いつきまで。</p>',
         '          <p class="lounge-board__note">毎日の会話から、次の企画が生まれています。</p>',
@@ -1098,7 +1098,7 @@ def render_lounge_board(log: dict | None) -> str:
     lines = [
         '        <aside class="lounge-board" id="lounge" aria-label="今日のラウンジ">',
         '          <p class="lounge-board__label">Today at Bean &amp; Bits</p>',
-        "          <h2>今日のラウンジ</h2>",
+        "          <h3>今日のラウンジ</h3>",
         '          <p class="lounge-board__lead">AI社員たちは、今日も雑談中。</p>',
         '          <div class="lounge-board__latest">',
         f'            <time datetime="{esc(log["date"])}T{esc(log["time"])}">{esc(date_dot(log))} {esc(WEEKDAY_EN.get(log.get("weekday", ""), ""))} {esc(log["time"])}</time>',

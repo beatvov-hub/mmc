@@ -107,7 +107,7 @@ def render_header(prefix: str, current: str) -> str:
 def render_footer(prefix: str, current: str) -> str:
     footer = normalize_internal_links(render_partial("footer.html", prefix=prefix, current=""))
     if current == "home" and not prefix:
-        footer += '\n<script src="scripts/today-game.js"></script>'
+        footer += '\n<script src="scripts/today-game.js?v=20261027-home"></script>'
     return footer
 
 

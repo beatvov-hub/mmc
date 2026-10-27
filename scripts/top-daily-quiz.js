@@ -28,13 +28,13 @@
     article.innerHTML = `
       <div class="daily-quiz-teaser-card__heading">
         <span class="daily-quiz-teaser-card__icon" aria-hidden="true"></span>
-        <h3><a></a></h3>
+        <h4><a></a></h4>
       </div>
       <p class="daily-quiz-teaser-card__meta"><span></span><span></span></p>
       <p class="daily-quiz-teaser-card__question"></p>
       <a class="daily-quiz-teaser-card__link">今日の問題を解く →</a>`;
     article.querySelector('.daily-quiz-teaser-card__icon').textContent = icon.textContent;
-    const qualificationLink = article.querySelector('h3 a');
+    const qualificationLink = article.querySelector('h4 a');
     qualificationLink.textContent = qualification.textContent;
     qualificationLink.href = qualification.href;
     const meta = article.querySelectorAll('.daily-quiz-teaser-card__meta span');
