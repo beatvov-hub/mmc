@@ -83,49 +83,49 @@
       <article class="today-one-entry" aria-labelledby="today-one-entry-name">
         <header class="today-one-entry-header">
           <div class="today-one-entry-meta">
-            <time datetime="2026-10-27">2026.10.27 TUE</time>
-            <span>メールフィルター・受信箱整理</span>
+            <time datetime="2026-10-28">2026.10.28 WED</time>
+            <span>バックアップ・復元</span>
           </div>
           <p class="today-one-entry-label">今日のひとつ</p>
-          <h2 id="today-one-entry-name">Thunderbird</h2>
-          <a class="today-one-official-link" href="https://www.thunderbird.net/en-US/thunderbird/" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
+          <h2 id="today-one-entry-name">Restic</h2>
+          <a class="today-one-official-link" href="https://restic.net/" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
           <section class="today-one-section today-one-audience" aria-labelledby="today-one-audience-title">
             <p class="section-kicker">For Whom</p>
             <h2 id="today-one-audience-title">こんな人向け</h2>
-            <p>予約・申込通知や定型の取引先メールが受信箱に埋もれやすく、確認待ちの連絡だけを整理したい総務・運営担当者向けです。</p>
+            <p>作業フォルダーのバックアップを取り、必要なファイルが実際に戻せるか確かめたい総務・情報システム担当者向けです。</p>
           </section>
           <section class="today-one-section today-one-conclusion" aria-labelledby="today-one-conclusion-title">
             <p class="section-kicker">The Answer</p>
             <h2 id="today-one-conclusion-title">結論</h2>
-            <p>Thunderbirdのメッセージフィルターを使うと、差出人や件名などの条件に合う受信メールを専用フォルダーへ自動で移動できます。</p>
+            <p>Resticは、選んだファイルを暗号化したスナップショットとして保存し、必要なファイルを別の場所へ復元できるバックアップソフトです。</p>
           </section>
           <section class="today-one-section today-one-method" aria-labelledby="today-one-use-title">
             <p class="section-kicker">How to Use</p>
             <h2 id="today-one-use-title">やり方／確認方法</h2>
-            <p>例えば、予約システムから届く確認通知を「受付通知」フォルダーへ分ける想定例です。Thunderbirdに対象メールアカウントを設定し、アプリメニューの「ツール」から「メッセージフィルター」を開いて新規ルールを作ります。条件は差出人アドレスなど一つに絞り、該当メールの移動先フォルダーを指定します。対象アカウントを選び、まず個人情報を含まない受信済みのテストメールに「今すぐ実行」して、対象だけが移動するか確認します。問題なければ新着メール用に保存します。</p>
+            <p>例えば、公開資料だけを入れた作業フォルダーのバックアップを試す想定例です。Resticを使えるPCと、元データとは別の保存先を用意し、保存先をリポジトリとして初期化してパスワードを設定したうえで、対象フォルダーのスナップショットを作ります。スナップショット一覧で保存日時と対象パスを確かめ、テスト用ファイルを別の復元先フォルダーへ戻します。元ファイルと復元ファイルを開いて内容を比べ、必要なデータを取り出せることまで確認するのが最初の範囲です。</p>
           </section>
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
-            <p>予約や申込の通知が通常のメールと同じ受信箱に並ぶと、確認待ちの連絡を追いにくくなります。Thunderbirdでは、差出人や件名などの条件と移動先を組み合わせ、受信箱に届いたメールをアカウントごとのルールで振り分けられます。</p>
+            <p>共有フォルダーや作業資料は、コピーを作っただけでは、必要なときに戻せるか分かりません。Resticは保存したスナップショットを一覧で選び、元の場所を上書きせずに復元できるため、バックアップ作成と復元確認を一つの手順で考えられます。</p>
           </section>
           <section class="today-one-section today-one-faq" aria-labelledby="today-one-faq-title">
             <p class="section-kicker">Cautions & FAQ</p>
             <h2 id="today-one-faq-title">注意点・FAQ</h2>
-            <p class="today-one-caution">メッセージフィルターはアカウントごとの設定で、自動受信時のフィルターは原則として受信箱に適用されます。条件を広げる前に、対象を一種類に絞って誤って別のメールまで移動しないか確かめてください。</p><div class="today-one-faq-item">
-          <h3>すでに届いたメールにもフィルターを適用できますか？</h3>
-          <p>できます。メッセージフィルター画面で対象アカウントを選び、新しいフィルターの「今すぐ実行」を選ぶと、受信済みのメールにも適用できます。</p>
+            <p class="today-one-caution">リポジトリへアクセスするには設定したパスワードが必要で、紛失すると保存データを取り出せません。バックアップ先は元データとは別にし、復元はまず新しいテスト用フォルダーへ行ってください。</p><div class="today-one-faq-item">
+          <h3>バックアップが保存されたか確認できますか？</h3>
+          <p>できます。公式クイックスタートでは、スナップショット一覧を表示するコマンドで作成済みのバックアップを確認できます。リポジトリのメタデータを検査する方法や、保存データ全体を読み込んで検査する方法も案内されています。</p>
         </div><div class="today-one-faq-item">
-          <h3>受信箱以外のフォルダーにも自動で適用されますか？</h3>
-          <p>自動で適用するフィルターは原則として受信箱が対象です。過去メールに手動で実行する場合は、対象フォルダーを選べます。</p>
+          <h3>元ファイルを上書きせずに復元できますか？</h3>
+          <p>できます。復元先を指定するオプションがあり、公式例では別の一時フォルダーへスナップショットを復元しています。最初は新しい空のテスト用フォルダーを指定し、内容を確認してから実際の復旧を判断してください。</p>
         </div>
           </section>
           <section class="today-one-section today-one-sources" aria-labelledby="today-one-sources-title">
             <p class="section-kicker">Primary Sources</p>
             <h2 id="today-one-sources-title">公式ソース</h2>
-            <ul><li><a href="https://support.mozilla.org/en-US/kb/organize-your-messages-using-filters" target="_blank" rel="noopener noreferrer">Thunderbird公式ヘルプ：フィルターの作成・受信メールと既存メールへの適用 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://www.thunderbird.net/en-US/thunderbird/all/" target="_blank" rel="noopener noreferrer">Thunderbird公式ダウンロード：Desktopの公式配布 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://updates.thunderbird.net/en-US/thunderbird/about/rights/" target="_blank" rel="noopener noreferrer">Thunderbird公式権利案内：無償・オープンソースとMPL <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://www.thunderbird.net/en-US/thunderbird/140.17.0esr/releasenotes/" target="_blank" rel="noopener noreferrer">Thunderbird公式リリースノート：現行Desktopの提供状況 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
+            <ul><li><a href="https://restic.net/" target="_blank" rel="noopener noreferrer">Restic公式サイト：機能・無償OSS・対応OS <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://restic.readthedocs.io/en/stable/010_introduction.html" target="_blank" rel="noopener noreferrer">Restic公式マニュアル：クイックスタートと検査 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html" target="_blank" rel="noopener noreferrer">Restic公式マニュアル：リポジトリとパスワード <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://restic.readthedocs.io/en/stable/050_restore.html" target="_blank" rel="noopener noreferrer">Restic公式マニュアル：別フォルダーへの復元 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://github.com/restic/restic" target="_blank" rel="noopener noreferrer">Restic公式GitHub：BSD 2-Clauseライセンス <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
           </section>
                   <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
           <p class="section-kicker">Recommended For</p>
@@ -136,7 +136,7 @@
               <small>MMC-001</small>
               <h3>ほのちゃん</h3>
               <p class="today-one-member-role">総務担当 <span>総務課</span></p>
-              <p>総務担当のほのちゃんに、通知メールを一種類だけ振り分ける条件を整理してもらい、確認待ちフォルダーの運用案と誤振り分けを防ぐテスト手順を受け取りたいです。</p>
+              <p>総務担当のほのちゃんに、対象フォルダー・別保存先・保管するパスワードを明記したバックアップ手順を整理してもらい、テスト復元で確認する項目を一覧で受け取りたいです。</p>
               <a class="today-one-profile-link" href="members/hono">プロフィールを見る</a>
             </div>
           </div>
@@ -150,7 +150,7 @@
                 <img src="image/staff/mmc-009-coworks.webp" alt="ケイ" loading="lazy" />
                 <strong>ケイ｜広報部長</strong>
               </div>
-              <p>まず差出人を一つに絞って試すと、通知専用フォルダーをチームで共有するときもルールの説明が簡単です。フィルターはメールアカウントごとに設定されるので、複数アカウントを使う場合は対象の選択を確認したいですね。</p>
+              <p>復元先を別フォルダーにすると、元データを触らずに戻せるか確かめられるのがええですね。パスワードを失うとリポジトリへアクセスできないため、保存先とは別の管理方法まで決めてから運用に移したいです。</p>
             </div>
             <figure class="today-one-kei-visual">
               <img src="image/today-one/kei-note.webp" alt="メガホン、ノート、虫眼鏡のコラージュ" loading="lazy" />
@@ -161,7 +161,7 @@
                   <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
           <p class="section-kicker">Basic Information</p>
           <h2 id="today-one-basic-title">基本情報</h2>
-          <dl><div><dt>種別</dt><dd>メールフィルター・受信箱整理</dd></div><div><dt>公式サイト</dt><dd><a href="https://www.thunderbird.net/en-US/thunderbird/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-27">2026-10-27</time></dd></div><div><dt>料金</dt><dd>Thunderbird Desktopは無償のオープンソースソフトウェアです。</dd></div><div><dt>ライセンス</dt><dd>Mozilla Public License（MPL）。</dd></div><div><dt>補足</dt><dd>公式のメッセージフィルター説明、Desktop配布情報、権利・ライセンス案内を2026-10-27に確認しました。活用例は想定例で、実機検証は行っていません。</dd></div></dl>
+          <dl><div><dt>種別</dt><dd>バックアップ・復元</dd></div><div><dt>公式サイト</dt><dd><a href="https://restic.net/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-28">2026-10-28</time></dd></div><div><dt>料金</dt><dd>Restic自体はBSD 2-Clauseの無償OSSです。ローカル保存に使う外付けドライブなどの機器費用や、オンライン保存先を使う場合の利用料は別途です。</dd></div><div><dt>ライセンス</dt><dd>BSD 2-Clause License。</dd></div><div><dt>補足</dt><dd>公式サイト、Restic 0.19.1の公式マニュアル、GitHubのライセンス情報を2026-10-28に確認しました。活用例は想定例で、実機検証は行っていません。</dd></div></dl>
         </section>
         </div>
       </article>
@@ -170,9 +170,9 @@
           <p class="section-kicker">Archive</p>
           <h2 id="today-one-archive-promo-title">これまでのひとつ。</h2>
         </div>
-        <a class="today-one-archive-latest" href="today-one/archive/2026-10-26-libreoffice-calc-csv-keep-leading-zeros">
-          <time datetime="2026-10-26">2026.10.26</time>
-          <strong>LibreOffice CalcでCSVの先頭ゼロを保てる？番号を文字列で取り込む方法</strong>
+        <a class="today-one-archive-latest" href="today-one/archive/2026-10-27-thunderbird-filter-booking-notifications">
+          <time datetime="2026-10-27">2026.10.27</time>
+          <strong>Thunderbirdで受付メールを自動振り分けできる？差出人フィルターの作り方</strong>
           <span>この日のひとつを見る →</span>
         </a>
         <a class="today-one-archive-index-link" href="today-one/archive/">アーカイブを見る <span aria-hidden="true">→</span></a>
