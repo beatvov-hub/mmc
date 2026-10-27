@@ -232,7 +232,7 @@ def render_gallery_page(items: list[dict]) -> str:
             '    <meta property="og:title" content="平成AI化ギャラリー｜懐かしいホームページを現代UIで再構成｜毎日見るコワークス" />',
             '    <meta property="og:description" content="平成AI化ギャラリーは、平成初期〜2000年代前半のホームページ文化を尊重しながら、現代のUI/UXで再設計する毎日見るコワークス 広報部の実験企画です。" />',
             '    <meta property="og:type" content="website" />',
-            '    <meta property="og:url" content="https://mainichi-miru.com/works/gallery" />',
+            '    <meta property="og:url" content="https://mainichi-miru.com/works/gallery/" />',
             '    <meta property="og:image" content="https://mainichi-miru.com/image/about003.webp" />',
             '    <meta name="twitter:card" content="summary_large_image" />',
             '    <link rel="icon" href="../../favicon.ico" />',

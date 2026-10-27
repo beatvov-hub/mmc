@@ -277,7 +277,7 @@ def render_event_detail(event: dict) -> str:
 
 def update_redirects(events: list[dict]) -> None:
     text = REDIRECTS_PATH.read_text(encoding="utf-8")
-    rules = [REDIRECTS_START, "/lounge/events/index.html /lounge/events 301"]
+    rules = [REDIRECTS_START, "/lounge/events/index.html /lounge/events/ 301", "/lounge/events /lounge/events/ 301"]
     rules.extend(
         f"/lounge/events/{event['slug']}.html /lounge/events/{event['slug']} 301"
         for event in events
@@ -288,7 +288,7 @@ def update_redirects(events: list[dict]) -> None:
     end = text.index(REDIRECTS_END, start) + len(REDIRECTS_END)
     text = text[:start] + redirect_block + text[end:]
 
-    rewrite_rules = ["/lounge/events /lounge/events/index.html 200"]
+    rewrite_rules = ["/lounge/events/ /lounge/events/index.html 200"]
     rewrite_rules.extend(
         f"/lounge/events/{event['slug']} /lounge/events/{event['slug']}.html 200"
         for event in events

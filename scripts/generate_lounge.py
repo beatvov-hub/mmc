@@ -7,6 +7,7 @@ import json
 import re
 from collections import defaultdict
 from pathlib import Path
+from xml.etree import ElementTree
 
 from site_layout import apply_layout_to_file
 
@@ -50,7 +51,7 @@ STATIC_SITEMAP_PATHS = [
     "",
     "en/",
     "about",
-    "about/faq",
+    "about/faq/",
     "about/director",
     "about/director/culture",
     "members",
@@ -68,17 +69,19 @@ STATIC_SITEMAP_PATHS = [
     "members/pechi",
     "ai-forensics/",
     "works",
-    "works/gallery",
+    "works/gallery/",
+    "office-tour/",
     "lounge/events/summer-river-bbq-2026",
     "lounge",
-    "lounge/events",
-    "lounge/market",
+    "lounge/events/",
+    "lounge/market/",
     "lounge-dictionary",
     "today-one",
-    "today-one/archive",
+    "today-one/archive/",
     "news",
     "news/name-change-20261016",
     "contact",
+    "privacy-policy",
 ]
 
 SPEAKER_DEFAULTS = {
@@ -368,10 +371,23 @@ def load_daily_quiz_sitemap_entries() -> tuple[list[tuple[str, str | None]], str
                 lastmod = updated_at[:10]
         except json.JSONDecodeError:
             pass
-    entries = [
-        (path.parent.relative_to(ROOT).as_posix(), lastmod)
-        for path in sorted(quiz_dir.rglob("index.html"))
-    ]
+    # Keep the dates recorded for individual pages: a lounge update does not
+    # change quiz questions. Normalise legacy slashless entries when reading.
+    previous_dates: dict[str, str | None] = {}
+    if SITEMAP_PATH.exists():
+        try:
+            sitemap = ElementTree.parse(SITEMAP_PATH).getroot()
+            ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+            for item in sitemap.findall("s:url", ns):
+                loc = item.findtext("s:loc", default="", namespaces=ns)
+                if loc == f"{BASE_URL}/quiz" or loc.startswith(f"{BASE_URL}/quiz/"):
+                    previous_dates[loc.removeprefix(f"{BASE_URL}/").rstrip("/") + "/"] = item.findtext("s:lastmod", namespaces=ns)
+        except ElementTree.ParseError as error:
+            raise ValueError("Cannot safely update a malformed sitemap") from error
+    entries = []
+    for path in sorted(quiz_dir.rglob("index.html")):
+        route = path.parent.relative_to(ROOT).as_posix().rstrip("/") + "/"
+        entries.append((route, previous_dates.get(route, lastmod)))
     return entries, lastmod
 
 
@@ -1001,7 +1017,7 @@ def render_events_promo() -> str:
             '          <p class="section-kicker">Employee Events</p>',
             '          <h2 id="lounge-events-title">社員イベント</h2>',
             '          <p>たまにはBean &amp; Bitsを飛び出して。AI社員たちが会社の外で過ごした日の記録です。</p>',
-            '          <a class="lounge-log-link" href="lounge/events">社員イベントを見る</a>',
+            '          <a class="lounge-log-link" href="lounge/events/">社員イベントを見る</a>',
             '        </div>',
             '        <div class="lounge-events-promo__note" aria-hidden="true">',
             '          <span>OUTSIDE</span>',
@@ -1145,7 +1161,7 @@ def update_sitemap(logs: list[dict]) -> None:
         "lounge": latest_lounge_date,
         "ai-forensics/": latest_forensics_date,
         "today-one": latest_today_one_date,
-        "today-one/archive": latest_today_one_date,
+        "today-one/archive/": latest_today_one_date,
         "news/name-change-20261016": "2026-10-16",
     }
     entries: list[tuple[str, str | None]] = []

@@ -666,7 +666,7 @@ def render_archive_index_page(
         "@type": "CollectionPage",
         "name": "これまでのひとつ。",
         "description": description,
-        "url": f"{BASE_URL}/today-one/archive",
+        "url": f"{BASE_URL}/today-one/archive/",
         "inLanguage": "ja-JP",
         "keywords": ["仕事の困りごと", "仕事道具", "使い方", "確認方法"],
     }
@@ -678,11 +678,11 @@ def render_archive_index_page(
     <title>{esc(title)}</title>
     <meta name="description" content="{esc(description)}" />
     <meta name="keywords" content="仕事の困りごと, 仕事道具, 使い方, 確認方法" />
-    <link rel="canonical" href="{BASE_URL}/today-one/archive" />
+    <link rel="canonical" href="{BASE_URL}/today-one/archive/" />
     <meta property="og:title" content="{esc(title)}" />
     <meta property="og:description" content="{esc(description)}" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="{BASE_URL}/today-one/archive" />
+    <meta property="og:url" content="{BASE_URL}/today-one/archive/" />
     <meta property="og:site_name" content="毎日見るコワークス" />
     <meta property="og:image" content="{BASE_URL}/image/top009.webp" />
     <meta name="twitter:card" content="summary_large_image" />
