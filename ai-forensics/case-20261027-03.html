@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EdgeのCopilotにページや動画を読ませる？　職場アカウントの管理設定｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="Microsoftは、職場のMicrosoft EntraアカウントでEdgeのサイドペインからCopilotを使う場合、ページ内容・閲覧履歴・動画の文字起こしへのアクセスを管理するポリシーを公式文書で説明しています。管理者はEdgeEntraCopilotPageContextの設定を確認でき、無効化するとこれらの文脈を使う機能も制限されます。この案内は個人Microsoftアカウントやモバイル版に同じ設定が適用されるという意味ではありません。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261027-03" />
+<meta property="og:title" content="EdgeのCopilotにページや動画を読ませる？　職場アカウントの管理設定｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="Microsoftは、職場のMicrosoft EntraアカウントでEdgeのサイドペインからCopilotを使う場合、ページ内容・閲覧履歴・動画の文字起こしへのアクセスを管理するポリシーを公式文書で説明しています。管理者はEdgeEntraCopilotPageContextの設定を確認でき、無効化するとこれらの文脈を使う機能も制限されます。この案内は個人Microsoftアカウントやモバイル版に同じ設定が適用されるという意味ではありません。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261027-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>EdgeとCopilotの閲覧権限</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-10-27">2026.10.27</time>
+            </div>
+            <h1>EdgeのCopilotにページや動画を読ませる？　職場アカウントの管理設定</h1>
+            <p>Microsoftは、職場のMicrosoft EntraアカウントでEdgeのサイドペインからCopilotを使う場合、ページ内容・閲覧履歴・動画の文字起こしへのアクセスを管理するポリシーを公式文書で説明しています。管理者はEdgeEntraCopilotPageContextの設定を確認でき、無効化するとこれらの文脈を使う機能も制限されます。この案内は個人Microsoftアカウントやモバイル版に同じ設定が適用されるという意味ではありません。</p>
+            <ul class="forensics-target-list"><li>職場のEdgeでCopilotを使う人</li><li>職場のブラウザー設定を管理する担当者</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Microsoft Edge</li><li>Copilot</li><li>Microsoft Entra</li><li>プライバシー</li><li>閲覧履歴</li><li>動画要約</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>機能の提供状況や設定画面は、契約・アカウント・端末・組織の方針によって異なる場合があります。利用前に公式案内と実際の画面を確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>社内ページを開いたままCopilotを使って、どこまで参照されるか気になる</h3><p>Edgeのサイドペインで動画やページを要約したい一方、閲覧内容を職場のAIに渡す設定が分かりません。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>職場アカウントでは利用者の画面上の操作と、組織の管理ポリシーの両方が参照範囲に関わります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-policy">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>職場のEdgeで閲覧内容を参照させるか判断するには？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-policy" data-choice-id="check-policy" />
+                <span>
+                  <strong>サインイン中のアカウントを確認し、必要に応じて管理者にポリシーを確認する</strong>
+                  <small>対象はEntraアカウントでEdgeのサイドペインを使う場合です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="all-accounts" data-choice-id="all-accounts" />
+                <span>
+                  <strong>個人アカウントと職場アカウントに同じ管理ポリシーがかかると決めつける</strong>
+                  <small>このポリシーは個人Microsoftアカウントには適用されません。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="deny-everything" data-choice-id="deny-everything" />
+                <span>
+                  <strong>ポリシーを無効にすればCopilotの機能やデータの利用が全て停止すると考える</strong>
+                  <small>このポリシーは指定された閲覧コンテキストへのアクセスを制御します。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>サインイン中のアカウントを確認し、必要に応じて管理者にポリシーを確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>対象アカウントと管理者設定を見たうえで、ページ・履歴・動画の文字起こしを参照させる必要があるか判断します。機能を無効にした際の関連機能への影響も確認してください。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象はEntraでサインインしたEdgeのサイドペイン</h3>
+              <p>Microsoft 365 Copilot Business Chatや企業データ保護付きCopilotを含む、職場のサイドペイン利用が対象です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>ページ・閲覧履歴・動画文字起こしを制御</h3>
+              <p>このポリシーはページ要約、動画要約、文脈を使う質問に必要な情報へのアクセスを制御します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>WindowsとmacOSの対応バージョンに注意</h3>
+              <p>Microsoftの文書ではWindowsとmacOSのEdge 130以降が対象で、AndroidとiOSは対象外です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>未構成時の既定値は地域で異なる</h3>
+              <p>Microsoftは、未構成時はEU地域では無効、EU以外では有効が既定と説明し、利用者がEdgeの設定で変更できるとしています。組織が明示的に構成した場合はその設定を確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>無効化には関連機能への影響がある</h3>
+              <p>無効にするとMicrosoft 365リンクをCopilotで自動的に開く機能も無効になると説明されています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>DLP保護ページは別の制約がある</h3>
+              <p>ポリシーが有効でも、データ損失防止（DLP）で保護されたページ内容にはCopilotがアクセスできないとMicrosoftは説明しています。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>職場の閲覧情報へのアクセス範囲を決める</strong><p>個人アカウントと職場アカウントを分けて考え、管理者と利用者が組織の設定と必要な機能を確認します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Edgeで職場のMicrosoft Entraアカウントにサインインしているか確認する</strong><span>文書のポリシーは個人Microsoftアカウントやモバイル版を対象としていません。</span></li>
+            <li><strong>管理者はEdgeEntraCopilotPageContextの構成状態と対象プロファイルを確認する</strong><span>未構成時と明示的な有効・無効では動作が異なります。</span></li>
+            <li><strong>利用者はEdgeの設定で参照の許可を確認し、変更できない場合は管理者に相談する</strong><span>組織のポリシーが利用者側の選択に影響する場合があります。</span></li>
+            <li><strong>無効化前にページ要約やMicrosoft 365リンク連携への影響を関係者と確認する</strong><span>利用している作業に影響することがあります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>個人向けCopilotの説明を職場のEdgeにそのまま適用する</strong><span>アカウントや利用する画面によって適用範囲が異なります。</span></li>
+            <li><strong>この設定を無効にしただけで組織のすべてのAI機能が無効になったと判断する</strong><span>制御対象はEdgeのサイドペインによる閲覧文脈へのアクセスです。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>必要な要約機能と情報の範囲を選ぶ</h3>
+          <p>職場の管理者は業務上必要な参照範囲を決め、利用者はページを開いた状態でCopilotに依頼する前に設定を確かめられます。</p>
+          <ul class="positive-example-list"><li>アカウントの種類を確認</li><li>管理ポリシーを確認</li><li>要約するページを選択</li><li>関連機能への影響を共有</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>Edgeのサイドペインで開くCopilotは、単独アプリのプライバシー設定とは別の管理対象があります。動画だけでなくページや履歴にも関係するため、管理者は無効化の影響を含めて確認したいところです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>職場のEdgeでは、Copilotの閲覧文脈へのアクセスと組織の管理ポリシーを確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies/EdgeEntraCopilotPageContext" target="_blank" rel="noopener noreferrer">EdgeEntraCopilotPageContext<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Learn</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://support.microsoft.com/ja-jp/edge/copilot/using-microsoft-copilot-in-edge-at-work" target="_blank" rel="noopener noreferrer">職場で Edge で Microsoft Copilot を使用する<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261027-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="ChatGPTのPrivacy Centerはどこ？　設定の場所とデータ削除の違い ChatGPTのPrivacy Centerを使う OpenAIはChatGPTのPrivacy Centerについて、会話の扱いや個人設定を説明し、関連する設定へ案内する場所だと公式ヘルプで説明しています。Web版ではアカウントメニューの「Help」から、スマートフォン版では「Settings」から開きます。開いただけでは設定変更やデータ削除は行われません。表示される項目はプランや地域、アカウント、組織の設定により異なります。 セキュリティ・権限 はじめて ChatGPT Privacy Center プライバシー メモリ データ管理 ChatGPTのプライバシー設定を探している人 会話やメモリの扱いを個別に確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">privacy-center</span>
+              <div>
+                <p>ChatGPTのPrivacy Centerを使う</p>
+                <h3>ChatGPTのPrivacy Centerはどこ？　設定の場所とデータ削除の違い</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-27">2026.10.27</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIはChatGPTのPrivacy Centerについて、会話の扱いや個人設定を説明し、関連する設定へ案内する場所だと公式ヘルプで説明しています。Web版ではアカウントメニューの「Help」から、スマートフォン版では「Settings」から開きます。開いただけでは設定変更やデータ削除は行われません。表示される項目はプランや地域、アカウント、組織の設定により異なります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTのプライバシー設定を探している人</li><li>会話やメモリの扱いを個別に確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>Privacy Center</li><li>プライバシー</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261027-02" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Androidでパスキーとパスワードを移行する　対応アプリと移行後の確認 Androidのパスキー移行 Googleは2026年9月10日、Androidで対応するパスワード管理アプリ間にパスワードとパスキーを移す仕組みを発表しました。移行先のアプリから取り込みを始め、移行元を選んで承認できます。GoogleはAndroid 8以降に対応し、Google Password Manager、1Password、Bitwarden、Dashlaneを対応例として挙げています。すべてのアプリやデータが移せると決めつけず、移行後に必要なログインを確認してから旧アプリの整理を進めてください。 セキュリティ・権限 はじめて Android パスキー パスワード管理 移行 アカウント Androidでパスワード管理アプリを乗り換えたい人 パスキーを失わずに移したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">android-credential-transfer</span>
+              <div>
+                <p>Androidのパスキー移行</p>
+                <h3>Androidでパスキーとパスワードを移行する　対応アプリと移行後の確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-27">2026.10.27</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年9月10日、Androidで対応するパスワード管理アプリ間にパスワードとパスキーを移す仕組みを発表しました。移行先のアプリから取り込みを始め、移行元を選んで承認できます。GoogleはAndroid 8以降に対応し、Google Password Manager、1Password、Bitwarden、Dashlaneを対応例として挙げています。すべてのアプリやデータが移せると決めつけず、移行後に必要なログインを確認してから旧アプリの整理を進めてください。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Androidでパスワード管理アプリを乗り換えたい人</li><li>パスキーを失わずに移したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Android</li><li>パスキー</li><li>パスワード管理</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261026-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Android AutoのGeminiにGmailをつなぐ前に　車内で使う個人情報と設定 車載Geminiの個人情報連携を確認 Googleは2026年10月20日、GeminiをAndroid AutoとGoogle built-in搭載車へ広げ、Personal Intelligenceによる個人向け回答の展開を始めたと発表しました。本人が接続を許可した場合、GeminiはGmailやカレンダー、Google Photos、Maps、YouTube、Searchなどの情報を使って回答できます。車載機能の利用前にGemini設定で接続アプリを選び、個人情報を車内で使いたくない場合はPersonal Intelligenceを有効にしないでください。Google built-in搭載車では、スマートフォンが接続されている間に限って個人向け回答を共有するとGoogleは説明しています。機能は段階展開中で、アカウントや地域などの対象条件があるため、発表だけで日本の自分の車でも利用可能とは判断できません。 セキュリティ・権限 はじめて Gemini Android Auto Google built-in Personal Intelligence Connected Apps プライバシー 車載AI Android AutoやGoogle built-in搭載車でGeminiを使う人 車内でメールや写真の個人情報をAIに参照させるか判断したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">car-gemini-connected-apps</span>
+              <div>
+                <p>車載Geminiの個人情報連携を確認</p>
+                <h3>Android AutoのGeminiにGmailをつなぐ前に　車内で使う個人情報と設定</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-26">2026.10.26</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年10月20日、GeminiをAndroid AutoとGoogle built-in搭載車へ広げ、Personal Intelligenceによる個人向け回答の展開を始めたと発表しました。本人が接続を許可した場合、GeminiはGmailやカレンダー、Google Photos、Maps、YouTube、Searchなどの情報を使って回答できます。車載機能の利用前にGemini設定で接続アプリを選び、個人情報を車内で使いたくない場合はPersonal Intelligenceを有効にしないでください。Google built-in搭載車では、スマートフォンが接続されている間に限って個人向け回答を共有するとGoogleは説明しています。機能は段階展開中で、アカウントや地域などの対象条件があるため、発表だけで日本の自分の車でも利用可能とは判断できません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Google公式発表とヘルプを確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Android AutoやGoogle built-in搭載車でGeminiを使う人</li><li>車内でメールや写真の個人情報をAIに参照させるか判断したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>Android Auto</li><li>Google built-in</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261027-04">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261027-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

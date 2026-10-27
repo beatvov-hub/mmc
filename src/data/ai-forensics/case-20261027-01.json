@@ -1,0 +1,150 @@
+{
+  "id": "case-20261027-01",
+  "publishedAt": "2026-10-27",
+  "title": "ChatGPTのPrivacy Centerはどこ？　設定の場所とデータ削除の違い",
+  "shortTitle": "ChatGPTのPrivacy Centerを使う",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "ChatGPTのプライバシー設定を探している人",
+    "会話やメモリの扱いを個別に確認したい人"
+  ],
+  "summary": "OpenAIはChatGPTのPrivacy Centerについて、会話の扱いや個人設定を説明し、関連する設定へ案内する場所だと公式ヘルプで説明しています。Web版ではアカウントメニューの「Help」から、スマートフォン版では「Settings」から開きます。開いただけでは設定変更やデータ削除は行われません。表示される項目はプランや地域、アカウント、組織の設定により異なります。",
+  "scenario": {
+    "headline": "ChatGPTのプライバシー設定があちこちにあって分からない",
+    "description": "学習への利用、メモリ、会話履歴などを見直したいものの、どの設定を開くべきか迷っています。",
+    "whyItMatters": "案内画面を見ることと、それぞれの設定を変更することを分けると、意図した範囲を選びやすくなります。"
+  },
+  "question": {
+    "text": "Privacy Centerを開いた後、設定を変えたいときはどうする？",
+    "choices": [
+      {
+        "id": "open-setting",
+        "label": "項目の説明を読み、表示される管理先から該当する設定を開く",
+        "description": "Privacy Centerは設定の説明と案内を行い、実際の設定はSettings側にあります。"
+      },
+      {
+        "id": "assume-changed",
+        "label": "Privacy Centerを開くだけで会話が非公開になると考える",
+        "description": "開くだけでは設定変更やデータ削除は行われません。"
+      },
+      {
+        "id": "assume-admin",
+        "label": "組織アカウントでも管理者の方針を変更できると考える",
+        "description": "組織の設定や保持ポリシーは別に適用されます。"
+      }
+    ],
+    "recommendedAnswers": [
+      "open-setting"
+    ],
+    "explanation": "Privacy Centerでは項目の意味を確認してから、管理ボタンや設定画面へ進みます。会話の削除と保存されたメモリの削除も別々です。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "Webとスマートフォンで入口が異なる",
+      "description": "Web版はアカウントメニューのHelpから、iOS・AndroidはSettingsからPrivacy Centerを開きます。",
+      "priority": "high"
+    },
+    {
+      "title": "開くだけでは変更されない",
+      "description": "OpenAIは、Privacy Centerを開くだけで設定やデータが変更・削除されることはないと説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "説明は3つの領域に分かれる",
+      "description": "個人向け会話と広告、チャットのプライバシー、データ利用とアクセスに関連する項目を整理しています。",
+      "priority": "medium"
+    },
+    {
+      "title": "会話の削除とメモリは別",
+      "description": "OpenAIは、会話を削除しても、そこから保存されたメモリが自動で削除されるわけではないと説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "対象と管理者の設定を確認",
+      "description": "Free、Go、Plus、Pro、Business向けに段階展開され、Enterprise、Edu、Healthcareは対象外と案内されています。組織の保持方針は上書きされません。",
+      "priority": "high"
+    },
+    {
+      "title": "Privacy Portalとは役割が違う",
+      "description": "Privacy CenterはChatGPT内の設定案内で、Privacy Portalは個人データに関する請求を行う別サイトです。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "機能の提供状況や設定画面は、契約・アカウント・端末・組織の方針によって異なる場合があります。利用前に公式案内と実際の画面を確認してください。",
+  "verdict": {
+    "label": "設定の案内を見て、変更したい項目だけ操作する",
+    "description": "Privacy Centerは複数の設定を探す入口です。説明を読んで、学習、メモリ、会話、連携などをそれぞれ確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Web版はアカウントメニューからHelp、Privacy Centerの順に開く",
+      "reason": "スマートフォン版はSettingsから開きます。画面にない場合は対象プランや段階展開を確認します。"
+    },
+    {
+      "action": "確認したい項目を選び、表示される管理先へ移動する",
+      "reason": "開いただけでは設定が変更されません。"
+    },
+    {
+      "action": "会話削除後に記憶も消したい場合はメモリの管理画面も確認する",
+      "reason": "会話と保存されたメモリは別に管理されます。"
+    },
+    {
+      "action": "職場アカウントでは利用できる項目と保持方針を管理者に確認する",
+      "reason": "組織側の設定や保持方針が適用される場合があります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "Privacy Centerを開いた時点で学習や記憶が停止したと思い込む",
+      "reason": "それぞれの設定で変更する必要があります。"
+    },
+    {
+      "action": "組織管理のアカウントを個人アカウントと同じ保持条件だと決めつける",
+      "reason": "管理者のポリシーが適用される場合があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "複数の設定を順に点検する",
+    "description": "Privacy Centerから関心のある説明をたどり、必要な項目だけ設定画面で見直せます。",
+    "examples": [
+      "Privacy Centerの入口を確認",
+      "メモリと会話の違いを確認",
+      "学習設定を開いて状態を確認",
+      "組織の保持方針を確認"
+    ]
+  },
+  "makotoComment": "今回の入口は、設定を一括で変更するスイッチではありません。とくに会話とメモリを同じ削除操作だと思わず、表示された管理先で一つずつ確かめるのが実用的です。",
+  "oneLineLesson": "Privacy Centerは設定を探す案内で、開いただけでは設定変更や削除は行われない。",
+  "tags": [
+    "ChatGPT",
+    "Privacy Center",
+    "プライバシー",
+    "メモリ",
+    "データ管理"
+  ],
+  "sources": [
+    {
+      "title": "Privacy Center in ChatGPT",
+      "publisher": "OpenAI Help Center",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://help.openai.com/en/articles/20001488-privacy-center-in-chatgpt"
+    },
+    {
+      "title": "Data controls in ChatGPT",
+      "publisher": "OpenAI Help Center",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "ChatGPTのPrivacy Centerを使うを確認する利用者と設定画面を抽象的に描く",
+    "cardIcon": "privacy-center",
+    "accentTone": "calm"
+  }
+}

@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Androidでパスキーとパスワードを移行する　対応アプリと移行後の確認｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="Googleは2026年9月10日、Androidで対応するパスワード管理アプリ間にパスワードとパスキーを移す仕組みを発表しました。移行先のアプリから取り込みを始め、移行元を選んで承認できます。GoogleはAndroid 8以降に対応し、Google Password Manager、1Password、Bitwarden、Dashlaneを対応例として挙げています。すべてのアプリやデータが移せると決めつけず、移行後に必要なログインを確認してから旧アプリの整理を進めてください。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261027-02" />
+<meta property="og:title" content="Androidでパスキーとパスワードを移行する　対応アプリと移行後の確認｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="Googleは2026年9月10日、Androidで対応するパスワード管理アプリ間にパスワードとパスキーを移す仕組みを発表しました。移行先のアプリから取り込みを始め、移行元を選んで承認できます。GoogleはAndroid 8以降に対応し、Google Password Manager、1Password、Bitwarden、Dashlaneを対応例として挙げています。すべてのアプリやデータが移せると決めつけず、移行後に必要なログインを確認してから旧アプリの整理を進めてください。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261027-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Androidのパスキー移行</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-10-27">2026.10.27</time>
+            </div>
+            <h1>Androidでパスキーとパスワードを移行する　対応アプリと移行後の確認</h1>
+            <p>Googleは2026年9月10日、Androidで対応するパスワード管理アプリ間にパスワードとパスキーを移す仕組みを発表しました。移行先のアプリから取り込みを始め、移行元を選んで承認できます。GoogleはAndroid 8以降に対応し、Google Password Manager、1Password、Bitwarden、Dashlaneを対応例として挙げています。すべてのアプリやデータが移せると決めつけず、移行後に必要なログインを確認してから旧アプリの整理を進めてください。</p>
+            <ul class="forensics-target-list"><li>Androidでパスワード管理アプリを乗り換えたい人</li><li>パスキーを失わずに移したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Android</li><li>パスキー</li><li>パスワード管理</li><li>移行</li><li>アカウント</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>機能の提供状況や設定画面は、契約・アカウント・端末・組織の方針によって異なる場合があります。利用前に公式案内と実際の画面を確認してください。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>パスワード管理アプリを変えたいが、パスキーまで移せるか不安</h3><p>アプリを乗り換える際に、パスワードを書き出したファイルや、パスキーの再登録が必要なのか気になります。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>対応アプリ間の移行と、従来のCSV書き出しは手順も取り扱いも異なります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check-support">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>安全に乗り換えるには、最初に何を確認する？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check-support" data-choice-id="check-support" />
+                <span>
+                  <strong>移行元・移行先の対応と必要な認証情報を確認し、移行先から取り込む</strong>
+                  <small>対応アプリでは移行先から選択と承認を進めます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="delete-first" data-choice-id="delete-first" />
+                <span>
+                  <strong>移行を始める前に古い管理アプリのデータを削除する</strong>
+                  <small>移行が終わる前の削除はログイン手段を失う原因になります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="all-automatic" data-choice-id="all-automatic" />
+                <span>
+                  <strong>Androidなら、どの管理アプリからでも全種類の情報が移ると考える</strong>
+                  <small>移行に対応するアプリと情報の種類は確認が必要です。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>移行元・移行先の対応と必要な認証情報を確認し、移行先から取り込む</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>対応するアプリの移行機能では、移行先から始め、移行元で内容を確認して承認します。重要なアカウントで移行先の認証情報を確認してから、古い保管先の扱いを決めます。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対応アプリ間でパスキーも移行</h3>
+              <p>Googleはパスワードとパスキーを管理アプリ間で移す仕組みを発表しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>移行先から始め、移行元で承認</h3>
+              <p>移行先で取り込みを選ぶと、Androidが移行元候補を示し、利用者が移行元で確認・承認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>Android 8以降と対応アプリを確認</h3>
+              <p>GoogleはAndroid 8以降を対応対象とし、Google Password Manager、1Password、Bitwarden、Dashlaneを対応例として挙げています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>画面ロックや復旧キーが必要なことも</h3>
+              <p>Googleのヘルプでは、Google Password Managerへの取り込みに画面ロックが必要で、パスキーの取り込み時には復旧キーを求められる場合があると説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>CSVを使った場合は別の扱いが必要</h3>
+              <p>従来のパスワードCSVは端末上で他者に読まれる可能性があります。Googleは取り込み後にファイルを削除するよう案内しています。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>移行元と移行先を確認し、移行結果を確かめる</strong><p>新しい管理アプリで取り込みを開始し、古いアプリで承認します。移行できたことを確認するまで、元のデータや復旧手段を残します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>移行元と移行先がAndroidのパスワード・パスキー移行に対応しているか公式案内で確認する</strong><span>アプリやデータの種類によって対応が異なるためです。</span></li>
+            <li><strong>移行先のアプリで取り込みを選び、画面ロックや移行元の認証を済ませて承認する</strong><span>Googleの案内は移行先での開始と移行元での承認を説明しています。</span></li>
+            <li><strong>移行後に重要なアカウントの保存内容とログイン方法を確かめる</strong><span>必要な認証情報を使える状態かを確かめてから旧アプリを整理します。</span></li>
+            <li><strong>CSVを使った場合は取り込み後、端末上のファイルの削除を確認する</strong><span>CSVにはパスワードが読める形で含まれることがあります。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>移行前に旧アプリの保管庫を消す</strong><span>移行に失敗した場合にログイン手段を失うおそれがあります。</span></li>
+            <li><strong>対応の確認をせず、すべてのパスキーとその他のデータが移ると決めつける</strong><span>アプリごとの対応状況と移行できるデータは異なります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>移行先でログインを確認してから整理する</h3>
+          <p>新しいアプリで取り込みを開始し、重要なアカウントのログイン手段が使えることを確かめてから切り替えます。</p>
+          <ul class="positive-example-list"><li>対応アプリを確認</li><li>移行元で承認</li><li>重要なログインを確認</li><li>旧アプリの整理</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>移行の出発点は新しい管理アプリです。CSVを使わない対応経路と、CSVを使う従来の経路を混同せず、最後にパスキーで使うアカウントを確認してから旧環境を片付けましょう。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>パスキーの移行は対応アプリ間で行い、旧データを消す前に移行先で確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://blog.google/products-and-platforms/platforms/android/switch-password-managers/" target="_blank" rel="noopener noreferrer">Switching password managers is easy and safe on Android<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google</span>
+              <span>その他</span>
+              <time datetime="2026-09-10">2026-09-10</time>
+            </li>
+            <li>
+              <strong><a href="https://support.google.com/chrome/answer/13068232?co=GENIE.Platform%3DAndroid" target="_blank" rel="noopener noreferrer">Import or export passwords and passkeys with Chrome<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Chrome Help</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261027-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="ChatGPTのPrivacy Centerはどこ？　設定の場所とデータ削除の違い ChatGPTのPrivacy Centerを使う OpenAIはChatGPTのPrivacy Centerについて、会話の扱いや個人設定を説明し、関連する設定へ案内する場所だと公式ヘルプで説明しています。Web版ではアカウントメニューの「Help」から、スマートフォン版では「Settings」から開きます。開いただけでは設定変更やデータ削除は行われません。表示される項目はプランや地域、アカウント、組織の設定により異なります。 セキュリティ・権限 はじめて ChatGPT Privacy Center プライバシー メモリ データ管理 ChatGPTのプライバシー設定を探している人 会話やメモリの扱いを個別に確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">privacy-center</span>
+              <div>
+                <p>ChatGPTのPrivacy Centerを使う</p>
+                <h3>ChatGPTのPrivacy Centerはどこ？　設定の場所とデータ削除の違い</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-27">2026.10.27</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIはChatGPTのPrivacy Centerについて、会話の扱いや個人設定を説明し、関連する設定へ案内する場所だと公式ヘルプで説明しています。Web版ではアカウントメニューの「Help」から、スマートフォン版では「Settings」から開きます。開いただけでは設定変更やデータ削除は行われません。表示される項目はプランや地域、アカウント、組織の設定により異なります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTのプライバシー設定を探している人</li><li>会話やメモリの扱いを個別に確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>Privacy Center</li><li>プライバシー</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261027-03" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="EdgeのCopilotにページや動画を読ませる？　職場アカウントの管理設定 EdgeとCopilotの閲覧権限 Microsoftは、職場のMicrosoft EntraアカウントでEdgeのサイドペインからCopilotを使う場合、ページ内容・閲覧履歴・動画の文字起こしへのアクセスを管理するポリシーを公式文書で説明しています。管理者はEdgeEntraCopilotPageContextの設定を確認でき、無効化するとこれらの文脈を使う機能も制限されます。この案内は個人Microsoftアカウントやモバイル版に同じ設定が適用されるという意味ではありません。 セキュリティ・権限 はじめて Microsoft Edge Copilot Microsoft Entra プライバシー 閲覧履歴 動画要約 職場のEdgeでCopilotを使う人 職場のブラウザー設定を管理する担当者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">edge-copilot-context</span>
+              <div>
+                <p>EdgeとCopilotの閲覧権限</p>
+                <h3>EdgeのCopilotにページや動画を読ませる？　職場アカウントの管理設定</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-27">2026.10.27</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、職場のMicrosoft EntraアカウントでEdgeのサイドペインからCopilotを使う場合、ページ内容・閲覧履歴・動画の文字起こしへのアクセスを管理するポリシーを公式文書で説明しています。管理者はEdgeEntraCopilotPageContextの設定を確認でき、無効化するとこれらの文脈を使う機能も制限されます。この案内は個人Microsoftアカウントやモバイル版に同じ設定が適用されるという意味ではありません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>職場のEdgeでCopilotを使う人</li><li>職場のブラウザー設定を管理する担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Edge</li><li>Copilot</li><li>Microsoft Entra</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261026-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Android AutoのGeminiにGmailをつなぐ前に　車内で使う個人情報と設定 車載Geminiの個人情報連携を確認 Googleは2026年10月20日、GeminiをAndroid AutoとGoogle built-in搭載車へ広げ、Personal Intelligenceによる個人向け回答の展開を始めたと発表しました。本人が接続を許可した場合、GeminiはGmailやカレンダー、Google Photos、Maps、YouTube、Searchなどの情報を使って回答できます。車載機能の利用前にGemini設定で接続アプリを選び、個人情報を車内で使いたくない場合はPersonal Intelligenceを有効にしないでください。Google built-in搭載車では、スマートフォンが接続されている間に限って個人向け回答を共有するとGoogleは説明しています。機能は段階展開中で、アカウントや地域などの対象条件があるため、発表だけで日本の自分の車でも利用可能とは判断できません。 セキュリティ・権限 はじめて Gemini Android Auto Google built-in Personal Intelligence Connected Apps プライバシー 車載AI Android AutoやGoogle built-in搭載車でGeminiを使う人 車内でメールや写真の個人情報をAIに参照させるか判断したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">car-gemini-connected-apps</span>
+              <div>
+                <p>車載Geminiの個人情報連携を確認</p>
+                <h3>Android AutoのGeminiにGmailをつなぐ前に　車内で使う個人情報と設定</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-26">2026.10.26</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Googleは2026年10月20日、GeminiをAndroid AutoとGoogle built-in搭載車へ広げ、Personal Intelligenceによる個人向け回答の展開を始めたと発表しました。本人が接続を許可した場合、GeminiはGmailやカレンダー、Google Photos、Maps、YouTube、Searchなどの情報を使って回答できます。車載機能の利用前にGemini設定で接続アプリを選び、個人情報を車内で使いたくない場合はPersonal Intelligenceを有効にしないでください。Google built-in搭載車では、スマートフォンが接続されている間に限って個人向け回答を共有するとGoogleは説明しています。機能は段階展開中で、アカウントや地域などの対象条件があるため、発表だけで日本の自分の車でも利用可能とは判断できません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Google公式発表とヘルプを確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Android AutoやGoogle built-in搭載車でGeminiを使う人</li><li>車内でメールや写真の個人情報をAIに参照させるか判断したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>Android Auto</li><li>Google built-in</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261027-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261027-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

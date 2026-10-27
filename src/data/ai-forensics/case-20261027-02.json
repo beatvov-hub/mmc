@@ -1,0 +1,145 @@
+{
+  "id": "case-20261027-02",
+  "publishedAt": "2026-10-27",
+  "title": "Androidでパスキーとパスワードを移行する　対応アプリと移行後の確認",
+  "shortTitle": "Androidのパスキー移行",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Androidでパスワード管理アプリを乗り換えたい人",
+    "パスキーを失わずに移したい人"
+  ],
+  "summary": "Googleは2026年9月10日、Androidで対応するパスワード管理アプリ間にパスワードとパスキーを移す仕組みを発表しました。移行先のアプリから取り込みを始め、移行元を選んで承認できます。GoogleはAndroid 8以降に対応し、Google Password Manager、1Password、Bitwarden、Dashlaneを対応例として挙げています。すべてのアプリやデータが移せると決めつけず、移行後に必要なログインを確認してから旧アプリの整理を進めてください。",
+  "scenario": {
+    "headline": "パスワード管理アプリを変えたいが、パスキーまで移せるか不安",
+    "description": "アプリを乗り換える際に、パスワードを書き出したファイルや、パスキーの再登録が必要なのか気になります。",
+    "whyItMatters": "対応アプリ間の移行と、従来のCSV書き出しは手順も取り扱いも異なります。"
+  },
+  "question": {
+    "text": "安全に乗り換えるには、最初に何を確認する？",
+    "choices": [
+      {
+        "id": "check-support",
+        "label": "移行元・移行先の対応と必要な認証情報を確認し、移行先から取り込む",
+        "description": "対応アプリでは移行先から選択と承認を進めます。"
+      },
+      {
+        "id": "delete-first",
+        "label": "移行を始める前に古い管理アプリのデータを削除する",
+        "description": "移行が終わる前の削除はログイン手段を失う原因になります。"
+      },
+      {
+        "id": "all-automatic",
+        "label": "Androidなら、どの管理アプリからでも全種類の情報が移ると考える",
+        "description": "移行に対応するアプリと情報の種類は確認が必要です。"
+      }
+    ],
+    "recommendedAnswers": [
+      "check-support"
+    ],
+    "explanation": "対応するアプリの移行機能では、移行先から始め、移行元で内容を確認して承認します。重要なアカウントで移行先の認証情報を確認してから、古い保管先の扱いを決めます。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "対応アプリ間でパスキーも移行",
+      "description": "Googleはパスワードとパスキーを管理アプリ間で移す仕組みを発表しています。",
+      "priority": "high"
+    },
+    {
+      "title": "移行先から始め、移行元で承認",
+      "description": "移行先で取り込みを選ぶと、Androidが移行元候補を示し、利用者が移行元で確認・承認します。",
+      "priority": "high"
+    },
+    {
+      "title": "Android 8以降と対応アプリを確認",
+      "description": "GoogleはAndroid 8以降を対応対象とし、Google Password Manager、1Password、Bitwarden、Dashlaneを対応例として挙げています。",
+      "priority": "medium"
+    },
+    {
+      "title": "画面ロックや復旧キーが必要なことも",
+      "description": "Googleのヘルプでは、Google Password Managerへの取り込みに画面ロックが必要で、パスキーの取り込み時には復旧キーを求められる場合があると説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "CSVを使った場合は別の扱いが必要",
+      "description": "従来のパスワードCSVは端末上で他者に読まれる可能性があります。Googleは取り込み後にファイルを削除するよう案内しています。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "機能の提供状況や設定画面は、契約・アカウント・端末・組織の方針によって異なる場合があります。利用前に公式案内と実際の画面を確認してください。",
+  "verdict": {
+    "label": "移行元と移行先を確認し、移行結果を確かめる",
+    "description": "新しい管理アプリで取り込みを開始し、古いアプリで承認します。移行できたことを確認するまで、元のデータや復旧手段を残します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "移行元と移行先がAndroidのパスワード・パスキー移行に対応しているか公式案内で確認する",
+      "reason": "アプリやデータの種類によって対応が異なるためです。"
+    },
+    {
+      "action": "移行先のアプリで取り込みを選び、画面ロックや移行元の認証を済ませて承認する",
+      "reason": "Googleの案内は移行先での開始と移行元での承認を説明しています。"
+    },
+    {
+      "action": "移行後に重要なアカウントの保存内容とログイン方法を確かめる",
+      "reason": "必要な認証情報を使える状態かを確かめてから旧アプリを整理します。"
+    },
+    {
+      "action": "CSVを使った場合は取り込み後、端末上のファイルの削除を確認する",
+      "reason": "CSVにはパスワードが読める形で含まれることがあります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "移行前に旧アプリの保管庫を消す",
+      "reason": "移行に失敗した場合にログイン手段を失うおそれがあります。"
+    },
+    {
+      "action": "対応の確認をせず、すべてのパスキーとその他のデータが移ると決めつける",
+      "reason": "アプリごとの対応状況と移行できるデータは異なります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "移行先でログインを確認してから整理する",
+    "description": "新しいアプリで取り込みを開始し、重要なアカウントのログイン手段が使えることを確かめてから切り替えます。",
+    "examples": [
+      "対応アプリを確認",
+      "移行元で承認",
+      "重要なログインを確認",
+      "旧アプリの整理"
+    ]
+  },
+  "makotoComment": "移行の出発点は新しい管理アプリです。CSVを使わない対応経路と、CSVを使う従来の経路を混同せず、最後にパスキーで使うアカウントを確認してから旧環境を片付けましょう。",
+  "oneLineLesson": "パスキーの移行は対応アプリ間で行い、旧データを消す前に移行先で確認する。",
+  "tags": [
+    "Android",
+    "パスキー",
+    "パスワード管理",
+    "移行",
+    "アカウント"
+  ],
+  "sources": [
+    {
+      "title": "Switching password managers is easy and safe on Android",
+      "publisher": "Google",
+      "sourceType": "official-product-update",
+      "publishedAt": "2026-09-10",
+      "url": "https://blog.google/products-and-platforms/platforms/android/switch-password-managers/"
+    },
+    {
+      "title": "Import or export passwords and passkeys with Chrome",
+      "publisher": "Google Chrome Help",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/chrome/answer/13068232?co=GENIE.Platform%3DAndroid"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Androidのパスキー移行を確認する利用者と設定画面を抽象的に描く",
+    "cardIcon": "android-credential-transfer",
+    "accentTone": "calm"
+  }
+}
