@@ -1,0 +1,152 @@
+{
+  "id": "case-20261028-02",
+  "publishedAt": "2026-10-28",
+  "title": "偽の「私はロボットではありません」に注意　操作する前と実行後の対処",
+  "shortTitle": "偽CAPTCHAの指示で止まる",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Web閲覧中に突然認証画面を見た人",
+    "認証の指示に従って操作してしまった人"
+  ],
+  "summary": "静岡県警察は2026年1月、偽のCAPTCHA認証やエラー画面を使い、利用者自身に不正な操作をさせる「クリックフィックス」を注意喚起しました。大阪府警察も、偽の認証やエラー画面を装って利用者に不正な操作を促す手口を案内しています。認証のためとして端末の実行画面へ内容を貼り付けるよう求められたら操作を止め、すでに実行した場合はネットワークから切り離して職場の担当者や専門窓口に相談してください。",
+  "scenario": {
+    "headline": "いつもの人間確認のような画面で、端末の操作を求められた",
+    "description": "Webページが「ロボットではないことを確認する」と表示し、キーボード操作や内容の貼り付けを続けるよう促しています。",
+    "whyItMatters": "利用者自身が操作を実行すると、感染やアカウント情報の窃取につながるおそれがあります。"
+  },
+  "question": {
+    "text": "認証画面が端末でのコマンド実行を求めたら？",
+    "choices": [
+      {
+        "id": "stop",
+        "label": "操作を止めてページを閉じ、必要なら公式窓口に確認する",
+        "description": "正当な認証を装って端末内の操作をさせる手口が報告されています。"
+      },
+      {
+        "id": "follow",
+        "label": "人間確認の画面なので、意味が分からなくても指示に従う",
+        "description": "偽画面の指示は不正なプログラムの実行につながる場合があります。"
+      },
+      {
+        "id": "assume-infected",
+        "label": "画面を見ただけで必ず感染したと判断する",
+        "description": "どの操作を行ったかによって、対応すべき状況が異なります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "stop"
+    ],
+    "explanation": "表示を見ただけ、貼り付けた、実行した、といった操作段階を記録し、実行していなければ続きを行わずページを閉じます。実行した場合はネットワークから切り離し、組織の担当者や専門窓口へ相談します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "人間確認を装って不正操作を促す",
+      "description": "静岡県警察は、偽CAPTCHAや偽エラー画面で利用者自身に不正なコードを実行させる手口を説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "通常の認証と端末の実行操作は異なる",
+      "description": "大阪府警察は、Web上の人間確認を装い、端末内の操作を指示する偽画面の手口を説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "偽エラーや更新画面も入口になる",
+      "description": "大阪府警察は、偽CAPTCHAに加え、偽エラー画面やアップデート通知を装う例も案内しています。",
+      "priority": "medium"
+    },
+    {
+      "title": "実行した場合の初動",
+      "description": "不正な操作を実行した場合は、端末をネットワークから切り離し、職場の担当者や専門窓口に相談します。IPAは情報漏えい時にパスワードの変更や多要素認証の利用を案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "感染や被害の確定は画面だけではできない",
+      "description": "表示を見ただけか、貼り付けや実行まで進んだかを分けて、組織の担当者や相談窓口に伝えます。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公開資料に記載された対象と対応を確認しています。製品の利用状況や設定、契約によって確認方法や影響は異なります。",
+  "verdict": {
+    "label": "認証を装う端末操作を止め、操作段階に応じて相談する",
+    "description": "不審な手順は進めず、実行済みの場合は安全な端末から必要なアカウントの保護を進めます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "コマンドの貼り付けや実行を求められたら、操作を止めてページを閉じる",
+      "reason": "人間確認を装った不正操作の可能性があります。"
+    },
+    {
+      "action": "実行まで進んだ場合は端末をネットワークから切り離し、職場の端末なら情報セキュリティ担当者へ連絡する",
+      "reason": "被害拡大の防止と調査に必要な対応を優先します。"
+    },
+    {
+      "action": "画面や時刻、行った操作を記録して相談先に伝える",
+      "reason": "どこまで操作したかで対応が変わります。"
+    },
+    {
+      "action": "アカウントを使った可能性がある場合、別の安全な端末からパスワード変更と二要素認証を検討する",
+      "reason": "IPAはパスワードが漏えいした場合の変更と、多要素認証の設定を案内しています。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "内容が分からないまま、認証の指示に従って貼り付けや実行を続ける",
+      "reason": "正当な認証を装う攻撃の場合があります。"
+    },
+    {
+      "action": "スキャンが一度終わっただけで被害や情報流出がなかったと断定する",
+      "reason": "端末やアカウントの状態について、必要に応じて専門家の確認が必要です。"
+    }
+  ],
+  "positiveUse": {
+    "title": "操作段階を分けて相談する",
+    "description": "見ただけの場合は不審な操作を続けず、実行した場合は端末の隔離とアカウント保護を進めます。",
+    "examples": [
+      "画面の指示を止める",
+      "操作段階を記録",
+      "ネットワークを切断",
+      "安全な別端末でアカウントを確認"
+    ]
+  },
+  "makotoComment": "見慣れたチェック欄が出ても、その後に端末で何をさせようとしているかは別の話です。表示を見ただけか実行まで進んだかを整理すると、落ち着いて初動を選べます。",
+  "oneLineLesson": "人間確認を装って端末での貼り付けや実行を求められたら操作を止める。",
+  "tags": [
+    "偽CAPTCHA",
+    "ClickFix",
+    "クリックフィックス",
+    "マルウェア",
+    "フィッシング"
+  ],
+  "sources": [
+    {
+      "title": "クリックフィックス攻撃が急増中！",
+      "publisher": "静岡県警察",
+      "sourceType": "government-consumer-alert",
+      "publishedAt": "2026-01-07",
+      "url": "https://www.pref.shizuoka.jp/police/kurashi/bohan/cyber/2008343.html"
+    },
+    {
+      "title": "急増するサイバー攻撃「クリックフィックス」！",
+      "publisher": "大阪府警察",
+      "sourceType": "government-consumer-alert",
+      "publishedAt": null,
+      "url": "https://www.police.pref.osaka.lg.jp/seikatsu/saiba/cyber_shiryou/cybersecurity_tsushin/7/22510.html"
+    },
+    {
+      "title": "自分の個人情報等が漏えいした際の「対処」と「日頃の対策」",
+      "publisher": "情報処理推進機構（IPA）",
+      "sourceType": "government-consumer-guidance",
+      "publishedAt": "2026-10-26",
+      "url": "https://www.ipa.go.jp/security/anshin/attention/2026/mgdayori20261026.html"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "偽CAPTCHAの指示で止まるを確認する画面と利用者を抽象的に描く",
+    "cardIcon": "fake-captcha",
+    "accentTone": "calm"
+  }
+}

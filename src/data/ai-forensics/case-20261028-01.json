@@ -1,0 +1,158 @@
+{
+  "id": "case-20261028-01",
+  "publishedAt": "2026-10-28",
+  "title": "Oracle JavaのeMudhra証明書対策　追加の更新が必要か確認する",
+  "shortTitle": "Javaの証明書対策を確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Javaを使うシステムの運用担当者",
+    "ソフトウェアに組み込まれたJavaの更新を確認したい人"
+  ],
+  "summary": "Oracleは2026年10月24日、eMudhraに関連するルート認証局証明書への対策として、Oracle Java SEとGraalVM向けの追加セキュリティ情報「CVE-2026-114820」を公開しました。10月21日の中間認証局証明書への対策とは別に確認が必要です。利用しているJavaの提供元・バージョンと、製品に組み込まれた実行環境を棚卸しし、提供元の修正版や緩和策を確認してください。更新後は、必要な接続が維持されるか管理者が検証します。",
+  "scenario": {
+    "headline": "Javaを更新したはずだが、証明書の追加対策も必要か",
+    "description": "eMudhraに関連する認証局証明書の問題について、中間証明書への対策とルート証明書への追加対策が続けて案内されました。",
+    "whyItMatters": "Javaが独自に使う証明書の信頼設定や、アプリに同梱された実行環境は、OSの更新だけで対応済みとは限りません。"
+  },
+  "question": {
+    "text": "管理者が最初に確認することは？",
+    "choices": [
+      {
+        "id": "inventory",
+        "label": "Javaの提供元・バージョンと同梱された実行環境を把握し、提供元の情報を照合する",
+        "description": "環境に適した修正版や緩和策を選ぶためです。"
+      },
+      {
+        "id": "os-only",
+        "label": "OSを更新したので、すべてのJava環境も修正済みと決めつける",
+        "description": "実行環境ごとに使用する証明書や更新方法が異なります。"
+      },
+      {
+        "id": "disable-validation",
+        "label": "通信エラーを避けるため証明書の検証を無効にする",
+        "description": "正当な接続先かどうかを検証できなくなります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "inventory"
+    ],
+    "explanation": "対象環境を把握し、各Java提供元の修正版・緩和策とサポート条件を確認します。更新後に通信や署名の検証を点検し、証明書検証を安易に無効化しないでください。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "10月21日の対策は中間認証局証明書",
+      "description": "OracleはCVE-2026-91403の対策として、影響を受けたeMudhra関連の中間認証局証明書を信頼しないJava更新を案内しました。",
+      "priority": "high"
+    },
+    {
+      "title": "10月24日にルート認証局証明書の追加対策",
+      "description": "OracleはCVE-2026-114820について、eMudhra関連のルート認証局証明書を削除するJava更新を案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "対象の版と提供元を区別",
+      "description": "Oracleの追加アラートはOracle Java SEとOracle GraalVMの対象バージョンを列挙しています。他社提供のJavaや製品に同梱されたJavaは各提供元の案内を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "JDK 27の修正版の例",
+      "description": "OracleのJDK 27.0.1.0.3リリースノートは、対象のルート証明書の削除とCVE-2026-114820の修正を記載しています。",
+      "priority": "medium"
+    },
+    {
+      "title": "証明書変更による接続影響を確認",
+      "description": "信頼する証明書が変わるため、必要な通信や署名検証に影響がないか、管理者が検証環境で確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "悪用可能性と実際の被害は別",
+      "description": "Oracleはネットワーク経由の悪用可能性を評価しています。この案内だけでは、自組織への実際の攻撃や情報漏えいは確認できません。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公開資料に記載された対象と対応を確認しています。製品の利用状況や設定、契約によって確認方法や影響は異なります。",
+  "verdict": {
+    "label": "Javaごとに追加対策の状態を確認する",
+    "description": "対象製品、Javaの提供元と版、同梱版を確認し、提供元の案内に沿って更新・検証します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "サーバー、端末、アプリに同梱されたJavaを棚卸しする",
+      "reason": "一つの端末に複数の実行環境が存在する場合があります。"
+    },
+    {
+      "action": "Oracle製品はセキュリティアラートの対象版と修正版を照合する",
+      "reason": "中間証明書とルート証明書に関する案内は別々に公開されています。"
+    },
+    {
+      "action": "他社提供Javaや業務製品の同梱版は、その提供元に更新方法と対応状況を確認する",
+      "reason": "OSや別のJavaを更新しても製品の同梱版が変わるとは限りません。"
+    },
+    {
+      "action": "更新前に重要な接続先と証明書の依存関係を確認し、更新後の通信を検証する",
+      "reason": "信頼設定の変更によって通信や署名検証に影響が出る場合があります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "接続エラーを解消するため証明書検証を無効化する",
+      "reason": "通信先を検証できなくなり、別の危険を生みます。"
+    },
+    {
+      "action": "列挙されていない古い版は安全だと決めつける",
+      "reason": "Oracleはサポート対象外の版は検証されていないものの、影響する可能性が高いと説明しています。"
+    }
+  ],
+  "positiveUse": {
+    "title": "更新対象と通信先を一緒に整理する",
+    "description": "Javaの提供元と使用するアプリを一覧にし、更新後の通信確認を運用担当者と進めます。",
+    "examples": [
+      "Javaの提供元と版を確認",
+      "製品に同梱されたJavaを確認",
+      "修正版と緩和策を照合",
+      "必要な通信を検証"
+    ]
+  },
+  "makotoComment": "Flutter向けの記事ではアプリに組み込まれたSDKを扱いました。今回はJavaが使う証明書の信頼設定を確認する場面です。同じ証明書問題でも、実行環境ごとに対策と接続への影響を分けて確認しましょう。",
+  "oneLineLesson": "Javaの証明書対策は、OSだけでなく提供元と同梱された実行環境ごとに確認する。",
+  "tags": [
+    "Java",
+    "eMudhra",
+    "CVE-2026-114820",
+    "証明書",
+    "GraalVM",
+    "セキュリティ更新"
+  ],
+  "sources": [
+    {
+      "title": "Oracle Security Alert Advisory - CVE-2026-114820",
+      "publisher": "Oracle",
+      "sourceType": "official-product-update",
+      "publishedAt": "2026-10-24",
+      "url": "https://www.oracle.com/security-alerts/alert-cve-2026-114820.html"
+    },
+    {
+      "title": "Oracle Security Alert Advisory - CVE-2026-91403",
+      "publisher": "Oracle",
+      "sourceType": "official-product-update",
+      "publishedAt": "2026-10-21",
+      "url": "https://www.oracle.com/security-alerts/alert-cve-2026-91403.html"
+    },
+    {
+      "title": "Java SE Development Kit 27, 27.0.1.0.3 Release Notes",
+      "publisher": "Oracle",
+      "sourceType": "official-product-documentation",
+      "publishedAt": "2026-10-24",
+      "url": "https://www.oracle.com/java/technologies/javase/27-0-1-0-3-relnotes.html"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Javaの証明書対策を確認を確認する画面と利用者を抽象的に描く",
+    "cardIcon": "java-certificate-update",
+    "accentTone": "calm"
+  }
+}

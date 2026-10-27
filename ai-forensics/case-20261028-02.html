@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>偽の「私はロボットではありません」に注意　操作する前と実行後の対処｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="静岡県警察は2026年1月、偽のCAPTCHA認証やエラー画面を使い、利用者自身に不正な操作をさせる「クリックフィックス」を注意喚起しました。大阪府警察も、偽の認証やエラー画面を装って利用者に不正な操作を促す手口を案内しています。認証のためとして端末の実行画面へ内容を貼り付けるよう求められたら操作を止め、すでに実行した場合はネットワークから切り離して職場の担当者や専門窓口に相談してください。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261028-02" />
+<meta property="og:title" content="偽の「私はロボットではありません」に注意　操作する前と実行後の対処｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="静岡県警察は2026年1月、偽のCAPTCHA認証やエラー画面を使い、利用者自身に不正な操作をさせる「クリックフィックス」を注意喚起しました。大阪府警察も、偽の認証やエラー画面を装って利用者に不正な操作を促す手口を案内しています。認証のためとして端末の実行画面へ内容を貼り付けるよう求められたら操作を止め、すでに実行した場合はネットワークから切り離して職場の担当者や専門窓口に相談してください。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261028-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>偽CAPTCHAの指示で止まる</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-10-28">2026.10.28</time>
+            </div>
+            <h1>偽の「私はロボットではありません」に注意　操作する前と実行後の対処</h1>
+            <p>静岡県警察は2026年1月、偽のCAPTCHA認証やエラー画面を使い、利用者自身に不正な操作をさせる「クリックフィックス」を注意喚起しました。大阪府警察も、偽の認証やエラー画面を装って利用者に不正な操作を促す手口を案内しています。認証のためとして端末の実行画面へ内容を貼り付けるよう求められたら操作を止め、すでに実行した場合はネットワークから切り離して職場の担当者や専門窓口に相談してください。</p>
+            <ul class="forensics-target-list"><li>Web閲覧中に突然認証画面を見た人</li><li>認証の指示に従って操作してしまった人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>偽CAPTCHA</li><li>ClickFix</li><li>クリックフィックス</li><li>マルウェア</li><li>フィッシング</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>公開資料に記載された対象と対応を確認しています。製品の利用状況や設定、契約によって確認方法や影響は異なります。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>いつもの人間確認のような画面で、端末の操作を求められた</h3><p>Webページが「ロボットではないことを確認する」と表示し、キーボード操作や内容の貼り付けを続けるよう促しています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>利用者自身が操作を実行すると、感染やアカウント情報の窃取につながるおそれがあります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="stop">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>認証画面が端末でのコマンド実行を求めたら？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="stop" data-choice-id="stop" />
+                <span>
+                  <strong>操作を止めてページを閉じ、必要なら公式窓口に確認する</strong>
+                  <small>正当な認証を装って端末内の操作をさせる手口が報告されています。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="follow" data-choice-id="follow" />
+                <span>
+                  <strong>人間確認の画面なので、意味が分からなくても指示に従う</strong>
+                  <small>偽画面の指示は不正なプログラムの実行につながる場合があります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="assume-infected" data-choice-id="assume-infected" />
+                <span>
+                  <strong>画面を見ただけで必ず感染したと判断する</strong>
+                  <small>どの操作を行ったかによって、対応すべき状況が異なります。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>操作を止めてページを閉じ、必要なら公式窓口に確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>表示を見ただけ、貼り付けた、実行した、といった操作段階を記録し、実行していなければ続きを行わずページを閉じます。実行した場合はネットワークから切り離し、組織の担当者や専門窓口へ相談します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>人間確認を装って不正操作を促す</h3>
+              <p>静岡県警察は、偽CAPTCHAや偽エラー画面で利用者自身に不正なコードを実行させる手口を説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>通常の認証と端末の実行操作は異なる</h3>
+              <p>大阪府警察は、Web上の人間確認を装い、端末内の操作を指示する偽画面の手口を説明しています。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>偽エラーや更新画面も入口になる</h3>
+              <p>大阪府警察は、偽CAPTCHAに加え、偽エラー画面やアップデート通知を装う例も案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>実行した場合の初動</h3>
+              <p>不正な操作を実行した場合は、端末をネットワークから切り離し、職場の担当者や専門窓口に相談します。IPAは情報漏えい時にパスワードの変更や多要素認証の利用を案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>感染や被害の確定は画面だけではできない</h3>
+              <p>表示を見ただけか、貼り付けや実行まで進んだかを分けて、組織の担当者や相談窓口に伝えます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>認証を装う端末操作を止め、操作段階に応じて相談する</strong><p>不審な手順は進めず、実行済みの場合は安全な端末から必要なアカウントの保護を進めます。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>コマンドの貼り付けや実行を求められたら、操作を止めてページを閉じる</strong><span>人間確認を装った不正操作の可能性があります。</span></li>
+            <li><strong>実行まで進んだ場合は端末をネットワークから切り離し、職場の端末なら情報セキュリティ担当者へ連絡する</strong><span>被害拡大の防止と調査に必要な対応を優先します。</span></li>
+            <li><strong>画面や時刻、行った操作を記録して相談先に伝える</strong><span>どこまで操作したかで対応が変わります。</span></li>
+            <li><strong>アカウントを使った可能性がある場合、別の安全な端末からパスワード変更と二要素認証を検討する</strong><span>IPAはパスワードが漏えいした場合の変更と、多要素認証の設定を案内しています。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>内容が分からないまま、認証の指示に従って貼り付けや実行を続ける</strong><span>正当な認証を装う攻撃の場合があります。</span></li>
+            <li><strong>スキャンが一度終わっただけで被害や情報流出がなかったと断定する</strong><span>端末やアカウントの状態について、必要に応じて専門家の確認が必要です。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>操作段階を分けて相談する</h3>
+          <p>見ただけの場合は不審な操作を続けず、実行した場合は端末の隔離とアカウント保護を進めます。</p>
+          <ul class="positive-example-list"><li>画面の指示を止める</li><li>操作段階を記録</li><li>ネットワークを切断</li><li>安全な別端末でアカウントを確認</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>見慣れたチェック欄が出ても、その後に端末で何をさせようとしているかは別の話です。表示を見ただけか実行まで進んだかを整理すると、落ち着いて初動を選べます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>人間確認を装って端末での貼り付けや実行を求められたら操作を止める。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://www.pref.shizuoka.jp/police/kurashi/bohan/cyber/2008343.html" target="_blank" rel="noopener noreferrer">クリックフィックス攻撃が急増中！<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>静岡県警察</span>
+              <span>その他</span>
+              <time datetime="2026-01-07">2026-01-07</time>
+            </li>
+            <li>
+              <strong><a href="https://www.police.pref.osaka.lg.jp/seikatsu/saiba/cyber_shiryou/cybersecurity_tsushin/7/22510.html" target="_blank" rel="noopener noreferrer">急増するサイバー攻撃「クリックフィックス」！<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>大阪府警察</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://www.ipa.go.jp/security/anshin/attention/2026/mgdayori20261026.html" target="_blank" rel="noopener noreferrer">自分の個人情報等が漏えいした際の「対処」と「日頃の対策」<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>情報処理推進機構（IPA）</span>
+              <span>その他</span>
+              <time datetime="2026-10-26">2026-10-26</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261028-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Oracle JavaのeMudhra証明書対策　追加の更新が必要か確認する Javaの証明書対策を確認 Oracleは2026年10月24日、eMudhraに関連するルート認証局証明書への対策として、Oracle Java SEとGraalVM向けの追加セキュリティ情報「CVE-2026-114820」を公開しました。10月21日の中間認証局証明書への対策とは別に確認が必要です。利用しているJavaの提供元・バージョンと、製品に組み込まれた実行環境を棚卸しし、提供元の修正版や緩和策を確認してください。更新後は、必要な接続が維持されるか管理者が検証します。 セキュリティ・権限 はじめて Java eMudhra CVE-2026-114820 証明書 GraalVM セキュリティ更新 Javaを使うシステムの運用担当者 ソフトウェアに組み込まれたJavaの更新を確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">java-certificate-update</span>
+              <div>
+                <p>Javaの証明書対策を確認</p>
+                <h3>Oracle JavaのeMudhra証明書対策　追加の更新が必要か確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-28">2026.10.28</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Oracleは2026年10月24日、eMudhraに関連するルート認証局証明書への対策として、Oracle Java SEとGraalVM向けの追加セキュリティ情報「CVE-2026-114820」を公開しました。10月21日の中間認証局証明書への対策とは別に確認が必要です。利用しているJavaの提供元・バージョンと、製品に組み込まれた実行環境を棚卸しし、提供元の修正版や緩和策を確認してください。更新後は、必要な接続が維持されるか管理者が検証します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Javaを使うシステムの運用担当者</li><li>ソフトウェアに組み込まれたJavaの更新を確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Java</li><li>eMudhra</li><li>CVE-2026-114820</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261028-03" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Gmailの添付ファイルは自動スキャンで安全？　警告ごとの確認方法 Gmailの添付ファイル警告 GoogleのGmail公式ヘルプは、送受信する添付ファイルを自動的にウイルススキャンする一方、暗号化された添付ファイルはスキャンできない場合があると説明しています。添付メール（.eml）では、メール内に表示された送信者が実際の送信者か確認できない場合もあります。警告が表示されたら開く操作を急がず、送信者やファイルを、普段使う連絡先や組織の担当者に確認してください。 セキュリティ・権限 はじめて Gmail 添付ファイル ウイルススキャン 暗号化 eml フィッシング Gmailで添付ファイルを受け取る人 暗号化ファイルや添付メールの警告を見た人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gmail-attachment-warning</span>
+              <div>
+                <p>Gmailの添付ファイル警告</p>
+                <h3>Gmailの添付ファイルは自動スキャンで安全？　警告ごとの確認方法</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-28">2026.10.28</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">GoogleのGmail公式ヘルプは、送受信する添付ファイルを自動的にウイルススキャンする一方、暗号化された添付ファイルはスキャンできない場合があると説明しています。添付メール（.eml）では、メール内に表示された送信者が実際の送信者か確認できない場合もあります。警告が表示されたら開く操作を急がず、送信者やファイルを、普段使う連絡先や組織の担当者に確認してください。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Gmailで添付ファイルを受け取る人</li><li>暗号化ファイルや添付メールの警告を見た人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gmail</li><li>添付ファイル</li><li>ウイルススキャン</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261027-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="ChatGPTのPrivacy Centerはどこ？　設定の場所とデータ削除の違い ChatGPTのPrivacy Centerを使う OpenAIはChatGPTのPrivacy Centerについて、会話の扱いや個人設定を説明し、関連する設定へ案内する場所だと公式ヘルプで説明しています。Web版ではアカウントメニューの「Help」から、スマートフォン版では「Settings」から開きます。開いただけでは設定変更やデータ削除は行われません。表示される項目はプランや地域、アカウント、組織の設定により異なります。 セキュリティ・権限 はじめて ChatGPT Privacy Center プライバシー メモリ データ管理 ChatGPTのプライバシー設定を探している人 会話やメモリの扱いを個別に確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">privacy-center</span>
+              <div>
+                <p>ChatGPTのPrivacy Centerを使う</p>
+                <h3>ChatGPTのPrivacy Centerはどこ？　設定の場所とデータ削除の違い</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-27">2026.10.27</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OpenAIはChatGPTのPrivacy Centerについて、会話の扱いや個人設定を説明し、関連する設定へ案内する場所だと公式ヘルプで説明しています。Web版ではアカウントメニューの「Help」から、スマートフォン版では「Settings」から開きます。開いただけでは設定変更やデータ削除は行われません。表示される項目はプランや地域、アカウント、組織の設定により異なります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>ChatGPTのプライバシー設定を探している人</li><li>会話やメモリの扱いを個別に確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>Privacy Center</li><li>プライバシー</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261028-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261028-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
