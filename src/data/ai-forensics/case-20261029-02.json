@@ -1,0 +1,144 @@
+{
+  "id": "case-20261029-02",
+  "publishedAt": "2026-10-29",
+  "title": "AndroidのChromeに怪しい通知が出るときは？サイトの通知許可を解除",
+  "shortTitle": "Chromeの怪しい通知を止める",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "AndroidのChromeで不審な通知が届く人",
+    "サイトの通知を誤って許可した人"
+  ],
+  "summary": "GoogleはChromeの公式ヘルプで、Android上のサイト通知の設定や解除方法を案内しています。怪しい通知が繰り返し届く場合は、通知のリンクを開かず、Chromeの設定でサイトの通知許可を確認できます。",
+  "scenario": {
+    "headline": "ウイルス感染を知らせるような通知が繰り返し届く",
+    "description": "Chromeからの通知に、操作を急がせる文章が表示されています。",
+    "whyItMatters": "サイトに与えた通知権限が使われている場合、権限の見直しで止められます。"
+  },
+  "question": {
+    "text": "怪しい通知が繰り返し届いたら？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "Chromeの設定で通知元と許可を確認する",
+        "description": "不審なサイトからの通知を停止できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "通知の指示どおりに有料の修復サービスを申し込む",
+        "description": "偽の警告から不審サイトへ誘導される場合があります。"
+      },
+      {
+        "id": "wrong2",
+        "label": "通知が出たので端末の感染が確定したと判断する",
+        "description": "通知文だけでは感染の有無は判断できません。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "通知のリンクを開かず、Chromeの設定からサイト通知を確認します。画面表示は機種やバージョンで異なる場合があります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "通知とページ内表示は別",
+      "description": "Googleはサイト通知とポップアップを別の設定で案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "AndroidのChromeで確認",
+      "description": "Chromeの「設定」から「サイトの設定」→「通知」を開き、通知の設定を確認できます。",
+      "priority": "high"
+    },
+    {
+      "title": "個別サイトの権限",
+      "description": "Googleはサイトのページ情報から権限を変更する方法を案内しています。不審なサイトを開かずに設定から確認する方法を優先します。",
+      "priority": "high"
+    },
+    {
+      "title": "通知から登録解除できる端末もある",
+      "description": "Googleによると、端末によっては通知から直接「登録解除」を選べます。",
+      "priority": "medium"
+    },
+    {
+      "title": "アプリからの通知は別に確認",
+      "description": "サイト通知を止めても別のアプリからの通知には別の設定が必要です。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "Chromeの設定で通知元と許可を確認する",
+    "description": "通知のリンクを開かず、Chromeの設定からサイト通知を確認します。画面表示は機種やバージョンで異なる場合があります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "通知本文のリンクを押さず、Chromeの設定を開く",
+      "reason": "通知から不審サイトに誘導されるのを避けます。"
+    },
+    {
+      "action": "サイトの設定から通知の許可を確認し、不要なサイトを解除する",
+      "reason": "サイト単位の通知権限を見直せます。"
+    },
+    {
+      "action": "通知に「登録解除」が表示される場合はその選択肢を使う",
+      "reason": "対応する端末では通知から停止できます。"
+    },
+    {
+      "action": "インストールや支払いをした場合は、公式の相談窓口に状況を伝える",
+      "reason": "行った操作に応じた対処が必要です。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "通知内の電話番号にすぐ連絡する",
+      "reason": "偽警告の誘導先である場合があります。"
+    },
+    {
+      "action": "通知文だけで感染や情報漏えいを断定する",
+      "reason": "表示の原因を分けて調べる必要があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "通知本文のリンクを押さず、Chromeの設定を開く",
+      "サイトの設定から通知の許可を確認し、不要なサイトを解除する",
+      "通知に「登録解除」が表示される場合はその選択肢を使う"
+    ]
+  },
+  "makotoComment": "通知を一括で切る前に、不要なサイトだけ止められるか確認すると、必要なお知らせを残せます。",
+  "oneLineLesson": "怪しい通知は開かず、Chromeのサイト通知権限を見直す。",
+  "tags": [
+    "Android",
+    "Chrome",
+    "通知",
+    "偽警告",
+    "サイト権限"
+  ],
+  "sources": [
+    {
+      "title": "通知を使用してアラートを受け取る",
+      "publisher": "Google Chrome ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/chrome/answer/3220216?co=GENIE.Platform%3DAndroid&hl=ja-ZZ"
+    },
+    {
+      "title": "ブラウザの通知機能から不審サイトに誘導する手口に注意",
+      "publisher": "情報処理推進機構（IPA）",
+      "sourceType": "government-consumer-alert",
+      "publishedAt": "2021-03-09",
+      "url": "https://www.ipa.go.jp/security/anshin/attention/2021/mgdayori20210309.html"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "ウイルス感染を知らせるような通知が繰り返し届く場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  }
+}

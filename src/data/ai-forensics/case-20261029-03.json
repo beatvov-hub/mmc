@@ -1,0 +1,137 @@
+{
+  "id": "case-20261029-03",
+  "publishedAt": "2026-10-29",
+  "title": "サイトに危険の警告が出たら？Search Consoleで確認する場所と再審査",
+  "shortTitle": "サイトの危険警告と再審査",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "自分のサイトに警告が出た運営者",
+    "サイト管理を外部へ委託している人"
+  ],
+  "summary": "GoogleはSearch Consoleの公式ヘルプで、サイトの「セキュリティの問題」レポートと修正後の再審査を案内しています。サイトに危険の警告が表示された場合、運営者は指摘内容を確認して管理担当者へ共有できます。",
+  "scenario": {
+    "headline": "自社サイトを開くと危険なサイトという警告が出る",
+    "description": "利用者や取引先からサイトに警告が出ていると連絡を受けました。",
+    "whyItMatters": "原因を調査して修正しないままでは、利用者に影響が続く可能性があります。"
+  },
+  "question": {
+    "text": "サイト運営者が最初に取る対応は？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "Search Consoleのレポートを確認し、管理担当者と調査する",
+        "description": "Googleの検出内容を把握し、原因と対処を調べます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "警告が出ない端末もあるので問題はないと判断する",
+        "description": "Googleは状況により警告を再現できない場合があると説明しています。"
+      },
+      {
+        "id": "wrong2",
+        "label": "修正する前に再審査だけを何度も依頼する",
+        "description": "問題を調査して修正した後に再審査を依頼します。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "対象サイトのSearch Consoleで問題の種類や例を確認し、管理会社や技術担当者に共有します。原因を調査・修正した後に再審査を依頼します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "警告の対象",
+      "description": "Googleは検索結果に警告が表示されたり、アクセス時にブラウザで警告ページが表示されたりする場合があると説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "レポートの分類",
+      "description": "ハッキングされたコンテンツ、マルウェア等、ソーシャルエンジニアリングが主な分類です。",
+      "priority": "high"
+    },
+    {
+      "title": "自分の画面に出ない場合もある",
+      "description": "Googleは閲覧状況により警告を再現できないことがあると説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "修正後に再審査",
+      "description": "問題を確認・修正し、実施した対応を記載して再審査をリクエストします。",
+      "priority": "high"
+    },
+    {
+      "title": "管理委託なら担当者へ共有",
+      "description": "警告画面と対象URL、レポートの内容を管理会社に伝え、調査と修正を依頼します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "Search Consoleのレポートを確認し、管理担当者と調査する",
+    "description": "対象サイトのSearch Consoleで問題の種類や例を確認し、管理会社や技術担当者に共有します。原因を調査・修正した後に再審査を依頼します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "正しいサイトのSearch Consoleで「セキュリティの問題」を開く",
+      "reason": "問題の種類とGoogleからの情報を確認できます。"
+    },
+    {
+      "action": "警告が出たURLと表示内容を管理担当者に共有する",
+      "reason": "調査対象の特定に役立ちます。"
+    },
+    {
+      "action": "管理担当者が原因を調査し、問題を修正する",
+      "reason": "再審査の前に問題の解消が必要です。"
+    },
+    {
+      "action": "修正後に対応内容を添えて再審査をリクエストする",
+      "reason": "Googleに修正内容を確認してもらえます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "自分の端末で警告が出ないだけで対応を終える",
+      "reason": "閲覧状況により警告が再現しない場合があります。"
+    },
+    {
+      "action": "知識がないまま本番のファイルや設定を削除する",
+      "reason": "復旧や調査を難しくするおそれがあるため担当者に相談します。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "正しいサイトのSearch Consoleで「セキュリティの問題」を開く",
+      "警告が出たURLと表示内容を管理担当者に共有する",
+      "管理担当者が原因を調査し、問題を修正する"
+    ]
+  },
+  "makotoComment": "警告画面だけで原因を決めつけず、Search Consoleの問題の種類と対象URLを管理会社に渡すところから始めましょう。",
+  "oneLineLesson": "警告を確認し、管理担当者による修正後に再審査を依頼する。",
+  "tags": [
+    "Search Console",
+    "セキュリティの問題",
+    "サイト改ざん",
+    "再審査",
+    "Webサイト管理"
+  ],
+  "sources": [
+    {
+      "title": "セキュリティの問題レポート",
+      "publisher": "Google Search Console ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/webmasters/answer/9044101?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "自社サイトを開くと危険なサイトという警告が出る場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  }
+}

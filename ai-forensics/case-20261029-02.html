@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AndroidのChromeに怪しい通知が出るときは？サイトの通知許可を解除｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="GoogleはChromeの公式ヘルプで、Android上のサイト通知の設定や解除方法を案内しています。怪しい通知が繰り返し届く場合は、通知のリンクを開かず、Chromeの設定でサイトの通知許可を確認できます。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261029-02" />
+<meta property="og:title" content="AndroidのChromeに怪しい通知が出るときは？サイトの通知許可を解除｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="GoogleはChromeの公式ヘルプで、Android上のサイト通知の設定や解除方法を案内しています。怪しい通知が繰り返し届く場合は、通知のリンクを開かず、Chromeの設定でサイトの通知許可を確認できます。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261029-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Chromeの怪しい通知を止める</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-10-29">2026.10.29</time>
+            </div>
+            <h1>AndroidのChromeに怪しい通知が出るときは？サイトの通知許可を解除</h1>
+            <p>GoogleはChromeの公式ヘルプで、Android上のサイト通知の設定や解除方法を案内しています。怪しい通知が繰り返し届く場合は、通知のリンクを開かず、Chromeの設定でサイトの通知許可を確認できます。</p>
+            <ul class="forensics-target-list"><li>AndroidのChromeで不審な通知が届く人</li><li>サイトの通知を誤って許可した人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Android</li><li>Chrome</li><li>通知</li><li>偽警告</li><li>サイト権限</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>ウイルス感染を知らせるような通知が繰り返し届く</h3><p>Chromeからの通知に、操作を急がせる文章が表示されています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>サイトに与えた通知権限が使われている場合、権限の見直しで止められます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="correct">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>怪しい通知が繰り返し届いたら？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="correct" data-choice-id="correct" />
+                <span>
+                  <strong>Chromeの設定で通知元と許可を確認する</strong>
+                  <small>不審なサイトからの通知を停止できます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="wrong1" data-choice-id="wrong1" />
+                <span>
+                  <strong>通知の指示どおりに有料の修復サービスを申し込む</strong>
+                  <small>偽の警告から不審サイトへ誘導される場合があります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="wrong2" data-choice-id="wrong2" />
+                <span>
+                  <strong>通知が出たので端末の感染が確定したと判断する</strong>
+                  <small>通知文だけでは感染の有無は判断できません。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Chromeの設定で通知元と許可を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>通知のリンクを開かず、Chromeの設定からサイト通知を確認します。画面表示は機種やバージョンで異なる場合があります。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>通知とページ内表示は別</h3>
+              <p>Googleはサイト通知とポップアップを別の設定で案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>AndroidのChromeで確認</h3>
+              <p>Chromeの「設定」から「サイトの設定」→「通知」を開き、通知の設定を確認できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>個別サイトの権限</h3>
+              <p>Googleはサイトのページ情報から権限を変更する方法を案内しています。不審なサイトを開かずに設定から確認する方法を優先します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>通知から登録解除できる端末もある</h3>
+              <p>Googleによると、端末によっては通知から直接「登録解除」を選べます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>アプリからの通知は別に確認</h3>
+              <p>サイト通知を止めても別のアプリからの通知には別の設定が必要です。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Chromeの設定で通知元と許可を確認する</strong><p>通知のリンクを開かず、Chromeの設定からサイト通知を確認します。画面表示は機種やバージョンで異なる場合があります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>通知本文のリンクを押さず、Chromeの設定を開く</strong><span>通知から不審サイトに誘導されるのを避けます。</span></li>
+            <li><strong>サイトの設定から通知の許可を確認し、不要なサイトを解除する</strong><span>サイト単位の通知権限を見直せます。</span></li>
+            <li><strong>通知に「登録解除」が表示される場合はその選択肢を使う</strong><span>対応する端末では通知から停止できます。</span></li>
+            <li><strong>インストールや支払いをした場合は、公式の相談窓口に状況を伝える</strong><span>行った操作に応じた対処が必要です。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>通知内の電話番号にすぐ連絡する</strong><span>偽警告の誘導先である場合があります。</span></li>
+            <li><strong>通知文だけで感染や情報漏えいを断定する</strong><span>表示の原因を分けて調べる必要があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIを整理の補助に使う</h3>
+          <p>個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。</p>
+          <ul class="positive-example-list"><li>通知本文のリンクを押さず、Chromeの設定を開く</li><li>サイトの設定から通知の許可を確認し、不要なサイトを解除する</li><li>通知に「登録解除」が表示される場合はその選択肢を使う</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>通知を一括で切る前に、不要なサイトだけ止められるか確認すると、必要なお知らせを残せます。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>怪しい通知は開かず、Chromeのサイト通知権限を見直す。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/chrome/answer/3220216?co=GENIE.Platform%3DAndroid&amp;hl=ja-ZZ" target="_blank" rel="noopener noreferrer">通知を使用してアラートを受け取る<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Chrome ヘルプ</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://www.ipa.go.jp/security/anshin/attention/2021/mgdayori20210309.html" target="_blank" rel="noopener noreferrer">ブラウザの通知機能から不審サイトに誘導する手口に注意<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>情報処理推進機構（IPA）</span>
+              <span>その他</span>
+              <time datetime="2021-03-09">2021-03-09</time>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261029-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="情報漏えいのお知らせが届いたら？漏れた情報ごとの対応 情報漏えい通知への対応 IPAは2026年10月26日、個人情報の漏えい対象になった利用者へ、漏れた情報の種類ごとの対処を案内しました。通知を受け取ったら、事業者の公式案内で対象項目を確認し、パスワードやカード情報などに応じて行動を選べます。 セキュリティ・権限 はじめて 個人情報漏えい パスワード クレジットカード 不正利用 漏えい通知を受けたサービス利用者 カード情報やパスワードの扱いに迷う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shield</span>
+              <div>
+                <p>情報漏えい通知への対応</p>
+                <h3>情報漏えいのお知らせが届いたら？漏れた情報ごとの対応</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-29">2026.10.29</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">IPAは2026年10月26日、個人情報の漏えい対象になった利用者へ、漏れた情報の種類ごとの対処を案内しました。通知を受け取ったら、事業者の公式案内で対象項目を確認し、パスワードやカード情報などに応じて行動を選べます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>漏えい通知を受けたサービス利用者</li><li>カード情報やパスワードの扱いに迷う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>個人情報漏えい</li><li>パスワード</li><li>クレジットカード</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261029-03" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="サイトに危険の警告が出たら？Search Consoleで確認する場所と再審査 サイトの危険警告と再審査 GoogleはSearch Consoleの公式ヘルプで、サイトの「セキュリティの問題」レポートと修正後の再審査を案内しています。サイトに危険の警告が表示された場合、運営者は指摘内容を確認して管理担当者へ共有できます。 セキュリティ・権限 はじめて Search Console セキュリティの問題 サイト改ざん 再審査 Webサイト管理 自分のサイトに警告が出た運営者 サイト管理を外部へ委託している人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shield</span>
+              <div>
+                <p>サイトの危険警告と再審査</p>
+                <h3>サイトに危険の警告が出たら？Search Consoleで確認する場所と再審査</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-29">2026.10.29</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">GoogleはSearch Consoleの公式ヘルプで、サイトの「セキュリティの問題」レポートと修正後の再審査を案内しています。サイトに危険の警告が表示された場合、運営者は指摘内容を確認して管理担当者へ共有できます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>自分のサイトに警告が出た運営者</li><li>サイト管理を外部へ委託している人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Search Console</li><li>セキュリティの問題</li><li>サイト改ざん</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261028-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Oracle JavaのeMudhra証明書対策　追加の更新が必要か確認する Javaの証明書対策を確認 Oracleは2026年10月24日、eMudhraに関連するルート認証局証明書への対策として、Oracle Java SEとGraalVM向けの追加セキュリティ情報「CVE-2026-114820」を公開しました。10月21日の中間認証局証明書への対策とは別に確認が必要です。利用しているJavaの提供元・バージョンと、製品に組み込まれた実行環境を棚卸しし、提供元の修正版や緩和策を確認してください。更新後は、必要な接続が維持されるか管理者が検証します。 セキュリティ・権限 はじめて Java eMudhra CVE-2026-114820 証明書 GraalVM セキュリティ更新 Javaを使うシステムの運用担当者 ソフトウェアに組み込まれたJavaの更新を確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">java-certificate-update</span>
+              <div>
+                <p>Javaの証明書対策を確認</p>
+                <h3>Oracle JavaのeMudhra証明書対策　追加の更新が必要か確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-28">2026.10.28</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Oracleは2026年10月24日、eMudhraに関連するルート認証局証明書への対策として、Oracle Java SEとGraalVM向けの追加セキュリティ情報「CVE-2026-114820」を公開しました。10月21日の中間認証局証明書への対策とは別に確認が必要です。利用しているJavaの提供元・バージョンと、製品に組み込まれた実行環境を棚卸しし、提供元の修正版や緩和策を確認してください。更新後は、必要な接続が維持されるか管理者が検証します。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Javaを使うシステムの運用担当者</li><li>ソフトウェアに組み込まれたJavaの更新を確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Java</li><li>eMudhra</li><li>CVE-2026-114820</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261029-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261029-01">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
