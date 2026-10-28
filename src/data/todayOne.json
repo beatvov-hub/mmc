@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T07:30:00+09:00",
+  "updatedAt": "2026-10-29T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2705,6 +2705,60 @@
         {
           "label": "Restic公式GitHub：BSD 2-Clauseライセンス",
           "url": "https://github.com/restic/restic"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-29",
+      "slug": "marp-cli-three-slide-briefing-html",
+      "useCategory": "デザイン・動画・ゲーム制作",
+      "name": "Marp CLI",
+      "category": "Markdownスライド生成・OSS",
+      "officialUrl": "https://github.com/marp-team/marp-cli",
+      "summary": "Marp CLIは、Markdownで書いた原稿をブラウザーで確認できるスライドやPDF、PowerPointに変換するコマンドラインツールです。",
+      "whyToday": "短い社内説明資料でも、文面の修正後にスライドへ反映し直す作業が重なると、原稿と配布版がずれやすくなります。Marp CLIならスライド原稿をMarkdownで保ち、同じ原稿から確認用HTMLを再出力できます。",
+      "useFor": "例えば、公開済みのお知らせを3枚の説明スライドにする想定例です。Node.js 18以降が使えるPCで、Markdownの先頭にMarp用設定を書き、見出しと要点を並べてスライドを区切ります。公式READMEにあるnpx実行例でHTMLを書き出し、ブラウザーで見出しの折り返しや1枚あたりの文字量を見ます。まず3枚だけで順序と読みやすさを確かめ、原稿を直して再出力すれば、編集可能なMarkdownと共有用HTMLが残ります。",
+      "recommendedFor": {
+        "employeeId": "MMC-007",
+        "reason": "ブランドデザイン担当のレイちゃんに、公開済みのお知らせを3枚に整理したMarp原稿を渡し、見出しの強弱と各スライドの情報量を整えたMarkdownとHTMLプレビューを受け取りたいです。"
+      },
+      "keiComment": "原稿とスライドが同じMarkdownにまとまるので、文面を直したあとも出力を作り直しやすいのがええですね。PDFやPowerPointで配る段階では対応ブラウザーが別途必要なので、最初はHTMLで構成を見てから形式を決めると迷いにくそうです。",
+      "verifiedAt": "2026-10-29",
+      "status": "published",
+      "pricing": "Marp CLIはMITライセンスの無償オープンソースソフトウェアです。PDFやPowerPointへ変換する場合に必要なブラウザー、端末などの費用は別途です。",
+      "conditions": "npxで一度だけ実行する場合はNode.js 18以降が必要です。PDF・PowerPoint・画像の出力には、公式READMEが案内するChrome、Edge、Firefoxのいずれかも必要です。",
+      "license": "MIT License。",
+      "notes": "Marp公式サイト、公式Marp CLI README、公式GitHubのライセンスと最新リリース情報を2026-10-29に確認しました。Marp CLIはスライド原稿を変換するCLIで、Agent Skillではありません。活用例は想定例で、実機検証は行っていません。",
+      "archiveTitle": "Marp CLIでMarkdownをスライドにできる？3枚のHTMLを作る方法",
+      "archiveDescription": "Marp CLIで短いMarkdown原稿をスライドに変換したい人向けに、Node.jsの準備、3枚の原稿作成、HTML出力と確認ポイントを紹介します。",
+      "forWho": "社内のお知らせや企画メモをスライドにまとめる際、原稿の修正と配布版の更新を揃えたい広報・デザイン担当者向けです。",
+      "cautions": "Marpは画面上で自由に編集する一般的なプレゼンソフトとは異なり、Markdownの原稿をスライドへ変換します。PDF・PowerPoint・画像出力には対応ブラウザーが必要です。",
+      "faq": [
+        {
+          "question": "アカウント登録なしで試せますか？",
+          "answer": "公式READMEでは、Node.js 18以降がある環境でnpxから一度だけ実行する方法が案内されています。Marp CLI自体はMITライセンスのオープンソースで、アカウント登録を前提とするサービスではありません。"
+        },
+        {
+          "question": "PowerPoint形式で出力できますか？",
+          "answer": "できます。Marp CLIにはPowerPoint（PPTX）への変換機能があります。ただし、公式READMEではPDF・PPTX・画像への変換にChrome、Edge、Firefoxのいずれかが必要とされています。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Marp CLI公式README：npx、Node.js要件、出力形式、MITライセンス",
+          "url": "https://github.com/marp-team/marp-cli/blob/main/README.md"
+        },
+        {
+          "label": "Marp公式ガイド：Markdownでスライドを作成する仕組み",
+          "url": "https://github.com/marp-team/marp/blob/main/website/docs/introduction/whats-marp.md"
+        },
+        {
+          "label": "Marp CLI公式リリース一覧：現行リリース",
+          "url": "https://github.com/marp-team/marp-cli/releases"
+        },
+        {
+          "label": "Marp公式サイト：製品とプロジェクト案内",
+          "url": "https://marp.app/"
         }
       ]
     }
