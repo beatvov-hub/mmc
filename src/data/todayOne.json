@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T07:30:00+09:00",
+  "updatedAt": "2026-10-30T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2759,6 +2759,56 @@
         {
           "label": "Marp公式サイト：製品とプロジェクト案内",
           "url": "https://marp.app/"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-30",
+      "slug": "ripgrep-find-todo-file-lines",
+      "useCategory": "開発・テスト",
+      "name": "ripgrep",
+      "category": "コード内検索・OSS",
+      "officialUrl": "https://github.com/BurntSushi/ripgrep",
+      "summary": "ripgrepは、指定したフォルダー内の文章やコードから語句を探し、見つかった行をファイル名と行番号付きで表示する検索ツールです。",
+      "whyToday": "保守を始める前に、未対応メモがどのファイルに残っているかを一覧でつかみたい場面があります。ripgrepなら検索範囲を指定して候補行を拾えるので、直すべき内容と古いメモを分ける入口になります。",
+      "useFor": "例えば、既存リポジトリのscriptsフォルダーに残るTODOとFIXMEを棚卸しする想定例です。ripgrepを使えるローカル環境でリポジトリのルートを開き、rg -n \"TODO|FIXME\" scripts と検索すると、該当行とファイル名・行番号が一覧になります。まずscriptsだけに範囲を絞り、数件のファイルを開いて未完了の作業か、すでに古いメモかを分類します。成果物は対応先を追える確認リストで、ripgrep自体がタスクを更新・修正するわけではありません。",
+      "recommendedFor": {
+        "employeeId": "MMC-008",
+        "reason": "開発推進のアキトに、対象フォルダーのTODO/FIXMEを検索して、ファイル名・行番号付きの候補リストと重複・古そうな記述の区分を作ってもらう想定です。"
+      },
+      "keiComment": "検索結果をそのまま課題一覧にせず、行番号から現状を確かめて「対応が必要なもの」だけを残せるのが実務向きです。標準ではgitignore対象などを除外するため、棚卸し前に検索範囲を決めておくと漏れを判断しやすくなります。",
+      "verifiedAt": "2026-10-30",
+      "status": "published",
+      "pricing": "無償で利用できるオープンソースです。MITまたはUnlicenseのデュアルライセンスです。",
+      "conditions": "ローカルでripgrepを実行できる環境と、検索対象のリポジトリが必要です。公式リリースにWindows・macOS・Linux向けバイナリがあります。",
+      "license": "MIT or Unlicense (dual-licensed)",
+      "notes": "活用例は公式ガイドに基づく想定で、実機検証は未実施です。",
+      "archiveTitle": "ripgrepでTODOをまとめて探せる？ファイルと行番号の確認方法",
+      "archiveDescription": "保守前に未対応メモの場所を確認したいとき、ripgrepで対象フォルダーを検索し、ファイル名と行番号の一覧を作る方法を紹介します。",
+      "forWho": "既存コードを引き継ぎ、TODOやFIXMEがどこに残っているか先に把握したい開発・保守担当者向けです。",
+      "cautions": "標準ではgitignore対象、隠しファイル、バイナリファイルなどを検索しません。結果は検索語がある行の一覧で、対応の要否や作業完了を判定するものではありません。",
+      "faq": [
+        {
+          "question": "検索結果にファイル名と行番号は表示されますか？",
+          "answer": "はい。公式ガイドでは、検索に一致した行と行番号が出力される例を示しています。複数フォルダーを検索すれば、対象ファイルも出力から確認できます。"
+        },
+        {
+          "question": "gitignoreに入ったファイルも通常は検索されますか？",
+          "answer": "いいえ。既定ではgitignore等の除外ルールを尊重し、隠しファイルやバイナリファイルも飛ばします。意図した範囲を検索できているか、除外設定を確認してください。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "公式GitHub README・概要、対応OS、ライセンス",
+          "url": "https://github.com/BurntSushi/ripgrep"
+        },
+        {
+          "label": "公式User Guide：検索例と除外の既定動作",
+          "url": "https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md"
+        },
+        {
+          "label": "公式Releases：配布バイナリと最新リリース",
+          "url": "https://github.com/BurntSushi/ripgrep/releases"
         }
       ]
     }
