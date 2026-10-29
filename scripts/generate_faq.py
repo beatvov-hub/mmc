@@ -106,7 +106,7 @@ def render_category(category: dict, items: list[dict], index: int, tokens: dict[
 
 
 def render_json_ld(categories: list[dict], items: list[dict], tokens: dict[str, str]) -> str:
-    page_url = "https://mainichi-miru.com/about/faq"
+    page_url = "https://mainichi-miru.com/about/faq/"
     faq_entities = [
         {
             "@type": "Question",
@@ -156,7 +156,7 @@ def render_page(data: dict) -> str:
     <meta property="og:title" content="{esc(PAGE_TITLE)}" />
     <meta property="og:description" content="{esc(PAGE_DESCRIPTION)}" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mainichi-miru.com/about/faq" />
+    <meta property="og:url" content="https://mainichi-miru.com/about/faq/" />
     <meta property="og:site_name" content="毎日見るコワークス" />
     <meta property="og:image" content="https://mainichi-miru.com/image/about001.webp" />
     <meta name="twitter:card" content="summary_large_image" />

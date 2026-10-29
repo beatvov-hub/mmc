@@ -640,14 +640,21 @@ def render_sources(article: dict[str, Any]) -> str:
 
 
 def related_articles(current: dict[str, Any], articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    by_id = {article["id"]: article for article in articles}
+    chosen = [by_id[item] for item in current.get("relatedArticleIds", [])
+              if item in by_id and item != current["id"]]
     current_tags = set(current.get("tags", []))
-    matches = []
-    for article in articles:
-        if article["id"] == current["id"]:
-            continue
-        if article["category"] == current["category"] or current_tags.intersection(article.get("tags", [])):
-            matches.append(article)
-    return matches[:3]
+    candidates = [article for article in articles
+                  if article["id"] != current["id"] and article not in chosen]
+    # Prefer shared specific tags; category alone is a fallback, not a relevance tie-breaker.
+    candidates.sort(key=lambda article: (
+        len(current_tags.intersection(article.get("tags", []))),
+        article["category"] == current["category"],
+    ), reverse=True)
+    matches = [article for article in candidates
+               if current_tags.intersection(article.get("tags", []))
+               or article["category"] == current["category"]]
+    return (chosen + matches)[:3]
 
 
 def render_article_page(article: dict[str, Any], articles: list[dict[str, Any]]) -> str:
@@ -659,6 +666,13 @@ def render_article_page(article: dict[str, Any], articles: list[dict[str, Any]])
     previous_article = articles[article_index + 1] if article_index + 1 < len(articles) else None
     next_article = articles[article_index - 1] if article_index > 0 else None
     related = related_articles(article, articles)
+    structured = {
+        "@context": "https://schema.org", "@type": "Article",
+        "headline": article["title"], "description": article["summary"],
+        "datePublished": article["publishedAt"], "mainEntityOfPage": article_url(article),
+        "inLanguage": "ja",
+    }
+    json_ld = '<script type="application/ld+json">' + json.dumps(structured, ensure_ascii=False).replace('</', '<\\/') + '</script>'
     inspection = "\n".join(
         [
             "\n".join(
@@ -705,7 +719,7 @@ def render_article_page(article: dict[str, Any], articles: list[dict[str, Any]])
                 article_url(article),
                 prefix="../",
                 og_type="article",
-            ),
+            ).replace('  </head>', '    ' + json_ld + '\n  </head>'),
             '  <body class="subpage ai-forensics-page forensics-article-page">',
             '    <header class="site-header" aria-label="サイトヘッダー"></header>',
             "",

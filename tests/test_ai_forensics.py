@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -60,6 +61,30 @@ class AiForensicsValidatorTest(unittest.TestCase):
         self.assertIn('<a class="profile-back" href="./">記事一覧へ戻る</a>', normalized)
         self.assertIn('<a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>', normalized)
         self.assertNotIn('href="/">AI鑑識室の記事一覧へ戻る</a>', normalized)
+
+    def test_article_schema_uses_visible_data_without_inventing_author(self) -> None:
+        rendered = generator.render_article_page(self.article, [self.article])
+        match = re.search(r'<script type="application/ld\+json">(.*?)</script>', rendered)
+        self.assertIsNotNone(match)
+        data = json.loads(match.group(1))
+        self.assertEqual(data["headline"], self.article["title"])
+        self.assertEqual(data["description"], self.article["summary"])
+        self.assertEqual(data["datePublished"], self.article["publishedAt"])
+        self.assertEqual(data["mainEntityOfPage"], generator.article_url(self.article))
+        self.assertNotIn("author", data)
+        self.assertNotIn("dateModified", data)
+
+    def test_explicit_related_links_take_precedence(self) -> None:
+        current = {**self.article, "relatedArticleIds": ["chosen"]}
+        chosen = {**self.article, "id": "chosen", "tags": []}
+        other = {**self.article, "id": "other"}
+        self.assertEqual(generator.related_articles(current, [current, other, chosen])[0]["id"], "chosen")
+
+    def test_oldest_article_has_no_nonexistent_previous_article(self) -> None:
+        articles = [generator.public_article(a) for a in generator.load_articles()]
+        oldest = next(a for a in articles if a["id"] == "case-20260716")
+        rendered = generator.render_article_page(oldest, articles)
+        self.assertNotIn("case-20260715", rendered)
 
 
 if __name__ == "__main__":
