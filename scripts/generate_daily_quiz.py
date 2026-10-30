@@ -619,6 +619,11 @@ def write_page(path: Path, content: str, depth: int) -> bool:
 
 
 def main() -> None:
+    # Individual question pages have been retired; keep the existing command
+    # as an entry point for the learning room rather than recreating them.
+    from generate_learning_room import main as generate_learning_room
+    generate_learning_room()
+    return
     data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
     validate(data)
     questions_by_qualification = {item["id"]: [] for item in data["qualifications"]}

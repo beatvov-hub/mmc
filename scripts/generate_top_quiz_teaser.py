@@ -36,6 +36,12 @@ def render_card(question: dict, qualification: dict) -> str:
 
 
 def render(data: dict, featured: dict[str, dict], day: str) -> str:
+    return f'''      {START}
+      <section class="daily-quiz-teaser" aria-labelledby="learning-room-title">
+        <div class="section-heading"><div><p class="section-kicker">AI Learning Room</p><h3 id="learning-room-title">AI学習室</h3></div><a class="text-link" href="/quiz/">AI学習室へ →</a></div>
+        <p class="daily-quiz-teaser-lead">資格の基礎知識を、四択クイズと解説で楽しく確認。</p>
+      </section>
+      {END}'''
     cards = "\n".join(
         render_card(featured[qualification["id"]], qualification)
         for qualification in data["qualifications"]

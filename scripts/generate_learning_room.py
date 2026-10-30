@@ -30,6 +30,6 @@ def main():
     old.write_page(ROOT/'quiz/index.html', hub(data), 1)
     for q in data['qualifications']:
         old.write_page(ROOT/'quiz'/q['id']/'index.html', qualification(q), 2)
-    print('Generated five learning room pages; legacy question pages retained.')
+    print('Generated five learning room pages.')
 
 if __name__ == '__main__': main()
