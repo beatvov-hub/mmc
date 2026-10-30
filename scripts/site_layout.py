@@ -148,7 +148,7 @@ def canonical_path(path: Path) -> str:
         return f"/{rel[:-len('index.html')]}"
     if rel in {
         "ai-forensics/index.html", "ai-game-center/index.html", "en/index.html",
-        "about/faq/index.html", "office-tour/index.html", "works/gallery/index.html",
+        "about/faq/index.html", "about/journal/index.html", "office-tour/index.html", "works/gallery/index.html",
         "lounge/events/index.html", "lounge/market/index.html", "today-one/archive/index.html",
     }:
         return f"/{rel[:-len('index.html')]}"
