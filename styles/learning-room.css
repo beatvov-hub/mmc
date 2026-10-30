@@ -1,0 +1,9 @@
+[data-learning-quiz] { padding: clamp(1rem, 3vw, 2rem); background: #fff; border: 1px solid #e2d8cd; border-radius: 16px; }
+[data-learning-quiz] fieldset { border: 0; padding: 0; margin: 0 0 1rem; min-width: 0; }
+[data-learning-quiz] legend { font-size: 1.15rem; font-weight: 700; line-height: 1.7; margin-bottom: 1rem; }
+.learning-choice { display: flex; gap: .65rem; padding: .9rem; margin: .5rem 0; border: 1px solid #ddd0c1; border-radius: 8px; cursor: pointer; line-height: 1.6; overflow-wrap: anywhere; }
+.learning-choice:has(input:checked) { border-color: #98613d; background: #faf2e9; }
+[data-learning-quiz] button { min-height: 44px; padding: .7rem 1.1rem; margin: .3rem .4rem .3rem 0; border: 0; border-radius: 8px; background: #87563a; color: white; font-weight: 700; cursor: pointer; }
+[data-learning-quiz] button:disabled { opacity: .55; cursor: default; }
+[data-learning-quiz] :focus-visible { outline: 3px solid #367a87; outline-offset: 3px; }
+[data-feedback] { line-height: 1.8; overflow-wrap: anywhere; }
