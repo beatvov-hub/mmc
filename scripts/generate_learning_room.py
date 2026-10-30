@@ -33,15 +33,16 @@ def hub(data):
     def note_card(a):
         img = a.get('thumbnail', '')
         image = f'<img src="{e(img)}" alt="" loading="lazy">' if img else ''
-        date = f'<time datetime="{e(a["date"])}">{e(a["date"])}</time>' if a.get('date') else ''
-        return f'<article class="learning-article">{image}{date}<h3><a href="{e(a["url"])}" target="_blank" rel="noopener noreferrer">{e(a["title"])}</a></h3><p>{e(a["summary"])}</p><small>{e(a.get("category", ""))}</small></article>'
-    notes_html = ''.join(note_card(a) for a in sorted(notes, key=lambda a: (a.get('order', 999), a['title'])) if a.get('title') and a.get('summary') and re.match(r'^https://note\.com/', a.get('url', ''))) or '<p>記事を準備中です。</p>'
+        date = f'<time datetime="{e(a["publishedAt"])}">{e(a["publishedAt"])}</time>' if a.get('publishedAt') else ''
+        paid = '有料記事' if a.get('isPaid') else '無料記事'
+        return f'<article class="learning-article learning-note-card">{image}<div class="learning-note-meta"><span>{e(a.get("category", ""))}</span><span class="learning-paid">{paid}</span>{date}</div><h3><a href="{e(a["url"])}" target="_blank" rel="noopener noreferrer">{e(a["title"])}</a></h3><p>{e(a["summary"])}</p><a class="learning-note-link" href="{e(a["url"])}" target="_blank" rel="noopener noreferrer">noteで読む ↗</a></article>'
+    notes_html = ''.join(note_card(a) for a in sorted(notes, key=lambda a: (a.get('displayOrder', 999), a['title'])) if a.get('title') and a.get('summary') and re.match(r'^https://note\.com/', a.get('url', ''))) or '<p>記事を準備中です。</p>'
     resources = ''.join(f'<li><strong>{e(q["name"])}</strong>：{e(INFO[q["id"]][2])}を学ぶ方へ。<a href="/quiz/{e(q["id"])}/#official-heading">公式資料を探す →</a></li>' for q in data['qualifications'])
     body = f'''<main class="page-main quiz-main"><div class="page-width">
     {old.breadcrumb([('ホーム', '/'), ('AI学習室', None)])}
     <section class="quiz-hero" aria-labelledby="learning-title"><img class="quiz-hero-art" src="../image/quiz/daily-quiz-hero.webp" alt="" width="1536" height="1024" fetchpriority="high"><div class="quiz-hero-copy"><p class="section-kicker">AI LEARNING ROOM</p><h1 id="learning-title" class="quiz-hero-logo">AI学習室</h1><p class="quiz-hero-catch">AIを知る。困りごとを解決する。知識を試す。</p><p class="quiz-hero-description">AIやデジタル技術の検証記事や資格の基礎知識クイズから、気になるテーマを少しずつ学べます。</p><a class="quiz-hero-action" href="#investigation">学びの入口へ <span aria-hidden="true">↘</span></a></div></section>
     <section class="quiz-section" id="investigation"><p class="section-kicker">AI FORENSICS</p><h2>AIの困りごと・検証</h2><p>AIやデジタル技術に関するニュース、不安、トラブルについて、公開情報や根拠をもとに確認したAI鑑識室の記事を紹介します。</p><div class="learning-article-grid">{latest}</div><p><a href="/ai-forensics/">AI鑑識室の記事をもっと見る →</a></p></section>
-    <section class="quiz-section learning-note"><p class="section-kicker">EXPERIENCES</p><h2>AIを知る・使う</h2><p>AIを使って困ったこと、便利だった使い方、試行錯誤から分かったことなど、実際の経験をもとにした読み物を紹介します。</p><div class="learning-article-grid">{notes_html}</div></section>
+    <section class="quiz-section learning-note"><p class="section-kicker">EXPERIENCES</p><h2>AIを知る・使う</h2><p>AIを使って困ったこと、便利だった使い方、試行錯誤から分かったことなど、実際の経験をもとにしたnoteの記事を紹介します。有料記事の続きはnoteで購入して読むことができます。</p><div class="learning-article-grid">{notes_html}</div></section>
     <section class="quiz-section" id="qualifications"><p class="section-kicker">QUIZ</p><h2>資格の基礎知識クイズ</h2><p>G検定、ITパスポート、生成AIパスポート、DS検定の基礎用語や概念を四択クイズで確認し、答え合わせで解説を読めます。</p><div class="quiz-card-grid">{cards}</div><p class="quiz-note">この教材は公式教材や本番試験問題ではありません。公式シラバスや教材と併用してください。</p></section>
     <section class="quiz-section learning-resources"><p class="section-kicker">RESOURCES</p><h2>おすすめ学習資料</h2><p>AI・機械学習の基礎、生成AIの活用や安全性、関連資格について、各資格ページから公式資料を確認できます。</p><ul>{resources}</ul></section></div></main>'''
     title = 'AI学習室｜AIの困りごと・検証・資格クイズ'
@@ -54,6 +55,13 @@ def qualification(q):
     slug=q['id']; name, description, scope, links=INFO[slug]
     resources=''.join(f'<li><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(title)}（公式）</a>：{e(desc)}</li>' for title,url,desc in links)
     body=f'''<main class="page-main quiz-main"><div class="page-width">{old.breadcrumb([('AI学習室','/quiz/'),(name,None)])}<section class="quiz-intro"><p class="section-kicker">AI LEARNING ROOM</p><h1>{e(name)}</h1><p>{e(description)}</p><p>このクイズで学べる範囲：{e(scope)}。基礎知識を確認し、理解を深めるきっかけにできます。</p></section><section class="quiz-section"><h2>クイズに挑戦</h2><p>500問の中から出題します。公式教材・本番問題ではありません。</p><div data-learning-quiz data-qualification="{e(slug)}" data-source="/src/data/dailyQuiz.json">問題を読み込んでいます。</div></section><section class="quiz-section"><h2>学習の進め方</h2><ol><li>基礎知識をクイズで確認する</li><li>正解と選択肢の解説を読む</li><li>間違えた問題を復習する</li><li>公式シラバスや教材で理解を深める</li></ol></section><section class="quiz-section"><h2 id="official-heading">公式資料・参考情報</h2><p>日程や受験料、最新の試験範囲は実施団体の情報をご確認ください。</p><ul>{resources}</ul></section></div></main>'''
+    if slug == 'g-kentei':
+        notes = json.loads((ROOT / 'src/data/learningRoomArticles.json').read_text(encoding='utf-8'))
+        related = next((a for a in notes if a.get('id') == 'n53c4c69f97ee'), None)
+        if related:
+            label = '有料記事' if related.get('isPaid') else '無料記事'
+            link = f'<p>学習体験：<a href="{e(related["url"])}" target="_blank" rel="noopener noreferrer">{e(related["title"])}（note・{label}） ↗</a></p>'
+            body = body.replace('<section class="quiz-section"><h2 id="official-heading">', link + '<section class="quiz-section"><h2 id="official-heading">', 1)
     page = old.document(f'{name}｜AI学習室', f'{name}の基礎知識を四択クイズと解説で確認。公式資料も紹介します。', body, '../../scripts/learning-room-quiz.js')
     return page.replace('</head>', '<link rel="stylesheet" href="../../styles/learning-room.css">\n</head>')
 
