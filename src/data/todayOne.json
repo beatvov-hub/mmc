@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T07:30:00+09:00",
+  "updatedAt": "2026-10-31T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2809,6 +2809,52 @@
         {
           "label": "公式Releases：配布バイナリと最新リリース",
           "url": "https://github.com/BurntSushi/ripgrep/releases"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-31",
+      "slug": "lychee-check-links-in-markdown",
+      "useCategory": "Web運用・アクセス分析",
+      "name": "lychee",
+      "category": "リンク切れ確認・OSS",
+      "officialUrl": "https://github.com/lycheeverse/lychee",
+      "summary": "lycheeは、MarkdownやHTMLに書かれたリンクをたどり、リンク先の応答を一覧で確かめるツールです。",
+      "whyToday": "記事や案内ページを公開する直前は、文章の見直しに集中してリンク先の移転や削除を見落とすことがあります。lycheeは原稿中のリンクをまとめて確認できるので、読み手が参照先へ進めるかを公開前に点検する用途に向いています。",
+      "useFor": "例えば、公開前のお知らせ原稿に古いリンクが残っていないか確認する想定例です。lycheeを使えるローカル環境を用意し、Markdown原稿1件に対して lychee docs/notice.md を実行すると、検出したリンクの確認結果が表示されます。失敗とされたURLを開き、移転・削除・一時的な応答制限のどれに当たるかを切り分けて、必要なら原稿を直します。最初は1ファイルだけに絞り、リンク先が読み手の目的に合う内容かも確認してください。",
+      "recommendedFor": {
+        "employeeId": "MMC-011",
+        "reason": "編集主任のコトちゃんに、公開前のお知らせ原稿1件を検査してもらい、要確認URLと該当箇所、原稿修正が必要かの一覧を受け取る想定です。"
+      },
+      "keiComment": "リンクが応答するかを一度に見渡せるので、公開前の確認項目を具体化できます。相手サイトの一時的な制限も失敗として出る場合があるため、該当URLを開いてから原稿を直す運用がよさそうです。",
+      "verifiedAt": "2026-10-31",
+      "status": "published",
+      "pricing": "無償のオープンソースで、Apache-2.0またはMITライセンスで提供されています。",
+      "conditions": "ローカルでlycheeを実行できる環境が必要です。公式リリースではWindows・macOS・Linux向けの実行ファイルを配布しています。リンク先の応答確認にはネットワーク接続が必要です。",
+      "license": "Apache-2.0 or MIT",
+      "notes": "活用例は公式ドキュメントに基づく想定で、実機検証は未実施です。",
+      "archiveTitle": "lycheeでMarkdownのリンク切れを公開前に確認できる？",
+      "archiveDescription": "お知らせ原稿のリンク先を公開前にまとめて点検するため、lycheeでMarkdownファイル1件を検査し、失敗したURLを切り分ける手順を紹介します。",
+      "forWho": "告知文や案内記事を公開する前に、本文中のリンクが読者から開けるか確認したい編集・広報担当者向けです。",
+      "cautions": "相手サイトの一時的な応答制限やアクセス拒否で、リンクが失敗と判定されることがあります。結果だけでリンクを削除せず、該当先を開いて確認してください。",
+      "faq": [
+        {
+          "question": "Markdownファイル1件だけを指定して確認できますか？",
+          "answer": "はい。公式READMEでは、lycheeの後ろにローカルファイル名を指定する例が案内されています。READMEやHTMLファイルも同じように入力できます。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "lychee公式GitHub README：対応形式・コマンド例・ライセンス",
+          "url": "https://github.com/lycheeverse/lychee"
+        },
+        {
+          "label": "lychee公式ドキュメント：Getting Started",
+          "url": "https://lychee.cli.rs/guides/getting-started/"
+        },
+        {
+          "label": "lychee公式Releases：対応OS向けバイナリ",
+          "url": "https://github.com/lycheeverse/lychee/releases"
         }
       ]
     }

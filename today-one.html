@@ -81,61 +81,58 @@
       <article class="today-one-entry" aria-labelledby="today-one-entry-name">
         <header class="today-one-entry-header">
           <div class="today-one-entry-meta">
-            <time datetime="2026-10-30">2026.10.30 FRI</time>
-            <span>コード内検索・OSS</span>
+            <time datetime="2026-10-31">2026.10.31 SAT</time>
+            <span>リンク切れ確認・OSS</span>
           </div>
           <p class="today-one-entry-label">今日のひとつ</p>
-          <h2 id="today-one-entry-name">ripgrep</h2>
-          <a class="today-one-official-link" href="https://github.com/BurntSushi/ripgrep" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
+          <h2 id="today-one-entry-name">lychee</h2>
+          <a class="today-one-official-link" href="https://github.com/lycheeverse/lychee" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
           <section class="today-one-section today-one-audience" aria-labelledby="today-one-audience-title">
             <p class="section-kicker">For Whom</p>
             <h2 id="today-one-audience-title">こんな人向け</h2>
-            <p>既存コードを引き継ぎ、TODOやFIXMEがどこに残っているか先に把握したい開発・保守担当者向けです。</p>
+            <p>告知文や案内記事を公開する前に、本文中のリンクが読者から開けるか確認したい編集・広報担当者向けです。</p>
           </section>
           <section class="today-one-section today-one-conclusion" aria-labelledby="today-one-conclusion-title">
             <p class="section-kicker">The Answer</p>
             <h2 id="today-one-conclusion-title">結論</h2>
-            <p>ripgrepは、指定したフォルダー内の文章やコードから語句を探し、見つかった行をファイル名と行番号付きで表示する検索ツールです。</p>
+            <p>lycheeは、MarkdownやHTMLに書かれたリンクをたどり、リンク先の応答を一覧で確かめるツールです。</p>
           </section>
           <section class="today-one-section today-one-method" aria-labelledby="today-one-use-title">
             <p class="section-kicker">How to Use</p>
             <h2 id="today-one-use-title">やり方／確認方法</h2>
-            <p>例えば、既存リポジトリのscriptsフォルダーに残るTODOとFIXMEを棚卸しする想定例です。ripgrepを使えるローカル環境でリポジトリのルートを開き、rg -n &quot;TODO|FIXME&quot; scripts と検索すると、該当行とファイル名・行番号が一覧になります。まずscriptsだけに範囲を絞り、数件のファイルを開いて未完了の作業か、すでに古いメモかを分類します。成果物は対応先を追える確認リストで、ripgrep自体がタスクを更新・修正するわけではありません。</p>
+            <p>例えば、公開前のお知らせ原稿に古いリンクが残っていないか確認する想定例です。lycheeを使えるローカル環境を用意し、Markdown原稿1件に対して lychee docs/notice.md を実行すると、検出したリンクの確認結果が表示されます。失敗とされたURLを開き、移転・削除・一時的な応答制限のどれに当たるかを切り分けて、必要なら原稿を直します。最初は1ファイルだけに絞り、リンク先が読み手の目的に合う内容かも確認してください。</p>
           </section>
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
-            <p>保守を始める前に、未対応メモがどのファイルに残っているかを一覧でつかみたい場面があります。ripgrepなら検索範囲を指定して候補行を拾えるので、直すべき内容と古いメモを分ける入口になります。</p>
+            <p>記事や案内ページを公開する直前は、文章の見直しに集中してリンク先の移転や削除を見落とすことがあります。lycheeは原稿中のリンクをまとめて確認できるので、読み手が参照先へ進めるかを公開前に点検する用途に向いています。</p>
           </section>
           <section class="today-one-section today-one-faq" aria-labelledby="today-one-faq-title">
             <p class="section-kicker">Cautions & FAQ</p>
             <h2 id="today-one-faq-title">注意点・FAQ</h2>
-            <p class="today-one-caution">標準ではgitignore対象、隠しファイル、バイナリファイルなどを検索しません。結果は検索語がある行の一覧で、対応の要否や作業完了を判定するものではありません。</p><div class="today-one-faq-item">
-          <h3>検索結果にファイル名と行番号は表示されますか？</h3>
-          <p>はい。公式ガイドでは、検索に一致した行と行番号が出力される例を示しています。複数フォルダーを検索すれば、対象ファイルも出力から確認できます。</p>
-        </div><div class="today-one-faq-item">
-          <h3>gitignoreに入ったファイルも通常は検索されますか？</h3>
-          <p>いいえ。既定ではgitignore等の除外ルールを尊重し、隠しファイルやバイナリファイルも飛ばします。意図した範囲を検索できているか、除外設定を確認してください。</p>
+            <p class="today-one-caution">相手サイトの一時的な応答制限やアクセス拒否で、リンクが失敗と判定されることがあります。結果だけでリンクを削除せず、該当先を開いて確認してください。</p><div class="today-one-faq-item">
+          <h3>Markdownファイル1件だけを指定して確認できますか？</h3>
+          <p>はい。公式READMEでは、lycheeの後ろにローカルファイル名を指定する例が案内されています。READMEやHTMLファイルも同じように入力できます。</p>
         </div>
           </section>
           <section class="today-one-section today-one-sources" aria-labelledby="today-one-sources-title">
             <p class="section-kicker">Primary Sources</p>
             <h2 id="today-one-sources-title">公式ソース</h2>
-            <ul><li><a href="https://github.com/BurntSushi/ripgrep" target="_blank" rel="noopener noreferrer">公式GitHub README・概要、対応OS、ライセンス <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md" target="_blank" rel="noopener noreferrer">公式User Guide：検索例と除外の既定動作 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://github.com/BurntSushi/ripgrep/releases" target="_blank" rel="noopener noreferrer">公式Releases：配布バイナリと最新リリース <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
+            <ul><li><a href="https://github.com/lycheeverse/lychee" target="_blank" rel="noopener noreferrer">lychee公式GitHub README：対応形式・コマンド例・ライセンス <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://lychee.cli.rs/guides/getting-started/" target="_blank" rel="noopener noreferrer">lychee公式ドキュメント：Getting Started <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://github.com/lycheeverse/lychee/releases" target="_blank" rel="noopener noreferrer">lychee公式Releases：対応OS向けバイナリ <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
           </section>
                   <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
           <p class="section-kicker">Recommended For</p>
           <h2 id="today-one-recommendation-title">誰に持たせたい？</h2>
           <div class="today-one-member-card">
-            <img src="image/staff/mmc-008-coworks.webp" alt="アキト" loading="lazy" />
+            <img src="image/staff/mmc-011-coworks.webp" alt="コトちゃん" loading="lazy" />
             <div>
-              <small>MMC-008</small>
-              <h3>アキト</h3>
-              <p class="today-one-member-role">AI開発推進主任 <span>開発推進室</span></p>
-              <p>開発推進のアキトに、対象フォルダーのTODO/FIXMEを検索して、ファイル名・行番号付きの候補リストと重複・古そうな記述の区分を作ってもらう想定です。</p>
-              <a class="today-one-profile-link" href="members/akito">プロフィールを見る</a>
+              <small>MMC-011</small>
+              <h3>コトちゃん</h3>
+              <p class="today-one-member-role">編集主任 <span>企画営業部</span></p>
+              <p>編集主任のコトちゃんに、公開前のお知らせ原稿1件を検査してもらい、要確認URLと該当箇所、原稿修正が必要かの一覧を受け取る想定です。</p>
+              <a class="today-one-profile-link" href="members/koto">プロフィールを見る</a>
             </div>
           </div>
         </section>
@@ -148,7 +145,7 @@
                 <img src="image/staff/mmc-009-coworks.webp" alt="ケイ" loading="lazy" />
                 <strong>ケイ｜広報部長</strong>
               </div>
-              <p>検索結果をそのまま課題一覧にせず、行番号から現状を確かめて「対応が必要なもの」だけを残せるのが実務向きです。標準ではgitignore対象などを除外するため、棚卸し前に検索範囲を決めておくと漏れを判断しやすくなります。</p>
+              <p>リンクが応答するかを一度に見渡せるので、公開前の確認項目を具体化できます。相手サイトの一時的な制限も失敗として出る場合があるため、該当URLを開いてから原稿を直す運用がよさそうです。</p>
             </div>
             <figure class="today-one-kei-visual">
               <img src="image/today-one/kei-note.webp" alt="メガホン、ノート、虫眼鏡のコラージュ" loading="lazy" />
@@ -159,7 +156,7 @@
                   <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
           <p class="section-kicker">Basic Information</p>
           <h2 id="today-one-basic-title">基本情報</h2>
-          <dl><div><dt>種別</dt><dd>コード内検索・OSS</dd></div><div><dt>公式サイト</dt><dd><a href="https://github.com/BurntSushi/ripgrep" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-30">2026-10-30</time></dd></div><div><dt>料金</dt><dd>無償で利用できるオープンソースです。MITまたはUnlicenseのデュアルライセンスです。</dd></div><div><dt>ライセンス</dt><dd>MIT or Unlicense (dual-licensed)</dd></div><div><dt>補足</dt><dd>活用例は公式ガイドに基づく想定で、実機検証は未実施です。</dd></div></dl>
+          <dl><div><dt>種別</dt><dd>リンク切れ確認・OSS</dd></div><div><dt>公式サイト</dt><dd><a href="https://github.com/lycheeverse/lychee" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-10-31">2026-10-31</time></dd></div><div><dt>料金</dt><dd>無償のオープンソースで、Apache-2.0またはMITライセンスで提供されています。</dd></div><div><dt>ライセンス</dt><dd>Apache-2.0 or MIT</dd></div><div><dt>補足</dt><dd>活用例は公式ドキュメントに基づく想定で、実機検証は未実施です。</dd></div></dl>
         </section>
         </div>
       </article>
@@ -168,9 +165,9 @@
           <p class="section-kicker">Archive</p>
           <h2 id="today-one-archive-promo-title">これまでのひとつ。</h2>
         </div>
-        <a class="today-one-archive-latest" href="today-one/archive/2026-10-29-marp-cli-three-slide-briefing-html">
-          <time datetime="2026-10-29">2026.10.29</time>
-          <strong>Marp CLIでMarkdownをスライドにできる？3枚のHTMLを作る方法</strong>
+        <a class="today-one-archive-latest" href="today-one/archive/2026-10-30-ripgrep-find-todo-file-lines">
+          <time datetime="2026-10-30">2026.10.30</time>
+          <strong>ripgrepでTODOをまとめて探せる？ファイルと行番号の確認方法</strong>
           <span>この日のひとつを見る →</span>
         </a>
         <a class="today-one-archive-index-link" href="today-one/archive/">アーカイブを見る <span aria-hidden="true">→</span></a>
@@ -199,9 +196,9 @@
             <a href="contact">お問い合わせ</a>
             <a href="privacy-policy">プライバシーポリシー</a>
           </nav>
-          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
-            <p class="site-footer-nav__title">毎日一問。</p>
-            <a href="quiz/">毎日一問。トップ</a>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="AI学習室メニュー">
+            <p class="site-footer-nav__title">AI学習室</p>
+            <a href="quiz/">AI学習室トップ</a>
             <a class="site-footer-nav__child" href="quiz/g-kentei/">G検定</a>
             <a class="site-footer-nav__child" href="quiz/it-passport/">ITパスポート</a>
             <a class="site-footer-nav__child" href="quiz/generative-ai-passport/">生成AIパスポート</a>
