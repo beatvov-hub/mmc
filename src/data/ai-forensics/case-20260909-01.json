@@ -9,7 +9,7 @@
     "YouTubeで見た動画がAIで作られたものか、どこを見ればよいか知りたい人",
     "動画のAIラベルを見ても、どこまで判断材料にしてよいか迷う人"
   ],
-  "summary": "YouTubeでは、作られ方の情報が動画プレーヤーまたは展開した説明欄の「How this content was made」に表示される場合があります。「Made with AI」は、投稿者がStudioで申告した場合、YouTubeの生成AIツールを使った場合、動画全体がAI生成だと示す有効なContent Credentialsを含む場合などに表示され、C2PAに署名者情報があれば「Info from」も確認できます。YouTubeは、実在人物の発言・行動を現実的に変える内容、実在の出来事や場所を改変する内容、現実的な場面の生成などを開示対象とし、軽微な補正や非写実的な表現などは対象外の例に挙げています。「Captured with a camera」がないことだけで改変を断定したり、AIラベルだけで出来事の真偽を決めたりせず、プレーヤーと説明欄を見て表示の意味を読む手順を扱います。",
+  "summary": "YouTubeでは、作られ方の情報が動画プレーヤーまたは展開した説明欄の「How this content was made」に表示される場合があります。「Made with AI」は、投稿者がStudioで申告した場合、YouTubeの生成AIツールを使った場合、動画全体がAI生成だと示す有効なContent Credentialsを含む場合などに表示され、C2PAに署名者情報があれば「Info from」も確認できます。YouTubeは、実在人物の発言・行動を現実的に変える内容、実在の出来事や場所を改変する内容、現実的な場面の生成などを開示対象とし、軽微な補正や非写実的な表現などは対象外の例に挙げています。「Captured with a camera」がないことだけで改変を断定したり、AIラベルだけで出来事の真偽を決めたりせず、プレーヤーと説明欄を見て表示の意味を読む手順を扱います。 YouTubeがラベルを付ける場合や、投稿者が開示を変更できない場合もあります。",
   "scenario": {
     "headline": "SNSで話題のYouTube動画に、AIの表示があるか確かめたい",
     "description": "動画の再生画面だけではAIラベルが見当たりません。説明欄を開くと「How this content was made」が表示される動画もあり、Made with AIという表示や、情報の提供元が何を意味するのか分かりません。",
@@ -34,7 +34,9 @@
         "description": "作られ方の表示と、映像が示す出来事・説明の真偽は別に確認する必要がある。"
       }
     ],
-    "recommendedAnswers": ["open-description-and-read-context"],
+    "recommendedAnswers": [
+      "open-description-and-read-context"
+    ],
     "explanation": "YouTubeの「How this content was made」には、投稿者の申告、YouTubeの生成AIツール、有効なContent Credentialsなどをもとにした情報が表示される場合があります。表示の由来を読み、出来事の事実関係は公式発表や元の発信者などで別に確認します。"
   },
   "inspectionPoints": [
@@ -56,6 +58,11 @@
     {
       "title": "表示がない時の扱い",
       "description": "「Captured with a camera」は、対応する技術で撮影・来歴情報が維持された動画に表示される仕組みです。表示がないだけで、音声や映像が改変されたと決めつけません。",
+      "priority": "medium"
+    },
+    {
+      "title": "YouTube側のラベルと変更条件",
+      "description": "YouTubeは適切な開示がない動画にラベルを付ける場合があります。YouTubeのAIツールで作られたコンテンツ、C2PAメタデータを含むコンテンツ、手動審査後にラベルが付けられたコンテンツでは、投稿者がAI使用の開示を変更できないと説明しています。",
       "priority": "medium"
     }
   ],
@@ -109,9 +116,16 @@
       "動画を共有する時は、確認できたことと未確認のことを分けて書く"
     ]
   },
-  "makotoComment": "動画のラベルは、答えを一語で渡してくれる印ではありません。私は説明欄を一段開いて、誰が何を示しているのかを見るようにしています。そこから元の発信者へ戻ると、映像の派手さに引っ張られず、確認できた範囲を自分で言えるようになります。",
+  "makotoComment": "動画のラベルは、答えを一語で渡してくれる印ではありません。私は説明欄を一段開いて、誰が何を示しているのかを見るようにしています。そこから元の発信者へ戻ると、映像の派手さに引っ張られず、確認できた範囲を自分で言えるようになります。 投稿者の申告以外にも、YouTube側のラベルや来歴情報を通じて表示される場合があります。",
   "oneLineLesson": "YouTubeのAI表示は、詳細説明とInfo fromまで読んでから判断する。",
-  "tags": ["YouTube", "Made with AI", "動画AI", "Content Credentials", "動画検証", "メディアリテラシー"],
+  "tags": [
+    "YouTube",
+    "Made with AI",
+    "動画AI",
+    "Content Credentials",
+    "動画検証",
+    "メディアリテラシー"
+  ],
   "sources": [
     {
       "title": "Understanding 'How this content was made' disclosures on YouTube",
@@ -139,5 +153,9 @@
     "mainVisual": "YouTube動画の詳細説明を開いた画面を模した図。『How this content was made』『Made with AI』『Info from』を順に見る虫眼鏡と、横に公式発表を確認する別のカードを置く。",
     "cardIcon": "youtube-ai-disclosure-context",
     "accentTone": "calm"
-  }
+  },
+  "updatedAt": "2026-10-31",
+  "relatedArticleIds": [
+    "case-20261008-01"
+  ]
 }

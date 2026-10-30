@@ -80,6 +80,15 @@ class AiForensicsValidatorTest(unittest.TestCase):
         other = {**self.article, "id": "other"}
         self.assertEqual(generator.related_articles(current, [current, other, chosen])[0]["id"], "chosen")
 
+    def test_updated_date_is_visible_and_valid(self) -> None:
+        article = {**self.article, "updatedAt": "2026-10-31"}
+        rendered = generator.render_article_page(article, [article])
+        self.assertIn('更新 <time datetime="2026-10-31">2026.10.31</time>', rendered)
+        match = re.search(r'<script type="application/ld\+json">(.*?)</script>', rendered)
+        self.assertEqual(json.loads(match.group(1))["dateModified"], "2026-10-31")
+        article["updatedAt"] = "2020-01-01"
+        self.assertTrue(any("updatedAt" in e for e in validator.validate_article(self.path, article, strict_id=True, expected_date=None)))
+
     def test_oldest_article_has_no_nonexistent_previous_article(self) -> None:
         articles = [generator.public_article(a) for a in generator.load_articles()]
         oldest = next(a for a in articles if a["id"] == "case-20260716")

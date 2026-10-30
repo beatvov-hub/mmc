@@ -1,0 +1,147 @@
+{
+  "id": "case-20261031-02",
+  "publishedAt": "2026-10-31",
+  "title": "Googleのバックアップコードをなくしたら？再発行と古いコードの扱い",
+  "shortTitle": "Googleの予備コードを再発行",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Googleの2段階認証を利用する人",
+    "予備コードをなくした人"
+  ],
+  "summary": "Googleは公式ヘルプで、2段階認証を使えないときに備えるバックアップコードの取得と再発行を案内しています。新しいセットを作ると古いセットは無効になるため、保管している控えも入れ替える必要があります。",
+  "scenario": {
+    "headline": "スマホの紛失に備えていたバックアップコードが見当たらない",
+    "description": "普段ログインしている端末から新しいコードを発行できるか確認したい状況です。",
+    "whyItMatters": "古い控えが残っていても新しいセットを作ると使えなくなります。"
+  },
+  "question": {
+    "text": "バックアップコードをなくしたら？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "安全な端末でGoogleアカウントを開き、新しいコードのセットを取得する",
+        "description": "古いセットは無効になり、新しいコードを安全に保管できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "前のコードは新しいセットを発行しても両方使えると考える",
+        "description": "Googleは古いセットが自動的に無効になると説明しています。"
+      },
+      {
+        "id": "wrong2",
+        "label": "復旧を手伝う相手にコードを伝える",
+        "description": "バックアップコードは認証手段なので他人と共有しません。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "ログイン可能な安全な端末で「セキュリティとログイン」から2段階認証を開き、バックアップコードを更新します。ログインできない場合は公式のアカウント復元を試し、組織アカウントなら管理者にも相談します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "利用の前提",
+      "description": "バックアップコードを使うには2段階認証プロセスを有効にする必要があります。",
+      "priority": "high"
+    },
+    {
+      "title": "コードは使い切り",
+      "description": "各コードは一度ログインに使うと無効になります。",
+      "priority": "high"
+    },
+    {
+      "title": "再発行で古いセットが無効",
+      "description": "新しいコードのセットを作ると、以前のセットは自動的に無効になります。",
+      "priority": "high"
+    },
+    {
+      "title": "高度な保護機能の例外",
+      "description": "Googleは高度な保護機能プログラムに登録している場合、バックアップコードをダウンロードできないと案内しています。",
+      "priority": "medium"
+    },
+    {
+      "title": "安全に保管",
+      "description": "Googleは印刷したコードを重要書類とともに安全な場所で保管する方法を紹介しています。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "安全な端末でGoogleアカウントを開き、新しいコードのセットを取得する",
+    "description": "ログイン可能な安全な端末で「セキュリティとログイン」から2段階認証を開き、バックアップコードを更新します。ログインできない場合は公式のアカウント復元を試し、組織アカウントなら管理者にも相談します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "安全な端末からGoogleアカウントの「セキュリティとログイン」を開く",
+      "reason": "対象アカウントの設定を確認できます。"
+    },
+    {
+      "action": "2段階認証のバックアップコードを開き、更新して新しいセットを取得する",
+      "reason": "なくした古いセットを無効にできます。"
+    },
+    {
+      "action": "新しいコードを他人と共有せず安全な場所に保管する",
+      "reason": "ログインに使う認証情報だからです。"
+    },
+    {
+      "action": "ログインできなければ公式の復元手順を利用し、職場や学校は管理者に相談する",
+      "reason": "ログイン前には設定画面を開けない場合があります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "コードをスクリーンショットで他人やAIに送る",
+      "reason": "第三者に認証手段を渡すことになります。"
+    },
+    {
+      "action": "再発行後も古い紙の控えを有効だと考える",
+      "reason": "新しいセットを作ると古いセットは使えません。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "安全な端末からGoogleアカウントの「セキュリティとログイン」を開く",
+      "2段階認証のバックアップコードを開き、更新して新しいセットを取得する",
+      "新しいコードを他人と共有せず安全な場所に保管する"
+    ]
+  },
+  "makotoComment": "新しいコードを発行したら、以前の控えを手元に残していても使えません。いざというときに迷わないよう、保管先とセットを入れ替えましょう。",
+  "oneLineLesson": "コードをなくしたら新しいセットを取得し、古い控えが無効になることを確認する。",
+  "tags": [
+    "Google",
+    "2段階認証",
+    "バックアップコード",
+    "スマートフォン紛失",
+    "アカウント復元"
+  ],
+  "sources": [
+    {
+      "title": "バックアップ コードを使用してログインする",
+      "publisher": "Google アカウント ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/1187538?hl=ja-7"
+    },
+    {
+      "title": "2 段階認証プロセスに関する一般的な問題を解決する",
+      "publisher": "Google アカウント ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/185834?hl=ja-7"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "スマホの紛失に備えていたバックアップコードが見当たらない場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261030-02"
+  ]
+}

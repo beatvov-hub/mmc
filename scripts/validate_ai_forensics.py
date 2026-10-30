@@ -142,6 +142,8 @@ def validate_article(path: Path, article: dict[str, Any], *, strict_id: bool, ex
         fail(errors, f"{name}: publishedAt must be a valid YYYY-MM-DD date")
     elif expected_date and article["publishedAt"] != expected_date:
         fail(errors, f"{name}: publishedAt does not equal expected Tokyo date {expected_date}")
+    if "updatedAt" in article and (not valid_iso_date(article["updatedAt"]) or (valid_iso_date(article["publishedAt"]) and article["updatedAt"] < article["publishedAt"])):
+        fail(errors, f"{name}: updatedAt must be a valid date no earlier than publishedAt")
     if article["category"] not in VALID_CATEGORIES:
         fail(errors, f"{name}: category must be one of the five AI鑑識室 categories")
     if article["difficulty"] not in VALID_DIFFICULTIES:
@@ -262,7 +264,7 @@ def validate_generated(targets: list[tuple[Path, dict[str, Any]]]) -> list[str]:
         for source in article["sources"]:
             if html.escape(source["url"], quote=True) not in page:
                 fail(errors, f"{page_path.relative_to(ROOT)}: source is not rendered as a link")
-        sitemap_entry = f"<loc>{BASE_URL}/ai-forensics/{article_id}</loc><lastmod>{article['publishedAt']}</lastmod>"
+        sitemap_entry = f"<loc>{BASE_URL}/ai-forensics/{article_id}</loc><lastmod>{article.get('updatedAt', article['publishedAt'])}</lastmod>"
         if sitemap_entry not in sitemap:
             fail(errors, f"sitemap.xml: missing entry for {article_id}")
         if f"/ai-forensics/{article_id} /ai-forensics/{article_id}.html 200" not in redirects:

@@ -672,6 +672,8 @@ def render_article_page(article: dict[str, Any], articles: list[dict[str, Any]])
         "datePublished": article["publishedAt"], "mainEntityOfPage": article_url(article),
         "inLanguage": "ja",
     }
+    if article.get("updatedAt"):
+        structured["dateModified"] = article["updatedAt"]
     json_ld = '<script type="application/ld+json">' + json.dumps(structured, ensure_ascii=False).replace('</', '<\\/') + '</script>'
     inspection = "\n".join(
         [
@@ -738,6 +740,7 @@ def render_article_page(article: dict[str, Any], articles: list[dict[str, Any]])
             f'              <span>{esc(category_label(article["category"]))}</span>',
             f'              <span>{esc(difficulty_label(article["difficulty"]))}</span>',
             f'              <time datetime="{esc(article["publishedAt"])}">{esc(article["publishedAt"].replace("-", "."))}</time>',
+            (f'              <span>更新 <time datetime="{esc(article["updatedAt"])}">{esc(article["updatedAt"].replace("-", "."))}</time></span>' if article.get("updatedAt") else ""),
             "            </div>",
             f'            <h1>{esc(article["title"])}</h1>',
             f'            <p>{esc(article["summary"])}</p>',
@@ -845,7 +848,7 @@ def update_sitemap(articles: list[dict[str, Any]]) -> None:
         return
 
     sitemap = SITEMAP_PATH.read_text(encoding="utf-8")
-    published_dates = [str(article.get("publishedAt", "")) for article in articles]
+    published_dates = [str(article.get("updatedAt", article.get("publishedAt", ""))) for article in articles]
     latest_date = max(published_dates, default="")
     index_pattern = re.compile(
         r"(<url><loc>https://mainichi-miru\.com/ai-forensics/</loc><lastmod>)[^<]*(</lastmod></url>)"
@@ -856,19 +859,20 @@ def update_sitemap(articles: list[dict[str, Any]]) -> None:
         warn("sitemap", "AI鑑識室一覧の sitemap エントリが見つからないため更新をスキップしました。")
 
     case_articles = [article for article in articles if str(article.get("id", "")).startswith("case-")]
-    current_case_ids = {article["id"] for article in case_articles}
+    by_id = {article["id"]: article for article in case_articles}
+    current_case_ids = set(by_id)
     case_entry_pattern = re.compile(
         r"  <url><loc>https://mainichi-miru\.com/ai-forensics/(case-[^<]+)</loc><lastmod>[^<]*</lastmod></url>\r?\n?"
     )
     sitemap = case_entry_pattern.sub(
-        lambda match: match.group(0) if match.group(1) in current_case_ids else "",
+        lambda match: (f'  <url><loc>{article_url(by_id[match.group(1)])}</loc><lastmod>{by_id[match.group(1)]["updatedAt"]}</lastmod></url>\n' if by_id[match.group(1)].get("updatedAt") else match.group(0)) if match.group(1) in current_case_ids else "",
         sitemap,
     )
     existing_case_ids = set(re.findall(r"/ai-forensics/(case-[^<]+)</loc>", sitemap))
     missing_articles = [article for article in case_articles if article["id"] not in existing_case_ids]
     if missing_articles:
         case_urls = "".join(
-            f"  <url><loc>{article_url(article)}</loc><lastmod>{article['publishedAt']}</lastmod></url>\n"
+            f"  <url><loc>{article_url(article)}</loc><lastmod>{article.get('updatedAt', article['publishedAt'])}</lastmod></url>\n"
             for article in sorted(missing_articles, key=lambda item: (item["publishedAt"], item["id"]))
         )
         insertion = sitemap.find("  <url><loc>https://mainichi-miru.com/ai-forensics/ex")
