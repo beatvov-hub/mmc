@@ -1,0 +1,11 @@
+.learning-article-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.learning-article { padding: 22px; background: #fff; border: 1px solid #e2d8cd; border-radius: 12px; overflow-wrap: anywhere; }
+.learning-article img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; margin-bottom: 16px; border-radius: 6px; }
+.learning-article time { color: #75695d; font-size: .85rem; }
+.learning-article h3 { margin: .6rem 0; font-size: 1.1rem; line-height: 1.5; }
+.learning-article p { margin-bottom: 0; line-height: 1.75; }
+.learning-note { padding: clamp(22px, 4vw, 36px); background: #f4eee4; border-radius: 12px; }
+.learning-resources ul { padding-left: 1.3rem; line-height: 2; }
+.learning-resources li { margin-bottom: .6rem; }
+.quiz-hero-catch { max-width: 24rem; word-break: normal; overflow-wrap: normal; }
+@media (max-width: 760px) { .learning-article-grid { grid-template-columns: 1fr; } }
