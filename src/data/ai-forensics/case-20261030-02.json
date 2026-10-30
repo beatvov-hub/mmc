@@ -1,0 +1,148 @@
+{
+  "id": "case-20261030-02",
+  "publishedAt": "2026-10-30",
+  "title": "スマホを紛失したらGoogleのパスキーは？削除と端末ログアウトの方法",
+  "shortTitle": "紛失端末のパスキー対処",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Googleアカウントでパスキーを使う人",
+    "スマートフォンを紛失した人"
+  ],
+  "summary": "Googleは公式ヘルプで、パスキーを設定した端末を紛失した際の削除方法を案内しています。Googleアカウント用に作成したパスキーとAndroidで自動作成されたパスキーでは、確認する場所が異なります。",
+  "scenario": {
+    "headline": "Googleのパスキーを使っていたスマホが見当たらない",
+    "description": "別の端末からGoogleアカウントへのアクセスを保護したい場面です。",
+    "whyItMatters": "端末に登録されたパスキーの種類に応じた対応が必要です。"
+  },
+  "question": {
+    "text": "紛失端末への対応として何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "別の安全な端末でGoogleアカウントのパスキーとデバイスを確認する",
+        "description": "作成したパスキーと自動登録されたAndroid端末は操作場所が異なります。"
+      },
+      {
+        "id": "wrong1",
+        "label": "どのパスキーも必ず端末ログアウトだけで削除されると考える",
+        "description": "作成方法や保存先で操作が異なります。"
+      },
+      {
+        "id": "wrong2",
+        "label": "紛失端末を探すため、認証コードを要求する連絡に応じる",
+        "description": "認証情報を第三者へ渡すことになります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Googleアカウントの「セキュリティとログイン」で対象を確認します。自分で作成したパスキーは一覧から削除し、Androidで自動作成されたものは対象端末をログアウトします。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "作成したパスキーの削除",
+      "description": "Googleアカウントの「パスキーとセキュリティ キー」で対象を選び削除します。",
+      "priority": "high"
+    },
+    {
+      "title": "Androidで自動作成された場合",
+      "description": "「お使いのデバイス」から対象端末を管理し、ログアウトします。",
+      "priority": "high"
+    },
+    {
+      "title": "第三者の管理アプリも確認",
+      "description": "Googleアカウント上から削除してもログイン時にパスキーが求められる場合、別の認証情報マネージャーを確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "ログインできないとき",
+      "description": "復元手段を使って公式のアカウント復元を試します。復元用情報は普段から最新にします。",
+      "priority": "medium"
+    },
+    {
+      "title": "対象の範囲",
+      "description": "ここで説明するのはGoogleアカウントへのログイン用です。他サービスのパスキーはそれぞれの案内を確認します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "別の安全な端末でGoogleアカウントのパスキーとデバイスを確認する",
+    "description": "Googleアカウントの「セキュリティとログイン」で対象を確認します。自分で作成したパスキーは一覧から削除し、Androidで自動作成されたものは対象端末をログアウトします。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "安全な別端末からGoogleアカウントを開く",
+      "reason": "紛失した端末に頼らず設定を確認します。"
+    },
+    {
+      "action": "パスキー一覧で自分が作成した対象を確認して削除する",
+      "reason": "不要なログイン手段を外します。"
+    },
+    {
+      "action": "自動作成されたAndroidのパスキーは対象端末をログアウトする",
+      "reason": "Googleはデバイス管理画面からのログアウトを案内しています。"
+    },
+    {
+      "action": "他サービスと管理アプリの保存状況を確認する",
+      "reason": "Googleアカウントの操作だけでは他サービスの登録は変わりません。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "復旧を手伝うという相手に認証コードを伝える",
+      "reason": "不正ログインにつながるおそれがあります。"
+    },
+    {
+      "action": "端末名だけで無関係なデバイスまでログアウトする",
+      "reason": "同じ名前のセッションの対象を確認します。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "安全な別端末からGoogleアカウントを開く",
+      "パスキー一覧で自分が作成した対象を確認して削除する",
+      "自動作成されたAndroidのパスキーは対象端末をログアウトする"
+    ]
+  },
+  "makotoComment": "「パスキー削除」と「端末ログアウト」の両方が登場するのは、自分で作ったものとAndroidで自動作成されたものの扱いが違うためです。",
+  "oneLineLesson": "パスキーの登録方法と保存先を分けて、紛失端末のアクセスを見直す。",
+  "tags": [
+    "Google",
+    "パスキー",
+    "スマートフォン紛失",
+    "Android",
+    "アカウント保護"
+  ],
+  "sources": [
+    {
+      "title": "パスワードの代わりにパスキーでログインする",
+      "publisher": "Google アカウント ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/13548313?hl=ja"
+    },
+    {
+      "title": "再設定用情報を更新する",
+      "publisher": "Google アカウント ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/17299765?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Googleのパスキーを使っていたスマホが見当たらない場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261027-02",
+    "case-20261030-01"
+  ]
+}

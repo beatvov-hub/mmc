@@ -1,0 +1,141 @@
+{
+  "id": "case-20261030-03",
+  "publishedAt": "2026-10-30",
+  "title": "Geminiに連携アプリを使わせたくないときは？エージェント権限の停止",
+  "shortTitle": "Geminiのアプリ使用を停止",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Geminiに連携アプリの利用を許可した人",
+    "アプリとAIの権限を見直したい人"
+  ],
+  "summary": "Googleは公式ヘルプで、GeminiやGoogleのAIエージェントによるリンク済みアプリの使用を停止する方法を案内しています。エージェントの使用停止とアプリ自体の連携解除は別の設定です。",
+  "scenario": {
+    "headline": "Geminiに旅行アプリを使う操作を許可したが、後から止めたい",
+    "description": "アプリ自体は引き続き使いたいものの、エージェントによる利用を見直したい場面です。",
+    "whyItMatters": "AIによる利用を止めてもGoogleアカウントとアプリの連携は残ります。"
+  },
+  "question": {
+    "text": "エージェントによるアプリの使用だけを止めたいときは？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "Googleアカウントのリンク済みアプリで対象エージェントの使用を停止する",
+        "description": "アプリとアカウントのリンクは別途管理できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "アプリの連携を解除すればAIによる使用だけを止められると考える",
+        "description": "アプリ自体の機能やログインに影響する可能性があります。"
+      },
+      {
+        "id": "wrong2",
+        "label": "使用を停止すればアプリが保有するデータも消えると考える",
+        "description": "停止と保存済みデータの削除は別です。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Googleアカウントのリンク済みアプリで「エージェント アクセス」を選び、アプリとエージェントを確認して使用を停止します。利用できる機能はアカウントや地域により異なります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "エージェントの利用",
+      "description": "Googleは、許可されたGeminiやGoogleのAIエージェントがリンク済みアプリを使ってタスクを行えると説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "停止する場所",
+      "description": "リンク済みアプリの「エージェント アクセス」から対象アプリを選び、エージェントの使用を停止できます。",
+      "priority": "high"
+    },
+    {
+      "title": "停止してもアプリ連携は残る",
+      "description": "エージェントのアクセス権を削除しても、Googleアカウントとのリンクは解除されません。",
+      "priority": "high"
+    },
+    {
+      "title": "アプリへのアクセス権は別",
+      "description": "アプリ側に与えたGoogleアカウントへのアクセス権も、必要に応じ別途確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "データの扱い",
+      "description": "連携解除や使用停止だけで、アプリ側に保存されたデータの削除まで完了すると決めつけないでください。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "Googleアカウントのリンク済みアプリで対象エージェントの使用を停止する",
+    "description": "Googleアカウントのリンク済みアプリで「エージェント アクセス」を選び、アプリとエージェントを確認して使用を停止します。利用できる機能はアカウントや地域により異なります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Googleアカウントのリンク済みアプリを開く",
+      "reason": "許可済みの接続を確認できます。"
+    },
+    {
+      "action": "「エージェント アクセス」で対象アプリを選ぶ",
+      "reason": "エージェントに許した利用を確認できます。"
+    },
+    {
+      "action": "対象エージェントの「アプリの使用を停止」を選び確定する",
+      "reason": "そのエージェントによる利用を停止します。"
+    },
+    {
+      "action": "アプリ自体のアクセス権と保存データも必要に応じて確認する",
+      "reason": "停止対象と、残る連携やデータは別だからです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "エージェントの使用停止だけでアプリ連携も削除されたと考える",
+      "reason": "Googleはアカウントとのリンクは残ると説明しています。"
+    },
+    {
+      "action": "連携解除の影響を調べずに必要なアプリを削除する",
+      "reason": "ログインやアプリの機能に影響する場合があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "Googleアカウントのリンク済みアプリを開く",
+      "「エージェント アクセス」で対象アプリを選ぶ",
+      "対象エージェントの「アプリの使用を停止」を選び確定する"
+    ]
+  },
+  "makotoComment": "「AIに使わせない」と「アプリをつながない」は別の選択です。残したい機能を確認してから、必要な権限だけ見直しましょう。",
+  "oneLineLesson": "エージェントの利用停止と、アプリ連携の解除を分けて管理する。",
+  "tags": [
+    "Gemini",
+    "AIエージェント",
+    "アプリ連携",
+    "Googleアカウント",
+    "権限"
+  ],
+  "sources": [
+    {
+      "title": "Google アカウントと他のデベロッパーのアプリとのリンクを管理する",
+      "publisher": "Google アカウント ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/13533235?hl=ja-419"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Geminiに旅行アプリを使う操作を許可したが、後から止めたい場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20260924-01",
+    "case-20261027-04"
+  ]
+}

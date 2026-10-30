@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Geminiに連携アプリを使わせたくないときは？エージェント権限の停止｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="Googleは公式ヘルプで、GeminiやGoogleのAIエージェントによるリンク済みアプリの使用を停止する方法を案内しています。エージェントの使用停止とアプリ自体の連携解除は別の設定です。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261030-03" />
+<meta property="og:title" content="Geminiに連携アプリを使わせたくないときは？エージェント権限の停止｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="Googleは公式ヘルプで、GeminiやGoogleのAIエージェントによるリンク済みアプリの使用を停止する方法を案内しています。エージェントの使用停止とアプリ自体の連携解除は別の設定です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261030-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Geminiに連携アプリを使わせたくないときは？エージェント権限の停止", "description": "Googleは公式ヘルプで、GeminiやGoogleのAIエージェントによるリンク済みアプリの使用を停止する方法を案内しています。エージェントの使用停止とアプリ自体の連携解除は別の設定です。", "datePublished": "2026-10-30", "mainEntityOfPage": "https://mainichi-miru.com/ai-forensics/case-20261030-03", "inLanguage": "ja"}</script>
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../ai-forensics/" aria-current="page">AI鑑識室</a>
+        <a href="../ai-game-center/">AI GAMES</a>
+        <a href="../works">制作物</a>
+        <a href="../quiz/">毎日一問。</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Geminiのアプリ使用を停止</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-10-30">2026.10.30</time>
+            </div>
+            <h1>Geminiに連携アプリを使わせたくないときは？エージェント権限の停止</h1>
+            <p>Googleは公式ヘルプで、GeminiやGoogleのAIエージェントによるリンク済みアプリの使用を停止する方法を案内しています。エージェントの使用停止とアプリ自体の連携解除は別の設定です。</p>
+            <ul class="forensics-target-list"><li>Geminiに連携アプリの利用を許可した人</li><li>アプリとAIの権限を見直したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Gemini</li><li>AIエージェント</li><li>アプリ連携</li><li>Googleアカウント</li><li>権限</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Geminiに旅行アプリを使う操作を許可したが、後から止めたい</h3><p>アプリ自体は引き続き使いたいものの、エージェントによる利用を見直したい場面です。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>AIによる利用を止めてもGoogleアカウントとアプリの連携は残ります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="correct">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>エージェントによるアプリの使用だけを止めたいときは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="correct" data-choice-id="correct" />
+                <span>
+                  <strong>Googleアカウントのリンク済みアプリで対象エージェントの使用を停止する</strong>
+                  <small>アプリとアカウントのリンクは別途管理できます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="wrong1" data-choice-id="wrong1" />
+                <span>
+                  <strong>アプリの連携を解除すればAIによる使用だけを止められると考える</strong>
+                  <small>アプリ自体の機能やログインに影響する可能性があります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="wrong2" data-choice-id="wrong2" />
+                <span>
+                  <strong>使用を停止すればアプリが保有するデータも消えると考える</strong>
+                  <small>停止と保存済みデータの削除は別です。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>Googleアカウントのリンク済みアプリで対象エージェントの使用を停止する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Googleアカウントのリンク済みアプリで「エージェント アクセス」を選び、アプリとエージェントを確認して使用を停止します。利用できる機能はアカウントや地域により異なります。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>エージェントの利用</h3>
+              <p>Googleは、許可されたGeminiやGoogleのAIエージェントがリンク済みアプリを使ってタスクを行えると説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>停止する場所</h3>
+              <p>リンク済みアプリの「エージェント アクセス」から対象アプリを選び、エージェントの使用を停止できます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>停止してもアプリ連携は残る</h3>
+              <p>エージェントのアクセス権を削除しても、Googleアカウントとのリンクは解除されません。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>アプリへのアクセス権は別</h3>
+              <p>アプリ側に与えたGoogleアカウントへのアクセス権も、必要に応じ別途確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>データの扱い</h3>
+              <p>連携解除や使用停止だけで、アプリ側に保存されたデータの削除まで完了すると決めつけないでください。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Googleアカウントのリンク済みアプリで対象エージェントの使用を停止する</strong><p>Googleアカウントのリンク済みアプリで「エージェント アクセス」を選び、アプリとエージェントを確認して使用を停止します。利用できる機能はアカウントや地域により異なります。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>Googleアカウントのリンク済みアプリを開く</strong><span>許可済みの接続を確認できます。</span></li>
+            <li><strong>「エージェント アクセス」で対象アプリを選ぶ</strong><span>エージェントに許した利用を確認できます。</span></li>
+            <li><strong>対象エージェントの「アプリの使用を停止」を選び確定する</strong><span>そのエージェントによる利用を停止します。</span></li>
+            <li><strong>アプリ自体のアクセス権と保存データも必要に応じて確認する</strong><span>停止対象と、残る連携やデータは別だからです。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>エージェントの使用停止だけでアプリ連携も削除されたと考える</strong><span>Googleはアカウントとのリンクは残ると説明しています。</span></li>
+            <li><strong>連携解除の影響を調べずに必要なアプリを削除する</strong><span>ログインやアプリの機能に影響する場合があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIを整理の補助に使う</h3>
+          <p>個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。</p>
+          <ul class="positive-example-list"><li>Googleアカウントのリンク済みアプリを開く</li><li>「エージェント アクセス」で対象アプリを選ぶ</li><li>対象エージェントの「アプリの使用を停止」を選び確定する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>「AIに使わせない」と「アプリをつながない」は別の選択です。残したい機能を確認してから、必要な権限だけ見直しましょう。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>エージェントの利用停止と、アプリ連携の解除を分けて管理する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/accounts/answer/13533235?hl=ja-419" target="_blank" rel="noopener noreferrer">Google アカウントと他のデベロッパーのアプリとのリンクを管理する<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google アカウント ヘルプ</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20260924-01" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「許可」を押しただけでも残る侵入――OAuth同意フィッシングは連携アプリを取り消す OAuth同意フィッシングは連携アプリを取り消す FBIのIC3は2026年9月1日、正規のサービスの権限画面を悪用するOAuth同意フィッシングについて注意を呼びかけました。不審なDMやメールのリンクから表示された権限画面で「許可」を押すと、攻撃者のアプリにメールやファイルへのアクセスを与えることがあります。この手口ではパスワードを変更してもアクセス用トークンが残り得るため、許可してしまった時はサービスのセキュリティ設定で連携アプリやトークンを取り消すことが重要です。 セキュリティ・権限 標準 OAuth フィッシング アプリ連携 権限 トークン アカウント保護 GoogleやMicrosoftなどのアカウントで外部アプリを連携する人 DMやメールでファイル共有の案内を受け取る人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">oauth-consent-phishing</span>
+              <div>
+                <p>OAuth同意フィッシングは連携アプリを取り消す</p>
+                <h3>「許可」を押しただけでも残る侵入――OAuth同意フィッシングは連携アプリを取り消す</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-24">2026.09.24</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">FBIのIC3は2026年9月1日、正規のサービスの権限画面を悪用するOAuth同意フィッシングについて注意を呼びかけました。不審なDMやメールのリンクから表示された権限画面で「許可」を押すと、攻撃者のアプリにメールやファイルへのアクセスを与えることがあります。この手口ではパスワードを変更してもアクセス用トークンが残り得るため、許可してしまった時はサービスのセキュリティ設定で連携アプリやトークンを取り消すことが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 5</strong>
+              <span>正規画面でも、心当たりのない外部アプリには権限を渡さない</span>
+            </div>
+            <ul class="forensics-card-audience"><li>GoogleやMicrosoftなどのアカウントで外部アプリを連携する人</li><li>DMやメールでファイル共有の案内を受け取る人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>OAuth</li><li>フィッシング</li><li>アプリ連携</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261027-04" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="AIエージェントの責任は誰が持つ？　デジタル庁「源内基準」の役割分担 源内基準で役割を整理 デジタル庁は2026年10月20日、政府向けのAIエージェント利用環境を順次導入し、利用者・管理者・開発者の役割を示す「源内基準」を公表しました。利用者は出力の確認と利用判断、管理者は利用範囲や権限・事故対応、開発者は設計・評価・監視を担う構成です。これはデジタル庁がホストする源内に適用する基準で、民間企業にも同じ義務が直接課される規則ではありません。組織が導入前に責任者や停止・承認の手順を決める際の参考になります。 仕事・AI活用 はじめて AIエージェント デジタル庁 源内基準 組織管理 ガバナンス AIエージェントを業務に導入する組織の担当者 利用者と管理者の役割を整理したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gennai-agent-governance</span>
+              <div>
+                <p>源内基準で役割を整理</p>
+                <h3>AIエージェントの責任は誰が持つ？　デジタル庁「源内基準」の役割分担</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-27">2026.10.27</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">デジタル庁は2026年10月20日、政府向けのAIエージェント利用環境を順次導入し、利用者・管理者・開発者の役割を示す「源内基準」を公表しました。利用者は出力の確認と利用判断、管理者は利用範囲や権限・事故対応、開発者は設計・評価・監視を担う構成です。これはデジタル庁がホストする源内に適用する基準で、民間企業にも同じ義務が直接課される規則ではありません。組織が導入前に責任者や停止・承認の手順を決める際の参考になります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIエージェントを業務に導入する組織の担当者</li><li>利用者と管理者の役割を整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>デジタル庁</li><li>源内基準</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260926-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="AIエージェントにメール送信や購入を任せる前に、権限・確認・記録を分ける AIエージェントの権限・確認・記録を分ける Metaは2026年9月8日、メール送信、旅行予約、フォーム入力などを代行する個人向けAIエージェントMuseを発表しました。Metaによれば、利用者は連携するアプリとアクセス範囲を選び、メールなら閲覧だけか送信も可能にするかを選択できます。送信や購入などの機微な操作では利用者へ確認し、実行済み・予定の操作は監査履歴で確認できます。行動するAIを使う時は、連携の権限、最終承認、実行後の記録を別々に確認する記事です。 セキュリティ・権限 標準 AIエージェント 権限 メール送信 購入 監査履歴 Meta Muse メールや購入を代行するAIエージェントを使う人 AIへ外部サービスを連携する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">agent-permission-approval</span>
+              <div>
+                <p>AIエージェントの権限・確認・記録を分ける</p>
+                <h3>AIエージェントにメール送信や購入を任せる前に、権限・確認・記録を分ける</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-26">2026.09.26</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Metaは2026年9月8日、メール送信、旅行予約、フォーム入力などを代行する個人向けAIエージェントMuseを発表しました。Metaによれば、利用者は連携するアプリとアクセス範囲を選び、メールなら閲覧だけか送信も可能にするかを選択できます。送信や購入などの機微な操作では利用者へ確認し、実行済み・予定の操作は監査履歴で確認できます。行動するAIを使う時は、連携の権限、最終承認、実行後の記録を別々に確認する記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>行動するAIは、権限・最終承認・実行履歴を別々に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>メールや購入を代行するAIエージェントを使う人</li><li>AIへ外部サービスを連携する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>権限</li><li>メール送信</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261029-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261030-02">次の記事</a>
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
+            <p class="site-footer-nav__title">毎日一問。</p>
+            <a href="../quiz/">毎日一問。トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

@@ -1,0 +1,141 @@
+{
+  "id": "case-20261030-01",
+  "publishedAt": "2026-10-30",
+  "title": "iPhoneが盗まれたら？「探す」で紛失マークと消去・削除を区別する",
+  "shortTitle": "iPhone盗難時の「探す」",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "iPhoneを盗まれた人",
+    "紛失端末を保護したい人"
+  ],
+  "summary": "Appleは2026年7月1日、iPhoneやiPadの盗難時に「探す」で紛失としてマークする方法や、端末を取り戻せない場合の対処を案内しています。紛失マーク、遠隔消去、デバイスの削除は別の操作です。",
+  "scenario": {
+    "headline": "iPhoneを盗まれ、別の端末で「探す」を開いた",
+    "description": "位置の表示や消去、削除の選択肢があり、どれから操作すべきか迷っています。",
+    "whyItMatters": "誤って「探す」から端末を削除すると、アクティベーションロックが解除されます。"
+  },
+  "question": {
+    "text": "盗難が疑われるとき、まずどうする？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "「探す」で紛失としてマークし、警察と通信事業者に連絡する",
+        "description": "端末をロックし、必要な届出につなげます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "地図を見て一人で取り返しに行く",
+        "description": "Appleは自分で探し出そうとせず警察に連絡するよう案内しています。"
+      },
+      {
+        "id": "wrong2",
+        "label": "最初に「探す」のデバイス一覧から削除する",
+        "description": "削除するとアクティベーションロックが解除されます。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "別の端末の「探す」またはiCloud.com/findで紛失としてマークし、警察と通信事業者に連絡します。盗難時は表示する連絡先情報の扱いにも注意します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "紛失としてマーク",
+      "description": "Appleは盗難後すぐに紛失としてマークして端末を保護するよう案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "「探す」は事前設定が必要",
+      "description": "事前に有効でなければ、位置表示、紛失マーク、遠隔消去は利用できません。Apple Accountのパスワードを変更します。",
+      "priority": "high"
+    },
+    {
+      "title": "消去と削除は違う",
+      "description": "遠隔消去しても「探す」から削除しなければアクティベーションロックを維持できます。消去は元に戻せません。",
+      "priority": "high"
+    },
+    {
+      "title": "盗難時は連絡先の入力に注意",
+      "description": "Appleは盗難されたデバイスでは紛失マークに連絡先を入力しないよう案内しています。",
+      "priority": "medium"
+    },
+    {
+      "title": "追跡は警察に任せる",
+      "description": "覚えのない場所に端末が表示されても、自分で探し出そうとせず警察へ連絡します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "「探す」で紛失としてマークし、警察と通信事業者に連絡する",
+    "description": "別の端末の「探す」またはiCloud.com/findで紛失としてマークし、警察と通信事業者に連絡します。盗難時は表示する連絡先情報の扱いにも注意します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "別の安全な端末から「探す」またはiCloud.com/findで紛失としてマークする",
+      "reason": "端末をロックし、情報を保護します。"
+    },
+    {
+      "action": "警察に届け、通信事業者へ盗難を連絡する",
+      "reason": "回線停止や届出につなげます。"
+    },
+    {
+      "action": "取り戻せない場合は、公式案内に沿って遠隔消去を検討する",
+      "reason": "消去は取り消せないため、状況を整理してから実施します。"
+    },
+    {
+      "action": "遠隔消去後も「探す」から端末を削除しない",
+      "reason": "アクティベーションロックを維持します。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "地図の場所へ一人で取り返しに行く",
+      "reason": "安全のため警察に連絡します。"
+    },
+    {
+      "action": "消去と削除を同じ操作だと考える",
+      "reason": "デバイスの削除はロックを解除することがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "別の安全な端末から「探す」またはiCloud.com/findで紛失としてマークする",
+      "警察に届け、通信事業者へ盗難を連絡する",
+      "取り戻せない場合は、公式案内に沿って遠隔消去を検討する"
+    ]
+  },
+  "makotoComment": "遠隔消去は中の情報を消す操作、一覧からの削除は端末とアカウントの結び付きを外す操作です。似た名前でも役割が違います。",
+  "oneLineLesson": "紛失マークを優先し、遠隔消去と一覧からの削除を区別する。",
+  "tags": [
+    "iPhone",
+    "盗難",
+    "探す",
+    "紛失モード",
+    "アクティベーションロック"
+  ],
+  "sources": [
+    {
+      "title": "iPhoneやiPadが盗まれた場合",
+      "publisher": "Apple サポート",
+      "sourceType": "official-consumer-guidance",
+      "publishedAt": "2026-07-01",
+      "url": "https://support.apple.com/ja-jp/120837"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "iPhoneを盗まれ、別の端末で「探す」を開いた場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261029-01",
+    "case-20261030-02"
+  ]
+}
