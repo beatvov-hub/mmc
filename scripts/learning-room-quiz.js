@@ -38,7 +38,13 @@
     if (action === 'daily' || action === 'random') start(action);
     else if (action === 'retry') start(mode);
     else if (action === 'menu') menu();
-    else if (action === 'next') { index++; show(); }
+    else if (action === 'next') {
+      index++;
+      show();
+      root.setAttribute('tabindex', '-1');
+      root.focus({ preventScroll: true });
+      root.scrollIntoView({ block: 'start', behavior: 'instant' });
+    }
   });
   root.addEventListener('submit', event => {
     event.preventDefault();
