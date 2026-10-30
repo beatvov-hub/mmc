@@ -1,6 +1,8 @@
 .journal-main { max-width: 1180px; margin: 0 auto; padding: 36px 24px 80px; }
 .journal-breadcrumb { color: #776a5a; font-size: .85rem; margin-bottom: 30px; }
-.journal-hero { background: #efe4d4; padding: clamp(28px, 5vw, 64px); border-radius: 16px; }
+.journal-hero { background: #efe4d4; padding: clamp(28px, 5vw, 64px); border-radius: 16px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: center; }
+.journal-hero-image { margin: 0; }
+.journal-hero-image img { display: block; width: 100%; height: auto; border-radius: 10px; }
 .journal-hero h1 { font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(2.1rem, 5vw, 4rem); color: #214438; margin: .3em 0; line-height: 1.2; }
 .journal-hero .journal-catch { font-size: clamp(1.15rem, 2vw, 1.5rem); font-weight: 700; }
 .journal-hero p { max-width: 50rem; line-height: 1.9; }
@@ -18,4 +20,4 @@
 .journal-meta { color: #75685a; font-size: .85rem; }
 .journal-about { background: #f3eee6; border-radius: 12px; padding: 28px; }
 .journal-about a { display: inline-block; margin: .5rem 1rem .5rem 0; }
-@media (max-width: 760px) { .journal-main { padding-inline: 18px; } .journal-grid, .journal-essays { grid-template-columns: 1fr; } .journal-section { margin-top: 48px; } }
+@media (max-width: 760px) { .journal-main { padding-inline: 18px; } .journal-hero, .journal-grid, .journal-essays { grid-template-columns: 1fr; } .journal-section { margin-top: 48px; } }
