@@ -13,10 +13,12 @@ class HalloweenDraftTests(unittest.TestCase):
     def setUp(self):
         self.data = json.loads(event.DATA_PATH.read_text(encoding="utf-8"))
 
-    def test_noindex_and_thirteen_costumes(self):
+    def test_published_and_thirteen_costumes(self):
         event.validate_data(self.data)
         page = event.render_page(self.data)
-        self.assertIn('content="noindex, nofollow, noarchive"', page)
+        self.assertNotIn('content="noindex, nofollow, noarchive"', page)
+        self.assertIn('rel="canonical" href="https://mainichi-miru.com/lounge/events/halloween-2026/"', page)
+        self.assertNotIn('class="hw-draft-banner"', page)
         self.assertEqual(page.count('<article class="hw-costume-card">'), 13)
         self.assertEqual(page.count("<h1>"), 1)
         self.assertIn('ハロウィンパーティーの会話', page)
@@ -28,7 +30,7 @@ class HalloweenDraftTests(unittest.TestCase):
         self.assertNotIn('朝のラウンジ', page)
 
     def test_cannot_implicitly_publish(self):
-        for status in ("published", "unlisted", "", None):
+        for status in ("unlisted", "", None):
             with self.subTest(status=status):
                 self.data["status"] = status
                 with self.assertRaises(ValueError):
@@ -118,11 +120,19 @@ class HalloweenDraftTests(unittest.TestCase):
         self.assertIn('&lt;img src=x onerror=alert(1)&gt;', markup)
         self.assertNotIn('<img src=x', markup)
 
-    def test_no_public_event_registration(self):
+    def test_public_event_registration(self):
         public = json.loads((ROOT / 'src/data/events.json').read_text(encoding='utf-8'))
-        self.assertNotIn('halloween-2026', [x['slug'] for x in public])
-        for filename in ('sitemap.xml', 'lounge/events/index.html', 'index.html', 'lounge.html'):
-            self.assertNotIn('lounge/events/halloween-2026', (ROOT / filename).read_text(encoding='utf-8'))
+        self.assertEqual(sum(x['slug'] == 'halloween-2026' for x in public), 1)
+        self.assertIn('halloween-2026/', (ROOT / 'lounge/events/index.html').read_text(encoding='utf-8'))
+        self.assertIn('https://mainichi-miru.com/lounge/events/halloween-2026/', (ROOT / 'sitemap.xml').read_text(encoding='utf-8'))
+        self.assertIn('/lounge/events/halloween-2026/ /lounge/events/halloween-2026/index.html 200', (ROOT / '_redirects').read_text(encoding='utf-8'))
+
+    def test_draft_remains_noindex(self):
+        self.data['status'] = 'draft'
+        event.validate_data(self.data)
+        page = event.render_page(self.data)
+        self.assertIn('content="noindex, nofollow, noarchive"', page)
+        self.assertIn('class="hw-draft-banner"', page)
 
     def test_asset_path_cannot_escape_site(self):
         for value in ('../outside.webp', 'https://example.com/image.webp', '/image/test.webp'):

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate only the unlisted Halloween 2026 draft; never publish/index it."""
+"""Generate the Halloween 2026 event page from its maintained source."""
 from __future__ import annotations
 
 import html
@@ -35,8 +35,8 @@ def local_path(value: str) -> Path:
 
 
 def validate_data(data: dict) -> None:
-    if data.get("status") != "draft":
-        raise ValueError("This generator only accepts status=draft; publishing requires a separate review.")
+    if data.get("status") not in {"draft", "published"}:
+        raise ValueError("Event status must be draft or published.")
     if data.get("eventDate") != "2026-10-31":
         raise ValueError("The Halloween event date must be 2026-10-31.")
     people = data["participants"]
@@ -123,31 +123,41 @@ def render_page(data: dict) -> str:
     intro = "".join(f'<p>{esc(p)}</p>' for p in data["intro"])
     nav = "".join(f'<a href="#{esc(s["id"])}">{esc(s["title"])}</a>' for s in data["conversationSections"])
     scene_nav = f'<nav class="hw-scene-nav" aria-label="会話の場面へ移動">{nav}</nav>' if len(data["conversationSections"]) > 1 else ""
+    published = data["status"] == "published"
+    robots = '<link rel="canonical" href="https://mainichi-miru.com/lounge/events/halloween-2026/" />' if published else '<meta name="robots" content="noindex, nofollow, noarchive" />'
+    banner = '' if published else '<p class="hw-draft-banner"><strong>公開前プレビュー</strong><span>10月31日のイベントを掲載するための準備ページです。</span></p>'
+    label = "社員イベント" if published else "社員イベント準備ページ"
     return f'''<!doctype html>
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex, nofollow, noarchive" />
-  <title>{esc(data['title'])}｜社員イベント準備ページ｜毎日見るコワークス</title>
-  <meta name="description" content="2026年10月31日のMMCハロウィン仮装大会に向けた準備ページ。自社ゲームをモチーフにした仮装と、当日のラウンジ会話をまとめる下書きです。" />
+  {robots}
+  <title>{esc(data['title'])}｜{label}｜毎日見るコワークス</title>
+  <meta name="description" content="MMCのゲームをモチーフにした仮装で、AI社員と所長、ペチが楽しむハロウィンパーティーの記録です。" />
+  <meta property="og:title" content="MMC Halloween Party 2026｜毎日見るコワークス" />
+  <meta property="og:description" content="自分たちのゲームの仮装で楽しむ、社員ラウンジのハロウィン。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://mainichi-miru.com/lounge/events/halloween-2026/" />
+  <meta property="og:image" content="https://mainichi-miru.com/image/events/halloween-2026/all-hands.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="{PREFIX}favicon.ico" />
   <link rel="stylesheet" href="{PREFIX}styles.css?v=20261026" />
   <link rel="stylesheet" href="event.css?v=20261026" />
 </head>
-<body class="subpage halloween-event-page" data-event-status="draft">
+<body class="subpage halloween-event-page" data-event-status="{esc(data['status'])}">
   <!-- SITE_HEADER_START -->
   {render_header(PREFIX, 'lounge')}
   <!-- SITE_HEADER_END -->
   <main class="hw-main" id="main-content">
-    <p class="hw-draft-banner"><strong>公開前プレビュー</strong><span>10月31日のイベントを掲載するための準備ページです。</span></p>
+{banner}
     <nav class="hw-breadcrumb" aria-label="パンくずリスト"><a href="{PREFIX}lounge">社員ラウンジ</a><span aria-hidden="true"> / </span><a href="../">社員イベント</a><span aria-hidden="true"> / </span><span>Halloween 2026</span></nav>
     <header class="hw-hero">
       {image(data['backgroundImage'], 'いつものBean & Bitsにハロウィンのガーランドとランタンを飾った空間', eager=True)}
-      <div class="hw-hero-copy"><p class="hw-eyebrow">BEAN &amp; BITS · 2026.10.31</p><h1>MMC Halloween<br />Party 2026</h1><p class="hw-tagline">{esc(data['headline'])}</p><p class="hw-event-plan">10月31日開催予定 · {esc(data['place'])}</p></div>
+      <div class="hw-hero-copy"><p class="hw-eyebrow">BEAN &amp; BITS · 2026.10.31</p><h1>MMC Halloween<br />Party 2026</h1><p class="hw-tagline">{esc(data['headline'])}</p><p class="hw-event-plan">2026年10月31日 · {esc(data['place'])}</p></div>
     </header>
     <section class="hw-intro" aria-labelledby="intro-title"><p class="hw-eyebrow">OUR GAMES, OUR COSTUMES</p><h2 id="intro-title">社員 × 自分たちのゲーム。<br />いつものラウンジで、仮装大会。</h2><div class="hw-prose">{intro}</div><p class="hw-cast-count">AI社員11名 ＋ 所長よっしー ＋ ペチ</p></section>
-    <figure class="hw-photo hw-ensemble">{image(data['ensembleImage'], '神様・宇宙飛行士・探偵などの仮装をした12人と、ネズミ衣装のペチの集合イメージ')}<figcaption>12人とペチ、それぞれの作品をまとって。当日に向けて制作した仮装イメージです。</figcaption></figure>
+    <figure class="hw-photo hw-ensemble">{image(data['ensembleImage'], '神様・宇宙飛行士・探偵などの仮装をした12人と、ネズミ衣装のペチの集合イメージ')}<figcaption>12人とペチ、それぞれの作品をまとって。イベントのために制作した仮装イメージです。</figcaption></figure>
     <nav class="hw-page-nav" aria-label="このページの内容"><a href="#conversation">パーティーの会話</a><a href="#costumes">参加者と仮装</a></nav>
     <section class="hw-section hw-story" id="conversation" aria-labelledby="conversation-title"><div class="hw-section-heading"><div><p class="hw-eyebrow">HALLOWEEN PARTY · BEAN &amp; BITS</p><h2 id="conversation-title">ハロウィンパーティーの会話</h2></div></div><p class="hw-section-lead">10月31日、18時。いつものBean &amp; Bitsに、自社ゲームの仮装をした社員たちとペチが集まります。お菓子も飲み物も準備万端。そこへ、巨大な月見団子になった所長がやってきて——。</p>{scene_nav}<div class="hw-conversations">{render_conversations(data)}</div></section>
     <section class="hw-section" id="costumes" aria-labelledby="costumes-title"><div class="hw-section-heading"><div><p class="hw-eyebrow">COSTUME COLLECTION</p><h2 id="costumes-title">参加者と仮装</h2></div><p>気になる衣装から、元のゲームへ。</p></div><div class="hw-costume-grid">{''.join(cards)}</div></section>
@@ -167,7 +177,7 @@ def main() -> None:
     validate_data(data)
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(render_page(data), encoding="utf-8")
-    print("Generated the noindex Halloween draft only. Public event data, indexes, redirects and sitemap were not written.")
+    print(f"Generated Halloween event page: {data['status']}.")
 
 
 if __name__ == "__main__":

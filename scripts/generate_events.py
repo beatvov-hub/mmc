@@ -165,7 +165,7 @@ def render_event_index(events: list[dict]) -> str:
             f"              <h3>{esc(event['title'])}</h3>",
             f"              <p>{esc(event['summary'])}</p>",
             f'              <small>{esc(event_member_summary(event))}</small>',
-            f'              <a class="lounge-log-link" href="{esc(event["slug"])}">続きを読む</a>',
+            f'              <a class="lounge-log-link" href="{esc(event["slug"] + ("/" if event.get("directoryDetail") else ""))}">続きを読む</a>',
             "            </div>",
             "          </article>",
         ])
@@ -279,9 +279,12 @@ def update_redirects(events: list[dict]) -> None:
     text = REDIRECTS_PATH.read_text(encoding="utf-8")
     rules = [REDIRECTS_START, "/lounge/events/index.html /lounge/events/ 301", "/lounge/events /lounge/events/ 301"]
     rules.extend(
-        f"/lounge/events/{event['slug']}.html /lounge/events/{event['slug']} 301"
+        f"/lounge/events/{event['slug']}.html /lounge/events/{event['slug']}{'/' if event.get('directoryDetail') else ''} 301"
         for event in events
     )
+    for event in events:
+        if event.get("directoryDetail"):
+            rules.extend([f"/lounge/events/{event['slug']}/index.html /lounge/events/{event['slug']}/ 301", f"/lounge/events/{event['slug']} /lounge/events/{event['slug']}/ 301"])
     rules.append(REDIRECTS_END)
     redirect_block = "\n".join(rules)
     start = text.index(REDIRECTS_START)
@@ -290,7 +293,7 @@ def update_redirects(events: list[dict]) -> None:
 
     rewrite_rules = ["/lounge/events/ /lounge/events/index.html 200"]
     rewrite_rules.extend(
-        f"/lounge/events/{event['slug']} /lounge/events/{event['slug']}.html 200"
+        f"/lounge/events/{event['slug']}/ /lounge/events/{event['slug']}/index.html 200" if event.get("directoryDetail") else f"/lounge/events/{event['slug']} /lounge/events/{event['slug']}.html 200"
         for event in events
     )
     marker = "\n".join([REDIRECTS_START, *rewrite_rules, REDIRECTS_END])

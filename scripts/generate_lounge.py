@@ -400,7 +400,7 @@ def load_event_paths() -> list[str]:
     if not isinstance(events, list):
         return []
     return [
-        f"lounge/events/{event['slug']}"
+        f"lounge/events/{event['slug']}{'/' if event.get('directoryDetail') else ''}"
         for event in events
         if isinstance(event, dict) and isinstance(event.get("slug"), str) and event["slug"]
     ]
