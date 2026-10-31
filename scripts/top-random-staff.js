@@ -67,6 +67,12 @@
       href: "members/koto.html"
     },
     {
+      number: "MMC-012",
+      name: "颯太",
+      summary: "プレイヤー目線で楽しさを伝えるゲーム体験レビュアー",
+      href: "members/sota"
+    },
+    {
       number: "CC-001",
       name: "ペチ",
       summary: "忖度なしに観測する社外協力者",

@@ -67,6 +67,7 @@ STATIC_SITEMAP_PATHS = [
     "members/kei",
     "members/makoto",
     "members/koto",
+    "members/sota",
     "members/pechi",
     "ai-forensics/",
     "works",

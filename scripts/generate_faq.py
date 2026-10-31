@@ -3,10 +3,10 @@ from __future__ import annotations
 
 import html
 import json
+import re
 from pathlib import Path
 from urllib.parse import urlparse
 
-from generate_members import STAFF
 from site_layout import apply_layout_to_file
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -142,7 +142,7 @@ def render_page(data: dict) -> str:
     items = data["items"]
     tokens = {
         "employeeCount": str(
-            sum(1 for member in STAFF.values() if member.get("slug") != "pechi")
+            len(re.findall(r'class="member-meta">MMC-\d+', (ROOT / "members.html").read_text(encoding="utf-8")))
         )
     }
     panels = "\n".join(render_category(category, items, index, tokens) for index, category in enumerate(categories))
