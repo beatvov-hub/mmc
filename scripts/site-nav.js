@@ -45,7 +45,7 @@
   // Keep seasonal features separate from the navigation and load them once.
   if (!document.querySelector('script[data-mmc-seasonal]')) {
     const seasonal = document.createElement("script");
-    seasonal.src = new URL("seasonal-decorations.js", document.currentScript.src).href;
+    seasonal.src = new URL("seasonal-decorations.js?v=autumn2026", document.currentScript.src).href;
     seasonal.defer = true;
     seasonal.dataset.mmcSeasonal = "";
     document.head.appendChild(seasonal);

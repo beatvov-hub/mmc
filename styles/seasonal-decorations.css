@@ -1,71 +1,29 @@
-/* Seasonal artwork is isolated from the site's layout and controls. */
-.mmc-seasonal,
-.mmc-seasonal__garland {
-  pointer-events: none;
-  user-select: none;
-}
-
-.mmc-seasonal {
-  position: fixed;
-  z-index: 30;
-  inset: 0;
-  overflow: hidden;
-  contain: layout style;
-}
-
-.mmc-seasonal__symbols { position: absolute; width: 0; height: 0; overflow: hidden; }
+/* Decorative leaves stay outside controls and the central content. */
+.mmc-seasonal, .mmc-seasonal__garland { pointer-events: none; user-select: none; }
+.mmc-seasonal { position: fixed; z-index: 30; inset: 0; overflow: hidden; contain: layout style; }
 .mmc-seasonal__rail { position: absolute; top: 0; bottom: 0; width: 142px; }
 .mmc-seasonal__rail[hidden] { display: none; }
 .mmc-seasonal__rail--left { left: 0; }
 .mmc-seasonal__rail--right { right: 0; }
 .mmc-seasonal__top, .mmc-seasonal__bottom { position: absolute; width: 100%; }
-.mmc-seasonal__top { top: 118px; height: 106px; }
+.mmc-seasonal__top { top: 118px; height: 145px; }
 .mmc-seasonal__bottom { bottom: 14px; height: 175px; }
-.mmc-seasonal svg:not(.mmc-seasonal__symbols) { position: absolute; display: block; }
-
-.mmc-seasonal__pumpkin--large { width: 132px; height: 132px; left: 1px; bottom: 0; }
-.mmc-seasonal__pumpkin--small { width: 108px; height: 108px; right: 3px; bottom: 0; }
-.mmc-seasonal__ghost { width: 92px; height: 92px; right: 28px; bottom: 88px; animation: mmc-ghost-float 5.2s ease-in-out infinite alternate; }
-.mmc-seasonal__bat { width: 64px; height: 64px; left: 23px; top: 0; transform-origin: center; animation: mmc-bat-sway 3.8s ease-in-out infinite alternate; }
-.mmc-seasonal__bat--right { left: auto; right: 13px; top: 20px; animation-delay: -1.8s; }
-.mmc-seasonal__star { width: 18px; height: 18px; animation: mmc-star-glow 6s ease-in-out infinite alternate; }
-.mmc-seasonal__star--one { left: 92px; top: 15px; }
-.mmc-seasonal__star--two { left: 15px; top: 70px; width: 11px; height: 11px; animation-delay: -2s; }
-.mmc-seasonal__star--right { right: 4px; bottom: 139px; animation-delay: -3s; }
-.mmc-seasonal__leaf { width: 32px; height: 32px; bottom: 2px; }
-.mmc-seasonal__leaf--one { left: 0; transform: rotate(-28deg); }
-.mmc-seasonal__leaf--two { right: 1px; transform: rotate(48deg); }
-.mmc-seasonal__face { animation: mmc-pumpkin-glow 9s ease-in-out infinite; }
-.mmc-seasonal__pumpkin--small .mmc-seasonal__face { animation-delay: -4s; }
-
+.mmc-seasonal__leaf { position: absolute; display: block; width: 62px; height: 68px; color: #bd5839; filter: drop-shadow(0 2px 2px #6e3c211c); }
+.leaf-a { left: 21px; top: 0; transform: rotate(-24deg); }
+.leaf-b { left: 75px; top: 53px; width: 42px; height: 46px; color: #dba04c; transform: rotate(38deg); }
+.leaf-c { left: 6px; bottom: 0; width: 82px; height: 90px; transform: rotate(-48deg); }
+.leaf-d { left: 57px; bottom: 13px; color: #d88e42; transform: rotate(34deg); }
+.leaf-e { left: 25px; bottom: 66px; width: 39px; height: 43px; color: #d5ad61; transform: rotate(13deg); }
+.leaf-f { right: 20px; top: 15px; color: #ce7840; transform: rotate(28deg); }
+.leaf-g { right: 78px; top: 70px; width: 39px; height: 43px; color: #b75039; transform: rotate(-33deg); }
+.leaf-h { right: 5px; bottom: 0; width: 82px; height: 90px; color: #ca6c3c; transform: rotate(42deg); }
+.leaf-i { right: 59px; bottom: 12px; color: #b85038; transform: rotate(-39deg); }
+.leaf-j { right: 28px; bottom: 76px; width: 39px; height: 43px; color: #d7a852; transform: rotate(20deg); }
 .mmc-seasonal__garland { display: none; }
-
-@keyframes mmc-ghost-float { from { transform: translateY(0); } to { transform: translateY(-9px); } }
-@keyframes mmc-bat-sway { from { transform: rotate(-5deg) translateY(0); } to { transform: rotate(6deg) translateY(-4px); } }
-@keyframes mmc-star-glow { 0%, 70%, 100% { opacity: .66; } 82% { opacity: 1; } }
-@keyframes mmc-pumpkin-glow { 0%, 58%, 100% { opacity: .76; } 68%, 79% { opacity: 1; } }
 
 @media (max-width: 760px) {
   .mmc-seasonal__rail { display: none; }
-  .site-header:not(.is-compact):not(.nav-open) .mmc-seasonal__garland {
-    display: block;
-    position: absolute;
-    z-index: 0;
-    left: 0;
-    right: 0;
-    bottom: -25px;
-    height: 25px;
-  }
+  .site-header:not(.is-compact):not(.nav-open) .mmc-seasonal__garland { display: block; position: absolute; z-index: 0; left: 0; right: 0; bottom: -25px; height: 25px; }
   .mmc-seasonal__garland svg { display: block; width: 100%; height: 100%; }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .mmc-seasonal *, .mmc-seasonal__garland * { animation: none !important; }
-}
-
-.mmc-seasonal-reduced .mmc-seasonal *,
-.mmc-seasonal-reduced .mmc-seasonal__garland * { animation: none !important; }
-
-@media print {
-  .mmc-seasonal, .mmc-seasonal__garland { display: none !important; }
-}
+@media print { .mmc-seasonal, .mmc-seasonal__garland { display: none !important; } }
