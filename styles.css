@@ -4362,7 +4362,13 @@ body.has-night-lounge { overflow: hidden; }
     padding: 16px;
   }
   .lounge-calendar__grid {
-    gap: 5px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .lounge-calendar__dow,
+  .lounge-calendar__blank,
+  .lounge-calendar__day:not(.is-active) {
+    display: none;
   }
   .lounge-calendar__header {
     grid-template-columns: 40px minmax(0, 1fr) 40px;
@@ -4377,18 +4383,27 @@ body.has-night-lounge { overflow: hidden; }
   }
   .lounge-calendar__blank,
   .lounge-calendar__day {
-    min-height: 104px;
-    padding: 6px;
+    min-height: 0;
+    padding: 12px;
     font-size: .86rem;
+  }
+  .lounge-calendar__date::after {
+    content: "日";
+    margin-left: .1em;
+    font-size: .8em;
   }
   .lounge-archive-list__grid {
     grid-template-columns: 1fr;
   }
   .lounge-calendar__slot {
-    padding: 6px;
+    grid-template-columns: max-content minmax(0, 1fr);
+    align-items: start;
+    gap: 9px;
+    padding: 9px;
   }
   .lounge-calendar__slot-topic {
-    font-size: .68rem;
+    font-size: .83rem;
+    line-height: 1.5;
   }
   .lounge-post-header { display: block; }
   .talk-bubble {
