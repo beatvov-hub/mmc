@@ -64,6 +64,24 @@ def render() -> str:
 </section>'''
         )
 
+    fair = data.get("skewerFair", {})
+    fair_cards = []
+    for item in fair.get("items", []):
+        price = f'<p class="market-card__price"><strong>{int(item["price"])}</strong><span>MMC</span></p>' if item.get("price") is not None else ""
+        fair_cards.append(
+            f'''<article class="market-card market-skewer__card">
+  <div class="market-card__photos"><img src="assets/{esc(item["image"])}" alt="{esc(item["name"])}のイメージ" loading="lazy" decoding="async" /></div>
+  <div class="market-card__body"><h3>{esc(item["name"])}</h3><p class="market-skewer__ingredients">{esc(item["ingredients"])}</p>{price}</div>
+</article>'''
+        )
+    fair_markup = (
+        f'''<section class="market-limited market-skewer" id="skewer-fair" aria-labelledby="skewer-fair-title">
+  <img class="market-skewer__banner" src="assets/{esc(fair["banner"])}" alt="" loading="lazy" decoding="async" />
+  <header class="market-limited__heading"><p class="market-eyebrow">{esc(fair["eyebrow"])}</p><h2 id="skewer-fair-title">{esc(fair["title"])}</h2><p>{esc(fair["description"])}</p><p>2026年11月1日からの期間限定企画です。掲載商品は架空のメニューです。</p></header>
+  <div class="market-grid">{"".join(fair_cards)}</div>
+</section>''' if fair_cards else ""
+    )
+
     limited_sections = []
     for section in limited_menu.get("sections", []):
         items = "".join(
@@ -79,7 +97,7 @@ def render() -> str:
         )
     limited_menu_markup = (
         f'''<section class="market-limited" aria-labelledby="market-limited-title">
-  <header class="market-limited__heading"><p class="market-eyebrow">{esc(limited_menu.get("eyebrow", "LIMITED MENU"))}</p><h2 id="market-limited-title">{esc(limited_menu.get("title", "期間限定メニュー"))}</h2><p>秋の味覚と焼きたてトーストを、今月だけの組み合わせで。</p></header>
+  <header class="market-limited__heading"><p class="market-eyebrow">{esc(limited_menu.get("eyebrow", "LIMITED MENU"))}</p><h2 id="market-limited-title">{esc(limited_menu.get("title", "期間限定メニュー"))}</h2><p>2026年10月に登場した、秋の味覚と焼きたてトーストの限定メニューです。</p></header>
   <div class="market-limited__grid">{"".join(limited_sections)}</div>
 </section>'''
         if limited_sections else ""
@@ -93,7 +111,7 @@ def render() -> str:
   <title>Bean &amp; Bits MARKET｜ラウンジショップ｜毎日見るコワークス</title>
   <meta name="description" content="Bean &amp; Bits MARKETは、毎日見るコワークスのAI社員たちのための架空の社内ショップです。商品写真やMMC価格とともに、社員それぞれの買い物やラウンジの日常をご紹介します。" />
   <link rel="stylesheet" href="../../styles.css?v=20261024-market" />
-  <link rel="stylesheet" href="market.css?v=20261024-centered" />
+  <link rel="stylesheet" href="market.css?v=20261101-skewer" />
 </head>
 <body class="subpage market-page">
   <main class="page-main market-main">
@@ -138,6 +156,7 @@ def render() -> str:
       </div>
     </section>
     <section class="market-catalog" aria-labelledby="market-catalog-title">
+    {fair_markup}
     {limited_menu_markup}
       <header class="market-catalog__heading"><p class="market-eyebrow">TAKE A LOOK AROUND</p><h2 id="market-catalog-title">お店の商品</h2><p>カテゴリーを選んで、気になる棚をのぞいてみてください。</p></header>
     <nav class="market-category-nav" aria-label="商品カテゴリー">{nav}</nav>
