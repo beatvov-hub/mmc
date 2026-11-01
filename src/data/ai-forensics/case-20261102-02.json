@@ -1,0 +1,154 @@
+{
+  "id": "case-20261102-02",
+  "publishedAt": "2026-11-02",
+  "title": "Googleドライブに知らない共有ファイルが来たら？非表示・報告・ブロックの違い",
+  "shortTitle": "ドライブの不審な共有を整理",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Googleドライブに知らない共有ファイルが届いた人",
+    "不要な共有を整理したい人"
+  ],
+  "summary": "Googleはドライブの公式ヘルプで、共有アイテムのビューからの削除、スパム報告、ユーザーのブロックを案内しています。それぞれ影響が異なるため、知らないファイルが現れたら内容を開かず目的に合う操作を選べます。",
+  "scenario": {
+    "headline": "共有アイテムに、知らない人からのファイルが表示された",
+    "description": "不要な共有を消したいものの、削除・スパム報告・ブロックの違いが分かりません。",
+    "whyItMatters": "誤ってブロックすると、その相手との既存の共有にも影響します。"
+  },
+  "question": {
+    "text": "知らない共有ファイルが来たら？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "開かずに共有元を確認し、非表示・報告・ブロックから目的に合う操作を選ぶ",
+        "description": "表示の整理とスパム報告、相手のブロックは別の操作です。"
+      },
+      {
+        "id": "wrong1",
+        "label": "すべての共有ファイルを直ちにスパム報告する",
+        "description": "正当な共有や組織の運用に影響する場合があります。"
+      },
+      {
+        "id": "wrong2",
+        "label": "ビューから削除すれば相手をブロックしたことになると考える",
+        "description": "表示からの削除と相手のブロックは異なります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "パソコン版ドライブの「共有アイテム」で対象を右クリックし、表示整理なら「ビューから削除」、スパムなら「報告またはブロック」を確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "ビューからの削除",
+      "description": "Googleによると、共有アイテムをビューから削除しても、再度開けば一覧に再表示される場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "スパムとして報告",
+      "description": "共有アイテムの「報告またはブロック」から報告でき、Googleのポリシー違反の審査対象になります。",
+      "priority": "high"
+    },
+    {
+      "title": "相手をブロック",
+      "description": "ブロックすると双方のファイルへのアクセスや今後の共有に影響します。",
+      "priority": "high"
+    },
+    {
+      "title": "組織アカウントの制約",
+      "description": "Googleは、自分や組織メンバーが所有するファイルはスパム報告できないと説明しています。",
+      "priority": "medium"
+    },
+    {
+      "title": "ブロックの適用範囲",
+      "description": "職場や学校では、ドメイン内や信頼できるドメインのユーザーをブロックできない場合があります。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "開かずに共有元を確認し、非表示・報告・ブロックから目的に合う操作を選ぶ",
+    "description": "パソコン版ドライブの「共有アイテム」で対象を右クリックし、表示整理なら「ビューから削除」、スパムなら「報告またはブロック」を確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "ドライブの「共有アイテム」でファイル名や所有者を確認する",
+      "reason": "不審な本文やリンクを開かず状況を確認します。"
+    },
+    {
+      "action": "不要な表示だけを整理する場合は「ビューから削除」を選ぶ",
+      "reason": "表示からの削除と報告を区別します。"
+    },
+    {
+      "action": "スパムと思われる場合は「報告またはブロック」から報告する",
+      "reason": "Googleへの報告につなげます。"
+    },
+    {
+      "action": "ブロック前に相手との共有への影響を確認し、職場では管理者に相談する",
+      "reason": "双方の既存の共有にも影響するためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "「ビューから削除」だけで相手がブロックされたと考える",
+      "reason": "相手のブロックとは別の操作です。"
+    },
+    {
+      "action": "身に覚えがないファイルの内容やリンクを急いで開く",
+      "reason": "不審な内容への誘導を避けます。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "ドライブの「共有アイテム」でファイル名や所有者を確認する",
+      "不要な表示だけを整理する場合は「ビューから削除」を選ぶ",
+      "スパムと思われる場合は「報告またはブロック」から報告する"
+    ]
+  },
+  "makotoComment": "一覧から消すだけなら「ビューから削除」、スパムへの対応なら報告、相手との共有を止めるならブロック。操作の影響を見比べて選びましょう。",
+  "oneLineLesson": "共有アイテムの非表示・報告・ブロックを目的別に選ぶ。",
+  "tags": [
+    "Googleドライブ",
+    "共有ファイル",
+    "スパム",
+    "ブロック",
+    "権限"
+  ],
+  "sources": [
+    {
+      "title": "ドライブで自分と共有されているファイルを確認する",
+      "publisher": "Google ドライブ ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/drive/answer/2375057?co=GENIE.Platform%3DDesktop&hl=ja"
+    },
+    {
+      "title": "ドライブにおけるスパムのマーク付けとマークの解除",
+      "publisher": "Google ドライブ ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/drive/answer/13305033?hl=ja-JP"
+    },
+    {
+      "title": "Google ドライブでユーザーをブロックまたはブロック解除する",
+      "publisher": "Google ドライブ ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/drive/answer/10613533?co=GENIE.Platform%3DDesktop&hl=ja-JP"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "共有アイテムに、知らない人からのファイルが表示された場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261028-03"
+  ]
+}

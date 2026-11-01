@@ -1,0 +1,147 @@
+{
+  "id": "case-20261102-01",
+  "publishedAt": "2026-11-02",
+  "title": "iPhoneのカレンダーに知らない「ウイルス警告」？不審な予定と照会の解除",
+  "shortTitle": "iPhoneカレンダーの不審通知",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "iPhoneに知らない予定が表示された人",
+    "カレンダーのウイルス警告に不安を感じた人"
+  ],
+  "summary": "IPAはiPhoneのカレンダー機能を悪用し、不審な通知からサイトへ誘導する手口を注意喚起しています。AppleはiOS 26以降での不要な予定の削除やカレンダーの照会解除を案内しています。通知内のURLを押さず、登録された予定やカレンダーを確認できます。",
+  "scenario": {
+    "headline": "カレンダーに「ウイルス感染」などと書かれた知らない予定が入っている",
+    "description": "不審な予定や通知に、リンクを開いて対処するよう書かれています。",
+    "whyItMatters": "偽の警告から不審サイトやアプリへ誘導される可能性があります。"
+  },
+  "question": {
+    "text": "不審なカレンダー通知を見たら？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "予定内のURLを開かず、予定やカレンダーの登録を確認する",
+        "description": "登録経路に応じて削除や照会解除を選べます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "通知だけでiPhoneのウイルス感染が確定したと考える",
+        "description": "予定の表示だけでは感染の有無を断定できません。"
+      },
+      {
+        "id": "wrong2",
+        "label": "記載されたURLからすぐに対策アプリを入れる",
+        "description": "不審サイトや不要な課金へ誘導されるおそれがあります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "予定内のリンクを開かず、カレンダーアプリから不審な予定や照会カレンダーを確認します。iOSのバージョンにより画面が異なります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "不審な予定が入る経路",
+      "description": "IPAは外部カレンダーを登録してしまう型と、共有や出席依頼を悪用する型を説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "予定内のURLに注意",
+      "description": "IPAは不審なサイトへ誘導され、アプリのインストールや個人情報の入力を求められる可能性を案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "iOS 26以降の予定削除",
+      "description": "Appleはカレンダーアプリで対象イベントを選び、削除や迷惑参加依頼の報告を行う方法を案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "照会カレンダーは登録解除",
+      "description": "Appleはカレンダー一覧で対象の情報ボタンを開き、必要に応じて照会を解除する手順を案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "入力・購入してしまった場合",
+      "description": "個人情報の入力やアプリの導入、課金など、行った操作に応じた対応を確認し、必要なら相談します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "予定内のURLを開かず、予定やカレンダーの登録を確認する",
+    "description": "予定内のリンクを開かず、カレンダーアプリから不審な予定や照会カレンダーを確認します。iOSのバージョンにより画面が異なります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "予定内のURLや電話番号を使わず、まずカレンダーの登録状況を確認する",
+      "reason": "警告を装う誘導先を避けます。"
+    },
+    {
+      "action": "iOS 26以降では、不要なイベントを削除し、迷惑参加依頼を報告する選択肢を確認する",
+      "reason": "Appleはイベントごとの削除・報告方法を案内しています。"
+    },
+    {
+      "action": "不審な照会カレンダーはカレンダー一覧から対象を確認して照会解除する",
+      "reason": "予定が繰り返し表示される原因となる登録を見直します。"
+    },
+    {
+      "action": "情報入力や購入をした場合は、公式窓口やカード会社などへ状況に応じ相談する",
+      "reason": "実際に行った操作によって必要な対応が異なります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "予定に書かれたURLから急いでアプリを入れる",
+      "reason": "偽警告による誘導の場合があります。"
+    },
+    {
+      "action": "予定が出ただけで端末の感染を断定する",
+      "reason": "表示された情報と実際に行った操作を分けて確認します。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "予定内のURLや電話番号を使わず、まずカレンダーの登録状況を確認する",
+      "iOS 26以降では、不要なイベントを削除し、迷惑参加依頼を報告する選択肢を確認する",
+      "不審な照会カレンダーはカレンダー一覧から対象を確認して照会解除する"
+    ]
+  },
+  "makotoComment": "同じ「カレンダーに出た警告」でも、予定の削除と外部カレンダーの照会解除は別の操作です。画面と登録元を確かめてから選びましょう。",
+  "oneLineLesson": "不審な予定のURLを開かず、予定の削除と照会解除を区別する。",
+  "tags": [
+    "iPhone",
+    "カレンダー",
+    "偽警告",
+    "照会解除",
+    "スパム"
+  ],
+  "sources": [
+    {
+      "title": "iPhoneに突然表示される不審なカレンダー通知に注意",
+      "publisher": "情報処理推進機構（IPA）",
+      "sourceType": "government-consumer-alert",
+      "publishedAt": "2020-03-30",
+      "url": "https://www.ipa.go.jp/security/anshin/attention/2020/mgdayori20200330.html"
+    },
+    {
+      "title": "iPhoneでカレンダーやイベントを削除する方法",
+      "publisher": "Apple サポート",
+      "sourceType": "official-consumer-guidance",
+      "publishedAt": "2026-09-30",
+      "url": "https://support.apple.com/ja-jp/102444"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "カレンダーに「ウイルス感染」などと書かれた知らない予定が入っている場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261029-02"
+  ]
+}

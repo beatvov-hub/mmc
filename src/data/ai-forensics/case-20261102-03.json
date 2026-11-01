@@ -1,0 +1,140 @@
+{
+  "id": "case-20261102-03",
+  "publishedAt": "2026-11-02",
+  "title": "Google検索やYouTubeで怪しい広告を見たら？広告を報告する方法",
+  "shortTitle": "Googleの不審な広告を報告",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Google検索で不審な広告を見た人",
+    "YouTubeの広告を報告したい人"
+  ],
+  "summary": "Googleは公式ヘルプで、Google検索やYouTubeなどに表示された不適切と思われる広告を報告する方法を案内しています。広告のメニューやマイ アド センターから報告し、報告理由や必要な情報を入力できます。",
+  "scenario": {
+    "headline": "検索結果やYouTubeで、不審に感じる広告を見つけた",
+    "description": "広告先に進まず、表示された広告について報告する場所を知りたい状況です。",
+    "whyItMatters": "広告を見たときの確認と、Googleに報告する操作は分けて行えます。"
+  },
+  "question": {
+    "text": "不審なGoogle広告を見つけたら？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "広告のメニューやマイ アド センターから報告する",
+        "description": "対象広告と理由を選び報告できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "広告先にアクセスして個人情報を入力してから判断する",
+        "description": "不審な広告先へ情報を渡すおそれがあります。"
+      },
+      {
+        "id": "wrong2",
+        "label": "広告主の表示があるので広告内容も必ず正しいと考える",
+        "description": "広告主の情報と広告内容の正確性は別です。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "広告メニューの「広告を報告」を選ぶか、マイ アド センターの「最近表示された広告」から対象を選んで報告します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "Google広告であるか確認",
+      "description": "Googleは報告前に対象がGoogle広告であることを確認するよう案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "表示画面から報告",
+      "description": "検索やYouTubeなどの広告メニューで「広告を報告」を選び、理由や詳細を入力できます。",
+      "priority": "high"
+    },
+    {
+      "title": "最近表示された広告",
+      "description": "マイ アド センターの「最近表示された広告」からも対象を探して報告できます。",
+      "priority": "high"
+    },
+    {
+      "title": "報告と表示管理",
+      "description": "報告と広告のブロックなどの表示管理は別の操作です。",
+      "priority": "medium"
+    },
+    {
+      "title": "情報を入力した場合",
+      "description": "すでに広告先で金銭や個人情報を渡した場合は、状況に応じて金融機関や公的な相談先へ相談します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "広告のメニューやマイ アド センターから報告する",
+    "description": "広告メニューの「広告を報告」を選ぶか、マイ アド センターの「最近表示された広告」から対象を選んで報告します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "広告先を開かず、広告のメニューを確認する",
+      "reason": "不審な誘導先にアクセスせず報告の入口を探します。"
+    },
+    {
+      "action": "「広告を報告」を選び、理由と必要な情報を送信する",
+      "reason": "Googleに広告の問題を知らせます。"
+    },
+    {
+      "action": "表示中の広告が見つからない場合はマイ アド センターの最近表示された広告を確認する",
+      "reason": "最近の広告を対象に報告できます。"
+    },
+    {
+      "action": "すでに情報を入力・送金した場合は、利用した金融機関や相談先へ連絡する",
+      "reason": "報告だけで被害対応が完了するわけではありません。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "広告主の情報が表示されているだけで内容も安全だと判断する",
+      "reason": "表示情報と広告内容の信頼性は別に考えます。"
+    },
+    {
+      "action": "報告を送信すれば必ず広告が削除されたと考える",
+      "reason": "報告後の措置を断定できません。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "広告先を開かず、広告のメニューを確認する",
+      "「広告を報告」を選び、理由と必要な情報を送信する",
+      "表示中の広告が見つからない場合はマイ アド センターの最近表示された広告を確認する"
+    ]
+  },
+  "makotoComment": "広告主を知る操作と、広告を報告する操作は別です。怪しいと感じたら、表示を確認してから報告へ進めます。",
+  "oneLineLesson": "不審な広告はリンク先を開かず、広告メニューから報告する。",
+  "tags": [
+    "Google広告",
+    "YouTube",
+    "詐欺広告",
+    "広告報告",
+    "マイアドセンター"
+  ],
+  "sources": [
+    {
+      "title": "広告を報告する方法",
+      "publisher": "Google 広告 ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/google-ads/answer/7660847?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "検索結果やYouTubeで、不審に感じる広告を見つけた場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20260927-03"
+  ]
+}
