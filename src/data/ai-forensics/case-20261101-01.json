@@ -1,0 +1,147 @@
+{
+  "id": "case-20261101-01",
+  "publishedAt": "2026-11-01",
+  "title": "Gmailに身に覚えのない転送通知が出たら？転送先とフィルタの確認",
+  "shortTitle": "Gmailの不審な転送設定",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Gmailの転送通知に心当たりがない人",
+    "アカウントの不正利用が心配な人"
+  ],
+  "summary": "GoogleはGmailの公式ヘルプで、全件転送とフィルタによる一部メールの転送の確認方法を案内しています。身に覚えのない転送通知が出たら、パソコン版Gmailで両方の設定を調べ、必要に応じてアカウントの安全も確認します。",
+  "scenario": {
+    "headline": "Gmailに知らないアドレスへの転送通知が表示された",
+    "description": "自分で設定した覚えがなく、どこを見直せばよいか迷っています。",
+    "whyItMatters": "転送には全件転送とフィルタによる転送があり、確認する設定が異なります。"
+  },
+  "question": {
+    "text": "身に覚えのない転送通知が出たら？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "転送先とフィルタの両方を確認し、覚えのない設定を修正する",
+        "description": "自動転送とフィルタ転送は別に設定されます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "通知が消えるまで何もせず待つ",
+        "description": "通知が消えても転送の設定が残っている可能性があります。"
+      },
+      {
+        "id": "wrong2",
+        "label": "画面の通知だけで必ず第三者の侵入が確定したと判断する",
+        "description": "まず設定やアカウントの状態を確認します。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "パソコンのGmailで「すべての設定を表示」を開き、「メール転送とPOP/IMAP」と「フィルタとブロック中のアドレス」をそれぞれ確認します。不審な変更があれば修正し、Googleアカウントのセキュリティも確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "全件転送",
+      "description": "Gmailの「メール転送とPOP/IMAP」または「転送」で転送先と設定を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "フィルタによる転送",
+      "description": "Googleは特定条件に一致するメールをフィルタで転送できると説明しています。全件転送とは別に確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "通知は一定期間",
+      "description": "Googleは自動転送やフィルタ転送を設定した後、受信トレイに一定期間通知を表示すると案内しています。",
+      "priority": "medium"
+    },
+    {
+      "title": "アカウント全体も確認",
+      "description": "Googleは不審なアクティビティの確認項目に自動転送、フィルタ、メールの委任などを挙げています。",
+      "priority": "high"
+    },
+    {
+      "title": "業務用の場合",
+      "description": "職場や学校のアカウントは組織の設定があるため、身に覚えのない転送を見つけたら管理者に相談します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "転送先とフィルタの両方を確認し、覚えのない設定を修正する",
+    "description": "パソコンのGmailで「すべての設定を表示」を開き、「メール転送とPOP/IMAP」と「フィルタとブロック中のアドレス」をそれぞれ確認します。不審な変更があれば修正し、Googleアカウントのセキュリティも確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "安全なパソコンでGmailの「すべての設定を表示」を開く",
+      "reason": "設定を公式画面から確認できます。"
+    },
+    {
+      "action": "「メール転送とPOP/IMAP」で転送先と有効状態を確認する",
+      "reason": "全件転送を調べます。"
+    },
+    {
+      "action": "「フィルタとブロック中のアドレス」で転送するフィルタを確認し、不要なものを修正する",
+      "reason": "一部メールだけの転送も確認します。"
+    },
+    {
+      "action": "不正利用が疑われる場合はGoogleのセキュリティ案内に従い、職場のアカウントは管理者へ相談する",
+      "reason": "転送以外の設定やログイン状況も確認します。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "通知が消えたことだけで転送が止まったと判断する",
+      "reason": "通知の表示期間と転送設定の有効状態は別です。"
+    },
+    {
+      "action": "業務用アカウントの設定を調査せず一律に削除する",
+      "reason": "正当な運用に影響する可能性があるため担当者と確認します。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "安全なパソコンでGmailの「すべての設定を表示」を開く",
+      "「メール転送とPOP/IMAP」で転送先と有効状態を確認する",
+      "「フィルタとブロック中のアドレス」で転送するフィルタを確認し、不要なものを修正する"
+    ]
+  },
+  "makotoComment": "全件転送がオフでも、フィルタによる転送を確認する必要があります。転送先と設定を落ち着いて見直しましょう。",
+  "oneLineLesson": "Gmailの全件転送とフィルタ転送を別々に確認する。",
+  "tags": [
+    "Gmail",
+    "メール転送",
+    "フィルタ",
+    "不正アクセス",
+    "Googleアカウント"
+  ],
+  "sources": [
+    {
+      "title": "Gmail のメールを他のアカウントに自動転送する",
+      "publisher": "Gmail ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/mail/answer/10957?hl=ja"
+    },
+    {
+      "title": "アカウントでの不審なアクティビティを調べる",
+      "publisher": "Google アカウント ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/140921?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Gmailに知らないアドレスへの転送通知が表示された場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261028-03"
+  ]
+}

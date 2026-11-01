@@ -1,0 +1,151 @@
+{
+  "id": "case-20261101-03",
+  "publishedAt": "2026-11-01",
+  "title": "iPhoneの個人情報安全性チェックで位置情報や共有相手を確認する",
+  "shortTitle": "iPhoneの情報共有を見直す",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "iPhoneの位置情報共有を見直したい人",
+    "共有相手やアプリを確認したい人"
+  ],
+  "summary": "AppleはiPhoneの公式ユーザガイドで、「個人情報安全性チェック」を使って人やアプリとの情報共有を確認する方法を案内しています。位置情報などを個別に見直せますが、操作の変化を相手に気づかれる可能性にも注意が必要です。",
+  "scenario": {
+    "headline": "位置情報や写真を誰と共有しているか確認したい",
+    "description": "手元のiPhoneで共有の範囲を見直したいものの、どこで管理するか分かりません。",
+    "whyItMatters": "共有の変更が相手に気づかれる場合があるため、自分の安全を考えて操作を選びます。"
+  },
+  "question": {
+    "text": "共有を見直す前に何を考える？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "安全に操作できる状況を確かめ、必要な共有を確認する",
+        "description": "状況により安全な端末や信頼できる相談先を確保します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "共有の変更は絶対に相手に気づかれないと考える",
+        "description": "Appleは変更が他の人に気づかれる場合があると注意しています。"
+      },
+      {
+        "id": "wrong2",
+        "label": "必ず全員との共有を一度に停止する",
+        "description": "個別に見直す方法と緊急リセットには違いがあります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "安全に操作できることを優先し、iPhoneの「設定」→「プライバシーとセキュリティ」→「個人情報安全性チェック」を開きます。個別確認と緊急リセットの影響を考えて選びます。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "共有とアクセスを管理",
+      "description": "Appleは「共有とアクセスを管理」で、人やアプリへの共有を確認・変更する方法を案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "緊急リセット",
+      "description": "緊急時には共有やアクセスを素早くリセットする選択肢があります。",
+      "priority": "high"
+    },
+    {
+      "title": "相手に気づかれる場合",
+      "description": "Appleは共有やアクセス権の変更が、ほかの人に気づかれる場合があると注意しています。",
+      "priority": "high"
+    },
+    {
+      "title": "確認できる範囲の限界",
+      "description": "Apple以外のアカウント、SNSでの共有、別のデバイスからの共有など、この機能で確認・変更できない情報もあります。",
+      "priority": "high"
+    },
+    {
+      "title": "利用状況に応じて",
+      "description": "画面や使える機能はiOSや端末の管理設定などによって異なります。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "安全に操作できる状況を確かめ、必要な共有を確認する",
+    "description": "安全に操作できることを優先し、iPhoneの「設定」→「プライバシーとセキュリティ」→「個人情報安全性チェック」を開きます。個別確認と緊急リセットの影響を考えて選びます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "危険があるときは安全な場所や信頼できる端末・相談先を先に考える",
+      "reason": "共有の変更に相手が気づく場合があります。"
+    },
+    {
+      "action": "iPhoneの設定から「個人情報安全性チェック」を開く",
+      "reason": "共有やアクセスを確認する入口です。"
+    },
+    {
+      "action": "「共有とアクセスを管理」で人やアプリごとに内容を確認する",
+      "reason": "必要な範囲の共有を選べます。"
+    },
+    {
+      "action": "緊急リセットを使う前に影響を確認し、危険が迫る場合は安全確保を優先する",
+      "reason": "状況により素早い対応と安全な操作の両方が重要です。"
+    },
+    {
+      "action": "SNSや別端末からの共有も必要に応じて個別に確認する",
+      "reason": "安全性チェックの対象外となる情報があります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "設定を変えても相手には絶対に分からないと考える",
+      "reason": "共有やアクセス権の変化に気づかれる場合があります。"
+    },
+    {
+      "action": "画面にない共有は全て停止済みだと考える",
+      "reason": "SNSや別の端末など対象外の共有もあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "危険があるときは安全な場所や信頼できる端末・相談先を先に考える",
+      "iPhoneの設定から「個人情報安全性チェック」を開く",
+      "「共有とアクセスを管理」で人やアプリごとに内容を確認する"
+    ]
+  },
+  "makotoComment": "共有の確認は、単に設定を切る作業ではありません。変更に気づかれる可能性と、この画面で扱えない共有の両方を考えて選びましょう。",
+  "oneLineLesson": "安全な操作環境を確保し、共有とアクセスの範囲を確認する。",
+  "tags": [
+    "iPhone",
+    "位置情報",
+    "個人情報安全性チェック",
+    "共有設定",
+    "プライバシー"
+  ],
+  "sources": [
+    {
+      "title": "iPhoneの個人情報安全性チェックで共有する情報を管理する",
+      "publisher": "Apple サポート",
+      "sourceType": "official-consumer-guidance",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/guide/iphone/iph42f0b2d53/27/ios/27"
+    },
+    {
+      "title": "安全に関する注意事項",
+      "publisher": "Apple サポート",
+      "sourceType": "official-consumer-guidance",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/guide/personal-safety/ips84b821dd3/1.0/web/1.0"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "位置情報や写真を誰と共有しているか確認したい場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261030-01"
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id": "case-20261101-02",
+  "publishedAt": "2026-11-01",
+  "title": "Geminiの公開リンクを削除したら？共有した会話が残る範囲",
+  "shortTitle": "Geminiの公開リンクを削除",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Geminiの会話をリンクで共有した人",
+    "共有を停止したい人"
+  ],
+  "summary": "GoogleはGeminiアプリの公式ヘルプで、会話の公開リンクの削除方法と削除後の扱いを案内しています。リンクを削除するとそのURLからは開けなくなりますが、元の会話や相手が続けた会話は別に残ります。",
+  "scenario": {
+    "headline": "Geminiの会話を公開リンクで共有したが、後から公開を止めたい",
+    "description": "不要になったリンクを削除すると、元の履歴や相手の保存分まで消えるのか気になります。",
+    "whyItMatters": "公開リンクと会話の履歴は別々に管理されます。"
+  },
+  "question": {
+    "text": "共有リンクの公開を止めるには？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "Geminiの設定から公開リンクを削除し、残る会話や投稿を別に確認する",
+        "description": "リンクの無効化と保存された会話の削除は別です。"
+      },
+      {
+        "id": "wrong1",
+        "label": "元の会話を少し編集すれば、公開ページも必ず書き換わると考える",
+        "description": "公開ページは作成時点の内容です。"
+      },
+      {
+        "id": "wrong2",
+        "label": "リンクを消せば相手が続けた会話も消えると考える",
+        "description": "相手側のアクティビティは削除されません。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "パソコンのGeminiで「設定とヘルプ」→「公開リンク」を開き、対象リンクを削除します。外部サイトの投稿や相手が続けた会話は別に扱います。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "公開リンクの閲覧範囲",
+      "description": "リンクを知る人は、直接送られた相手でなくても会話を読み、再共有できます。",
+      "priority": "high"
+    },
+    {
+      "title": "共有時点の内容",
+      "description": "Googleによると、公開ページはリンク作成時点の表示内容で、その後の元のチャットの編集や続行は反映されません。",
+      "priority": "high"
+    },
+    {
+      "title": "公開リンクの削除",
+      "description": "Geminiの「設定とヘルプ」から「公開リンク」を開いて個別に削除できます。",
+      "priority": "high"
+    },
+    {
+      "title": "削除後も残るもの",
+      "description": "元のGeminiアプリのアクティビティや相手が続けたチャット、外部サイトの投稿はリンク削除だけでは消えません。",
+      "priority": "high"
+    },
+    {
+      "title": "共有される内容",
+      "description": "会話全体やアップロードした画像、生成された成果物が共有に含まれる場合があります。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "Geminiの設定から公開リンクを削除し、残る会話や投稿を別に確認する",
+    "description": "パソコンのGeminiで「設定とヘルプ」→「公開リンク」を開き、対象リンクを削除します。外部サイトの投稿や相手が続けた会話は別に扱います。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Geminiの「設定とヘルプ」→「公開リンク」を開く",
+      "reason": "作成した公開リンクを確認できます。"
+    },
+    {
+      "action": "不要な公開リンクを削除する",
+      "reason": "以後そのリンクからの閲覧を止めます。"
+    },
+    {
+      "action": "外部サイトに掲載した投稿は、そのサイトで削除を検討する",
+      "reason": "リンク削除と外部投稿の削除は別です。"
+    },
+    {
+      "action": "共有前に会話全体と画像に公開してよい情報だけが含まれるか確かめる",
+      "reason": "リンクを知る人が閲覧・再共有できます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "リンク削除だけで受け手側に保存された会話も消えると考える",
+      "reason": "相手が続けた会話は相手のアクティビティに残る場合があります。"
+    },
+    {
+      "action": "共有後に元の会話を編集すれば公開ページも変わると考える",
+      "reason": "公開ページはリンク作成時点の内容です。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "Geminiの「設定とヘルプ」→「公開リンク」を開く",
+      "不要な公開リンクを削除する",
+      "外部サイトに掲載した投稿は、そのサイトで削除を検討する"
+    ]
+  },
+  "makotoComment": "公開リンクは会話の一場面を固定した共有ページです。元の会話を直す操作と公開リンクを止める操作を分けて考えましょう。",
+  "oneLineLesson": "Geminiの公開リンクと、元の履歴・相手側の会話を分けて管理する。",
+  "tags": [
+    "Gemini",
+    "共有リンク",
+    "公開リンク",
+    "会話履歴",
+    "プライバシー"
+  ],
+  "sources": [
+    {
+      "title": "Gemini アプリでのチャットを共有する",
+      "publisher": "Gemini アプリ ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/gemini/answer/13743730?co=GENIE.Platform%3DDesktop&hl=ja-JP"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Geminiの会話を公開リンクで共有したが、後から公開を止めたい場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20260902-04"
+  ]
+}
