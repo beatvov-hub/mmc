@@ -12,3 +12,11 @@
 .learning-resources li { margin-bottom: .6rem; }
 .quiz-hero-catch { max-width: 24rem; word-break: normal; overflow-wrap: normal; }
 @media (max-width: 760px) { .learning-article-grid { grid-template-columns: 1fr; } }
+
+.learning-section-nav { margin: 22px 0 8px; padding: 20px 22px; background: #f5eee4; border: 1px solid #e2d8cd; border-radius: 12px; }
+.learning-section-nav__label { display: block; margin-bottom: 10px; color: #5c5145; font-size: .9rem; font-weight: 800; }
+.learning-section-nav__links { display: flex; flex-wrap: wrap; gap: 10px; }
+.learning-section-nav__links a { display: inline-flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 44px; padding: 10px 15px; border: 1px solid #d8c8b6; border-radius: 8px; background: #fffdf9; color: #234536; font-weight: 750; text-decoration: none; }
+.learning-section-nav__links a:hover, .learning-section-nav__links a:focus-visible { background: #e9f0e9; border-color: #527563; }
+.quiz-section[id] { scroll-margin-top: 100px; }
+@media (max-width: 600px) { .learning-section-nav { padding: 16px; } .learning-section-nav__links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } .learning-section-nav__links a { padding: 10px; font-size: .88rem; line-height: 1.5; } }
