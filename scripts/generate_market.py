@@ -20,7 +20,6 @@ def render() -> str:
     data = json.loads(DATA.read_text(encoding="utf-8"))
     products = data["products"]
     categories = data["categories"]
-    limited_menu = data.get("limitedMenu", {})
     by_category = {
         category["id"]: [p for p in products if p["category"] == category["id"]]
         for category in categories
@@ -82,27 +81,6 @@ def render() -> str:
 </section>''' if fair_cards else ""
     )
 
-    limited_sections = []
-    for section in limited_menu.get("sections", []):
-        items = "".join(
-            f'''<li><span>{esc(item["name"])}</span><strong>{int(item["price"])}<small> MMC</small></strong></li>'''
-            for item in section["items"]
-        )
-        limited_sections.append(
-            f'''<section class="market-limited__group" aria-labelledby="limited-{esc(section["id"])}">
-  <img src="assets/{esc(section["image"])}?v=20261024" alt="{esc(section["alt"])}" loading="lazy" decoding="async" />
-  <h3 id="limited-{esc(section["id"])}">{esc(section["name"])}</h3>
-  <ul>{items}</ul>
-</section>'''
-        )
-    limited_menu_markup = (
-        f'''<section class="market-limited" aria-labelledby="market-limited-title">
-  <header class="market-limited__heading"><p class="market-eyebrow">{esc(limited_menu.get("eyebrow", "LIMITED MENU"))}</p><h2 id="market-limited-title">{esc(limited_menu.get("title", "期間限定メニュー"))}</h2><p>2026年10月に登場した、秋の味覚と焼きたてトーストの限定メニューです。</p></header>
-  <div class="market-limited__grid">{"".join(limited_sections)}</div>
-</section>'''
-        if limited_sections else ""
-    )
-
     return f'''<!doctype html>
 <html lang="ja">
 <head>
@@ -111,7 +89,7 @@ def render() -> str:
   <title>Bean &amp; Bits MARKET｜ラウンジショップ｜毎日見るコワークス</title>
   <meta name="description" content="Bean &amp; Bits MARKETは、毎日見るコワークスのAI社員たちのための架空の社内ショップです。商品写真やMMC価格とともに、社員それぞれの買い物やラウンジの日常をご紹介します。" />
   <link rel="stylesheet" href="../../styles.css?v=20261024-market" />
-  <link rel="stylesheet" href="market.css?v=20261101-skewer" />
+  <link rel="stylesheet" href="market.css?v=20261101-archive" />
 </head>
 <body class="subpage market-page">
   <main class="page-main market-main">
@@ -157,7 +135,7 @@ def render() -> str:
     </section>
     <section class="market-catalog" aria-labelledby="market-catalog-title">
     {fair_markup}
-    {limited_menu_markup}
+    <p class="market-archive-link"><a href="archive/">過去の期間限定メニューを見る →</a></p>
       <header class="market-catalog__heading"><p class="market-eyebrow">TAKE A LOOK AROUND</p><h2 id="market-catalog-title">お店の商品</h2><p>カテゴリーを選んで、気になる棚をのぞいてみてください。</p></header>
     <nav class="market-category-nav" aria-label="商品カテゴリー">{nav}</nav>
     <div class="market-collection">{"".join(sections)}</div>
@@ -170,10 +148,48 @@ def render() -> str:
 '''
 
 
+def render_archive() -> str:
+    data = json.loads(DATA.read_text(encoding="utf-8"))
+    menus = []
+    for index, menu in enumerate(data.get("limitedMenuArchive", [])):
+        groups = []
+        for section in menu.get("sections", []):
+            items = "".join(
+                f'<li><span>{esc(item["name"])}</span><strong>{int(item["price"])}<small> MMC</small></strong></li>'
+                for item in section["items"]
+            )
+            groups.append(f'''<section class="market-limited__group">
+  <img src="../assets/{esc(section["image"])}" alt="{esc(section["alt"])}" loading="lazy" decoding="async" />
+  <h3>{esc(section["name"])}</h3><ul>{items}</ul>
+</section>''')
+        menus.append(f'''<section class="market-limited" aria-labelledby="archive-menu-{index}">
+  <header class="market-limited__heading"><p class="market-eyebrow">{esc(menu.get("eyebrow", "PAST MENU"))}</p><h2 id="archive-menu-{index}">{esc(menu["title"])}</h2></header>
+  <div class="market-limited__grid">{"".join(groups)}</div>
+</section>''')
+    return f'''<!doctype html>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>過去の期間限定メニュー｜Bean &amp; Bits MARKET</title>
+<meta name="description" content="Bean &amp; Bits MARKETに登場した過去の期間限定メニューを、写真とともに振り返ります。" />
+<link rel="stylesheet" href="../../../styles.css?v=20261024-market" /><link rel="stylesheet" href="../market.css?v=20261101-archive" />
+</head><body class="subpage market-page"><main class="page-main market-main">
+<nav class="market-breadcrumb" aria-label="パンくずリスト"><a href="../">Bean &amp; Bits MARKET</a><span aria-hidden="true">/</span><span>過去の期間限定メニュー</span></nav>
+<header class="market-archive-header"><p class="market-eyebrow">PAST LIMITED MENUS</p><h1>過去の期間限定メニュー</h1><p>Bean &amp; Bits MARKETに登場した季節の味を、写真とともに振り返ります。掲載しているのは販売期間を終えた架空のメニューです。</p></header>
+{"".join(menus)}
+<aside class="market-notice"><div><h2>このお店について</h2><p>Bean &amp; Bits MARKETは創作世界内の架空の社内ショップです。掲載商品や社内通貨MMCは、実際の商品販売や金銭取引を伴いません。</p></div></aside>
+<a class="market-back" href="../">← マーケットに戻る</a>
+</main>
+</body>
+</html>'''
+
+
 def main() -> None:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(render(), encoding="utf-8")
     apply_layout_to_file(OUT)
+    archive = OUT.parent / "archive" / "index.html"
+    archive.parent.mkdir(parents=True, exist_ok=True)
+    archive.write_text(render_archive(), encoding="utf-8")
+    apply_layout_to_file(archive)
     print(f"Generated {OUT.relative_to(ROOT)} from {DATA.relative_to(ROOT)}")
 
 

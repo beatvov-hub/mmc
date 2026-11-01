@@ -77,6 +77,7 @@ STATIC_SITEMAP_PATHS = [
     "lounge",
     "lounge/events/",
     "lounge/market/",
+    "lounge/market/archive/",
     "lounge-dictionary",
     "today-one",
     "today-one/archive/",
