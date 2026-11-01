@@ -165,6 +165,12 @@ SPEAKER_DEFAULTS = {
         "alt": "コトちゃんのアイコン",
         "role": "編集主任",
     },
+    "颯太": {
+        "speakerClass": "speaker-sota",
+        "icon": "image/icon/icon_mmc012.jpg",
+        "alt": "颯太のアイコン",
+        "role": "ゲーム制作部・ゲーム体験レビュアー",
+    },
     "ペチ": {
         "speakerClass": "speaker-pechi",
         "icon": "image/icon/icon_cc001.jpg",
