@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T07:34:57+09:00",
+  "updatedAt": "2026-11-03T07:27:30+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -2963,6 +2963,56 @@
         {
           "label": "HandBrake公式インストールガイド：対応OSとWindows要件",
           "url": "https://handbrake.fr/docs/en/latest/get-handbrake/download-and-install.html"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-03",
+      "slug": "cyberchef-decode-japanese-utm-campaign-value",
+      "useCategory": "文書・データ整理",
+      "name": "CyberChef",
+      "category": "OSS",
+      "officialUrl": "https://gchq.github.io/CyberChef/",
+      "summary": "CyberChefは、ブラウザ上で文字列やファイルの変換・解析を組み合わせ、入力の意味を確かめられる無料のオープンソースツールです。",
+      "whyToday": "告知URLの日本語キャンペーン名が「%E…」の並びになっていると、表記をそのままでは確認しづらいことがあります。CyberChefはURL Decodeをレシピに加え、変換前後を同じ画面で見比べられるため、パラメーターの読み取りを手早く行えます。",
+      "useFor": "想定例：告知URLに含まれるutm_campaignの日本語表記を読み取り、登録名と照合したい場合です。公式Web版を開き、個人情報や認証値を含まないサンプルのクエリ文字列を入力欄へ貼り、Operationsから「URL Decode」をレシピ欄へ加えます。出力で「%E…」が日本語に戻ったら、元のURLと項目名を見比べてキャンペーン名の確認メモを作ります。まず一つの値だけで試し、UTMの割当やリンク先の動作確認は解析画面・ブラウザで別途行います。",
+      "recommendedFor": {
+        "employeeId": "MMC-002",
+        "reason": "企画営業部長のショウマに、告知URLのutm_campaign表記を読み解き、登録名と照合した確認メモを最初に作ってもらいたいです。"
+      },
+      "keiComment": "「読める文字に戻す」と「計測が正しく動く」は別の確認ですね。まずキャンペーン名を照合し、その後に解析画面で計測値を見る手順なら、URL確認の役割がはっきりします。",
+      "verifiedAt": "2026-11-03",
+      "status": "published",
+      "pricing": "無料で利用できるオープンソースソフトウェアです。公式Web版とダウンロード版が公開されています。",
+      "conditions": "Apache License 2.0。URL Decodeの通常処理はブラウザ内で行われ、アカウントやAPI keyは不要です。入力やレシピを含む共有URLを作る場合があるため、秘密情報は入力・共有しないでください。",
+      "license": "Apache License, Version 2.0",
+      "notes": "想定例です。実機での利用確認は行っていません。公式情報確認日：2026-11-03。",
+      "archiveTitle": "CyberChefでURLの日本語パラメーターを読める形に戻せる？",
+      "archiveDescription": "CyberChefのURL Decodeで、告知URLに含まれる%表記の日本語を読み取り、utm_campaign名を照合する想定例を紹介します。計測そのものは別途確認します。",
+      "forWho": "告知リンクやキャンペーンURLの長いパラメーターを読み取り、表記を照合したい広報・企画担当者向けです。",
+      "cautions": "URL Decodeは%エンコードを戻す処理で、計測設定やリンク先の安全性は判定しません。公式Webアプリの共有URLには入力やレシピを含められるため、秘密情報を入力・共有しないでください。",
+      "faq": [
+        {
+          "question": "公式Web版に入力した文字列はサーバーへ送られますか？",
+          "answer": "CyberChefはブラウザ内で処理し、入力やレシピをCyberChefのWebサーバーへ送らないと公式READMEにあります。ただし一部の別操作は外部サービスへ通信するため、この例ではURL Decodeだけを使います。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "CyberChef公式Webアプリ：URL Decodeのレシピ画面",
+          "url": "https://gchq.github.io/CyberChef/#recipe=URL_Decode()"
+        },
+        {
+          "label": "CyberChef公式リポジトリ：画面・ローカル処理・Deep linkingの説明",
+          "url": "https://github.com/gchq/CyberChef"
+        },
+        {
+          "label": "CyberChef公式ソース：URL Decodeの処理内容",
+          "url": "https://github.com/gchq/CyberChef/blob/master/src/core/operations/URLDecode.mjs"
+        },
+        {
+          "label": "CyberChef公式ライセンス",
+          "url": "https://github.com/gchq/CyberChef/blob/master/LICENSE"
         }
       ]
     }
