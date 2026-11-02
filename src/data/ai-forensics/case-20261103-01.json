@@ -1,0 +1,147 @@
+{
+  "id": "case-20261103-01",
+  "publishedAt": "2026-11-03",
+  "title": "iPhoneの写真を送る前に位置情報をオフにする方法　撮影時の設定との違い",
+  "shortTitle": "写真の撮影場所を共有しない",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "iPhoneで写真や動画を送る人",
+    "写真の撮影場所が伝わるか気になる人"
+  ],
+  "summary": "AppleはiPhoneの公式ガイドで、写真や動画の共有時に位置情報を含めない方法を案内しています。写真アプリの共有画面で対象を選び、「オプション」から位置情報をオフにできます。撮影時の位置情報設定とは別に確認します。",
+  "scenario": {
+    "headline": "自宅で撮った写真を知人に送りたい",
+    "description": "共有する写真に撮影場所が含まれるのか、どこで確認すればよいか迷っています。",
+    "whyItMatters": "写真には撮影場所などのメタデータが含まれる場合があります。"
+  },
+  "question": {
+    "text": "写真を送る際、位置情報を含めたくない場合は？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "写真の共有画面で「オプション」を開き位置情報をオフにする",
+        "description": "共有する際に撮影場所を含めない選択ができます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "SNSなら必ず全ての位置情報が削除されると決めつける",
+        "description": "共有方法やアプリごとの扱いは一律ではありません。"
+      },
+      {
+        "id": "wrong2",
+        "label": "位置情報をオフにすれば写真の景色からも場所が分からなくなると考える",
+        "description": "写真自体に住所や目印が写っている場合があります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "写真アプリで共有したい写真を選び、共有ボタン→「オプション」で「位置情報」をオフにします。共有方法やiOSのバージョンにより表示が異なる場合があります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "写真に付く情報",
+      "description": "Appleは写真や動画に日時、場所、端末などのメタデータが関連付く場合があると説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "共有時の操作",
+      "description": "写真を選んで共有画面を開き「オプション」で位置情報をオフにできます。",
+      "priority": "high"
+    },
+    {
+      "title": "今後の撮影時の設定",
+      "description": "「設定」→「プライバシーとセキュリティ」→「位置情報サービス」→「カメラ」で今後のカメラの位置情報取得を変更できます。",
+      "priority": "high"
+    },
+    {
+      "title": "写真の中身にも注意",
+      "description": "位置情報の設定とは別に、写真に写る看板や住所などから場所が分かる場合があります。",
+      "priority": "medium"
+    },
+    {
+      "title": "共有方法を確かめる",
+      "description": "アプリや送信方法による処理を一律に決めつけず、必要に応じて実際に共有する内容を確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "写真の共有画面で「オプション」を開き位置情報をオフにする",
+    "description": "写真アプリで共有したい写真を選び、共有ボタン→「オプション」で「位置情報」をオフにします。共有方法やiOSのバージョンにより表示が異なる場合があります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "写真アプリで送りたい写真を選び、共有ボタンを押す",
+      "reason": "共有時に調整する対象を選べます。"
+    },
+    {
+      "action": "共有画面の「オプション」で「位置情報」をオフにする",
+      "reason": "今回共有する写真に撮影場所を含めない選択です。"
+    },
+    {
+      "action": "今後も位置情報を記録したくない場合は、設定の位置情報サービスからカメラの許可を確認する",
+      "reason": "撮影時の記録は共有時の設定と別です。"
+    },
+    {
+      "action": "写真自体に住所や目印が写っていないか確認する",
+      "reason": "メタデータ以外から場所が伝わる場合があります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "SNSなら位置情報は必ず削除されると考える",
+      "reason": "アプリや共有方法の扱いは異なります。"
+    },
+    {
+      "action": "位置情報をオフにすれば写真の内容から場所が推測されないと考える",
+      "reason": "景色や看板などが写っていることがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "写真アプリで送りたい写真を選び、共有ボタンを押す",
+      "共有画面の「オプション」で「位置情報」をオフにする",
+      "今後も位置情報を記録したくない場合は、設定の位置情報サービスからカメラの許可を確認する"
+    ]
+  },
+  "makotoComment": "「撮影時に記録しない」と「今回の共有に含めない」は別の設定です。写真の振り返り方と送り先に合わせて選べます。",
+  "oneLineLesson": "写真を共有する前に位置情報と写真自体に写る情報を確認する。",
+  "tags": [
+    "iPhone",
+    "写真",
+    "位置情報",
+    "メタデータ",
+    "プライバシー"
+  ],
+  "sources": [
+    {
+      "title": "iPhoneで写真やビデオを共有する",
+      "publisher": "Apple サポート",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/guide/iphone/-iphf28f17237/ios"
+    },
+    {
+      "title": "「写真」で位置情報メタデータを管理する",
+      "publisher": "Apple サポート",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/guide/personal-safety/ips0d7a5df82/web"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "自宅で撮った写真を知人に送りたい場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261101-03"
+  ]
+}

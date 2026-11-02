@@ -1,0 +1,140 @@
+{
+  "id": "case-20261103-02",
+  "publishedAt": "2026-11-03",
+  "title": "Androidで不審なアプリを入れたかも？Play プロテクトの確認と限界",
+  "shortTitle": "Play プロテクトの確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Androidで不審なアプリを入れたかもしれない人",
+    "Play プロテクトの警告を確認したい人"
+  ],
+  "summary": "GoogleはAndroidの公式ヘルプで、Google Play プロテクトによるアプリの確認と警告を案内しています。Play ストア以外からのアプリも確認対象となり、検出時に警告や無効化などを行う場合があります。スキャンだけで被害がなかったとは断定できません。",
+  "scenario": {
+    "headline": "SMSのリンクからアプリを入れてしまい、不安になった",
+    "description": "Play プロテクトの設定や警告をどこから確認すればよいか分かりません。",
+    "whyItMatters": "端末の確認と、入力した情報や送金などへの対応は分けて考える必要があります。"
+  },
+  "question": {
+    "text": "不審なアプリを入れたかもしれない場合は？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "Play プロテクトの状態と警告を確認し、行った操作に応じて相談する",
+        "description": "検出結果と、入力・送金などの有無を別々に確認します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "警告が出なければ情報漏えいも絶対にないと判断する",
+        "description": "検出されない可能性や別の被害もあるため断定できません。"
+      },
+      {
+        "id": "wrong2",
+        "label": "不審な画面の指示でPlay プロテクトをオフにする",
+        "description": "保護を無効にするよう誘導される場合があります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Play ストアのプロフィールから「Play プロテクト」を開き、設定と警告を確認します。情報入力や送金をした場合は、別の安全な端末から関係する公式窓口や職場の担当者にも相談します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "Play ストア以外も確認",
+      "description": "Googleは他の提供元から入ったアプリについても有害な可能性を確認すると説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "警告後の処理",
+      "description": "有害なアプリを検出した場合、警告、無効化や削除を行うことがあります。",
+      "priority": "high"
+    },
+    {
+      "title": "スキャンの設定",
+      "description": "Play ストアのプロフィール→「Play プロテクト」→設定で、アプリのスキャンのオン・オフを確認できます。",
+      "priority": "high"
+    },
+    {
+      "title": "不明なアプリの送信",
+      "description": "「有害なアプリの検出精度を改善」を有効にすると、不明なアプリがGoogleへ自動送信されることがあります。",
+      "priority": "medium"
+    },
+    {
+      "title": "検出結果の限界",
+      "description": "警告がないことだけで不正利用や情報漏えいがなかったと断定せず、実際に行った操作も整理します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "Play プロテクトの状態と警告を確認し、行った操作に応じて相談する",
+    "description": "Play ストアのプロフィールから「Play プロテクト」を開き、設定と警告を確認します。情報入力や送金をした場合は、別の安全な端末から関係する公式窓口や職場の担当者にも相談します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Play ストアのプロフィールから「Play プロテクト」を開き、設定と警告を確認する",
+      "reason": "Googleが案内する保護機能の状態を確認できます。"
+    },
+    {
+      "action": "警告が出た場合はアプリ名と表示内容を確認し、必要に応じてアンインストールする",
+      "reason": "不審なアプリへの対処につなげます。"
+    },
+    {
+      "action": "入力した情報や送金の有無を整理し、安全な別端末から関係先に相談する",
+      "reason": "端末のスキャンとアカウント・金銭の被害対応は別です。"
+    },
+    {
+      "action": "職場や学校の端末は管理者に相談する",
+      "reason": "組織の端末やアカウントの対応に影響します。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "検出がないことだけで被害がなかったと断定する",
+      "reason": "スキャン結果だけでは入力や送金の影響まで確定しません。"
+    },
+    {
+      "action": "不審な画面の指示に従って保護機能をオフにする",
+      "reason": "有害なアプリを入れさせる誘導の可能性があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "Play ストアのプロフィールから「Play プロテクト」を開き、設定と警告を確認する",
+      "警告が出た場合はアプリ名と表示内容を確認し、必要に応じてアンインストールする",
+      "入力した情報や送金の有無を整理し、安全な別端末から関係先に相談する"
+    ]
+  },
+  "makotoComment": "警告を確認することと、入力した情報への対応は別の仕事です。アプリ名や行った操作を整理すると、相談先にも伝えやすくなります。",
+  "oneLineLesson": "Play プロテクトを確認し、端末操作と情報入力・送金の影響を分けて考える。",
+  "tags": [
+    "Android",
+    "Playプロテクト",
+    "不審アプリ",
+    "SMS",
+    "セキュリティ"
+  ],
+  "sources": [
+    {
+      "title": "Google Play プロテクトを使用してアプリの安全性とデータ プライバシーを確保する",
+      "publisher": "Android ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/android/answer/2812853?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "SMSのリンクからアプリを入れてしまい、不安になった場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261029-02"
+  ]
+}

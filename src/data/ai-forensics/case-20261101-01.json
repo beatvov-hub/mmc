@@ -9,7 +9,7 @@
     "Gmailの転送通知に心当たりがない人",
     "アカウントの不正利用が心配な人"
   ],
-  "summary": "GoogleはGmailの公式ヘルプで、全件転送とフィルタによる一部メールの転送の確認方法を案内しています。身に覚えのない転送通知が出たら、パソコン版Gmailで両方の設定を調べ、必要に応じてアカウントの安全も確認します。",
+  "summary": "GoogleはGmailの公式ヘルプで、全件転送とフィルタによる一部メールの転送の確認方法を案内しています。身に覚えのない転送通知が出たら、パソコン版Gmailで両方の設定を調べ、必要に応じてアカウントの安全も確認します。 あわせて、メールを閲覧・送信できる代理人の設定に身に覚えのない変更がないかも確認します。",
   "scenario": {
     "headline": "Gmailに知らないアドレスへの転送通知が表示された",
     "description": "自分で設定した覚えがなく、どこを見直せばよいか迷っています。",
@@ -64,6 +64,11 @@
       "title": "業務用の場合",
       "description": "職場や学校のアカウントは組織の設定があるため、身に覚えのない転送を見つけたら管理者に相談します。",
       "priority": "medium"
+    },
+    {
+      "title": "メールの委任先も確認",
+      "description": "パソコン版Gmailの「すべての設定を表示」→「アカウントとインポート」→「アカウントへのアクセスを許可」で代理人を確認できます。代理人はメールの閲覧・送信・削除ができますが、パスワードは変更できません。",
+      "priority": "high"
     }
   ],
   "verificationLevel": 3,
@@ -90,6 +95,10 @@
     {
       "action": "不正利用が疑われる場合はGoogleのセキュリティ案内に従い、職場のアカウントは管理者へ相談する",
       "reason": "転送以外の設定やログイン状況も確認します。"
+    },
+    {
+      "action": "「アカウントとインポート」の「アカウントへのアクセスを許可」で代理人を確認し、覚えのない委任は削除する",
+      "reason": "Googleは不審なアクティビティの確認項目にメールの委任を挙げています。職場や学校では管理者に相談します。"
     }
   ],
   "avoidActions": [
@@ -134,6 +143,13 @@
       "sourceType": "official-product-documentation",
       "publishedAt": null,
       "url": "https://support.google.com/accounts/answer/140921?hl=ja"
+    },
+    {
+      "title": "メールを委任する、メールで共同作業する",
+      "publisher": "Gmail ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/mail/answer/138350?hl=ja-BS"
     }
   ],
   "visualSuggestion": {
@@ -142,6 +158,8 @@
     "accentTone": "calm"
   },
   "relatedArticleIds": [
+    "case-20261031-02",
     "case-20261028-03"
-  ]
+  ],
+  "updatedAt": "2026-11-03"
 }
