@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T07:27:30+09:00",
+  "updatedAt": "2026-11-04T07:35:24+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -3013,6 +3013,60 @@
         {
           "label": "CyberChef公式ライセンス",
           "url": "https://github.com/gchq/CyberChef/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "slug": "imagemagick-compare-design-drafts-contact-sheet",
+      "useCategory": "デザイン・動画・ゲーム制作",
+      "name": "ImageMagick",
+      "category": "OSS",
+      "officialUrl": "https://imagemagick.org/",
+      "summary": "ImageMagickは、複数の画像をタイル状に並べ、比較用シート1枚にまとめる無料の画像処理ツールです。",
+      "whyToday": "デザイン案を複数並行して作ると、個別のファイルを切り替える間に配色や余白の違いを見落としがちです。ImageMagickのmontageは複数素材をタイル状の1枚に並べられ、案を見比べる入口を作れます。",
+      "useFor": "例えば、TシャツのSNS告知用デザイン案6枚から候補を絞る想定例です。PCにImageMagickを用意し、選んだ画像のコピーをmagick montageへ渡して、geometryでサムネイル寸法、tileで3列×2行、labelで各ファイル名を指定し、比較シートをPNGで保存します。まず6枚だけ出力し、ラベルと画像の対応、並び順、全体の配色や余白を一覧で確認します。小さな文字や線の細部は縮小表示で判断せず、候補を絞った後に元画像を原寸で開いて確認します。",
+      "recommendedFor": {
+        "employeeId": "MMC-005",
+        "reason": "デザイン担当のDGに、SNS向けデザイン案6枚の比較シートを先に作ってもらい、ファイル名と案の対応が分かる候補一覧を受け取りたいです。"
+      },
+      "keiComment": "案を一枚ずつ開かずに全体の配色や余白を比べられるのが、この使い方の良さです。縮小画像で最終決定まで済ませないよう、比較シートで候補を絞ったあと原寸確認へ進む運用にしたいですね。",
+      "verifiedAt": "2026-11-04",
+      "status": "published",
+      "pricing": "無償でダウンロードし、個人・社内・商用利用できるOSSです。",
+      "conditions": "PCへのインストールが必要です。複数の入力画像と保存先を指定して使います。アカウントやAPI keyは不要で、画像の処理はローカル環境で行えます。",
+      "license": "ImageMagick License",
+      "notes": "活用例は公式ドキュメントに基づく想定例です。実機での変換確認は行っていません。",
+      "archiveTitle": "ImageMagickでデザイン案を1枚の比較シートに並べられる？",
+      "archiveDescription": "ImageMagickのmontageで複数のTシャツ・SNSデザイン案を1枚の比較シートに並べる方法を紹介。ファイル名ラベル、最初に試す枚数、細部確認の使い分けを説明します。",
+      "forWho": "TシャツやSNS画像のデザイン案を複数作り、配色や余白を並べて比べたい制作・広報担当者向けです。",
+      "cautions": "比較シートでは元画像が縮小されるため、小さな文字や線の細部は見えにくくなります。候補を絞る用途に使い、公開前の仕上がりは元画像を原寸で確認してください。",
+      "faq": [
+        {
+          "question": "比較シートを作ると元画像も変更されますか？",
+          "answer": "montageは複数画像を並べた別の合成画像を出力します。元画像を上書きしない形で保存先を分け、初回はコピーした素材で試せます。"
+        },
+        {
+          "question": "各画像の下にファイル名を表示できますか？",
+          "answer": "できます。公式のmontage例では、labelオプションを使って各タイルにファイル名を表示しています。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "ImageMagick公式：montageで画像をタイル状に並べる",
+          "url": "https://imagemagick.org/montage/"
+        },
+        {
+          "label": "ImageMagick公式：montageの配置・ラベル例",
+          "url": "https://usage.imagemagick.org/montage/"
+        },
+        {
+          "label": "ImageMagick公式：ライセンスと無償利用条件",
+          "url": "https://imagemagick.org/license/"
+        },
+        {
+          "label": "ImageMagick公式：ダウンロード",
+          "url": "https://imagemagick.org/download/"
         }
       ]
     }
