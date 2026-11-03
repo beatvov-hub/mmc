@@ -1,0 +1,147 @@
+{
+  "id": "case-20261104-03",
+  "publishedAt": "2026-11-04",
+  "title": "Google メッセージの詐欺対策は？標準保護と保護強化の設定を確認",
+  "shortTitle": "Google メッセージの詐欺保護",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Google メッセージで詐欺警告を見た人",
+    "Androidのスパム対策を設定したい人"
+  ],
+  "summary": "GoogleはGoogle メッセージの公式ヘルプで、スパムと詐欺からの標準保護と保護強化の設定を案内しています。利用可能な端末では設定画面からモードを確認でき、検出時の警告や誤判定の報告方法も選べます。",
+  "scenario": {
+    "headline": "Google メッセージに詐欺の疑いを示す警告が出た",
+    "description": "標準保護と保護強化の違いや、メッセージの扱いを確認したい状況です。",
+    "whyItMatters": "保護の方式や利用可能な機能は端末によって異なります。"
+  },
+  "question": {
+    "text": "保護の設定を確認するには？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "Google メッセージの設定で保護モードを確認する",
+        "description": "利用可能な端末ではモードを選択できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "警告がないメッセージは全て安全だと考える",
+        "description": "検出の有無だけでは内容の安全性は確定しません。"
+      },
+      {
+        "id": "wrong2",
+        "label": "すべての端末で同じ設定が必ず表示されると考える",
+        "description": "Googleは設定が利用可能な端末にのみ表示されると説明しています。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Google メッセージのプロフィール→「メッセージの設定」→「保護機能と安全性」→「スパムと詐欺からの保護」を開きます。表示されない場合は、その端末で利用できるか確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "標準保護",
+      "description": "Googleは標準保護で端末上のメッセージデータを使い、スパムや詐欺を検出すると説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "保護強化",
+      "description": "Googleは保護強化ではプライベートAIコンピューティングでデータを分析することもあると説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "設定できる端末",
+      "description": "「スパムと詐欺からの保護」の項目は利用可能な端末にのみ表示されます。",
+      "priority": "high"
+    },
+    {
+      "title": "URLと報告時の情報",
+      "description": "GoogleはURLが含まれる場合の安全確認や、報告されたメッセージと匿名化メタデータの扱いを案内しています。",
+      "priority": "medium"
+    },
+    {
+      "title": "誤判定や報告",
+      "description": "警告に対してスパムまたはスパムではないと報告できる場合があります。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "Google メッセージの設定で保護モードを確認する",
+    "description": "Google メッセージのプロフィール→「メッセージの設定」→「保護機能と安全性」→「スパムと詐欺からの保護」を開きます。表示されない場合は、その端末で利用できるか確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Google メッセージのプロフィールから「メッセージの設定」を開く",
+      "reason": "端末で利用できる設定を確認します。"
+    },
+    {
+      "action": "「保護機能と安全性」からスパムと詐欺の保護モードを確認する",
+      "reason": "標準・保護強化など利用可能な選択肢を見られます。"
+    },
+    {
+      "action": "警告や誤判定を確認し、必要に応じて適切な報告を選ぶ",
+      "reason": "誤った分類を見直す手掛かりになります。"
+    },
+    {
+      "action": "アプリを導入したり情報を入力したりした場合は、その操作に応じて別途対応する",
+      "reason": "メッセージの保護設定だけでは入力済みの情報やアプリの影響は解消しません。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "警告がないのでリンク先も必ず安全だと考える",
+      "reason": "検出には限界があります。"
+    },
+    {
+      "action": "報告時の情報の扱いを見ずに機微な内容を送信する",
+      "reason": "Googleは報告されたメッセージやメタデータの扱いを案内しています。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "Google メッセージのプロフィールから「メッセージの設定」を開く",
+      "「保護機能と安全性」からスパムと詐欺の保護モードを確認する",
+      "警告や誤判定を確認し、必要に応じて適切な報告を選ぶ"
+    ]
+  },
+  "makotoComment": "標準保護は端末上での検出、保護強化は追加の分析を使う場合があります。端末で選べる設定と、報告時に送られる情報を一緒に見ておきましょう。",
+  "oneLineLesson": "利用可能な保護モードと報告時の情報の扱いを確認する。",
+  "tags": [
+    "Googleメッセージ",
+    "Android",
+    "詐欺対策",
+    "スパム",
+    "プライバシー"
+  ],
+  "sources": [
+    {
+      "title": "スパムと詐欺からの保護機能でチャットのプライバシーを守る",
+      "publisher": "Google メッセージ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/messages/answer/9327903?hl=ja"
+    },
+    {
+      "title": "Google メッセージで送信者をブロックしてスパムとして報告する",
+      "publisher": "Google メッセージ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/messages/answer/7029021?co=GENIE.Platform%3DAndroid&hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Google メッセージに詐欺の疑いを示す警告が出た場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261103-02"
+  ]
+}

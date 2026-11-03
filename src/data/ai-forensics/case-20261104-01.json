@@ -1,0 +1,147 @@
+{
+  "id": "case-20261104-01",
+  "publishedAt": "2026-11-04",
+  "title": "Chromeに「パスワードが漏えい」と出たら？チェックアップと変更範囲",
+  "shortTitle": "Chromeの漏えい警告を確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Chromeのパスワード漏えい警告を見た人",
+    "保存したパスワードの使い回しが気になる人"
+  ],
+  "summary": "GoogleはChromeの公式ヘルプで、漏えいしたユーザー名とパスワードの組み合わせに関する警告と変更方法を案内しています。警告を見たら、ChromeのGoogle パスワード マネージャーで対象を確認し、利用先と使い回し先の変更を進めます。",
+  "scenario": {
+    "headline": "Chromeに保存したパスワードについて漏えいの警告が出た",
+    "description": "どのサイトのパスワードを変更すればよいか迷っています。",
+    "whyItMatters": "同じパスワードを複数のサービスで使っていると、他のアカウントにも影響するおそれがあります。"
+  },
+  "question": {
+    "text": "漏えい警告が出たらどうする？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "Chromeの設定からチェックアップを開き、対象と使い回し先を確認する",
+        "description": "対象のサービスでパスワードを変更できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "警告を閉じればパスワードも自動で変更されると考える",
+        "description": "警告を閉じることとパスワードの変更は別です。"
+      },
+      {
+        "id": "wrong2",
+        "label": "警告に似た任意の画面にパスワードを入力する",
+        "description": "正規の設定画面を自分で開いて確認します。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "パソコンのChromeで「パスワードと自動入力」→「Google パスワード マネージャー」→「チェックアップ」を開き、対象サイトの公式画面で変更します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "漏えい警告の意味",
+      "description": "Chromeは流出したユーザー名とパスワードの組み合わせが使われている場合、警告を表示することがあります。",
+      "priority": "high"
+    },
+    {
+      "title": "チェックアップの入口",
+      "description": "ChromeのメニューからGoogle パスワード マネージャーを開き、チェックアップを選択できます。",
+      "priority": "high"
+    },
+    {
+      "title": "使い回し先も確認",
+      "description": "Googleは漏えいしたパスワードを変更し、他のサイトで同じものを使っていないか確認するよう案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "警告を閉じる操作",
+      "description": "Googleは警告を閉じたり復元したりできると説明しています。警告を閉じること自体はパスワードの変更ではありません。",
+      "priority": "medium"
+    },
+    {
+      "title": "正規の設定を開く",
+      "description": "偽の警告を避けるため、ブラウザのメニューからパスワード管理画面を自分で開きます。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "Chromeの設定からチェックアップを開き、対象と使い回し先を確認する",
+    "description": "パソコンのChromeで「パスワードと自動入力」→「Google パスワード マネージャー」→「チェックアップ」を開き、対象サイトの公式画面で変更します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "ChromeのメニューからGoogle パスワード マネージャーの「チェックアップ」を開く",
+      "reason": "保存した情報の警告を確認できます。"
+    },
+    {
+      "action": "対象サービスの公式サイトまたはアプリでパスワードを変更する",
+      "reason": "漏えいした組み合わせの再利用を防ぎます。"
+    },
+    {
+      "action": "同じパスワードを使う別のサービスも変更する",
+      "reason": "使い回した先への影響を減らします。"
+    },
+    {
+      "action": "不正ログインや身に覚えのない利用がある場合は、サービスの公式窓口に相談する",
+      "reason": "変更だけでなく利用履歴などの確認が必要です。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "警告を閉じただけでパスワードも変わったと考える",
+      "reason": "警告表示とログイン情報の変更は別です。"
+    },
+    {
+      "action": "通知風の不審なページにパスワードや確認コードを入力する",
+      "reason": "偽画面への情報入力を避けます。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "ChromeのメニューからGoogle パスワード マネージャーの「チェックアップ」を開く",
+      "対象サービスの公式サイトまたはアプリでパスワードを変更する",
+      "同じパスワードを使う別のサービスも変更する"
+    ]
+  },
+  "makotoComment": "警告を消すボタンと、サイトのパスワードを変える操作は別です。まず対象を確かめてから、変更が必要なサービスを一つずつ整理しましょう。",
+  "oneLineLesson": "Chromeのチェックアップで対象と使い回し先を確認し、それぞれで変更する。",
+  "tags": [
+    "Chrome",
+    "パスワード",
+    "情報漏えい",
+    "チェックアップ",
+    "使い回し"
+  ],
+  "sources": [
+    {
+      "title": "Chrome でパスワードを管理する",
+      "publisher": "Google Chrome ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/chrome/answer/95606?hl=ja-ZZ"
+    },
+    {
+      "title": "Google アカウントの不正使用されたパスワードを変更する",
+      "publisher": "Google Chrome ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/chrome/answer/9457609?hl=ja-us"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Chromeに保存したパスワードについて漏えいの警告が出た場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261029-01"
+  ]
+}

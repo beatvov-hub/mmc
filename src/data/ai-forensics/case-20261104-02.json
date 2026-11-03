@@ -1,0 +1,147 @@
+{
+  "id": "case-20261104-02",
+  "publishedAt": "2026-11-04",
+  "title": "Appleに問い合わせていないのに本人確認の通知が来たら？",
+  "shortTitle": "Appleサポートの本人確認通知",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Appleサポートの本人確認を求める通知を見た人",
+    "Apple Accountの不正利用が気になる人"
+  ],
+  "summary": "Appleはサポートへの問い合わせ時に行うApple Accountの本人確認について、依頼していないのに確認通知が届いた場合は「確認しない」を選ぶよう案内しています。サポートPINと、ログイン用の確認コードやパスワードは別の情報です。",
+  "scenario": {
+    "headline": "Appleへ問い合わせていないのに、サポートの本人確認を求める通知が届いた",
+    "description": "通知に応じるべきか分からず、アカウントへの不正なアクセスも心配です。",
+    "whyItMatters": "本人が依頼したサポートなのかを確認し、確認コードなどを第三者へ渡さないことが大切です。"
+  },
+  "question": {
+    "text": "Appleにサポートを頼んでいないときは？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "サポートの本人確認通知では「確認しない」を選ぶ",
+        "description": "Appleが依頼していない通知について案内している選択です。"
+      },
+      {
+        "id": "wrong1",
+        "label": "電話やチャットで求められた確認コードを読み上げる",
+        "description": "Appleはパスワードや確認コードなどを尋ねないと説明しています。"
+      },
+      {
+        "id": "wrong2",
+        "label": "全てのApple通知は詐欺だと断定する",
+        "description": "本人が開始したログインや問い合わせの通知と状況を分けて考えます。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Appleのサポートを頼んでいないのにサポートの本人確認通知が届いた場合、Appleは「確認しない」を選ぶよう案内しています。不正利用が疑われる場合は、設定や公式サイトからアカウントの状態を確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "対象となる通知",
+      "description": "この案内はAppleへの問い合わせ時に使う本人確認通知です。通常のサインイン時の確認コードとは場面が異なります。",
+      "priority": "high"
+    },
+    {
+      "title": "依頼していない場合",
+      "description": "Appleはサポートを頼んでいないのに本人確認通知が届いた場合、「確認しない」を選ぶよう説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "伝えない情報",
+      "description": "AppleはApple Accountのパスワード、確認コード、復旧キーなどを尋ねないと説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "サポートPINは別",
+      "description": "Appleへの問い合わせ時には、一時的なサポートPINを生成する方法もあります。ログイン用確認コードとは区別します。",
+      "priority": "high"
+    },
+    {
+      "title": "アカウントの状態を確認",
+      "description": "不正利用が疑われる場合は、自分でApple Accountの設定や公式サイトを開いて登録情報・デバイスを確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "サポートの本人確認通知では「確認しない」を選ぶ",
+    "description": "Appleのサポートを頼んでいないのにサポートの本人確認通知が届いた場合、Appleは「確認しない」を選ぶよう案内しています。不正利用が疑われる場合は、設定や公式サイトからアカウントの状態を確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "自分でAppleサポートを依頼していない場合、サポート本人確認通知の「確認しない」を選ぶ",
+      "reason": "依頼していない確認に同意しないためです。"
+    },
+    {
+      "action": "パスワード、確認コード、復旧キーを電話やチャットで伝えない",
+      "reason": "Appleはこれらを尋ねないと説明しています。"
+    },
+    {
+      "action": "不正利用が疑われたら自分でApple Accountの設定や公式サイトを開き、登録情報を確認する",
+      "reason": "通知に書かれたリンクや連絡先に頼らず調べます。"
+    },
+    {
+      "action": "端末を紛失している場合は「探す」や警察・通信事業者への連絡を検討する",
+      "reason": "状況に応じた端末保護が必要です。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "確認コードをサポート担当を名乗る相手に伝える",
+      "reason": "第三者にログイン手段を渡すおそれがあります。"
+    },
+    {
+      "action": "サポートPINとログイン用の確認コードを同じものと考える",
+      "reason": "用途と扱いが異なります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "自分でAppleサポートを依頼していない場合、サポート本人確認通知の「確認しない」を選ぶ",
+      "パスワード、確認コード、復旧キーを電話やチャットで伝えない",
+      "不正利用が疑われたら自分でApple Accountの設定や公式サイトを開き、登録情報を確認する"
+    ]
+  },
+  "makotoComment": "Appleが問い合わせ時に使うサポートPINと、アカウントの確認コードは別物です。通知の種類と、自分がサポートを頼んだかを切り分けましょう。",
+  "oneLineLesson": "依頼していないサポートの本人確認には応じず、確認コードを第三者に渡さない。",
+  "tags": [
+    "Apple Account",
+    "本人確認",
+    "サポートPIN",
+    "確認コード",
+    "なりすまし"
+  ],
+  "sources": [
+    {
+      "title": "Appleへの問い合わせ時にApple Accountの本人確認を求められる場合",
+      "publisher": "Apple サポート",
+      "sourceType": "official-consumer-guidance",
+      "publishedAt": "2025-12-12",
+      "url": "https://support.apple.com/ja-jp/102425"
+    },
+    {
+      "title": "Apple Accountの不正利用が疑われる場合",
+      "publisher": "Apple サポート",
+      "sourceType": "official-consumer-guidance",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/102560"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Appleへ問い合わせていないのに、サポートの本人確認を求める通知が届いた場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261030-01"
+  ]
+}
