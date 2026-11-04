@@ -169,6 +169,12 @@ def render_work_items(items: list[object]) -> list[str]:
 
 
 def rich_detail_sections(work: dict) -> list[dict]:
+    if work.get("featureOverviewOnly"):
+        sections = [{"id": "overview", "title": "作品概要", "lead": work.get("storySummary", ""), "paragraphs": [work.get("overview", "")], "wide": True}]
+        for index, section in enumerate(work.get("detailSections", []), start=1):
+            sections.append({"id": section.get("id") or f"detail-{index}", "title": section["title"], "paragraphs": section.get("paragraphs", []), "items": section.get("items", []), "wide": True})
+        sections.append({"id": "status", "title": "公開状況", "paragraphs": [work.get("statusBody", "")], "wide": True})
+        return sections
     sections: list[dict] = [
         {
             "id": "overview",
@@ -323,11 +329,17 @@ def render_work_card(work: dict, show_key_visual: bool = True) -> str:
         f'            <h3>{esc(work["title"])}</h3>',
         f'            <p class="work-summary">{esc(work["summary"])}</p>',
         f'            <p class="work-story-summary">{esc(work["storySummary"])}</p>',
+        ]
+    )
+    if work["members"] or not work.get("featureOverviewOnly"):
+        lines.extend([
         '            <div class="work-card-meta">',
         f'              <span class="work-meta-label">担当AI社員</span><ul class="pill-list work-member-chips">{render_member_chips(work)}</ul>',
         "            </div>",
+        ])
+    lines.extend([
         '            <div class="work-links">',
-        f'              <a class="mini-button" href="{esc(work_href(work))}">制作背景を読む</a>',
+        f'              <a class="mini-button" href="{esc(work_href(work))}">{"作品紹介を読む" if work.get("featureOverviewOnly") else "制作背景を読む"}</a>',
         ]
     )
     if public_url:
