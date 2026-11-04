@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T07:35:24+09:00",
+  "updatedAt": "2026-11-05T07:34:19+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -3067,6 +3067,52 @@
         {
           "label": "ImageMagick公式：ダウンロード",
           "url": "https://imagemagick.org/download/"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "slug": "subtitle-edit-fix-promo-subtitle-timing",
+      "useCategory": "デザイン・動画・ゲーム制作",
+      "name": "Subtitle Edit",
+      "category": "OSS",
+      "officialUrl": "https://github.com/SubtitleEdit/subtitleedit",
+      "summary": "Subtitle Editは、動画に合わせて字幕の文章や表示時刻を調整し、SRTなどの字幕ファイルとして保存できる無料の編集ツールです。",
+      "whyToday": "字幕付き動画を作ると、文章の誤字だけでなく、字幕が話し始めより早い・遅いずれも公開前に直したくなります。Subtitle Editなら動画を見ながら字幕の時刻を調整でき、動画の再書き出しとは分けて字幕ファイルを整えられます。",
+      "useFor": "例えば、告知動画全体で字幕が一律に遅れている場合の想定例です。PCにSubtitle Editを用意し、動画と既存のSRTを開いて、同じ発話と字幕のずれをプレビューで確かめます。字幕全体の時刻をずらしてSRTを保存し、まずコピーしたファイルで冒頭と終盤を再生して、両方で発話とのずれが解消したか確認します。成果物は修正したSRTです。字幕文の自動文字起こしはこの例に含めません。",
+      "recommendedFor": {
+        "employeeId": "MMC-009",
+        "reason": "ケイに告知動画と字幕ファイルの公開前チェックを任せ、字幕のずれを直したSRTと確認ポイントを受け取りたいです。"
+      },
+      "keiComment": "時刻だけを直した字幕ファイルを動画編集の作業と分けて渡せるので、修正の受け渡しが明快です。動画の冒頭だけで済ませず、終盤でも同期が保てるか確認してから公開へ回したいですね。",
+      "verifiedAt": "2026-11-05",
+      "status": "published",
+      "pricing": "無料のオープンソースソフトウェアです。MITライセンスで公開されています。",
+      "conditions": "アカウントは不要です。PCへのインストールと動画・SRTファイルが必要です。動画再生にはlibmpv等、波形表示にはFFmpegが必要な場合があります。この想定例では手動の時刻調整だけを使い、音声認識や翻訳サービスは使いません。",
+      "license": "MIT License",
+      "notes": "公式ドキュメントに基づく想定例です。実機での編集・再生確認は行っていません。",
+      "archiveTitle": "Subtitle Editで字幕の表示時刻を動画に合わせられる？",
+      "archiveDescription": "Subtitle Editで動画とSRTを見比べ、字幕全体のずれを調整する方法を紹介。コピーで試す範囲と冒頭・終盤の確認点も説明します。",
+      "forWho": "告知動画にSRT字幕を付けていて、字幕全体の表示が音声より早い・遅い問題を直したい広報・動画担当者向けです。",
+      "cautions": "全体の時刻調整は、動画の途中からずれ方が変わるケースには合わない場合があります。また、時刻の修正は字幕文の正しさを保証せず、字幕を動画へ焼き込む作業も別です。",
+      "faq": [
+        {
+          "question": "SRT字幕全体の時刻をまとめて調整できますか？",
+          "answer": "できます。公式FAQでは Synchronization の Adjust all times でミリ秒単位のずれを入力する方法が案内されています。途中からずれ方が変わる場合は Visual sync または Point sync を使う方法もあります。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Subtitle Edit公式FAQ：同期ずれの調整方法・無料利用とMITライセンス",
+          "url": "https://github.com/SubtitleEdit/subtitleedit/blob/main/docs/faq.md"
+        },
+        {
+          "label": "Subtitle Edit公式概要：対応OS・動画と字幕の開き方・調整・保存",
+          "url": "https://github.com/SubtitleEdit/subtitleedit/blob/main/docs/overview.md"
+        },
+        {
+          "label": "Subtitle Edit公式リポジトリとリリース",
+          "url": "https://github.com/SubtitleEdit/subtitleedit"
         }
       ]
     }
