@@ -233,70 +233,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-caution" href="case-20260912-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Gemini Canvasの公開アプリは、リンク共有だけでは終わらない。データが見える範囲を確認する Gemini Canvasの公開アプリは共有データの範囲を確認する Googleは、Gemini Canvasで複数の利用者間でデータを共有するアプリを作ると、関連データは公開データベースに置かれ、公開リンクを知る人が閲覧・編集できると案内しています。共有しないアプリではデータベースは利用者だけが扱える非公開のものになります。公開Canvasアプリを受け取った利用者についても、入力した情報はアプリ作成者に見え得るほか、公開リンクを知る人にも見える場合があるため、パスワードや支払情報を入れないようGoogleは注意を促しています。AIが生成したミニアプリを便利に共有する前に、単独利用か複数人共有か、保存するデータは何かを確認する記事です。 セキュリティ・権限 標準 Gemini Canvas AIアプリ 公開リンク Firestore データ共有 権限 Gemini Canvasで簡単なWebアプリを作って共有したい人 公開リンクで使えるAI生成アプリへ情報を入力する人">
+          <a class="forensics-card tone-caution" href="case-20260808-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="「このページを要約して」でAIが別の操作を始める？　AIブラウザを狙うプロンプトインジェクション AIブラウザには「読ませる情報」と「任せる権限」を分ける AIブラウザは、ページを読むだけでなく、リンクを開く、フォームへ入力する、メールを送るなどの操作まで代行できるようになっています。しかしWebページ、メール、カレンダー招待などにAI向けの悪意ある指示が埋め込まれていると、AIが利用者の指示と混同して意図しない操作を行う「間接プロンプトインジェクション」が起こる可能性があります。2026年8月のBlack Hat USAでは、主要なAIブラウザやブラウザ連携AIを対象にした攻撃実証が報告されました。ただし、これはAIブラウザが触れただけで必ず乗っ取られるという話ではありません。ログイン範囲や権限を絞り、送信・購入・設定変更などの重要操作を人間が確認することで、便利さを残しながらリスクを下げられます。 セキュリティ・権限 標準 AIブラウザ AIエージェント プロンプトインジェクション サイバーセキュリティ ChatGPT agent Claude Perplexity Comet OWASP AIブラウザやAIエージェントを使う人 メールやWebページの要約をAIへ任せる人 AIに買い物やフォーム入力を任せたい人 生成AIを仕事の自動化へ使う人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">gemini-canvas-public-data</span>
+              <span class="forensics-card-icon" aria-hidden="true">agent-permission-shield</span>
               <div>
-                <p>Gemini Canvasの公開アプリは共有データの範囲を確認する</p>
-                <h3>Gemini Canvasの公開アプリは、リンク共有だけでは終わらない。データが見える範囲を確認する</h3>
+                <p>AIブラウザには「読ませる情報」と「任せる権限」を分ける</p>
+                <h3>「このページを要約して」でAIが別の操作を始める？　AIブラウザを狙うプロンプトインジェクション</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-12">2026.09.12</time>
+              <time datetime="2026-08-08">2026.08.08</time>
               <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Googleは、Gemini Canvasで複数の利用者間でデータを共有するアプリを作ると、関連データは公開データベースに置かれ、公開リンクを知る人が閲覧・編集できると案内しています。共有しないアプリではデータベースは利用者だけが扱える非公開のものになります。公開Canvasアプリを受け取った利用者についても、入力した情報はアプリ作成者に見え得るほか、公開リンクを知る人にも見える場合があるため、パスワードや支払情報を入れないようGoogleは注意を促しています。AIが生成したミニアプリを便利に共有する前に、単独利用か複数人共有か、保存するデータは何かを確認する記事です。</p>
+            <p class="forensics-card-summary">AIブラウザは、ページを読むだけでなく、リンクを開く、フォームへ入力する、メールを送るなどの操作まで代行できるようになっています。しかしWebページ、メール、カレンダー招待などにAI向けの悪意ある指示が埋め込まれていると、AIが利用者の指示と混同して意図しない操作を行う「間接プロンプトインジェクション」が起こる可能性があります。2026年8月のBlack Hat USAでは、主要なAIブラウザやブラウザ連携AIを対象にした攻撃実証が報告されました。ただし、これはAIブラウザが触れただけで必ず乗っ取られるという話ではありません。ログイン範囲や権限を絞り、送信・購入・設定変更などの重要操作を人間が確認することで、便利さを残しながらリスクを下げられます。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 4</strong>
-              <span>Canvasアプリは、公開リンクとデータ共有の有無をセットで確認する</span>
+              <span>AIが見抜く前提ではなく、実行できる範囲を確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>Gemini Canvasで簡単なWebアプリを作って共有したい人</li><li>公開リンクで使えるAI生成アプリへ情報を入力する人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Gemini Canvas</li><li>AIアプリ</li><li>公開リンク</li></ul>
+            <ul class="forensics-card-audience"><li>AIブラウザやAIエージェントを使う人</li><li>メールやWebページの要約をAIへ任せる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIブラウザ</li><li>AIエージェント</li><li>プロンプトインジェクション</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-caution" href="case-20260911-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Geminiに画面操作を任せる前に。スクリーンショットの扱いと止め方を確認する Geminiの画面操作はスクリーンショットと停止操作を確認する Googleは、Gemini Appsの画面自動操作について、実行中にアプリ画面のスクリーンショットを取得することがあり、画面に表示された情報を含み得ると案内しています。Keep Activityをオンにしている場合、スクリーンショットは訓練済みレビュアーにより確認され、Googleサービスの改善に使われることがあります。Googleは利用者が操作を監督し、停止・進行確認・手動操作への切替を行えると説明し、ログイン情報や支払情報をGeminiのチャットへ入れないよう求めています。買い物や予約の操作を便利に任せる前に、画面に何を表示するか、Keep Activity、途中で止める場所を決める記事です。 セキュリティ・権限 標準 Gemini 画面自動操作 スクリーンショット Keep Activity スマートフォン プライバシー Androidアプリ上の操作をGeminiに手伝わせようとしている人 画面に仕事・決済・個人情報が表示されるスマートフォンを使う人">
+          <a class="forensics-card tone-caution" href="case-20260805-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="「このページを要約して」が思わぬ操作に　AIブラウザを惑わせる隠し命令 WebページにはAI向けの隠し命令もある AIブラウザやAIエージェントは、Webページを読み取るだけでなく、リンクを開く、フォームへ入力する、ログイン中のサービスを参照するといった操作も行えるようになっています。一方、ページ内に人間からは見えにくい命令文を仕込み、AIへ本来頼んでいない操作をさせようとする「間接プロンプトインジェクション」も報告されています。AIによる要約や検索を避ける必要はありませんが、閲覧用のAIと重要なアカウントを分け、送信・ログイン・外部リンクへの移動などは人間が確認する運用が重要です。 セキュリティ・権限 標準 AIブラウザ AIエージェント プロンプトインジェクション 情報漏えい Webセキュリティ 権限管理 AIにWebページやPDFを要約させる人 AIブラウザやブラウザ拡張機能を利用する人 メールやクラウドサービスをAIと連携している人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">gemini-screen-automation-control</span>
+              <span class="forensics-card-icon" aria-hidden="true">hidden-prompt-browser</span>
               <div>
-                <p>Geminiの画面操作はスクリーンショットと停止操作を確認する</p>
-                <h3>Geminiに画面操作を任せる前に。スクリーンショットの扱いと止め方を確認する</h3>
+                <p>WebページにはAI向けの隠し命令もある</p>
+                <h3>「このページを要約して」が思わぬ操作に　AIブラウザを惑わせる隠し命令</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-11">2026.09.11</time>
+              <time datetime="2026-08-05">2026.08.05</time>
               <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Googleは、Gemini Appsの画面自動操作について、実行中にアプリ画面のスクリーンショットを取得することがあり、画面に表示された情報を含み得ると案内しています。Keep Activityをオンにしている場合、スクリーンショットは訓練済みレビュアーにより確認され、Googleサービスの改善に使われることがあります。Googleは利用者が操作を監督し、停止・進行確認・手動操作への切替を行えると説明し、ログイン情報や支払情報をGeminiのチャットへ入れないよう求めています。買い物や予約の操作を便利に任せる前に、画面に何を表示するか、Keep Activity、途中で止める場所を決める記事です。</p>
+            <p class="forensics-card-summary">AIブラウザやAIエージェントは、Webページを読み取るだけでなく、リンクを開く、フォームへ入力する、ログイン中のサービスを参照するといった操作も行えるようになっています。一方、ページ内に人間からは見えにくい命令文を仕込み、AIへ本来頼んでいない操作をさせようとする「間接プロンプトインジェクション」も報告されています。AIによる要約や検索を避ける必要はありませんが、閲覧用のAIと重要なアカウントを分け、送信・ログイン・外部リンクへの移動などは人間が確認する運用が重要です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 4</strong>
-              <span>Geminiの画面自動操作は、見せる画面と停止・確認の責任を利用者が持つ</span>
+              <span>操作権限とログイン状態の確認が必要</span>
             </div>
-            <ul class="forensics-card-audience"><li>Androidアプリ上の操作をGeminiに手伝わせようとしている人</li><li>画面に仕事・決済・個人情報が表示されるスマートフォンを使う人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>画面自動操作</li><li>スクリーンショット</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="case-20260911-03" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="Copilotの会話リンクは誰でも見られる。共有する範囲をプレビューで絞る Copilotの会話リンクは共有前に範囲をプレビューで確認する Microsoftは、個人向けMicrosoft Copilotで会話全体または一つの回答を共有リンクにできると案内しています。リンク作成時には共有内容を確認するプレビューが表示され、受信者にはリンクを作った時点の会話のコピーが見えます。会話を続けても、その後の内容は共有済みのコピーに追加されません。一方、リンクを知る人なら誰でもアクセスできるため、機密・個人情報を含む共有リンクを作らないようMicrosoftは注意を促しています。会話を共有したい時に、全部を渡すのではなく必要な一回答へ絞り、プレビューを確認して送る手順を扱います。 セキュリティ・権限 はじめて Microsoft Copilot 会話共有 共有リンク プレビュー 個人情報 情報共有 Microsoft Copilotの回答を同僚や家族に送る人 会話に個人情報・仕事の検討内容を含めることがある人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">copilot-conversation-link-preview</span>
-              <div>
-                <p>Copilotの会話リンクは共有前に範囲をプレビューで確認する</p>
-                <h3>Copilotの会話リンクは誰でも見られる。共有する範囲をプレビューで絞る</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-09-11">2026.09.11</time>
-              <span>セキュリティ・権限</span>
-              <span>はじめて</span>
-            </div>
-            <p class="forensics-card-summary">Microsoftは、個人向けMicrosoft Copilotで会話全体または一つの回答を共有リンクにできると案内しています。リンク作成時には共有内容を確認するプレビューが表示され、受信者にはリンクを作った時点の会話のコピーが見えます。会話を続けても、その後の内容は共有済みのコピーに追加されません。一方、リンクを知る人なら誰でもアクセスできるため、機密・個人情報を含む共有リンクを作らないようMicrosoftは注意を促しています。会話を共有したい時に、全部を渡すのではなく必要な一回答へ絞り、プレビューを確認して送る手順を扱います。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 4</strong>
-              <span>Copilotの共有リンクは、必要な一回答だけをプレビューして渡す</span>
-            </div>
-            <ul class="forensics-card-audience"><li>Microsoft Copilotの回答を同僚や家族に送る人</li><li>会話に個人情報・仕事の検討内容を含めることがある人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>会話共有</li><li>共有リンク</li></ul>
+            <ul class="forensics-card-audience"><li>AIにWebページやPDFを要約させる人</li><li>AIブラウザやブラウザ拡張機能を利用する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIブラウザ</li><li>AIエージェント</li><li>プロンプトインジェクション</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

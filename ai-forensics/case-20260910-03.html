@@ -232,70 +232,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-calm" href="case-20260930-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="家庭向けMicrosoft 365でCopilotを止めると、ほかの接続機能にも影響する Copilotと接続機能の設定を分ける Microsoftは公式サポートで、個人のMicrosoftアカウントで使う家庭向けMicrosoft 365のCopilotは、『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両設定に依存すると説明しています。どちらかをオフにするとWord・Excel・PowerPoint・Outlook・OneNoteのCopilotを使えなくなり、ほかの機能も止まる場合があります。AIだけを止めるつもりで広い設定を変える前に、影響を確かめる記事です。 セキュリティ・権限 標準 Microsoft 365 Copilot 接続エクスペリエンス プライバシー設定 個人アカウント 個人のMicrosoftアカウントでMicrosoft 365を使う人 WordやExcelのCopilotを設定で止めたい人">
+          <a class="forensics-card tone-serious" href="case-20260910-04" data-forensics-card data-category="security" data-level="4" data-difficulty="advanced" data-search-text="Notion MCPは「自分に見えるもの全部」で動く。外部AIアプリの許可リストを確認する Notion MCPは外部AIアプリの許可リストで管理する Notionは、Notion MCPを通じて接続した外部AIアプリのツールが、利用者本人のNotion権限で動作し、利用者がアクセスできるものにアクセスできると案内しています。Enterpriseでは、管理者がSettings → Connections → PermissionsのAI appsから、メンバーが接続できる外部AIアプリを許可リスト方式で制限できます。許可リストから外したAIアプリは、過去に接続されていて一覧に残る場合でも、Notionは呼び出しを機能的にブロックすると説明しています。一方、既存トークンを自動で取り消す仕組みではないため、全利用者の接続を切る必要がある時はDisconnect All Usersを使い、利用者は再認証が必要になります。『MCPは便利な検索連携』だけで済ませず、本人権限・許可リスト・一括切断を別々に確認する記事です。 セキュリティ・権限 発展 Notion MCP MCP 外部AIアプリ ChatGPT Cursor 権限管理 NotionをChatGPTやCursorなど外部AIアプリとMCP接続する人 Notion Enterpriseで外部AIアプリを統制する管理者">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">m365-connected-experiences</span>
+              <span class="forensics-card-icon" aria-hidden="true">notion-mcp-approved-apps</span>
               <div>
-                <p>Copilotと接続機能の設定を分ける</p>
-                <h3>家庭向けMicrosoft 365でCopilotを止めると、ほかの接続機能にも影響する</h3>
+                <p>Notion MCPは外部AIアプリの許可リストで管理する</p>
+                <h3>Notion MCPは「自分に見えるもの全部」で動く。外部AIアプリの許可リストを確認する</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-30">2026.09.30</time>
+              <time datetime="2026-09-10">2026.09.10</time>
               <span>セキュリティ・権限</span>
-              <span>標準</span>
+              <span>発展</span>
             </div>
-            <p class="forensics-card-summary">Microsoftは公式サポートで、個人のMicrosoftアカウントで使う家庭向けMicrosoft 365のCopilotは、『コンテンツを分析するエクスペリエンス』と『すべての接続エクスペリエンス』の両設定に依存すると説明しています。どちらかをオフにするとWord・Excel・PowerPoint・Outlook・OneNoteのCopilotを使えなくなり、ほかの機能も止まる場合があります。AIだけを止めるつもりで広い設定を変える前に、影響を確かめる記事です。</p>
+            <p class="forensics-card-summary">Notionは、Notion MCPを通じて接続した外部AIアプリのツールが、利用者本人のNotion権限で動作し、利用者がアクセスできるものにアクセスできると案内しています。Enterpriseでは、管理者がSettings → Connections → PermissionsのAI appsから、メンバーが接続できる外部AIアプリを許可リスト方式で制限できます。許可リストから外したAIアプリは、過去に接続されていて一覧に残る場合でも、Notionは呼び出しを機能的にブロックすると説明しています。一方、既存トークンを自動で取り消す仕組みではないため、全利用者の接続を切る必要がある時はDisconnect All Usersを使い、利用者は再認証が必要になります。『MCPは便利な検索連携』だけで済ませず、本人権限・許可リスト・一括切断を別々に確認する記事です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 4</strong>
-              <span>家庭向けアカウントか確認し、接続設定の影響を調べる</span>
+              <span>Notion MCPは本人権限・許可リスト・一括切断を分けて管理する</span>
             </div>
-            <ul class="forensics-card-audience"><li>個人のMicrosoftアカウントでMicrosoft 365を使う人</li><li>WordやExcelのCopilotを設定で止めたい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Microsoft 365</li><li>Copilot</li><li>接続エクスペリエンス</li></ul>
+            <ul class="forensics-card-audience"><li>NotionをChatGPTやCursorなど外部AIアプリとMCP接続する人</li><li>Notion Enterpriseで外部AIアプリを統制する管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Notion MCP</li><li>MCP</li><li>外部AIアプリ</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-calm" href="case-20260930-04" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="YouTubeのAI顔なりすまし検出は、見つけた動画を自動削除しない AI顔なりすまし検出後の判断 YouTubeは公式ヘルプで、顔がAIで改変・生成された可能性のある動画を探す『Likeness detection』を実験的機能として案内しています。対象のクリエイターは本人確認を経て候補を確認できますが、検出された動画は自動で削除されません。実写の再利用が候補に出る場合もあり、プライバシー申立て、著作権申立て、保留を内容に応じて選びます。利用できない国もあり、顔の検出が中心です。 セキュリティ・権限 標準 YouTube Likeness detection AIなりすまし 顔 プライバシー申立て YouTubeに顔を出すクリエイター AIで顔をまねた動画への対応を知りたい人">
+          <a class="forensics-card tone-caution" href="case-20260904-01" data-forensics-card data-category="security" data-level="2" data-difficulty="advanced" data-search-text="Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。 セキュリティ・権限 発展 Notion MCP AIアプリ 権限管理 接続解除 ワークスペース管理 NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人 MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">youtube-likeness-review</span>
+              <span class="forensics-card-icon" aria-hidden="true">notion-mcp-access-review</span>
               <div>
-                <p>AI顔なりすまし検出後の判断</p>
-                <h3>YouTubeのAI顔なりすまし検出は、見つけた動画を自動削除しない</h3>
+                <p>Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する</p>
+                <h3>Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-30">2026.09.30</time>
+              <time datetime="2026-09-04">2026.09.04</time>
               <span>セキュリティ・権限</span>
-              <span>標準</span>
+              <span>発展</span>
             </div>
-            <p class="forensics-card-summary">YouTubeは公式ヘルプで、顔がAIで改変・生成された可能性のある動画を探す『Likeness detection』を実験的機能として案内しています。対象のクリエイターは本人確認を経て候補を確認できますが、検出された動画は自動で削除されません。実写の再利用が候補に出る場合もあり、プライバシー申立て、著作権申立て、保留を内容に応じて選びます。利用できない国もあり、顔の検出が中心です。</p>
+            <p class="forensics-card-summary">Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 4</strong>
-              <span>検出結果を見て、問題に合う申立てを選ぶ</span>
+              <strong>確認レベル 2</strong>
+              <span>Notion MCPは承認解除後に、遮断状態と再認証の要否を分けて確認する</span>
             </div>
-            <ul class="forensics-card-audience"><li>YouTubeに顔を出すクリエイター</li><li>AIで顔をまねた動画への対応を知りたい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>YouTube</li><li>Likeness detection</li><li>AIなりすまし</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-calm" href="case-20260929-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる ChatGPTのセキュリティ履歴を見る OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。 セキュリティ・権限 標準 ChatGPT セキュリティ履歴 不正ログイン MFA アカウント保護 ChatGPTを使う人 アカウントへの不審なアクセスが気になる人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">account-security-history</span>
-              <div>
-                <p>ChatGPTのセキュリティ履歴を見る</p>
-                <h3>ChatGPTのセキュリティ履歴で、覚えのないログインや設定変更を調べる</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-09-29">2026.09.29</time>
-              <span>セキュリティ・権限</span>
-              <span>標準</span>
-            </div>
-            <p class="forensics-card-summary">OpenAIは2026年9月25日、ChatGPTのWeb版に『セキュリティ履歴』を導入すると案内しました。ログイン・ログアウト、MFAやパスキーなどの設定変更について、時刻、場所、端末情報を確認できます。ただし場所などの詳細は概算または表示されない場合があります。覚えのない操作を見つけた時は、記録を残し、パスワードとアクティブなセッションを見直すための記事です。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 4</strong>
-              <span>過去の変更履歴と現在のセッションを分けて確認する</span>
-            </div>
-            <ul class="forensics-card-audience"><li>ChatGPTを使う人</li><li>アカウントへの不審なアクセスが気になる人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>セキュリティ履歴</li><li>不正ログイン</li></ul>
+            <ul class="forensics-card-audience"><li>NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人</li><li>MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Notion</li><li>MCP</li><li>AIアプリ</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

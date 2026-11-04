@@ -232,70 +232,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-serious" href="case-20260826-02" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="Copilotの「Agent Blocked」、モデル故障とは限らない。Claude利用は管理者のAIプロバイダー設定で止まる Agent Blockedは権限設定も確認 Microsoftは2026年8月19日時点のMicrosoft 365 Copilot Extensibilityの既知の問題として、Copilot Studioで作成したエージェントがClaude Sonnet 4.6など第三者AIモデルを使う場合、利用者にそのAIプロバイダーへのアクセス権がなければ「Agent Blocked」と表示されることを案内しています。これは必ずしもエージェントやモデルの故障ではなく、組織のAIプロバイダー設定によって意図的に利用が止められている可能性があります。MicrosoftではAnthropicなどの第三者AI事業者を「AI Subprocessor」としてMicrosoft Copilotへ組み込む仕組みがあり、管理者はモデル単位ではなくAIプロバイダー単位で、利用できるユーザーやMicrosoft Entra IDのセキュリティグループを指定できます。AIがマルチモデル化すると、「同じCopilot画面で使えるか」だけでなく、「どの会社のモデルが処理するのか」「自社でそのプロバイダーを許可しているか」まで確認することが重要になります。 セキュリティ・権限 標準 Microsoft Copilot Copilot Studio Agent Blocked Claude Anthropic AI Subprocessor Microsoft Entra ID AIプロバイダー アクセス制御 マルチモデル Microsoft CopilotやCopilot Studioを仕事で使う人 Claudeなど複数のAIモデルを社内で使い分ける人 生成AIの社内利用を管理するIT・AI担当者">
+          <a class="forensics-card tone-caution" href="case-20260905-02" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="Gemini Liveで画面共有する前に。Keep Activityをオフにしても会話は最長72時間残る Gemini Liveは画面共有前に、Keep Activityと72時間保存を確認する Googleは、Gemini AppsのKeep Activityがオンの場合、Gemini Liveで共有した音声、ファイル、画像、YouTube動画、カメラ映像、画面共有の動画フレームがGemini Apps Activityに保存されると案内しています。Keep Activityをオフにしても、サービス提供とフィードバック処理のため、会話はアカウントに最長72時間保存され、この活動はGemini Apps Activityには表示されません。また、Gemini Apps ActivityでGemとの会話を削除してもGem自体は削除されず、Liveの活動を削除した場合は関連する音声・文字起こし・動画・画面共有も削除されます。Liveを始める前に、共有する画面、Keep Activity、後で消す対象を一緒に決める記事です。 セキュリティ・権限 標準 Gemini Gemini Live 画面共有 Keep Activity 音声AI プライバシー Gemini Liveで音声・カメラ・画面共有を使う人 Gemini Appsの履歴と共有データを自分で整理したい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">copilot-provider-access-block</span>
+              <span class="forensics-card-icon" aria-hidden="true">gemini-live-activity-check</span>
               <div>
-                <p>Agent Blockedは権限設定も確認</p>
-                <h3>Copilotの「Agent Blocked」、モデル故障とは限らない。Claude利用は管理者のAIプロバイダー設定で止まる</h3>
+                <p>Gemini Liveは画面共有前に、Keep Activityと72時間保存を確認する</p>
+                <h3>Gemini Liveで画面共有する前に。Keep Activityをオフにしても会話は最長72時間残る</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-26">2026.08.26</time>
+              <time datetime="2026-09-05">2026.09.05</time>
               <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Microsoftは2026年8月19日時点のMicrosoft 365 Copilot Extensibilityの既知の問題として、Copilot Studioで作成したエージェントがClaude Sonnet 4.6など第三者AIモデルを使う場合、利用者にそのAIプロバイダーへのアクセス権がなければ「Agent Blocked」と表示されることを案内しています。これは必ずしもエージェントやモデルの故障ではなく、組織のAIプロバイダー設定によって意図的に利用が止められている可能性があります。MicrosoftではAnthropicなどの第三者AI事業者を「AI Subprocessor」としてMicrosoft Copilotへ組み込む仕組みがあり、管理者はモデル単位ではなくAIプロバイダー単位で、利用できるユーザーやMicrosoft Entra IDのセキュリティグループを指定できます。AIがマルチモデル化すると、「同じCopilot画面で使えるか」だけでなく、「どの会社のモデルが処理するのか」「自社でそのプロバイダーを許可しているか」まで確認することが重要になります。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 5</strong>
-              <span>エラー表示→利用モデル→AIプロバイダー権限の順で確認</span>
-            </div>
-            <ul class="forensics-card-audience"><li>Microsoft CopilotやCopilot Studioを仕事で使う人</li><li>Claudeなど複数のAIモデルを社内で使い分ける人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Copilot Studio</li><li>Agent Blocked</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-serious" href="case-20260826-04" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角 シャドーAI、まず利用先を棚卸しする Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。 セキュリティ・権限 はじめて シャドーAI Shadow AI 生成AI ChatGPT Claude MCP AIエージェント Microsoft 365 AIガバナンス 社内AI利用 仕事で生成AIを使っている人 社内のAI利用ルールを作る人 IT・情報システム・セキュリティ担当者">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">shadow-ai-inventory</span>
-              <div>
-                <p>シャドーAI、まず利用先を棚卸しする</p>
-                <h3>シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-08-26">2026.08.26</time>
-              <span>セキュリティ・権限</span>
-              <span>はじめて</span>
-            </div>
-            <p class="forensics-card-summary">Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。</p>
+            <p class="forensics-card-summary">Googleは、Gemini AppsのKeep Activityがオンの場合、Gemini Liveで共有した音声、ファイル、画像、YouTube動画、カメラ映像、画面共有の動画フレームがGemini Apps Activityに保存されると案内しています。Keep Activityをオフにしても、サービス提供とフィードバック処理のため、会話はアカウントに最長72時間保存され、この活動はGemini Apps Activityには表示されません。また、Gemini Apps ActivityでGemとの会話を削除してもGem自体は削除されず、Liveの活動を削除した場合は関連する音声・文字起こし・動画・画面共有も削除されます。Liveを始める前に、共有する画面、Keep Activity、後で消す対象を一緒に決める記事です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 2</strong>
-              <span>使っているAIと渡している情報を一度確認</span>
+              <span>Gemini Liveの共有前に、Keep Activity・最長72時間保存・削除対象を確認する</span>
             </div>
-            <ul class="forensics-card-audience"><li>仕事で生成AIを使っている人</li><li>社内のAI利用ルールを作る人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>シャドーAI</li><li>Shadow AI</li><li>生成AI</li></ul>
+            <ul class="forensics-card-audience"><li>Gemini Liveで音声・カメラ・画面共有を使う人</li><li>Gemini Appsの履歴と共有データを自分で整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>Gemini Live</li><li>画面共有</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-calm" href="ex1" data-forensics-card data-category="media-literacy" data-level="1" data-difficulty="beginner" data-search-text="引用が付いていても確認終了ではない。AI検索ではリンク先を1回開く AI検索の引用を1回開く OpenAIは公式ヘルプで、ChatGPTは検索や引用を利用できても、誤った日付・事実・引用・研究・参考文献を提示する可能性があると説明しています。初心者が最初に覚えておきたいのは、引用が付いている回答を捨てることではなく、重要な情報だけリンク先を1回開き、「本当にその内容が書いてあるか」「いつの情報か」を見ることです。 情報の見極め はじめて AI検索 ChatGPT 引用 情報源 ハルシネーション 初心者 ChatGPTなどのAI検索を使い始めた人 AIの回答を学校や仕事の調べものに使う人">
+          <a class="forensics-card tone-calm" href="case-20260828-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="一時チャットは「記憶なし」だけではない。開始前に選ぶパーソナライズと保存後の変化 一時チャットは開始前の設定で変わる OpenAIは2026年8月27日、ChatGPTのTemporary Chatで、開始時にパーソナライズの有無を選べるようにしたと案内しました。既定の非パーソナライズは既存Memory、Custom Instructions、Pluginsを使いませんが、パーソナライズを選ぶとそれらを参照して回答を整えられます。どちらのTemporary Chatも新しいMemoryを作らず、保存するまで履歴には出ません。ただし開始後にこの選択は変更できず、保存すると通常チャットになり、アカウントのパーソナライズやモデル改善の設定が適用されます。つまり「一時」と表示されていることだけで決めず、過去の設定や接続ツールを使う必要があるか、保存する可能性があるかを開始前に分けて選ぶ必要があります。 仕事・AI活用 はじめて ChatGPT Temporary Chat Memory Custom Instructions Plugins データ設定 一時チャット 業務利用 ChatGPTで一時的な下書きや相談をする人 過去の好み・カスタム指示・プラグインを使うか迷う人 一時チャットを後から保存することがある人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">source-check</span>
+              <span class="forensics-card-icon" aria-hidden="true">temporary-chat-settings</span>
               <div>
-                <p>AI検索の引用を1回開く</p>
-                <h3>引用が付いていても確認終了ではない。AI検索ではリンク先を1回開く</h3>
+                <p>一時チャットは開始前の設定で変わる</p>
+                <h3>一時チャットは「記憶なし」だけではない。開始前に選ぶパーソナライズと保存後の変化</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-26">2026.08.26</time>
-              <span>情報の見極め</span>
+              <time datetime="2026-08-28">2026.08.28</time>
+              <span>仕事・AI活用</span>
               <span>はじめて</span>
             </div>
-            <p class="forensics-card-summary">OpenAIは公式ヘルプで、ChatGPTは検索や引用を利用できても、誤った日付・事実・引用・研究・参考文献を提示する可能性があると説明しています。初心者が最初に覚えておきたいのは、引用が付いている回答を捨てることではなく、重要な情報だけリンク先を1回開き、「本当にその内容が書いてあるか」「いつの情報か」を見ることです。</p>
+            <p class="forensics-card-summary">OpenAIは2026年8月27日、ChatGPTのTemporary Chatで、開始時にパーソナライズの有無を選べるようにしたと案内しました。既定の非パーソナライズは既存Memory、Custom Instructions、Pluginsを使いませんが、パーソナライズを選ぶとそれらを参照して回答を整えられます。どちらのTemporary Chatも新しいMemoryを作らず、保存するまで履歴には出ません。ただし開始後にこの選択は変更できず、保存すると通常チャットになり、アカウントのパーソナライズやモデル改善の設定が適用されます。つまり「一時」と表示されていることだけで決めず、過去の設定や接続ツールを使う必要があるか、保存する可能性があるかを開始前に分けて選ぶ必要があります。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 1</strong>
-              <span>引用リンクを1回開いて確認</span>
+              <strong>確認レベル 3</strong>
+              <span>開始時設定と保存後の扱いを分けて確認する</span>
             </div>
-            <ul class="forensics-card-audience"><li>ChatGPTなどのAI検索を使い始めた人</li><li>AIの回答を学校や仕事の調べものに使う人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AI検索</li><li>ChatGPT</li><li>引用</li></ul>
+            <ul class="forensics-card-audience"><li>ChatGPTで一時的な下書きや相談をする人</li><li>過去の好み・カスタム指示・プラグインを使うか迷う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>Temporary Chat</li><li>Memory</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

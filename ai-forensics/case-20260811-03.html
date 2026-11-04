@@ -282,70 +282,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-calm" href="case-20260831-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="IPAが閉域AIの実証を公開。導入判断では「外から見えない部分」を先に分けて考える 閉域AIの実証とクラウドAIの判断は分ける IPAは2026年8月31日、オンプレミスの閉域環境でAI基盤を構築し、21件のテストシナリオで安全性と技術的限界を検証した実証成果を公開しました。この実証はクラウドAIを一律に危険と結論づけたものではありません。IPAは、クラウド型生成AIではモデル内部、学習データ、運用体制の多くが利用者に開示されない場合があると説明しています。利用者にとって重要なのは「閉域AIなら安全」「クラウドAIなら危険」と名前だけで決めず、どのデータ処理・認証・監査ログを自組織で確認でき、どこから先が提供者へ委ねられるのかを用途ごとに整理することです。 セキュリティ・権限 標準 IPA 閉域AI クラウドAI AIガバナンス 監査ログ 業務利用 職場で生成AIの導入を検討する人 クラウドAIと社内AIの選び方に悩む管理者">
+          <a class="forensics-card tone-serious" href="case-20260910-04" data-forensics-card data-category="security" data-level="4" data-difficulty="advanced" data-search-text="Notion MCPは「自分に見えるもの全部」で動く。外部AIアプリの許可リストを確認する Notion MCPは外部AIアプリの許可リストで管理する Notionは、Notion MCPを通じて接続した外部AIアプリのツールが、利用者本人のNotion権限で動作し、利用者がアクセスできるものにアクセスできると案内しています。Enterpriseでは、管理者がSettings → Connections → PermissionsのAI appsから、メンバーが接続できる外部AIアプリを許可リスト方式で制限できます。許可リストから外したAIアプリは、過去に接続されていて一覧に残る場合でも、Notionは呼び出しを機能的にブロックすると説明しています。一方、既存トークンを自動で取り消す仕組みではないため、全利用者の接続を切る必要がある時はDisconnect All Usersを使い、利用者は再認証が必要になります。『MCPは便利な検索連携』だけで済ませず、本人権限・許可リスト・一括切断を別々に確認する記事です。 セキュリティ・権限 発展 Notion MCP MCP 外部AIアプリ ChatGPT Cursor 権限管理 NotionをChatGPTやCursorなど外部AIアプリとMCP接続する人 Notion Enterpriseで外部AIアプリを統制する管理者">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">ai-controls-map</span>
+              <span class="forensics-card-icon" aria-hidden="true">notion-mcp-approved-apps</span>
               <div>
-                <p>閉域AIの実証とクラウドAIの判断は分ける</p>
-                <h3>IPAが閉域AIの実証を公開。導入判断では「外から見えない部分」を先に分けて考える</h3>
+                <p>Notion MCPは外部AIアプリの許可リストで管理する</p>
+                <h3>Notion MCPは「自分に見えるもの全部」で動く。外部AIアプリの許可リストを確認する</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-31">2026.08.31</time>
+              <time datetime="2026-09-10">2026.09.10</time>
               <span>セキュリティ・権限</span>
-              <span>標準</span>
+              <span>発展</span>
             </div>
-            <p class="forensics-card-summary">IPAは2026年8月31日、オンプレミスの閉域環境でAI基盤を構築し、21件のテストシナリオで安全性と技術的限界を検証した実証成果を公開しました。この実証はクラウドAIを一律に危険と結論づけたものではありません。IPAは、クラウド型生成AIではモデル内部、学習データ、運用体制の多くが利用者に開示されない場合があると説明しています。利用者にとって重要なのは「閉域AIなら安全」「クラウドAIなら危険」と名前だけで決めず、どのデータ処理・認証・監査ログを自組織で確認でき、どこから先が提供者へ委ねられるのかを用途ごとに整理することです。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 3</strong>
-              <span>用途ごとに管理できる範囲を地図にする</span>
-            </div>
-            <ul class="forensics-card-audience"><li>職場で生成AIの導入を検討する人</li><li>クラウドAIと社内AIの選び方に悩む管理者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>IPA</li><li>閉域AI</li><li>クラウドAI</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-serious" href="case-20260830-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="ChatGPTの強化アカウント保護、設定前に復旧キーを置く場所を決める ChatGPT強化保護は復旧キーから準備する OpenAIは2026年4月30日、ChatGPTの個人アカウント向けに、Advanced Account Securityという任意の強化保護を導入しました。設定するとパスワード、メール・SMSのサインインコード、メールによるアカウント復旧が無効になり、パスキーまたはFIDO対応のセキュリティキーと復旧キーでアクセスを守ります。利用者にとって重要なのは、有効化ボタンを押す前に、端末を失っても使える二つ以上の認証手段と、復旧キーの安全な保管先を用意することです。復旧キーを使うと復旧手続きは始まりますが、セキュリティのためアカウントのロック解除は有効なキーを入力してから48時間後です。すべての認証手段と復旧キーを失うと、通常のメール復旧やサポートによる解除には頼れません。 セキュリティ・権限 標準 ChatGPT Codex アカウントセキュリティ パスキー セキュリティキー 復旧キー 二段階認証 アカウント乗っ取り OpenAI ChatGPTやCodexに仕事・個人の重要な情報を保存している人 パスキーや物理セキュリティキーを使える人 アカウント乗っ取り対策を強めたい人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">chatgpt-advanced-account-security-recovery</span>
-              <div>
-                <p>ChatGPT強化保護は復旧キーから準備する</p>
-                <h3>ChatGPTの強化アカウント保護、設定前に復旧キーを置く場所を決める</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-08-30">2026.08.30</time>
-              <span>セキュリティ・権限</span>
-              <span>標準</span>
-            </div>
-            <p class="forensics-card-summary">OpenAIは2026年4月30日、ChatGPTの個人アカウント向けに、Advanced Account Securityという任意の強化保護を導入しました。設定するとパスワード、メール・SMSのサインインコード、メールによるアカウント復旧が無効になり、パスキーまたはFIDO対応のセキュリティキーと復旧キーでアクセスを守ります。利用者にとって重要なのは、有効化ボタンを押す前に、端末を失っても使える二つ以上の認証手段と、復旧キーの安全な保管先を用意することです。復旧キーを使うと復旧手続きは始まりますが、セキュリティのためアカウントのロック解除は有効なキーを入力してから48時間後です。すべての認証手段と復旧キーを失うと、通常のメール復旧やサポートによる解除には頼れません。</p>
+            <p class="forensics-card-summary">Notionは、Notion MCPを通じて接続した外部AIアプリのツールが、利用者本人のNotion権限で動作し、利用者がアクセスできるものにアクセスできると案内しています。Enterpriseでは、管理者がSettings → Connections → PermissionsのAI appsから、メンバーが接続できる外部AIアプリを許可リスト方式で制限できます。許可リストから外したAIアプリは、過去に接続されていて一覧に残る場合でも、Notionは呼び出しを機能的にブロックすると説明しています。一方、既存トークンを自動で取り消す仕組みではないため、全利用者の接続を切る必要がある時はDisconnect All Usersを使い、利用者は再認証が必要になります。『MCPは便利な検索連携』だけで済ませず、本人権限・許可リスト・一括切断を別々に確認する記事です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 4</strong>
-              <span>二つの認証手段、復旧キーの保管先、無効になる復旧経路を確認する</span>
+              <span>Notion MCPは本人権限・許可リスト・一括切断を分けて管理する</span>
             </div>
-            <ul class="forensics-card-audience"><li>ChatGPTやCodexに仕事・個人の重要な情報を保存している人</li><li>パスキーや物理セキュリティキーを使える人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>Codex</li><li>アカウントセキュリティ</li></ul>
+            <ul class="forensics-card-audience"><li>NotionをChatGPTやCursorなど外部AIアプリとMCP接続する人</li><li>Notion Enterpriseで外部AIアプリを統制する管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Notion MCP</li><li>MCP</li><li>外部AIアプリ</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-calm" href="case-20260828-01" data-forensics-card data-category="health-ai" data-level="2" data-difficulty="beginner" data-search-text="FDAが生成AI搭載医療機器の論点整理を公開。「新ルール決定」ではない FDA文書はまだ新ルールではない 米食品医薬品局（FDA）は2026年8月18日、生成AIを組み込んだ医療機器について、リスク評価、市販前評価、市販後監視などをどう設計するか意見を募るディスカッションペーパーを公開しました。重要なのは、これは新しい規則やガイダンスの決定ではなく、FDA自身が「draft or final guidanceではない」「政策変更を提案・実施するものではない」と明記している点です。さらにFDAが検討対象としているのは生成AIそのものではなく、米国法上のmedical deviceに該当する製品・ソフトウェア機能です。 健康・医療 はじめて FDA 生成AI 医療機器 医療AI GenAI foundation model AIエージェント 市販後監視 規制リテラシー 健康・医療分野のAIサービスを利用する人 「FDA認可」「FDA承認」と書かれたAI製品を見かけた人 医療AIのニュースを読む人">
+          <a class="forensics-card tone-caution" href="case-20260904-01" data-forensics-card data-category="security" data-level="2" data-difficulty="advanced" data-search-text="Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。 セキュリティ・権限 発展 Notion MCP AIアプリ 権限管理 接続解除 ワークスペース管理 NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人 MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">medical-ai-lifecycle</span>
+              <span class="forensics-card-icon" aria-hidden="true">notion-mcp-access-review</span>
               <div>
-                <p>FDA文書はまだ新ルールではない</p>
-                <h3>FDAが生成AI搭載医療機器の論点整理を公開。「新ルール決定」ではない</h3>
+                <p>Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する</p>
+                <h3>Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-28">2026.08.28</time>
-              <span>健康・医療</span>
-              <span>はじめて</span>
+              <time datetime="2026-09-04">2026.09.04</time>
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
             </div>
-            <p class="forensics-card-summary">米食品医薬品局（FDA）は2026年8月18日、生成AIを組み込んだ医療機器について、リスク評価、市販前評価、市販後監視などをどう設計するか意見を募るディスカッションペーパーを公開しました。重要なのは、これは新しい規則やガイダンスの決定ではなく、FDA自身が「draft or final guidanceではない」「政策変更を提案・実施するものではない」と明記している点です。さらにFDAが検討対象としているのは生成AIそのものではなく、米国法上のmedical deviceに該当する製品・ソフトウェア機能です。</p>
+            <p class="forensics-card-summary">Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 2</strong>
-              <span>規制文書の段階と個別製品の許可を分ける</span>
+              <span>Notion MCPは承認解除後に、遮断状態と再認証の要否を分けて確認する</span>
             </div>
-            <ul class="forensics-card-audience"><li>健康・医療分野のAIサービスを利用する人</li><li>「FDA認可」「FDA承認」と書かれたAI製品を見かけた人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>FDA</li><li>生成AI</li><li>医療機器</li></ul>
+            <ul class="forensics-card-audience"><li>NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人</li><li>MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Notion</li><li>MCP</li><li>AIアプリ</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

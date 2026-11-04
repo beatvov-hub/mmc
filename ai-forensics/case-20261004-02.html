@@ -238,70 +238,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-serious" href="case-20261003-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Claudeの企業向けEFSは何を顧客側で管理する？データ保管と不正監視を分けて確認 Claude企業向けEFSの保管と監視 Anthropicは2026年9月1日、ゼロデータ保持（ZDR）と不正利用の検知を組み合わせる企業向け構想「Enterprise Frontier Safeguards（EFS）」を発表しました。利用データはAnthropicではなく顧客が管理するクラウド基盤に保存し、検知システムのシグナルを顧客へ送り、顧客側が確認する設計です。データを長く保持すること自体が目的ではなく、複数セッションやアカウントにまたがる不正の兆候を照合するためと説明されています。提供は2026年秋以降の段階的開始予定で、発表時点では利用可能な完成済みサービスではありません。企業は導入判断時に対応製品、保存先、鍵・アクセス権、アラート確認責任を確かめる必要があります。 セキュリティ・権限 標準 Anthropic Claude Enterprise Frontier Safeguards ゼロデータ保持 企業セキュリティ データ保管 Claudeを企業導入する管理者 AI利用時のログ保管や監視を設計するセキュリティ担当者">
+          <a class="forensics-card tone-caution" href="case-20260914-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Apple IntelligenceでChatGPTに渡す時は、アカウント接続の有無を分けて決める AppleのChatGPT連携はアカウント接続の有無を確認する Appleは、Apple IntelligenceのChatGPT拡張機能を初期状態ではオフにしており、Siri、作文ツール、ビジュアルインテリジェンスなどで使う際に、送信する内容を利用者が選べると案内しています。ChatGPTアカウントを接続せずに使う場合、Apple Accountに結び付く情報はOpenAIへ送られず、OpenAIは依頼を処理する目的以外に情報や応答を保存・モデル学習に使わないとAppleは説明します。一方、ChatGPTアカウントでサインインした場合は、そのアカウントの設定とデータプライバシー方針が適用されます。便利な連携を使う前に、拡張機能のオン・オフだけでなく、アカウント接続の状態を確認する記事です。 セキュリティ・権限 標準 Apple Intelligence ChatGPT Siri 作文ツール アカウント接続 プライバシー iPhone、iPad、MacのApple IntelligenceからChatGPTを使う人 Siriや作文ツールに文書・写真を扱わせる前に、データの扱いを確認したい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">claude-enterprise-frontier-safeguards</span>
+              <span class="forensics-card-icon" aria-hidden="true">apple-chatgpt-account-state</span>
               <div>
-                <p>Claude企業向けEFSの保管と監視</p>
-                <h3>Claudeの企業向けEFSは何を顧客側で管理する？データ保管と不正監視を分けて確認</h3>
+                <p>AppleのChatGPT連携はアカウント接続の有無を確認する</p>
+                <h3>Apple IntelligenceでChatGPTに渡す時は、アカウント接続の有無を分けて決める</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-10-03">2026.10.03</time>
+              <time datetime="2026-09-14">2026.09.14</time>
               <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Anthropicは2026年9月1日、ゼロデータ保持（ZDR）と不正利用の検知を組み合わせる企業向け構想「Enterprise Frontier Safeguards（EFS）」を発表しました。利用データはAnthropicではなく顧客が管理するクラウド基盤に保存し、検知システムのシグナルを顧客へ送り、顧客側が確認する設計です。データを長く保持すること自体が目的ではなく、複数セッションやアカウントにまたがる不正の兆候を照合するためと説明されています。提供は2026年秋以降の段階的開始予定で、発表時点では利用可能な完成済みサービスではありません。企業は導入判断時に対応製品、保存先、鍵・アクセス権、アラート確認責任を確かめる必要があります。</p>
+            <p class="forensics-card-summary">Appleは、Apple IntelligenceのChatGPT拡張機能を初期状態ではオフにしており、Siri、作文ツール、ビジュアルインテリジェンスなどで使う際に、送信する内容を利用者が選べると案内しています。ChatGPTアカウントを接続せずに使う場合、Apple Accountに結び付く情報はOpenAIへ送られず、OpenAIは依頼を処理する目的以外に情報や応答を保存・モデル学習に使わないとAppleは説明します。一方、ChatGPTアカウントでサインインした場合は、そのアカウントの設定とデータプライバシー方針が適用されます。便利な連携を使う前に、拡張機能のオン・オフだけでなく、アカウント接続の状態を確認する記事です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 4</strong>
-              <span>保存責任と監視運用を設計</span>
+              <span>AppleのChatGPT連携は、送る内容とアカウント接続の状態をセットで確認する</span>
             </div>
-            <ul class="forensics-card-audience"><li>Claudeを企業導入する管理者</li><li>AI利用時のログ保管や監視を設計するセキュリティ担当者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Anthropic</li><li>Claude</li><li>Enterprise Frontier Safeguards</li></ul>
+            <ul class="forensics-card-audience"><li>iPhone、iPad、MacのApple IntelligenceからChatGPTを使う人</li><li>Siriや作文ツールに文書・写真を扱わせる前に、データの扱いを確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>ChatGPT</li><li>Siri</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-calm" href="case-20261002-03" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Facebook・InstagramのAIサポートで何を頼める？異議申し立てとログイン復旧の範囲を分ける MetaのAIサポートで頼めることを確認 Metaは2026年3月19日、Facebook・InstagramでAIサポートアシスタントを展開すると発表し、翌日に提供地域の説明を更新しました。Meta AIが利用可能な地域のモバイルアプリやPCのヘルプセンターで、アカウント問題の相談に使えます。Facebook内では、詐欺・なりすましの通報、投稿削除の理由や異議申し立ての確認、プライバシー設定やパスワード変更などの操作を支援すると案内しています。ただし、ログインできない人への支援は米国・カナダの一部ケースから展開中です。利用できる相談と、まだ限定的な復旧支援を分けて考えるための記事です。 セキュリティ・権限 はじめて Facebook Instagram Meta AI サポート 異議申し立て アカウント復旧 FacebookやInstagramのアカウント問題に困っている人 通報や異議申し立ての入口を探している人">
+          <a class="forensics-card tone-calm" href="case-20260907-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Apple Intelligenceは「端末内だけ」とは限らない。Private Cloud Computeの利用履歴を確認する Apple IntelligenceのPrivate Cloud Compute利用を確認する Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」→「プライバシーとセキュリティ」→「Apple Intelligence &amp; PCC Report」で記録期間を選び、端末外で処理された要求のレポートを出力できます。Macにも同様の設定があります。対応するApple Intelligence Extensionsへの要求も記録対象ですが、Face IDやTouch IDが一時的に無効だった場合は最近の要求が反映されない可能性があります。『オンデバイスAI』という説明だけで処理場所を決めつけず、記録の対象と限界を確認する手順を扱います。 セキュリティ・権限 標準 Apple Intelligence iPhone Private Cloud Compute プライバシー オンデバイスAI 利用記録 iPhoneでApple Intelligenceを使い、処理場所を確認したい人 AI機能のクラウド利用を設定と記録から確かめたい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">meta-ai-support</span>
+              <span class="forensics-card-icon" aria-hidden="true">apple-intelligence-private-cloud-report</span>
               <div>
-                <p>MetaのAIサポートで頼めることを確認</p>
-                <h3>Facebook・InstagramのAIサポートで何を頼める？異議申し立てとログイン復旧の範囲を分ける</h3>
+                <p>Apple IntelligenceのPrivate Cloud Compute利用を確認する</p>
+                <h3>Apple Intelligenceは「端末内だけ」とは限らない。Private Cloud Computeの利用履歴を確認する</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-10-02">2026.10.02</time>
+              <time datetime="2026-09-07">2026.09.07</time>
               <span>セキュリティ・権限</span>
-              <span>はじめて</span>
+              <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Metaは2026年3月19日、Facebook・InstagramでAIサポートアシスタントを展開すると発表し、翌日に提供地域の説明を更新しました。Meta AIが利用可能な地域のモバイルアプリやPCのヘルプセンターで、アカウント問題の相談に使えます。Facebook内では、詐欺・なりすましの通報、投稿削除の理由や異議申し立ての確認、プライバシー設定やパスワード変更などの操作を支援すると案内しています。ただし、ログインできない人への支援は米国・カナダの一部ケースから展開中です。利用できる相談と、まだ限定的な復旧支援を分けて考えるための記事です。</p>
+            <p class="forensics-card-summary">Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」→「プライバシーとセキュリティ」→「Apple Intelligence &amp; PCC Report」で記録期間を選び、端末外で処理された要求のレポートを出力できます。Macにも同様の設定があります。対応するApple Intelligence Extensionsへの要求も記録対象ですが、Face IDやTouch IDが一時的に無効だった場合は最近の要求が反映されない可能性があります。『オンデバイスAI』という説明だけで処理場所を決めつけず、記録の対象と限界を確認する手順を扱います。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 3</strong>
-              <span>相談と直接操作・復旧を区別</span>
+              <span>Apple Intelligenceのクラウド利用は、設定のレポートで確認できる</span>
             </div>
-            <ul class="forensics-card-audience"><li>FacebookやInstagramのアカウント問題に困っている人</li><li>通報や異議申し立ての入口を探している人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Facebook</li><li>Instagram</li><li>Meta AI</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="case-20261001-02" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Meta Museに作業を任せる前に、接続権限・承認・行動履歴を分けて見る Museの権限と行動履歴を確認 Metaは2026年9月8日、個人向けAIエージェントMuseを発表し、米国でiOS・Android・Webへ展開中と案内しています。Museでは接続アプリごとにアクセス範囲を選び、メールを読むだけか送信も許すかを分けられます。メール送信や購入などの機微な操作は事前確認を求め、実行済み・予定中の行動を監査履歴で見られるとMetaは説明します。接続の変更・解除、学習利用からのオプトアウト、覚えた情報の忘却も案内されています。一方、さらに強い暗号化をうたうMuse Confidential VMは今後の予定で、現行機能と混同しないことが重要です。日本での一般提供は公式発表から確認できないため、提供地域と権限の両方を確認する記事です。 セキュリティ・権限 標準 Meta Muse AIエージェント 接続権限 監査履歴 事前承認 Meta Museの提供地域でAIエージェントを使う人 メール送信や購入をAIに任せる条件を考える人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">muse-agent-permissions</span>
-              <div>
-                <p>Museの権限と行動履歴を確認</p>
-                <h3>Meta Museに作業を任せる前に、接続権限・承認・行動履歴を分けて見る</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-10-01">2026.10.01</time>
-              <span>セキュリティ・権限</span>
-              <span>標準</span>
-            </div>
-            <p class="forensics-card-summary">Metaは2026年9月8日、個人向けAIエージェントMuseを発表し、米国でiOS・Android・Webへ展開中と案内しています。Museでは接続アプリごとにアクセス範囲を選び、メールを読むだけか送信も許すかを分けられます。メール送信や購入などの機微な操作は事前確認を求め、実行済み・予定中の行動を監査履歴で見られるとMetaは説明します。接続の変更・解除、学習利用からのオプトアウト、覚えた情報の忘却も案内されています。一方、さらに強い暗号化をうたうMuse Confidential VMは今後の予定で、現行機能と混同しないことが重要です。日本での一般提供は公式発表から確認できないため、提供地域と権限の両方を確認する記事です。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 4</strong>
-              <span>権限、承認、監査履歴を別々に確認する</span>
-            </div>
-            <ul class="forensics-card-audience"><li>Meta Museの提供地域でAIエージェントを使う人</li><li>メール送信や購入をAIに任せる条件を考える人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Meta Muse</li><li>AIエージェント</li><li>接続権限</li></ul>
+            <ul class="forensics-card-audience"><li>iPhoneでApple Intelligenceを使い、処理場所を確認したい人</li><li>AI機能のクラウド利用を設定と記録から確かめたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>iPhone</li><li>Private Cloud Compute</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

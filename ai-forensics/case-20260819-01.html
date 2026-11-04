@@ -284,70 +284,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-serious" href="case-20260818-02" data-forensics-card data-category="security" data-level="5" data-difficulty="beginner" data-search-text="「AIが攻撃してくるなら、もう防げない？」台湾政府の最新事例が示した“入口は意外といつもの資安” AI攻撃でも、基本対策はまだ効く 2026年8月13日、台湾のデジタル発展部・資通安全署は、7月に政府機関を狙った国外由来の異常なサイバー攻撃を確認し、攻撃者がOpenClawなどのAI Agentを補助的に利用した「人間＋AIエージェント」の混合型攻撃だったと発表しました。AIエージェントは複数の攻撃手法を素早くつなぎ、バックアップ環境やテスト環境などの副次的なシステムを足掛かりとして攻撃を拡大できるため、攻撃速度・規模・コスト面で攻撃者を支援すると説明されています。一方、台湾国家資通安全研究院は同じ攻撃を分析し、「AI Agentによって攻撃が自動化されても、弱いパスワード、システムの脆弱性、機密情報の露出といった既存リスクの本質は変わらない」と明記しています。つまり「AIを使った攻撃＝未知の方法で防御不能」ではありません。AIによって攻撃が速くなるからこそ、MFA、アップデート、不要な公開サービスの停止、最小権限、ログ監視など、これまでの基本対策を早く・継続的に行う価値がむしろ高まっています。 セキュリティ・権限 はじめて AIエージェント サイバー攻撃 台湾 OpenClaw MFA 脆弱性管理 最小権限 テスト環境 認証情報 サイバーセキュリティ 生成AIやAIエージェントのニュースを見て不安を感じる人 会社でAIやクラウドサービスを利用する人 社内システムやWebサイトを管理する人 AI時代のサイバーセキュリティを知りたい人 中小企業や個人事業でIT管理を担当する人">
+          <a class="forensics-card tone-serious" href="case-20260814-05" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「GitHub IssueをAIに自動対応させよう」が入口になる？　公開コメントを“命令”として読ませない設計 AIに公開Issueを読ませるなら、権限は最小限に 2026年8月6日、Black Hat USA 2026に合わせてNovee Securityが、Claude Code、Gemini CLI、CodexをGitHub上の自動処理へ組み込んだ環境を対象とするセキュリティ研究を公開しました。研究では、第三者が投稿できるGitHub Issueなどの内容をAIエージェントが読み、その後にコマンド実行やファイル操作へ進む構成では、悪意ある文章が単なる「相談内容」ではなくエージェントへの指示として働く可能性が示されました。([[Novee](https://novee.security/blog/critical-flaws-in-anthropic-google-and-openais-coding-agents/)][1]) GoogleのGemini CLIについては、ユーザー入力を扱う自動処理でツール制限やワークスペース信頼に問題があった脆弱性がGitHub Advisory DatabaseでCritical・CVSS 10.0として公開され、修正版が提供されています。([[GitHub](https://github.com/advisories/GHSA-wpqr-6v78-jr5g)][2]) OpenAIのCodex Action公式セキュリティ文書も、Issue、Pull Request、コミットメッセージ、AGENTS.md、スクリーンショットなどを「信頼できない入力」として扱い、利用者を限定し、ファイル・ネットワーク・コマンド権限を最小化するよう案内しています。([[GitHub](https://github.com/openai/codex-action/blob/master/docs/security.md)][3]) AIコーディングエージェントを怖がる必要はありません。重要なのは「何を読ませるか」と「読んだAIに何を実行させるか」を分けることです。 セキュリティ・権限 標準 AIコーディングエージェント GitHub Actions Codex Claude Code Gemini CLI プロンプトインジェクション CI/CD GITHUB_TOKEN 最小権限 Human in the Loop Codex・Claude Code・Gemini CLIなどのAIコーディングエージェントを使う人 GitHub IssueやPull RequestをAIで自動処理している人 AIにコード修正やCI/CD作業を任せたい人 GitHub ActionsとAIを組み合わせる開発者 AIエージェントの自動化に興味がある人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">ai-agent-cyber-defense</span>
+              <span class="forensics-card-icon" aria-hidden="true">github-agent-permission-gate</span>
               <div>
-                <p>AI攻撃でも、基本対策はまだ効く</p>
-                <h3>「AIが攻撃してくるなら、もう防げない？」台湾政府の最新事例が示した“入口は意外といつもの資安”</h3>
+                <p>AIに公開Issueを読ませるなら、権限は最小限に</p>
+                <h3>「GitHub IssueをAIに自動対応させよう」が入口になる？　公開コメントを“命令”として読ませない設計</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-18">2026.08.18</time>
+              <time datetime="2026-08-14">2026.08.14</time>
               <span>セキュリティ・権限</span>
-              <span>はじめて</span>
+              <span>標準</span>
             </div>
-            <p class="forensics-card-summary">2026年8月13日、台湾のデジタル発展部・資通安全署は、7月に政府機関を狙った国外由来の異常なサイバー攻撃を確認し、攻撃者がOpenClawなどのAI Agentを補助的に利用した「人間＋AIエージェント」の混合型攻撃だったと発表しました。AIエージェントは複数の攻撃手法を素早くつなぎ、バックアップ環境やテスト環境などの副次的なシステムを足掛かりとして攻撃を拡大できるため、攻撃速度・規模・コスト面で攻撃者を支援すると説明されています。一方、台湾国家資通安全研究院は同じ攻撃を分析し、「AI Agentによって攻撃が自動化されても、弱いパスワード、システムの脆弱性、機密情報の露出といった既存リスクの本質は変わらない」と明記しています。つまり「AIを使った攻撃＝未知の方法で防御不能」ではありません。AIによって攻撃が速くなるからこそ、MFA、アップデート、不要な公開サービスの停止、最小権限、ログ監視など、これまでの基本対策を早く・継続的に行う価値がむしろ高まっています。</p>
+            <p class="forensics-card-summary">2026年8月6日、Black Hat USA 2026に合わせてNovee Securityが、Claude Code、Gemini CLI、CodexをGitHub上の自動処理へ組み込んだ環境を対象とするセキュリティ研究を公開しました。研究では、第三者が投稿できるGitHub Issueなどの内容をAIエージェントが読み、その後にコマンド実行やファイル操作へ進む構成では、悪意ある文章が単なる「相談内容」ではなくエージェントへの指示として働く可能性が示されました。([[Novee](https://novee.security/blog/critical-flaws-in-anthropic-google-and-openais-coding-agents/)][1]) GoogleのGemini CLIについては、ユーザー入力を扱う自動処理でツール制限やワークスペース信頼に問題があった脆弱性がGitHub Advisory DatabaseでCritical・CVSS 10.0として公開され、修正版が提供されています。([[GitHub](https://github.com/advisories/GHSA-wpqr-6v78-jr5g)][2]) OpenAIのCodex Action公式セキュリティ文書も、Issue、Pull Request、コミットメッセージ、AGENTS.md、スクリーンショットなどを「信頼できない入力」として扱い、利用者を限定し、ファイル・ネットワーク・コマンド権限を最小化するよう案内しています。([[GitHub](https://github.com/openai/codex-action/blob/master/docs/security.md)][3]) AIコーディングエージェントを怖がる必要はありません。重要なのは「何を読ませるか」と「読んだAIに何を実行させるか」を分けることです。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 5</strong>
-              <span>「AI攻撃」の見出しより、実際に使われた入口を確認</span>
+              <span>公開入力と実行権限を分離して確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>生成AIやAIエージェントのニュースを見て不安を感じる人</li><li>会社でAIやクラウドサービスを利用する人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>サイバー攻撃</li><li>台湾</li></ul>
+            <ul class="forensics-card-audience"><li>Codex・Claude Code・Gemini CLIなどのAIコーディングエージェントを使う人</li><li>GitHub IssueやPull RequestをAIで自動処理している人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIコーディングエージェント</li><li>GitHub Actions</li><li>Codex</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-serious" href="case-20260817-01" data-forensics-card data-category="security" data-level="5" data-difficulty="beginner" data-search-text="人間には普通のメール、AIには「命令」かもしれない　Microsoftがメール内プロンプトインジェクション対策を強化 AIにメールを読ませるなら「本文＝指示」ではない Microsoftは2026年7月、Microsoft Defender for Office 365に、受信メールへ埋め込まれたプロンプトインジェクションを配信前に検出・隔離する機能をパブリックプレビューとして追加しました。関連ドキュメントは8月14日にも更新されています。 従来のフィッシングは人間をだましてリンクをクリックさせることが中心でしたが、メールをAIが要約・分類・処理する環境では、攻撃者が「メールを読むAI」を直接だますことも攻撃経路になります。Microsoftは、白文字、画面外のテキスト、引用返信、添付ファイル、難読化した文字列など、人間には見えにくい場所へAI向けの命令を埋め込む手法を説明しています。 OpenAIも、外部コンテンツ内の指示によってAIエージェントへユーザーが望まない行動を取らせるプロンプトインジェクションを、エージェント時代の重要なセキュリティ課題として扱っています。 AIにメールを読ませること自体を避ける必要はありません。重要なのは「メールは参考情報であって、AIへの新しい命令ではない」と扱い、送信・外部共有・機密情報取得などの操作には権限制限や確認を残すことです。 セキュリティ・権限 はじめて プロンプトインジェクション メールセキュリティ Microsoft Defender Microsoft 365 Copilot AIエージェント 間接プロンプトインジェクション 権限管理 メール要約 Human in the Loop 情報漏えい対策 CopilotやChatGPTなどでメールを要約する人 AIに受信メールの整理や返信案作成を任せる人 AIエージェントを仕事で使う人 会社で生成AIの導入や運用を担当する人 メールとAIを連携する自動化に興味がある人">
+          <a class="forensics-card tone-caution" href="case-20260913-03" data-forensics-card data-category="work-use" data-level="4" data-difficulty="advanced" data-search-text="GitHub Copilot CLIの「このリポジトリでは許可」を放置しない。保存済み権限を戻す Copilot CLIの保存済み権限は作業後に戻す GitHub Copilot CLIは、ファイルの読み取りや検索などの読み取り専用操作を自動で許可する一方、ファイル編集、破壊的なシェルコマンド、URLアクセスなどは明示的な許可を求めます。作業中に「このリポジトリでは今後確認しない」などを選ぶと、許可は既定でpermissions-config.jsonに保存され、リポジトリのルートまたは作業フォルダに適用されます。URLの恒久許可はsettings.jsonに保存され、全セッションに適用されます。GitHubは、すべてを許可する--allow-allや--yoloを隔離環境以外で使わないよう強く勧めています。AIに任せる作業の終了時に、残った許可をリセットする運用を扱う記事です。 仕事・AI活用 発展 GitHub Copilot Copilot CLI AIエージェント 権限管理 シェル操作 開発環境 GitHub Copilot CLIでコード作成や調査をする人 AIエージェントにシェル実行・ファイル編集・URLアクセスを許可する開発者">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">email-prompt-injection-shield</span>
+              <span class="forensics-card-icon" aria-hidden="true">copilot-cli-permission-reset</span>
               <div>
-                <p>AIにメールを読ませるなら「本文＝指示」ではない</p>
-                <h3>人間には普通のメール、AIには「命令」かもしれない　Microsoftがメール内プロンプトインジェクション対策を強化</h3>
+                <p>Copilot CLIの保存済み権限は作業後に戻す</p>
+                <h3>GitHub Copilot CLIの「このリポジトリでは許可」を放置しない。保存済み権限を戻す</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-17">2026.08.17</time>
-              <span>セキュリティ・権限</span>
-              <span>はじめて</span>
-            </div>
-            <p class="forensics-card-summary">Microsoftは2026年7月、Microsoft Defender for Office 365に、受信メールへ埋め込まれたプロンプトインジェクションを配信前に検出・隔離する機能をパブリックプレビューとして追加しました。関連ドキュメントは8月14日にも更新されています。 従来のフィッシングは人間をだましてリンクをクリックさせることが中心でしたが、メールをAIが要約・分類・処理する環境では、攻撃者が「メールを読むAI」を直接だますことも攻撃経路になります。Microsoftは、白文字、画面外のテキスト、引用返信、添付ファイル、難読化した文字列など、人間には見えにくい場所へAI向けの命令を埋め込む手法を説明しています。 OpenAIも、外部コンテンツ内の指示によってAIエージェントへユーザーが望まない行動を取らせるプロンプトインジェクションを、エージェント時代の重要なセキュリティ課題として扱っています。 AIにメールを読ませること自体を避ける必要はありません。重要なのは「メールは参考情報であって、AIへの新しい命令ではない」と扱い、送信・外部共有・機密情報取得などの操作には権限制限や確認を残すことです。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 5</strong>
-              <span>外部コンテンツとAIの操作権限を分離</span>
-            </div>
-            <ul class="forensics-card-audience"><li>CopilotやChatGPTなどでメールを要約する人</li><li>AIに受信メールの整理や返信案作成を任せる人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>プロンプトインジェクション</li><li>メールセキュリティ</li><li>Microsoft Defender</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-friendly" href="case-20260817-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="「AIツールを全員に配ったのに、なぜ定着しない？」　Microsoft数万人調査で見えた“隣の人が使っている”効果 AI導入は「配布数」より「実際の使い方」を見る 2026年7月1日に公開されたMicrosoftのエンジニア数万人を対象とする研究では、Claude CodeとGitHub Copilot CLIの社内展開を分析した結果、最初の利用は年齢や属性よりも、周囲の同僚が使っていることなど社会的なつながりを通じて広がる傾向が確認されました。継続利用は、もともとのコーディング活動量との関連が強く、ツールを導入した人では、研究上の推定でマージされたPull Request数が約24％増加しました。ただし研究者自身も、Pull Request数は作業量の代理指標であり、ソフトウェアの品質や顧客価値そのものを表すわけではないと明記しています。 Microsoft自身のAIエージェント導入ガイドでも、初期展開で「同僚が実際に使っている姿」の影響が大きかったとして、社内チャンピオン制度、成功事例の共有、日常業務への組み込みを推奨しています。 つまりAI導入で重要なのは、アカウントを配った人数より「どんな仕事で役に立ったかを周囲が見られる状態」を作ることです。 仕事・AI活用 はじめて AI導入 AIエージェント Claude Code GitHub Copilot CLI 社内AI活用 生産性 AI研修 チェンジマネジメント AIチャンピオン 仕事の再設計 会社でChatGPT・Copilot・Claudeなどを導入している人 AI導入や社内研修を担当する人 AIツールを渡されたが使い方が定まっていない人 Codex・Claude Code・Copilot CLIなどのAIエージェントを仕事で使う人 AI活用の成果をどう評価するか悩んでいる管理職">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">peer-ai-adoption-workflow</span>
-              <div>
-                <p>AI導入は「配布数」より「実際の使い方」を見る</p>
-                <h3>「AIツールを全員に配ったのに、なぜ定着しない？」　Microsoft数万人調査で見えた“隣の人が使っている”効果</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-08-17">2026.08.17</time>
+              <time datetime="2026-09-13">2026.09.13</time>
               <span>仕事・AI活用</span>
-              <span>はじめて</span>
+              <span>発展</span>
             </div>
-            <p class="forensics-card-summary">2026年7月1日に公開されたMicrosoftのエンジニア数万人を対象とする研究では、Claude CodeとGitHub Copilot CLIの社内展開を分析した結果、最初の利用は年齢や属性よりも、周囲の同僚が使っていることなど社会的なつながりを通じて広がる傾向が確認されました。継続利用は、もともとのコーディング活動量との関連が強く、ツールを導入した人では、研究上の推定でマージされたPull Request数が約24％増加しました。ただし研究者自身も、Pull Request数は作業量の代理指標であり、ソフトウェアの品質や顧客価値そのものを表すわけではないと明記しています。 Microsoft自身のAIエージェント導入ガイドでも、初期展開で「同僚が実際に使っている姿」の影響が大きかったとして、社内チャンピオン制度、成功事例の共有、日常業務への組み込みを推奨しています。 つまりAI導入で重要なのは、アカウントを配った人数より「どんな仕事で役に立ったかを周囲が見られる状態」を作ることです。</p>
+            <p class="forensics-card-summary">GitHub Copilot CLIは、ファイルの読み取りや検索などの読み取り専用操作を自動で許可する一方、ファイル編集、破壊的なシェルコマンド、URLアクセスなどは明示的な許可を求めます。作業中に「このリポジトリでは今後確認しない」などを選ぶと、許可は既定でpermissions-config.jsonに保存され、リポジトリのルートまたは作業フォルダに適用されます。URLの恒久許可はsettings.jsonに保存され、全セッションに適用されます。GitHubは、すべてを許可する--allow-allや--yoloを隔離環境以外で使わないよう強く勧めています。AIに任せる作業の終了時に、残った許可をリセットする運用を扱う記事です。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 3</strong>
-              <span>導入数ではなく実際の業務変化を確認</span>
+              <strong>確認レベル 4</strong>
+              <span>Copilot CLIの許可は、作業後に保存先と適用範囲まで戻す</span>
             </div>
-            <ul class="forensics-card-audience"><li>会社でChatGPT・Copilot・Claudeなどを導入している人</li><li>AI導入や社内研修を担当する人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AI導入</li><li>AIエージェント</li><li>Claude Code</li></ul>
+            <ul class="forensics-card-audience"><li>GitHub Copilot CLIでコード作成や調査をする人</li><li>AIエージェントにシェル実行・ファイル編集・URLアクセスを許可する開発者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>GitHub Copilot</li><li>Copilot CLI</li><li>AIエージェント</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

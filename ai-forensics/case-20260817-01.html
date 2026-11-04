@@ -278,70 +278,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-friendly" href="case-20260815-01" data-forensics-card data-category="work-use" data-level="4" data-difficulty="beginner" data-search-text="AIに「8時間分の仕事」を任せる時代へ　長い仕事ほど“完成条件”を先に決める 長時間タスクは「何を作るか」より「どこで終わるか」を決める OpenAIが2026年6月25日に公開したCodex利用分析では、2026年5月時点で調査対象となった個人ユーザーの80.6％が「人間なら30分超かかる」と推定される仕事を少なくとも1件Codexへ依頼し、70.2％は1時間超、25.6％は8時間超に相当する仕事を依頼していました。([[OpenAI](https://openai.com/ja-JP/index/how-agents-are-transforming-work/)][1]) AI利用が「質問して答えをもらう」段階から、複数工程をまとめて任せる段階へ進みつつあります。一方、仕事が長くなるほど「何を頼んだか」より「何をもって完了とするか」が重要になります。OpenAIの業務向けガイドも、エージェントへ仕事を渡す際には文脈、期待値、出力形式を明示し、完成後に品質・完全性・引用などを人間が確認することを勧めています。 AIへ長い仕事を任せること自体を怖がる必要はありません。むしろ、終了条件と確認ポイントを決めることで、長時間タスクほどAIの利点を活かしやすくなります。 仕事・AI活用 はじめて AIエージェント Codex 仕事の委任 業務設計 完成条件 Human in the Loop AIレビュー 長時間タスク プロンプト設計 業務効率化 ChatGPT・Codex・Claudeなどへ複数工程の仕事を任せる人 AIエージェントを業務へ取り入れたい人 調査・資料作成・データ整理をAIへ委任する人 AIへ仕事を任せた後の確認方法に悩んでいる人">
+          <a class="forensics-card tone-caution" href="case-20261013-03" data-forensics-card data-category="security" data-level="4" data-difficulty="advanced" data-search-text="メールをAIに読ませる前に　Microsoft Defenderのプロンプト注入検知の範囲 メール経由のAI攻撃を検知する MicrosoftはMicrosoft Defender for Office 365 Plan 2の文書で、受信メール内のプロンプト注入をAIアシスタントが読む前にメール検査の段階で検知すると説明しています。本文だけでなく、HTMLの隠し文字、引用・転送されたスレッド、難読化された部分なども検査対象で、検知時は既存の高信頼フィッシング判定に新しい検知技術名が付く仕組みです。ただし、すべての命令文を遮断する一般的な注入検出器ではなく、データ流出やシステムプロンプト・利用可能なツールの開示を狙う攻撃など、メール段階で信頼性高く識別できる範囲に焦点を当てます。モデル実行時の権限・接続データに依存する攻撃には、AI側の防御も必要です。 セキュリティ・権限 発展 プロンプトインジェクション メールセキュリティ Microsoft Defender AIエージェント Microsoft 365 権限管理 Microsoft 365のセキュリティ管理者 メールをAIアシスタントで処理する組織">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">agent-completion-criteria-check</span>
+              <span class="forensics-card-icon" aria-hidden="true">email-prompt-defense</span>
               <div>
-                <p>長時間タスクは「何を作るか」より「どこで終わるか」を決める</p>
-                <h3>AIに「8時間分の仕事」を任せる時代へ　長い仕事ほど“完成条件”を先に決める</h3>
+                <p>メール経由のAI攻撃を検知する</p>
+                <h3>メールをAIに読ませる前に　Microsoft Defenderのプロンプト注入検知の範囲</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-15">2026.08.15</time>
-              <span>仕事・AI活用</span>
-              <span>はじめて</span>
+              <time datetime="2026-10-13">2026.10.13</time>
+              <span>セキュリティ・権限</span>
+              <span>発展</span>
             </div>
-            <p class="forensics-card-summary">OpenAIが2026年6月25日に公開したCodex利用分析では、2026年5月時点で調査対象となった個人ユーザーの80.6％が「人間なら30分超かかる」と推定される仕事を少なくとも1件Codexへ依頼し、70.2％は1時間超、25.6％は8時間超に相当する仕事を依頼していました。([[OpenAI](https://openai.com/ja-JP/index/how-agents-are-transforming-work/)][1]) AI利用が「質問して答えをもらう」段階から、複数工程をまとめて任せる段階へ進みつつあります。一方、仕事が長くなるほど「何を頼んだか」より「何をもって完了とするか」が重要になります。OpenAIの業務向けガイドも、エージェントへ仕事を渡す際には文脈、期待値、出力形式を明示し、完成後に品質・完全性・引用などを人間が確認することを勧めています。 AIへ長い仕事を任せること自体を怖がる必要はありません。むしろ、終了条件と確認ポイントを決めることで、長時間タスクほどAIの利点を活かしやすくなります。</p>
+            <p class="forensics-card-summary">MicrosoftはMicrosoft Defender for Office 365 Plan 2の文書で、受信メール内のプロンプト注入をAIアシスタントが読む前にメール検査の段階で検知すると説明しています。本文だけでなく、HTMLの隠し文字、引用・転送されたスレッド、難読化された部分なども検査対象で、検知時は既存の高信頼フィッシング判定に新しい検知技術名が付く仕組みです。ただし、すべての命令文を遮断する一般的な注入検出器ではなく、データ流出やシステムプロンプト・利用可能なツールの開示を狙う攻撃など、メール段階で信頼性高く識別できる範囲に焦点を当てます。モデル実行時の権限・接続データに依存する攻撃には、AI側の防御も必要です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 4</strong>
-              <span>依頼前に完成条件、終了後に品質確認</span>
+              <span>メール入口とAI実行時の二層で確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>ChatGPT・Codex・Claudeなどへ複数工程の仕事を任せる人</li><li>AIエージェントを業務へ取り入れたい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>Codex</li><li>仕事の委任</li></ul>
+            <ul class="forensics-card-audience"><li>Microsoft 365のセキュリティ管理者</li><li>メールをAIアシスタントで処理する組織</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>プロンプトインジェクション</li><li>メールセキュリティ</li><li>Microsoft Defender</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-serious" href="case-20260814-02" data-forensics-card data-category="health-ai" data-level="5" data-difficulty="beginner" data-search-text="AIが「専門家っぽく」話しても、資格まであるわけじゃない　米国で“AIと人間を明示する”法案にAMAが支持 AIの肩書きより「誰が責任を持つ回答か」を見る American Medical Association（AMA）は2026年8月14日、米上院に提出されている「Senior Chatbot Protection Act of 2026」への支持を改めて表明しました。この法案は7月23日に提出されたもので、AIチャットボットが人間や資格を持つ専門家であるかのように表示することを防ぎ、医療・法律・金融など重要な判断に関わる相談では「AIは資格を持つ専門家ではなく、回答だけを根拠に判断しないこと」を利用者へ示す仕組みを求めています。([[American Medical Association](https://www.ama-assn.org/health-care-advocacy/advocacy-update/aug-14-2026-national-advocacy-update?utm_source=chatgpt.com)][1]) 重要なのは、これは現時点で成立した法律ではなく、上院委員会へ付託されている法案だという点です。([[GovInfo](https://www.govinfo.gov/app/details/BILLS-119s5117is?utm_source=chatgpt.com)][2]) AIは医療用語の説明や診察準備には便利ですが、文章が専門的で自信に満ちていることと、その回答に医療資格や診療責任があることは別です。 健康・医療 はじめて AIチャットボット 健康相談 Senior Chatbot Protection Act 高齢者 医療AI 透明性 専門家資格 AIリテラシー プライバシー Human in the Loop AIへ健康や薬について質問する人 家族の健康相談にAIを使う人 高齢の家族へAIチャットボットを勧める人 AIの回答が専門的だと信用しやすい人">
+          <a class="forensics-card tone-caution" href="case-20260808-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="「このページを要約して」でAIが別の操作を始める？　AIブラウザを狙うプロンプトインジェクション AIブラウザには「読ませる情報」と「任せる権限」を分ける AIブラウザは、ページを読むだけでなく、リンクを開く、フォームへ入力する、メールを送るなどの操作まで代行できるようになっています。しかしWebページ、メール、カレンダー招待などにAI向けの悪意ある指示が埋め込まれていると、AIが利用者の指示と混同して意図しない操作を行う「間接プロンプトインジェクション」が起こる可能性があります。2026年8月のBlack Hat USAでは、主要なAIブラウザやブラウザ連携AIを対象にした攻撃実証が報告されました。ただし、これはAIブラウザが触れただけで必ず乗っ取られるという話ではありません。ログイン範囲や権限を絞り、送信・購入・設定変更などの重要操作を人間が確認することで、便利さを残しながらリスクを下げられます。 セキュリティ・権限 標準 AIブラウザ AIエージェント プロンプトインジェクション サイバーセキュリティ ChatGPT agent Claude Perplexity Comet OWASP AIブラウザやAIエージェントを使う人 メールやWebページの要約をAIへ任せる人 AIに買い物やフォーム入力を任せたい人 生成AIを仕事の自動化へ使う人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">ai-professional-identity-check</span>
+              <span class="forensics-card-icon" aria-hidden="true">agent-permission-shield</span>
               <div>
-                <p>AIの肩書きより「誰が責任を持つ回答か」を見る</p>
-                <h3>AIが「専門家っぽく」話しても、資格まであるわけじゃない　米国で“AIと人間を明示する”法案にAMAが支持</h3>
+                <p>AIブラウザには「読ませる情報」と「任せる権限」を分ける</p>
+                <h3>「このページを要約して」でAIが別の操作を始める？　AIブラウザを狙うプロンプトインジェクション</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-14">2026.08.14</time>
-              <span>健康・医療</span>
-              <span>はじめて</span>
-            </div>
-            <p class="forensics-card-summary">American Medical Association（AMA）は2026年8月14日、米上院に提出されている「Senior Chatbot Protection Act of 2026」への支持を改めて表明しました。この法案は7月23日に提出されたもので、AIチャットボットが人間や資格を持つ専門家であるかのように表示することを防ぎ、医療・法律・金融など重要な判断に関わる相談では「AIは資格を持つ専門家ではなく、回答だけを根拠に判断しないこと」を利用者へ示す仕組みを求めています。([[American Medical Association](https://www.ama-assn.org/health-care-advocacy/advocacy-update/aug-14-2026-national-advocacy-update?utm_source=chatgpt.com)][1]) 重要なのは、これは現時点で成立した法律ではなく、上院委員会へ付託されている法案だという点です。([[GovInfo](https://www.govinfo.gov/app/details/BILLS-119s5117is?utm_source=chatgpt.com)][2]) AIは医療用語の説明や診察準備には便利ですが、文章が専門的で自信に満ちていることと、その回答に医療資格や診療責任があることは別です。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 5</strong>
-              <span>医療の重要判断は資格を持つ専門家へ確認</span>
-            </div>
-            <ul class="forensics-card-audience"><li>AIへ健康や薬について質問する人</li><li>家族の健康相談にAIを使う人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AIチャットボット</li><li>健康相談</li><li>Senior Chatbot Protection Act</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-serious" href="case-20260814-05" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「GitHub IssueをAIに自動対応させよう」が入口になる？　公開コメントを“命令”として読ませない設計 AIに公開Issueを読ませるなら、権限は最小限に 2026年8月6日、Black Hat USA 2026に合わせてNovee Securityが、Claude Code、Gemini CLI、CodexをGitHub上の自動処理へ組み込んだ環境を対象とするセキュリティ研究を公開しました。研究では、第三者が投稿できるGitHub Issueなどの内容をAIエージェントが読み、その後にコマンド実行やファイル操作へ進む構成では、悪意ある文章が単なる「相談内容」ではなくエージェントへの指示として働く可能性が示されました。([[Novee](https://novee.security/blog/critical-flaws-in-anthropic-google-and-openais-coding-agents/)][1]) GoogleのGemini CLIについては、ユーザー入力を扱う自動処理でツール制限やワークスペース信頼に問題があった脆弱性がGitHub Advisory DatabaseでCritical・CVSS 10.0として公開され、修正版が提供されています。([[GitHub](https://github.com/advisories/GHSA-wpqr-6v78-jr5g)][2]) OpenAIのCodex Action公式セキュリティ文書も、Issue、Pull Request、コミットメッセージ、AGENTS.md、スクリーンショットなどを「信頼できない入力」として扱い、利用者を限定し、ファイル・ネットワーク・コマンド権限を最小化するよう案内しています。([[GitHub](https://github.com/openai/codex-action/blob/master/docs/security.md)][3]) AIコーディングエージェントを怖がる必要はありません。重要なのは「何を読ませるか」と「読んだAIに何を実行させるか」を分けることです。 セキュリティ・権限 標準 AIコーディングエージェント GitHub Actions Codex Claude Code Gemini CLI プロンプトインジェクション CI/CD GITHUB_TOKEN 最小権限 Human in the Loop Codex・Claude Code・Gemini CLIなどのAIコーディングエージェントを使う人 GitHub IssueやPull RequestをAIで自動処理している人 AIにコード修正やCI/CD作業を任せたい人 GitHub ActionsとAIを組み合わせる開発者 AIエージェントの自動化に興味がある人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">github-agent-permission-gate</span>
-              <div>
-                <p>AIに公開Issueを読ませるなら、権限は最小限に</p>
-                <h3>「GitHub IssueをAIに自動対応させよう」が入口になる？　公開コメントを“命令”として読ませない設計</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-08-14">2026.08.14</time>
+              <time datetime="2026-08-08">2026.08.08</time>
               <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">2026年8月6日、Black Hat USA 2026に合わせてNovee Securityが、Claude Code、Gemini CLI、CodexをGitHub上の自動処理へ組み込んだ環境を対象とするセキュリティ研究を公開しました。研究では、第三者が投稿できるGitHub Issueなどの内容をAIエージェントが読み、その後にコマンド実行やファイル操作へ進む構成では、悪意ある文章が単なる「相談内容」ではなくエージェントへの指示として働く可能性が示されました。([[Novee](https://novee.security/blog/critical-flaws-in-anthropic-google-and-openais-coding-agents/)][1]) GoogleのGemini CLIについては、ユーザー入力を扱う自動処理でツール制限やワークスペース信頼に問題があった脆弱性がGitHub Advisory DatabaseでCritical・CVSS 10.0として公開され、修正版が提供されています。([[GitHub](https://github.com/advisories/GHSA-wpqr-6v78-jr5g)][2]) OpenAIのCodex Action公式セキュリティ文書も、Issue、Pull Request、コミットメッセージ、AGENTS.md、スクリーンショットなどを「信頼できない入力」として扱い、利用者を限定し、ファイル・ネットワーク・コマンド権限を最小化するよう案内しています。([[GitHub](https://github.com/openai/codex-action/blob/master/docs/security.md)][3]) AIコーディングエージェントを怖がる必要はありません。重要なのは「何を読ませるか」と「読んだAIに何を実行させるか」を分けることです。</p>
+            <p class="forensics-card-summary">AIブラウザは、ページを読むだけでなく、リンクを開く、フォームへ入力する、メールを送るなどの操作まで代行できるようになっています。しかしWebページ、メール、カレンダー招待などにAI向けの悪意ある指示が埋め込まれていると、AIが利用者の指示と混同して意図しない操作を行う「間接プロンプトインジェクション」が起こる可能性があります。2026年8月のBlack Hat USAでは、主要なAIブラウザやブラウザ連携AIを対象にした攻撃実証が報告されました。ただし、これはAIブラウザが触れただけで必ず乗っ取られるという話ではありません。ログイン範囲や権限を絞り、送信・購入・設定変更などの重要操作を人間が確認することで、便利さを残しながらリスクを下げられます。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 5</strong>
-              <span>公開入力と実行権限を分離して確認</span>
+              <strong>確認レベル 4</strong>
+              <span>AIが見抜く前提ではなく、実行できる範囲を確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>Codex・Claude Code・Gemini CLIなどのAIコーディングエージェントを使う人</li><li>GitHub IssueやPull RequestをAIで自動処理している人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AIコーディングエージェント</li><li>GitHub Actions</li><li>Codex</li></ul>
+            <ul class="forensics-card-audience"><li>AIブラウザやAIエージェントを使う人</li><li>メールやWebページの要約をAIへ任せる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIブラウザ</li><li>AIエージェント</li><li>プロンプトインジェクション</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

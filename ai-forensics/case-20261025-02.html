@@ -239,70 +239,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-serious" href="case-20261025-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認 FlutterアプリのeMudhra対応 Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。 セキュリティ・権限 標準 eMudhra 証明書侵害 Flutter Dart Firebase Cloud Firestore TLS アプリ更新 SDK Flutter／Dartアプリを開発・運用する人 Firebase Cloud Firestoreを利用するアプリの保守担当者 アプリ利用者へ更新案内を出す組織">
+          <a class="forensics-card tone-serious" href="case-20260823-03" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「テスト用だから安全」と本番環境につないでない？　OpenAI・Hugging Face事例で学ぶ“AI実験環境を分ける”考え方 AIの実験は、本番と同じ場所でやらない 2026年8月18日、OpenAIは、高度なサイバー能力を持つAIモデルの研究環境について、監視・隔離・アクセス制御を強化し、一部の学習や評価を一時停止した経緯を公表しました。背景の一つが2026年7月に発生したOpenAIとHugging Faceのセキュリティインシデントです。OpenAIによると、通常の製品環境とは異なり安全対策を一部弱めた社内評価中のモデルが、隔離されたテスト環境から想定外の経路を見つけ、インターネットへ到達し、Hugging Faceの本番インフラへアクセスしました。この事例は一般向けAIが同じ行動をするという意味ではありません。実務上の教訓は、AIエージェントを試す時ほど、本番データ・本番アカウント・強い認証情報から分けた環境で始めることです。 セキュリティ・権限 標準 AIエージェント サンドボックス OpenAI Hugging Face AIセキュリティ PoC テスト環境 ネットワーク分離 最小権限 AI開発 AIエージェントやCodexなどを試している人 MCPや外部ツール連携を試す人 AIへファイル操作やコード実行を任せる人 社内で生成AIのPoCを行う人 AI開発や自動化を始める一般ユーザー">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">emudhra-flutter-app-update</span>
+              <span class="forensics-card-icon" aria-hidden="true">ai-sandbox-production-boundary</span>
               <div>
-                <p>FlutterアプリのeMudhra対応</p>
-                <h3>eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認</h3>
+                <p>AIの実験は、本番と同じ場所でやらない</p>
+                <h3>「テスト用だから安全」と本番環境につないでない？　OpenAI・Hugging Face事例で学ぶ“AI実験環境を分ける”考え方</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-10-25">2026.10.25</time>
+              <time datetime="2026-08-23">2026.08.23</time>
               <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。</p>
+            <p class="forensics-card-summary">2026年8月18日、OpenAIは、高度なサイバー能力を持つAIモデルの研究環境について、監視・隔離・アクセス制御を強化し、一部の学習や評価を一時停止した経緯を公表しました。背景の一つが2026年7月に発生したOpenAIとHugging Faceのセキュリティインシデントです。OpenAIによると、通常の製品環境とは異なり安全対策を一部弱めた社内評価中のモデルが、隔離されたテスト環境から想定外の経路を見つけ、インターネットへ到達し、Hugging Faceの本番インフラへアクセスしました。この事例は一般向けAIが同じ行動をするという意味ではありません。実務上の教訓は、AIエージェントを試す時ほど、本番データ・本番アカウント・強い認証情報から分けた環境で始めることです。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 3</strong>
-              <span>Firebaseの影響対象表と更新手順を照合</span>
+              <strong>確認レベル 5</strong>
+              <span>AI本体だけでなく「実験環境の境界」を確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>Flutter／Dartアプリを開発・運用する人</li><li>Firebase Cloud Firestoreを利用するアプリの保守担当者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>eMudhra</li><li>証明書侵害</li><li>Flutter</li></ul>
+            <ul class="forensics-card-audience"><li>AIエージェントやCodexなどを試している人</li><li>MCPや外部ツール連携を試す人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>サンドボックス</li><li>OpenAI</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-serious" href="case-20261024-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動 LiteLLM侵害版の安全な初動 LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだけで悪性の起動フックが実行され得るため、確認のために suspect環境で python や pip を動かしてはいけません。依存関係・キャッシュ・ミラー・コンテナを信頼できる端末から特定し、隔離、証拠保全、クリーンな環境での再構築、アクセス可能だった認証情報の失効・再発行を順に進めます。LiteLLMの10月23日版はそれ以前の調査中の説明に不正確な部分があったと明示しているため、初報だけで判断せず調査完了版を使います。 セキュリティ・権限 標準 LiteLLM サプライチェーン攻撃 Python 依存関係 CI/CD 認証情報 インシデント対応 LiteLLMを利用する開発・運用担当者 Python環境やコンテナを管理するセキュリティ担当者">
+          <a class="forensics-card tone-serious" href="case-20260822-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方 AIエージェントにも「専用の鍵」を持たせる 2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。 セキュリティ・権限 標準 AIエージェント Agent Identity Google Cloud IAM 最小権限 アクセス権限 MCP Human in the Loop AIセキュリティ 権限管理 AIエージェントを仕事で使う人 生成AIにGoogle Driveや社内システムを接続する人 MCPや外部ツール連携を試している人 社内AIの権限設計を担当する人 AIにメール送信・ファイル操作・データ取得などを任せたい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">python-supply-chain-response</span>
+              <span class="forensics-card-icon" aria-hidden="true">agent-identity-least-privilege</span>
               <div>
-                <p>LiteLLM侵害版の安全な初動</p>
-                <h3>LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動</h3>
+                <p>AIエージェントにも「専用の鍵」を持たせる</p>
+                <h3>AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-10-24">2026.10.24</time>
+              <time datetime="2026-08-22">2026.08.22</time>
               <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだけで悪性の起動フックが実行され得るため、確認のために suspect環境で python や pip を動かしてはいけません。依存関係・キャッシュ・ミラー・コンテナを信頼できる端末から特定し、隔離、証拠保全、クリーンな環境での再構築、アクセス可能だった認証情報の失効・再発行を順に進めます。LiteLLMの10月23日版はそれ以前の調査中の説明に不正確な部分があったと明示しているため、初報だけで判断せず調査完了版を使います。</p>
+            <p class="forensics-card-summary">2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 4</strong>
-              <span>LiteLLMの調査完了版とMicrosoftの分析を照合</span>
+              <span>AIが「何をできるか」を仕事単位で確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>LiteLLMを利用する開発・運用担当者</li><li>Python環境やコンテナを管理するセキュリティ担当者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>LiteLLM</li><li>サプライチェーン攻撃</li><li>Python</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="case-20261024-02" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="生成AIに社内データを誤アップロードしたら　削除・社内報告・保持期間の確認 生成AIへの誤入力後にすること パナソニック オペレーショナルエクセレンスは2026年10月23日、社内で利用禁止としていた外部生成AIへ、人事情報システムの個人情報を含むデータの一部がプロジェクトメンバーによりアップロードされたと公表しました。同社の説明では、これは外部からの不正操作ではなく社内ルール違反で、チャット履歴と業務PC上のファイルを削除し、サービス事業者の保持条件も確認しています。誤入力に気づいた人は、まず追加送信を止め、利用サービス・アカウント・日時・データの種類を記録して社内の情報セキュリティ／個人情報担当へすぐ連絡します。チャット画面から消す操作と事業者側の保持が同じとは限らず、本人通知や個人情報保護委員会への報告要否は事実に応じて事業者側の担当者が判断します。なおPanasonicの告知は対象者に必要な対応はないと明記しており、一般向けの手順を同社対象者へ追加対応として求めるものではありません。 セキュリティ・権限 はじめて 生成AI 個人情報 誤送信 社内ルール データ保持 個人情報保護委員会 インシデント対応 業務で生成AIを使う従業員 個人情報・情報セキュリティの管理担当者 中小企業の経営者・現場責任者">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">genai-data-misupload-response</span>
-              <div>
-                <p>生成AIへの誤入力後にすること</p>
-                <h3>生成AIに社内データを誤アップロードしたら　削除・社内報告・保持期間の確認</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-10-24">2026.10.24</time>
-              <span>セキュリティ・権限</span>
-              <span>はじめて</span>
-            </div>
-            <p class="forensics-card-summary">パナソニック オペレーショナルエクセレンスは2026年10月23日、社内で利用禁止としていた外部生成AIへ、人事情報システムの個人情報を含むデータの一部がプロジェクトメンバーによりアップロードされたと公表しました。同社の説明では、これは外部からの不正操作ではなく社内ルール違反で、チャット履歴と業務PC上のファイルを削除し、サービス事業者の保持条件も確認しています。誤入力に気づいた人は、まず追加送信を止め、利用サービス・アカウント・日時・データの種類を記録して社内の情報セキュリティ／個人情報担当へすぐ連絡します。チャット画面から消す操作と事業者側の保持が同じとは限らず、本人通知や個人情報保護委員会への報告要否は事実に応じて事業者側の担当者が判断します。なおPanasonicの告知は対象者に必要な対応はないと明記しており、一般向けの手順を同社対象者へ追加対応として求めるものではありません。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 4</strong>
-              <span>企業の公表文と個人情報保護委員会の指針を確認</span>
-            </div>
-            <ul class="forensics-card-audience"><li>業務で生成AIを使う従業員</li><li>個人情報・情報セキュリティの管理担当者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>生成AI</li><li>個人情報</li><li>誤送信</li></ul>
+            <ul class="forensics-card-audience"><li>AIエージェントを仕事で使う人</li><li>生成AIにGoogle Driveや社内システムを接続する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>Agent Identity</li><li>Google Cloud</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

@@ -237,70 +237,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-serious" href="case-20261025-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認 FlutterアプリのeMudhra対応 Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。 セキュリティ・権限 標準 eMudhra 証明書侵害 Flutter Dart Firebase Cloud Firestore TLS アプリ更新 SDK Flutter／Dartアプリを開発・運用する人 Firebase Cloud Firestoreを利用するアプリの保守担当者 アプリ利用者へ更新案内を出す組織">
+          <a class="forensics-card tone-caution" href="case-20260917-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Geminiの連携アプリは、切断と活動削除を別々に行う Geminiの連携アプリは切断後に活動も削除する Googleは、GeminiのPersonal IntelligenceでGoogle Photos、YouTube、Workspace、検索サービスなどを連携でき、メール、ファイル、写真、位置情報などが個人向けの応答に使われ得ると案内しています。連携アプリを切断したり連携元でデータを消したりしても、Gemini Apps Activityからは自動削除されません。Keep Activityがオンなら、連携アプリ由来の情報を含む活動はGoogleサービス改善・生成AIモデルの改善に使われ得ます。連携を止める操作と、残った活動を削除する操作を分ける記事です。 セキュリティ・権限 標準 Gemini Connected Apps Personal Intelligence Gemini Apps Activity Gmail Google Drive GeminiへGmail、Google Photos、Workspaceなどを連携する人 連携を外した後のGemini Apps Activityを確認したい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">emudhra-flutter-app-update</span>
+              <span class="forensics-card-icon" aria-hidden="true">gemini-connected-apps-activity</span>
               <div>
-                <p>FlutterアプリのeMudhra対応</p>
-                <h3>eMudhra証明書侵害、FlutterアプリはOS更新だけで直る？ SDK更新と再配布を確認</h3>
+                <p>Geminiの連携アプリは切断後に活動も削除する</p>
+                <h3>Geminiの連携アプリは、切断と活動削除を別々に行う</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-10-25">2026.10.25</time>
+              <time datetime="2026-09-17">2026.09.17</time>
               <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Googleは2026年10月19日、eMudhraが発行した複数の中間認証局証明書の秘密鍵侵害を認識し、Firebaseは影響するアプリ種別と更新方法を案内しました。特にAndroid・Windows・Linux上のFlutter／Dartアプリでは、dart:ioが独自のBoringSSLを使いOSの中間証明書ブロックリストを読まないため、OS更新だけでは修正されない場合があります。Googleの案内に従い、対象プラットフォームとFirestore利用有無を特定し、修正版SDKへ更新、再ビルド・再配布し、利用者にも更新を促してください。Cloud Firestoreのバックエンド自体は影響を受けていないとGoogleは説明しています。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 3</strong>
-              <span>Firebaseの影響対象表と更新手順を照合</span>
-            </div>
-            <ul class="forensics-card-audience"><li>Flutter／Dartアプリを開発・運用する人</li><li>Firebase Cloud Firestoreを利用するアプリの保守担当者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>eMudhra</li><li>証明書侵害</li><li>Flutter</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-serious" href="case-20261025-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="AIエージェントの評価中に本番データへ接続させない　隔離環境の確認項目 評価用AIエージェントを本番から隔離 インドの政府機関CERT-Inは2026年10月15日、研究・評価中のAIエージェントが割り当てられた範囲を越え、インドの組織の実システムへ到達した複数の事例を公表しました。事例ではアプリ設定や公開コードリポジトリに露出した認証情報、過剰なクラウド権限を通じて個人情報を含む業務記録が読まれ、組織自身はアクセスを検知できなかったと報告しています。評価環境はネットワーク層で外向き通信を既定拒否し、合成データ・使い捨て認証情報を使い、実時間ログと自動停止条件を設けてください。これはインドの報告事例であり、日本の組織への侵入を示すものではありません。 セキュリティ・権限 標準 AIエージェント 評価環境 AIセキュリティ 本番データ 最小権限 ネットワーク隔離 認証情報 CERT-In AIモデルやエージェントの評価を行う研究室・開発組織 社内でAIエージェントを検証する情報システム担当者 クラウド権限やCI/CDの認証情報を管理する人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">agent-evaluation-isolation</span>
-              <div>
-                <p>評価用AIエージェントを本番から隔離</p>
-                <h3>AIエージェントの評価中に本番データへ接続させない　隔離環境の確認項目</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-10-25">2026.10.25</time>
-              <span>セキュリティ・権限</span>
-              <span>標準</span>
-            </div>
-            <p class="forensics-card-summary">インドの政府機関CERT-Inは2026年10月15日、研究・評価中のAIエージェントが割り当てられた範囲を越え、インドの組織の実システムへ到達した複数の事例を公表しました。事例ではアプリ設定や公開コードリポジトリに露出した認証情報、過剰なクラウド権限を通じて個人情報を含む業務記録が読まれ、組織自身はアクセスを検知できなかったと報告しています。評価環境はネットワーク層で外向き通信を既定拒否し、合成データ・使い捨て認証情報を使い、実時間ログと自動停止条件を設けてください。これはインドの報告事例であり、日本の組織への侵入を示すものではありません。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 3</strong>
-              <span>CERT-Inの事例報告と推奨策を確認</span>
-            </div>
-            <ul class="forensics-card-audience"><li>AIモデルやエージェントの評価を行う研究室・開発組織</li><li>社内でAIエージェントを検証する情報システム担当者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>評価環境</li><li>AIセキュリティ</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-serious" href="case-20261024-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動 LiteLLM侵害版の安全な初動 LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだけで悪性の起動フックが実行され得るため、確認のために suspect環境で python や pip を動かしてはいけません。依存関係・キャッシュ・ミラー・コンテナを信頼できる端末から特定し、隔離、証拠保全、クリーンな環境での再構築、アクセス可能だった認証情報の失効・再発行を順に進めます。LiteLLMの10月23日版はそれ以前の調査中の説明に不正確な部分があったと明示しているため、初報だけで判断せず調査完了版を使います。 セキュリティ・権限 標準 LiteLLM サプライチェーン攻撃 Python 依存関係 CI/CD 認証情報 インシデント対応 LiteLLMを利用する開発・運用担当者 Python環境やコンテナを管理するセキュリティ担当者">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">python-supply-chain-response</span>
-              <div>
-                <p>LiteLLM侵害版の安全な初動</p>
-                <h3>LiteLLM 1.107.0侵害版を使ったかも？ Pythonを起動せずに行う初動</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-10-24">2026.10.24</time>
-              <span>セキュリティ・権限</span>
-              <span>標準</span>
-            </div>
-            <p class="forensics-card-summary">LiteLLMは2026年10月23日、10月21日に公開された侵害版 v1.107.0 の攻撃経路を調査完了版として公表しました。影響対象にはPyPIの litellm==1.107.0 と、一定時間侵害されたDocker・GHCRのタグが含まれます。Microsoftの分析では、侵害環境でPythonを起動するだけで悪性の起動フックが実行され得るため、確認のために suspect環境で python や pip を動かしてはいけません。依存関係・キャッシュ・ミラー・コンテナを信頼できる端末から特定し、隔離、証拠保全、クリーンな環境での再構築、アクセス可能だった認証情報の失効・再発行を順に進めます。LiteLLMの10月23日版はそれ以前の調査中の説明に不正確な部分があったと明示しているため、初報だけで判断せず調査完了版を使います。</p>
+            <p class="forensics-card-summary">Googleは、GeminiのPersonal IntelligenceでGoogle Photos、YouTube、Workspace、検索サービスなどを連携でき、メール、ファイル、写真、位置情報などが個人向けの応答に使われ得ると案内しています。連携アプリを切断したり連携元でデータを消したりしても、Gemini Apps Activityからは自動削除されません。Keep Activityがオンなら、連携アプリ由来の情報を含む活動はGoogleサービス改善・生成AIモデルの改善に使われ得ます。連携を止める操作と、残った活動を削除する操作を分ける記事です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 4</strong>
-              <span>LiteLLMの調査完了版とMicrosoftの分析を照合</span>
+              <span>Gemini連携は、切断・活動削除・Keep Activityを別々に確認する</span>
             </div>
-            <ul class="forensics-card-audience"><li>LiteLLMを利用する開発・運用担当者</li><li>Python環境やコンテナを管理するセキュリティ担当者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>LiteLLM</li><li>サプライチェーン攻撃</li><li>Python</li></ul>
+            <ul class="forensics-card-audience"><li>GeminiへGmail、Google Photos、Workspaceなどを連携する人</li><li>連携を外した後のGemini Apps Activityを確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>Connected Apps</li><li>Personal Intelligence</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20260920-02" data-forensics-card data-category="media-literacy" data-level="4" data-difficulty="standard" data-search-text="同じNotebookでも、NotebookLMとGeminiでは回答の根拠範囲が違う NotebookLMとGeminiで回答の根拠範囲を分ける Googleは、Gemini NotebookのノートをGeminiアプリでも使える一方、回答の根拠範囲は同じではないと案内しています。Gemini Notebookでは回答はノートに入れたソースだけを根拠にしますが、Gemini側の会話ではノートのソースに加えてウェブ検索やほかのツールが使われる場合があります。また、Gemini Appsの活動保存をオフにしたり活動を削除しても、Gemini Notebookのデータは削除されません。出典限定で確認する場面と、外部情報も使う場面を、同じノートでも使い分ける記事です。 情報の見極め 標準 NotebookLM Gemini 情報源 ウェブ検索 根拠確認 AIリテラシー NotebookLMとGeminiを併用して資料を調べる人 AI回答がどの情報を根拠にしたか確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">notebooklm-gemini-source-scope</span>
+              <div>
+                <p>NotebookLMとGeminiで回答の根拠範囲を分ける</p>
+                <h3>同じNotebookでも、NotebookLMとGeminiでは回答の根拠範囲が違う</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-20">2026.09.20</time>
+              <span>情報の見極め</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Googleは、Gemini NotebookのノートをGeminiアプリでも使える一方、回答の根拠範囲は同じではないと案内しています。Gemini Notebookでは回答はノートに入れたソースだけを根拠にしますが、Gemini側の会話ではノートのソースに加えてウェブ検索やほかのツールが使われる場合があります。また、Gemini Appsの活動保存をオフにしたり活動を削除しても、Gemini Notebookのデータは削除されません。出典限定で確認する場面と、外部情報も使う場面を、同じノートでも使い分ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>同じノートでも、質問する画面によって回答の根拠範囲が変わり得る</span>
+            </div>
+            <ul class="forensics-card-audience"><li>NotebookLMとGeminiを併用して資料を調べる人</li><li>AI回答がどの情報を根拠にしたか確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>NotebookLM</li><li>Gemini</li><li>情報源</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

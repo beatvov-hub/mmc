@@ -258,70 +258,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-serious" href="case-20260826-04" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角 シャドーAI、まず利用先を棚卸しする Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。 セキュリティ・権限 はじめて シャドーAI Shadow AI 生成AI ChatGPT Claude MCP AIエージェント Microsoft 365 AIガバナンス 社内AI利用 仕事で生成AIを使っている人 社内のAI利用ルールを作る人 IT・情報システム・セキュリティ担当者">
+          <a class="forensics-card tone-caution" href="case-20260904-03" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="ChatGPTの連携は『確認・切断・データ削除』を分けて管理する ChatGPT連携は確認設定・切断・データ削除を分ける OpenAIは、ChatGPTのアプリ権限設定は、接続済みアカウントを使う時に読み取りや操作の確認をいつ求めるかを決めるもので、接続そのものや提供元アカウントの権限を取り消す設定ではないと説明しています。選べる確認方法はアカウント、アプリ、ワークスペースによって異なり、読み取りを許可して変更時に確認する設定や、すべての操作前に確認する設定などがあります。今後のアクセスを止めるにはアプリをDisconnectしますが、別アカウントや管理者管理の接続が残る場合があります。また、Disconnectだけでは既存・アーカイブ済み会話、保存ファイル、Memory summaryや保存済みMemoryは自動削除されません。連携を使う時は確認の粒度を選び、終了時は接続・会話やファイル・Memoryを別々に確認します。 セキュリティ・権限 標準 ChatGPT 連携アプリ Google Drive 接続解除 Memory データ整理 ChatGPTにGoogle Drive、メール、予定表などのアカウントを連携している人 連携アプリの操作確認や接続終了、残るデータの整理をしたい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">shadow-ai-inventory</span>
+              <span class="forensics-card-icon" aria-hidden="true">chatgpt-app-disconnect-checklist</span>
               <div>
-                <p>シャドーAI、まず利用先を棚卸しする</p>
-                <h3>シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角</h3>
+                <p>ChatGPT連携は確認設定・切断・データ削除を分ける</p>
+                <h3>ChatGPTの連携は『確認・切断・データ削除』を分けて管理する</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-26">2026.08.26</time>
+              <time datetime="2026-09-04">2026.09.04</time>
               <span>セキュリティ・権限</span>
-              <span>はじめて</span>
+              <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。</p>
+            <p class="forensics-card-summary">OpenAIは、ChatGPTのアプリ権限設定は、接続済みアカウントを使う時に読み取りや操作の確認をいつ求めるかを決めるもので、接続そのものや提供元アカウントの権限を取り消す設定ではないと説明しています。選べる確認方法はアカウント、アプリ、ワークスペースによって異なり、読み取りを許可して変更時に確認する設定や、すべての操作前に確認する設定などがあります。今後のアクセスを止めるにはアプリをDisconnectしますが、別アカウントや管理者管理の接続が残る場合があります。また、Disconnectだけでは既存・アーカイブ済み会話、保存ファイル、Memory summaryや保存済みMemoryは自動削除されません。連携を使う時は確認の粒度を選び、終了時は接続・会話やファイル・Memoryを別々に確認します。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 2</strong>
-              <span>使っているAIと渡している情報を一度確認</span>
+              <span>ChatGPT連携は、確認設定・接続・保存情報を別々に管理する</span>
             </div>
-            <ul class="forensics-card-audience"><li>仕事で生成AIを使っている人</li><li>社内のAI利用ルールを作る人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>シャドーAI</li><li>Shadow AI</li><li>生成AI</li></ul>
+            <ul class="forensics-card-audience"><li>ChatGPTにGoogle Drive、メール、予定表などのアカウントを連携している人</li><li>連携アプリの操作確認や接続終了、残るデータの整理をしたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>連携アプリ</li><li>Google Drive</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-calm" href="ex1" data-forensics-card data-category="media-literacy" data-level="1" data-difficulty="beginner" data-search-text="引用が付いていても確認終了ではない。AI検索ではリンク先を1回開く AI検索の引用を1回開く OpenAIは公式ヘルプで、ChatGPTは検索や引用を利用できても、誤った日付・事実・引用・研究・参考文献を提示する可能性があると説明しています。初心者が最初に覚えておきたいのは、引用が付いている回答を捨てることではなく、重要な情報だけリンク先を1回開き、「本当にその内容が書いてあるか」「いつの情報か」を見ることです。 情報の見極め はじめて AI検索 ChatGPT 引用 情報源 ハルシネーション 初心者 ChatGPTなどのAI検索を使い始めた人 AIの回答を学校や仕事の調べものに使う人">
+          <a class="forensics-card tone-caution" href="case-20261008-04" data-forensics-card data-category="media-literacy" data-level="3" data-difficulty="standard" data-search-text="ChatGPT広告の設定、パーソナライズを切っても広告は消えない ChatGPT広告の設定と履歴 OpenAI Help CenterはChatGPT内広告のFAQで、広告が表示され得るプラン、広告の選び方、設定変更の方法を説明しています。FAQのページは更新から9日と表示されますが、正確な公開・更新年月日は記載されていません。対象地域のFree・Go利用者には広告が表示される場合があり、広告パーソナライズをオフにしても現在の会話スレッドに基づく広告は残ります。一方、パーソナライズをオフにすると、他の会話、広告履歴、トピックは広告選択に使わないと説明されています。広告そのものをなくすFreeの選択肢は利用上限や一部機能が縮小し、利用できる地域も限られます。設定では『個人向け広告を弱める』のか『広告なしを選ぶ』のかを区別します。 情報の見極め 標準 OpenAI ChatGPT 広告 パーソナライズ メモリ Free 広告コントロール ChatGPT Free・Goを使う人 会話履歴やメモリと広告設定の関係を知りたい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">source-check</span>
+              <span class="forensics-card-icon" aria-hidden="true">ad-controls-choice</span>
               <div>
-                <p>AI検索の引用を1回開く</p>
-                <h3>引用が付いていても確認終了ではない。AI検索ではリンク先を1回開く</h3>
+                <p>ChatGPT広告の設定と履歴</p>
+                <h3>ChatGPT広告の設定、パーソナライズを切っても広告は消えない</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-26">2026.08.26</time>
+              <time datetime="2026-10-08">2026.10.08</time>
               <span>情報の見極め</span>
-              <span>はじめて</span>
+              <span>標準</span>
             </div>
-            <p class="forensics-card-summary">OpenAIは公式ヘルプで、ChatGPTは検索や引用を利用できても、誤った日付・事実・引用・研究・参考文献を提示する可能性があると説明しています。初心者が最初に覚えておきたいのは、引用が付いている回答を捨てることではなく、重要な情報だけリンク先を1回開き、「本当にその内容が書いてあるか」「いつの情報か」を見ることです。</p>
+            <p class="forensics-card-summary">OpenAI Help CenterはChatGPT内広告のFAQで、広告が表示され得るプラン、広告の選び方、設定変更の方法を説明しています。FAQのページは更新から9日と表示されますが、正確な公開・更新年月日は記載されていません。対象地域のFree・Go利用者には広告が表示される場合があり、広告パーソナライズをオフにしても現在の会話スレッドに基づく広告は残ります。一方、パーソナライズをオフにすると、他の会話、広告履歴、トピックは広告選択に使わないと説明されています。広告そのものをなくすFreeの選択肢は利用上限や一部機能が縮小し、利用できる地域も限られます。設定では『個人向け広告を弱める』のか『広告なしを選ぶ』のかを区別します。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 1</strong>
-              <span>引用リンクを1回開いて確認</span>
+              <strong>確認レベル 3</strong>
+              <span>プラン・地域・広告設定の違いを確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>ChatGPTなどのAI検索を使い始めた人</li><li>AIの回答を学校や仕事の調べものに使う人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AI検索</li><li>ChatGPT</li><li>引用</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="ex2" data-forensics-card data-category="security" data-level="1" data-difficulty="beginner" data-search-text="Geminiの「アクティビティ保存オフ」＝即時削除ではない。72時間保持を知っておこう Geminiの保存オフと72時間 GoogleのGemini Apps Privacy Hubでは、Geminiの「アクティビティの保存」をオフにした場合や一時チャットを利用した場合でも、チャットは72時間アカウントに保持されると説明されています。一方、一時チャットはGoogleのAIモデルのトレーニングには使用されません。初心者が覚えておきたいのは、「履歴に残らない」「学習に使われない」「即座にデータが消える」は別の話だということです。 セキュリティ・権限 はじめて Gemini プライバシー アクティビティ 一時チャット データ保存 初心者 個人のGoogleアカウントでGeminiを使う人 生成AIへ入力する情報の扱いが気になる人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">privacy-settings</span>
-              <div>
-                <p>Geminiの保存オフと72時間</p>
-                <h3>Geminiの「アクティビティ保存オフ」＝即時削除ではない。72時間保持を知っておこう</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-08-26">2026.08.26</time>
-              <span>セキュリティ・権限</span>
-              <span>はじめて</span>
-            </div>
-            <p class="forensics-card-summary">GoogleのGemini Apps Privacy Hubでは、Geminiの「アクティビティの保存」をオフにした場合や一時チャットを利用した場合でも、チャットは72時間アカウントに保持されると説明されています。一方、一時チャットはGoogleのAIモデルのトレーニングには使用されません。初心者が覚えておきたいのは、「履歴に残らない」「学習に使われない」「即座にデータが消える」は別の話だということです。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 1</strong>
-              <span>使う前に保存設定を1か所確認</span>
-            </div>
-            <ul class="forensics-card-audience"><li>個人のGoogleアカウントでGeminiを使う人</li><li>生成AIへ入力する情報の扱いが気になる人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>プライバシー</li><li>アクティビティ</li></ul>
+            <ul class="forensics-card-audience"><li>ChatGPT Free・Goを使う人</li><li>会話履歴やメモリと広告設定の関係を知りたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>OpenAI</li><li>ChatGPT</li><li>広告</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

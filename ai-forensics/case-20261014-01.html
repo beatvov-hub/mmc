@@ -241,70 +241,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-caution" href="case-20261013-01" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="英国のAIサイバー防衛、実施済み・準備中・検討中を読み分ける 英国のAI防衛策の現在地 英国政府は2026年10月12日、AIを使った政府システムの防御強化と、自律型AIエージェントによる重大事故への備えを発表しました。二つの試行では政府システムの潜在的な脆弱性を千件超特定・対処したと説明する一方、AI関連の重大インシデントやニアミスの報告制度、重要サービスへの法的保護は今後検討するとしています。AI Security Instituteによる最新モデルの評価や、AIエージェント事故への対応体制づくりも進行中です。読者は発表を一括して「新しい規制が始まった」と受け取らず、既に行われた防御、準備中の活動、法案上の検討を分けて読む必要があります。英国の政府発表であり、日本の組織に新たな法的義務を課すものではありません。 セキュリティ・権限 標準 英国政府 AIセキュリティ サイバー防衛 脆弱性 AIエージェント インシデント対応 AIやサイバーセキュリティのニュースを読む人 組織のセキュリティ・インシデント対応担当者">
+          <a class="forensics-card tone-caution" href="case-20261007-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Gemini Sparkをオフにしても残るもの、タスク・ファイル・Chrome履歴の整理 Spark停止後に残るデータ GoogleはGemini Sparkについて、Geminiが端末のローカルChromeまたは別のリモートブラウザーで作業し、端末を閉じてもリモート側でタスクが続く場合があるとヘルプで説明しています。ローカルChromeではログイン中のサイトが見え、許可すればPassword Managerに保存したログイン情報を使うこともあります。Sparkをオフにするとリモートブラウザーとリモートコード実行のデータは削除されますが、ローカルChromeの閲覧データは消えず、タスク・スレッド・スケジュール・Geminiが作成または更新したファイルも削除されません。したがって『Sparkをオフにした＝作業の成果物やブラウザー痕跡も消えた』とは限りません。機微な作業を始める前に実行中タスクを確認し、終了後はリモートデータ、ローカル履歴、作成ファイルを別々に点検・削除するのが実務的です。 セキュリティ・権限 標準 Google Gemini Gemini Spark Chrome AIエージェント ブラウザー権限 タスク停止 データ削除 Gemini Sparkでブラウザー作業を任せる人 Google Chromeのログイン状態でAIエージェントを使う人 家族・チームのAI利用を管理する人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">ai-cyber-stages</span>
+              <span class="forensics-card-icon" aria-hidden="true">gemini-spark-cleanup</span>
               <div>
-                <p>英国のAI防衛策の現在地</p>
-                <h3>英国のAIサイバー防衛、実施済み・準備中・検討中を読み分ける</h3>
+                <p>Spark停止後に残るデータ</p>
+                <h3>Gemini Sparkをオフにしても残るもの、タスク・ファイル・Chrome履歴の整理</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-10-13">2026.10.13</time>
+              <time datetime="2026-10-07">2026.10.07</time>
               <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">英国政府は2026年10月12日、AIを使った政府システムの防御強化と、自律型AIエージェントによる重大事故への備えを発表しました。二つの試行では政府システムの潜在的な脆弱性を千件超特定・対処したと説明する一方、AI関連の重大インシデントやニアミスの報告制度、重要サービスへの法的保護は今後検討するとしています。AI Security Instituteによる最新モデルの評価や、AIエージェント事故への対応体制づくりも進行中です。読者は発表を一括して「新しい規制が始まった」と受け取らず、既に行われた防御、準備中の活動、法案上の検討を分けて読む必要があります。英国の政府発表であり、日本の組織に新たな法的義務を課すものではありません。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 3</strong>
-              <span>実績・準備・制度案を分けて確認</span>
-            </div>
-            <ul class="forensics-card-audience"><li>AIやサイバーセキュリティのニュースを読む人</li><li>組織のセキュリティ・インシデント対応担当者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>英国政府</li><li>AIセキュリティ</li><li>サイバー防衛</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="case-20261013-03" data-forensics-card data-category="security" data-level="4" data-difficulty="advanced" data-search-text="メールをAIに読ませる前に　Microsoft Defenderのプロンプト注入検知の範囲 メール経由のAI攻撃を検知する MicrosoftはMicrosoft Defender for Office 365 Plan 2の文書で、受信メール内のプロンプト注入をAIアシスタントが読む前にメール検査の段階で検知すると説明しています。本文だけでなく、HTMLの隠し文字、引用・転送されたスレッド、難読化された部分なども検査対象で、検知時は既存の高信頼フィッシング判定に新しい検知技術名が付く仕組みです。ただし、すべての命令文を遮断する一般的な注入検出器ではなく、データ流出やシステムプロンプト・利用可能なツールの開示を狙う攻撃など、メール段階で信頼性高く識別できる範囲に焦点を当てます。モデル実行時の権限・接続データに依存する攻撃には、AI側の防御も必要です。 セキュリティ・権限 発展 プロンプトインジェクション メールセキュリティ Microsoft Defender AIエージェント Microsoft 365 権限管理 Microsoft 365のセキュリティ管理者 メールをAIアシスタントで処理する組織">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">email-prompt-defense</span>
-              <div>
-                <p>メール経由のAI攻撃を検知する</p>
-                <h3>メールをAIに読ませる前に　Microsoft Defenderのプロンプト注入検知の範囲</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-10-13">2026.10.13</time>
-              <span>セキュリティ・権限</span>
-              <span>発展</span>
-            </div>
-            <p class="forensics-card-summary">MicrosoftはMicrosoft Defender for Office 365 Plan 2の文書で、受信メール内のプロンプト注入をAIアシスタントが読む前にメール検査の段階で検知すると説明しています。本文だけでなく、HTMLの隠し文字、引用・転送されたスレッド、難読化された部分なども検査対象で、検知時は既存の高信頼フィッシング判定に新しい検知技術名が付く仕組みです。ただし、すべての命令文を遮断する一般的な注入検出器ではなく、データ流出やシステムプロンプト・利用可能なツールの開示を狙う攻撃など、メール段階で信頼性高く識別できる範囲に焦点を当てます。モデル実行時の権限・接続データに依存する攻撃には、AI側の防御も必要です。</p>
+            <p class="forensics-card-summary">GoogleはGemini Sparkについて、Geminiが端末のローカルChromeまたは別のリモートブラウザーで作業し、端末を閉じてもリモート側でタスクが続く場合があるとヘルプで説明しています。ローカルChromeではログイン中のサイトが見え、許可すればPassword Managerに保存したログイン情報を使うこともあります。Sparkをオフにするとリモートブラウザーとリモートコード実行のデータは削除されますが、ローカルChromeの閲覧データは消えず、タスク・スレッド・スケジュール・Geminiが作成または更新したファイルも削除されません。したがって『Sparkをオフにした＝作業の成果物やブラウザー痕跡も消えた』とは限りません。機微な作業を始める前に実行中タスクを確認し、終了後はリモートデータ、ローカル履歴、作成ファイルを別々に点検・削除するのが実務的です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 4</strong>
-              <span>メール入口とAI実行時の二層で確認</span>
+              <span>タスク停止・リモート削除・ローカル整理を分ける</span>
             </div>
-            <ul class="forensics-card-audience"><li>Microsoft 365のセキュリティ管理者</li><li>メールをAIアシスタントで処理する組織</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>プロンプトインジェクション</li><li>メールセキュリティ</li><li>Microsoft Defender</li></ul>
+            <ul class="forensics-card-audience"><li>Gemini Sparkでブラウザー作業を任せる人</li><li>Google Chromeのログイン状態でAIエージェントを使う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Google Gemini</li><li>Gemini Spark</li><li>Chrome</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-calm" href="case-20261012-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="AIエージェントの個人データ利用、英国ICOが意見募集　導入現場で整理したい論点 AIエージェントと個人データ 英国情報コミッショナー事務局（ICO）は2026年10月8日、AIエージェントの能力とリスクにデータ保護法をどう適用するかを検討するため、証拠募集を開始しました。募集は11月20日までで、データセキュリティ、透明性、説明責任、自動化された意思決定、公正性・目的制限、処理の適法性などを尋ねています。これは既存法の適用に関する意見募集であり、新しい法令が施行されたことや、エージェント利用を一律に禁止したことを意味しません。導入担当者は、エージェントがアクセスする個人データ、外部送信、判断・実行、人による監督、本人への説明と問い合わせ経路を棚卸しし、回答する場合は公開され得る情報の扱いにも注意できます。 セキュリティ・権限 標準 AIエージェント データ保護 ICO プライバシー 意見募集 自動化された意思決定 組織でAIエージェントを導入・管理する人 個人データを扱うシステムの担当者">
+          <a class="forensics-card tone-calm" href="case-20261030-03" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Geminiに連携アプリを使わせたくないときは？エージェント権限の停止 Geminiのアプリ使用を停止 Googleは公式ヘルプで、GeminiやGoogleのAIエージェントによるリンク済みアプリの使用を停止する方法を案内しています。エージェントの使用停止とアプリ自体の連携解除は別の設定です。 セキュリティ・権限 はじめて Gemini AIエージェント アプリ連携 Googleアカウント 権限 Geminiに連携アプリの利用を許可した人 アプリとAIの権限を見直したい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">privacy-data-flow</span>
+              <span class="forensics-card-icon" aria-hidden="true">shield</span>
               <div>
-                <p>AIエージェントと個人データ</p>
-                <h3>AIエージェントの個人データ利用、英国ICOが意見募集　導入現場で整理したい論点</h3>
+                <p>Geminiのアプリ使用を停止</p>
+                <h3>Geminiに連携アプリを使わせたくないときは？エージェント権限の停止</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-10-12">2026.10.12</time>
+              <time datetime="2026-10-30">2026.10.30</time>
               <span>セキュリティ・権限</span>
-              <span>標準</span>
+              <span>はじめて</span>
             </div>
-            <p class="forensics-card-summary">英国情報コミッショナー事務局（ICO）は2026年10月8日、AIエージェントの能力とリスクにデータ保護法をどう適用するかを検討するため、証拠募集を開始しました。募集は11月20日までで、データセキュリティ、透明性、説明責任、自動化された意思決定、公正性・目的制限、処理の適法性などを尋ねています。これは既存法の適用に関する意見募集であり、新しい法令が施行されたことや、エージェント利用を一律に禁止したことを意味しません。導入担当者は、エージェントがアクセスする個人データ、外部送信、判断・実行、人による監督、本人への説明と問い合わせ経路を棚卸しし、回答する場合は公開され得る情報の扱いにも注意できます。</p>
+            <p class="forensics-card-summary">Googleは公式ヘルプで、GeminiやGoogleのAIエージェントによるリンク済みアプリの使用を停止する方法を案内しています。エージェントの使用停止とアプリ自体の連携解除は別の設定です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 3</strong>
-              <span>データの流れ・判断・監督を棚卸し</span>
+              <span>公式資料を確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>組織でAIエージェントを導入・管理する人</li><li>個人データを扱うシステムの担当者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>データ保護</li><li>ICO</li></ul>
+            <ul class="forensics-card-audience"><li>Geminiに連携アプリの利用を許可した人</li><li>アプリとAIの権限を見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>AIエージェント</li><li>アプリ連携</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

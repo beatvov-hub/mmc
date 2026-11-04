@@ -232,70 +232,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-calm" href="case-20260907-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Apple Intelligenceは「端末内だけ」とは限らない。Private Cloud Computeの利用履歴を確認する Apple IntelligenceのPrivate Cloud Compute利用を確認する Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」からApple Intelligence Reportを作成し、Private Cloud Computeへ送られた要求のレポートを確認できます。期間は直近15分間または7日間から選び、出力すると`Apple_Intelligence_Report.json`として保存されます。『オンデバイスAI』という説明だけで処理場所を一律に決めつけず、端末で確認できる記録と、機能の利用可否・出力の正確さを分けて見る手順を扱います。 セキュリティ・権限 標準 Apple Intelligence iPhone Private Cloud Compute プライバシー オンデバイスAI 利用記録 iPhoneでApple Intelligenceを使い、処理場所を確認したい人 AI機能のクラウド利用を設定と記録から確かめたい人">
+          <a class="forensics-card tone-caution" href="case-20260917-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="Geminiの連携アプリは、切断と活動削除を別々に行う Geminiの連携アプリは切断後に活動も削除する Googleは、GeminiのPersonal IntelligenceでGoogle Photos、YouTube、Workspace、検索サービスなどを連携でき、メール、ファイル、写真、位置情報などが個人向けの応答に使われ得ると案内しています。連携アプリを切断したり連携元でデータを消したりしても、Gemini Apps Activityからは自動削除されません。Keep Activityがオンなら、連携アプリ由来の情報を含む活動はGoogleサービス改善・生成AIモデルの改善に使われ得ます。連携を止める操作と、残った活動を削除する操作を分ける記事です。 セキュリティ・権限 標準 Gemini Connected Apps Personal Intelligence Gemini Apps Activity Gmail Google Drive GeminiへGmail、Google Photos、Workspaceなどを連携する人 連携を外した後のGemini Apps Activityを確認したい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">apple-intelligence-private-cloud-report</span>
+              <span class="forensics-card-icon" aria-hidden="true">gemini-connected-apps-activity</span>
               <div>
-                <p>Apple IntelligenceのPrivate Cloud Compute利用を確認する</p>
-                <h3>Apple Intelligenceは「端末内だけ」とは限らない。Private Cloud Computeの利用履歴を確認する</h3>
+                <p>Geminiの連携アプリは切断後に活動も削除する</p>
+                <h3>Geminiの連携アプリは、切断と活動削除を別々に行う</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-07">2026.09.07</time>
+              <time datetime="2026-09-17">2026.09.17</time>
               <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」からApple Intelligence Reportを作成し、Private Cloud Computeへ送られた要求のレポートを確認できます。期間は直近15分間または7日間から選び、出力すると`Apple_Intelligence_Report.json`として保存されます。『オンデバイスAI』という説明だけで処理場所を一律に決めつけず、端末で確認できる記録と、機能の利用可否・出力の正確さを分けて見る手順を扱います。</p>
+            <p class="forensics-card-summary">Googleは、GeminiのPersonal IntelligenceでGoogle Photos、YouTube、Workspace、検索サービスなどを連携でき、メール、ファイル、写真、位置情報などが個人向けの応答に使われ得ると案内しています。連携アプリを切断したり連携元でデータを消したりしても、Gemini Apps Activityからは自動削除されません。Keep Activityがオンなら、連携アプリ由来の情報を含む活動はGoogleサービス改善・生成AIモデルの改善に使われ得ます。連携を止める操作と、残った活動を削除する操作を分ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Gemini連携は、切断・活動削除・Keep Activityを別々に確認する</span>
+            </div>
+            <ul class="forensics-card-audience"><li>GeminiへGmail、Google Photos、Workspaceなどを連携する人</li><li>連携を外した後のGemini Apps Activityを確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>Connected Apps</li><li>Personal Intelligence</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261020-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="GeminiからNotebookを編集・削除できる　Connected Appsの設定を確認 Gemini Notebook連携の削除権限を確認 Google Workspace Updatesは2026年10月23日、Gemini NotebookをGeminiアプリのConnected Appとして利用できる機能を案内しました。Geminiのチャットからノートブックやソースの作成・編集・削除、一覧表示、内容への質問ができます。一般には連携が既定でオン（欧州経済領域ではオフ）で、Google Workspaceでは対象のグループまたは組織部門でGeminiとGemini Notebookの両方をオンにする必要があります。Geminiアプリの「設定 &gt; Connected Apps」で連携状態を確認し、削除を頼むときは対象のノートブックとソースを明示してから実行しましょう。 セキュリティ・権限 はじめて Gemini Gemini Notebook Connected Apps 連携設定 ノート削除 ソース管理 Workspace管理 Geminiアプリを仕事や日常で使う人 AIアシスタントに外部サービスを接続する前に確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">gemini-notebook-connected-app</span>
+              <div>
+                <p>Gemini Notebook連携の削除権限を確認</p>
+                <h3>GeminiからNotebookを編集・削除できる　Connected Appsの設定を確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-20">2026.10.20</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Google Workspace Updatesは2026年10月23日、Gemini NotebookをGeminiアプリのConnected Appとして利用できる機能を案内しました。Geminiのチャットからノートブックやソースの作成・編集・削除、一覧表示、内容への質問ができます。一般には連携が既定でオン（欧州経済領域ではオフ）で、Google Workspaceでは対象のグループまたは組織部門でGeminiとGemini Notebookの両方をオンにする必要があります。Geminiアプリの「設定 &gt; Connected Apps」で連携状態を確認し、削除を頼むときは対象のノートブックとソースを明示してから実行しましょう。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 3</strong>
-              <span>Apple Intelligenceのクラウド利用は、設定のレポートで確認できる</span>
+              <span>Googleの機能説明と設定場所を確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>iPhoneでApple Intelligenceを使い、処理場所を確認したい人</li><li>AI機能のクラウド利用を設定と記録から確かめたい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>iPhone</li><li>Private Cloud Compute</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-calm" href="case-20260907-03" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="Galaxy AIの「端末内のみで処理」は万能ではない。止まる機能を確認してから切り替える Galaxy AIを端末内処理に限定する前に機能差を確認する Samsungは、Galaxy AIの機能には端末内で処理されるものと、ネットワーク接続を使うものがあると案内しています。多くの翻訳やGalleryのEdit Suggestionsは端末内処理の例ですが、自動整形、要約、自動修正、画像編集などはクラウドを利用します。対応端末では「設定」からGalaxy AIを開き、「Process data only on device」を有効にしてクラウド処理を止められます。ただし、この切り替えにより利用できなくなる機能があり、機種やOSの違いでも機能は変わります。機密情報を扱う前に、処理場所の希望と必要な機能を照らし合わせる記事です。 セキュリティ・権限 はじめて Galaxy AI Samsung オンデバイスAI クラウド処理 スマホ設定 プライバシー GalaxyスマートフォンやタブレットのAI機能を使う人 AIへの入力をクラウドへ送る範囲を設定から見直したい人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">galaxy-ai-on-device-processing</span>
-              <div>
-                <p>Galaxy AIを端末内処理に限定する前に機能差を確認する</p>
-                <h3>Galaxy AIの「端末内のみで処理」は万能ではない。止まる機能を確認してから切り替える</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-09-07">2026.09.07</time>
-              <span>セキュリティ・権限</span>
-              <span>はじめて</span>
-            </div>
-            <p class="forensics-card-summary">Samsungは、Galaxy AIの機能には端末内で処理されるものと、ネットワーク接続を使うものがあると案内しています。多くの翻訳やGalleryのEdit Suggestionsは端末内処理の例ですが、自動整形、要約、自動修正、画像編集などはクラウドを利用します。対応端末では「設定」からGalaxy AIを開き、「Process data only on device」を有効にしてクラウド処理を止められます。ただし、この切り替えにより利用できなくなる機能があり、機種やOSの違いでも機能は変わります。機密情報を扱う前に、処理場所の希望と必要な機能を照らし合わせる記事です。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>Galaxy AIは、端末内処理の希望と使える機能を一緒に確認する</span>
-            </div>
-            <ul class="forensics-card-audience"><li>GalaxyスマートフォンやタブレットのAI機能を使う人</li><li>AIへの入力をクラウドへ送る範囲を設定から見直したい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Galaxy AI</li><li>Samsung</li><li>オンデバイスAI</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="case-20260905-01" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="iPhoneのChatGPT拡張、アカウントなしで使う時とログイン後はデータの扱いが変わる Apple IntelligenceのChatGPTは、接続前にアカウント有無を決める Appleは、iPhoneのApple IntelligenceからChatGPTを使う時、ChatGPTアカウントを接続しなくても利用できると案内しています。アカウントなしの場合、ChatGPTの会話履歴に要求を保存することはできませんが、OpenAIにはApple Accountに結び付く情報は渡らず、要求と応答は原則として保存やモデル改善に使われません。一方、ChatGPTアカウントでサインインした場合は、そのChatGPTアカウントの設定とOpenAIのデータプライバシーポリシーが適用されます。SiriはChatGPT利用時に確認を求め、確認をオフにしても写真やファイルを送る前には常に確認されます。便利な連携を始める前に、履歴を残す必要があるかと、どの内容を外部サービスへ渡すかを分けて選ぶ記事です。 セキュリティ・権限 はじめて Apple Intelligence iPhone ChatGPT Siri Writing Tools プライバシー iPhoneのApple IntelligenceからChatGPTを使おうとしている人 SiriやWriting Toolsで写真・ファイルをAIに渡す前に設定を確認したい人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">iphone-chatgpt-account-choice</span>
-              <div>
-                <p>Apple IntelligenceのChatGPTは、接続前にアカウント有無を決める</p>
-                <h3>iPhoneのChatGPT拡張、アカウントなしで使う時とログイン後はデータの扱いが変わる</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-09-05">2026.09.05</time>
-              <span>セキュリティ・権限</span>
-              <span>はじめて</span>
-            </div>
-            <p class="forensics-card-summary">Appleは、iPhoneのApple IntelligenceからChatGPTを使う時、ChatGPTアカウントを接続しなくても利用できると案内しています。アカウントなしの場合、ChatGPTの会話履歴に要求を保存することはできませんが、OpenAIにはApple Accountに結び付く情報は渡らず、要求と応答は原則として保存やモデル改善に使われません。一方、ChatGPTアカウントでサインインした場合は、そのChatGPTアカウントの設定とOpenAIのデータプライバシーポリシーが適用されます。SiriはChatGPT利用時に確認を求め、確認をオフにしても写真やファイルを送る前には常に確認されます。便利な連携を始める前に、履歴を残す必要があるかと、どの内容を外部サービスへ渡すかを分けて選ぶ記事です。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>Apple IntelligenceのChatGPTは、アカウント接続と添付送信を分けて確認する</span>
-            </div>
-            <ul class="forensics-card-audience"><li>iPhoneのApple IntelligenceからChatGPTを使おうとしている人</li><li>SiriやWriting Toolsで写真・ファイルをAIに渡す前に設定を確認したい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>iPhone</li><li>ChatGPT</li></ul>
+            <ul class="forensics-card-audience"><li>Geminiアプリを仕事や日常で使う人</li><li>AIアシスタントに外部サービスを接続する前に確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>Gemini Notebook</li><li>Connected Apps</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

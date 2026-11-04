@@ -3,12 +3,14 @@ from __future__ import annotations
 
 import html
 import json
+import math
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
-from site_layout import apply_layout_to_file
+from site_layout import apply_layout_to_file, normalize_internal_links
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "src" / "data" / "ai-forensics"
@@ -639,22 +641,62 @@ def render_sources(article: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
+_related_cache: tuple[list[dict[str, Any]], dict[str, Counter[str]], dict[str, float], dict[str, float]] | None = None
+
+
+def _related_terms(article: dict[str, Any]) -> Counter[str]:
+    """Build a small Japanese/Latin character index from the actual topic and reader problem."""
+    terms: Counter[str] = Counter()
+    for field, weight in ((article.get("title", ""), 3), (" ".join(article.get("tags", [])), 3),
+                          (article.get("summary", ""), 1)):
+        for part in re.findall(r"[a-z0-9]+|[ぁ-んァ-ヶ一-龥ー]+", field.lower()):
+            if len(part) < 2:
+                continue
+            terms.update({part[i:i + 2]: weight for i in range(len(part) - 1)})
+    return terms
+
+
+def _related_index(articles: list[dict[str, Any]]) -> tuple[dict[str, Counter[str]], dict[str, float], dict[str, float]]:
+    global _related_cache
+    if _related_cache is not None and _related_cache[0] is articles:
+        return _related_cache[1:]
+    vectors = {a["id"]: _related_terms(a) for a in articles}
+    frequency: Counter[str] = Counter()
+    for vector in vectors.values():
+        frequency.update(vector.keys())
+    idf = {term: math.log((len(articles) + 1) / (count + 1)) + 1 for term, count in frequency.items()}
+    norms = {key: math.sqrt(sum((count * idf[term]) ** 2 for term, count in vector.items()))
+             for key, vector in vectors.items()}
+    _related_cache = (articles, vectors, idf, norms)
+    return vectors, idf, norms
+
+
 def related_articles(current: dict[str, Any], articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
     by_id = {article["id"]: article for article in articles}
-    chosen = [by_id[item] for item in current.get("relatedArticleIds", [])
+    chosen = [by_id[item] for item in dict.fromkeys(current.get("relatedArticleIds", []))
               if item in by_id and item != current["id"]]
-    current_tags = set(current.get("tags", []))
+    vectors, idf, norms = _related_index(articles)
+    current_vector = vectors.get(current["id"], _related_terms(current))
+    current_norm = norms.get(current["id"], 0)
+    tag_frequency = Counter(tag.casefold() for article in articles for tag in set(article.get("tags", [])))
+    current_tags = {tag.casefold() for tag in current.get("tags", [])}
     candidates = [article for article in articles
                   if article["id"] != current["id"] and article not in chosen]
-    # Prefer shared specific tags; category alone is a fallback, not a relevance tie-breaker.
-    candidates.sort(key=lambda article: (
-        len(current_tags.intersection(article.get("tags", []))),
-        article["category"] == current["category"],
-    ), reverse=True)
-    matches = [article for article in candidates
-               if current_tags.intersection(article.get("tags", []))
-               or article["category"] == current["category"]]
-    return (chosen + matches)[:3]
+    def relevance(article: dict[str, Any]) -> float:
+        vector = vectors[article["id"]]
+        denominator = current_norm * norms[article["id"]]
+        similarity = (sum(current_vector[t] * vector[t] * idf[t] ** 2
+                          for t in current_vector.keys() & vector.keys()) / denominator) if denominator else 0
+        shared = current_tags & {tag.casefold() for tag in article.get("tags", [])}
+        specific = sum(math.log((len(articles) + 1) / (tag_frequency[t] + 1)) for t in shared)
+        return similarity + min(specific * 0.025, 0.18)
+
+    scored = [(relevance(article), article) for article in candidates]
+    scored.sort(key=lambda pair: (pair[0], pair[1].get("publishedAt", "")), reverse=True)
+    # Curated links are intentional; do not pad them with weaker automatic matches.
+    if len(chosen) >= 2:
+        return chosen[:3]
+    return (chosen + [article for score, article in scored if score >= 0.23])[:2]
 
 
 def render_article_page(article: dict[str, Any], articles: list[dict[str, Any]]) -> str:
@@ -928,9 +970,25 @@ def write_pages(articles: list[dict[str, Any]], *, force: bool = False) -> int:
     INDEX_HTML_PATH.write_text(render_index_page(public_articles), encoding="utf-8")
     apply_layout_to_file(INDEX_HTML_PATH)
     written = 0
+    related_pattern = re.compile(r'        <section class="forensics-article-section forensics-related">.*?        </section>\n', re.DOTALL)
+    nav_marker = '        <nav class="forensics-article-nav"'
     for article in articles:
         path = article_path(article)
         if not should_write_article(article, path, force=force):
+            # New articles can be relevant to older pages even when their source JSON has not changed.
+            original = path.read_text(encoding="utf-8")
+            rendered = normalize_internal_links(render_article_page(public_article(article), public_articles))
+            match = related_pattern.search(rendered)
+            replacement = match.group(0) if match else ""
+            if related_pattern.search(original):
+                refreshed = related_pattern.sub(lambda _: replacement, original, count=1)
+            elif nav_marker in original:
+                refreshed = original.replace(nav_marker, replacement + nav_marker, 1)
+            else:
+                raise ValueError(f"Article navigation not found: {path}")
+            if refreshed != original:
+                path.write_text(refreshed, encoding="utf-8")
+                written += 1
             continue
         public_current = public_article(article)
         path.write_text(render_article_page(public_current, public_articles), encoding="utf-8")

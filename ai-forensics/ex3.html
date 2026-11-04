@@ -232,70 +232,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-serious" href="case-20260826-04" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角 シャドーAI、まず利用先を棚卸しする Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。 セキュリティ・権限 はじめて シャドーAI Shadow AI 生成AI ChatGPT Claude MCP AIエージェント Microsoft 365 AIガバナンス 社内AI利用 仕事で生成AIを使っている人 社内のAI利用ルールを作る人 IT・情報システム・セキュリティ担当者">
+          <a class="forensics-card tone-caution" href="case-20260902-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="Copilotで作ったファイル、ラベルが自動で付いても共有前にプロパティを見る 生成ファイルの秘密度ラベルを確認する Microsoftは2026年8月のMicrosoft 365 Copilotリリースノートで、Copilotが生成したファイルには、参照元データから検出した最も高い秘密度ラベルが自動適用されると案内しています。ラベルを適用できない場合は、共有または保存の前に対応するよう通知されます。利用者にとっては、自動ラベルを付与済みの印として終わらせず、生成した資料を配る直前にファイルのプロパティと通知を確認し、必要なら正しいラベルを手動で適用することが実務上の最後の工程になります。 仕事・AI活用 標準 Microsoft 365 Copilot 秘密度ラベル 情報漏えい対策 ファイル共有 仕事術 Microsoft 365 Microsoft 365 Copilotで資料を作る人 組織の秘密度ラベルを使って仕事のファイルを共有する人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">shadow-ai-inventory</span>
+              <span class="forensics-card-icon" aria-hidden="true">copilot-label-check</span>
               <div>
-                <p>シャドーAI、まず利用先を棚卸しする</p>
-                <h3>シャドーAIは「こっそりChatGPT」だけじゃない。デスクトップ・API・MCPまで広がる管理の死角</h3>
+                <p>生成ファイルの秘密度ラベルを確認する</p>
+                <h3>Copilotで作ったファイル、ラベルが自動で付いても共有前にプロパティを見る</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-26">2026.08.26</time>
-              <span>セキュリティ・権限</span>
-              <span>はじめて</span>
+              <time datetime="2026-09-02">2026.09.02</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Microsoftは2026年7月15日更新のMicrosoft 365管理者向け文書で、IT部門から見えない・承認されていないAIアプリや独立型AIエージェントを「Shadow AI」と説明しています。現在はブラウザ上の生成AIだけでなく、ChatGPT DesktopやClaude Desktopなどのデスクトップアプリ、AIモデルAPI、SaaS型MCPサーバー、ローカルで動くAIエージェントまで管理対象が広がっています。シャドーAI対策で最初に必要なのは、いきなり全面禁止することではありません。誰が、どのAIへ、どんな情報を渡し、どんな操作を任せているかを一度棚卸しし、業務上必要な利用には承認された経路を用意することです。</p>
+            <p class="forensics-card-summary">Microsoftは2026年8月のMicrosoft 365 Copilotリリースノートで、Copilotが生成したファイルには、参照元データから検出した最も高い秘密度ラベルが自動適用されると案内しています。ラベルを適用できない場合は、共有または保存の前に対応するよう通知されます。利用者にとっては、自動ラベルを付与済みの印として終わらせず、生成した資料を配る直前にファイルのプロパティと通知を確認し、必要なら正しいラベルを手動で適用することが実務上の最後の工程になります。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 2</strong>
-              <span>使っているAIと渡している情報を一度確認</span>
+              <span>生成後に秘密度ラベルと通知を確認する</span>
             </div>
-            <ul class="forensics-card-audience"><li>仕事で生成AIを使っている人</li><li>社内のAI利用ルールを作る人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>シャドーAI</li><li>Shadow AI</li><li>生成AI</li></ul>
+            <ul class="forensics-card-audience"><li>Microsoft 365 Copilotで資料を作る人</li><li>組織の秘密度ラベルを使って仕事のファイルを共有する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft 365 Copilot</li><li>秘密度ラベル</li><li>情報漏えい対策</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-calm" href="ex1" data-forensics-card data-category="media-literacy" data-level="1" data-difficulty="beginner" data-search-text="引用が付いていても確認終了ではない。AI検索ではリンク先を1回開く AI検索の引用を1回開く OpenAIは公式ヘルプで、ChatGPTは検索や引用を利用できても、誤った日付・事実・引用・研究・参考文献を提示する可能性があると説明しています。初心者が最初に覚えておきたいのは、引用が付いている回答を捨てることではなく、重要な情報だけリンク先を1回開き、「本当にその内容が書いてあるか」「いつの情報か」を見ることです。 情報の見極め はじめて AI検索 ChatGPT 引用 情報源 ハルシネーション 初心者 ChatGPTなどのAI検索を使い始めた人 AIの回答を学校や仕事の調べものに使う人">
+          <a class="forensics-card tone-calm" href="case-20260912-02" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="Copilotの「記憶」をオフにしても、保存済みの内容は消えない。削除まで確認する Copilotの記憶はオフと削除を別々に確認する Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。 仕事・AI活用 標準 Microsoft 365 Copilot Copilot Memory Saved memories 個人設定 会話履歴 業務利用 Microsoft 365 Copilot Chatで仕事の好みや役割を記憶させる人 異動・退職・担当変更に合わせてAIの記憶を整理したい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">source-check</span>
+              <span class="forensics-card-icon" aria-hidden="true">copilot-memory-delete</span>
               <div>
-                <p>AI検索の引用を1回開く</p>
-                <h3>引用が付いていても確認終了ではない。AI検索ではリンク先を1回開く</h3>
+                <p>Copilotの記憶はオフと削除を別々に確認する</p>
+                <h3>Copilotの「記憶」をオフにしても、保存済みの内容は消えない。削除まで確認する</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-26">2026.08.26</time>
-              <span>情報の見極め</span>
-              <span>はじめて</span>
+              <time datetime="2026-09-12">2026.09.12</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
             </div>
-            <p class="forensics-card-summary">OpenAIは公式ヘルプで、ChatGPTは検索や引用を利用できても、誤った日付・事実・引用・研究・参考文献を提示する可能性があると説明しています。初心者が最初に覚えておきたいのは、引用が付いている回答を捨てることではなく、重要な情報だけリンク先を1回開き、「本当にその内容が書いてあるか」「いつの情報か」を見ることです。</p>
+            <p class="forensics-card-summary">Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 1</strong>
-              <span>引用リンクを1回開いて確認</span>
+              <strong>確認レベル 4</strong>
+              <span>Copilotの記憶は、今後の保存を止める操作と既存分の削除を分ける</span>
             </div>
-            <ul class="forensics-card-audience"><li>ChatGPTなどのAI検索を使い始めた人</li><li>AIの回答を学校や仕事の調べものに使う人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AI検索</li><li>ChatGPT</li><li>引用</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="ex2" data-forensics-card data-category="security" data-level="1" data-difficulty="beginner" data-search-text="Geminiの「アクティビティ保存オフ」＝即時削除ではない。72時間保持を知っておこう Geminiの保存オフと72時間 GoogleのGemini Apps Privacy Hubでは、Geminiの「アクティビティの保存」をオフにした場合や一時チャットを利用した場合でも、チャットは72時間アカウントに保持されると説明されています。一方、一時チャットはGoogleのAIモデルのトレーニングには使用されません。初心者が覚えておきたいのは、「履歴に残らない」「学習に使われない」「即座にデータが消える」は別の話だということです。 セキュリティ・権限 はじめて Gemini プライバシー アクティビティ 一時チャット データ保存 初心者 個人のGoogleアカウントでGeminiを使う人 生成AIへ入力する情報の扱いが気になる人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">privacy-settings</span>
-              <div>
-                <p>Geminiの保存オフと72時間</p>
-                <h3>Geminiの「アクティビティ保存オフ」＝即時削除ではない。72時間保持を知っておこう</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-08-26">2026.08.26</time>
-              <span>セキュリティ・権限</span>
-              <span>はじめて</span>
-            </div>
-            <p class="forensics-card-summary">GoogleのGemini Apps Privacy Hubでは、Geminiの「アクティビティの保存」をオフにした場合や一時チャットを利用した場合でも、チャットは72時間アカウントに保持されると説明されています。一方、一時チャットはGoogleのAIモデルのトレーニングには使用されません。初心者が覚えておきたいのは、「履歴に残らない」「学習に使われない」「即座にデータが消える」は別の話だということです。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 1</strong>
-              <span>使う前に保存設定を1か所確認</span>
-            </div>
-            <ul class="forensics-card-audience"><li>個人のGoogleアカウントでGeminiを使う人</li><li>生成AIへ入力する情報の扱いが気になる人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>プライバシー</li><li>アクティビティ</li></ul>
+            <ul class="forensics-card-audience"><li>Microsoft 365 Copilot Chatで仕事の好みや役割を記憶させる人</li><li>異動・退職・担当変更に合わせてAIの記憶を整理したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft 365 Copilot</li><li>Copilot Memory</li><li>Saved memories</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

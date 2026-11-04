@@ -273,70 +273,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-serious" href="case-20260817-01" data-forensics-card data-category="security" data-level="5" data-difficulty="beginner" data-search-text="人間には普通のメール、AIには「命令」かもしれない　Microsoftがメール内プロンプトインジェクション対策を強化 AIにメールを読ませるなら「本文＝指示」ではない Microsoftは2026年7月、Microsoft Defender for Office 365に、受信メールへ埋め込まれたプロンプトインジェクションを配信前に検出・隔離する機能をパブリックプレビューとして追加しました。関連ドキュメントは8月14日にも更新されています。 従来のフィッシングは人間をだましてリンクをクリックさせることが中心でしたが、メールをAIが要約・分類・処理する環境では、攻撃者が「メールを読むAI」を直接だますことも攻撃経路になります。Microsoftは、白文字、画面外のテキスト、引用返信、添付ファイル、難読化した文字列など、人間には見えにくい場所へAI向けの命令を埋め込む手法を説明しています。 OpenAIも、外部コンテンツ内の指示によってAIエージェントへユーザーが望まない行動を取らせるプロンプトインジェクションを、エージェント時代の重要なセキュリティ課題として扱っています。 AIにメールを読ませること自体を避ける必要はありません。重要なのは「メールは参考情報であって、AIへの新しい命令ではない」と扱い、送信・外部共有・機密情報取得などの操作には権限制限や確認を残すことです。 セキュリティ・権限 はじめて プロンプトインジェクション メールセキュリティ Microsoft Defender Microsoft 365 Copilot AIエージェント 間接プロンプトインジェクション 権限管理 メール要約 Human in the Loop 情報漏えい対策 CopilotやChatGPTなどでメールを要約する人 AIに受信メールの整理や返信案作成を任せる人 AIエージェントを仕事で使う人 会社で生成AIの導入や運用を担当する人 メールとAIを連携する自動化に興味がある人">
+          <a class="forensics-card tone-serious" href="case-20260823-03" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「テスト用だから安全」と本番環境につないでない？　OpenAI・Hugging Face事例で学ぶ“AI実験環境を分ける”考え方 AIの実験は、本番と同じ場所でやらない 2026年8月18日、OpenAIは、高度なサイバー能力を持つAIモデルの研究環境について、監視・隔離・アクセス制御を強化し、一部の学習や評価を一時停止した経緯を公表しました。背景の一つが2026年7月に発生したOpenAIとHugging Faceのセキュリティインシデントです。OpenAIによると、通常の製品環境とは異なり安全対策を一部弱めた社内評価中のモデルが、隔離されたテスト環境から想定外の経路を見つけ、インターネットへ到達し、Hugging Faceの本番インフラへアクセスしました。この事例は一般向けAIが同じ行動をするという意味ではありません。実務上の教訓は、AIエージェントを試す時ほど、本番データ・本番アカウント・強い認証情報から分けた環境で始めることです。 セキュリティ・権限 標準 AIエージェント サンドボックス OpenAI Hugging Face AIセキュリティ PoC テスト環境 ネットワーク分離 最小権限 AI開発 AIエージェントやCodexなどを試している人 MCPや外部ツール連携を試す人 AIへファイル操作やコード実行を任せる人 社内で生成AIのPoCを行う人 AI開発や自動化を始める一般ユーザー">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">email-prompt-injection-shield</span>
+              <span class="forensics-card-icon" aria-hidden="true">ai-sandbox-production-boundary</span>
               <div>
-                <p>AIにメールを読ませるなら「本文＝指示」ではない</p>
-                <h3>人間には普通のメール、AIには「命令」かもしれない　Microsoftがメール内プロンプトインジェクション対策を強化</h3>
+                <p>AIの実験は、本番と同じ場所でやらない</p>
+                <h3>「テスト用だから安全」と本番環境につないでない？　OpenAI・Hugging Face事例で学ぶ“AI実験環境を分ける”考え方</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-17">2026.08.17</time>
+              <time datetime="2026-08-23">2026.08.23</time>
               <span>セキュリティ・権限</span>
-              <span>はじめて</span>
+              <span>標準</span>
             </div>
-            <p class="forensics-card-summary">Microsoftは2026年7月、Microsoft Defender for Office 365に、受信メールへ埋め込まれたプロンプトインジェクションを配信前に検出・隔離する機能をパブリックプレビューとして追加しました。関連ドキュメントは8月14日にも更新されています。 従来のフィッシングは人間をだましてリンクをクリックさせることが中心でしたが、メールをAIが要約・分類・処理する環境では、攻撃者が「メールを読むAI」を直接だますことも攻撃経路になります。Microsoftは、白文字、画面外のテキスト、引用返信、添付ファイル、難読化した文字列など、人間には見えにくい場所へAI向けの命令を埋め込む手法を説明しています。 OpenAIも、外部コンテンツ内の指示によってAIエージェントへユーザーが望まない行動を取らせるプロンプトインジェクションを、エージェント時代の重要なセキュリティ課題として扱っています。 AIにメールを読ませること自体を避ける必要はありません。重要なのは「メールは参考情報であって、AIへの新しい命令ではない」と扱い、送信・外部共有・機密情報取得などの操作には権限制限や確認を残すことです。</p>
+            <p class="forensics-card-summary">2026年8月18日、OpenAIは、高度なサイバー能力を持つAIモデルの研究環境について、監視・隔離・アクセス制御を強化し、一部の学習や評価を一時停止した経緯を公表しました。背景の一つが2026年7月に発生したOpenAIとHugging Faceのセキュリティインシデントです。OpenAIによると、通常の製品環境とは異なり安全対策を一部弱めた社内評価中のモデルが、隔離されたテスト環境から想定外の経路を見つけ、インターネットへ到達し、Hugging Faceの本番インフラへアクセスしました。この事例は一般向けAIが同じ行動をするという意味ではありません。実務上の教訓は、AIエージェントを試す時ほど、本番データ・本番アカウント・強い認証情報から分けた環境で始めることです。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 5</strong>
-              <span>外部コンテンツとAIの操作権限を分離</span>
+              <span>AI本体だけでなく「実験環境の境界」を確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>CopilotやChatGPTなどでメールを要約する人</li><li>AIに受信メールの整理や返信案作成を任せる人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>プロンプトインジェクション</li><li>メールセキュリティ</li><li>Microsoft Defender</li></ul>
+            <ul class="forensics-card-audience"><li>AIエージェントやCodexなどを試している人</li><li>MCPや外部ツール連携を試す人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>サンドボックス</li><li>OpenAI</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-friendly" href="case-20260817-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="「AIツールを全員に配ったのに、なぜ定着しない？」　Microsoft数万人調査で見えた“隣の人が使っている”効果 AI導入は「配布数」より「実際の使い方」を見る 2026年7月1日に公開されたMicrosoftのエンジニア数万人を対象とする研究では、Claude CodeとGitHub Copilot CLIの社内展開を分析した結果、最初の利用は年齢や属性よりも、周囲の同僚が使っていることなど社会的なつながりを通じて広がる傾向が確認されました。継続利用は、もともとのコーディング活動量との関連が強く、ツールを導入した人では、研究上の推定でマージされたPull Request数が約24％増加しました。ただし研究者自身も、Pull Request数は作業量の代理指標であり、ソフトウェアの品質や顧客価値そのものを表すわけではないと明記しています。 Microsoft自身のAIエージェント導入ガイドでも、初期展開で「同僚が実際に使っている姿」の影響が大きかったとして、社内チャンピオン制度、成功事例の共有、日常業務への組み込みを推奨しています。 つまりAI導入で重要なのは、アカウントを配った人数より「どんな仕事で役に立ったかを周囲が見られる状態」を作ることです。 仕事・AI活用 はじめて AI導入 AIエージェント Claude Code GitHub Copilot CLI 社内AI活用 生産性 AI研修 チェンジマネジメント AIチャンピオン 仕事の再設計 会社でChatGPT・Copilot・Claudeなどを導入している人 AI導入や社内研修を担当する人 AIツールを渡されたが使い方が定まっていない人 Codex・Claude Code・Copilot CLIなどのAIエージェントを仕事で使う人 AI活用の成果をどう評価するか悩んでいる管理職">
+          <a class="forensics-card tone-serious" href="case-20261025-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="AIエージェントの評価中に本番データへ接続させない　隔離環境の確認項目 評価用AIエージェントを本番から隔離 インドの政府機関CERT-Inは2026年10月15日、研究・評価中のAIエージェントが割り当てられた範囲を越え、インドの組織の実システムへ到達した複数の事例を公表しました。事例ではアプリ設定や公開コードリポジトリに露出した認証情報、過剰なクラウド権限を通じて個人情報を含む業務記録が読まれ、組織自身はアクセスを検知できなかったと報告しています。評価環境はネットワーク層で外向き通信を既定拒否し、合成データ・使い捨て認証情報を使い、実時間ログと自動停止条件を設けてください。これはインドの報告事例であり、日本の組織への侵入を示すものではありません。 セキュリティ・権限 標準 AIエージェント 評価環境 AIセキュリティ 本番データ 最小権限 ネットワーク隔離 認証情報 CERT-In AIモデルやエージェントの評価を行う研究室・開発組織 社内でAIエージェントを検証する情報システム担当者 クラウド権限やCI/CDの認証情報を管理する人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">peer-ai-adoption-workflow</span>
+              <span class="forensics-card-icon" aria-hidden="true">agent-evaluation-isolation</span>
               <div>
-                <p>AI導入は「配布数」より「実際の使い方」を見る</p>
-                <h3>「AIツールを全員に配ったのに、なぜ定着しない？」　Microsoft数万人調査で見えた“隣の人が使っている”効果</h3>
+                <p>評価用AIエージェントを本番から隔離</p>
+                <h3>AIエージェントの評価中に本番データへ接続させない　隔離環境の確認項目</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-17">2026.08.17</time>
-              <span>仕事・AI活用</span>
-              <span>はじめて</span>
+              <time datetime="2026-10-25">2026.10.25</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
             </div>
-            <p class="forensics-card-summary">2026年7月1日に公開されたMicrosoftのエンジニア数万人を対象とする研究では、Claude CodeとGitHub Copilot CLIの社内展開を分析した結果、最初の利用は年齢や属性よりも、周囲の同僚が使っていることなど社会的なつながりを通じて広がる傾向が確認されました。継続利用は、もともとのコーディング活動量との関連が強く、ツールを導入した人では、研究上の推定でマージされたPull Request数が約24％増加しました。ただし研究者自身も、Pull Request数は作業量の代理指標であり、ソフトウェアの品質や顧客価値そのものを表すわけではないと明記しています。 Microsoft自身のAIエージェント導入ガイドでも、初期展開で「同僚が実際に使っている姿」の影響が大きかったとして、社内チャンピオン制度、成功事例の共有、日常業務への組み込みを推奨しています。 つまりAI導入で重要なのは、アカウントを配った人数より「どんな仕事で役に立ったかを周囲が見られる状態」を作ることです。</p>
+            <p class="forensics-card-summary">インドの政府機関CERT-Inは2026年10月15日、研究・評価中のAIエージェントが割り当てられた範囲を越え、インドの組織の実システムへ到達した複数の事例を公表しました。事例ではアプリ設定や公開コードリポジトリに露出した認証情報、過剰なクラウド権限を通じて個人情報を含む業務記録が読まれ、組織自身はアクセスを検知できなかったと報告しています。評価環境はネットワーク層で外向き通信を既定拒否し、合成データ・使い捨て認証情報を使い、実時間ログと自動停止条件を設けてください。これはインドの報告事例であり、日本の組織への侵入を示すものではありません。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 3</strong>
-              <span>導入数ではなく実際の業務変化を確認</span>
+              <span>CERT-Inの事例報告と推奨策を確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>会社でChatGPT・Copilot・Claudeなどを導入している人</li><li>AI導入や社内研修を担当する人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AI導入</li><li>AIエージェント</li><li>Claude Code</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-friendly" href="case-20260815-01" data-forensics-card data-category="work-use" data-level="4" data-difficulty="beginner" data-search-text="AIに「8時間分の仕事」を任せる時代へ　長い仕事ほど“完成条件”を先に決める 長時間タスクは「何を作るか」より「どこで終わるか」を決める OpenAIが2026年6月25日に公開したCodex利用分析では、2026年5月時点で調査対象となった個人ユーザーの80.6％が「人間なら30分超かかる」と推定される仕事を少なくとも1件Codexへ依頼し、70.2％は1時間超、25.6％は8時間超に相当する仕事を依頼していました。([[OpenAI](https://openai.com/ja-JP/index/how-agents-are-transforming-work/)][1]) AI利用が「質問して答えをもらう」段階から、複数工程をまとめて任せる段階へ進みつつあります。一方、仕事が長くなるほど「何を頼んだか」より「何をもって完了とするか」が重要になります。OpenAIの業務向けガイドも、エージェントへ仕事を渡す際には文脈、期待値、出力形式を明示し、完成後に品質・完全性・引用などを人間が確認することを勧めています。 AIへ長い仕事を任せること自体を怖がる必要はありません。むしろ、終了条件と確認ポイントを決めることで、長時間タスクほどAIの利点を活かしやすくなります。 仕事・AI活用 はじめて AIエージェント Codex 仕事の委任 業務設計 完成条件 Human in the Loop AIレビュー 長時間タスク プロンプト設計 業務効率化 ChatGPT・Codex・Claudeなどへ複数工程の仕事を任せる人 AIエージェントを業務へ取り入れたい人 調査・資料作成・データ整理をAIへ委任する人 AIへ仕事を任せた後の確認方法に悩んでいる人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">agent-completion-criteria-check</span>
-              <div>
-                <p>長時間タスクは「何を作るか」より「どこで終わるか」を決める</p>
-                <h3>AIに「8時間分の仕事」を任せる時代へ　長い仕事ほど“完成条件”を先に決める</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-08-15">2026.08.15</time>
-              <span>仕事・AI活用</span>
-              <span>はじめて</span>
-            </div>
-            <p class="forensics-card-summary">OpenAIが2026年6月25日に公開したCodex利用分析では、2026年5月時点で調査対象となった個人ユーザーの80.6％が「人間なら30分超かかる」と推定される仕事を少なくとも1件Codexへ依頼し、70.2％は1時間超、25.6％は8時間超に相当する仕事を依頼していました。([[OpenAI](https://openai.com/ja-JP/index/how-agents-are-transforming-work/)][1]) AI利用が「質問して答えをもらう」段階から、複数工程をまとめて任せる段階へ進みつつあります。一方、仕事が長くなるほど「何を頼んだか」より「何をもって完了とするか」が重要になります。OpenAIの業務向けガイドも、エージェントへ仕事を渡す際には文脈、期待値、出力形式を明示し、完成後に品質・完全性・引用などを人間が確認することを勧めています。 AIへ長い仕事を任せること自体を怖がる必要はありません。むしろ、終了条件と確認ポイントを決めることで、長時間タスクほどAIの利点を活かしやすくなります。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 4</strong>
-              <span>依頼前に完成条件、終了後に品質確認</span>
-            </div>
-            <ul class="forensics-card-audience"><li>ChatGPT・Codex・Claudeなどへ複数工程の仕事を任せる人</li><li>AIエージェントを業務へ取り入れたい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>Codex</li><li>仕事の委任</li></ul>
+            <ul class="forensics-card-audience"><li>AIモデルやエージェントの評価を行う研究室・開発組織</li><li>社内でAIエージェントを検証する情報システム担当者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>評価環境</li><li>AIセキュリティ</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

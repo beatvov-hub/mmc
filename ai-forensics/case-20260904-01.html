@@ -232,70 +232,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-caution" href="case-20260903-01" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める Recallは保存開始前にサイト・アプリの除外を決める Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy &amp; securityからアプリやWebサイトを除外できると案内しています。保存内容は端末内で処理・保管され、Microsoftや第三者と共有されないとされていますが、保存を始めれば画面上の情報を後から検索できるようになります。機密情報のフィルターは既定で有効でも、特定サイトの除外には対応ブラウザが必要で、除外したサイトでも埋め込み要素や非アクティブなタブの一部が写る場合があります。Recallを便利な「見たもの検索」として使うなら、オンにする前に、銀行・人事・医療・顧客管理などのサイトやアプリを除外リストへ入れることが先です。 セキュリティ・権限 標準 Windows Recall Copilot+ PC 画面保存 プライバシー 除外設定 ローカルAI Copilot+ PCでWindows Recallの利用を検討している人 画面に表示する仕事・私生活の情報をAI検索の対象にしたくない人">
+          <a class="forensics-card tone-serious" href="case-20260910-04" data-forensics-card data-category="security" data-level="4" data-difficulty="advanced" data-search-text="Notion MCPは「自分に見えるもの全部」で動く。外部AIアプリの許可リストを確認する Notion MCPは外部AIアプリの許可リストで管理する Notionは、Notion MCPを通じて接続した外部AIアプリのツールが、利用者本人のNotion権限で動作し、利用者がアクセスできるものにアクセスできると案内しています。Enterpriseでは、管理者がSettings → Connections → PermissionsのAI appsから、メンバーが接続できる外部AIアプリを許可リスト方式で制限できます。許可リストから外したAIアプリは、過去に接続されていて一覧に残る場合でも、Notionは呼び出しを機能的にブロックすると説明しています。一方、既存トークンを自動で取り消す仕組みではないため、全利用者の接続を切る必要がある時はDisconnect All Usersを使い、利用者は再認証が必要になります。『MCPは便利な検索連携』だけで済ませず、本人権限・許可リスト・一括切断を別々に確認する記事です。 セキュリティ・権限 発展 Notion MCP MCP 外部AIアプリ ChatGPT Cursor 権限管理 NotionをChatGPTやCursorなど外部AIアプリとMCP接続する人 Notion Enterpriseで外部AIアプリを統制する管理者">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">recall-filter-list</span>
+              <span class="forensics-card-icon" aria-hidden="true">notion-mcp-approved-apps</span>
               <div>
-                <p>Recallは保存開始前にサイト・アプリの除外を決める</p>
-                <h3>Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める</h3>
+                <p>Notion MCPは外部AIアプリの許可リストで管理する</p>
+                <h3>Notion MCPは「自分に見えるもの全部」で動く。外部AIアプリの許可リストを確認する</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-03">2026.09.03</time>
+              <time datetime="2026-09-10">2026.09.10</time>
               <span>セキュリティ・権限</span>
-              <span>標準</span>
+              <span>発展</span>
             </div>
-            <p class="forensics-card-summary">Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy &amp; securityからアプリやWebサイトを除外できると案内しています。保存内容は端末内で処理・保管され、Microsoftや第三者と共有されないとされていますが、保存を始めれば画面上の情報を後から検索できるようになります。機密情報のフィルターは既定で有効でも、特定サイトの除外には対応ブラウザが必要で、除外したサイトでも埋め込み要素や非アクティブなタブの一部が写る場合があります。Recallを便利な「見たもの検索」として使うなら、オンにする前に、銀行・人事・医療・顧客管理などのサイトやアプリを除外リストへ入れることが先です。</p>
+            <p class="forensics-card-summary">Notionは、Notion MCPを通じて接続した外部AIアプリのツールが、利用者本人のNotion権限で動作し、利用者がアクセスできるものにアクセスできると案内しています。Enterpriseでは、管理者がSettings → Connections → PermissionsのAI appsから、メンバーが接続できる外部AIアプリを許可リスト方式で制限できます。許可リストから外したAIアプリは、過去に接続されていて一覧に残る場合でも、Notionは呼び出しを機能的にブロックすると説明しています。一方、既存トークンを自動で取り消す仕組みではないため、全利用者の接続を切る必要がある時はDisconnect All Usersを使い、利用者は再認証が必要になります。『MCPは便利な検索連携』だけで済ませず、本人権限・許可リスト・一括切断を別々に確認する記事です。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>保存を始める前に、Recallの対象外を設定する</span>
+              <strong>確認レベル 4</strong>
+              <span>Notion MCPは本人権限・許可リスト・一括切断を分けて管理する</span>
             </div>
-            <ul class="forensics-card-audience"><li>Copilot+ PCでWindows Recallの利用を検討している人</li><li>画面に表示する仕事・私生活の情報をAI検索の対象にしたくない人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Windows Recall</li><li>Copilot+ PC</li><li>画面保存</li></ul>
+            <ul class="forensics-card-audience"><li>NotionをChatGPTやCursorなど外部AIアプリとMCP接続する人</li><li>Notion Enterpriseで外部AIアプリを統制する管理者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Notion MCP</li><li>MCP</li><li>外部AIアプリ</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-caution" href="case-20260902-01" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="GeminiがDriveの機密ラベルを付けたら、共有前に「承認か修正か」を決める AI自動ラベルは共有前に承認・修正する Googleは2026年8月28日、Geminiを使ってGoogle Driveのファイルへデータ分類ラベルを付ける機能をオープンベータで提供すると発表しました。管理者がラベル、指示、対象範囲を設定し、必要なラベル権限を持つファイル所有者・編集者は、Geminiが付けたラベルを確認して承認または修正できます。利用者にとっては、AIのラベルをそのまま共有可否の結論にせず、外部共有・保存期間・持ち出し制限へ進む前に、ファイルの実際の内容とラベルが合っているかを決める場面が増えます。 セキュリティ・権限 標準 Google Drive Gemini データ分類 情報漏えい対策 DLP Google Workspace Google WorkspaceのDriveで組織のファイルを扱う人 AIによるデータ分類を導入・利用する組織の管理者とファイル所有者">
+          <a class="forensics-card tone-calm" href="case-20260811-03" data-forensics-card data-category="security" data-level="4" data-difficulty="beginner" data-search-text="AIに「このツールも使えるようにしよう」　MCP接続、全部つないで大丈夫？ MCPは便利。でも「つなぐ先」と「渡す権限」を見る AIエージェントへ外部ツールやデータを接続する仕組みとして、MCP（Model Context Protocol）の利用が広がっています。MCPを使うと、AIからファイル、データベース、開発ツールなどへ接続しやすくなります。GitHubは2026年8月6日、Copilotで利用できるMCPサーバーを企業が許可・拒否リストで管理できる機能を発表しました。([[The GitHub Blog](https://github.blog/changelog/month/08-2026/)][1]) これは「MCPが危険」という話ではありません。AIへできることが増えるほど、どの接続先を信用し、どの権限まで渡すかを管理する必要が出てきたということです。一般の利用者も、新しいMCPを見つけたら「便利そうだから接続」ではなく、「誰が提供しているか」「何にアクセスできるか」「その権限は本当に必要か」を見る習慣が大切です。 セキュリティ・権限 はじめて MCP Model Context Protocol AIエージェント GitHub Copilot 外部ツール連携 権限管理 OAuth アクセストークン allowlist AIセキュリティ ChatGPTやGitHub Copilotなどへ外部ツールを接続する人 MCPという言葉を最近よく見かける人 AIエージェントにファイル・Web・社内ツールを使わせたい人 会社でAIツールの利用ルールを考える人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">ai-label-review</span>
+              <span class="forensics-card-icon" aria-hidden="true">mcp-permission-plug-check</span>
               <div>
-                <p>AI自動ラベルは共有前に承認・修正する</p>
-                <h3>GeminiがDriveの機密ラベルを付けたら、共有前に「承認か修正か」を決める</h3>
+                <p>MCPは便利。でも「つなぐ先」と「渡す権限」を見る</p>
+                <h3>AIに「このツールも使えるようにしよう」　MCP接続、全部つないで大丈夫？</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-02">2026.09.02</time>
+              <time datetime="2026-08-11">2026.08.11</time>
               <span>セキュリティ・権限</span>
-              <span>標準</span>
+              <span>はじめて</span>
             </div>
-            <p class="forensics-card-summary">Googleは2026年8月28日、Geminiを使ってGoogle Driveのファイルへデータ分類ラベルを付ける機能をオープンベータで提供すると発表しました。管理者がラベル、指示、対象範囲を設定し、必要なラベル権限を持つファイル所有者・編集者は、Geminiが付けたラベルを確認して承認または修正できます。利用者にとっては、AIのラベルをそのまま共有可否の結論にせず、外部共有・保存期間・持ち出し制限へ進む前に、ファイルの実際の内容とラベルが合っているかを決める場面が増えます。</p>
+            <p class="forensics-card-summary">AIエージェントへ外部ツールやデータを接続する仕組みとして、MCP（Model Context Protocol）の利用が広がっています。MCPを使うと、AIからファイル、データベース、開発ツールなどへ接続しやすくなります。GitHubは2026年8月6日、Copilotで利用できるMCPサーバーを企業が許可・拒否リストで管理できる機能を発表しました。([[The GitHub Blog](https://github.blog/changelog/month/08-2026/)][1]) これは「MCPが危険」という話ではありません。AIへできることが増えるほど、どの接続先を信用し、どの権限まで渡すかを管理する必要が出てきたということです。一般の利用者も、新しいMCPを見つけたら「便利そうだから接続」ではなく、「誰が提供しているか」「何にアクセスできるか」「その権限は本当に必要か」を見る習慣が大切です。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>AIラベルを共有前に承認・修正する</span>
+              <strong>確認レベル 4</strong>
+              <span>接続前に提供元・権限・操作範囲を確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>Google WorkspaceのDriveで組織のファイルを扱う人</li><li>AIによるデータ分類を導入・利用する組織の管理者とファイル所有者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Google Drive</li><li>Gemini</li><li>データ分類</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="case-20260902-04" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="ChatGPTの共有リンクを消しても、相手が保存した会話までは消えない。送る前と取り消す時に見る場所 共有リンクは送る前に範囲を見て、不要なら個別に消す OpenAIは、ChatGPTの共有リンクについて、個人アカウントで作成した会話リンクはリンクを知る人が閲覧でき、会話履歴・画像・アップロード済みファイルを含む場合があると案内しています。リンクを削除すれば以後そのURLからは開けなくなりますが、相手がすでに会話を自分のアカウントへ保存していた場合、そのコピーまでは消えません。また、個人アカウントの共有リンクには相手ごとの閲覧制限や有効期限の設定はありません。会話を送る時はURLを作る前にプレビューの範囲を見直し、不要になった時はSettingsのData controlsから共有リンクを個別に削除する、という二段階で扱う必要があります。 セキュリティ・権限 標準 ChatGPT 共有リンク データ管理 プライバシー 情報共有 設定 ChatGPTの会話をURLで同僚や知人に共有する人 共有した会話に個人情報や添付ファイルが含まれていないか見直したい人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">shared-link-review</span>
-              <div>
-                <p>共有リンクは送る前に範囲を見て、不要なら個別に消す</p>
-                <h3>ChatGPTの共有リンクを消しても、相手が保存した会話までは消えない。送る前と取り消す時に見る場所</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-09-02">2026.09.02</time>
-              <span>セキュリティ・権限</span>
-              <span>標準</span>
-            </div>
-            <p class="forensics-card-summary">OpenAIは、ChatGPTの共有リンクについて、個人アカウントで作成した会話リンクはリンクを知る人が閲覧でき、会話履歴・画像・アップロード済みファイルを含む場合があると案内しています。リンクを削除すれば以後そのURLからは開けなくなりますが、相手がすでに会話を自分のアカウントへ保存していた場合、そのコピーまでは消えません。また、個人アカウントの共有リンクには相手ごとの閲覧制限や有効期限の設定はありません。会話を送る時はURLを作る前にプレビューの範囲を見直し、不要になった時はSettingsのData controlsから共有リンクを個別に削除する、という二段階で扱う必要があります。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>共有前にプレビュー、不要になれば共有リンクを削除する</span>
-            </div>
-            <ul class="forensics-card-audience"><li>ChatGPTの会話をURLで同僚や知人に共有する人</li><li>共有した会話に個人情報や添付ファイルが含まれていないか見直したい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>共有リンク</li><li>データ管理</li></ul>
+            <ul class="forensics-card-audience"><li>ChatGPTやGitHub Copilotなどへ外部ツールを接続する人</li><li>MCPという言葉を最近よく見かける人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>MCP</li><li>Model Context Protocol</li><li>AIエージェント</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

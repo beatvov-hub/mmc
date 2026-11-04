@@ -232,70 +232,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-caution" href="case-20260904-03" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="ChatGPTの連携アプリは、切断しても会話・ファイル・Memoryが消えるわけではない。止める時の3点確認 ChatGPTアプリの切断と保存データの整理は別操作 OpenAIは、ChatGPTで連携したアプリのアカウントをDisconnectすると、そのアカウント経由の今後のアクセスは止まると案内しています。ただし、別の接続済みアカウントや管理者が設定したワークスペース接続は残ることがあり、Disconnectだけで既存・アーカイブ済みの会話、保存済みファイル、Memory summary、その他の保存済みMemoryが自動削除されるわけではありません。Googleアプリについても、接続解除は個人接続からのファイルアクセスを止めますが、既存の会話・Memoryや、別に管理されたワークスペースのインデックスは別の扱いです。連携を終える時は、(1) 接続アカウントを切る、(2) 残したくない会話・ファイルを削除する、(3) Memoryを確認・削除する、という三つの操作を分けて実施します。 セキュリティ・権限 標準 ChatGPT 連携アプリ Google Drive 接続解除 Memory データ整理 ChatGPTにGoogle Drive、メール、予定表などのアカウントを連携している人 仕事用アカウントとの連携を終える際、残るデータを整理したい人">
+          <a class="forensics-card tone-calm" href="case-20260923-04" data-forensics-card data-category="work-use" data-level="4" data-difficulty="standard" data-search-text="Microsoft CopilotのWork IQは、仕事データが必要な質問だけオンにする Copilot Work IQは質問ごとにオン・オフを選ぶ Microsoftは、Microsoft CopilotのWork IQをオンにすると、既存のMicrosoft 365権限の範囲で、メール、ファイル、チャット、会議、人物、プロジェクトなどの仕事データを回答の根拠として参照できると案内しています。オフにすると、仕事データを参照せず、添付した内容、公開ウェブ情報、ユーザープロフィールや個人設定を使って回答します。Work IQはチャット画面左上のボタンから質問ごとに切り替えられます。社内文脈が必要な質問と、一般的な質問を画面上で使い分ける記事です。 仕事・AI活用 標準 Microsoft Copilot Work IQ Microsoft 365 仕事データ 根拠 設定 Microsoft 365でCopilotを使う人 仕事データを参照するAI質問を使い分けたい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">chatgpt-app-disconnect-checklist</span>
+              <span class="forensics-card-icon" aria-hidden="true">copilot-work-iq</span>
               <div>
-                <p>ChatGPTアプリの切断と保存データの整理は別操作</p>
-                <h3>ChatGPTの連携アプリは、切断しても会話・ファイル・Memoryが消えるわけではない。止める時の3点確認</h3>
+                <p>Copilot Work IQは質問ごとにオン・オフを選ぶ</p>
+                <h3>Microsoft CopilotのWork IQは、仕事データが必要な質問だけオンにする</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-04">2026.09.04</time>
+              <time datetime="2026-09-23">2026.09.23</time>
+              <span>仕事・AI活用</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは、Microsoft CopilotのWork IQをオンにすると、既存のMicrosoft 365権限の範囲で、メール、ファイル、チャット、会議、人物、プロジェクトなどの仕事データを回答の根拠として参照できると案内しています。オフにすると、仕事データを参照せず、添付した内容、公開ウェブ情報、ユーザープロフィールや個人設定を使って回答します。Work IQはチャット画面左上のボタンから質問ごとに切り替えられます。社内文脈が必要な質問と、一般的な質問を画面上で使い分ける記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Work IQは、Microsoft 365の仕事データを根拠に使うかを質問ごとに選ぶ設定</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft 365でCopilotを使う人</li><li>仕事データを参照するAI質問を使い分けたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Work IQ</li><li>Microsoft 365</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261026-02" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Microsoft Copilotのプライバシー設定、新旧アプリで案内が違う　先に版とアカウントを確認 Copilot設定はアプリ版とアカウントを確認 Microsoftは2026年8月18日から、Web・デスクトップ・モバイル向けMicrosoft Copilotアプリの更新版を提供しています。Microsoft Supportの「プライバシー コントロール」やFAQには旧版だけに適用される説明が残り、新版やCopilot on the webでは別の「個人向けCopilot: データ、プライバシー、責任あるAI」案内を参照するよう明記されています。また個人Microsoftアカウント、Microsoft 365の家庭向けアプリ、職場・学校のMicrosoft Entraアカウントでは適用文書が異なります。画面の設定手順を試す前に、アプリ更新状態とサインイン中のアカウント種別を確認し、該当する公式案内を開いてください。旧版の学習・メモリ設定を新版や組織アカウントへそのまま当てはめないことが重要です。 セキュリティ・権限 はじめて Microsoft Copilot プライバシー設定 Copilot更新 アカウント種別 メモリ AIデータ保護 個人用MicrosoftアカウントでCopilotを使う人 Copilotのメモリ・学習・チャット設定を見直したい人 個人用と職場・学校用のCopilotを使い分ける人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-privacy-version-check</span>
+              <div>
+                <p>Copilot設定はアプリ版とアカウントを確認</p>
+                <h3>Microsoft Copilotのプライバシー設定、新旧アプリで案内が違う　先に版とアカウントを確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-26">2026.10.26</time>
               <span>セキュリティ・権限</span>
-              <span>標準</span>
+              <span>はじめて</span>
             </div>
-            <p class="forensics-card-summary">OpenAIは、ChatGPTで連携したアプリのアカウントをDisconnectすると、そのアカウント経由の今後のアクセスは止まると案内しています。ただし、別の接続済みアカウントや管理者が設定したワークスペース接続は残ることがあり、Disconnectだけで既存・アーカイブ済みの会話、保存済みファイル、Memory summary、その他の保存済みMemoryが自動削除されるわけではありません。Googleアプリについても、接続解除は個人接続からのファイルアクセスを止めますが、既存の会話・Memoryや、別に管理されたワークスペースのインデックスは別の扱いです。連携を終える時は、(1) 接続アカウントを切る、(2) 残したくない会話・ファイルを削除する、(3) Memoryを確認・削除する、という三つの操作を分けて実施します。</p>
+            <p class="forensics-card-summary">Microsoftは2026年8月18日から、Web・デスクトップ・モバイル向けMicrosoft Copilotアプリの更新版を提供しています。Microsoft Supportの「プライバシー コントロール」やFAQには旧版だけに適用される説明が残り、新版やCopilot on the webでは別の「個人向けCopilot: データ、プライバシー、責任あるAI」案内を参照するよう明記されています。また個人Microsoftアカウント、Microsoft 365の家庭向けアプリ、職場・学校のMicrosoft Entraアカウントでは適用文書が異なります。画面の設定手順を試す前に、アプリ更新状態とサインイン中のアカウント種別を確認し、該当する公式案内を開いてください。旧版の学習・メモリ設定を新版や組織アカウントへそのまま当てはめないことが重要です。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>ChatGPT連携を終える時は、接続・会話・Memoryを別々に片付ける</span>
+              <strong>確認レベル 3</strong>
+              <span>Microsoftの適用条件と公式案内を確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>ChatGPTにGoogle Drive、メール、予定表などのアカウントを連携している人</li><li>仕事用アカウントとの連携を終える際、残るデータを整理したい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>連携アプリ</li><li>Google Drive</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="case-20260904-04" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="ChatGPTの連携アプリは『毎回確認』にしても権限を取り消さない。止めたい時は切断する ChatGPTの確認設定とアプリ接続の権限は別物 OpenAIは、ChatGPTの連携アプリに対するApp permissionsは、アプリを使う前にいつ確認を求めるかを決める設定であり、アプリに新しいアクセス権を与えるものでも、既存の接続権限を取り消すものでもないと案内しています。既定のImportant actionsでは、読み取りは自動で行える一方、メール送信・ファイルの移動や共有設定変更・削除など、外部に意味のある影響があり得る操作には確認を求めます。変更のたびに確認したい場合はAny changesを選べます。反対に、アプリのアクセスそのものを止めるにはDisconnect、またはワークスペース管理者による無効化が必要です。『毎回聞かれる設定』と『連携の権限を外す設定』を混同せず、試行時は確認の粒度を、利用停止時は接続状態を確認します。 仕事・AI活用 標準 ChatGPT 連携アプリ 権限設定 確認ダイアログ 外部操作 業務利用 ChatGPTからメール、予定、クラウドファイルなどを扱う連携アプリを使う人 AIに外部サービスの操作を任せる前に、確認の出し方を整えたいチーム">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">chatgpt-app-permission-brake</span>
-              <div>
-                <p>ChatGPTの確認設定とアプリ接続の権限は別物</p>
-                <h3>ChatGPTの連携アプリは『毎回確認』にしても権限を取り消さない。止めたい時は切断する</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-09-04">2026.09.04</time>
-              <span>仕事・AI活用</span>
-              <span>標準</span>
-            </div>
-            <p class="forensics-card-summary">OpenAIは、ChatGPTの連携アプリに対するApp permissionsは、アプリを使う前にいつ確認を求めるかを決める設定であり、アプリに新しいアクセス権を与えるものでも、既存の接続権限を取り消すものでもないと案内しています。既定のImportant actionsでは、読み取りは自動で行える一方、メール送信・ファイルの移動や共有設定変更・削除など、外部に意味のある影響があり得る操作には確認を求めます。変更のたびに確認したい場合はAny changesを選べます。反対に、アプリのアクセスそのものを止めるにはDisconnect、またはワークスペース管理者による無効化が必要です。『毎回聞かれる設定』と『連携の権限を外す設定』を混同せず、試行時は確認の粒度を、利用停止時は接続状態を確認します。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>ChatGPTアプリの『確認設定』と『接続解除』を目的別に使い分ける</span>
-            </div>
-            <ul class="forensics-card-audience"><li>ChatGPTからメール、予定、クラウドファイルなどを扱う連携アプリを使う人</li><li>AIに外部サービスの操作を任せる前に、確認の出し方を整えたいチーム</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>連携アプリ</li><li>権限設定</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="case-20260903-02" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="SlackのAI要約、「閉じれば消える」とは限らない。ワークフローで投稿する前に保存先を決める Slack AI要約は「表示だけ」と「保存される投稿」を分ける Slackは、利用者がその場で見る会話要約や検索回答は画面を閉じると消える一時的なAI応答で、端末やサーバーに保存されないと案内しています。一方、ワークフローの「Summarize public channels」ステップで作ったチャンネル要約は別で、後続の設定次第で会話へのメッセージ投稿やCanvasへの保存が行われ、組織のデータ保持設定に従って残ります。さらに、Recapの履歴は90日間保存されます。つまり、同じ『AI要約』でも、個人が今読むための応答なのか、チームの記録として投稿する自動化なのかで保存の扱いが変わります。ワークフロー化する前に、保存先・閲覧者・保持期間を決めることが必要です。 仕事・AI活用 標準 Slack AI要約 ワークフロー Canvas データ保持 業務効率化 SlackでAI要約や検索回答を使うチームメンバー Slackの要約ワークフローを作成・管理する人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">slack-summary-retention</span>
-              <div>
-                <p>Slack AI要約は「表示だけ」と「保存される投稿」を分ける</p>
-                <h3>SlackのAI要約、「閉じれば消える」とは限らない。ワークフローで投稿する前に保存先を決める</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-09-03">2026.09.03</time>
-              <span>仕事・AI活用</span>
-              <span>標準</span>
-            </div>
-            <p class="forensics-card-summary">Slackは、利用者がその場で見る会話要約や検索回答は画面を閉じると消える一時的なAI応答で、端末やサーバーに保存されないと案内しています。一方、ワークフローの「Summarize public channels」ステップで作ったチャンネル要約は別で、後続の設定次第で会話へのメッセージ投稿やCanvasへの保存が行われ、組織のデータ保持設定に従って残ります。さらに、Recapの履歴は90日間保存されます。つまり、同じ『AI要約』でも、個人が今読むための応答なのか、チームの記録として投稿する自動化なのかで保存の扱いが変わります。ワークフロー化する前に、保存先・閲覧者・保持期間を決めることが必要です。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>AI要約を投稿する前に、保存先と保持期間を確認する</span>
-            </div>
-            <ul class="forensics-card-audience"><li>SlackでAI要約や検索回答を使うチームメンバー</li><li>Slackの要約ワークフローを作成・管理する人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Slack</li><li>AI要約</li><li>ワークフロー</li></ul>
+            <ul class="forensics-card-audience"><li>個人用MicrosoftアカウントでCopilotを使う人</li><li>Copilotのメモリ・学習・チャット設定を見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>プライバシー設定</li><li>Copilot更新</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

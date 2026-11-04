@@ -232,70 +232,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-caution" href="case-20260904-01" data-forensics-card data-category="security" data-level="2" data-difficulty="advanced" data-search-text="Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。 セキュリティ・権限 発展 Notion MCP AIアプリ 権限管理 接続解除 ワークスペース管理 NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人 MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者">
+          <a class="forensics-card tone-calm" href="case-20260907-03" data-forensics-card data-category="security" data-level="2" data-difficulty="beginner" data-search-text="Galaxy AIの「端末内のみで処理」は万能ではない。止まる機能を確認してから切り替える Galaxy AIを端末内処理に限定する前に機能差を確認する Samsungは、Galaxy AIの機能には端末内で処理されるものと、ネットワーク接続を使うものがあると案内しています。多くの翻訳やGalleryのEdit Suggestionsは端末内処理の例ですが、自動整形、要約、自動修正、画像編集などはクラウドを利用します。対応端末では「設定」からGalaxy AIを開き、「Process data only on device」を有効にしてクラウド処理を止められます。ただし、この切り替えにより利用できなくなる機能があり、機種やOSの違いでも機能は変わります。機密情報を扱う前に、処理場所の希望と必要な機能を照らし合わせる記事です。 セキュリティ・権限 はじめて Galaxy AI Samsung オンデバイスAI クラウド処理 スマホ設定 プライバシー GalaxyスマートフォンやタブレットのAI機能を使う人 AIへの入力をクラウドへ送る範囲を設定から見直したい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">notion-mcp-access-review</span>
+              <span class="forensics-card-icon" aria-hidden="true">galaxy-ai-on-device-processing</span>
               <div>
-                <p>Notion MCPは承認解除後も『接続表示』と遮断を分けて確認する</p>
-                <h3>Notion MCPでAIアプリを承認リストから外しても、接続表示は残る。止めた後に確認すること</h3>
+                <p>Galaxy AIを端末内処理に限定する前に機能差を確認する</p>
+                <h3>Galaxy AIの「端末内のみで処理」は万能ではない。止まる機能を確認してから切り替える</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-04">2026.09.04</time>
+              <time datetime="2026-09-07">2026.09.07</time>
               <span>セキュリティ・権限</span>
-              <span>発展</span>
+              <span>はじめて</span>
             </div>
-            <p class="forensics-card-summary">Notionは、EnterpriseのMCP Governanceで外部AIアプリを承認リストだけに制限でき、未承認のAIアプリからの呼び出しは遮断すると案内しています。ただし、既に接続済みだったAIアプリを承認リストから外しても、Notion側では既存トークンを取り消せないため、Connected toolsに表示が残る場合があります。この状態でもNotion MCPは未承認アプリからの呼び出しを機能的にブロックします。接続そのものを全利用者分リセットしたい場合は「Disconnect All Users」で外部AIツール・MCPクライアントを切断し、利用者に承認済みアプリだけで再認証してもらう手順です。『一覧から消えない』ことと『今もNotionを読める・書ける』ことを混同せず、承認解除後は遮断状態と再接続の範囲を分けて確認します。</p>
+            <p class="forensics-card-summary">Samsungは、Galaxy AIの機能には端末内で処理されるものと、ネットワーク接続を使うものがあると案内しています。多くの翻訳やGalleryのEdit Suggestionsは端末内処理の例ですが、自動整形、要約、自動修正、画像編集などはクラウドを利用します。対応端末では「設定」からGalaxy AIを開き、「Process data only on device」を有効にしてクラウド処理を止められます。ただし、この切り替えにより利用できなくなる機能があり、機種やOSの違いでも機能は変わります。機密情報を扱う前に、処理場所の希望と必要な機能を照らし合わせる記事です。</p>
             <div class="forensics-card-level">
               <strong>確認レベル 2</strong>
-              <span>Notion MCPは承認解除後に、遮断状態と再認証の要否を分けて確認する</span>
+              <span>Galaxy AIは、端末内処理の希望と使える機能を一緒に確認する</span>
             </div>
-            <ul class="forensics-card-audience"><li>NotionワークスペースでClaude、ChatGPT、CursorなどのAIアプリ連携を管理する人</li><li>MCP連携を止めたいが、接続表示が残っていて不安なチーム管理者</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Notion</li><li>MCP</li><li>AIアプリ</li></ul>
+            <ul class="forensics-card-audience"><li>GalaxyスマートフォンやタブレットのAI機能を使う人</li><li>AIへの入力をクラウドへ送る範囲を設定から見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Galaxy AI</li><li>Samsung</li><li>オンデバイスAI</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-caution" href="case-20260904-03" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="ChatGPTの連携アプリは、切断しても会話・ファイル・Memoryが消えるわけではない。止める時の3点確認 ChatGPTアプリの切断と保存データの整理は別操作 OpenAIは、ChatGPTで連携したアプリのアカウントをDisconnectすると、そのアカウント経由の今後のアクセスは止まると案内しています。ただし、別の接続済みアカウントや管理者が設定したワークスペース接続は残ることがあり、Disconnectだけで既存・アーカイブ済みの会話、保存済みファイル、Memory summary、その他の保存済みMemoryが自動削除されるわけではありません。Googleアプリについても、接続解除は個人接続からのファイルアクセスを止めますが、既存の会話・Memoryや、別に管理されたワークスペースのインデックスは別の扱いです。連携を終える時は、(1) 接続アカウントを切る、(2) 残したくない会話・ファイルを削除する、(3) Memoryを確認・削除する、という三つの操作を分けて実施します。 セキュリティ・権限 標準 ChatGPT 連携アプリ Google Drive 接続解除 Memory データ整理 ChatGPTにGoogle Drive、メール、予定表などのアカウントを連携している人 仕事用アカウントとの連携を終える際、残るデータを整理したい人">
+          <a class="forensics-card tone-calm" href="case-20260907-02" data-forensics-card data-category="security" data-level="3" data-difficulty="standard" data-search-text="Apple Intelligenceは「端末内だけ」とは限らない。Private Cloud Computeの利用履歴を確認する Apple IntelligenceのPrivate Cloud Compute利用を確認する Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」→「プライバシーとセキュリティ」→「Apple Intelligence &amp; PCC Report」で記録期間を選び、端末外で処理された要求のレポートを出力できます。Macにも同様の設定があります。対応するApple Intelligence Extensionsへの要求も記録対象ですが、Face IDやTouch IDが一時的に無効だった場合は最近の要求が反映されない可能性があります。『オンデバイスAI』という説明だけで処理場所を決めつけず、記録の対象と限界を確認する手順を扱います。 セキュリティ・権限 標準 Apple Intelligence iPhone Private Cloud Compute プライバシー オンデバイスAI 利用記録 iPhoneでApple Intelligenceを使い、処理場所を確認したい人 AI機能のクラウド利用を設定と記録から確かめたい人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">chatgpt-app-disconnect-checklist</span>
+              <span class="forensics-card-icon" aria-hidden="true">apple-intelligence-private-cloud-report</span>
               <div>
-                <p>ChatGPTアプリの切断と保存データの整理は別操作</p>
-                <h3>ChatGPTの連携アプリは、切断しても会話・ファイル・Memoryが消えるわけではない。止める時の3点確認</h3>
+                <p>Apple IntelligenceのPrivate Cloud Compute利用を確認する</p>
+                <h3>Apple Intelligenceは「端末内だけ」とは限らない。Private Cloud Computeの利用履歴を確認する</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-09-04">2026.09.04</time>
+              <time datetime="2026-09-07">2026.09.07</time>
               <span>セキュリティ・権限</span>
               <span>標準</span>
             </div>
-            <p class="forensics-card-summary">OpenAIは、ChatGPTで連携したアプリのアカウントをDisconnectすると、そのアカウント経由の今後のアクセスは止まると案内しています。ただし、別の接続済みアカウントや管理者が設定したワークスペース接続は残ることがあり、Disconnectだけで既存・アーカイブ済みの会話、保存済みファイル、Memory summary、その他の保存済みMemoryが自動削除されるわけではありません。Googleアプリについても、接続解除は個人接続からのファイルアクセスを止めますが、既存の会話・Memoryや、別に管理されたワークスペースのインデックスは別の扱いです。連携を終える時は、(1) 接続アカウントを切る、(2) 残したくない会話・ファイルを削除する、(3) Memoryを確認・削除する、という三つの操作を分けて実施します。</p>
+            <p class="forensics-card-summary">Appleは、Apple Intelligenceの多くの処理を端末上で行う一方、より大きな計算能力が必要な要求ではPrivate Cloud Computeを利用できると説明しています。iPhoneでは「設定」→「プライバシーとセキュリティ」→「Apple Intelligence &amp; PCC Report」で記録期間を選び、端末外で処理された要求のレポートを出力できます。Macにも同様の設定があります。対応するApple Intelligence Extensionsへの要求も記録対象ですが、Face IDやTouch IDが一時的に無効だった場合は最近の要求が反映されない可能性があります。『オンデバイスAI』という説明だけで処理場所を決めつけず、記録の対象と限界を確認する手順を扱います。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>ChatGPT連携を終える時は、接続・会話・Memoryを別々に片付ける</span>
+              <strong>確認レベル 3</strong>
+              <span>Apple Intelligenceのクラウド利用は、設定のレポートで確認できる</span>
             </div>
-            <ul class="forensics-card-audience"><li>ChatGPTにGoogle Drive、メール、予定表などのアカウントを連携している人</li><li>仕事用アカウントとの連携を終える際、残るデータを整理したい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>ChatGPT</li><li>連携アプリ</li><li>Google Drive</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="case-20260903-01" data-forensics-card data-category="security" data-level="2" data-difficulty="standard" data-search-text="Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める Recallは保存開始前にサイト・アプリの除外を決める Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy &amp; securityからアプリやWebサイトを除外できると案内しています。保存内容は端末内で処理・保管され、Microsoftや第三者と共有されないとされていますが、保存を始めれば画面上の情報を後から検索できるようになります。機密情報のフィルターは既定で有効でも、特定サイトの除外には対応ブラウザが必要で、除外したサイトでも埋め込み要素や非アクティブなタブの一部が写る場合があります。Recallを便利な「見たもの検索」として使うなら、オンにする前に、銀行・人事・医療・顧客管理などのサイトやアプリを除外リストへ入れることが先です。 セキュリティ・権限 標準 Windows Recall Copilot+ PC 画面保存 プライバシー 除外設定 ローカルAI Copilot+ PCでWindows Recallの利用を検討している人 画面に表示する仕事・私生活の情報をAI検索の対象にしたくない人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">recall-filter-list</span>
-              <div>
-                <p>Recallは保存開始前にサイト・アプリの除外を決める</p>
-                <h3>Windows Recallは「ローカル保存」でも、最初に“残さないサイト”を決める</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-09-03">2026.09.03</time>
-              <span>セキュリティ・権限</span>
-              <span>標準</span>
-            </div>
-            <p class="forensics-card-summary">Microsoftは、Copilot+ PC向けのプレビュー機能「Recall」について、画面のスナップショット保存は利用者が選んで開始する方式で、SettingsのPrivacy &amp; securityからアプリやWebサイトを除外できると案内しています。保存内容は端末内で処理・保管され、Microsoftや第三者と共有されないとされていますが、保存を始めれば画面上の情報を後から検索できるようになります。機密情報のフィルターは既定で有効でも、特定サイトの除外には対応ブラウザが必要で、除外したサイトでも埋め込み要素や非アクティブなタブの一部が写る場合があります。Recallを便利な「見たもの検索」として使うなら、オンにする前に、銀行・人事・医療・顧客管理などのサイトやアプリを除外リストへ入れることが先です。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 2</strong>
-              <span>保存を始める前に、Recallの対象外を設定する</span>
-            </div>
-            <ul class="forensics-card-audience"><li>Copilot+ PCでWindows Recallの利用を検討している人</li><li>画面に表示する仕事・私生活の情報をAI検索の対象にしたくない人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Windows Recall</li><li>Copilot+ PC</li><li>画面保存</li></ul>
+            <ul class="forensics-card-audience"><li>iPhoneでApple Intelligenceを使い、処理場所を確認したい人</li><li>AI機能のクラウド利用を設定と記録から確かめたい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Apple Intelligence</li><li>iPhone</li><li>Private Cloud Compute</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

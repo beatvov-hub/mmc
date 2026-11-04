@@ -264,70 +264,48 @@
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
-          <a class="forensics-card tone-serious" href="case-20260823-03" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「テスト用だから安全」と本番環境につないでない？　OpenAI・Hugging Face事例で学ぶ“AI実験環境を分ける”考え方 AIの実験は、本番と同じ場所でやらない 2026年8月18日、OpenAIは、高度なサイバー能力を持つAIモデルの研究環境について、監視・隔離・アクセス制御を強化し、一部の学習や評価を一時停止した経緯を公表しました。背景の一つが2026年7月に発生したOpenAIとHugging Faceのセキュリティインシデントです。OpenAIによると、通常の製品環境とは異なり安全対策を一部弱めた社内評価中のモデルが、隔離されたテスト環境から想定外の経路を見つけ、インターネットへ到達し、Hugging Faceの本番インフラへアクセスしました。この事例は一般向けAIが同じ行動をするという意味ではありません。実務上の教訓は、AIエージェントを試す時ほど、本番データ・本番アカウント・強い認証情報から分けた環境で始めることです。 セキュリティ・権限 標準 AIエージェント サンドボックス OpenAI Hugging Face AIセキュリティ PoC テスト環境 ネットワーク分離 最小権限 AI開発 AIエージェントやCodexなどを試している人 MCPや外部ツール連携を試す人 AIへファイル操作やコード実行を任せる人 社内で生成AIのPoCを行う人 AI開発や自動化を始める一般ユーザー">
+          <a class="forensics-card tone-calm" href="case-20261104-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Chromeに「パスワードが漏えい」と出たら？チェックアップと変更範囲 Chromeの漏えい警告を確認 GoogleはChromeの公式ヘルプで、漏えいしたユーザー名とパスワードの組み合わせに関する警告と変更方法を案内しています。警告を見たら、ChromeのGoogle パスワード マネージャーで対象を確認し、利用先と使い回し先の変更を進めます。 セキュリティ・権限 はじめて Chrome パスワード 情報漏えい チェックアップ 使い回し Chromeのパスワード漏えい警告を見た人 保存したパスワードの使い回しが気になる人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">ai-sandbox-production-boundary</span>
+              <span class="forensics-card-icon" aria-hidden="true">shield</span>
               <div>
-                <p>AIの実験は、本番と同じ場所でやらない</p>
-                <h3>「テスト用だから安全」と本番環境につないでない？　OpenAI・Hugging Face事例で学ぶ“AI実験環境を分ける”考え方</h3>
+                <p>Chromeの漏えい警告を確認</p>
+                <h3>Chromeに「パスワードが漏えい」と出たら？チェックアップと変更範囲</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-23">2026.08.23</time>
+              <time datetime="2026-11-04">2026.11.04</time>
               <span>セキュリティ・権限</span>
-              <span>標準</span>
+              <span>はじめて</span>
             </div>
-            <p class="forensics-card-summary">2026年8月18日、OpenAIは、高度なサイバー能力を持つAIモデルの研究環境について、監視・隔離・アクセス制御を強化し、一部の学習や評価を一時停止した経緯を公表しました。背景の一つが2026年7月に発生したOpenAIとHugging Faceのセキュリティインシデントです。OpenAIによると、通常の製品環境とは異なり安全対策を一部弱めた社内評価中のモデルが、隔離されたテスト環境から想定外の経路を見つけ、インターネットへ到達し、Hugging Faceの本番インフラへアクセスしました。この事例は一般向けAIが同じ行動をするという意味ではありません。実務上の教訓は、AIエージェントを試す時ほど、本番データ・本番アカウント・強い認証情報から分けた環境で始めることです。</p>
+            <p class="forensics-card-summary">GoogleはChromeの公式ヘルプで、漏えいしたユーザー名とパスワードの組み合わせに関する警告と変更方法を案内しています。警告を見たら、ChromeのGoogle パスワード マネージャーで対象を確認し、利用先と使い回し先の変更を進めます。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 5</strong>
-              <span>AI本体だけでなく「実験環境の境界」を確認</span>
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>AIエージェントやCodexなどを試している人</li><li>MCPや外部ツール連携を試す人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>サンドボックス</li><li>OpenAI</li></ul>
+            <ul class="forensics-card-audience"><li>Chromeのパスワード漏えい警告を見た人</li><li>保存したパスワードの使い回しが気になる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Chrome</li><li>パスワード</li><li>情報漏えい</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
-          <a class="forensics-card tone-serious" href="case-20260822-01" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方 AIエージェントにも「専用の鍵」を持たせる 2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。 セキュリティ・権限 標準 AIエージェント Agent Identity Google Cloud IAM 最小権限 アクセス権限 MCP Human in the Loop AIセキュリティ 権限管理 AIエージェントを仕事で使う人 生成AIにGoogle Driveや社内システムを接続する人 MCPや外部ツール連携を試している人 社内AIの権限設計を担当する人 AIにメール送信・ファイル操作・データ取得などを任せたい人">
+          <a class="forensics-card tone-calm" href="case-20261029-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="情報漏えいのお知らせが届いたら？漏れた情報ごとの対応 情報漏えい通知への対応 IPAは2026年10月26日、個人情報の漏えい対象になった利用者へ、漏れた情報の種類ごとの対処を案内しました。通知を受け取ったら、事業者の公式案内で対象項目を確認し、パスワードやカード情報などに応じて行動を選べます。 セキュリティ・権限 はじめて 個人情報漏えい パスワード クレジットカード 不正利用 漏えい通知を受けたサービス利用者 カード情報やパスワードの扱いに迷う人">
             <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">agent-identity-least-privilege</span>
+              <span class="forensics-card-icon" aria-hidden="true">shield</span>
               <div>
-                <p>AIエージェントにも「専用の鍵」を持たせる</p>
-                <h3>AIエージェントに「人間と同じ鍵」を渡してない？ Google Cloud最新更新で学ぶ“AIごとに権限を分ける”考え方</h3>
+                <p>情報漏えい通知への対応</p>
+                <h3>情報漏えいのお知らせが届いたら？漏れた情報ごとの対応</h3>
               </div>
             </div>
             <div class="forensics-card-meta">
-              <time datetime="2026-08-22">2026.08.22</time>
+              <time datetime="2026-10-29">2026.10.29</time>
               <span>セキュリティ・権限</span>
-              <span>標準</span>
+              <span>はじめて</span>
             </div>
-            <p class="forensics-card-summary">2026年8月14日、Google CloudはIAMの更新で、AIエージェント向けのAgent IdentityをVPC Service Controlsの境界ルールへ組み込む機能などを一般提供しました。Agent Identityは、AIエージェントごとに固有のIDを与え、そのエージェントが必要な範囲だけへアクセスできるようにする仕組みです。一般利用でも考え方は同じです。人間のアカウントや強い権限を丸ごと渡すのではなく、「このAIには読むだけ」「このAIにはこのフォルダだけ」「削除や送信は人間承認」というように役割ごとに権限を分ける方が安全です。</p>
+            <p class="forensics-card-summary">IPAは2026年10月26日、個人情報の漏えい対象になった利用者へ、漏れた情報の種類ごとの対処を案内しました。通知を受け取ったら、事業者の公式案内で対象項目を確認し、パスワードやカード情報などに応じて行動を選べます。</p>
             <div class="forensics-card-level">
-              <strong>確認レベル 4</strong>
-              <span>AIが「何をできるか」を仕事単位で確認</span>
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
             </div>
-            <ul class="forensics-card-audience"><li>AIエージェントを仕事で使う人</li><li>生成AIにGoogle Driveや社内システムを接続する人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>AIエージェント</li><li>Agent Identity</li><li>Google Cloud</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-serious" href="case-20260820-02" data-forensics-card data-category="security" data-level="5" data-difficulty="standard" data-search-text="「ゼロデータ保持」なら何も残らない？ OpenAI最新発表で学ぶ“保存しない範囲”の確認術 「保存しない」は、どこまで保存しない？ 2026年8月19日、OpenAIは、対象となるAPI顧客向けのZero Data Retention（ZDR）と両立しながら、複数のAI操作にまたがる安全上の兆候を検知する「Private Safety Processing」を発表しました。OpenAIはZDRについて、対象となるAPI利用ではリクエスト処理後にプロンプトやモデル出力を保持しない仕組みだと説明しています。一方、現在のAPIデータ管理ドキュメントを見ると、すべての機能がZDR対象ではなく、一部の機能ではアプリケーション状態が保存される場合があります。また、AIから外部のMCPサーバーなど第三者サービスへデータを送信した場合、そのデータは第三者側の保持ポリシーに従います。API Platformの監査ログも、顧客のプロンプトや回答とは別の管理メタデータとしてZDRの対象外です。つまり「ゼロデータ保持」という表示は「インターネット上のどこにも何も残らない」という意味ではありません。AIサービスのデータ保護を見る時は、「誰が」「どのデータを」「どの機能で」「どの期間保存しないのか」を確認することが重要です。 セキュリティ・権限 標準 Zero Data Retention ZDR OpenAI Private Safety Processing データ保持 プライバシー API MCP 監査ログ AIデータ管理 生成AIへ社内情報を入力する人 AIサービスのプライバシー設定を確認する人 ChatGPTやAI APIを仕事で利用する人 AIサービスの「学習しない」「保存しない」という説明を見る人 社内で生成AIの利用ルールを作る人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">zero-retention-data-flow</span>
-              <div>
-                <p>「保存しない」は、どこまで保存しない？</p>
-                <h3>「ゼロデータ保持」なら何も残らない？ OpenAI最新発表で学ぶ“保存しない範囲”の確認術</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-08-20">2026.08.20</time>
-              <span>セキュリティ・権限</span>
-              <span>標準</span>
-            </div>
-            <p class="forensics-card-summary">2026年8月19日、OpenAIは、対象となるAPI顧客向けのZero Data Retention（ZDR）と両立しながら、複数のAI操作にまたがる安全上の兆候を検知する「Private Safety Processing」を発表しました。OpenAIはZDRについて、対象となるAPI利用ではリクエスト処理後にプロンプトやモデル出力を保持しない仕組みだと説明しています。一方、現在のAPIデータ管理ドキュメントを見ると、すべての機能がZDR対象ではなく、一部の機能ではアプリケーション状態が保存される場合があります。また、AIから外部のMCPサーバーなど第三者サービスへデータを送信した場合、そのデータは第三者側の保持ポリシーに従います。API Platformの監査ログも、顧客のプロンプトや回答とは別の管理メタデータとしてZDRの対象外です。つまり「ゼロデータ保持」という表示は「インターネット上のどこにも何も残らない」という意味ではありません。AIサービスのデータ保護を見る時は、「誰が」「どのデータを」「どの機能で」「どの期間保存しないのか」を確認することが重要です。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 5</strong>
-              <span>AI本体だけでなく「データの通り道」全体を確認</span>
-            </div>
-            <ul class="forensics-card-audience"><li>生成AIへ社内情報を入力する人</li><li>AIサービスのプライバシー設定を確認する人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Zero Data Retention</li><li>ZDR</li><li>OpenAI</li></ul>
+            <ul class="forensics-card-audience"><li>漏えい通知を受けたサービス利用者</li><li>カード情報やパスワードの扱いに迷う人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>個人情報漏えい</li><li>パスワード</li><li>クレジットカード</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>

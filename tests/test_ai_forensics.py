@@ -80,6 +80,17 @@ class AiForensicsValidatorTest(unittest.TestCase):
         other = {**self.article, "id": "other"}
         self.assertEqual(generator.related_articles(current, [current, other, chosen])[0]["id"], "chosen")
 
+    def test_related_articles_do_not_fill_slots_from_category_alone(self) -> None:
+        current = {"id": "a", "category": "security", "title": "Appleの本人確認", "tags": ["Apple"], "summary": ""}
+        unrelated = {"id": "b", "category": "security", "title": "PHP脆弱性", "tags": ["PHP"], "summary": ""}
+        self.assertEqual(generator.related_articles(current, [current, unrelated]), [])
+
+    def test_related_articles_use_newer_topic_match_for_older_article(self) -> None:
+        articles = [generator.public_article(a) for a in generator.load_articles()]
+        old = next(a for a in articles if a["id"] == "case-20260810-01")
+        ids = [a["id"] for a in generator.related_articles(old, articles)]
+        self.assertIn("case-20261031-01", ids)
+
     def test_updated_date_is_visible_and_valid(self) -> None:
         article = {**self.article, "updatedAt": "2026-10-31"}
         rendered = generator.render_article_page(article, [article])
