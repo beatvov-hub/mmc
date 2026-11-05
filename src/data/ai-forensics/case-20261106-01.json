@@ -1,0 +1,140 @@
+{
+  "id": "case-20261106-01",
+  "publishedAt": "2026-11-06",
+  "title": "iPhoneに知らない構成プロファイル？VPNとデバイス管理の確認と削除前の注意",
+  "shortTitle": "iPhoneの構成プロファイルを確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "iPhoneで見覚えのないプロファイルを見つけた人",
+    "会社や学校の端末の設定を確認したい人"
+  ],
+  "summary": "Appleは、iPhoneの構成プロファイルを「設定」から確認する方法と、削除時の注意点を案内しています。プロファイルは企業・学校や通信設定にも使われ、削除すると関連する設定やデータに影響するため、まず提供元と用途を確認します。",
+  "scenario": {
+    "headline": "iPhoneの「VPNとデバイス管理」に見覚えのない項目がある",
+    "description": "知らない設定をすぐ削除してよいか迷っています。",
+    "whyItMatters": "構成プロファイルは正規のサービスや組織の管理にも利用されます。"
+  },
+  "question": {
+    "text": "まず何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "設定画面で内容と提供元を確認し、組織の端末なら管理者に相談する",
+        "description": "削除の影響と利用目的を確かめられます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "見覚えのない項目は必ず不正なので即座に削除する",
+        "description": "通信や学校・会社の設定に必要な場合があります。"
+      },
+      {
+        "id": "wrong2",
+        "label": "項目がないなら端末に不正なアプリは一切ないと考える",
+        "description": "この確認だけですべての問題を判定できません。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "「設定」→「一般」→「VPNとデバイス管理」でプロファイルを確認します。会社・学校の端末では、削除する前に管理者へ確認してください。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "構成プロファイルの役割",
+      "description": "構成プロファイルはネットワークやアカウントなどの設定を管理するために使われます。",
+      "priority": "high"
+    },
+    {
+      "title": "確認する場所",
+      "description": "iPhoneやiPadの「設定」→「一般」→「VPNとデバイス管理」で確認できます。",
+      "priority": "high"
+    },
+    {
+      "title": "表示がない場合",
+      "description": "Appleはプロファイルが表示されない場合、デバイス管理プロファイルはインストールされていないと説明しています。",
+      "priority": "medium"
+    },
+    {
+      "title": "削除による影響",
+      "description": "削除すると、そのプロファイルに関連する設定、アプリやデータも削除されます。",
+      "priority": "high"
+    },
+    {
+      "title": "組織の端末",
+      "description": "学校や企業が所有する端末は、アプリやプロファイルを削除する前に管理者へ確認します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "設定画面で内容と提供元を確認し、組織の端末なら管理者に相談する",
+    "description": "「設定」→「一般」→「VPNとデバイス管理」でプロファイルを確認します。会社・学校の端末では、削除する前に管理者へ確認してください。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "設定からプロファイル名と詳細を確認する",
+      "reason": "何の設定か把握する手掛かりになります。"
+    },
+    {
+      "action": "会社・学校の端末は管理者に確認する",
+      "reason": "業務や学習に必要な設定を誤って消さないためです。"
+    },
+    {
+      "action": "個人端末でも通信事業者などの設定かを確認する",
+      "reason": "通信に必要な設定が含まれることがあります。"
+    },
+    {
+      "action": "不明な設定を削除する前に安全・プライバシーへの影響を考える",
+      "reason": "設定の変更に気づかれるなど状況によって注意が必要です。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "見慣れないというだけですべてを削除する",
+      "reason": "必要な接続やデータに影響する場合があります。"
+    },
+    {
+      "action": "プロファイルの有無だけで端末の安全を断定する",
+      "reason": "アプリやアカウントなど別の確認も必要になる場合があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "設定からプロファイル名と詳細を確認する",
+      "会社・学校の端末は管理者に確認する",
+      "個人端末でも通信事業者などの設定かを確認する"
+    ]
+  },
+  "makotoComment": "見知らぬ名前でも、使っている通信や組織の設定かもしれません。まずは用途を確かめてから、必要な対応を選びましょう。",
+  "oneLineLesson": "プロファイルの提供元と影響を確認し、管理端末は削除前に相談する。",
+  "tags": [
+    "iPhone",
+    "構成プロファイル",
+    "VPNとデバイス管理",
+    "MDM",
+    "セキュリティ"
+  ],
+  "sources": [
+    {
+      "title": "構成プロファイルを確認する/削除する",
+      "publisher": "Apple サポート",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/guide/personal-safety/ips327569a75/web"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "iPhoneの「VPNとデバイス管理」に見覚えのない項目がある場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261101-03"
+  ]
+}

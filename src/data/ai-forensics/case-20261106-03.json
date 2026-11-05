@@ -1,0 +1,147 @@
+{
+  "id": "case-20261106-03",
+  "publishedAt": "2026-11-06",
+  "title": "Googleの再設定用電話番号は変更後すぐ使える？反映と復元先の確認",
+  "shortTitle": "Googleの再設定用電話番号を確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "電話番号を変更したGoogleアカウント利用者",
+    "ログインできなくなる前に復元先を確認したい人"
+  ],
+  "summary": "Googleは、再設定用電話番号を追加・変更してから反映されるまで最長で7日ほどかかる場合があると案内しています。ログインできるうちに再設定用電話番号とメールアドレスを確認し、変更時の待機や古い宛先へのコード送信の可能性を知っておきます。",
+  "scenario": {
+    "headline": "携帯電話の番号を変えたので、Googleアカウントの復元先も更新したい",
+    "description": "番号を変更すればすぐに新しい番号だけで復元できるのでしょうか。",
+    "whyItMatters": "再設定用の情報は、ログインできなくなった場合の復元などに利用されます。"
+  },
+  "question": {
+    "text": "どう備える？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "ログインできるうちに再設定用の電話番号とメールを確認する",
+        "description": "変更後すぐに反映されない場合もあるためです。"
+      },
+      {
+        "id": "wrong1",
+        "label": "変更ボタンを押せば必ずすぐ新しい番号だけが使われると考える",
+        "description": "変更が反映されるまで時間がかかる場合があります。"
+      },
+      {
+        "id": "wrong2",
+        "label": "復元代行業者にパスワードや確認コードを伝える",
+        "description": "Googleはそのようなサポートを自称するサービスとの提携を否定しています。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Googleアカウントの「セキュリティとログイン」→「Googleにログインする方法」で、再設定用の電話番号とメールアドレスを確認します。変更後、反映まで最長7日ほどかかる場合があります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "変更の反映",
+      "description": "Googleは再設定用電話番号の追加・変更が反映されるまで最長7日ほどかかる場合があると説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "以前の宛先",
+      "description": "再設定用情報などを変更した後も、7日間は以前の宛先にコードが送信される場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "再設定用メール",
+      "description": "普段使い、ログイン用とは異なるメールアドレスを選ぶようGoogleは案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "電話番号の用途",
+      "description": "再設定用電話番号を削除しても、他のGoogleサービスで使われる場合があります。",
+      "priority": "medium"
+    },
+    {
+      "title": "職場や学校のアカウント",
+      "description": "組織のアカウントでは同じ手順で復元できない場合があり、管理者への確認が必要です。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "ログインできるうちに再設定用の電話番号とメールを確認する",
+    "description": "Googleアカウントの「セキュリティとログイン」→「Googleにログインする方法」で、再設定用の電話番号とメールアドレスを確認します。変更後、反映まで最長7日ほどかかる場合があります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "ログインできるうちに再設定用の電話番号とメールを確認する",
+      "reason": "古い連絡先のままになっていないか確認できます。"
+    },
+    {
+      "action": "新しい電話番号は自分でSMSを受信できるものにする",
+      "reason": "Googleが案内する確認コードを受け取るためです。"
+    },
+    {
+      "action": "変更直後は反映に時間がかかる場合を考慮する",
+      "reason": "すぐ新しい情報だけを使えるとは限りません。"
+    },
+    {
+      "action": "ログインできない場合はGoogle公式のアカウント復元手順を利用する",
+      "reason": "第三者の代行サービスに認証情報を渡さずに済みます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "変更後は以前の宛先にコードが送られないと決めつける",
+      "reason": "一定期間、以前の情報に送信される場合があります。"
+    },
+    {
+      "action": "復元をうたう電話や業者にパスワードや確認コードを伝える",
+      "reason": "Googleはそのようなサービスとの提携を否定しています。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "ログインできるうちに再設定用の電話番号とメールを確認する",
+      "新しい電話番号は自分でSMSを受信できるものにする",
+      "変更直後は反映に時間がかかる場合を考慮する"
+    ]
+  },
+  "makotoComment": "番号の変更と復元先の更新は別の作業です。使える間に設定を確認し、変更が反映されるまでの間も慌てず対応できるようにしておきましょう。",
+  "oneLineLesson": "再設定先はログインできるうちに確認し、変更後の反映期間にも注意する。",
+  "tags": [
+    "Googleアカウント",
+    "再設定用電話番号",
+    "復元",
+    "メールアドレス",
+    "セキュリティ"
+  ],
+  "sources": [
+    {
+      "title": "復元オプションを設定する",
+      "publisher": "Google アカウント ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/183723?hl=ja-us"
+    },
+    {
+      "title": "Google アカウントや Gmail を復元する方法",
+      "publisher": "Google アカウント ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/7682439?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "携帯電話の番号を変えたので、Googleアカウントの復元先も更新したい場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261031-02"
+  ]
+}

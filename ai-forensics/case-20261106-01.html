@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>iPhoneに知らない構成プロファイル？VPNとデバイス管理の確認と削除前の注意｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="Appleは、iPhoneの構成プロファイルを「設定」から確認する方法と、削除時の注意点を案内しています。プロファイルは企業・学校や通信設定にも使われ、削除すると関連する設定やデータに影響するため、まず提供元と用途を確認します。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261106-01" />
+<meta property="og:title" content="iPhoneに知らない構成プロファイル？VPNとデバイス管理の確認と削除前の注意｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="Appleは、iPhoneの構成プロファイルを「設定」から確認する方法と、削除時の注意点を案内しています。プロファイルは企業・学校や通信設定にも使われ、削除すると関連する設定やデータに影響するため、まず提供元と用途を確認します。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261106-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "iPhoneに知らない構成プロファイル？VPNとデバイス管理の確認と削除前の注意", "description": "Appleは、iPhoneの構成プロファイルを「設定」から確認する方法と、削除時の注意点を案内しています。プロファイルは企業・学校や通信設定にも使われ、削除すると関連する設定やデータに影響するため、まず提供元と用途を確認します。", "datePublished": "2026-11-06", "mainEntityOfPage": "https://mainichi-miru.com/ai-forensics/case-20261106-01", "inLanguage": "ja"}</script>
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../quiz/">AI学習室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>iPhoneの構成プロファイルを確認</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-11-06">2026.11.06</time>
+
+            </div>
+            <h1>iPhoneに知らない構成プロファイル？VPNとデバイス管理の確認と削除前の注意</h1>
+            <p>Appleは、iPhoneの構成プロファイルを「設定」から確認する方法と、削除時の注意点を案内しています。プロファイルは企業・学校や通信設定にも使われ、削除すると関連する設定やデータに影響するため、まず提供元と用途を確認します。</p>
+            <ul class="forensics-target-list"><li>iPhoneで見覚えのないプロファイルを見つけた人</li><li>会社や学校の端末の設定を確認したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>iPhone</li><li>構成プロファイル</li><li>VPNとデバイス管理</li><li>MDM</li><li>セキュリティ</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>iPhoneの「VPNとデバイス管理」に見覚えのない項目がある</h3><p>知らない設定をすぐ削除してよいか迷っています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>構成プロファイルは正規のサービスや組織の管理にも利用されます。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="correct">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>まず何を確認する？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="correct" data-choice-id="correct" />
+                <span>
+                  <strong>設定画面で内容と提供元を確認し、組織の端末なら管理者に相談する</strong>
+                  <small>削除の影響と利用目的を確かめられます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="wrong1" data-choice-id="wrong1" />
+                <span>
+                  <strong>見覚えのない項目は必ず不正なので即座に削除する</strong>
+                  <small>通信や学校・会社の設定に必要な場合があります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="wrong2" data-choice-id="wrong2" />
+                <span>
+                  <strong>項目がないなら端末に不正なアプリは一切ないと考える</strong>
+                  <small>この確認だけですべての問題を判定できません。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>設定画面で内容と提供元を確認し、組織の端末なら管理者に相談する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>「設定」→「一般」→「VPNとデバイス管理」でプロファイルを確認します。会社・学校の端末では、削除する前に管理者へ確認してください。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>構成プロファイルの役割</h3>
+              <p>構成プロファイルはネットワークやアカウントなどの設定を管理するために使われます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>確認する場所</h3>
+              <p>iPhoneやiPadの「設定」→「一般」→「VPNとデバイス管理」で確認できます。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>表示がない場合</h3>
+              <p>Appleはプロファイルが表示されない場合、デバイス管理プロファイルはインストールされていないと説明しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>削除による影響</h3>
+              <p>削除すると、そのプロファイルに関連する設定、アプリやデータも削除されます。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>組織の端末</h3>
+              <p>学校や企業が所有する端末は、アプリやプロファイルを削除する前に管理者へ確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>設定画面で内容と提供元を確認し、組織の端末なら管理者に相談する</strong><p>「設定」→「一般」→「VPNとデバイス管理」でプロファイルを確認します。会社・学校の端末では、削除する前に管理者へ確認してください。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>設定からプロファイル名と詳細を確認する</strong><span>何の設定か把握する手掛かりになります。</span></li>
+            <li><strong>会社・学校の端末は管理者に確認する</strong><span>業務や学習に必要な設定を誤って消さないためです。</span></li>
+            <li><strong>個人端末でも通信事業者などの設定かを確認する</strong><span>通信に必要な設定が含まれることがあります。</span></li>
+            <li><strong>不明な設定を削除する前に安全・プライバシーへの影響を考える</strong><span>設定の変更に気づかれるなど状況によって注意が必要です。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>見慣れないというだけですべてを削除する</strong><span>必要な接続やデータに影響する場合があります。</span></li>
+            <li><strong>プロファイルの有無だけで端末の安全を断定する</strong><span>アプリやアカウントなど別の確認も必要になる場合があります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIを整理の補助に使う</h3>
+          <p>個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。</p>
+          <ul class="positive-example-list"><li>設定からプロファイル名と詳細を確認する</li><li>会社・学校の端末は管理者に確認する</li><li>個人端末でも通信事業者などの設定かを確認する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>見知らぬ名前でも、使っている通信や組織の設定かもしれません。まずは用途を確かめてから、必要な対応を選びましょう。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>プロファイルの提供元と影響を確認し、管理端末は削除前に相談する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.apple.com/ja-jp/guide/personal-safety/ips327569a75/web" target="_blank" rel="noopener noreferrer">構成プロファイルを確認する/削除する<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Apple サポート</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261101-03" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="iPhoneの個人情報安全性チェックで位置情報や共有相手を確認する iPhoneの情報共有を見直す AppleはiPhoneの公式ユーザガイドで、「個人情報安全性チェック」を使って人やアプリとの情報共有を確認する方法を案内しています。位置情報などを個別に見直せますが、操作の変化を相手に気づかれる可能性にも注意が必要です。 セキュリティ・権限 はじめて iPhone 位置情報 個人情報安全性チェック 共有設定 プライバシー iPhoneの位置情報共有を見直したい人 共有相手やアプリを確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shield</span>
+              <div>
+                <p>iPhoneの情報共有を見直す</p>
+                <h3>iPhoneの個人情報安全性チェックで位置情報や共有相手を確認する</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-11-01">2026.11.01</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">AppleはiPhoneの公式ユーザガイドで、「個人情報安全性チェック」を使って人やアプリとの情報共有を確認する方法を案内しています。位置情報などを個別に見直せますが、操作の変化を相手に気づかれる可能性にも注意が必要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhoneの位置情報共有を見直したい人</li><li>共有相手やアプリを確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>iPhone</li><li>位置情報</li><li>個人情報安全性チェック</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261105-02" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="iPhoneの盗難デバイスの保護とは？設定と1時間の待機条件 iPhoneの盗難デバイスの保護 Appleは、iPhoneの「盗難デバイスの保護」で、一部の操作に生体認証や待機時間を設ける仕組みを案内しています。設定は盗難前に確認し、よく知っている場所だけでなく「常に」追加の保護を適用するか選べます。 セキュリティ・権限 はじめて iPhone 盗難デバイスの保護 Face ID セキュリティ遅延 盗難対策 iPhoneの盗難前に設定を確認したい人 セキュリティ上の待機時間に戸惑った人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shield</span>
+              <div>
+                <p>iPhoneの盗難デバイスの保護</p>
+                <h3>iPhoneの盗難デバイスの保護とは？設定と1時間の待機条件</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-11-05">2026.11.05</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Appleは、iPhoneの「盗難デバイスの保護」で、一部の操作に生体認証や待機時間を設ける仕組みを案内しています。設定は盗難前に確認し、よく知っている場所だけでなく「常に」追加の保護を適用するか選べます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>iPhoneの盗難前に設定を確認したい人</li><li>セキュリティ上の待機時間に戸惑った人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>iPhone</li><li>盗難デバイスの保護</li><li>Face ID</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261106-02">前の記事</a>
+
+        </nav>
+      </article>
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="AI学習室メニュー">
+            <p class="site-footer-nav__title">AI学習室</p>
+            <a href="../quiz/">AI学習室トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/market/">Bean &amp; Bits MARKET</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
