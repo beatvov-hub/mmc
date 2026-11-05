@@ -1,0 +1,148 @@
+{
+  "id": "case-20261105-03",
+  "publishedAt": "2026-11-05",
+  "title": "Googleアカウントの連携解除はどうなる？ログイン・権限・データの違い",
+  "shortTitle": "Googleアカウントの連携解除",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "使わなくなったアプリとのGoogle連携を整理したい人",
+    "連携を外すと保存済みデータが消えるか気になる人"
+  ],
+  "summary": "Googleは、外部アプリとの「Googleでログイン」、アカウントへのアクセス権、Google側からのリンクやエージェント権限を分けて管理できると案内しています。解除する前に用途を確認し、相手サービスに残るデータも別に確認します。",
+  "scenario": {
+    "headline": "使わなくなったアプリとGoogleアカウントの連携を解除したい",
+    "description": "ログインが使えなくなるのか、相手側のデータも削除されるのかが分かりません。",
+    "whyItMatters": "同じアプリに複数の種類の接続がある場合、それぞれ停止する内容が異なります。"
+  },
+  "question": {
+    "text": "連携を解除する前に確認することは？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "リンク済みアプリの画面で接続の種類と影響を確かめる",
+        "description": "ログインやアクセス権など、目的に合う操作を選べます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "連携解除ですべての保存済みデータが消えると考える",
+        "description": "相手アプリに保存された情報は残る場合があります。"
+      },
+      {
+        "id": "wrong2",
+        "label": "エージェント権限だけを停止すればアカウント連携も消えると考える",
+        "description": "Googleは両者を別に管理すると案内しています。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Googleアカウントのリンク済みアプリ一覧を開き、対象アプリの詳細で「Googleでログイン」やアクセス権などを見分けます。必要なログイン手段を確保し、削除したい接続を選択します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "「Googleでログイン」",
+      "description": "リンクを削除するとGoogleによる自動ログインは停止しますが、アプリ側のデータは削除されません。",
+      "priority": "high"
+    },
+    {
+      "title": "Googleアカウントへのアクセス権",
+      "description": "アプリへのアクセス権を削除すると、そのアプリからGoogleアカウントにアクセスできなくなり、一部機能が使えなくなる場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "Googleから外部アカウントへの接続",
+      "description": "Google側が外部アプリへアクセスするリンクも別に管理できます。",
+      "priority": "high"
+    },
+    {
+      "title": "Geminiなどのエージェント権限",
+      "description": "エージェントによる使用を停止しても、Googleアカウントとアプリ自体のリンクは解除されません。",
+      "priority": "high"
+    },
+    {
+      "title": "すでに共有した情報",
+      "description": "Googleは、リンク削除前に共有したデータにはリンク削除の効果が及ばないと案内しています。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "リンク済みアプリの画面で接続の種類と影響を確かめる",
+    "description": "Googleアカウントのリンク済みアプリ一覧を開き、対象アプリの詳細で「Googleでログイン」やアクセス権などを見分けます。必要なログイン手段を確保し、削除したい接続を選択します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Googleアカウントのリンク済みアプリ一覧を開く",
+      "reason": "実際に接続されているアプリを確認できます。"
+    },
+    {
+      "action": "対象アプリの詳細で接続の種類とアクセス先を確認する",
+      "reason": "止めたい機能を区別できます。"
+    },
+    {
+      "action": "必要に応じて別のログイン方法を確保してから不要な接続を外す",
+      "reason": "利用を続けたいサービスで締め出されるのを避けます。"
+    },
+    {
+      "action": "保存済みデータの削除が必要なら相手サービスの設定や窓口を確認する",
+      "reason": "Google側の接続解除だけでは相手側のデータは消えません。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "「Googleでログイン」の停止だけですべてのアクセス権が解除されたと決めつける",
+      "reason": "同じアプリに別の接続がある場合があります。"
+    },
+    {
+      "action": "接続解除が相手サービスの退会やデータ削除と同じだと考える",
+      "reason": "操作の対象が異なります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "Googleアカウントのリンク済みアプリ一覧を開く",
+      "対象アプリの詳細で接続の種類とアクセス先を確認する",
+      "必要に応じて別のログイン方法を確保してから不要な接続を外す"
+    ]
+  },
+  "makotoComment": "同じアプリ名の下に、ログインやデータへのアクセスなど別々の接続が並ぶことがあります。止めたい権限を確認してから操作しましょう。",
+  "oneLineLesson": "接続の種類を確認し、ログイン停止・アクセス権・データ削除を分ける。",
+  "tags": [
+    "Googleアカウント",
+    "Googleでログイン",
+    "アプリ連携",
+    "アクセス権",
+    "データ削除"
+  ],
+  "sources": [
+    {
+      "title": "Google アカウントと他のデベロッパーのアプリとのリンクを管理する",
+      "publisher": "Google アカウント ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/13533235?hl=ja"
+    },
+    {
+      "title": "Google アカウントをリンクしてサードパーティとデータを安全に共有する方法",
+      "publisher": "Google アカウント ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/13867826?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "使わなくなったアプリとGoogleアカウントの連携を解除したい場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20260924-01",
+    "case-20261030-03"
+  ]
+}

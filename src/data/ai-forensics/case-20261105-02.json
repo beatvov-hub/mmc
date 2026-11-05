@@ -1,0 +1,140 @@
+{
+  "id": "case-20261105-02",
+  "publishedAt": "2026-11-05",
+  "title": "iPhoneの盗難デバイスの保護とは？設定と1時間の待機条件",
+  "shortTitle": "iPhoneの盗難デバイスの保護",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "iPhoneの盗難前に設定を確認したい人",
+    "セキュリティ上の待機時間に戸惑った人"
+  ],
+  "summary": "Appleは、iPhoneの「盗難デバイスの保護」で、一部の操作に生体認証や待機時間を設ける仕組みを案内しています。設定は盗難前に確認し、よく知っている場所だけでなく「常に」追加の保護を適用するか選べます。",
+  "scenario": {
+    "headline": "iPhoneを紛失した場合に備え、アカウントの保護を強めたい",
+    "description": "設定をオンにすると、どの操作に認証や待機時間が必要になるのでしょうか。",
+    "whyItMatters": "端末のパスコードが知られた場合にも、一部の重要な操作を保護する仕組みです。"
+  },
+  "question": {
+    "text": "どのように準備する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "盗難前に設定を確認し、追加保護の適用範囲を選ぶ",
+        "description": "対応端末の設定画面でオン・オフと適用範囲を確認できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "盗難後でも必ず遠隔でこの機能を有効にできると考える",
+        "description": "Appleは紛失または盗難前に有効にする必要があると案内しています。"
+      },
+      {
+        "id": "wrong2",
+        "label": "設定をオンにすればすべての操作が1時間止まると考える",
+        "description": "待機時間は一部の重要なセキュリティ操作に適用されます。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "「設定」→「Face IDとパスコード」（または「Touch IDとパスコード」）→「盗難デバイスの保護」を開き、オン・オフと追加保護の適用範囲を確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "利用と事前設定",
+      "description": "iOS 17.3以降で利用でき、紛失または盗難の前に有効にしておく必要があります。",
+      "priority": "high"
+    },
+    {
+      "title": "必要な設定",
+      "description": "Apple Accountの2ファクタ認証、パスコード、生体認証、「探す」と「利用頻度の高い場所」などの設定が必要です。",
+      "priority": "high"
+    },
+    {
+      "title": "生体認証が必要な操作",
+      "description": "よく知っている場所以外では保存したパスワードの使用などにFace IDまたはTouch IDが必要で、パスコードによる代替ができない操作があります。",
+      "priority": "high"
+    },
+    {
+      "title": "1時間の待機",
+      "description": "Apple Accountのパスワード変更など一部の操作では、生体認証後に1時間待ち、再認証が必要になることがあります。",
+      "priority": "high"
+    },
+    {
+      "title": "「常に」の選択",
+      "description": "追加保護を「常に」適用する設定を選ぶと、よく知っている場所でも対象の認証や待機が必要になります。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "盗難前に設定を確認し、追加保護の適用範囲を選ぶ",
+    "description": "「設定」→「Face IDとパスコード」（または「Touch IDとパスコード」）→「盗難デバイスの保護」を開き、オン・オフと追加保護の適用範囲を確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "「設定」から「盗難デバイスの保護」を開く",
+      "reason": "現在の設定を確認できます。"
+    },
+    {
+      "action": "オンに必要な「探す」や生体認証などを確認する",
+      "reason": "必要条件が満たされていない場合の手掛かりになります。"
+    },
+    {
+      "action": "追加保護の適用範囲を使い方に合わせて選ぶ",
+      "reason": "自宅などでも追加の認証や待機を求めるか判断できます。"
+    },
+    {
+      "action": "盗難後は「探す」で紛失マークなどを検討する",
+      "reason": "事前設定と盗難後の対応は別の手続きです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "すべての操作が生体認証と待機時間の対象だと考える",
+      "reason": "対象になる操作と条件は異なります。"
+    },
+    {
+      "action": "盗難後にこの機能を初めてオンにできると期待する",
+      "reason": "事前に設定しておく必要があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "「設定」から「盗難デバイスの保護」を開く",
+      "オンに必要な「探す」や生体認証などを確認する",
+      "追加保護の適用範囲を使い方に合わせて選ぶ"
+    ]
+  },
+  "makotoComment": "設定をオンにすることと、盗難後に紛失マークを付けることは別です。どちらも落ち着いて確認できるうちに知っておきましょう。",
+  "oneLineLesson": "盗難前に設定と適用範囲を確認し、盗難後は「探す」の対応へ進む。",
+  "tags": [
+    "iPhone",
+    "盗難デバイスの保護",
+    "Face ID",
+    "セキュリティ遅延",
+    "盗難対策"
+  ],
+  "sources": [
+    {
+      "title": "iPhoneの「盗難デバイスの保護」について",
+      "publisher": "Apple サポート",
+      "sourceType": "official-product-documentation",
+      "publishedAt": "2026-03-31",
+      "url": "https://support.apple.com/ja-jp/120340"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "iPhoneを紛失した場合に備え、アカウントの保護を強めたい場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261030-01"
+  ]
+}
