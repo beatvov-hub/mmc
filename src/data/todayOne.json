@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T07:34:19+09:00",
+  "updatedAt": "2026-11-06T07:37:39+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -3113,6 +3113,60 @@
         {
           "label": "Subtitle Edit公式リポジトリとリリース",
           "url": "https://github.com/SubtitleEdit/subtitleedit"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "slug": "drawio-desktop-csv-event-checkin-flow",
+      "useCategory": "業務効率化・予約",
+      "name": "draw.io Desktop",
+      "category": "OSS",
+      "officialUrl": "https://www.drawio.com/",
+      "summary": "draw.io Desktopは、CSVの各行を図形にして、業務フローなどの図を作れる無料の図解ツールです。",
+      "whyToday": "受付の手順を表だけで共有すると、工程の順番や担当間の受け渡しを追いにくいことがあります。draw.ioのCSV取り込みは、1行ごとに図形を作り、列で指定した関係を線で結べるので、工程表から流れを見える形にできます。",
+      "useFor": "例えば、イベント受付で担当が交代する流れを見える化する想定例です。draw.io Desktopをインストールし、個人情報を含めず「工程ID・次工程ID・作業名」を並べたCSVを3〜4行用意します。「Arrange > Insert > Advanced > CSV」で公式例の書式指定とCSVを入れてImportすると、行ごとの図形と指定した接続線が作られます。できた図を編集可能なファイルとして保存し、まず受付から案内までの短い範囲で、順序・矢印・作業名が元表と一致するか確認します。",
+      "recommendedFor": {
+        "employeeId": "MMC-001",
+        "reason": "ほのちゃんに社内説明会の受付から案内までの工程を図にしてもらい、担当の受け渡しが一目で分かる編集可能なフロー図を受け取りたいです。"
+      },
+      "keiComment": "工程表を図へ置き換えるだけで、担当が交代する箇所を見つけやすくなります。CSVの列名と矢印の向きが作成者以外にも読めるか、小さな例を一緒に確認してから定着させたいですね。",
+      "verifiedAt": "2026-11-06",
+      "status": "published",
+      "pricing": "draw.io Desktopは無料で利用できます。",
+      "conditions": "PCへのインストールが必要です。アカウントやネット接続なしで作図できます。Desktopは更新確認のためGitHubへ接続しますが、公式READMEでは図のデータを外部送信しないと説明されています。外部画像などを参照する図は、その参照先へ通信する場合があります。",
+      "license": "GPL-3.0-only（draw.io Desktop）",
+      "notes": "公式ドキュメントに基づく想定例です。実機でCSVを読み込む確認は行っていません。",
+      "archiveTitle": "draw.io Desktopで受付手順のCSVをフロー図にできる？",
+      "archiveDescription": "draw.io DesktopのCSV取り込みで、イベント受付の工程表を担当の受け渡しが分かるフロー図にする方法を紹介。短い範囲で確認する点も説明します。",
+      "forWho": "イベント受付や社内案内など、工程の順番と担当交代を表だけでは伝えにくい運営・総務担当者向けです。",
+      "cautions": "CSVの行から図を作るには、図形のラベルや接続に使う書式指定も必要です。最初は個人情報を含めない数行のCSVで試し、取り込み後に工程名と矢印の向きを元表と照合してください。",
+      "faq": [
+        {
+          "question": "CSVの各行から工程の図形を作れますか？",
+          "answer": "できます。公式ガイドではCSVの各行を1つの図形として扱い、書式指定の「connect」で列に入れたID同士を接続する方法を案内しています。"
+        },
+        {
+          "question": "作った図の内容はDesktop版から外部送信されますか？",
+          "answer": "公式READMEによると、Desktop版は更新確認などを除きインターネットから隔離され、図のデータは外部送信されません。図に外部画像などを参照するURLが含まれる場合は、そのURLへ通信します。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "draw.io公式：CSVから図を挿入する手順・書式・接続設定",
+          "url": "https://www.drawio.com/docs/manual/insert/insert-from-csv/"
+        },
+        {
+          "label": "draw.io公式：Desktop版をオフラインで使う",
+          "url": "https://www.drawio.com/docs/manual/editor/offline/"
+        },
+        {
+          "label": "draw.io Desktop公式README：無料利用・GPLライセンス・通信と図データの扱い",
+          "url": "https://github.com/jgraph/drawio-desktop"
+        },
+        {
+          "label": "draw.io Desktop公式リリース：現行リリースとGPL-3.0-onlyの記載",
+          "url": "https://github.com/jgraph/drawio-desktop/releases"
         }
       ]
     }
