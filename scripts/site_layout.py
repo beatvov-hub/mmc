@@ -278,7 +278,9 @@ def page_context(path: Path) -> tuple[str, str]:
     first = parts[0]
     name = parts[-1]
 
-    if rel == "index.html":
+    if rel == "en/index.html":
+        current = "en_home"
+    elif rel == "index.html":
         current = "home"
     elif first == "about" or name == "about.html":
         current = "about"
@@ -313,7 +315,7 @@ def apply_layout_to_html(html_text: str, *, prefix: str, current: str) -> str:
         html_text,
         marked_re=HEADER_BLOCK_RE,
         tag_re=HEADER_TAG_RE,
-        replacement=marked_block(HEADER_START, render_header(prefix, current), HEADER_END),
+        replacement=marked_block(HEADER_START, render_partial("header-en.html", prefix=prefix, current=current) if current == "en_home" else render_header(prefix, current), HEADER_END),
         label="site header",
     )
     return replace_block(

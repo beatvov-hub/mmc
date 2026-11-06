@@ -15,14 +15,14 @@
     header.classList.remove("nav-open");
     if (toggle) {
       toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "メニューを開く");
+      toggle.setAttribute("aria-label", header.dataset.menuOpenLabel || "メニューを開く");
     }
   }
 
   function toggleMenu() {
     const isOpen = header.classList.toggle("nav-open");
     toggle.setAttribute("aria-expanded", String(isOpen));
-    toggle.setAttribute("aria-label", isOpen ? "メニューを閉じる" : "メニューを開く");
+    toggle.setAttribute("aria-label", isOpen ? (header.dataset.menuCloseLabel || "メニューを閉じる") : (header.dataset.menuOpenLabel || "メニューを開く"));
   }
 
   setCompact();

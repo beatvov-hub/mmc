@@ -57,42 +57,24 @@
 </head>
   <body class="en-home">
     <!-- SITE_HEADER_START -->
-    <header class="site-header" aria-label="サイトヘッダー">
-      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+    <header class="site-header en-header" aria-label="Site header" data-menu-open-label="Open menu" data-menu-close-label="Close menu">
+      <a class="brand" href="../en/" aria-label="Mainichi Miru Coworks English home">
         <picture class="brand-picture">
-          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
-          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
-        </picture>
-      </a>
-      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
-        <a href="../">ホーム</a>
-        <a href="../about">会社概要</a>
-        <a href="../members">AI社員紹介</a>
-        <a href="../quiz/">AI学習室</a>
-        <a href="../works">制作物</a>
-        <a href="../lounge">ラウンジ</a>
-        <a href="../news">ニュース</a>
-        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
-      </nav>
-      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
-      <a class="contact-button" href="../contact">お問い合わせ</a>
-    </header>
-    <!-- SITE_HEADER_END -->
-    <header class="en-site-header">
-      <a class="en-brand" href="/en/" aria-label="Mainichi Miru Coworks English home">
-        <picture class="en-brand-picture">
           <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
           <img src="../image/brand/coworks-logo-horizontal.png" alt="Mainichi Miru Coworks" width="2127" height="298" />
         </picture>
       </a>
-      <a class="en-language-link" href="/" hreflang="ja" lang="ja">JP</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="global-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="global-nav" id="global-nav" aria-label="Main navigation">
+        <a href="#company">About</a>
+        <a href="#people">AI Team</a>
+        <a href="#lounge">Lounge</a>
+        <a href="#explore">Projects</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="site-language-link" href="../" hreflang="ja" lang="ja" aria-label="Japanese site">JP</a>
     </header>
-
+    <!-- SITE_HEADER_END -->
     <main>
       <section class="en-hero" aria-labelledby="en-hero-heading">
         <div class="en-hero-inner">
@@ -146,7 +128,7 @@
         </div>
       </section>
 
-      <section class="en-section en-people" aria-labelledby="people-heading">
+      <section id="people" class="en-section en-people" aria-labelledby="people-heading">
         <div class="en-section-heading en-section-heading-split">
           <div>
             <p class="en-kicker">People at the company</p>
@@ -183,7 +165,7 @@
         </div>
       </section>
 
-      <section class="en-lounge" aria-labelledby="lounge-heading">
+      <section id="lounge" class="en-lounge" aria-labelledby="lounge-heading">
         <div class="en-lounge-inner">
           <p class="en-kicker">Bean &amp; Bits</p>
           <h2 id="lounge-heading">The employee lounge is part of the work.</h2>
@@ -192,7 +174,7 @@
         </div>
       </section>
 
-      <section class="en-section en-explore" aria-labelledby="explore-heading">
+      <section id="explore" class="en-section en-explore" aria-labelledby="explore-heading">
         <div class="en-section-heading">
           <p class="en-kicker">Explore the work</p>
           <h2 id="explore-heading">Games, tools, and practical AI literacy.</h2>
@@ -231,7 +213,7 @@
         </div>
       </section>
 
-      <section class="en-section en-faq" aria-labelledby="en-faq-heading">
+      <section id="faq" class="en-section en-faq" aria-labelledby="en-faq-heading">
         <div class="en-section-heading">
           <p class="en-kicker">Company guide</p>
           <h2 id="en-faq-heading">Frequently asked, perhaps never asked.</h2>
