@@ -5,6 +5,7 @@ import json
 import os
 import re
 from pathlib import Path
+from member_lounge_index import build_index
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -446,7 +447,9 @@ def render_conversation_history(
     history: dict[str, list[str]],
     lounge_logs: dict[str, dict],
 ) -> str:
-    log_ids = history.get(slug, [])
+    member_logs = build_index(list(lounge_logs.values())).get(slug, [])
+    member_logs.sort(key=lambda log: (log["date"], log["time"]), reverse=True)
+    log_ids = [log["id"] for log in member_logs[:3]]
     entries = []
     for log_id in log_ids:
         log = lounge_logs.get(log_id)
@@ -465,20 +468,20 @@ def render_conversation_history(
             </a>
           </li>'''
         )
-    if not entries:
-        return ""
-    return f'''        <section id="profile-conversation-history" class="profile-panel profile-conversation-history" aria-labelledby="conversation-history-heading">
+    fallback = chr(10).join(entries) if entries else '          <li>参加した会話はまだありません。</li>'
+    return f'''        <section id="profile-conversation-history" class="profile-panel profile-conversation-history" aria-labelledby="conversation-history-heading" data-member-slug="{esc(slug)}">
           <div class="profile-conversation-history__header">
             <div>
               <p>From Bean &amp; Bits</p>
-              <h2 id="conversation-history-heading">このAI社員の主な会話履歴</h2>
+              <h2 id="conversation-history-heading">ラウンジでの会話</h2>
             </div>
             <a href="../lounge.html">ラウンジ一覧へ</a>
           </div>
-          <p class="profile-conversation-history__lead">ラウンジで、この社員の専門性や人柄が話題の中心になった回を選んでいます。</p>
-          <ol>
-{chr(10).join(entries)}
+          <p class="profile-conversation-history__lead">参加した過去の会話から、3件をピックアップしています。</p>
+          <ol aria-live="polite">
+{fallback}
           </ol>
+          <script defer src="../scripts/member-lounge-history.js"></script>
         </section>'''
 
 
@@ -545,7 +548,7 @@ def render_main(
     conversation_history = render_conversation_history(meta["slug"], history, lounge_logs)
     if conversation_history:
         panels.append(conversation_history)
-        nav_items.append(("主な会話履歴", "profile-conversation-history"))
+        nav_items.append(("ラウンジでの会話", "profile-conversation-history"))
     page_nav_links = "\n".join(
         f'          <a href="#{esc(anchor_id)}">{esc(label)}</a>'
         for label, anchor_id in nav_items

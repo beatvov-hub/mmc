@@ -10,6 +10,7 @@ from pathlib import Path
 from xml.etree import ElementTree
 
 from site_layout import apply_layout_to_file
+from member_lounge_index import write_index as write_member_lounge_index
 
 ROOT = Path(__file__).resolve().parents[1]
 LOUNGE_LOGS_PATH = ROOT / "src" / "data" / "loungeLogs.json"
@@ -1208,6 +1209,7 @@ def update_sitemap(logs: list[dict]) -> None:
 
 def main() -> None:
     logs = load_logs()
+    write_member_lounge_index(logs)
     topics_by_date = load_calendar_topics()
     ARCHIVE_DIR.mkdir(exist_ok=True)
     for path in ARCHIVE_DIR.glob("*.html"):

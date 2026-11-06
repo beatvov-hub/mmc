@@ -20,6 +20,7 @@
   - ラウンジ観測記録の元データです。
   - 「今日の一言」は本文の `content` に混ぜず、必要な場合だけ `todayWords` に分離して管理します。
   - `scripts/generate_lounge.py` で `lounge.html`、日付別の `lounge-archive/YYYY-MM-DD.html`、`index.html`、`sitemap.xml` に反映されます。
+  - 同時に `lounge/member-conversations.json` を生成します。社員紹介ページで参加した過去ログを3件表示するために使うため、ラウンジ更新時はこのファイルも公開対象に含めてください。
 
 - `src/data/loungeCalendarTopics.json`
   - ラウンジカレンダーに表示する時間帯別テーマと、日別アーカイブへのアンカーを管理します。
