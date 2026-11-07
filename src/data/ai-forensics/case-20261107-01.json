@@ -1,0 +1,147 @@
+{
+  "id": "case-20261107-01",
+  "publishedAt": "2026-11-07",
+  "title": "LINEに覚えのないログイン通知？ログイン中の端末を確認する方法",
+  "shortTitle": "LINEのログイン中の端末を確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "LINEに心当たりのないログイン通知が届いた人",
+    "メイン端末からLINEを利用できる人"
+  ],
+  "summary": "LINEは、メイン端末からLINEや関連サービスにログイン中の端末を確認する方法を案内しています。心当たりのない端末がある場合はログアウトし、パスワードを変更します。突然ログアウトされてLINEを使えない場合は、別の復旧手順を確認します。",
+  "scenario": {
+    "headline": "LINEに他の端末からログインしたという通知が届いた",
+    "description": "自分でログインした覚えはありませんが、スマートフォンのLINEは使えます。",
+    "whyItMatters": "ログイン中の端末を調べ、身に覚えのないアクセスを止める必要があります。"
+  },
+  "question": {
+    "text": "最初に取る行動は？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "メイン端末のLINE設定からログイン中の端末を確認する",
+        "description": "知らない端末をログアウトし、パスワードを変更できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "LINE IABという表示は必ず攻撃者の端末だと判断する",
+        "description": "LINE IABはLINEアプリ内ブラウザを意味します。"
+      },
+      {
+        "id": "wrong2",
+        "label": "通知のリンク先へ確認コードを入力する",
+        "description": "通知に見せかけた偽サイトに情報を渡すおそれがあります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "メイン端末のLINEで「ホーム」→「設定」→「アカウント」→「ログイン中の端末」を開き、端末名と経過時間を確認します。心当たりのない端末はログアウトし、パスワードを変更します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "確認できる端末",
+      "description": "メイン端末で、PCやiPadなどLINEや関連サービスにログインしている端末を確認できます。",
+      "priority": "high"
+    },
+    {
+      "title": "一覧に表示される情報",
+      "description": "端末名とログインからの経過時間を確認できます。",
+      "priority": "high"
+    },
+    {
+      "title": "心当たりのない端末",
+      "description": "LINEは、該当端末をログアウトしてからパスワードを変更するよう案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "LINE IABの意味",
+      "description": "LINE IABはLINEアプリ内ブラウザの意味で、表示だけで不正とは断定できません。",
+      "priority": "medium"
+    },
+    {
+      "title": "LINEを開けない場合",
+      "description": "メイン端末から突然ログアウトされた場合は、端末一覧の確認ではなく状況に応じた復旧手順を確認します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "メイン端末のLINE設定からログイン中の端末を確認する",
+    "description": "メイン端末のLINEで「ホーム」→「設定」→「アカウント」→「ログイン中の端末」を開き、端末名と経過時間を確認します。心当たりのない端末はログアウトし、パスワードを変更します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "LINEアプリを自分で開き「ログイン中の端末」を確認する",
+      "reason": "通知に含まれるリンクに頼らず状態を確認できます。"
+    },
+    {
+      "action": "心当たりのない端末をログアウトする",
+      "reason": "該当端末のログインを終了できます。"
+    },
+    {
+      "action": "LINEのパスワードを変更する",
+      "reason": "不正アクセスが続くリスクを減らします。"
+    },
+    {
+      "action": "覚えのないメッセージなどがある場合はLINE公式案内を確認する",
+      "reason": "状況に応じた追加の対応が必要です。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "通知のリンク先にパスワードや認証コードを入力する",
+      "reason": "偽サイトに情報を渡すおそれがあります。"
+    },
+    {
+      "action": "表示された名称だけで第三者のアクセスと決めつける",
+      "reason": "LINE IABのように正規の機能を示す名称もあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "LINEアプリを自分で開き「ログイン中の端末」を確認する",
+      "心当たりのない端末をログアウトする",
+      "LINEのパスワードを変更する"
+    ]
+  },
+  "makotoComment": "LINEを使えるときと、突然ログアウトされて開けないときでは、取れる手順が異なります。まず今の状態から確認しましょう。",
+  "oneLineLesson": "LINEの端末一覧で確認し、心当たりのない端末はログアウトしてパスワードを変更する。",
+  "tags": [
+    "LINE",
+    "ログイン中の端末",
+    "ログイン通知",
+    "乗っ取り",
+    "パスワード"
+  ],
+  "sources": [
+    {
+      "title": "LINEやLINE関連サービスにログインしている端末を確認するには？",
+      "publisher": "LINEヘルプセンター",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://help.line.me/line/ios/?contentId=20008468&lang=ja"
+    },
+    {
+      "title": "LINE乗っ取りの被害にあった場合の対処法",
+      "publisher": "LINEヘルプセンター",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://help.line.me/line/smartphone?contentId=20000437&lang=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "LINEに他の端末からログインしたという通知が届いた場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261105-01"
+  ]
+}

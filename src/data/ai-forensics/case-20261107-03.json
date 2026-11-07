@@ -1,0 +1,140 @@
+{
+  "id": "case-20261107-03",
+  "publishedAt": "2026-11-07",
+  "title": "Microsoftアカウントに「通常と異なるサインイン」？通知と履歴の確認方法",
+  "shortTitle": "Microsoftの不審なサインイン通知",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "個人用Microsoftアカウントに不審なサインイン通知が届いた人",
+    "サインイン履歴を確認したい人"
+  ],
+  "summary": "Microsoftは、個人用アカウントに通常と異なるサインインが発生した場合、セキュリティ画面の「最近のアクティビティ」で詳細を確認する方法を案内しています。新しい端末や旅行先での自分の操作でも警告される場合があるため、まず公式画面で内容を確かめます。",
+  "scenario": {
+    "headline": "Microsoftアカウントの通常と異なるサインインを知らせるメールが届いた",
+    "description": "誰かにログインされたのか、メールのリンクを開いてよいか分かりません。",
+    "whyItMatters": "警告の原因は正規の操作の場合もあり、内容の確認とアカウントの保護を分けて行う必要があります。"
+  },
+  "question": {
+    "text": "どこを確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "自分でMicrosoftアカウントのセキュリティ画面を開き履歴を確認する",
+        "description": "不審な通知のリンクに頼らず確認できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "通知が届けば必ず第三者のログインが成功したと判断する",
+        "description": "自分の新しい端末や旅行先からのサインインでも警告が出る場合があります。"
+      },
+      {
+        "id": "wrong2",
+        "label": "メールから開いたページに確認コードを入力する",
+        "description": "偽サイトに認証情報を渡すおそれがあります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "個人用Microsoftアカウントの「セキュリティの基本」から「アクティビティの確認」を開き、日時や場所などを確認します。自分ではないと確信できる活動は画面に示された選択肢に沿って報告します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "対象となる警告",
+      "description": "通常と異なるサインインが試行されると、メールやテキストメッセージによる通知が届くことがあります。",
+      "priority": "high"
+    },
+    {
+      "title": "本人の利用でも警告",
+      "description": "新しい端末やアプリ、旅行中の場所からの本人による利用でも警告される場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "最近のアクティビティ",
+      "description": "セキュリティ画面の「アクティビティの確認」からサインイン状況を確認できます。",
+      "priority": "high"
+    },
+    {
+      "title": "本人ではない活動",
+      "description": "不審なアクティビティの項目では、本人でないと確信できるものに「自分ではありません」を選べます。",
+      "priority": "high"
+    },
+    {
+      "title": "職場や学校のアカウント",
+      "description": "組織のアカウントは個人用と手順が異なる場合があるため、管理者に相談します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "自分でMicrosoftアカウントのセキュリティ画面を開き履歴を確認する",
+    "description": "個人用Microsoftアカウントの「セキュリティの基本」から「アクティビティの確認」を開き、日時や場所などを確認します。自分ではないと確信できる活動は画面に示された選択肢に沿って報告します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Microsoftアカウントのセキュリティ画面を自分で開く",
+      "reason": "メール内のリンクを使わず確認できます。"
+    },
+    {
+      "action": "最近のアクティビティの日時や場所を確認する",
+      "reason": "自分の行動に心当たりがあるか整理できます。"
+    },
+    {
+      "action": "本人でないと確信できる活動は画面に沿って報告する",
+      "reason": "Microsoftに不審な活動を知らせられます。"
+    },
+    {
+      "action": "他者のアクセスが疑われる場合はパスワード変更など公式手順に進む",
+      "reason": "追加のアカウント保護につなげます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "通知だけで第三者によるサインイン成功を断定する",
+      "reason": "本人の普段と異なる操作でも警告される場合があります。"
+    },
+    {
+      "action": "不審なメールから開いたページでパスワードや確認コードを入力する",
+      "reason": "偽サイトへ認証情報を渡すおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "Microsoftアカウントのセキュリティ画面を自分で開く",
+      "最近のアクティビティの日時や場所を確認する",
+      "本人でないと確信できる活動は画面に沿って報告する"
+    ]
+  },
+  "makotoComment": "警告には本人の操作が含まれる場合もあります。心当たりを確かめつつ、自分で公式画面を開いて必要な保護を進めましょう。",
+  "oneLineLesson": "公式のセキュリティ画面で履歴を確認し、本人でない活動は報告する。",
+  "tags": [
+    "Microsoftアカウント",
+    "サインイン",
+    "不審なアクティビティ",
+    "ログイン履歴",
+    "セキュリティ"
+  ],
+  "sources": [
+    {
+      "title": "ご利用のアカウントで通常とは異なるサインインが発生した場合",
+      "publisher": "Microsoft Support",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/accounts-billing/security/what-happens-if-there-s-an-unusual-sign-in-to-your-account"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Microsoftアカウントの通常と異なるサインインを知らせるメールが届いた場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261106-02"
+  ]
+}

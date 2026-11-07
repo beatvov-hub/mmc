@@ -1,0 +1,148 @@
+{
+  "id": "case-20261107-02",
+  "publishedAt": "2026-11-07",
+  "title": "iPhoneにSMSが届かない？迷惑メッセージと不明な差出人の確認方法",
+  "shortTitle": "iPhoneの迷惑メッセージを確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "iPhoneで届くはずのメッセージが見つからない人",
+    "迷惑メッセージに振り分けられた通知を確認したい人"
+  ],
+  "summary": "iOS 26以降のiPhoneでは、迷惑メッセージと判定された受信メッセージが別のフォルダに振り分けられる場合があります。届くはずのSMSが見つからない場合は、フィルタを確認し、正当なメッセージだけを受信トレイに戻せます。",
+  "scenario": {
+    "headline": "届くはずの確認コードのSMSが見当たらない",
+    "description": "受信できていないのか、別のフォルダに入っているのか分かりません。",
+    "whyItMatters": "通知が出なくても、メッセージが振り分けられている場合があります。"
+  },
+  "question": {
+    "text": "まず確認できる場所は？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "メッセージアプリの「迷惑メッセージ」と「不明な差出人」を確認する",
+        "description": "フィルタされたメッセージを確認できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "すべてのメッセージを安全だと判断してリンクを開く",
+        "description": "フィルタの有無だけで送信者の安全は確定しません。"
+      },
+      {
+        "id": "wrong2",
+        "label": "振り分けだけがSMSが届かない唯一の原因だと決めつける",
+        "description": "通信や通知設定など別の原因も考えられます。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "iOS 26以降では、メッセージアプリのフィルタボタンから「迷惑メッセージ」や「不明な差出人」を確認します。差出人を別の方法で確かめ、正当なものだけ受信トレイへ戻します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "迷惑メッセージのフィルタ",
+      "description": "AppleによるとiOS 26以降では「迷惑メッセージをフィルタ」がデフォルトで有効です。",
+      "priority": "high"
+    },
+    {
+      "title": "迷惑メッセージの場所",
+      "description": "迷惑と判定された受信メッセージは通知されず、「迷惑メッセージ」フォルダに移動します。",
+      "priority": "high"
+    },
+    {
+      "title": "誤判定からの復元",
+      "description": "該当のメッセージを表示し「迷惑メッセージではない」から受信トレイに戻せます。",
+      "priority": "high"
+    },
+    {
+      "title": "不明な差出人",
+      "description": "不明な差出人のスクリーニングがオンの場合、対象のメッセージは別のフィルタで確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "振り分け以外の原因",
+      "description": "通知設定などほかの要因もあるため、フォルダ内にないだけで送信元の問題と断定しません。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "メッセージアプリの「迷惑メッセージ」と「不明な差出人」を確認する",
+    "description": "iOS 26以降では、メッセージアプリのフィルタボタンから「迷惑メッセージ」や「不明な差出人」を確認します。差出人を別の方法で確かめ、正当なものだけ受信トレイへ戻します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "メッセージアプリでフィルタボタンを開く",
+      "reason": "迷惑メッセージや不明な差出人を確認できます。"
+    },
+    {
+      "action": "見つかったメッセージの差出人を別の公式窓口から確認する",
+      "reason": "偽のメッセージに反応するリスクを減らします。"
+    },
+    {
+      "action": "正当だと確認できたものだけ受信トレイに戻す",
+      "reason": "誤判定されたメッセージを通常の一覧で確認できます。"
+    },
+    {
+      "action": "見つからない場合は通知設定や送信元にも確認する",
+      "reason": "振り分け以外の原因も考えられます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "迷惑メッセージを一律に受信トレイに戻してリンクを開く",
+      "reason": "不審なメッセージへの反応を避けます。"
+    },
+    {
+      "action": "フィルタが原因だと決めつける",
+      "reason": "メッセージが送信されていないなど、ほかの可能性があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "メッセージアプリでフィルタボタンを開く",
+      "見つかったメッセージの差出人を別の公式窓口から確認する",
+      "正当だと確認できたものだけ受信トレイに戻す"
+    ]
+  },
+  "makotoComment": "確認コードが見当たらないと焦りますが、まずフォルダを確認。届いていたとしても、内容と送信元は別の経路で確かめましょう。",
+  "oneLineLesson": "迷惑メッセージと不明な差出人を確認し、正当なものだけ戻す。",
+  "tags": [
+    "iPhone",
+    "SMS",
+    "迷惑メッセージ",
+    "不明な差出人",
+    "認証コード",
+    "iOS 26"
+  ],
+  "sources": [
+    {
+      "title": "iPhoneで迷惑メッセージを表示／復元する",
+      "publisher": "Apple サポート",
+      "sourceType": "official-product-documentation",
+      "publishedAt": "2026-09-25",
+      "url": "https://support.apple.com/ja-jp/124159"
+    },
+    {
+      "title": "iPhoneやiPadにメッセージアプリの通知が届かない場合",
+      "publisher": "Apple サポート",
+      "sourceType": "official-product-documentation",
+      "publishedAt": "2026-09-25",
+      "url": "https://support.apple.com/ja-jp/108127"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "届くはずの確認コードのSMSが見当たらない場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261104-03"
+  ]
+}
