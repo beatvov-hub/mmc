@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T07:36:06+09:00",
+  "updatedAt": "2026-11-08T07:35:02+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -3221,6 +3221,59 @@
         {
           "label": "Openverse公式利用規約：個別作品の権利と条件の確認",
           "url": "https://docs.openverse.org/terms_of_service"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "slug": "scribus-event-flyer-bleed-pdf",
+      "useCategory": "デザイン・動画・ゲーム制作",
+      "name": "Scribus",
+      "category": "Desktop Publishing / OSS",
+      "officialUrl": "https://www.scribus.net/",
+      "summary": "Scribusは、文字と画像をページ上に配置し、印刷向けの塗り足し付きPDFを書き出せる無料のDTPソフトです。",
+      "whyToday": "画面用PDFをそのまま印刷所へ渡すと、仕上がり寸法や端まで印刷するための塗り足しが不足することがあります。Scribusはページ寸法・塗り足しを設定し、PDF書き出し時に文書の塗り足しを含められるため、入稿仕様に合わせた1ページ物を組み立てられます。",
+      "useFor": "例えば、イベント告知のA5チラシを印刷会社へ渡す想定例です。まず配布先に仕上がり寸法と塗り足し量を確認し、Scribusで1ページを作って文字と写真を配置します。PDF書き出しでは文書の塗り足しを使い、必要なフォント設定を選んでPDFを作成します。最初はダミーの1ページで、仕上がり寸法・塗り足し・文字のはみ出しをプレビューとPreflight Verifierで確かめ、指定仕様に合うか判断します。",
+      "recommendedFor": {
+        "employeeId": "MMC-007",
+        "reason": "レイちゃんにイベント告知の1ページ案を組んでもらい、印刷所の寸法・塗り足し仕様に合わせたPDFと、確認が必要な箇所の一覧を受け取りたいです。"
+      },
+      "keiComment": "印刷所が求める寸法を最初に確認してから作れば、画面用のPDFとの違いをレイアウト段階で扱えます。フォントや写真の利用条件は別に確認し、まずはダミー原稿で入稿先の指定どおり書き出せるか見てから採用したいですね。",
+      "verifiedAt": "2026-11-08",
+      "status": "published",
+      "pricing": "ScribusはGPLライセンスの無料オープンソースソフトです。印刷費、使用する書体・写真素材の費用や利用条件は別途確認してください。",
+      "conditions": "Windows・macOS・Linux向けのデスクトップソフトです。印刷所のページ寸法、塗り足し、色設定などの指定を先に確認します。PDF/X等の納品形式や必要なフォントの扱いは入稿先の仕様に合わせてください。",
+      "notes": "公式配布・リリース告知・Scribusチュートリアルを確認した日をverifiedAtに記録しています。活用例は想定で、実機での制作・書き出しは行っていません。",
+      "archiveTitle": "Scribusでイベントチラシを塗り足し付きPDFにできる？",
+      "archiveDescription": "イベントチラシをScribusで塗り足し付きPDFにする手順を、印刷所への確認事項や書き出し前のチェックと合わせて紹介します。",
+      "forWho": "イベントや広報用の紙チラシを作り、印刷所の寸法・塗り足し仕様に合わせてPDFを入稿したい担当者向けです。",
+      "cautions": "塗り足しの量やPDFの色・規格は印刷所や印刷物ごとに指定が異なります。書き出し設定を一律に決めず、入稿先へ確認してください。書体・写真素材の利用範囲も素材ごとに確かめます。",
+      "faq": [
+        {
+          "question": "Scribusで塗り足しを含めたPDFを書き出せますか？",
+          "answer": "できます。文書に塗り足しを設定し、PDF書き出しのPre-Pressで文書の塗り足しを使う設定にします。必要な量やPDF仕様は入稿先の指定に合わせます。"
+        },
+        {
+          "question": "塗り足しは何mmに設定すればよいですか？",
+          "answer": "一律の値ではありません。印刷会社に仕上がり寸法と塗り足し量を確認し、その値を文書設定とPDF書き出しに反映してください。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Scribus公式フォーラム：安定版1.6.7のリリース告知",
+          "url": "https://forums.scribus.net/index.php/topic,7098.0.html"
+        },
+        {
+          "label": "Scribus公式サイト：ダウンロード案内",
+          "url": "https://www.scribus.net/downloads/"
+        },
+        {
+          "label": "Scribus公式Wiki：Get Startedチュートリアル（PDF）",
+          "url": "https://wiki.scribus.net/wiki/images/0/08/ScribusTutorial.pdf"
+        },
+        {
+          "label": "Scribus公式フォーラム：GPLライセンスと商用成果物に関するFAQ参照",
+          "url": "https://forums.scribus.net/index.php?topic=3509.0"
         }
       ]
     }
