@@ -1,0 +1,147 @@
+{
+  "id": "case-20261108-03",
+  "publishedAt": "2026-11-08",
+  "title": "apple.com/billに覚えのない請求？購入履歴と家族の購入を確認する",
+  "shortTitle": "Appleからの請求を確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "apple.com/billの請求に心当たりがない人",
+    "Appleのサブスクリプションや家族の購入を確認したい人"
+  ],
+  "summary": "Appleはapple.com/billの請求について、Apple Accountの購入履歴やファミリー共有の購入を確認する方法を案内しています。通知のリンクに頼らず購入履歴を自分で開き、内容が分からない場合はAppleやカード会社の公式窓口へ相談します。",
+  "scenario": {
+    "headline": "クレジットカード明細にapple.com/billの請求がある",
+    "description": "何を買ったか分からず、身に覚えのない請求かもしれません。",
+    "whyItMatters": "複数の購入がまとめて請求される場合や、家族の購入が含まれる場合もあります。"
+  },
+  "question": {
+    "text": "まず何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "Appleの購入履歴と、該当する場合は家族の購入を確認する",
+        "description": "請求額と購入内容を照合できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "Appleの名前があるメールはすべて本物と判断する",
+        "description": "通知が公式を装ったものの場合もあります。"
+      },
+      {
+        "id": "wrong2",
+        "label": "購入履歴を確認せず、連絡された番号にカード情報を伝える",
+        "description": "不審な相手に情報を渡すおそれがあります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "App Storeのアカウント画面から「アプリと購入履歴」→「購入履歴」を開くか、Appleの公式購入履歴を自分で開き、金額と内容を確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "請求の内容",
+      "description": "apple.com/billはアプリ、サブスクリプション、音楽や映画などAppleからの請求である可能性があります。",
+      "priority": "high"
+    },
+    {
+      "title": "購入履歴の検索",
+      "description": "Appleの購入履歴では購入した内容や金額を確認でき、正確な金額で検索できます。",
+      "priority": "high"
+    },
+    {
+      "title": "ファミリー共有",
+      "description": "購入アイテムの共有を有効にしている場合、ファミリー管理者は家族の購入を確認できます。",
+      "priority": "high"
+    },
+    {
+      "title": "複数購入のまとめ",
+      "description": "Appleは複数の購入やサブスクリプションを1つの請求にまとめる場合があります。",
+      "priority": "medium"
+    },
+    {
+      "title": "外部の決済",
+      "description": "アプリ開発元のウェブサイトなど別の支払いシステムで購入したものは、Appleのアプリ内課金として請求されない場合があります。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "Appleの購入履歴と、該当する場合は家族の購入を確認する",
+    "description": "App Storeのアカウント画面から「アプリと購入履歴」→「購入履歴」を開くか、Appleの公式購入履歴を自分で開き、金額と内容を確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "App StoreやApple公式の購入履歴を自分で開く",
+      "reason": "通知内の不審なリンクに頼らず照合できます。"
+    },
+    {
+      "action": "請求額、購入内容とサブスクリプションを確認する",
+      "reason": "請求の内訳を調べられます。"
+    },
+    {
+      "action": "ファミリー共有を利用していれば家族の購入も確認する",
+      "reason": "家族による購入が含まれる場合があります。"
+    },
+    {
+      "action": "分からない請求はAppleやカード会社の公式窓口に相談する",
+      "reason": "不正利用の可能性を含めて対応できます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "通知に記載された連絡先へカード情報や確認コードを伝える",
+      "reason": "正規を装う相手に情報を渡すおそれがあります。"
+    },
+    {
+      "action": "Apple名義の表示だけで通知や請求が本物だと断定する",
+      "reason": "正規の購入履歴との照合が必要です。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "App StoreやApple公式の購入履歴を自分で開く",
+      "請求額、購入内容とサブスクリプションを確認する",
+      "ファミリー共有を利用していれば家族の購入も確認する"
+    ]
+  },
+  "makotoComment": "身に覚えがなくても、購入の合算や家族の購入という場合があります。慌てて通知のリンクを開かず、公式の購入履歴から確かめましょう。",
+  "oneLineLesson": "公式の購入履歴で金額と内容を照合し、不明なら公式窓口に相談する。",
+  "tags": [
+    "apple.com/bill",
+    "Apple Account",
+    "身に覚えのない請求",
+    "購入履歴",
+    "ファミリー共有"
+  ],
+  "sources": [
+    {
+      "title": "apple.com/bill からの請求に問題がある場合",
+      "publisher": "Apple サポート",
+      "sourceType": "official-product-documentation",
+      "publishedAt": "2025-07-18",
+      "url": "https://support.apple.com/ja-jp/120164"
+    },
+    {
+      "title": "App StoreやほかのAppleメディアサービスの購入履歴を確認する",
+      "publisher": "Apple サポート",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/118212"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "クレジットカード明細にapple.com/billの請求がある場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261029-01"
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "id": "case-20261108-02",
+  "publishedAt": "2026-11-08",
+  "title": "Androidの画面右上に緑の点？カメラ・マイクを使うアプリの確認方法",
+  "shortTitle": "Androidの緑の点を確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Android画面右上の緑の点が気になる人",
+    "カメラやマイクを使っているアプリを調べたい人"
+  ],
+  "summary": "GoogleはAndroidでアプリがカメラやマイクを使用しているとき、画面右上に緑色のインジケーターが表示されると案内しています。表示だけで盗聴と判断せず、利用中のアプリを確認して必要に応じて権限を見直せます。",
+  "scenario": {
+    "headline": "Androidの画面右上に緑の点が表示された",
+    "description": "何がカメラやマイクを使っているのか分からず、不安です。",
+    "whyItMatters": "通話などの正当な利用でも表示されるため、まず使用元を確認します。"
+  },
+  "question": {
+    "text": "どのように確かめる？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "画面上部から下にスワイプし、表示をタップして利用元を確認する",
+        "description": "カメラやマイクを使っているアプリやサービスを確認できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "緑の点は必ず盗聴やウイルス感染を意味すると考える",
+        "description": "アプリがカメラやマイクを利用中であることを示す表示です。"
+      },
+      {
+        "id": "wrong2",
+        "label": "何の機能も使えなくなるまで全アプリを削除する",
+        "description": "まず利用元と権限を確認することができます。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Android 12以降など対応端末で、画面上部から下にスワイプして緑のインジケーターをタップし、アプリやサービスを確認します。操作は機種によって異なる場合があります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "緑の表示の意味",
+      "description": "Googleはアプリがカメラまたはマイクを使用中、画面右上に緑色の表示が出ると説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "利用元を確認",
+      "description": "下にスワイプしてインジケーターをタップすると利用中のアプリやサービスを確認できます。",
+      "priority": "high"
+    },
+    {
+      "title": "権限の管理",
+      "description": "表示をもう一度タップすると権限を管理できます。",
+      "priority": "high"
+    },
+    {
+      "title": "端末ごとの違い",
+      "description": "公式案内の一部はAndroid 12以降が対象で、下方向へのスワイプが動作しない端末もあります。",
+      "priority": "medium"
+    },
+    {
+      "title": "利用への影響",
+      "description": "カメラやマイクへのアクセスをオフにすると、それらを使う機能が利用できなくなることがあります。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "画面上部から下にスワイプし、表示をタップして利用元を確認する",
+    "description": "Android 12以降など対応端末で、画面上部から下にスワイプして緑のインジケーターをタップし、アプリやサービスを確認します。操作は機種によって異なる場合があります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "表示をタップして利用しているアプリやサービスを確認する",
+      "reason": "何がカメラやマイクを使っているか確認できます。"
+    },
+    {
+      "action": "アプリに必要な権限かを確認し、不要なら設定で見直す",
+      "reason": "利用目的に合わせてアクセスを管理できます。"
+    },
+    {
+      "action": "表示や設定が見つからなければ端末メーカーの案内を確認する",
+      "reason": "画面や操作は機種によって異なるためです。"
+    },
+    {
+      "action": "心当たりのない利用が続く場合は公式サポートに相談する",
+      "reason": "端末の状態に応じた確認につなげます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "緑の点だけで盗聴と断定する",
+      "reason": "表示は利用中であることを知らせる機能です。"
+    },
+    {
+      "action": "不明なアプリの指示に従って別のアプリを追加する",
+      "reason": "不審な操作を増やさず利用元を確認します。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIを整理の補助に使う",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使います。具体的な設定や対応は公式の案内で確認します。",
+    "examples": [
+      "表示をタップして利用しているアプリやサービスを確認する",
+      "アプリに必要な権限かを確認し、不要なら設定で見直す",
+      "表示や設定が見つからなければ端末メーカーの案内を確認する"
+    ]
+  },
+  "makotoComment": "緑の点を見たら、まず何がカメラやマイクを使っているか見てみましょう。必要な機能ならそのまま、不要な権限なら見直せます。",
+  "oneLineLesson": "緑の点は利用中の表示。まずアプリやサービスを確認する。",
+  "tags": [
+    "Android",
+    "緑の点",
+    "マイク",
+    "カメラ",
+    "アプリ権限",
+    "プライバシー"
+  ],
+  "sources": [
+    {
+      "title": "Android でカメラまたはマイクのオン / オフ状態を確認する",
+      "publisher": "Android ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/android/answer/13532937?hl=ja-9"
+    },
+    {
+      "title": "Android スマートフォンでアプリの権限を変更する",
+      "publisher": "Android ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/android/answer/9431959?hl=ja-9"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Androidの画面右上に緑の点が表示された場面を抽象的に描く",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20260806-02"
+  ]
+}
