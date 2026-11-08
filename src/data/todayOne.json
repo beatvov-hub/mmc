@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-08T07:35:02+09:00",
+  "updatedAt": "2026-11-09T07:36:55+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -3274,6 +3274,71 @@
         {
           "label": "Scribus公式フォーラム：GPLライセンスと商用成果物に関するFAQ参照",
           "url": "https://forums.scribus.net/index.php?topic=3509.0"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-09",
+      "slug": "power-automate-desktop-cms-event-draft",
+      "useCategory": "業務効率化・予約",
+      "name": "Power Automate for desktop",
+      "category": "Desktop RPA / Freemium",
+      "officialUrl": "https://www.microsoft.com/power-platform/products/power-automate",
+      "summary": "Power Automate for desktopは、Windows上のアプリやWeb画面の繰り返し操作を記録し、再実行できるデスクトップ自動化ツールです。",
+      "whyToday": "毎週の告知を社内CMSへ写す作業は、入力欄が多いと日付や会場を取り違えやすくなります。Power Automate for desktopなら、Excelの値をブラウザーのWeb要素へ入れる操作をフロー化し、同じ手順を画面上で繰り返せます。",
+      "useFor": "例えば、週次イベントの案内表から社内CMSの下書き欄へ開催名・日時・会場を写す想定例です。Windows 11のPower Automate for desktopで新しいフローを作り、Excelの対象行を読み、ブラウザー拡張を設定したEdgeでCMSのテスト用下書き画面を開きます。Recorderで入力欄への操作を記録し、各欄にExcelの値を割り当てて、送信前で止まるよう調整します。まずはダミー1件で項目の対応と日付表示を確かめ、内容を照合してから担当者が保存します。",
+      "recommendedFor": {
+        "employeeId": "MMC-001",
+        "reason": "ほのちゃんにイベント案内表1行分でCMS入力フローの項目対応を整理してもらい、送信前に内容を照合できるテスト用フローと操作メモを受け取りたいです。"
+      },
+      "keiComment": "入力欄への転記だけを任せて公開操作をフローから外せば、繰り返し部分を減らしつつ、掲載内容の確定は担当者が握れます。CMSの画面変更で欄を見失うことがあるため、まずはテスト環境の1件で止まる位置を決めておきたいですね。",
+      "verifiedAt": "2026-11-09",
+      "status": "published",
+      "pricing": "Windows 11に含まれる範囲で、個人の生産性向上を目的とした有人デスクトップフローを追加費用なしで試せます。フローの共有やクラウドフローとの連携などは別のライセンス条件を確認してください。",
+      "conditions": "Windows 11のPCが必要です。Web画面を操作する場合は対応ブラウザーの拡張機能を設定します。Windows 11付帯の無料範囲ではフローを共有できず、既定以外の環境での作成やクラウドフローも対象外です。チーム共有・クラウド実行には利用組織のライセンス条件を確認してください。",
+      "notes": "Microsoft Learnの現行ドキュメントとライセンス説明を2026-11-09に確認しています。活用例は想定で、実際のフロー作成・CMS入力は行っていません。",
+      "archiveTitle": "Power Automate for desktopでイベント情報をCMSへ転記できる？",
+      "archiveDescription": "Excelの開催情報をCMSの下書きへ転記する想定例で、Power Automate for desktopの始め方、無料で試せる範囲、送信前の確認点を紹介します。",
+      "forWho": "定例イベントの情報をWebフォームやCMSへ繰り返し入力し、転記ミスを減らしたい総務・運営・広報担当者向けです。",
+      "cautions": "Web画面の入力欄や構造が変わると、フローが対象要素を見つけられず停止することがあります。実データで試す前にテスト画面とダミー情報で入力先・停止位置を確かめ、送信・公開ボタンはフローに含めず担当者が確定する運用がおすすめです。",
+      "faq": [
+        {
+          "question": "Power Automate for desktopはWindows 11だけで無料で使えますか？",
+          "answer": "Windows 11では個人の生産性向上を目的とした有人デスクトップフローを試せます。ただし、その範囲ではフローの共有、既定以外の環境での作成、クラウドフローは利用できません。チームで共有・実行する場合は組織のライセンス条件を確認してください。"
+        },
+        {
+          "question": "CMSの画面が変わるとフローはどうなりますか？",
+          "answer": "フローは登録したWeb要素を使って入力欄を操作します。画面変更で要素が見つからない場合はアクションが失敗するため、対象要素を取り直してフローを調整し、テスト画面で再確認してください。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Microsoft Learn：Windows 11で始めるPower Automate for desktop",
+          "url": "https://learn.microsoft.com/en-us/power-automate/desktop-flows/getting-started-windows-11"
+        },
+        {
+          "label": "Microsoft Learn：Windowsライセンスに含まれる機能と制限",
+          "url": "https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/faqs"
+        },
+        {
+          "label": "Microsoft Learn：フロー作成の手順",
+          "url": "https://learn.microsoft.com/en-us/power-automate/desktop-flows/create-flow"
+        },
+        {
+          "label": "Microsoft Learn：Recorderでデスクトップ・Web操作を記録",
+          "url": "https://learn.microsoft.com/en-us/power-automate/desktop-flows/recording-flow"
+        },
+        {
+          "label": "Microsoft Learn：Webページの自動化と入力アクション",
+          "url": "https://learn.microsoft.com/en-us/power-automate/desktop-flows/automation-web"
+        },
+        {
+          "label": "Microsoft Learn：ブラウザー自動化アクションリファレンス",
+          "url": "https://learn.microsoft.com/en-us/power-automate/desktop-flows/actions-reference/webautomation"
+        },
+        {
+          "label": "Microsoft Learn：Excelワークシートの読み込みアクション",
+          "url": "https://learn.microsoft.com/en-us/power-automate/desktop-flows/actions-reference/excel"
         }
       ]
     }
