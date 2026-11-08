@@ -339,13 +339,18 @@ def apply_layout_to_html(html_text: str, *, prefix: str, current: str) -> str:
 
 
 def apply_page_admax(html_text: str, path: Path) -> str:
-    """Place one ad at the end of main content on the requested page families."""
+    """Place one ad on the requested page families, including below the home introduction."""
     rel = path.resolve().relative_to(ROOT).as_posix()
-    target = (rel in {"lounge.html", "today-one.html"}
+    target = (rel in {"index.html", "lounge.html", "today-one.html"}
               or rel.startswith(("lounge-archive/", "ai-forensics/", "quiz/", "today-one/archive/")))
     if not target or not rel.endswith(".html"):
         return html_text
     html_text = ADMAX_BLOCK_RE.sub("", html_text)
+    if rel == "index.html":
+        about = re.search(r'<section\s+id="about"(?:\s|>)[\s\S]*?</section>', html_text)
+        if not about:
+            raise ValueError("Cannot place home ad without the about section")
+        return html_text[:about.end()] + ADMAX_BLOCK.rstrip() + html_text[about.end():]
     if "</main>" not in html_text:
         raise ValueError(f"Cannot place ad without main element: {rel}")
     return re.sub(r"\s*</main>", lambda _: ADMAX_BLOCK + "    </main>", html_text, count=1)
