@@ -16,6 +16,7 @@ from site_layout import (
     ROOT,
     apply_canonical,
     apply_layout_to_html,
+    apply_page_admax,
     canonical_url,
     normalize_internal_links,
     page_context,
@@ -602,6 +603,7 @@ def write_page(path: Path, content: str, depth: int) -> bool:
     rendered = apply_canonical(with_prefix(content, depth), url=canonical_url(path))
     rendered = apply_layout_to_html(rendered, prefix=prefix, current=current)
     rendered = normalize_internal_links(rendered)
+    rendered = apply_page_admax(rendered, path)
     if rendered == previous:
         return False
     # Windows can transiently reject an in-place write while a local indexer or

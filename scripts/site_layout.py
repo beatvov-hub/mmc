@@ -65,6 +65,17 @@ OG_URL_RE = re.compile(r'^[ \t]*<meta property="og:url" content="[^"]*" />\s*', 
 DESCRIPTION_RE = re.compile(r'^[ \t]*<meta name="description" content="[^"]*" />\s*', re.MULTILINE)
 TITLE_RE = re.compile(r"^[ \t]*<title>[\s\S]*?</title>\s*", re.IGNORECASE | re.MULTILINE)
 INTERNAL_HTML_HREF_RE = re.compile(r'href="([^":?#]+)\.html((?:#[^"]*)?)"')
+ADMAX_BLOCK_RE = re.compile(r'\s*<!-- MMC_ADMAX_START -->[\s\S]*?<!-- MMC_ADMAX_END -->')
+ADMAX_BLOCK = '''
+      <!-- MMC_ADMAX_START -->
+      <aside class="mmc-admax" aria-label="広告">
+        <p class="mmc-admax__label">広告</p>
+        <!-- admax -->
+        <script src="https://adm.shinobi.jp/s/9de8679fb7ebe5155a6a7ef6b4beb1f3"></script>
+        <!-- admax -->
+      </aside>
+      <!-- MMC_ADMAX_END -->
+'''
 
 BASE_URL = "https://mainichi-miru.com"
 
@@ -327,6 +338,19 @@ def apply_layout_to_html(html_text: str, *, prefix: str, current: str) -> str:
     )
 
 
+def apply_page_admax(html_text: str, path: Path) -> str:
+    """Place one ad at the end of main content on the requested page families."""
+    rel = path.resolve().relative_to(ROOT).as_posix()
+    target = (rel in {"lounge.html", "today-one.html"}
+              or rel.startswith(("lounge-archive/", "ai-forensics/", "quiz/", "today-one/archive/")))
+    if not target or not rel.endswith(".html"):
+        return html_text
+    html_text = ADMAX_BLOCK_RE.sub("", html_text)
+    if "</main>" not in html_text:
+        raise ValueError(f"Cannot place ad without main element: {rel}")
+    return re.sub(r"\s*</main>", lambda _: ADMAX_BLOCK + "    </main>", html_text, count=1)
+
+
 def apply_layout_to_file(path: Path) -> bool:
     prefix, current = page_context(path)
     original = path.read_text(encoding="utf-8")
@@ -334,6 +358,7 @@ def apply_layout_to_file(path: Path) -> bool:
     updated = original if path.name == "music-room.html" else apply_canonical(original, url=canonical_url(path))
     updated = apply_layout_to_html(updated, prefix=prefix, current=current)
     updated = normalize_internal_links(updated)
+    updated = apply_page_admax(updated, path)
     if updated == original:
         return False
     path.write_text(updated, encoding="utf-8")
