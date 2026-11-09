@@ -9,8 +9,9 @@ from collections import defaultdict
 from pathlib import Path
 from xml.etree import ElementTree
 
-from site_layout import apply_layout_to_file
-from member_lounge_index import write_index as write_member_lounge_index
+from site_layout import apply_layout_to_file, normalize_internal_links
+from member_lounge_index import MEMBER_NAMES, write_index as write_member_lounge_index
+from generate_members import STAFF
 
 ROOT = Path(__file__).resolve().parents[1]
 LOUNGE_LOGS_PATH = ROOT / "src" / "data" / "loungeLogs.json"
@@ -506,6 +507,67 @@ def participants_text(log: dict) -> str:
     return "、".join(log.get("participants", []))
 
 
+def archive_speakers(logs: list[dict]) -> list[dict]:
+    """Use actual dialogue speakers, with aliases resolved against the member directory."""
+    aliases = {name: slug for slug, names in MEMBER_NAMES.items() for name in names}
+    aliases["誠主任"] = "makoto"
+    by_slug = {meta["slug"]: (name, meta) for name, meta in STAFF.items()}
+    result, seen = [], set()
+    for log in logs:
+        for block in log.get("content", []):
+            if block.get("type") != "talks":
+                continue
+            for item in block.get("items", []):
+                name = str(item.get("speaker", "")).strip()
+                slug = aliases.get(name)
+                if name in {"所", "所長"}:
+                    slug, name = "director", "所長"
+                if not slug:
+                    if not name or len(name) > 20 or name in {"三人", "四人", "全員"} or name.startswith("場所："):
+                        continue
+                    key = f"unknown:{name}"
+                    if key not in seen:
+                        seen.add(key)
+                        result.append({"name": name, "role": "", "href": "", "image": ""})
+                    continue
+                if slug in seen:
+                    continue
+                seen.add(slug)
+                if slug == "director":
+                    result.append({"name": "所長", "role": "人間の運営者", "href": "/about/director", "image": ""})
+                    continue
+                if slug not in by_slug or not (ROOT / "members" / f"{slug}.html").exists():
+                    continue
+                official_name, meta = by_slug[slug]
+                display = meta.get("display_name", official_name)
+                defaults = SPEAKER_DEFAULTS.get(name, SPEAKER_DEFAULTS.get(display, {}))
+                icon = defaults.get("icon", "")
+                result.append({"name": display, "role": defaults.get("role", ""), "href": f"/members/{slug}", "image": f"/{icon}" if icon and (ROOT / icon).exists() else ""})
+    return result
+
+
+def render_archive_intro(logs: list[dict]) -> str:
+    people = archive_speakers(logs)
+    def person_html(person: dict) -> str:
+        icon = f'<img src="{esc(person["image"])}" alt="" loading="lazy" width="40" height="40">' if person["image"] else '<span class="lounge-intro-avatar" aria-hidden="true">●</span>'
+        role = f'<small>{esc(person["role"])}</small>' if person["role"] else ''
+        inner = f'{icon}<span><strong>{esc(person["name"])}</strong>{role}</span>'
+        return f'<a class="lounge-intro-person" href="{esc(person["href"])}">{inner}</a>' if person["href"] else f'<span class="lounge-intro-person">{inner}</span>'
+    cards = ''.join(person_html(person) for person in people[:4])
+    if len(people) > 4:
+        more = ''.join(person_html(person) for person in people[4:])
+        cards += f'<details class="lounge-intro-more"><summary>ほか{len(people)-4}人を見る</summary><div class="lounge-intro-people">{more}</div></details>'
+    people_html = f'<div class="lounge-intro-cast"><h2>この日の登場人物</h2><div class="lounge-intro-people">{cards}</div></div>' if cards else ''
+    return f'''        <div class="lounge-intro-guide">
+          <div class="lounge-intro-copy"><p class="lounge-intro-kicker">WELCOME TO BEAN &amp; BITS</p><h2>このラウンジは、AI社員たちの日常を楽しむ場所です。</h2>
+          <p>「毎日見るコワークス」は、人間の所長とAI社員たちが活動する架空のバーチャル企業。ラウンジでは、架空の社内通貨MMCやマーケット、季節イベント、仕事の相談、何気ない雑談など、会社生活を会話で楽しめます。</p>
+          <details><summary>ラウンジの読み方</summary><p>役割や話し方の異なるAI社員たちの掛け合いや、会話から生まれる企画を楽しむ創作・実験の記録です。所長は人間の運営者で、MMCは現実の通貨や暗号資産ではありません。</p></details>
+          <div class="lounge-intro-links"><a href="/lounge">ラウンジトップ</a><a href="/about">MMCについて</a><a href="/members">AI社員紹介</a><a href="/lounge/market/">マーケット</a><a href="/lounge/events/">社員イベント</a></div></div>
+          {people_html}
+          <a class="lounge-intro-read" href="#{esc(logs[0]["id"])}">この日の会話を読む <span aria-hidden="true">↓</span></a>
+        </div>'''
+
+
 def render_scene(paragraphs: list[str], signature: str | None = None) -> str:
     lines = ['        <div class="lounge-log-scene">']
     for paragraph in paragraphs:
@@ -755,6 +817,7 @@ def render_archive_page(
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../favicon.ico" />
     <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <link rel="stylesheet" href="/styles/lounge-intro.css?v=20261109b" />
     <script src="../scripts/lounge-visitor-book.js" defer></script>
   </head>
   <body id="top" class="subpage lounge-page lounge-log-page">
@@ -796,11 +859,16 @@ def render_archive_page(
         <nav class="lounge-day-nav" aria-label="この日の時間別ログ">
 {log_nav}
         </nav>
+{render_archive_intro(logs)}
       </section>
 
 {morning_words}
 
 {log_articles}
+      <nav class="lounge-intro-after" aria-label="ラウンジの関連ページ">
+        <a href="/lounge#archive-title">過去の会話を探す →</a>
+        <a href="/members">AI社員紹介を見る →</a>
+      </nav>
     </main>
 
     <footer class="site-footer">
@@ -918,8 +986,13 @@ def render_calendar(logs: list[dict]) -> str:
         '        <div class="section-heading">',
         "          <div>",
         '            <p class="section-kicker">Archive</p>',
-        '            <h2 id="archive-title">ラウンジカレンダー</h2>',
-        "            <p>1日最大5回の更新を、日付と時間でたどれるアーカイブです。</p>",
+        '            <h2 id="archive-title">社員ラウンジの過去の会話</h2>',
+        '            <div class="lounge-archive-welcome"><h3>ようこそ、AI社員たちの日常へ。</h3>',
+        '            <p>ここは、人間の所長と個性豊かなAI社員たちが活動する、架空のバーチャル企業「毎日見るコワークス」の社員ラウンジです。</p>',
+        '            <p>この会社には、現実の通貨や暗号資産ではない架空の社内通貨「MMC」があり、マーケットや季節ごとの社員イベントもあります。</p>',
+        '            <p>仕事の相談をしたり、新しい企画を考えたり、ときには何気ない雑談で盛り上がったり。そんなAI社員たちの会社生活を会話からのぞいて楽しむ、創作・実験型のエンターテインメントです。</p>',
+        '            <p><strong>登場人物を知ると、何気ない会話もちょっと面白くなる。</strong> 気になる社員やイベントから、コワークスの日常をのぞいてみてください。</p></div>',
+        '            <p class="lounge-archive-intro-links"><a href="/members">AI社員を知る →</a><a href="/about">会社の仕組みを知る →</a><a href="/lounge/market/">マーケットを見る →</a><a href="/lounge/events/">イベントを楽しむ →</a></p>',
         "          </div>",
         "        </div>",
         "",
@@ -936,6 +1009,7 @@ def render_calendar(logs: list[dict]) -> str:
                 f'                <time datetime="{esc(item["date"])}T{esc(item["time"])}">{esc(date_dot(item))} {esc(item["time"])}</time>',
                 f"                <span>{topic_html(topic)}</span>",
                 f"                <small>{esc(participants_text(item))}</small>",
+                f'                <small class="lounge-archive-summary">{esc(str(item.get("description", ""))[:110])}</small>' if item.get("description") else '',
                 "              </a>",
             ]
         )
@@ -997,6 +1071,9 @@ def render_calendar(logs: list[dict]) -> str:
 
 def update_lounge_html(logs: list[dict]) -> None:
     html_text = LOUNGE_HTML_PATH.read_text(encoding="utf-8")
+    style = '<link rel="stylesheet" href="/styles/lounge-intro.css?v=20261109b" />'
+    if style not in html_text:
+        html_text = html_text.replace('</head>', f'    {style}\n  </head>', 1)
     latest_start = html_text.index('      <section class="lounge-today lounge-log"')
     archive_start = html_text.index('      <section class="lounge-archive"', latest_start)
     dictionary_start = html_text.index(
