@@ -50,4 +50,11 @@
     seasonal.dataset.mmcSeasonal = "";
     document.head.appendChild(seasonal);
   }
+  if (!document.querySelector('script[data-mmc-adsense-placement]')) {
+    const adsense = document.createElement('script');
+    adsense.src = new URL('adsense-placement.js', document.currentScript.src).href;
+    adsense.defer = true;
+    adsense.dataset.mmcAdsensePlacement = '';
+    document.head.appendChild(adsense);
+  }
 })();

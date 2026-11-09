@@ -33,6 +33,7 @@ class AdmaxPlacementTests(unittest.TestCase):
     def test_home_ad_follows_about_and_survives_regeneration(self):
         page = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertEqual(page.count('src="https://adm.shinobi.jp/s/9de8679fb7ebe5155a6a7ef6b4beb1f3"'), 1)
+        self.assertEqual(page.count('src="https://adm.shinobi.jp/s/4d564a9498aa80616483407ec15945ac"'), 1)
         self.assertLess(page.index('id="about"'), page.index("<!-- MMC_ADMAX_START -->"))
         self.assertLess(page.index("<!-- MMC_ADMAX_END -->"), page.index('class="daily-collection"'))
         self.assertEqual(apply_page_admax(page, ROOT / "index.html"), page)

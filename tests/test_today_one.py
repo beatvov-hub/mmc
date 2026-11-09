@@ -159,24 +159,15 @@ class TodayOneTest(unittest.TestCase):
             "2026-08-28-context-seven.html",
         )
 
-    def test_archive_index_exposes_month_use_and_recommended_employee_filters(self) -> None:
+    def test_archive_directory_exposes_search_categories_and_date_links(self) -> None:
         members = today_one.load_members()
         entry = published_entry("2026-08-28", slug="context-seven")
         rendered = today_one.render_archive_index_page([entry], members)
-        self.assertIn('data-archive-filter="month"', rendered)
-        self.assertIn('data-archive-filter="useCategory"', rendered)
-        self.assertIn('data-archive-filter="employee"', rendered)
-        self.assertIn('data-month="2026-08"', rendered)
-        self.assertIn('data-use-category="AI活用・AI開発"', rendered)
-        self.assertIn('data-employee="MMC-008"', rendered)
-        self.assertIn("用途：AI活用・AI開発", rendered)
-        self.assertIn("ツール分類：MCP", rendered)
-        self.assertIn("おすすめ社員：アキト", rendered)
-        self.assertIn("scripts/today-one-archive.js", rendered)
-        self.assertEqual(
-            today_one.archive_url(entry),
-            "https://mainichi-miru.com/today-one/archive/2026-08-28-context-seven",
-        )
+        for marker in ("data-archive-search", "data-category=", "data-archive-sort", "data-archive-reset", "tool-directory-data", "tool-date-index"):
+            self.assertIn(marker, rendered)
+        for content in ("AI活用・AI開発", "MCP", "アキト", "2026-08-28-context-seven"):
+            self.assertIn(content, rendered)
+        self.assertEqual(today_one.archive_url(entry), "https://mainichi-miru.com/today-one/archive/2026-08-28-context-seven")
 
     def test_archive_detail_prefixes_existing_member_assets(self) -> None:
         members = today_one.load_members()

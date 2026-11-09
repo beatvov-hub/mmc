@@ -1,47 +1,32 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const archive = require('../scripts/today-one-archive.js');
-
-test('archive filters combine month, purpose and recommended employee', () => {
-  const cards = [
-    { dataset: { month: '2026-10', useCategory: 'AI活用・AI開発', employee: 'MMC-008' } },
-    { dataset: { month: '2026-10', useCategory: '開発・テスト', employee: 'MMC-008' } },
-    { dataset: { month: '2026-09', useCategory: 'AI活用・AI開発', employee: 'MMC-011' } }
-  ];
-  assert.equal(archive.applyFilters(cards, { month: '2026-10', useCategory: '', employee: '' }), 2);
-  assert.deepEqual(cards.map(card => card.hidden), [false, false, true]);
-  assert.equal(archive.applyFilters(cards, { month: '2026-10', useCategory: 'AI活用・AI開発', employee: 'MMC-008' }), 1);
-  assert.deepEqual(cards.map(card => card.hidden), [false, true, true]);
-  assert.equal(archive.applyFilters(cards, { month: '2025-01', useCategory: '', employee: '' }), 0);
-  assert.deepEqual(cards.map(card => card.hidden), [true, true, true]);
+const entries = [
+  {date:'2026-11-01',name:'Python Tool',category:'開発',search:'Python 調査 アキト'},
+  {date:'2026-10-01',name:'Image Tool',category:'デザイン',search:'画像素材 ゲーム制作'},
+  {date:'2026-09-01',name:'Search Tool',category:'調査',search:'調査 Python'}
+];
+test('search, category and order combine, including full width text', () => {
+  assert.deepEqual(archive.filterEntries(entries,{query:'Ｐｙｔｈｏｎ',category:'調査',order:'new'}).map(e=>e.name),['Search Tool']);
+  assert.deepEqual(archive.filterEntries(entries,{query:'調査',category:'',order:'old'}).map(e=>e.name),['Search Tool','Python Tool']);
+  assert.equal(archive.filterEntries(entries,{query:'見つからない',category:'',order:'new'}).length,0);
+  assert.deepEqual(archive.filterEntries(entries,{query:'画像素材を探したい',category:'',order:'new'}).map(e=>e.name),['Image Tool']);
+  assert.equal(archive.filterEntries(entries,{query:'',category:'',order:'new'}).length,3);
+});
+test('card escapes content and links to its existing detail', () => {
+  const card=archive.renderCard({name:'<tool>',date:'2026-11-01',category:'開発',type:'OSS',summary:'summary',url:'2026-11-01-tool',search:''});
+  assert.match(card,/&lt;tool&gt;/); assert.match(card,/href="2026-11-01-tool"/);
 });
 
-test('archive filter controls update the result count and reset selections', () => {
-  const fields = ['month', 'useCategory', 'employee'].map(name => ({
-    dataset: { archiveFilter: name }, value: '', handlers: {},
-    addEventListener(event, handler) { this.handlers[event] = handler; },
-    focus() { this.focused = true; }
-  }));
-  const cards = [
-    { dataset: { month: '2026-10', useCategory: 'AI活用・AI開発', employee: 'MMC-008' } },
-    { dataset: { month: '2026-09', useCategory: '開発・テスト', employee: 'MMC-011' } }
-  ];
-  const result = { textContent: '' }, empty = { hidden: true }, reset = { handlers: {}, addEventListener(event, handler) { this.handlers[event] = handler; } };
-  const archiveRoot = {
-    querySelectorAll(selector) { return selector === '[data-archive-filter]' ? fields : cards; },
-    querySelector(selector) { return selector === '[data-archive-result]' ? result : selector === '[data-archive-empty]' ? empty : reset; }
-  };
-  archive.init({ querySelector() { return archiveRoot; } });
-  assert.equal(result.textContent, '2件を表示中');
-  fields[0].value = '2026-10';
-  fields[0].handlers.change();
-  assert.equal(result.textContent, '1件を表示中');
-  assert.equal(empty.hidden, true);
-  fields[0].value = '2025-01';
-  fields[0].handlers.change();
-  assert.equal(result.textContent, '0件を表示中');
-  assert.equal(empty.hidden, false);
-  reset.handlers.click();
-  assert.equal(result.textContent, '2件を表示中');
-  assert.equal(fields[0].focused, true);
+test('controls update results, reset filters and expose more entries', () => {
+  function control(value = '') { return { value, hidden:false, dataset:{}, handlers:{}, addEventListener(name,fn){this.handlers[name]=fn}, focus(){this.focused=true}, setAttribute(){}, classList:{toggle(){}} }; }
+  const search=control(), sort=control('new'), reset=control(), more=control(), result=control(), empty=control();
+  const all=control(), chip=control(); all.dataset.category=''; chip.dataset.category='調査';
+  const grid={innerHTML:''}, lookup={'[data-archive-grid]':grid,'[data-archive-search]':search,'[data-archive-sort]':sort,'[data-archive-reset]':reset,'[data-archive-result]':result,'[data-archive-empty]':empty,'[data-archive-more]':more};
+  const root={querySelector:s=>lookup[s],querySelectorAll:()=>[all,chip]};
+  const populated=entries.map(e=>({...e,type:'OSS',summary:'example',url:'example'}));
+  archive.init({querySelector:s=>s==='#tool-directory-data'?{textContent:JSON.stringify(populated)}:root});
+  chip.handlers.click(); assert.equal(result.textContent,'1件中 1件を表示');
+  search.value='ない'; search.handlers.input(); assert.equal(empty.hidden,false);
+  reset.handlers.click(); assert.equal(result.textContent,'3件中 3件を表示'); assert.equal(empty.hidden,true); assert.equal(search.focused,true);
 });

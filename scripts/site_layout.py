@@ -76,6 +76,19 @@ ADMAX_BLOCK = '''
       </aside>
       <!-- MMC_ADMAX_END -->
 '''
+HOME_ADMAX_BLOCK = ADMAX_BLOCK.replace(
+    'class="mmc-admax" aria-label="広告"',
+    'class="mmc-admax home-floating-ad" aria-label="広告" aria-hidden="true"',
+).replace(
+    '<script src="https://adm.shinobi.jp/s/9de8679fb7ebe5155a6a7ef6b4beb1f3"></script>',
+    '''<script>
+          if (window.matchMedia('(max-width: 1023px)').matches) {
+            document.write('<script src="https://adm.shinobi.jp/s/4d564a9498aa80616483407ec15945ac"><\\/script>');
+          } else {
+            document.write('<script src="https://adm.shinobi.jp/s/9de8679fb7ebe5155a6a7ef6b4beb1f3"><\\/script>');
+          }
+        </script>''',
+)
 
 BASE_URL = "https://mainichi-miru.com"
 
@@ -350,8 +363,7 @@ def apply_page_admax(html_text: str, path: Path) -> str:
         about = re.search(r'<section\s+id="about"(?:\s|>)[\s\S]*?</section>', html_text)
         if not about:
             raise ValueError("Cannot place home ad without the about section")
-        home_ad = ADMAX_BLOCK.replace('class="mmc-admax" aria-label="広告"', 'class="mmc-admax home-floating-ad" aria-label="広告" aria-hidden="true"')
-        return html_text[:about.end()] + home_ad.rstrip() + html_text[about.end():]
+        return html_text[:about.end()] + HOME_ADMAX_BLOCK.rstrip() + html_text[about.end():]
     if "</main>" not in html_text:
         raise ValueError(f"Cannot place ad without main element: {rel}")
     return re.sub(r"\s*</main>", lambda _: ADMAX_BLOCK + "    </main>", html_text, count=1)
