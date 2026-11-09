@@ -9418,27 +9418,8 @@ img { max-width: 100%; }
 .daily-collection .section-heading h3 { margin: 0; font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
 .mmc-admax { width: min(100% - 32px, 728px); margin: 40px auto; text-align: center; overflow: hidden; }
 .mmc-admax__label { margin: 0 0 8px; color: #6b6259; font-size: .75rem; line-height: 1.5; }
-/* The home ad has its own sidebar; other pages retain their inline placement. */
+/* The provider positions the home overlay independently of its script holder. */
 .home-page .home-floating-ad { display: none; }
-@media (min-width: 1024px) and (min-height: 680px) {
-  .home-page .home-floating-ad {
-    display: block;
-    position: fixed;
-    z-index: 10;
-    top: 50%;
-    right: 16px;
-    width: 160px;
-    margin: 0;
-    transform: translateY(-50%);
-    visibility: hidden;
-    overflow: hidden;
-  }
-  .home-page .home-floating-ad.is-visible { visibility: visible; }
-  .home-page .home-floating-ad ~ * {
-    max-width: calc(100% - 208px);
-    margin-right: 192px;
-  }
-}
 .today-game-card[hidden], [data-today-game-empty][hidden] { display: none; }
 @media (max-width: 620px) {
   .hero-content h1 { font-size: clamp(1.72rem, 7.1vw, 2.55rem); letter-spacing: 0; }

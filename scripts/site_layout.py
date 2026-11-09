@@ -85,7 +85,7 @@ HOME_ADMAX_BLOCK = ADMAX_BLOCK.replace(
           if (window.matchMedia('(max-width: 1023px)').matches) {
             document.write('<script src="https://adm.shinobi.jp/s/4d564a9498aa80616483407ec15945ac"><\\/script>');
           } else {
-            document.write('<script src="https://adm.shinobi.jp/s/9de8679fb7ebe5155a6a7ef6b4beb1f3"><\\/script>');
+            document.write('<script src="https://adm.shinobi.jp/s/cb574e2bad513fcb4c33d1569df36493"><\\/script>');
           }
         </script>''',
 )
