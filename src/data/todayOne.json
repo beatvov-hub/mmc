@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T07:36:55+09:00",
+  "updatedAt": "2026-11-10T07:32:20+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -3339,6 +3339,64 @@
         {
           "label": "Microsoft Learn：Excelワークシートの読み込みアクション",
           "url": "https://learn.microsoft.com/en-us/power-automate/desktop-flows/actions-reference/excel"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-10",
+      "slug": "nvda-review-article-headings-links",
+      "useCategory": "Web運用・アクセス分析",
+      "name": "NVDA",
+      "category": "Screen Reader / OSS",
+      "officialUrl": "https://www.nvaccess.org/download/",
+      "summary": "NVDAは、Windows画面の情報を音声や点字で伝える無料のスクリーンリーダーで、Webページの見出しやリンクをキーボードで確認できます。",
+      "whyToday": "記事の見た目が整っていても、見出しを順にたどったとき話のまとまりが分かるか、リンク名だけで行き先を判断できるかは別の確認が要ります。NVDAはページ上の見出しやリンクへ読み上げで移動できるので、公開前に情報の並びを利用者の聞こえ方から点検する入口になります。",
+      "useFor": "例えば、公開前のイベント案内ページを読み上げで確認する想定例です。Windows 10以降のPCでNVDAのダウンロードファイルを起動し、インストールせず一時実行を選んで、対応ブラウザーでテストページを開きます。ブラウズモードでhキーを押して見出し、kキーでリンクを順にたどり、見出しの階層とリンク名だけで内容や行き先が分かるかを記録します。まず1ページだけに絞り、気づいた箇所と修正案を編集メモにまとめます。これはNVDAを使う手動確認の想定例で、実機検証や適合判定ではありません。",
+      "recommendedFor": {
+        "employeeId": "MMC-011",
+        "reason": "編集主任のコトちゃんに、イベント案内のテストページを見出し・リンクからたどる確認を任せ、読んだ順で迷う箇所と直す文言をまとめた編集メモを受け取りたいです。"
+      },
+      "keiComment": "見出しやリンクの言葉を耳で追うと、紙面では気づきにくい「ここを押して」の曖昧さが見つけやすくなります。NVDAだけで公開可否を決めず、気づきを編集修正につなげる一次確認として使うのがよさそうです。",
+      "verifiedAt": "2026-11-10",
+      "status": "published",
+      "pricing": "NVDA本体は無料でダウンロードできます。任意の寄付案内があり、NV Accessの追加トレーニング教材や電話サポートの一部は有料です。",
+      "conditions": "Windows 10以降のPCが必要です。記事の読み上げ確認は対応ブラウザーで行います。ダウンロードした実行ファイルから一時実行できますが、その設定は保存されません。",
+      "license": "GNU GPL v2 or later（NVDAライセンスによる変更あり）",
+      "notes": "NV Accessの公式ダウンロード・NVDAユーザーガイド・アクセシビリティ確認案内と、W3CのWCAG適合説明を2026-11-10に確認しました。活用例は想定で、実機検証は未実施です。NVDA単独での確認はWCAG適合判定を意味しません。",
+      "archiveTitle": "NVDAで記事の見出し・リンクを読み上げ確認できる？",
+      "archiveDescription": "公開前の記事をNVDAで読み上げ、見出しの階層やリンク名から内容を追えるか確認する手順を紹介します。Windowsで無料で試す範囲と、NVDAだけでは判断できない点もまとめます。",
+      "forWho": "イベント告知や記事を編集する広報・Web担当者で、画面の見た目だけでなく見出しの順序やリンク名の分かりやすさも確かめたい人向けです。",
+      "cautions": "NVDAはスクリーンリーダーで、すべてのアクセシビリティ問題やWCAG適合性を判定する道具ではありません。文字のコントラストなどは別の方法でも確認し、利用者の操作感を評価する必要がある場合は当事者による確認も検討してください。読み上げ結果はブラウザーや利用環境でも変わります。",
+      "faq": [
+        {
+          "question": "NVDAはPCへインストールしなくても試せますか？",
+          "answer": "はい。公式ユーザーガイドでは、ダウンロードした実行ファイルから一時コピーを起動して「Continue running」を選べます。一時実行中の設定は保存されず、サインイン画面など一部の機能も使えません。"
+        },
+        {
+          "question": "NVDAで問題が見つからなければ、WCAGに適合していますか？",
+          "answer": "いいえ。NV Accessはスクリーンリーダーで検出できない問題があると説明しています。W3Cも適合基準の確認には自動検査と人による評価の組み合わせが必要としています。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "NV Access公式サイト：NVDAダウンロードと利用条件",
+          "url": "https://www.nvaccess.org/download/"
+        },
+        {
+          "label": "NVDA公式ユーザーガイド：一時実行・ブラウズモード・キー操作",
+          "url": "https://api.nvaccess.org/documentation/userGuide.html"
+        },
+        {
+          "label": "NV Access：NVDAを使ったアクセシビリティ確認の無料案内",
+          "url": "https://www.nvaccess.org/get-help/accessibility-testing-with-nvda-free-sample/"
+        },
+        {
+          "label": "NVDA公式GitHub：ソースコードとライセンス",
+          "url": "https://github.com/nvaccess/nvda/blob/master/copying.txt"
+        },
+        {
+          "label": "W3C WAI：WCAG適合性の確認方法",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/conformance"
         }
       ]
     }
