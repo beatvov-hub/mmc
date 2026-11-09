@@ -674,6 +674,21 @@ def render_archive_index_page(entries: list[dict], members: dict[str, dict[str, 
 </body></html>'''
 
 
+def render_detail_about() -> str:
+    return '''<section class="today-one-detail-about" aria-labelledby="today-one-detail-about-title">
+        <div>
+          <p class="today-one-detail-about-kicker">ABOUT MMC / 今日ひとつ。</p>
+          <h2 id="today-one-detail-about-title">AIと一緒に、試して、つくる。</h2>
+          <p>毎日見るコワークス（MMC）は、人間の所長とAI社員が、ゲームや記事、ツールづくりを楽しむ創作・実験プロジェクトです。「今日ひとつ。」では、AIや人の仕事に役立つ道具を紹介し、AI社員とどう活用できるかを考えています。</p>
+        </div>
+        <div class="today-one-detail-about-links">
+          <a class="today-one-detail-about-primary" href="/today-one/archive/">道具図鑑を見る <span aria-hidden="true">→</span></a>
+          <a href="/about">MMCについて <span aria-hidden="true">→</span></a>
+          <a href="/today-one">今日のひとつを見る <span aria-hidden="true">→</span></a>
+        </div>
+      </section>'''
+
+
 def render_archive_detail_page(
     entry: dict,
     members: dict[str, dict[str, str]],
@@ -716,6 +731,7 @@ def render_archive_detail_page(
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../../favicon.ico" />
     <link rel="stylesheet" href="../../styles.css?v=20261016-logo" />
+    <link rel="stylesheet" href="../../styles/today-one-detail.css?v=20261109" />
     <script type="application/ld+json">{json.dumps(structured_data, ensure_ascii=False)}</script>
   </head>
   <body class="subpage today-one-page today-one-archive-detail-page">
@@ -731,8 +747,13 @@ def render_archive_detail_page(
         <p class="section-kicker">Today's One Archive</p>
         <h1>{esc(archive_title)}</h1>
         <p>{esc(entry["date"].replace("-", "."))}</p>
+        <div class="today-one-detail-intro">
+          <p>この記事は、AIと働くための道具を毎日ひとつ紹介する「今日ひとつ。」の記録です。使いどころや注意点、MMCでの活用アイデアをまとめています。</p>
+          <a href="/today-one/archive/">道具図鑑からほかのツールを探す <span aria-hidden="true">→</span></a>
+        </div>
       </header>
 {render_entry(entry, members, entry_date, prefix="../../", entry_label="この日のひとつ")}
+      {render_detail_about()}
       <nav class="today-one-archive-back" aria-label="今日ひとつ。アーカイブへの戻り先">
         <a href="./">これまでのひとつ。へ戻る</a>
         <a href="../../today-one.html">今日のひとつを見る</a>

@@ -177,6 +177,10 @@ class TodayOneTest(unittest.TestCase):
         )
         self.assertIn('../../image/staff/mmc-008-coworks.webp', rendered)
         self.assertIn('../../members/akito', rendered)
+        self.assertIn('today-one-detail-intro', rendered)
+        self.assertIn('today-one-detail-about', rendered)
+        self.assertIn('href="/today-one/archive/"', rendered)
+        self.assertIn('href="/about"', rendered)
 
     def test_unsafe_slug_is_skipped(self) -> None:
         entry = published_entry("2026-08-28", slug="../unsafe")
