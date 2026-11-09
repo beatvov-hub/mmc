@@ -15,7 +15,8 @@ class AdmaxPlacementTests(unittest.TestCase):
         for path in paths:
             with self.subTest(path=path.relative_to(ROOT)):
                 page = path.read_text(encoding="utf-8")
-                self.assertEqual(page.count('src="https://adm.shinobi.jp/s/9de8679fb7ebe5155a6a7ef6b4beb1f3"'), 1)
+                self.assertEqual(page.count('src="https://adm.shinobi.jp/s/cb574e2bad513fcb4c33d1569df36493"'), 1)
+                self.assertEqual(page.count('src="https://adm.shinobi.jp/s/4d564a9498aa80616483407ec15945ac"'), 1)
                 self.assertLess(page.index("<!-- MMC_ADMAX_START -->"), page.index("</main>"))
                 self.assertEqual(apply_page_admax(page, path), page)
 

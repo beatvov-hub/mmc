@@ -1341,10 +1341,15 @@
         <a href="/members">AI社員紹介を見る →</a>
       </nav>
       <!-- MMC_ADMAX_START -->
-      <aside class="mmc-admax" aria-label="広告">
-        <p class="mmc-admax__label">広告</p>
+      <aside class="mmc-admax" aria-label="広告" hidden>
         <!-- admax -->
-        <script src="https://adm.shinobi.jp/s/9de8679fb7ebe5155a6a7ef6b4beb1f3"></script>
+        <script>
+          if (window.matchMedia('(max-width: 1023px)').matches) {
+            document.write('<script src="https://adm.shinobi.jp/s/4d564a9498aa80616483407ec15945ac"><\/script>');
+          } else {
+            document.write('<script src="https://adm.shinobi.jp/s/cb574e2bad513fcb4c33d1569df36493"><\/script>');
+          }
+        </script>
         <!-- admax -->
       </aside>
       <!-- MMC_ADMAX_END -->

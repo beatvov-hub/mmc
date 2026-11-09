@@ -68,27 +68,20 @@ INTERNAL_HTML_HREF_RE = re.compile(r'href="([^":?#]+)\.html((?:#[^"]*)?)"')
 ADMAX_BLOCK_RE = re.compile(r'\s*<!-- MMC_ADMAX_START -->[\s\S]*?<!-- MMC_ADMAX_END -->')
 ADMAX_BLOCK = '''
       <!-- MMC_ADMAX_START -->
-      <aside class="mmc-admax" aria-label="広告">
-        <p class="mmc-admax__label">広告</p>
+      <aside class="mmc-admax" aria-label="広告" hidden>
         <!-- admax -->
-        <script src="https://adm.shinobi.jp/s/9de8679fb7ebe5155a6a7ef6b4beb1f3"></script>
-        <!-- admax -->
-      </aside>
-      <!-- MMC_ADMAX_END -->
-'''
-HOME_ADMAX_BLOCK = ADMAX_BLOCK.replace(
-    'class="mmc-admax" aria-label="広告"',
-    'class="mmc-admax home-floating-ad" aria-label="広告" aria-hidden="true"',
-).replace(
-    '<script src="https://adm.shinobi.jp/s/9de8679fb7ebe5155a6a7ef6b4beb1f3"></script>',
-    '''<script>
+        <script>
           if (window.matchMedia('(max-width: 1023px)').matches) {
             document.write('<script src="https://adm.shinobi.jp/s/4d564a9498aa80616483407ec15945ac"><\\/script>');
           } else {
             document.write('<script src="https://adm.shinobi.jp/s/cb574e2bad513fcb4c33d1569df36493"><\\/script>');
           }
-        </script>''',
-)
+        </script>
+        <!-- admax -->
+      </aside>
+      <!-- MMC_ADMAX_END -->
+'''
+HOME_ADMAX_BLOCK = ADMAX_BLOCK
 
 BASE_URL = "https://mainichi-miru.com"
 
