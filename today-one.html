@@ -81,61 +81,61 @@
       <article class="today-one-entry" aria-labelledby="today-one-entry-name">
         <header class="today-one-entry-header">
           <div class="today-one-entry-meta">
-            <time datetime="2026-11-10">2026.11.10 TUE</time>
-            <span>Screen Reader / OSS</span>
+            <time datetime="2026-11-11">2026.11.11 WED</time>
+            <span>Web Map / OSS</span>
           </div>
           <p class="today-one-entry-label">今日のひとつ</p>
-          <h2 id="today-one-entry-name">NVDA</h2>
-          <a class="today-one-official-link" href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
+          <h2 id="today-one-entry-name">uMap</h2>
+          <a class="today-one-official-link" href="https://umap-project.org/" target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a>
         </header>
         <div class="today-one-content-grid">
           <section class="today-one-section today-one-audience" aria-labelledby="today-one-audience-title">
             <p class="section-kicker">For Whom</p>
             <h2 id="today-one-audience-title">こんな人向け</h2>
-            <p>イベント告知や記事を編集する広報・Web担当者で、画面の見た目だけでなく見出しの順序やリンク名の分かりやすさも確かめたい人向けです。</p>
+            <p>イベントの会場までの行き方を、駅出口や入口の位置と一緒に地図で案内したい運営・広報担当者向けです。</p>
           </section>
           <section class="today-one-section today-one-conclusion" aria-labelledby="today-one-conclusion-title">
             <p class="section-kicker">The Answer</p>
             <h2 id="today-one-conclusion-title">結論</h2>
-            <p>NVDAは、Windows画面の情報を音声や点字で伝える無料のスクリーンリーダーで、Webページの見出しやリンクをキーボードで確認できます。</p>
+            <p>uMapは、表計算の地点名・緯度・経度を地図上の目印にし、共有できる案内地図を作るオープンソースのWeb地図ツールです。</p>
           </section>
           <section class="today-one-section today-one-method" aria-labelledby="today-one-use-title">
             <p class="section-kicker">How to Use</p>
             <h2 id="today-one-use-title">やり方／確認方法</h2>
-            <p>例えば、公開前のイベント案内ページを読み上げで確認する想定例です。Windows 10以降のPCでNVDAのダウンロードファイルを起動し、インストールせず一時実行を選んで、対応ブラウザーでテストページを開きます。ブラウズモードでhキーを押して見出し、kキーでリンクを順にたどり、見出しの階層とリンク名だけで内容や行き先が分かるかを記録します。まず1ページだけに絞り、気づいた箇所と修正案を編集メモにまとめます。これはNVDAを使う手動確認の想定例で、実機検証や適合判定ではありません。</p>
+            <p>例えば、イベント参加者向けに最寄り駅出口と会場入口を示す想定例です。uMap公式サイトが紹介する公開インスタンスの規約とアカウント要否を確認し、公開してよい地点名・緯度・経度・補足欄のCSVを用意して、新しいレイヤーとして読み込みます。取り込んだ位置とポップアップを確認し、閲覧範囲・編集権限を設定して保存すれば、共有やWebサイト埋め込みに使える地図になります。まず2〜3地点でピンの位置、説明文、共有設定を確認します。活用例の想定で、実機検証はしていません。</p>
           </section>
           <section class="today-one-section" aria-labelledby="today-one-why-title">
             <p class="section-kicker">Why Today</p>
             <h2 id="today-one-why-title">なぜ今日はこれ？</h2>
-            <p>記事の見た目が整っていても、見出しを順にたどったとき話のまとまりが分かるか、リンク名だけで行き先を判断できるかは別の確認が要ります。NVDAはページ上の見出しやリンクへ読み上げで移動できるので、公開前に情報の並びを利用者の聞こえ方から点検する入口になります。</p>
+            <p>会場名と住所だけの案内では、最寄り駅からの出口や入口が伝わりにくいことがあります。uMapなら地点情報をCSVから地図レイヤーに取り込み、マーカーと説明を同じ地図上で見せられます。</p>
           </section>
           <section class="today-one-section today-one-faq" aria-labelledby="today-one-faq-title">
             <p class="section-kicker">Cautions & FAQ</p>
             <h2 id="today-one-faq-title">注意点・FAQ</h2>
-            <p class="today-one-caution">NVDAはスクリーンリーダーで、すべてのアクセシビリティ問題やWCAG適合性を判定する道具ではありません。文字のコントラストなどは別の方法でも確認し、利用者の操作感を評価する必要がある場合は当事者による確認も検討してください。読み上げ結果はブラウザーや利用環境でも変わります。</p><div class="today-one-faq-item">
-          <h3>NVDAはPCへインストールしなくても試せますか？</h3>
-          <p>はい。公式ユーザーガイドでは、ダウンロードした実行ファイルから一時コピーを起動して「Continue running」を選べます。一時実行中の設定は保存されず、サインイン画面など一部の機能も使えません。</p>
+            <p class="today-one-caution">CSV取込は位置情報が前提です。住所から緯度・経度を求める作業は別途必要で、ジオコーディング結果も確認してください。公開する地図に参加者の個人情報や内部用地点を含めず、OpenStreetMapの出典表示とタイル提供元の利用条件を確認します。</p><div class="today-one-faq-item">
+          <h3>住所のCSVを読み込めば、そのまま地図にできますか？</h3>
+          <p>uMapへ取り込む前に住所を緯度・経度へ変換する工程が必要です。公式チュートリアルもジオコーディングと位置の確認を先に行い、その後CSVをレイヤーへ読み込む流れを案内しています。</p>
         </div><div class="today-one-faq-item">
-          <h3>NVDAで問題が見つからなければ、WCAGに適合していますか？</h3>
-          <p>いいえ。NV Accessはスクリーンリーダーで検出できない問題があると説明しています。W3Cも適合基準の確認には自動検査と人による評価の組み合わせが必要としています。</p>
+          <h3>地図を検索結果に出さず共有できますか？</h3>
+          <p>できます。公式FAQでは「リンクを知る人のみ」の閲覧設定は検索エンジンに登録されないと案内されています。編集権限は閲覧設定と別に指定してください。</p>
         </div>
           </section>
           <section class="today-one-section today-one-sources" aria-labelledby="today-one-sources-title">
             <p class="section-kicker">Primary Sources</p>
             <h2 id="today-one-sources-title">公式ソース</h2>
-            <ul><li><a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">NV Access公式サイト：NVDAダウンロードと利用条件 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://api.nvaccess.org/documentation/userGuide.html" target="_blank" rel="noopener noreferrer">NVDA公式ユーザーガイド：一時実行・ブラウズモード・キー操作 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://www.nvaccess.org/get-help/accessibility-testing-with-nvda-free-sample/" target="_blank" rel="noopener noreferrer">NV Access：NVDAを使ったアクセシビリティ確認の無料案内 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://github.com/nvaccess/nvda/blob/master/copying.txt" target="_blank" rel="noopener noreferrer">NVDA公式GitHub：ソースコードとライセンス <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://www.w3.org/WAI/WCAG22/Understanding/conformance" target="_blank" rel="noopener noreferrer">W3C WAI：WCAG適合性の確認方法 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
+            <ul><li><a href="https://umap-project.org/" target="_blank" rel="noopener noreferrer">uMap公式サイト：機能・公開インスタンス・OSS案内 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://discover.umap-project.org/fr/tutorials/9-map-from-spreadsheet/" target="_blank" rel="noopener noreferrer">uMapユーザー向け公式チュートリアル：表計算データの地図化 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://discover.umap-project.org/support/faq/" target="_blank" rel="noopener noreferrer">uMap公式FAQ：閲覧範囲と編集権限 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://github.com/umap-project/umap/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">uMap公式GitHub：AGPL-3.0ライセンス <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li><li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap公式：著作権・出典表示 <span aria-hidden="true">↗</span><span class="visually-hidden">（外部サイト）</span></a></li></ul>
           </section>
                   <section class="today-one-section today-one-recommendation" aria-labelledby="today-one-recommendation-title">
           <p class="section-kicker">Recommended For</p>
           <h2 id="today-one-recommendation-title">誰に持たせたい？</h2>
           <div class="today-one-member-card">
-            <img src="image/staff/mmc-011-coworks.webp" alt="コトちゃん" loading="lazy" />
+            <img src="image/staff/mmc-009-coworks.webp" alt="ケイ" loading="lazy" />
             <div>
-              <small>MMC-011</small>
-              <h3>コトちゃん</h3>
-              <p class="today-one-member-role">編集主任 <span>企画営業部</span></p>
-              <p>編集主任のコトちゃんに、イベント案内のテストページを見出し・リンクからたどる確認を任せ、読んだ順で迷う箇所と直す文言をまとめた編集メモを受け取りたいです。</p>
-              <a class="today-one-profile-link" href="members/koto">プロフィールを見る</a>
+              <small>MMC-009</small>
+              <h3>ケイ</h3>
+              <p class="today-one-member-role">広報部長 <span>広報部</span></p>
+              <p>公式サイトの導線・運用を担当するケイに、会場案内文と地図ラベルをそろえた公開前チェックメモを任せたいです。初見の参加者が入口を読み違えないか、共有範囲と地図の出典表示を含めて成果物を受け取ります。</p>
+              <a class="today-one-profile-link" href="members/kei">プロフィールを見る</a>
             </div>
           </div>
         </section>
@@ -148,7 +148,7 @@
                 <img src="image/staff/mmc-009-coworks.webp" alt="ケイ" loading="lazy" />
                 <strong>ケイ｜広報部長</strong>
               </div>
-              <p>見出しやリンクの言葉を耳で追うと、紙面では気づきにくい「ここを押して」の曖昧さが見つけやすくなります。NVDAだけで公開可否を決めず、気づきを編集修正につなげる一次確認として使うのがよさそうです。</p>
+              <p>地図のピン名と案内文で「正面入口」などの呼び方を統一すると、読者が迷いにくくなります。関係者用の搬入口や個人宅など、公開範囲に含めない地点も先に決めておきたいですね。</p>
             </div>
             <figure class="today-one-kei-visual">
               <img src="image/today-one/kei-note.webp" alt="メガホン、ノート、虫眼鏡のコラージュ" loading="lazy" />
@@ -159,7 +159,7 @@
                   <section class="today-one-section today-one-basic" aria-labelledby="today-one-basic-title">
           <p class="section-kicker">Basic Information</p>
           <h2 id="today-one-basic-title">基本情報</h2>
-          <dl><div><dt>種別</dt><dd>Screen Reader / OSS</dd></div><div><dt>公式サイト</dt><dd><a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-11-10">2026-11-10</time></dd></div><div><dt>料金</dt><dd>NVDA本体は無料でダウンロードできます。任意の寄付案内があり、NV Accessの追加トレーニング教材や電話サポートの一部は有料です。</dd></div><div><dt>ライセンス</dt><dd>GNU GPL v2 or later（NVDAライセンスによる変更あり）</dd></div><div><dt>補足</dt><dd>NV Accessの公式ダウンロード・NVDAユーザーガイド・アクセシビリティ確認案内と、W3CのWCAG適合説明を2026-11-10に確認しました。活用例は想定で、実機検証は未実施です。NVDA単独での確認はWCAG適合判定を意味しません。</dd></div></dl>
+          <dl><div><dt>種別</dt><dd>Web Map / OSS</dd></div><div><dt>公式サイト</dt><dd><a href="https://umap-project.org/" target="_blank" rel="noopener noreferrer">公式サイトを開く（外部サイト）</a></dd></div><div><dt>確認日</dt><dd><time datetime="2026-11-11">2026-11-11</time></dd></div><div><dt>料金</dt><dd>uMap本体はAGPL-3.0で公開された無償のOSSです。公式サイトが紹介する公開インスタンスの料金・アカウント要否は運営者へ確認してください。自己ホストではサーバーや地図タイルの費用が別途かかる場合があります。</dd></div><div><dt>ライセンス</dt><dd>uMapはAGPL-3.0。OpenStreetMapの地図データはODbLで、表示地図にはOpenStreetMapへの出典表示が必要です。利用する地図タイルの条件は提供元ごとに確認してください。</dd></div><div><dt>補足</dt><dd>公式サイト・ユーザー向け公式ドキュメント・公式GitHubの情報を2026-11-11に確認。利用例は想定で、実機検証は未実施です。</dd></div></dl>
         </section>
         </div>
       </article>
@@ -168,9 +168,9 @@
           <p class="section-kicker">Archive</p>
           <h2 id="today-one-archive-promo-title">これまでのひとつ。</h2>
         </div>
-        <a class="today-one-archive-latest" href="today-one/archive/2026-11-09-power-automate-desktop-cms-event-draft">
-          <time datetime="2026-11-09">2026.11.09</time>
-          <strong>Power Automate for desktopでイベント情報をCMSへ転記できる？</strong>
+        <a class="today-one-archive-latest" href="today-one/archive/2026-11-10-nvda-review-article-headings-links">
+          <time datetime="2026-11-10">2026.11.10</time>
+          <strong>NVDAで記事の見出し・リンクを読み上げ確認できる？</strong>
           <span>この日のひとつを見る →</span>
         </a>
         <a class="today-one-archive-index-link" href="today-one/archive/">アーカイブを見る <span aria-hidden="true">→</span></a>
