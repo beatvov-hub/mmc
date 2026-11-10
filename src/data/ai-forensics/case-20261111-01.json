@@ -1,0 +1,142 @@
+{
+  "id": "case-20261111-01",
+  "publishedAt": "2026-11-11",
+  "title": "Microsoft 365 Familyの容量は家族で共用？ OneDriveの変更時期とファイルの公開範囲",
+  "shortTitle": "Microsoft 365の家族共有容量",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Microsoft 365 Familyを家族で利用している人",
+    "OneDriveの容量と共有範囲を確認したい契約者"
+  ],
+  "summary": "MicrosoftはMicrosoft 365 FamilyとPremiumのクラウド容量を、対象契約で2TBの共有方式に変更すると案内しています。適用時期は新規・既存契約で異なります。容量が共用でも、ファイルやメールの内容が自動的に他のメンバーへ公開されるわけではありません。",
+  "scenario": {
+    "headline": "家族でMicrosoft 365を使っているが、容量変更でファイルも見られるのか気になる",
+    "description": "契約更新時に容量がどう変わるか、家族に自分のデータが見えるのか分かりません。",
+    "whyItMatters": "容量の共用と、各ファイルのアクセス許可は別々に確認する必要があります。"
+  },
+  "question": {
+    "text": "確認するべきことは？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "契約プラン・更新時期・共有容量とファイルの共有設定を別々に確認する",
+        "description": "設定の違いと影響を確認できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "容量が共有されると全ファイルが家族に自動公開されると決めつける",
+        "description": "公式の案内で条件と影響を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "契約日や更新日に関係なく全員が同じ日に切り替わると決めつける",
+        "description": "設定や操作の違いを確認して判断しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "MicrosoftはMicrosoft 365 FamilyとPremiumのクラウド容量を、対象契約で2TBの共有方式に変更すると案内しています。適用時期は新規・既存契約で異なります。容量が共用でも、ファイルやメールの内容が自動的に他のメンバーへ公開されるわけではありません。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "新規契約の容量",
+      "description": "MicrosoftのFAQでは2026年10月8日以降のFamilyおよびPremiumの新規契約者には2TBの共用クラウドストレージが適用されると説明しています。期限切れ後の再購入も対象です。",
+      "priority": "high"
+    },
+    {
+      "title": "既存契約の移行",
+      "description": "既存のFamilyおよびPremium契約者は、2027年5月2日以降の契約更新時に共用容量へ移行すると案内されています。契約条件を確認してください。",
+      "priority": "high"
+    },
+    {
+      "title": "容量と中身は別",
+      "description": "ストレージの許容量はメンバーで共用しますが、各自のメールやファイルは明示的に共有しない限り非公開です。",
+      "priority": "high"
+    },
+    {
+      "title": "契約と使用状況を確認",
+      "description": "Microsoftアカウントのサブスクリプション画面でプランと更新日、OneDriveのストレージ画面で現在の使用量を確認しましょう。画面や適用条件は契約により異なります。",
+      "priority": "medium"
+    },
+    {
+      "title": "共有設定を別途確認",
+      "description": "特定のファイルやフォルダーを家族に共有している場合は、そのファイルのアクセス権を確認します。共有容量とアクセス権は別の設定です。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "契約プラン・更新時期・共有容量とファイルの共有設定を別々に確認する",
+    "description": "MicrosoftはMicrosoft 365 FamilyとPremiumのクラウド容量を、対象契約で2TBの共有方式に変更すると案内しています。適用時期は新規・既存契約で異なります。容量が共用でも、ファイルやメールの内容が自動的に他のメンバーへ公開されるわけではありません。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Microsoftアカウントで契約プランと更新日を確認する",
+      "reason": "新規・既存契約で適用時期が異なるためです。"
+    },
+    {
+      "action": "OneDriveで容量と使用量を確認する",
+      "reason": "更新後に必要な容量を見積もれます。"
+    },
+    {
+      "action": "ファイルやフォルダーごとの共有相手を確認する",
+      "reason": "容量の共用と実際の公開範囲を区別できます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "容量共用だけでファイルが自動公開されると考える",
+      "reason": "設定や操作の影響を誤って判断するおそれがあります。"
+    },
+    {
+      "action": "自分の契約の移行時期を確認せず容量を整理する",
+      "reason": "設定や操作の影響を誤って判断するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "個人情報やログイン情報を入力せず、一般的な確認項目の整理に利用できます。設定や契約条件は公式案内で確認しましょう。",
+    "examples": [
+      "Microsoftアカウントで契約プランと更新日を確認する",
+      "OneDriveで容量と使用量を確認する",
+      "ファイルやフォルダーごとの共有相手を確認する"
+    ]
+  },
+  "makotoComment": "共用になるのは容量です。ファイルの共有先は別に確認し、契約の更新時期に合わせて必要な容量を見積もりましょう。",
+  "oneLineLesson": "契約プラン・更新時期・共有容量とファイルの共有設定を別々に確認する。",
+  "tags": [
+    "Microsoft 365",
+    "Family",
+    "OneDrive",
+    "ストレージ",
+    "家族共有"
+  ],
+  "sources": [
+    {
+      "title": "Microsoft 365 サブスクリプション共有に関する FAQ",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/accounts-billing/subscriptions/microsoft-365-subscription-sharing-faqs"
+    },
+    {
+      "title": "Microsoft 365 ストレージへの変更",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/onedrive/changes-to-microsoft-365-storage"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "家族でMicrosoft 365を使っているが、容量変更でファイルも見られるのか気になる場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [],
+  "relatedArticlesCurated": true
+}

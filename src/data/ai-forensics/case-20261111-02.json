@@ -1,0 +1,148 @@
+{
+  "id": "case-20261111-02",
+  "publishedAt": "2026-11-11",
+  "title": "Androidを紛失したら？ Find Hubで探す・保護する・消去する前の違い",
+  "shortTitle": "Android紛失時のFind Hub",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Androidスマートフォンを紛失した人",
+    "紛失に備えて設定を確認したい人"
+  ],
+  "summary": "Androidを紛失したら、別の端末からFind Hubにサインインして位置や端末の保護を確認できます。端末の通信状況や事前設定によっては見つからない場合があります。初期化後はFind Hubでその端末を利用できなくなるため、操作前に影響を確認します。",
+  "scenario": {
+    "headline": "Androidスマートフォンをなくし、別の端末から探したい",
+    "description": "端末を探す、保護する、初期化する操作の違いが分からず迷っています。",
+    "whyItMatters": "見つける操作と、データを消去する操作では影響が大きく異なります。"
+  },
+  "question": {
+    "text": "まずどのように対応する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "別の端末からFind Hubで状況を確認し、保護と消去の違いを考える",
+        "description": "設定の違いと影響を確認できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "見つからない場合は必ず電源が切れていると決めつける",
+        "description": "公式の案内で条件と影響を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "消去後も同じようにFind Hubで追跡できると考える",
+        "description": "設定や操作の違いを確認して判断しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Androidを紛失したら、別の端末からFind Hubにサインインして位置や端末の保護を確認できます。端末の通信状況や事前設定によっては見つからない場合があります。初期化後はFind Hubでその端末を利用できなくなるため、操作前に影響を確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "別の端末から探す",
+      "description": "別の端末のブラウザー、または友人の端末のFind Hubのゲストモードで、紛失した端末のGoogleアカウントにサインインします。使用後はログアウトしましょう。",
+      "priority": "high"
+    },
+    {
+      "title": "紛失としてマーク",
+      "description": "対象端末を選び、紛失としてマークします。状況に応じて端末の保護を検討します。画面の名称はアプリとウェブ版で異なる場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "位置が表示されない場合",
+      "description": "電池や通信状態、機内モードなどにより位置を特定できない場合があります。一部の端末や設定ではオフライン探索も利用できますが、常に見つかるわけではありません。",
+      "priority": "high"
+    },
+    {
+      "title": "消去前に確認",
+      "description": "端末を初期状態にリセットすると、Find Hubで利用できなくなります。消去の必要性とバックアップ、職場・学校の管理規程を先に確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "普段からの備え",
+      "description": "紛失前にGoogleアカウント、位置情報、Find Hubの設定を確認し、画面ロックを設定しておきます。機能や設定画面は端末により異なります。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "別の端末からFind Hubで状況を確認し、保護と消去の違いを考える",
+    "description": "Androidを紛失したら、別の端末からFind Hubにサインインして位置や端末の保護を確認できます。端末の通信状況や事前設定によっては見つからない場合があります。初期化後はFind Hubでその端末を利用できなくなるため、操作前に影響を確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "別端末から公式のFind Hubを開き、対象端末を選ぶ",
+      "reason": "位置や利用できる操作を確認するためです。"
+    },
+    {
+      "action": "紛失としてマークし、状況に合う保護を検討する",
+      "reason": "他人に使われるリスクを抑えるためです。"
+    },
+    {
+      "action": "消去前にFind Hubとバックアップへの影響を確認する",
+      "reason": "初期化後はFind Hubで利用できなくなるためです。"
+    },
+    {
+      "action": "職場・学校の端末なら管理者に連絡する",
+      "reason": "組織の対応手順に沿って対処するためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "初期化後もその端末をFind Hubで探せると考える",
+      "reason": "設定や操作の影響を誤って判断するおそれがあります。"
+    },
+    {
+      "action": "地図に表示された場所へ安全を考えず一人で取り返しに行く",
+      "reason": "設定や操作の影響を誤って判断するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "個人情報やログイン情報を入力せず、一般的な確認項目の整理に利用できます。設定や契約条件は公式案内で確認しましょう。",
+    "examples": [
+      "別端末から公式のFind Hubを開き、対象端末を選ぶ",
+      "紛失としてマークし、状況に合う保護を検討する",
+      "消去前にFind Hubとバックアップへの影響を確認する"
+    ]
+  },
+  "makotoComment": "探す、守る、消すは別の操作です。消去の前に探索への影響を確認し、仕事の端末なら管理者にも連絡しましょう。",
+  "oneLineLesson": "別の端末からFind Hubで状況を確認し、保護と消去の違いを考える。",
+  "tags": [
+    "Android",
+    "Find Hub",
+    "スマートフォン紛失",
+    "位置情報",
+    "端末保護"
+  ],
+  "sources": [
+    {
+      "title": "Find Hub に関する問題を解決する",
+      "publisher": "Google",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/android/answer/14799600?hl=ja-9"
+    },
+    {
+      "title": "Android デバイスを紛失した場合に見つけられるようにしておく",
+      "publisher": "Google",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/android/answer/3265955?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Androidスマートフォンをなくし、別の端末から探したい場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261030-02"
+  ],
+  "relatedArticlesCurated": true
+}

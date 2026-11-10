@@ -1,0 +1,130 @@
+{
+  "id": "case-20261111-03",
+  "publishedAt": "2026-11-11",
+  "title": "iCloudの「メールを非公開」は止められる？ 無効化と完全削除の違い",
+  "shortTitle": "メールを非公開の停止と削除",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "iCloud+の「メールを非公開」で作ったアドレスを整理したい人",
+    "登録先からの転送メールを止めたい人"
+  ],
+  "summary": "iCloud+の「メールを非公開」で作成したアドレスは、iCloud.comで無効化して後から再び有効にできます。無効化したアドレスを完全削除すると復元できません。登録先のログインや連絡先への影響を確認してから選びましょう。",
+  "scenario": {
+    "headline": "登録先に使ったランダムなメールアドレスへの連絡を止めたい",
+    "description": "無効化と削除のどちらを選ぶべきか、後で元に戻せるのか迷っています。",
+    "whyItMatters": "アドレスを完全削除すると再利用できず、登録先からの連絡やログインに影響する場合があります。"
+  },
+  "question": {
+    "text": "後で使う可能性があるアドレスはどうする？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "登録先への影響を確認し、必要ならまず無効化を選ぶ",
+        "description": "設定の違いと影響を確認できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "完全削除後もいつでも同じアドレスを再有効化できると考える",
+        "description": "公式の案内で条件と影響を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "登録先のアカウントも自動的に削除されると決めつける",
+        "description": "設定や操作の違いを確認して判断しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "iCloud+の「メールを非公開」で作成したアドレスは、iCloud.comで無効化して後から再び有効にできます。無効化したアドレスを完全削除すると復元できません。登録先のログインや連絡先への影響を確認してから選びましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "無効化と再有効化",
+      "description": "AppleはiCloud.comの「iCloud+の機能」から「メールを非公開」のアドレスを無効化し、後で再度有効にできると案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "完全削除は戻せない",
+      "description": "削除できるのは無効化されたアドレスです。完全削除すると復元や再有効化はできません。",
+      "priority": "high"
+    },
+    {
+      "title": "登録先への影響",
+      "description": "そのアドレスをログインや認証、通知に使用していないか確認し、必要なら各サービス側で登録メールを変更します。",
+      "priority": "high"
+    },
+    {
+      "title": "Appleでサインインは別の案内",
+      "description": "「Appleでサインイン」で作成したアドレスは、Appleが別の管理手順へ案内しています。どの方法で作ったアドレスか確認しましょう。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "登録先への影響を確認し、必要ならまず無効化を選ぶ",
+    "description": "iCloud+の「メールを非公開」で作成したアドレスは、iCloud.comで無効化して後から再び有効にできます。無効化したアドレスを完全削除すると復元できません。登録先のログインや連絡先への影響を確認してから選びましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "iCloud.comの「iCloud+の機能」で対象アドレスを確認する",
+      "reason": "どのアドレスを整理するか間違えないためです。"
+    },
+    {
+      "action": "登録先のログインや連絡先の用途を確認する",
+      "reason": "必要な認証や連絡を受け取れなくなるのを避けるためです。"
+    },
+    {
+      "action": "必要なら無効化し、完全削除は復元できないと理解してから選ぶ",
+      "reason": "後で再有効化できるかが異なるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "完全削除しても元に戻せると思い込む",
+      "reason": "設定や操作の影響を誤って判断するおそれがあります。"
+    },
+    {
+      "action": "登録先を確認せず認証に使うアドレスを削除する",
+      "reason": "設定や操作の影響を誤って判断するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "個人情報やログイン情報を入力せず、一般的な確認項目の整理に利用できます。設定や契約条件は公式案内で確認しましょう。",
+    "examples": [
+      "iCloud.comの「iCloud+の機能」で対象アドレスを確認する",
+      "登録先のログインや連絡先の用途を確認する",
+      "必要なら無効化し、完全削除は復元できないと理解してから選ぶ"
+    ]
+  },
+  "makotoComment": "一時停止できるアドレスと、削除したら戻せないアドレスでは判断が違います。大切な登録先を確認してから整理しましょう。",
+  "oneLineLesson": "登録先への影響を確認し、必要ならまず無効化を選ぶ。",
+  "tags": [
+    "iCloud",
+    "メールを非公開",
+    "iCloud+",
+    "メール",
+    "プライバシー"
+  ],
+  "sources": [
+    {
+      "title": "iCloud.comで「メールを非公開」のアドレスの使用を停止する、再度有効にする、削除する",
+      "publisher": "Apple",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/guide/icloud/mm3adb030cbf/icloud"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "登録先に使ったランダムなメールアドレスへの連絡を止めたい場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [],
+  "relatedArticlesCurated": true
+}
