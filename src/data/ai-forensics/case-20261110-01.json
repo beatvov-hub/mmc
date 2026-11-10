@@ -1,0 +1,139 @@
+{
+  "id": "case-20261110-01",
+  "publishedAt": "2026-11-10",
+  "title": "BitLockerの回復キーが分からない？ 初期化する前に確認する場所",
+  "shortTitle": "BitLocker回復キーの探し方",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Windows起動時にBitLockerの回復キーを求められた人",
+    "会社や学校のWindows端末を使う人"
+  ],
+  "summary": "BitLockerの回復キーを求められたら、まず画面に表示される回復キーIDを控え、別の端末からMicrosoftアカウントや印刷物などを確認します。職場や学校の端末は管理者に相談し、リセットによるデータ削除を理解する前に初期化を進めないようにします。",
+  "scenario": {
+    "headline": "Windowsの起動時に突然BitLockerの回復キーを求められた",
+    "description": "パソコンを開けず、どこにキーがあるか分からないまま初期化を検討しています。",
+    "whyItMatters": "回復キーの保存先を確認する前にリセットすると、データを失うおそれがあります。"
+  },
+  "question": {
+    "text": "最初に行うことは？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "回復キーIDを控え、保存先や端末の管理者に確認する",
+        "description": "公式案内と利用環境を確認し、順序を整理できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "すぐに初期化して、ファイルが残るか後で確認する",
+        "description": "データやアカウントを失うおそれがあるため、先に確認します。"
+      },
+      {
+        "id": "wrong2",
+        "label": "回復キーの数字を知らない業者やSNSに伝える",
+        "description": "情報漏えいや調査への影響につながるおそれがあります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "BitLockerの回復キーを求められたら、まず画面に表示される回復キーIDを控え、別の端末からMicrosoftアカウントや印刷物などを確認します。職場や学校の端末は管理者に相談し、リセットによるデータ削除を理解する前に初期化を進めないようにします。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "回復キーIDを控える",
+      "description": "Microsoftは回復画面に表示されるキーIDの先頭8桁を控え、複数のキーから該当するものを識別するよう案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "個人のMicrosoftアカウント",
+      "description": "別の端末からMicrosoftの公式案内にある回復キーのページを開き、利用したアカウントでサインインしてキーIDを照合します。別の人が設定した場合、その人のアカウントに保存されていることもあります。",
+      "priority": "high"
+    },
+    {
+      "title": "組織のアカウント",
+      "description": "職場・学校のアカウントに保存されている場合があります。確認できないときはIT管理者に相談します。",
+      "priority": "high"
+    },
+    {
+      "title": "印刷物やUSB",
+      "description": "設定時に回復キーを印刷したり、USBに保存したりしていないか確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "初期化を急がない",
+      "description": "キーを発見できず復旧できない場合、リセットが必要になることもありますが、Microsoftはリセットでファイルが削除されると案内しています。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "回復キーIDを控え、保存先や端末の管理者に確認する",
+    "description": "BitLockerの回復キーを求められたら、まず画面に表示される回復キーIDを控え、別の端末からMicrosoftアカウントや印刷物などを確認します。職場や学校の端末は管理者に相談し、リセットによるデータ削除を理解する前に初期化を進めないようにします。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "画面の回復キーIDの先頭8桁を控える",
+      "reason": "複数の保存済みキーから対象を識別できます。"
+    },
+    {
+      "action": "別の端末から公式案内を開き、使用したアカウントや印刷物を確認する",
+      "reason": "保存された回復キーを探せます。"
+    },
+    {
+      "action": "職場や学校の端末は管理者に相談する",
+      "reason": "組織が保管するキーや復旧手順を確認できます。"
+    },
+    {
+      "action": "初期化前にファイル消失とバックアップの有無を確認する",
+      "reason": "失いたくないデータへの影響を判断できます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "回復キー本体をSNSや見知らぬ相手に送る",
+      "reason": "データやアカウントの安全に影響するおそれがあります。"
+    },
+    {
+      "action": "キーの保存先を調べず初期化する",
+      "reason": "データやアカウントの安全に影響するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "回復キーや個人情報、社内情報を入力せず、一般的な確認項目の整理に利用できます。具体的な対処は公式案内と管理者に確認します。",
+    "examples": [
+      "画面の回復キーIDの先頭8桁を控える",
+      "別の端末から公式案内を開き、使用したアカウントや印刷物を確認する",
+      "職場や学校の端末は管理者に相談する"
+    ]
+  },
+  "makotoComment": "キーIDは該当する回復キーを探すための目印です。回復キーそのものは大切な認証情報として扱いましょう。",
+  "oneLineLesson": "回復キーIDを控え、保存先や端末の管理者に確認する。",
+  "tags": [
+    "BitLocker",
+    "回復キー",
+    "Windows",
+    "暗号化",
+    "データ復旧"
+  ],
+  "sources": [
+    {
+      "title": "BitLocker 回復キーの検索",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/windows/security/encryption/find-your-bitlocker-recovery-key"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Windowsの起動時に突然BitLockerの回復キーを求められた場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [],
+  "relatedArticlesCurated": true
+}

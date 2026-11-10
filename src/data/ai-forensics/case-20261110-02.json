@@ -1,0 +1,159 @@
+{
+  "id": "case-20261110-02",
+  "publishedAt": "2026-11-10",
+  "title": "OneDriveにランサムウェアの警告が出たら？ ファイル復元前に確認する順番",
+  "shortTitle": "OneDriveの警告と復元手順",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "OneDriveのファイルに異常やランサムウェアの警告が出た人",
+    "クラウドと端末のファイルを復旧したい人"
+  ],
+  "summary": "OneDriveでランサムウェアが検出されたら、公式サイトで警告や対象ファイルを確認します。Microsoftは復元前に同期するすべてのデバイスをクリーンアップするよう案内しています。職場や学校の端末は自分で初期化せず管理者に相談します。",
+  "scenario": {
+    "headline": "OneDriveにランサムウェアの警告が出て、ファイルが開けない",
+    "description": "すぐに復元するべきか、端末の確認が先なのか分かりません。",
+    "whyItMatters": "感染した端末を残したまま復元すると、復元したファイルが再び暗号化されるおそれがあります。"
+  },
+  "question": {
+    "text": "ファイルを復元する前に何をする？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "公式の警告を確認し、同期する端末の安全を確認する",
+        "description": "公式案内と利用環境を確認し、順序を整理できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "警告メールのリンクを確認せず開き、すぐに復元する",
+        "description": "データやアカウントを失うおそれがあるため、先に確認します。"
+      },
+      {
+        "id": "wrong2",
+        "label": "組織の端末を管理者に相談せず初期化する",
+        "description": "情報漏えいや調査への影響につながるおそれがあります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "OneDriveでランサムウェアが検出されたら、公式サイトで警告や対象ファイルを確認します。Microsoftは復元前に同期するすべてのデバイスをクリーンアップするよう案内しています。職場や学校の端末は自分で初期化せず管理者に相談します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "公式サイトで警告を確認",
+      "description": "通知に表示されたリンクを急いで開かず、普段の方法でOneDriveの公式サイトを開いて警告と対象ファイルを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "先に端末の状態を確認",
+      "description": "Microsoftはファイル復元前に、OneDriveを使用するすべての端末をウイルス対策ソフトなどでクリーンアップするよう案内しています。復元後の再暗号化を避けるためです。",
+      "priority": "high"
+    },
+    {
+      "title": "組織の端末",
+      "description": "会社や学校の端末は、初期化や復元を自分だけで進めず、管理者の調査と指示に従います。",
+      "priority": "high"
+    },
+    {
+      "title": "復元範囲の違い",
+      "description": "MicrosoftはOneDrive全体の復元のほか、削除ファイルのごみ箱や個別ファイルのバージョン履歴も案内しています。対象や利用条件を確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "検出と被害の確認",
+      "description": "警告だけで原因や被害範囲を決めつけず、対象ファイルや同期端末を確認します。対応に迷う場合は専門家へ相談します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "公式の警告を確認し、同期する端末の安全を確認する",
+    "description": "OneDriveでランサムウェアが検出されたら、公式サイトで警告や対象ファイルを確認します。Microsoftは復元前に同期するすべてのデバイスをクリーンアップするよう案内しています。職場や学校の端末は自分で初期化せず管理者に相談します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "普段の方法でOneDrive公式サイトを開き警告と対象ファイルを確認する",
+      "reason": "不審なメールから偽サイトへ誘導されるリスクを抑えます。"
+    },
+    {
+      "action": "同期する端末の安全を確認し、公式案内に沿って対処する",
+      "reason": "感染が残ったまま復元すると再び暗号化されるおそれがあるためです。"
+    },
+    {
+      "action": "組織端末は管理者に報告し指示を受ける",
+      "reason": "調査に必要な情報を保ち、対応を引き継げます。"
+    },
+    {
+      "action": "ファイル単位か全体か復元範囲と利用条件を確認する",
+      "reason": "必要なデータを適切な方法で復旧するためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "不審な通知やメールのリンクから慌ててサインインする",
+      "reason": "データやアカウントの安全に影響するおそれがあります。"
+    },
+    {
+      "action": "組織端末を管理者の調査前に初期化する",
+      "reason": "データやアカウントの安全に影響するおそれがあります。"
+    },
+    {
+      "action": "感染の可能性が残った端末を確認せずファイルを復元する",
+      "reason": "データやアカウントの安全に影響するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "回復キーや個人情報、社内情報を入力せず、一般的な確認項目の整理に利用できます。具体的な対処は公式案内と管理者に確認します。",
+    "examples": [
+      "普段の方法でOneDrive公式サイトを開き警告と対象ファイルを確認する",
+      "同期する端末の安全を確認し、公式案内に沿って対処する",
+      "組織端末は管理者に報告し指示を受ける"
+    ]
+  },
+  "makotoComment": "クラウドだけを元に戻しても、同期する端末に問題が残っていると再び影響を受けることがあります。警告、端末、復元の順で確認しましょう。",
+  "oneLineLesson": "公式の警告を確認し、同期する端末の安全を確認する。",
+  "tags": [
+    "OneDrive",
+    "ランサムウェア",
+    "ファイル復元",
+    "同期",
+    "セキュリティ"
+  ],
+  "sources": [
+    {
+      "title": "OneDrive を使用してランサムウェアを検出し、ファイルを回復する方法",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/onedrive/how-to-detect-ransomware-and-recover-files-using-onedrive"
+    },
+    {
+      "title": "OneDrive を復元する",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/onedrive/restore-your-onedrive"
+    },
+    {
+      "title": "OneDrive に保存されているファイルの以前のバージョンを復元する",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/onedrive/restore-a-previous-version-of-a-file-stored-in-onedrive"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "OneDriveにランサムウェアの警告が出て、ファイルが開けない場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261108-01"
+  ],
+  "relatedArticlesCurated": true
+}

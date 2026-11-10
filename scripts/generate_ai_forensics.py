@@ -675,6 +675,8 @@ def related_articles(current: dict[str, Any], articles: list[dict[str, Any]]) ->
     by_id = {article["id"]: article for article in articles}
     chosen = [by_id[item] for item in dict.fromkeys(current.get("relatedArticleIds", []))
               if item in by_id and item != current["id"]]
+    if current.get("relatedArticlesCurated") is True:
+        return chosen[:3]
     vectors, idf, norms = _related_index(articles)
     current_vector = vectors.get(current["id"], _related_terms(current))
     current_norm = norms.get(current["id"], 0)
