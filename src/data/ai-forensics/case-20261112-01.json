@@ -1,0 +1,137 @@
+{
+  "id": "case-20261112-01",
+  "publishedAt": "2026-11-12",
+  "title": "Windowsの「クイック アシスト」は安全？ 画面共有と操作許可の違い",
+  "shortTitle": "クイック アシストの許可と終了",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "家族やサポート担当者から遠隔操作を頼まれた人",
+    "Windowsの画面共有の仕組みを知りたい人"
+  ],
+  "summary": "クイック アシストは、信頼できる相手とWindowsの画面を共有し、必要に応じて操作を手伝ってもらう機能です。画面共有とPCの操作許可は別々に判断できます。Microsoftを名乗る相手でも、自分から公式窓口に連絡した場合に限り接続を許可しましょう。",
+  "scenario": {
+    "headline": "サポートを名乗る相手からクイック アシストのコード入力を求められた",
+    "description": "画面を見られるだけなのか、PCを操作されるのか分からず迷っています。",
+    "whyItMatters": "画面共有と操作の許可は別の操作であり、接続前に相手の確認が重要です。"
+  },
+  "question": {
+    "text": "利用する前にどうする？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "接続する相手を確認し、画面共有と操作の許可を別々に判断する",
+        "description": "状況と設定の意味を確認して判断できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "Microsoftの名前が出ていれば、相手を確認せず許可する",
+        "description": "機能や設定の範囲を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "画面共有を許可しても、画面の内容は相手に見えないと考える",
+        "description": "許可の内容や履歴の条件を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "クイック アシストは、信頼できる相手とWindowsの画面を共有し、必要に応じて操作を手伝ってもらう機能です。画面共有とPCの操作許可は別々に判断できます。Microsoftを名乗る相手でも、自分から公式窓口に連絡した場合に限り接続を許可しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "まず接続相手を確認",
+      "description": "家族や知人など信頼できる相手と使用します。Microsoftは同社サポートを名乗る相手について、自分で直接問い合わせた場合にのみ接続を許可するよう案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "画面共有の許可",
+      "description": "相手のコードを入力した後、接続を許可すると画面が共有されます。画面に表示される個人情報や機密情報も見えることに注意します。",
+      "priority": "high"
+    },
+    {
+      "title": "操作権限は別に許可",
+      "description": "相手がPCのコントロールを要求した場合、利用者が許可するかを選びます。画面を見せることと操作させることは別の判断です。",
+      "priority": "high"
+    },
+    {
+      "title": "操作を止めて終了",
+      "description": "フルコントロールの許可を停止するには「コントロールのキャンセル」を選べます。サポート終了時は「退出」を選びます。",
+      "priority": "medium"
+    },
+    {
+      "title": "不審な相手に許可した場合",
+      "description": "接続中ならネットワークを切断し、端末の管理者や公式窓口に相談します。組織端末は調査前に初期化せず、管理者に引き継ぎます。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "接続する相手を確認し、画面共有と操作の許可を別々に判断する",
+    "description": "クイック アシストは、信頼できる相手とWindowsの画面を共有し、必要に応じて操作を手伝ってもらう機能です。画面共有とPCの操作許可は別々に判断できます。Microsoftを名乗る相手でも、自分から公式窓口に連絡した場合に限り接続を許可しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "自分から問い合わせた公式窓口か、信頼できる知人かを確認する",
+      "reason": "正規ソフトでも不審な相手に接続させないためです。"
+    },
+    {
+      "action": "画面共有とフルコントロールの許可を別々に判断する",
+      "reason": "相手が見られる範囲や操作できる範囲が異なるためです。"
+    },
+    {
+      "action": "サポートが終わったら「退出」を選ぶ",
+      "reason": "遠隔接続を終了するためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "突然の警告に表示された連絡先をそのまま信用して接続を許可する",
+      "reason": "相手や設定の範囲を誤って判断するおそれがあります。"
+    },
+    {
+      "action": "表示中の機密情報を忘れ、相手に画面を共有する",
+      "reason": "相手や設定の範囲を誤って判断するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "個人情報や認証情報を入力せず、確認する項目の整理に利用できます。実際の操作と仕様は公式案内で確認しましょう。",
+    "examples": [
+      "自分から問い合わせた公式窓口か、信頼できる知人かを確認する",
+      "画面共有とフルコントロールの許可を別々に判断する",
+      "サポートが終わったら「退出」を選ぶ"
+    ]
+  },
+  "makotoComment": "クイック アシスト自体は便利な機能ですが、接続先が信頼できるかは別の確認です。画面を見せる許可と操作の許可を分けて考えましょう。",
+  "oneLineLesson": "接続する相手を確認し、画面共有と操作の許可を別々に判断する。",
+  "tags": [
+    "Windows",
+    "クイック アシスト",
+    "遠隔操作",
+    "サポート詐欺",
+    "画面共有"
+  ],
+  "sources": [
+    {
+      "title": "クイック アシストを使用して PC の問題をリモートで解決する",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/windows/apps/solve-pc-problems-remotely-using-quick-assist"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "サポートを名乗る相手からクイック アシストのコード入力を求められた場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261108-01"
+  ],
+  "relatedArticlesCurated": true
+}
