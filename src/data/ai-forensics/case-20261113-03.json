@@ -1,0 +1,146 @@
+{
+  "id": "case-20261113-03",
+  "publishedAt": "2026-11-13",
+  "title": "Gmailが届かないのは容量不足？ Googleの保存容量とスマホの空き容量を分けて確認",
+  "shortTitle": "Gmailの容量不足と同期",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Gmailが届かず容量不足や同期エラーを疑う人",
+    "Googleアカウントと端末の容量の違いを知りたい人"
+  ],
+  "summary": "Googleアカウントの保存容量はGmail、Googleドライブ、Googleフォトなどで共有されます。上限に達するとメールの送受信に影響する場合があります。一方、スマートフォン本体の空き容量不足もGmailアプリの同期に影響するため、別々に確認します。",
+  "scenario": {
+    "headline": "Gmailが届かず、容量がいっぱいという案内も見た",
+    "description": "Googleアカウントの保存容量とスマートフォン本体の容量のどちらを確認すべきか迷っています。",
+    "whyItMatters": "クラウド側の容量不足と端末側の同期エラーは原因と対応が異なります。"
+  },
+  "question": {
+    "text": "最初に確認することは？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "Googleアカウントの保存容量と端末の空き容量・同期状態を分けて確認する",
+        "description": "安全と設定の影響を確認して判断できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "スマートフォンの空き容量があればGoogleの保存容量も必ず空いていると考える",
+        "description": "公式の案内で条件と影響を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "必要な写真やファイルを確認せず一括削除する",
+        "description": "操作の違いや影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Googleアカウントの保存容量はGmail、Googleドライブ、Googleフォトなどで共有されます。上限に達するとメールの送受信に影響する場合があります。一方、スマートフォン本体の空き容量不足もGmailアプリの同期に影響するため、別々に確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "Googleの保存容量",
+      "description": "Googleアカウントの保存容量はGmail、Googleドライブ、Googleフォトなどで共有されます。保存容量の管理画面で使用状況を確認できます。",
+      "priority": "high"
+    },
+    {
+      "title": "メールへの影響",
+      "description": "Googleはアカウントの保存容量が上限に達すると、メールの送受信ができず、送信者にメールが返送される場合があると案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "端末の空き容量",
+      "description": "スマートフォン本体の空き容量が少ない場合もGmailアプリは同期できません。Googleアカウントの容量とは別に端末の設定で確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "削除前の確認",
+      "description": "不要な大きな添付ファイルやゴミ箱の内容などを確認して整理します。完全削除の前に、必要なメール・写真・ファイルやバックアップを確かめます。",
+      "priority": "medium"
+    },
+    {
+      "title": "同期と再送",
+      "description": "容量だけでなく、ネット接続やGmailの同期設定も確認します。返送されたメールがある場合は、復旧後に送信者へ再送を依頼できるか確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "Googleアカウントの保存容量と端末の空き容量・同期状態を分けて確認する",
+    "description": "Googleアカウントの保存容量はGmail、Googleドライブ、Googleフォトなどで共有されます。上限に達するとメールの送受信に影響する場合があります。一方、スマートフォン本体の空き容量不足もGmailアプリの同期に影響するため、別々に確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Googleアカウントの保存容量管理画面でサービス別の使用量を確認する",
+      "reason": "何が容量を使っているか把握するためです。"
+    },
+    {
+      "action": "端末の空き容量とGmailアプリの同期設定を確認する",
+      "reason": "クラウド以外の同期エラーも切り分けるためです。"
+    },
+    {
+      "action": "必要なデータを確認してから不要なものを整理する",
+      "reason": "大切なメールや写真を誤って消さないためです。"
+    },
+    {
+      "action": "送信者に返送の有無と必要な再送を確認する",
+      "reason": "届かなかったメールを改めて受け取るためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "端末に空きがあればGoogleアカウントの容量にも必ず余裕があると考える",
+      "reason": "安全や設定の影響を誤って判断するおそれがあります。"
+    },
+    {
+      "action": "内容を確認せずゴミ箱や写真を一括で完全削除する",
+      "reason": "安全や設定の影響を誤って判断するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目の整理に利用できます。安全の確保や実際の操作は公式案内と専門窓口を確認しましょう。",
+    "examples": [
+      "Googleアカウントの保存容量管理画面でサービス別の使用量を確認する",
+      "端末の空き容量とGmailアプリの同期設定を確認する",
+      "必要なデータを確認してから不要なものを整理する"
+    ]
+  },
+  "makotoComment": "Googleの保存容量とスマートフォン本体の空き容量は別々です。消す前にどちらが足りないか確かめ、必要なデータを守りましょう。",
+  "oneLineLesson": "Googleアカウントの保存容量と端末の空き容量・同期状態を分けて確認する。",
+  "tags": [
+    "Gmail",
+    "Googleドライブ",
+    "Googleフォト",
+    "保存容量",
+    "同期エラー"
+  ],
+  "sources": [
+    {
+      "title": "保存容量を管理する",
+      "publisher": "Google",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/14733746?hl=ja"
+    },
+    {
+      "title": "Gmail アプリの同期エラーを修正する",
+      "publisher": "Google",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/mail/answer/6383854?co=GENIE.Platform%3DAndroid&hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Gmailが届かず、容量がいっぱいという案内も見た場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [],
+  "relatedArticlesCurated": true
+}

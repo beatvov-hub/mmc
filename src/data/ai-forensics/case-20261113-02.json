@@ -1,0 +1,148 @@
+{
+  "id": "case-20261113-02",
+  "publishedAt": "2026-11-13",
+  "title": "iPhoneの新しいパスコードを忘れたら？ 変更前のコードを使える条件と無効化",
+  "shortTitle": "変更前のパスコードの扱い",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "iPhoneのパスコードを変更した直後に新しい番号を忘れた人",
+    "変更前のパスコードを早く無効にしたい人"
+  ],
+  "summary": "iPhoneのパスコードを変更した後は、条件を満たす場合、変更から72時間以内に前のパスコードを使って一時的にアクセスできます。前のパスコードを第三者が知っているなどの場合は、期限前に無効化する選択肢もあります。",
+  "scenario": {
+    "headline": "iPhoneのパスコードを変更した後、新しい番号を忘れた",
+    "description": "前の番号は覚えていますが、端末を使えるか分かりません。",
+    "whyItMatters": "変更直後の復旧機能を使える条件と、古いコードを無効化する操作を知ると判断しやすくなります。"
+  },
+  "question": {
+    "text": "変更前のコードを使う前に、何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "変更からの時間と前のコードを使う条件を公式案内で確認する",
+        "description": "安全と設定の影響を確認して判断できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "前のパスコードは変更後も期限なく使えると考える",
+        "description": "公式の案内で条件と影響を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "期限前に無効化しても古いパスコードで必ず復旧できると考える",
+        "description": "操作の違いや影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "iPhoneのパスコードを変更した後は、条件を満たす場合、変更から72時間以内に前のパスコードを使って一時的にアクセスできます。前のパスコードを第三者が知っているなどの場合は、期限前に無効化する選択肢もあります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "72時間の条件",
+      "description": "Appleは、パスコードの変更から72時間以内であれば、パスコードのリセットで前のパスコードを使って一時的にアクセスできると案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "新しいコードを再設定",
+      "description": "前のコードを使って解除した場合は、すぐにパスコードの再変更が求められます。",
+      "priority": "high"
+    },
+    {
+      "title": "期限前の無効化",
+      "description": "「設定」→「Face IDとパスコード」または「Touch IDとパスコード」から「今すぐ前のパスコードを無効にする」を選べます。",
+      "priority": "high"
+    },
+    {
+      "title": "安全と復旧の判断",
+      "description": "古いコードを他人に知られている場合は早期無効化が役立ちます。一方、無効化すると前のコードを使う復旧方法は利用できなくなります。",
+      "priority": "medium"
+    },
+    {
+      "title": "条件を満たさない場合",
+      "description": "利用できない場合はAppleの公式案内を確認します。推測した番号を繰り返し入力せず、職場や学校の端末は管理者へ相談します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "変更からの時間と前のコードを使う条件を公式案内で確認する",
+    "description": "iPhoneのパスコードを変更した後は、条件を満たす場合、変更から72時間以内に前のパスコードを使って一時的にアクセスできます。前のパスコードを第三者が知っているなどの場合は、期限前に無効化する選択肢もあります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "変更してからの時間と前のパスコードを確認する",
+      "reason": "復旧方法を利用できるか判断するためです。"
+    },
+    {
+      "action": "端末の表示とApple公式案内に沿ってパスコードを再設定する",
+      "reason": "利用可能な場合に復旧を進めるためです。"
+    },
+    {
+      "action": "前のコードを無効にする前に復旧手段への影響を理解する",
+      "reason": "期限前に以前のコードが使えなくなるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "変更前のパスコードが無期限に使えると考える",
+      "reason": "安全や設定の影響を誤って判断するおそれがあります。"
+    },
+    {
+      "action": "前のコードを使う必要性を考えず早期無効化する",
+      "reason": "安全や設定の影響を誤って判断するおそれがあります。"
+    },
+    {
+      "action": "パスコードを第三者に伝える",
+      "reason": "安全や設定の影響を誤って判断するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目の整理に利用できます。安全の確保や実際の操作は公式案内と専門窓口を確認しましょう。",
+    "examples": [
+      "変更してからの時間と前のパスコードを確認する",
+      "端末の表示とApple公式案内に沿ってパスコードを再設定する",
+      "前のコードを無効にする前に復旧手段への影響を理解する"
+    ]
+  },
+  "makotoComment": "古いコードは変更後もしばらく復旧に役立つ一方、知っている人がいる場合は無効化を検討できます。どちらを優先するか状況に合わせましょう。",
+  "oneLineLesson": "変更からの時間と前のコードを使う条件を公式案内で確認する。",
+  "tags": [
+    "iPhone",
+    "パスコード",
+    "72時間",
+    "端末ロック",
+    "セキュリティ"
+  ],
+  "sources": [
+    {
+      "title": "iPhoneやiPadのパスコードを変更したときに、古いパスコードを期限より早く無効化する",
+      "publisher": "Apple",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/127950"
+    },
+    {
+      "title": "iPhone、iPad、iPod touchでパスコードを使う",
+      "publisher": "Apple",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/119586"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "iPhoneのパスコードを変更した後、新しい番号を忘れた場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261030-01"
+  ],
+  "relatedArticlesCurated": true
+}
