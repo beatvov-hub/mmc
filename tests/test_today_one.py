@@ -101,6 +101,15 @@ class TodayOneTest(unittest.TestCase):
         self.assertIn("結論", rendered)
         self.assertIn("やり方／確認方法", rendered)
 
+    def test_archive_detail_shows_conditions_alongside_cautions(self) -> None:
+        entry = published_entry("2026-08-28")
+        entry["conditions"] = "ローカル環境が必要です。"
+        rendered = today_one.render_archive_detail_page(entry, self.members)
+        self.assertIn('class="today-one-caution"', rendered)
+        self.assertIn("出力は人が確認してください。", rendered)
+        self.assertIn("<dt>利用条件</dt>", rendered)
+        self.assertIn("ローカル環境が必要です。", rendered)
+
     def test_actionlint_entry_has_clear_audience_faq_and_sources(self) -> None:
         data = today_one.load_data()
         entry = next(item for item in data["entries"] if item["slug"] == "actionlint")

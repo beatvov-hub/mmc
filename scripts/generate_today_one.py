@@ -452,8 +452,6 @@ def render_basic_info(entry: dict) -> str:
         ("notes", "補足"),
     )
     for field, label in optional_fields:
-        if field == "conditions" and entry.get("cautions"):
-            continue
         value = entry.get(field)
         if value not in (None, "", []):
             rows.append(f"<div><dt>{esc(label)}</dt><dd>{render_value(value)}</dd></div>")

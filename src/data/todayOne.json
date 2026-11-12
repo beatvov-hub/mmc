@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11T22:30:00+09:00",
+  "updatedAt": "2026-11-13T07:46:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -3455,6 +3455,68 @@
         {
           "label": "OpenStreetMap公式：著作権・出典表示",
           "url": "https://www.openstreetmap.org/copyright"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "slug": "darktable-batch-export-raw-jpeg-web",
+      "useCategory": "デザイン・動画・ゲーム制作",
+      "name": "darktable",
+      "category": "Photo Workflow / OSS",
+      "officialUrl": "https://www.darktable.org/",
+      "summary": "darktableは、カメラのRAW写真を整えて、記事やWeb掲載用のJPEGに書き出せる無料のデスクトップ写真編集ソフトです。",
+      "whyToday": "イベント後、RAWデータは保管用、JPEGは掲載用と分けると、写真の選定や出力サイズの調整に手間が残ります。darktableはライトテーブルで複数画像を選び、同じ保存先・形式・寸法・品質で一括書き出しできるため、記事ごとの画像準備を揃えやすくします。",
+      "useFor": "例えば、イベント写真を記事用に揃える想定例です。PCにdarktableをインストールし、公開許諾のあるRAW写真を読み込んで、必要な明るさや切り取りを調整します。ライトテーブルで写真を複数選択し、書き出し先をPC内のフォルダー、形式をJPEGにして、掲載枠に合わせた最大幅・高さと品質を設定して一括出力します。まず1枚で色・向き・寸法・ファイル名を確かめてから残りを処理します。元RAWは変更されず、調整記録はXMPファイル等に保存されます。未実施の想定例です。",
+      "recommendedFor": {
+        "employeeId": "MMC-007",
+        "reason": "ブランドデザイン部長のレイちゃんに、記事用写真1枚の切り取り方針とJPEG書き出し設定を決めてもらい、色・向き・掲載寸法を確認した見本を受け取りたいです。見本で基準が決まれば、残りの写真も同じ条件で揃えられるか判断できます。"
+      },
+      "keiComment": "書き出し寸法と品質を先に1枚で決めると、記事画像の見え方とファイルサイズを一緒に揃えやすいですね。人物が写るイベント写真は、公開許諾の有無を素材の受け渡し時点で確認する運用にしたいです。",
+      "verifiedAt": "2026-11-13",
+      "status": "published",
+      "pricing": "darktableはGPL v3以降で公開されている無料のオープンソースソフトです。公式サイトからデスクトップ版を無償で入手できます。PCや写真の保存容量などの費用は別途です。",
+      "conditions": "PCへインストールして使うデスクトップソフトです。利用前に手元のカメラのRAW形式が対応対象か確認してください。RAW写真と編集記録を保管するPC・保存容量も必要です。",
+      "license": "darktable本体はGNU GPL version 3以降で公開されています。",
+      "notes": "darktable公式サイト、インストール案内、バージョン5.6の公式ユーザーマニュアルを2026-11-13に確認しました。活用例は想定で、実機検証はしていません。",
+      "archiveTitle": "darktableでRAW写真をまとめてWeb用JPEGにできる？",
+      "archiveDescription": "RAW写真をまとめてWeb用JPEGへ書き出す手順、元データと編集記録の扱い、無料で試せる範囲を紹介します。",
+      "forWho": "カメラで撮ったRAW写真を元データのまま残し、記事やイベント告知のWeb掲載用画像に整えたい広報・編集担当者向けです。",
+      "cautions": "書き出した画像は、掲載前に色・向き・寸法・ファイル名を確認してください。編集記録はXMP等のサイドカーにも保存されるため、バックアップには元写真と一緒に含めます。人物写真は公開許諾がある素材を使ってください。",
+      "faq": [
+        {
+          "question": "複数のRAW写真を一度にJPEGへ書き出せますか？",
+          "answer": "できます。公式マニュアルではライトテーブルで複数画像を選び、保存先をディスク上のフォルダー、形式をJPEGに指定して一括出力する手順が案内されています。"
+        },
+        {
+          "question": "編集すると元のRAWファイルは変わりますか？",
+          "answer": "元RAWは変更されません。darktableは読み取り専用で画像を開き、現像設定などをXMPサイドカーファイルとライブラリに保存します。配布用画像は別ファイルへ書き出します。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "darktable公式About：用途・非破壊編集・GPL v3以降",
+          "url": "https://www.darktable.org/about/"
+        },
+        {
+          "label": "darktable公式カメラ対応表：RAW形式の対応状況",
+          "url": "https://www.darktable.org/resources/camera-support/"
+        },
+        {
+          "label": "darktable公式インストール案内：現行版の配布",
+          "url": "https://www.darktable.org/install/"
+        },
+        {
+          "label": "darktable 5.6公式マニュアル：複数画像をJPEGへ書き出す手順",
+          "url": "https://docs.darktable.org/usermanual/5.6/en/overview/workflow/export/"
+        },
+        {
+          "label": "darktable 5.6公式マニュアル：書き出し先・寸法・品質設定",
+          "url": "https://docs.darktable.org/usermanual/5.6/en/module-reference/utility-modules/shared/export/"
+        },
+        {
+          "label": "darktable 5.6公式マニュアル：XMPサイドカーと元RAW",
+          "url": "https://docs.darktable.org/usermanual/5.6/en/overview/sidecar-files/sidecar/"
         }
       ]
     }
