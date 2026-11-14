@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-14T07:40:20+09:00",
+  "updatedAt": "2026-11-15T07:33:24+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -3579,6 +3579,64 @@
         {
           "label": "DeepL公式料金ページ：Write Proの有料アドオン",
           "url": "https://www.deepl.com/ja/pro"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-15",
+      "slug": "wayback-machine-review-historical-official-page",
+      "useCategory": "調査・情報収集",
+      "name": "Wayback Machine",
+      "category": "Web Archive / Free public service",
+      "officialUrl": "https://web.archive.org/",
+      "summary": "Wayback Machineは、保存済みのWebページを日付から開き、以前の内容を確認できる公開アーカイブです。",
+      "whyToday": "公式ページは後から文言や条件が変わることがあり、更新前の記載を現行ページだけでは追えない場合があります。Wayback MachineはURLから保存日時をたどれるので、過去版が残っているページなら、いつの記録を根拠にしたかを示しながら変更箇所を調べられます。",
+      "useFor": "例えば、公式サービスの利用条件ページが改定されたとき、前の記載を調べる想定例です。ブラウザーでWayback Machineを開き、対象ページの正確なURLを入力して、履歴に保存された年・日付から版を選びます。改定前後の保存版で見出しと該当段落を見比べ、保存日時と一緒に変更点を調査メモへ記録します。最初は1ページの1段落に絞り、本文の違いと保存日時を確かめますが、保存がない場合やページ内リンクが現行サイトへ戻る場合もあります。これは未実施の想定例で、保存版は法的証拠や現行の公式条件の代わりにはなりません。",
+      "recommendedFor": {
+        "employeeId": "MMC-005",
+        "reason": "人狼界隈の情報観測を担当するDGに、公開された公式ルールや案内ページのURLを1件選び、保存版の日時と現行版の差分を調べてもらいます。更新前後の引用箇所と確認できなかった点を分けた出典メモを受け取りたいです。"
+      },
+      "keiComment": "変更の根拠を探すとき、ページURLと保存日時を一緒に残せるのは編集メモに使いやすいですね。捕捉がないページもあるので、採用時は現行ページの更新日だけで判断せず、記録が見つからない場合も明記する運用にしたいです。",
+      "verifiedAt": "2026-11-15",
+      "status": "published",
+      "pricing": "Wayback Machineの公開アーカイブは誰でも閲覧でき、公式ヘルプではコレクションを無料で利用できると案内されています。組織が継続的にサイトを収集するArchive-Itは別の有料サービスです。この例では既存の公開アーカイブを閲覧します。",
+      "conditions": "ブラウザーと調べたいページのURLを用意します。対象ページが保存されているとは限らず、パスワード保護、robots.txt、サイト所有者の除外指定などで見つからない場合があります。JavaScriptや未保存リンクは正しく再現されないことがあり、リンク先が現行サイトへ戻る場合もあります。",
+      "license": "OSSとして配布するソフトウェアではなく、Internet Archiveが提供するオンラインサービスです。",
+      "notes": "Internet Archive公式のWayback Machine製品ページとヘルプセンターの検索手順、保存範囲、利用条件を2026-11-15に確認しました。公開情報の閲覧例を示した想定記事で、実機検証はしていません。",
+      "archiveTitle": "Wayback Machineで更新前の公式ページを確認できる？",
+      "archiveDescription": "公開された公式ページの過去版を探し、保存日時と変更箇所を調査メモに残す手順を紹介します。記録がない場合や証拠として扱えない点も確認します。",
+      "forWho": "更新前の利用条件や案内文を調べたい編集・広報・調査担当者で、公開ページの過去版を出典付きで確認したい人向けです。",
+      "cautions": "Wayback Machineに対象ページの保存版があるとは限りません。未保存のリンクが現行ページへつながる場合や、動的な部分が欠ける場合があるため、URL内の保存日時と本文を確認してください。法的な証明が必要な用途には使わず、現行の公式ページも併せて参照します。",
+      "faq": [
+        {
+          "question": "見たいページの文章に含まれる言葉で検索できますか？",
+          "answer": "Wayback Machineのサイト検索はページ本文の全文検索ではありません。公式ヘルプでは、対象のURLやドメインを検索し、保存日からページを開く方法を案内しています。"
+        },
+        {
+          "question": "過去版を法的な証拠として使えますか？",
+          "answer": "Internet ArchiveはWayback Machineを法的用途向けに設計したものではないと案内し、正式な記録が必要な場合の宣誓供述書請求手順を別に示しています。通常の調査メモでは保存日時付きの参照先として使い、法的証明が必要なら公式の請求手順を確認してください。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Internet Archive公式：Wayback Machine",
+          "url": "https://web.archive.org/"
+        },
+        {
+          "label": "Internet Archiveヘルプ：URLから保存版を探す・利用上の制約",
+          "url": "https://help.archive.org/help/using-the-wayback-machine/"
+        },
+        {
+          "label": "Internet Archiveヘルプ：URL・年・日付から保存ページを開く手順",
+          "url": "https://archivesupport.zendesk.com/hc/en-us/articles/360018359991-Search-A-Basic-Guide"
+        },
+        {
+          "label": "Internet Archiveヘルプ：Save Page Nowの対象範囲とArchive-Itの料金区分",
+          "url": "https://archivesupport.zendesk.com/hc/en-us/articles/360001513491-Save-Pages-in-the-Wayback-Machine"
+        },
+        {
+          "label": "Internet Archiveヘルプ：公開コレクションの閲覧費用・対象範囲",
+          "url": "https://archivesupport.zendesk.com/hc/en-us/articles/360004716091-Wayback-Machine-General-Information"
         }
       ]
     }
