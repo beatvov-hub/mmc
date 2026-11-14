@@ -1,0 +1,138 @@
+{
+  "id": "case-20261114-02",
+  "publishedAt": "2026-11-14",
+  "title": "Microsoftアカウントのリカバリーコードとは？ 再発行すると古いコードはどうなる",
+  "shortTitle": "Microsoftアカウントの復旧コード",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Microsoftアカウントの復旧に備えたい人",
+    "リカバリーコードをなくした人"
+  ],
+  "summary": "Microsoftアカウントのリカバリーコードは、アカウントへのアクセスを回復するために使う25桁のコードです。新しいコードを生成すると古いコードは使えなくなります。サインインできるうちに用意し、第三者に見られない場所へ保管しましょう。",
+  "scenario": {
+    "headline": "Microsoftアカウントの復旧に備えてリカバリーコードを用意したい",
+    "description": "前に作ったコードを確認できるか、再発行するとどうなるか迷っています。",
+    "whyItMatters": "復旧コードはアカウントへのアクセスに関わるため、生成方法と保管方法を理解する必要があります。"
+  },
+  "question": {
+    "text": "新しいリカバリーコードを生成するときの注意は？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "以前のコードは無効になるため、新しいコードを安全な場所に保管する",
+        "description": "安全と公式手続きの条件を確認して判断できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "以前のコードは新しいコードと一緒に永久に使える",
+        "description": "設定や申請の範囲を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "コードをSNSや見知らぬ相手に渡して保管してもらう",
+        "description": "個人情報と安全への影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Microsoftアカウントのリカバリーコードは、アカウントへのアクセスを回復するために使う25桁のコードです。新しいコードを生成すると古いコードは使えなくなります。サインインできるうちに用意し、第三者に見られない場所へ保管しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "リカバリーコードの役割",
+      "description": "Microsoftは、アカウントへのアクセスを回復するための25桁のコードと説明しています。BitLockerの回復キーとは用途が異なります。",
+      "priority": "high"
+    },
+    {
+      "title": "サインインできるうちに生成",
+      "description": "Microsoftアカウントのセキュリティ設定で「サインイン方法を管理する」を開き、「回復コード」から新しいコードを生成します。",
+      "priority": "high"
+    },
+    {
+      "title": "再生成時の影響",
+      "description": "新しいコードを作ると以前のコードはすぐに機能しなくなります。古いコードを保管している場合は混同しないようにします。",
+      "priority": "high"
+    },
+    {
+      "title": "再表示はできない",
+      "description": "Microsoftは既存のコードを取得・ダウンロードし直すことはできないと案内しています。サインインできる場合は新しいコードを作成します。",
+      "priority": "medium"
+    },
+    {
+      "title": "保管と利用不能時",
+      "description": "コードは印刷するなどして安全に保管し、サインインに使うデバイスには保存しないようMicrosoftは勧めています。サインインできないときは公式のサインインヘルパーを確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "以前のコードは無効になるため、新しいコードを安全な場所に保管する",
+    "description": "Microsoftアカウントのリカバリーコードは、アカウントへのアクセスを回復するために使う25桁のコードです。新しいコードを生成すると古いコードは使えなくなります。サインインできるうちに用意し、第三者に見られない場所へ保管しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "公式のMicrosoftアカウントのセキュリティ設定を開く",
+      "reason": "正しいアカウントの復旧手段を確認するためです。"
+    },
+    {
+      "action": "サインインできるうちにリカバリーコードを生成する",
+      "reason": "アクセスを失った場合に備えるためです。"
+    },
+    {
+      "action": "新しいコードを安全な場所に保管し、古いコードと混同しない",
+      "reason": "再生成により以前のコードが無効になるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "リカバリーコードを他人やSNSへ伝える",
+      "reason": "安全や情報管理に影響するおそれがあります。"
+    },
+    {
+      "action": "再生成後も以前のコードが使えると決めつける",
+      "reason": "安全や情報管理に影響するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目の整理に利用できます。安全確保と実際の手続きは公式案内や専門窓口を確認しましょう。",
+    "examples": [
+      "公式のMicrosoftアカウントのセキュリティ設定を開く",
+      "サインインできるうちにリカバリーコードを生成する",
+      "新しいコードを安全な場所に保管し、古いコードと混同しない"
+    ]
+  },
+  "makotoComment": "コードはアカウントの大切な鍵です。作り直すと以前のものが使えなくなるため、保管場所も含めて見直しましょう。",
+  "oneLineLesson": "以前のコードは無効になるため、新しいコードを安全な場所に保管する。",
+  "tags": [
+    "Microsoftアカウント",
+    "リカバリーコード",
+    "アカウント復旧",
+    "セキュリティ",
+    "ログイン"
+  ],
+  "sources": [
+    {
+      "title": "Microsoft アカウントのリカバリー コードを取得する方法",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/accounts-billing/manage/how-to-get-a-microsoft-account-recovery-code"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Microsoftアカウントの復旧に備えてリカバリーコードを用意したい場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261107-03",
+    "case-20261110-01"
+  ],
+  "relatedArticlesCurated": true
+}
