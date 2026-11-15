@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-15T07:33:24+09:00",
+  "updatedAt": "2026-11-16T07:34:46+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -3637,6 +3637,56 @@
         {
           "label": "Internet Archiveヘルプ：公開コレクションの閲覧費用・対象範囲",
           "url": "https://archivesupport.zendesk.com/hc/en-us/articles/360004716091-Wayback-Machine-General-Information"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-16",
+      "slug": "google-alerts-track-new-public-mentions",
+      "useCategory": "調査・情報収集",
+      "name": "Google Alerts",
+      "category": "Web Monitoring / Free",
+      "officialUrl": "https://www.google.com/alerts",
+      "summary": "Google Alertsは、指定した言葉に合う新しいGoogle検索結果をメールで知らせる、公開情報の見張り役です。",
+      "whyToday": "公開告知の反応や海外の新しい記事を定期検索するのは、対象語が決まっていても見落としが心配です。Google Alertsなら、検索結果に新着が見つかったときだけ知らせる形にでき、毎回の巡回を「届いた候補の確認」から始められます。",
+      "useFor": "例えば、MMCの公開記事タイトルが新しいページで引用されたかを追う想定例です。GoogleアカウントでGoogle Alertsを開き、固有性の高いタイトルの一部を1つ入力して、プレビューで候補を確かめます。通知頻度・サイトの種類・言語・地域・結果数を選んで作成すると、Google検索で一致した新しい結果がメールで届きます。まず1記事だけ週1回で試し、メール内のURLを開いて実際の言及か、検索語が広すぎないかを確認して語句を調整します。公開検索結果の通知なので、ウェブ全体や非公開ページの網羅的な監視ではありません。",
+      "recommendedFor": {
+        "employeeId": "MMC-004",
+        "reason": "海外調査部のマイケルに、台湾のアニメ文化に関する公開記事を拾う検索語を1つ選び、届いた結果から確認価値のある一次情報URLと日付を記した候補メモを作ってもらいたいです。"
+      },
+      "keiComment": "広い一般語より、固有名詞や記事タイトルの一部から始めると受信箱を確認しやすそうです。最初に1週間分の候補を見て、取りこぼしを許容できる参考情報用途かを決めたいですね。",
+      "verifiedAt": "2026-11-16",
+      "status": "published",
+      "pricing": "Googleの小規模事業者向け公式資料ではGoogle Alertsを無料ツールの一つとして紹介しています。現行の公式ページ・ヘルプに数値の無料枠や有料プランの記載はないため、利用上限は断定しません。",
+      "conditions": "Google Alertsの画面でトピックを指定し、通知頻度・サイト種別・言語・地域・件数・通知先を設定します。Google検索で新しく見つかった一致結果を通知する仕組みで、未登録・非公開情報やウェブ全体の網羅的な監視を保証しません。",
+      "license": "OSSではなく、Googleが提供するオンラインサービスです。",
+      "notes": "Google検索ヘルプのアラート作成・変更・削除手順、Google Alertsの設定項目、Google公開の小規模事業者向け資料にある無料ツールとしての紹介を2026-11-16に確認しました。利用例は想定で、実機検証はしていません。Google AlertsはAgent SkillやMCPではなく、検索結果の通知サービスです。",
+      "archiveTitle": "Google Alertsで自社記事の新しい言及に気づける？",
+      "archiveDescription": "公開記事のタイトルをGoogle Alertsに登録し、新しい検索結果の通知から言及候補を確認する方法を紹介します。通知設定と、検索結果を網羅するサービスではない点も確認します。",
+      "forWho": "公開記事やサービス名が新しいWebページで取り上げられたかを、定期検索以外でも知りたい広報・調査担当者向けです。",
+      "cautions": "Google検索で新しく見つかった一致結果が通知対象で、Web全体の監視や掲載の網羅を保証しません。一般語は無関係な通知が増えやすいため、固有性の高い語から始めます。メールが届かない場合は通知先アカウント・設定・迷惑メールを確認します。",
+      "faq": [
+        {
+          "question": "Google Alertsを止めたいときはどうしますか？",
+          "answer": "Google Alertsで対象アラートの横にある削除を選ぶか、通知メール下部の登録解除を使えます。"
+        },
+        {
+          "question": "通知の頻度や対象地域は変えられますか？",
+          "answer": "作成時のオプションから頻度、サイトの種類、言語、地域、結果数、通知先アカウントを選べます。作成後も編集して更新できます。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Google検索ヘルプ：アラートの作成・設定変更・削除",
+          "url": "https://support.google.com/websearch/answer/4815696?hl=ja"
+        },
+        {
+          "label": "Google Alerts公式ページ：通知設定",
+          "url": "https://www.google.com/alerts"
+        },
+        {
+          "label": "Google公開資料：Google Alertsを無料ツールとして紹介",
+          "url": "https://services.google.com/fh/files/misc/ca_dms_shopherestarterkit_june15.pdf"
         }
       ]
     }
