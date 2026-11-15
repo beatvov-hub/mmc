@@ -1,0 +1,145 @@
+{
+  "id": "case-20261115-02",
+  "publishedAt": "2026-11-15",
+  "title": "iPhoneを修理に出す前に何をする？ バックアップと「探す」の準備",
+  "shortTitle": "iPhone修理前の準備",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "iPhoneをApple StoreやApple正規サービスプロバイダへ修理に出す人",
+    "修理前のデータ保護と設定を確認したい人"
+  ],
+  "summary": "Appleは正規修理の前にiPhoneをバックアップし、iCloudの同期や「探す」の設定などを確認するよう案内しています。「探す」の準備はOSにより手順が異なります。修理後にデータが消去されている場合もあるため、公式案内と修理窓口で確認しましょう。",
+  "scenario": {
+    "headline": "iPhoneを正規サービスプロバイダに修理へ持ち込みたい",
+    "description": "データが残るのか、「探す」をどう設定するのか分かりません。",
+    "whyItMatters": "修理前のバックアップとOSに合う設定の確認が、データの保護に役立ちます。"
+  },
+  "question": {
+    "text": "修理前に何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "バックアップと「探す」の準備を公式案内で確認し、パスコードを他人に教えない",
+        "description": "公式の条件と操作の影響を確認できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "修理ではデータが必ず残るためバックアップは不要",
+        "description": "利用条件やデータへの影響を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "担当者を名乗る人にApple Accountのパスワードを伝える",
+        "description": "情報の扱いや設定の範囲を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Appleは正規修理の前にiPhoneをバックアップし、iCloudの同期や「探す」の設定などを確認するよう案内しています。「探す」の準備はOSにより手順が異なります。修理後にデータが消去されている場合もあるため、公式案内と修理窓口で確認しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "バックアップと同期",
+      "description": "Appleは修理前にiPhoneをバックアップし、iCloudの同期が完了しているか確認するよう案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "「探す」の準備",
+      "description": "Appleの案内では、iOS 27以降とiOS 26以前で「探す」の修理前の手順が異なります。端末のOSを確認し、最新の公式手順と修理先の案内に従います。",
+      "priority": "high"
+    },
+    {
+      "title": "パスワードは伝えない",
+      "description": "AppleはApple Accountのパスワード、端末のパスコード、アカウントのセキュリティ情報を他人に教えないよう案内しています。入力が必要なサポートでは、端末のそばを離れず自分で操作します。",
+      "priority": "high"
+    },
+    {
+      "title": "操作できないとき",
+      "description": "端末が反応しない場合は可能な手順だけを行います。Appleは別のデバイスやウェブからできる手順も案内しています。無理な操作はせず修理窓口に相談しましょう。",
+      "priority": "medium"
+    },
+    {
+      "title": "返却後の確認",
+      "description": "修理後にデータが消去されている場合があります。バックアップから復元する必要性を確認し、「探す」をオフにした場合は再度有効にします。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "バックアップと「探す」の準備を公式案内で確認し、パスコードを他人に教えない",
+    "description": "Appleは正規修理の前にiPhoneをバックアップし、iCloudの同期や「探す」の設定などを確認するよう案内しています。「探す」の準備はOSにより手順が異なります。修理後にデータが消去されている場合もあるため、公式案内と修理窓口で確認しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "修理前にバックアップとiCloud同期を確認する",
+      "reason": "データが消去された場合に備えるためです。"
+    },
+    {
+      "action": "OSのバージョンに合う「探す」の修理準備を確認する",
+      "reason": "バージョンごとに公式の手順が異なるためです。"
+    },
+    {
+      "action": "パスワードやパスコードを他人に教えず、操作できなければ修理窓口に相談する",
+      "reason": "アカウントを保護して必要な準備を確認するためです。"
+    },
+    {
+      "action": "返却後にデータと「探す」の状態を確認する",
+      "reason": "復元や再設定が必要な場合があるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "バックアップを確認せず修理後も必ずデータが残ると考える",
+      "reason": "設定や情報管理を誤って判断するおそれがあります。"
+    },
+    {
+      "action": "パスワードやパスコードを相手に伝える",
+      "reason": "設定や情報管理を誤って判断するおそれがあります。"
+    },
+    {
+      "action": "OSを確認せず別バージョン向けの操作を実行する",
+      "reason": "設定や情報管理を誤って判断するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使えます。実際の操作は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "修理前にバックアップとiCloud同期を確認する",
+      "OSのバージョンに合う「探す」の修理準備を確認する",
+      "パスワードやパスコードを他人に教えず、操作できなければ修理窓口に相談する"
+    ]
+  },
+  "makotoComment": "修理前はデータの備えと、OSに合う「探す」の手順を確認します。認証情報は相手に伝えず、不明な点は正規窓口に相談しましょう。",
+  "oneLineLesson": "バックアップと「探す」の準備を公式案内で確認し、パスコードを他人に教えない。",
+  "tags": [
+    "iPhone",
+    "修理",
+    "バックアップ",
+    "探す",
+    "パスコード"
+  ],
+  "sources": [
+    {
+      "title": "iPhoneやiPadを修理に出す準備をする",
+      "publisher": "Apple",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/109519"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "iPhoneを正規サービスプロバイダに修理へ持ち込みたい場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261030-01"
+  ],
+  "relatedArticlesCurated": true
+}
