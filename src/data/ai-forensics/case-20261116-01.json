@@ -1,0 +1,145 @@
+{
+  "id": "case-20261116-01",
+  "publishedAt": "2026-11-16",
+  "title": "パソコンのChromeに「ウイルス感染」の通知が出続ける？ サイト通知の確認と止め方",
+  "shortTitle": "パソコン版Chromeの偽通知",
+  "category": "scam",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "パソコンのChromeで感染警告が繰り返し表示される人",
+    "偽警告の通知を止めたい人"
+  ],
+  "summary": "IPAはブラウザーの通知機能を悪用し、偽の感染警告から不審サイトへ誘導する手口を案内しています。通知内のリンクや電話番号を使わず、パソコン版Chromeの設定で覚えのないサイトの通知許可を確認できます。",
+  "scenario": {
+    "headline": "パソコン画面に「ウイルス感染」の通知が何度も表示される",
+    "description": "通知からソフトを入れるか、表示された番号に電話するべきか不安です。",
+    "whyItMatters": "ブラウザー通知を悪用した偽警告もあり、表示だけで感染の有無は判断できません。"
+  },
+  "question": {
+    "text": "繰り返し出る通知にはどう対応する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "通知の指示に従わず、Chromeの設定で通知を許可したサイトを確認する",
+        "description": "公式の確認方法に沿って状況を整理できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "通知に書かれた番号へすぐ電話して遠隔操作を許可する",
+        "description": "通知や操作の意味を別々に確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "通知が消えれば他の経路の感染もないと断定する",
+        "description": "相手と設定の影響を確認して判断しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "IPAはブラウザーの通知機能を悪用し、偽の感染警告から不審サイトへ誘導する手口を案内しています。通知内のリンクや電話番号を使わず、パソコン版Chromeの設定で覚えのないサイトの通知許可を確認できます。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "通知の中身を信用しない",
+      "description": "IPAは、ウェブサイトの通知許可を取って偽の感染警告を表示し、不審サイトへ誘導する手口を確認しています。",
+      "priority": "high"
+    },
+    {
+      "title": "Chromeの通知許可を確認",
+      "description": "パソコン版Chromeの「設定」→「プライバシーとセキュリティ」→「サイトの設定」→「通知」を開き、通知が許可された不審なサイトを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "不審な許可を削除",
+      "description": "IPAは不審なURLのメニューから通知許可を削除する方法を案内しています。画面の名称や配置はChromeのバージョンによって異なります。",
+      "priority": "high"
+    },
+    {
+      "title": "感染診断とは分ける",
+      "description": "通知の許可を削除して止まっても、それだけで別の原因や感染の有無を証明できません。判断に迷う場合は利用中のセキュリティソフトやメーカーの公式窓口に相談します。",
+      "priority": "medium"
+    },
+    {
+      "title": "すでに操作した場合",
+      "description": "支払い、認証情報の入力、ソフトのインストール、遠隔操作を許した場合は、それぞれの影響を整理して公式窓口へ相談します。組織の端末は管理者に報告します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "通知の指示に従わず、Chromeの設定で通知を許可したサイトを確認する",
+    "description": "IPAはブラウザーの通知機能を悪用し、偽の感染警告から不審サイトへ誘導する手口を案内しています。通知内のリンクや電話番号を使わず、パソコン版Chromeの設定で覚えのないサイトの通知許可を確認できます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "通知のリンクや電話番号を使わずChromeの設定を開く",
+      "reason": "不審サイトへの誘導を避けるためです。"
+    },
+    {
+      "action": "通知を許可したサイトから覚えのないURLを削除する",
+      "reason": "そのサイトからの通知を止めるためです。"
+    },
+    {
+      "action": "すでに支払いや遠隔操作を行った場合は公式窓口や管理者へ相談する",
+      "reason": "操作に応じた対応を進めるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "通知先に誘導されるまま電話やソフトのインストールをする",
+      "reason": "安全や権限の範囲を誤って判断するおそれがあります。"
+    },
+    {
+      "action": "通知が消えたことだけでパソコン全体が安全だと断定する",
+      "reason": "安全や権限の範囲を誤って判断するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使えます。実際の操作は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "通知のリンクや電話番号を使わずChromeの設定を開く",
+      "通知を許可したサイトから覚えのないURLを削除する",
+      "すでに支払いや遠隔操作を行った場合は公式窓口や管理者へ相談する"
+    ]
+  },
+  "makotoComment": "通知が出たことと、実際に感染したことは別の話です。表示された指示は急いで押さず、Chromeの通知設定を落ち着いて確認しましょう。",
+  "oneLineLesson": "通知の指示に従わず、Chromeの設定で通知を許可したサイトを確認する。",
+  "tags": [
+    "Chrome",
+    "パソコン",
+    "偽警告",
+    "サイト通知",
+    "サポート詐欺"
+  ],
+  "sources": [
+    {
+      "title": "ブラウザの通知機能から不審サイトに誘導する手口に注意",
+      "publisher": "情報処理推進機構（IPA）",
+      "sourceType": "government-consumer-alert",
+      "publishedAt": "2021-03-09",
+      "url": "https://www.ipa.go.jp/security/anshin/attention/2021/mgdayori20210309.html"
+    },
+    {
+      "title": "通知を使用してアラートを受け取る",
+      "publisher": "Google",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/chrome/answer/3220216?hl=ja-ZZ"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "パソコン画面に「ウイルス感染」の通知が何度も表示される場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261029-02",
+    "case-20261108-01"
+  ],
+  "relatedArticlesCurated": true
+}

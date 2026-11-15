@@ -1,0 +1,137 @@
+{
+  "id": "case-20261116-03",
+  "publishedAt": "2026-11-16",
+  "title": "iPhoneで「アクセサリを使用するにはロックを解除」と出たら？ 有線接続と充電の違い",
+  "shortTitle": "iPhoneの有線アクセサリ設定",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "iPhoneで有線アクセサリを使う際にロック解除を求められた人",
+    "USB接続と充電の違いを確認したい人"
+  ],
+  "summary": "iPhoneは標準設定でUSBアクセサリやパソコンに接続するとき、ロック解除が必要な場合があります。通常のUSB電源アダプタによる充電とは分けて確認し、信頼できる機器を接続しましょう。設定の選択肢は端子やモデルで異なります。",
+  "scenario": {
+    "headline": "iPhoneを有線アクセサリにつなぐとロック解除を求められた",
+    "description": "故障なのか、許可すると何が変わるのか分かりません。",
+    "whyItMatters": "有線アクセサリとの通信と、USB電源アダプタによる充電の扱いは異なります。"
+  },
+  "question": {
+    "text": "信頼できるアクセサリが認識されないときは？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "ロックを解除してからアクセサリを接続し直し、必要なら設定を確認する",
+        "description": "公式の確認方法に沿って状況を整理できます。"
+      },
+      {
+        "id": "wrong1",
+        "label": "どのUSB機器も常に許可しなければ充電できないと決めつける",
+        "description": "通知や操作の意味を別々に確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "知らないパソコンでも画面の指示を確認せず信頼する",
+        "description": "相手と設定の影響を確認して判断しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "iPhoneは標準設定でUSBアクセサリやパソコンに接続するとき、ロック解除が必要な場合があります。通常のUSB電源アダプタによる充電とは分けて確認し、信頼できる機器を接続しましょう。設定の選択肢は端子やモデルで異なります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "ロック解除が必要な接続",
+      "description": "Appleは標準設定で、USBやThunderboltアクセサリ、MacやWindowsパソコンに接続する際に、まずiPhoneやiPadのロック解除が必要と案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "接続し直す",
+      "description": "ロックを解除しても認識されない場合は、アクセサリを取り外し、ロックを解除してから接続し直します。",
+      "priority": "high"
+    },
+    {
+      "title": "充電との違い",
+      "description": "ロック解除しないとアクセサリによっては充電されない場合があります。一方、USB電源アダプタへの接続では通常どおり充電されるとAppleは説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "有線アクセサリ設定",
+      "description": "「設定」→「プライバシーとセキュリティ」→「有線アクセサリ」で許可方法を確認できます。選択肢はUSB-CやLightningなどモデルによって異なります。",
+      "priority": "medium"
+    },
+    {
+      "title": "接続後も続く場合",
+      "description": "ロック解除中に確立された接続は、再度ロックしても維持される場合があります。信頼できない機器には接続せず、組織の端末は管理者の方針を確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "ロックを解除してからアクセサリを接続し直し、必要なら設定を確認する",
+    "description": "iPhoneは標準設定でUSBアクセサリやパソコンに接続するとき、ロック解除が必要な場合があります。通常のUSB電源アダプタによる充電とは分けて確認し、信頼できる機器を接続しましょう。設定の選択肢は端子やモデルで異なります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "接続先が信頼できるアクセサリか確認する",
+      "reason": "意図しないデータ接続を避けるためです。"
+    },
+    {
+      "action": "必要ならロック解除後にアクセサリを接続し直す",
+      "reason": "標準設定で認識されるか確認するためです。"
+    },
+    {
+      "action": "設定を変更する前にモデルごとの選択肢と影響を確認する",
+      "reason": "利便性と接続許可の範囲を理解するためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "充電したいだけで不明なパソコンを無条件に信頼する",
+      "reason": "安全や権限の範囲を誤って判断するおそれがあります。"
+    },
+    {
+      "action": "常に許可しなければどんな充電もできないと決めつける",
+      "reason": "安全や権限の範囲を誤って判断するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "個人情報や認証情報を入力せず、一般的な確認項目を整理する補助に使えます。実際の操作は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "接続先が信頼できるアクセサリか確認する",
+      "必要ならロック解除後にアクセサリを接続し直す",
+      "設定を変更する前にモデルごとの選択肢と影響を確認する"
+    ]
+  },
+  "makotoComment": "充電とアクセサリのデータ接続は分けて考えます。信頼できる機器を確かめ、必要に応じてロック解除や設定を見直しましょう。",
+  "oneLineLesson": "ロックを解除してからアクセサリを接続し直し、必要なら設定を確認する。",
+  "tags": [
+    "iPhone",
+    "USB",
+    "有線アクセサリ",
+    "充電",
+    "セキュリティ"
+  ],
+  "sources": [
+    {
+      "title": "USBアクセサリやその他のアクセサリをiPhoneまたはiPadに接続できるようにする",
+      "publisher": "Apple",
+      "sourceType": "official-product-documentation",
+      "publishedAt": "2025-10-24",
+      "url": "https://support.apple.com/ja-jp/111806"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "iPhoneを有線アクセサリにつなぐとロック解除を求められた場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261115-02"
+  ],
+  "relatedArticlesCurated": true
+}
