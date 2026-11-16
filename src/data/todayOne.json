@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T07:34:46+09:00",
+  "updatedAt": "2026-11-17T07:27:04+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -3687,6 +3687,68 @@
         {
           "label": "Google公開資料：Google Alertsを無料ツールとして紹介",
           "url": "https://services.google.com/fh/files/misc/ca_dms_shopherestarterkit_june15.pdf"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "slug": "cryptpad-document-private-collaborative-editing",
+      "useCategory": "文書・データ整理",
+      "name": "CryptPad Document",
+      "category": "Collaborative Document / Freemium",
+      "officialUrl": "https://cryptpad.org/apps/document/",
+      "summary": "CryptPad Documentは、文書をブラウザー内で暗号化して共同編集でき、公式説明ではインスタンス運営者が本文を読めない設計のオンライン文書です。",
+      "whyToday": "公開前原稿の修正案がメール添付で散らばると、どれが最新か分かりづらくなることがあります。CryptPad Documentなら、連絡先ごとに閲覧・編集の権限を設定した一つの文書に、複数人の修正を集めて共同編集できます。",
+      "useFor": "例えば、公開前のイベント案内文を広報と編集担当の2人で整える想定例です。各自で無料アカウントを作り、cryptpad.frのDocumentに見出しと公開済みの開催情報だけを入れた1ページ案を作ります。ShareからContactsを選び、相手にEdit権限で共有すると、同じ文書をリアルタイムで編集できます。完成案はFileからWord形式またはPDFへ書き出せます。まず公開情報だけで小さく始め、相手の表示名と編集権限、保存済みの表示を確かめます。これは未実施の想定例です。",
+      "recommendedFor": {
+        "employeeId": "MMC-011",
+        "reason": "企画営業部で記事を編集するコトちゃんに、公開前原稿の見出しと要確認点を文書へ整理してもらい、共同編集で集まった修正を反映した案を成果物として受け取りたいです。"
+      },
+      "keiComment": "Documentの初期Fast Modeは変更がすぐ同期される一方、Undoが使えません。大きく書き換える校正では、編集箇所を分けるか、必要に応じてUndoできるStrict Modeにしてから始めるのがよさそうです。",
+      "verifiedAt": "2026-11-17",
+      "status": "published",
+      "pricing": "CryptPadの公式料金ページは公開インスタンスの無料アカウントを案内しています。cryptpad.frでは追加ストレージ等の有料プランもあります。例に使う小さな共同文書は無料アカウントで試せますが、無料枠の具体的な容量は確認した公式ページに数値の記載がないため断定しません。",
+      "conditions": "共有相手を連絡先として指定する場合、共同編集者もCryptPadにログインする必要があります。アカウント登録に必要なのはユーザー名とパスワードで、メールアドレスなどの個人情報は必須ではありません。公開インスタンスを使う例では自己ホスト不要です。",
+      "license": "CryptPadのソフトウェアはGNU Affero General Public License v3またはそれ以降（AGPL-3.0-or-later）です。この例は公式の公開インスタンスを使うため、サーバー費用や運用作業を含みません。",
+      "notes": "CryptPad公式のDocument紹介・料金ページ・利用者ガイド（アカウント、共有、文書、セキュリティ）と公式GitHubのライセンスを2026-11-17に確認しました。活用例は想定で、実機検証はしていません。CryptPad DocumentはAgent SkillやMCPではなく、暗号化を備えた共同編集文書です。",
+      "archiveTitle": "CryptPad Documentで共同編集しても運営者に本文は読めない？",
+      "archiveDescription": "CryptPad Documentの本文暗号化と共同編集の仕組みを確認し、連絡先へ編集権限を共有して原稿案を作る手順を紹介します。公開インスタンスと共有リンクの注意点もまとめます。",
+      "forWho": "公開前の原稿を複数人で共同編集し、共有先サービスに本文を読ませない設計も重視したい編集・広報担当者向けです。",
+      "cautions": "本文はブラウザー内で暗号化されますが、利用する公開インスタンスは信頼できる運営元を選んでください。インスタンスには接続元IPアドレスやブラウザー情報が伝わり、共有リンクは閲覧・編集権限を渡す鍵として扱います。リンク共有時は必要な権限を選び、パスワード設定も検討してください。機密・個人情報を扱う場合は組織の規程や必要な契約条件を別途確認します。",
+      "faq": [
+        {
+          "question": "CryptPadの管理者にも文書本文は読まれますか？",
+          "answer": "CryptPadの公式説明では、文書はブラウザー内で暗号化され、適切に運用されたインスタンスの管理者は本文を読めない設計です。ただし、インスタンスにはIPアドレスやブラウザー情報が伝わるため、運営元を信頼できるか確認してください。"
+        },
+        {
+          "question": "共同編集の権限はどうやって渡せますか？",
+          "answer": "ログイン後、文書のShareからContactsを選び、共有相手とViewまたはEdit権限を指定できます。共有リンクを送る場合はリンク自体がアクセス手段になるため、必要に応じてパスワードを設定します。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "CryptPad公式：Documentの機能と暗号化",
+          "url": "https://cryptpad.org/apps/document/"
+        },
+        {
+          "label": "CryptPad公式料金：公開インスタンスの無料アカウント",
+          "url": "https://cryptpad.org/pricing/"
+        },
+        {
+          "label": "CryptPad公式ガイド：文書の共有・権限設定",
+          "url": "https://docs.cryptpad.org/en/user_guide/share_and_access.html"
+        },
+        {
+          "label": "CryptPad公式ガイド：Documentの編集・書き出し",
+          "url": "https://docs.cryptpad.org/en/user_guide/apps/document.html"
+        },
+        {
+          "label": "CryptPad公式セキュリティガイド：信頼条件と共有リンク",
+          "url": "https://docs.cryptpad.org/en/user_guide/security.html"
+        },
+        {
+          "label": "CryptPad公式GitHub：AGPL-3.0-or-later",
+          "url": "https://github.com/cryptpad/cryptpad"
         }
       ]
     }
