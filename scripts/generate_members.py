@@ -13,6 +13,7 @@ MEMBERS_DIR = ROOT / "members"
 LOUNGE_LOGS_PATH = ROOT / "src" / "data" / "loungeLogs.json"
 CONVERSATION_HISTORY_PATH = ROOT / "src" / "data" / "memberConversationHistory.json"
 WORK_PROFILES_PATH = ROOT / "src" / "data" / "memberWorkProfiles.json"
+CATCHPHRASES_PATH = ROOT / "src" / "data" / "memberCatchphrases.json"
 SOURCE_DIR = Path(
     os.environ.get(
         "MMC_PROFILE_SOURCE",
@@ -492,6 +493,7 @@ def render_main(
     lounge_logs: dict[str, dict],
 ) -> str:
     display_name = meta.get("display_name") or first(sections, "氏名")
+    catchphrase = json.loads(CATCHPHRASES_PATH.read_text(encoding="utf-8"))[meta["slug"]]
     member_number = first(sections, "社員番号")
     department = " / ".join(sections.get("所属", [])[-1:]) or "毎日見る株式会社"
     role = " / ".join(sections.get("役職", []))
@@ -569,6 +571,7 @@ def render_main(
         <div class="member-detail-summary">
           <span class="member-number">{esc(member_number)}</span>
           <p class="member-department">{esc(department)}</p>
+          <p class="member-catchphrase">{esc(catchphrase)}</p>
           <h1 id="member-name">{esc(display_name)}</h1>
           <p class="member-roman">{esc(meta['roman'])}</p>
           <p class="member-lead">{esc(meta['lead'])}</p>
