@@ -1,0 +1,154 @@
+{
+  "id": "case-20261118-03",
+  "publishedAt": "2026-11-18",
+  "title": "Googleドライブのファイルをまとめて以前の状態に戻せる？ 復元ツールの対象と注意点",
+  "shortTitle": "Googleドライブの一括復元",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Googleドライブの複数ファイルを以前の状態に戻したい人",
+    "復元対象と影響範囲を確認したい人"
+  ],
+  "summary": "Googleドライブには複数ファイルを以前の版に戻す復元ツールがあります。Googleはこの機能をベータ版と案内しています。個々のファイルは選べず、削除したファイルの復元とは別の手順なので、実行前に対象と時点を確認しましょう。",
+  "scenario": {
+    "headline": "複数ファイルに加えた変更をまとめて戻したい",
+    "description": "Googleドライブには複数ファイルを以前の版に戻す復元ツールがあります。Googleはこの機能をベータ版と案内しています。個々のファイルは選べず、削除したファイルの復元とは別の手順なので、実行前に対象と時点を確認しましょう。",
+    "whyItMatters": "ファイルの状態と復元範囲を確認し、個々のファイルを選べないことに注意することが大切です。"
+  },
+  "question": {
+    "text": "復元の前に何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "ファイルの状態と復元範囲を確認し、個々のファイルを選べないことに注意する",
+        "description": "設定や対象を確認してから判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "一括復元では戻すファイルを一つずつ自由に選べると考える",
+        "description": "データや対象を確認してから操作しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "ファイルの削除も版の復元も同じ操作で必ず元に戻ると考える",
+        "description": "操作の影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Googleドライブには複数ファイルを以前の版に戻す復元ツールがあります。Googleはこの機能をベータ版と案内しています。個々のファイルは選べず、削除したファイルの復元とは別の手順なので、実行前に対象と時点を確認しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "ベータ版",
+      "description": "Googleはファイル バージョンの復元ツールをベータ版と案内しています。画面や利用可否は変わる場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "確認する場所",
+      "description": "ブラウザ版Googleドライブの設定から「ファイル バージョンの復元」を開きます。表示されない場合は利用条件や管理者の案内を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "一括復元の範囲",
+      "description": "変更履歴と戻す版を確認します。Googleは個々のファイルを選択できないと注意しています。",
+      "priority": "high"
+    },
+    {
+      "title": "復元される版",
+      "description": "以前の版のコピーが新しい現在の版となり、既存の版は削除されないとGoogleは説明しています。",
+      "priority": "medium"
+    },
+    {
+      "title": "対象外と別の手順",
+      "description": "GoogleドキュメントやスライドなどGoogleアプリで作成されたファイルは、この一括復元には表示されません。削除したファイルも別の復元手順を確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "感染が疑われる場合",
+      "description": "ランサムウェアが疑われる職場・学校の端末は、独断で復元や同期再開をせず、管理者の指示に従います。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "ファイルの状態と復元範囲を確認し、個々のファイルを選べないことに注意する",
+    "description": "Googleドライブには複数ファイルを以前の版に戻す復元ツールがあります。Googleはこの機能をベータ版と案内しています。個々のファイルは選べず、削除したファイルの復元とは別の手順なので、実行前に対象と時点を確認しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "削除したのか、ファイルの内容が変更されたのかを確認する",
+      "reason": "削除ファイルの復元と版の復元は別の手順です。"
+    },
+    {
+      "action": "ブラウザ版Driveの設定で「ファイル バージョンの復元」を確認する",
+      "reason": "ベータ版のツールが表示されるか確認します。"
+    },
+    {
+      "action": "変更履歴、復元後の版と影響範囲を確認してから実行する",
+      "reason": "個々のファイルは選べず、まとめて現在の版が変わるためです。"
+    },
+    {
+      "action": "業務ファイルや感染が疑われる場合は管理者へ相談する",
+      "reason": "共同作業や同期に影響する可能性があるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "個別ファイルを自由に指定できると考えて実行する",
+      "reason": "Googleは個々のファイルを選択できないと案内しています。"
+    },
+    {
+      "action": "削除したファイルもこのツールで復元できると決めつける",
+      "reason": "削除ファイルは別の手順を確認する必要があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "個人情報やファイルの中身を入力せず、一般的な確認項目の整理に使えます。実際の操作は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "削除したのか、ファイルの内容が変更されたのかを確認する",
+      "ブラウザ版Driveの設定で「ファイル バージョンの復元」を確認する",
+      "変更履歴、復元後の版と影響範囲を確認してから実行する"
+    ]
+  },
+  "makotoComment": "一括復元は便利ですが、ファイルを一つずつ選ぶ操作ではありません。実行前に変更履歴と影響を確認しましょう。",
+  "oneLineLesson": "ファイルの状態と復元範囲を確認し、個々のファイルを選べないことに注意する。",
+  "tags": [
+    "Googleドライブ",
+    "ファイル復元",
+    "変更履歴",
+    "ベータ版",
+    "バックアップ"
+  ],
+  "sources": [
+    {
+      "title": "Google ドライブでファイルを一括で復元する",
+      "publisher": "Google",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/drive/answer/16482799?hl=ja"
+    },
+    {
+      "title": "操作履歴とファイル バージョンを確認する",
+      "publisher": "Google",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/drive/answer/2409045?co=GENIE.Platform%3DDesktop&hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "複数ファイルに加えた変更をまとめて戻したい場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261118-02",
+    "case-20261110-02"
+  ],
+  "relatedArticlesCurated": true
+}

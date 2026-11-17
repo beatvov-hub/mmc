@@ -1,0 +1,149 @@
+{
+  "id": "case-20261118-02",
+  "publishedAt": "2026-11-18",
+  "title": "OneDriveで削除したファイルを復元するには？ ごみ箱と共有ファイルの確認",
+  "shortTitle": "OneDriveの誤削除と復元",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "OneDriveでファイルを誤って削除した人",
+    "職場や学校で共有ファイルを管理する人"
+  ],
+  "summary": "OneDriveのファイルを誤って削除しても、Web版の「ごみ箱」から復元できる場合があります。正しいアカウントを確認し、共有されたフォルダーが見つからない場合は所有者や管理者に相談しましょう。",
+  "scenario": {
+    "headline": "共有資料を誤って削除してしまった",
+    "description": "OneDriveのファイルを誤って削除しても、Web版の「ごみ箱」から復元できる場合があります。正しいアカウントを確認し、共有されたフォルダーが見つからない場合は所有者や管理者に相談しましょう。",
+    "whyItMatters": "正しいアカウントのごみ箱とファイルの所有者を確認することが大切です。"
+  },
+  "question": {
+    "text": "最初に確認したい場所は？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "正しいアカウントのごみ箱とファイルの所有者を確認する",
+        "description": "設定や対象を確認してから判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "共有ファイルはどの利用者でも自分のごみ箱から必ず復元できると考える",
+        "description": "データや対象を確認してから操作しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "対象を確認せずごみ箱を空にする",
+        "description": "操作の影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "OneDriveのファイルを誤って削除しても、Web版の「ごみ箱」から復元できる場合があります。正しいアカウントを確認し、共有されたフォルダーが見つからない場合は所有者や管理者に相談しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "Web版のごみ箱",
+      "description": "OneDriveのWebサイトにサインインし、ナビゲーションの「ごみ箱」から対象を選んで復元します。",
+      "priority": "high"
+    },
+    {
+      "title": "個人用の保持期間",
+      "description": "Microsoftは個人用アカウントのごみ箱のアイテムが、入ってから30日後に自動削除されると案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "職場・学校の保持期間",
+      "description": "職場・学校アカウントでは、管理者が設定を変更しない限り93日後に自動削除されます。組織の設定を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "共有されたフォルダー",
+      "description": "他の人から共有されたフォルダーは自分で復元できない場合があります。所有者に確認しましょう。",
+      "priority": "medium"
+    },
+    {
+      "title": "パソコン側のごみ箱",
+      "description": "WindowsやMacのごみ箱も確認できますが、オンラインのみのファイルやクラウドから削除されたファイルは表示されない場合があります。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "正しいアカウントのごみ箱とファイルの所有者を確認する",
+    "description": "OneDriveのファイルを誤って削除しても、Web版の「ごみ箱」から復元できる場合があります。正しいアカウントを確認し、共有されたフォルダーが見つからない場合は所有者や管理者に相談しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Web版OneDriveに正しいアカウントでサインインする",
+      "reason": "個人用と職場用など、対象の保存先を取り違えないためです。"
+    },
+    {
+      "action": "「ごみ箱」でファイル名や削除した対象を確認し、必要な項目を復元する",
+      "reason": "ファイルが残っていれば復元できる場合があります。"
+    },
+    {
+      "action": "共有されたフォルダーが見つからない場合は所有者に確認する",
+      "reason": "自分のごみ箱では復元できない場合があるためです。"
+    },
+    {
+      "action": "業務資料や復元できない場合は管理者に相談する",
+      "reason": "組織の保持設定や管理方法が異なるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "復元前にごみ箱を空にする",
+      "reason": "復元できる項目も完全に削除されるおそれがあります。"
+    },
+    {
+      "action": "ランサムウェアの警告が出ているのに原因を調べず復元する",
+      "reason": "同期端末の状態を確認せず復元すると再び影響を受けるおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "個人情報やファイルの中身を入力せず、一般的な確認項目の整理に使えます。実際の操作は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "Web版OneDriveに正しいアカウントでサインインする",
+      "「ごみ箱」でファイル名や削除した対象を確認し、必要な項目を復元する",
+      "共有されたフォルダーが見つからない場合は所有者に確認する"
+    ]
+  },
+  "makotoComment": "まずは正しいアカウントのごみ箱を確認しましょう。共有された資料は、持ち主への確認も大切です。",
+  "oneLineLesson": "正しいアカウントのごみ箱とファイルの所有者を確認する。",
+  "tags": [
+    "OneDrive",
+    "ごみ箱",
+    "ファイル復元",
+    "共有",
+    "誤削除"
+  ],
+  "sources": [
+    {
+      "title": "OneDrive で削除したファイルまたはフォルダーを復元する",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/onedrive/restore-deleted-files-or-folders-in-onedrive"
+    },
+    {
+      "title": "OneDrive から削除されたファイルを復元する",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/onedrive/restore-your-onedrive-files"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "共有資料を誤って削除してしまった場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261110-02",
+    "case-20261117-01"
+  ],
+  "relatedArticlesCurated": true
+}
