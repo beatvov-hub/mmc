@@ -1,0 +1,142 @@
+{
+  "id": "case-20261117-01",
+  "publishedAt": "2026-11-17",
+  "title": "OneDriveの共有リンクを削除しても相手が見られる？ 個別権限とリンクの確認方法",
+  "shortTitle": "OneDriveの共有停止を確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "職場や学校のOneDriveでファイルを共有した人",
+    "共有リンクの削除後にアクセス範囲を確認したい人"
+  ],
+  "summary": "職場や学校のOneDriveでは、共有リンクの削除と、特定のユーザーに直接付与したアクセス権の確認は別です。「アクセスの管理」でリンクとユーザーの両方を確認し、変更の影響が分からない場合は管理者に相談しましょう。",
+  "scenario": {
+    "headline": "共有リンクを削除したのに、以前の共有相手がまだファイルを開けるかもしれない",
+    "description": "職場や学校のOneDriveでは、共有リンクの削除と、特定のユーザーに直接付与したアクセス権の確認は別です。「アクセスの管理」でリンクとユーザーの両方を確認し、変更の影響が分からない場合は管理者に相談しましょう。",
+    "whyItMatters": "共有リンクと直接付与されたアクセス権をそれぞれ確認する"
+  },
+  "question": {
+    "text": "共有を止めるとき、何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "共有リンクと直接付与されたアクセス権をそれぞれ確認する",
+        "description": "確認する対象と範囲を分けて判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "リンクを一つ削除すれば、すべての共有相手の権限が消えると考える",
+        "description": "設定や保存場所によって扱いが異なります。"
+      },
+      {
+        "id": "wrong2",
+        "label": "影響範囲を調べず共有フォルダーの権限を一括で削除する",
+        "description": "操作前に影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "職場や学校のOneDriveでは、共有リンクの削除と、特定のユーザーに直接付与したアクセス権の確認は別です。「アクセスの管理」でリンクとユーザーの両方を確認し、変更の影響が分からない場合は管理者に相談しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "対象と利用環境",
+      "description": "この手順はMicrosoftが案内する職場または学校のOneDrive向けです。個人用や組織の設定によって画面や操作は異なります。",
+      "priority": "high"
+    },
+    {
+      "title": "共有リンク",
+      "description": "ファイルまたはフォルダーを選び、「情報」から詳細画面を開いて「アクセスの管理」でリンクを確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "直接のアクセス権",
+      "description": "共有リンクとは別に、個人やグループへ直接与えた権限が残っていないか確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "リンクと権限の組み合わせ",
+      "description": "直接の権限を表示のみに変えても、編集できるリンクが残っていれば編集できる場合があるとMicrosoftは説明しています。",
+      "priority": "medium"
+    },
+    {
+      "title": "保存済みコピー",
+      "description": "リンクを無効にしても、相手が既に保存したコピーが消えるとは限りません。必要なら組織の担当者へ相談します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "共有リンクと直接付与されたアクセス権をそれぞれ確認する",
+    "description": "職場や学校のOneDriveでは、共有リンクの削除と、特定のユーザーに直接付与したアクセス権の確認は別です。「アクセスの管理」でリンクとユーザーの両方を確認し、変更の影響が分からない場合は管理者に相談しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "OneDriveで対象のファイルまたはフォルダーを一つ選ぶ",
+      "reason": "意図した対象の共有設定を確認するためです。"
+    },
+    {
+      "action": "「情報」から詳細画面を開き、「アクセスの管理」でリンクとユーザーを確認する",
+      "reason": "共有方法ごとに有効な権限を確認します。"
+    },
+    {
+      "action": "必要な相手や業務への影響を確認し、不要なリンクや権限を適切に停止する",
+      "reason": "リンクと直接のアクセス権は別々に管理されるためです。"
+    },
+    {
+      "action": "変更できない場合や共有範囲が不明な場合は管理者に相談する",
+      "reason": "組織の設定や他の利用者に影響する可能性があるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "一つのリンクを消しただけですべての経路が遮断されたと考える",
+      "reason": "別のリンクや直接のアクセス権が残っている場合があります。"
+    },
+    {
+      "action": "相手の保存済みコピーも自動で消えると考える",
+      "reason": "共有解除は手元のコピーを回収する操作ではありません。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "認証情報や共有資料を入力せず、一般的な確認項目の整理に使えます。実際の設定は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "OneDriveで対象のファイルまたはフォルダーを一つ選ぶ",
+      "「情報」から詳細画面を開き、「アクセスの管理」でリンクとユーザーを確認する",
+      "必要な相手や業務への影響を確認し、不要なリンクや権限を適切に停止する"
+    ]
+  },
+  "makotoComment": "リンクと人に渡した権限を分けて確認します。必要な人の作業を止めないよう、対象と影響も確かめましょう。",
+  "oneLineLesson": "共有リンクと直接付与されたアクセス権をそれぞれ確認する。",
+  "tags": [
+    "OneDrive",
+    "共有リンク",
+    "アクセス権",
+    "職場",
+    "情報管理"
+  ],
+  "sources": [
+    {
+      "title": "Microsoft OneDrive でファイルやフォルダーを共有する",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/onedrive/share-files-and-folders-in-microsoft-onedrive"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "共有リンクを削除したのに、以前の共有相手がまだファイルを開けるかもしれない場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261109-01",
+    "case-20261111-01"
+  ],
+  "relatedArticlesCurated": true
+}

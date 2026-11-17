@@ -1,0 +1,153 @@
+{
+  "id": "case-20261117-02",
+  "publishedAt": "2026-11-17",
+  "title": "Microsoftアカウントのパスキーを削除する前に：新しい端末への移行と確認場所",
+  "shortTitle": "Microsoftのパスキー移行",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Microsoftアカウントのパスキーを使っている人",
+    "スマートフォンを機種変更する人"
+  ],
+  "summary": "Microsoftアカウントのパスキーを移行するときは、端末に保存されているか、同期されたパスワードマネージャーに保存されているかを確認します。新しい端末でサインインできることを確かめ、必要な別の方法を確保してから古い登録を整理しましょう。",
+  "scenario": {
+    "headline": "スマートフォンを買い替えたので古いMicrosoftアカウントのパスキーを消したい",
+    "description": "Microsoftアカウントのパスキーを移行するときは、端末に保存されているか、同期されたパスワードマネージャーに保存されているかを確認します。新しい端末でサインインできることを確かめ、必要な別の方法を確保してから古い登録を整理しましょう。",
+    "whyItMatters": "保存先と別のサインイン手段を確認し、新しい端末での利用を確かめる"
+  },
+  "question": {
+    "text": "古いパスキーを削除する前に何をする？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "保存先と別のサインイン手段を確認し、新しい端末での利用を確かめる",
+        "description": "確認する対象と範囲を分けて判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "同期の有無に関係なく古いパスキーをすべて先に削除する",
+        "description": "設定や保存場所によって扱いが異なります。"
+      },
+      {
+        "id": "wrong2",
+        "label": "Microsoftアカウントから削除すれば他サービスのパスキーも消えると考える",
+        "description": "操作前に影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Microsoftアカウントのパスキーを移行するときは、端末に保存されているか、同期されたパスワードマネージャーに保存されているかを確認します。新しい端末でサインインできることを確かめ、必要な別の方法を確保してから古い登録を整理しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "対象アカウント",
+      "description": "個人用Microsoftアカウントの確認が中心です。職場・学校アカウントでは組織の管理方法が異なります。",
+      "priority": "high"
+    },
+    {
+      "title": "保存先を確認",
+      "description": "Microsoftアカウントの「詳細セキュリティ オプション」でパスキーを開くと、保存場所や最後に使用された時刻を確認できます。",
+      "priority": "high"
+    },
+    {
+      "title": "端末保存の場合",
+      "description": "古い端末に保存されている場合、Microsoftは新しいパスキーを追加してから古い登録を削除するよう案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "同期している場合",
+      "description": "同期されたパスワードマネージャーに保存されていれば、新端末でその管理アカウントにサインインして使える場合があります。同期状態を確認しましょう。",
+      "priority": "medium"
+    },
+    {
+      "title": "職場・学校の場合",
+      "description": "Microsoftは職場・学校アカウントについて、組織のセキュリティ情報と保存先の両方で削除する手順を案内しています。組織のルールを管理者に確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "保存先と別のサインイン手段を確認し、新しい端末での利用を確かめる",
+    "description": "Microsoftアカウントのパスキーを移行するときは、端末に保存されているか、同期されたパスワードマネージャーに保存されているかを確認します。新しい端末でサインインできることを確かめ、必要な別の方法を確保してから古い登録を整理しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "安全な端末でMicrosoftアカウントの「詳細セキュリティ オプション」を開く",
+      "reason": "登録されたサインイン方法と保存場所を確認できます。"
+    },
+    {
+      "action": "別のサインイン手段を確保し、パスキーが端末保存か同期保存かを確認する",
+      "reason": "削除後にサインインできなくなることを避けるためです。"
+    },
+    {
+      "action": "必要に応じて新端末にパスキーを設定し、実際にサインインできることを確認する",
+      "reason": "新しい環境で利用できることを確かめます。"
+    },
+    {
+      "action": "不要な古い登録を対象を確かめて削除する",
+      "reason": "別の端末やサービスの登録を誤って消さないためです。"
+    },
+    {
+      "action": "職場・学校で不明な場合やサインインできない場合は管理者に相談する",
+      "reason": "組織の管理や復旧手順が異なるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "新しい方法を確保する前に古いサインイン手段をすべて削除する",
+      "reason": "アカウントに入れなくなるおそれがあります。"
+    },
+    {
+      "action": "認証コードやパスワードを第三者に伝える",
+      "reason": "不正なサインインに悪用されるおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "認証情報や共有資料を入力せず、一般的な確認項目の整理に使えます。実際の設定は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "安全な端末でMicrosoftアカウントの「詳細セキュリティ オプション」を開く",
+      "別のサインイン手段を確保し、パスキーが端末保存か同期保存かを確認する",
+      "必要に応じて新端末にパスキーを設定し、実際にサインインできることを確認する"
+    ]
+  },
+  "makotoComment": "パスキーがどこに保存されているかで、移行時に確認することが変わります。新しい端末で試してから、古い登録を整理しましょう。",
+  "oneLineLesson": "保存先と別のサインイン手段を確認し、新しい端末での利用を確かめる。",
+  "tags": [
+    "Microsoftアカウント",
+    "パスキー",
+    "機種変更",
+    "サインイン",
+    "セキュリティ"
+  ],
+  "sources": [
+    {
+      "title": "保存したパスキーを管理する",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/accounts-billing/security/manage-your-saved-passkeys"
+    },
+    {
+      "title": "パスキーを使用したサインインのトラブルシューティング",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/accounts-billing/security/troubleshoot-signing-in-with-a-passkey"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "スマートフォンを買い替えたので古いMicrosoftアカウントのパスキーを消したい場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261030-02",
+    "case-20261027-02"
+  ],
+  "relatedArticlesCurated": true
+}

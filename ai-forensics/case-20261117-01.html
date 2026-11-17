@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OneDriveの共有リンクを削除しても相手が見られる？ 個別権限とリンクの確認方法｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="職場や学校のOneDriveでは、共有リンクの削除と、特定のユーザーに直接付与したアクセス権の確認は別です。「アクセスの管理」でリンクとユーザーの両方を確認し、変更の影響が分からない場合は管理者に相談しましょう。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261117-01" />
+<meta property="og:title" content="OneDriveの共有リンクを削除しても相手が見られる？ 個別権限とリンクの確認方法｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="職場や学校のOneDriveでは、共有リンクの削除と、特定のユーザーに直接付与したアクセス権の確認は別です。「アクセスの管理」でリンクとユーザーの両方を確認し、変更の影響が分からない場合は管理者に相談しましょう。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261117-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "OneDriveの共有リンクを削除しても相手が見られる？ 個別権限とリンクの確認方法", "description": "職場や学校のOneDriveでは、共有リンクの削除と、特定のユーザーに直接付与したアクセス権の確認は別です。「アクセスの管理」でリンクとユーザーの両方を確認し、変更の影響が分からない場合は管理者に相談しましょう。", "datePublished": "2026-11-17", "mainEntityOfPage": "https://mainichi-miru.com/ai-forensics/case-20261117-01", "inLanguage": "ja"}</script>
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../quiz/">AI学習室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>OneDriveの共有停止を確認</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-11-17">2026.11.17</time>
+
+            </div>
+            <h1>OneDriveの共有リンクを削除しても相手が見られる？ 個別権限とリンクの確認方法</h1>
+            <p>職場や学校のOneDriveでは、共有リンクの削除と、特定のユーザーに直接付与したアクセス権の確認は別です。「アクセスの管理」でリンクとユーザーの両方を確認し、変更の影響が分からない場合は管理者に相談しましょう。</p>
+            <ul class="forensics-target-list"><li>職場や学校のOneDriveでファイルを共有した人</li><li>共有リンクの削除後にアクセス範囲を確認したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>OneDrive</li><li>共有リンク</li><li>アクセス権</li><li>職場</li><li>情報管理</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>共有リンクを削除したのに、以前の共有相手がまだファイルを開けるかもしれない</h3><p>職場や学校のOneDriveでは、共有リンクの削除と、特定のユーザーに直接付与したアクセス権の確認は別です。「アクセスの管理」でリンクとユーザーの両方を確認し、変更の影響が分からない場合は管理者に相談しましょう。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>共有リンクと直接付与されたアクセス権をそれぞれ確認する</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="correct">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>共有を止めるとき、何を確認する？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="correct" data-choice-id="correct" />
+                <span>
+                  <strong>共有リンクと直接付与されたアクセス権をそれぞれ確認する</strong>
+                  <small>確認する対象と範囲を分けて判断します。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="wrong1" data-choice-id="wrong1" />
+                <span>
+                  <strong>リンクを一つ削除すれば、すべての共有相手の権限が消えると考える</strong>
+                  <small>設定や保存場所によって扱いが異なります。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="wrong2" data-choice-id="wrong2" />
+                <span>
+                  <strong>影響範囲を調べず共有フォルダーの権限を一括で削除する</strong>
+                  <small>操作前に影響を確認しましょう。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>共有リンクと直接付与されたアクセス権をそれぞれ確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>職場や学校のOneDriveでは、共有リンクの削除と、特定のユーザーに直接付与したアクセス権の確認は別です。「アクセスの管理」でリンクとユーザーの両方を確認し、変更の影響が分からない場合は管理者に相談しましょう。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象と利用環境</h3>
+              <p>この手順はMicrosoftが案内する職場または学校のOneDrive向けです。個人用や組織の設定によって画面や操作は異なります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>共有リンク</h3>
+              <p>ファイルまたはフォルダーを選び、「情報」から詳細画面を開いて「アクセスの管理」でリンクを確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>直接のアクセス権</h3>
+              <p>共有リンクとは別に、個人やグループへ直接与えた権限が残っていないか確認します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>リンクと権限の組み合わせ</h3>
+              <p>直接の権限を表示のみに変えても、編集できるリンクが残っていれば編集できる場合があるとMicrosoftは説明しています。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>保存済みコピー</h3>
+              <p>リンクを無効にしても、相手が既に保存したコピーが消えるとは限りません。必要なら組織の担当者へ相談します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>共有リンクと直接付与されたアクセス権をそれぞれ確認する</strong><p>職場や学校のOneDriveでは、共有リンクの削除と、特定のユーザーに直接付与したアクセス権の確認は別です。「アクセスの管理」でリンクとユーザーの両方を確認し、変更の影響が分からない場合は管理者に相談しましょう。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>OneDriveで対象のファイルまたはフォルダーを一つ選ぶ</strong><span>意図した対象の共有設定を確認するためです。</span></li>
+            <li><strong>「情報」から詳細画面を開き、「アクセスの管理」でリンクとユーザーを確認する</strong><span>共有方法ごとに有効な権限を確認します。</span></li>
+            <li><strong>必要な相手や業務への影響を確認し、不要なリンクや権限を適切に停止する</strong><span>リンクと直接のアクセス権は別々に管理されるためです。</span></li>
+            <li><strong>変更できない場合や共有範囲が不明な場合は管理者に相談する</strong><span>組織の設定や他の利用者に影響する可能性があるためです。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>一つのリンクを消しただけですべての経路が遮断されたと考える</strong><span>別のリンクや直接のアクセス権が残っている場合があります。</span></li>
+            <li><strong>相手の保存済みコピーも自動で消えると考える</strong><span>共有解除は手元のコピーを回収する操作ではありません。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIで確認項目を整理する</h3>
+          <p>認証情報や共有資料を入力せず、一般的な確認項目の整理に使えます。実際の設定は公式案内や管理者に確認しましょう。</p>
+          <ul class="positive-example-list"><li>OneDriveで対象のファイルまたはフォルダーを一つ選ぶ</li><li>「情報」から詳細画面を開き、「アクセスの管理」でリンクとユーザーを確認する</li><li>必要な相手や業務への影響を確認し、不要なリンクや権限を適切に停止する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>リンクと人に渡した権限を分けて確認します。必要な人の作業を止めないよう、対象と影響も確かめましょう。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>共有リンクと直接付与されたアクセス権をそれぞれ確認する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/ja-jp/onedrive/share-files-and-folders-in-microsoft-onedrive" target="_blank" rel="noopener noreferrer">Microsoft OneDrive でファイルやフォルダーを共有する<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261109-01" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Googleドライブを「制限付き」にしたのに見られる？ 個別共有とフォルダ権限の確認方法 ドライブの共有権限を確認 Googleドライブの「制限付き」は、アクセス権を付与された人だけが開ける設定です。リンクの公開範囲だけでなく、個別に付けた権限や親フォルダからの権限も確認しましょう。組織の設定やアクセス制限付きフォルダでは扱いが異なる場合があります。 セキュリティ・権限 はじめて Googleドライブ 共有設定 アクセス権 個人情報 リンク共有 Googleドライブで共有したファイルの公開範囲を見直したい人 職場や学校で共有ファイルを管理する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shield</span>
+              <div>
+                <p>ドライブの共有権限を確認</p>
+                <h3>Googleドライブを「制限付き」にしたのに見られる？ 個別共有とフォルダ権限の確認方法</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-11-09">2026.11.09</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Googleドライブの「制限付き」は、アクセス権を付与された人だけが開ける設定です。リンクの公開範囲だけでなく、個別に付けた権限や親フォルダからの権限も確認しましょう。組織の設定やアクセス制限付きフォルダでは扱いが異なる場合があります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Googleドライブで共有したファイルの公開範囲を見直したい人</li><li>職場や学校で共有ファイルを管理する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Googleドライブ</li><li>共有設定</li><li>アクセス権</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261111-01" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="Microsoft 365 Familyの容量は家族で共用？ OneDriveの変更時期とファイルの公開範囲 Microsoft 365の家族共有容量 MicrosoftはMicrosoft 365 FamilyとPremiumのクラウド容量を、対象契約で2TBの共有方式に変更すると案内しています。適用時期は新規・既存契約で異なります。容量が共用でも、ファイルやメールの内容が自動的に他のメンバーへ公開されるわけではありません。 仕事・AI活用 はじめて Microsoft 365 Family OneDrive ストレージ 家族共有 Microsoft 365 Familyを家族で利用している人 OneDriveの容量と共有範囲を確認したい契約者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shield</span>
+              <div>
+                <p>Microsoft 365の家族共有容量</p>
+                <h3>Microsoft 365 Familyの容量は家族で共用？ OneDriveの変更時期とファイルの公開範囲</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-11-11">2026.11.11</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">MicrosoftはMicrosoft 365 FamilyとPremiumのクラウド容量を、対象契約で2TBの共有方式に変更すると案内しています。適用時期は新規・既存契約で異なります。容量が共用でも、ファイルやメールの内容が自動的に他のメンバーへ公開されるわけではありません。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Microsoft 365 Familyを家族で利用している人</li><li>OneDriveの容量と共有範囲を確認したい契約者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft 365</li><li>Family</li><li>OneDrive</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261117-02">前の記事</a>
+
+        </nav>
+      </article>
+      <!-- MMC_ADMAX_START -->
+      <aside class="mmc-admax" aria-label="広告" hidden>
+        <!-- admax -->
+        <script>
+          if (window.matchMedia('(max-width: 1023px)').matches) {
+            document.write('<script src="https://adm.shinobi.jp/s/4d564a9498aa80616483407ec15945ac"><\/script>');
+          } else {
+            document.write('<script src="https://adm.shinobi.jp/s/cb574e2bad513fcb4c33d1569df36493"><\/script>');
+          }
+        </script>
+        <!-- admax -->
+      </aside>
+      <!-- MMC_ADMAX_END -->
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="AI学習室メニュー">
+            <p class="site-footer-nav__title">AI学習室</p>
+            <a href="../quiz/">AI学習室トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/market/">Bean &amp; Bits MARKET</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
