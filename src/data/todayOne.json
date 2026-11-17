@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T07:27:04+09:00",
+  "updatedAt": "2026-11-18T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -3749,6 +3749,63 @@
         {
           "label": "CryptPad公式GitHub：AGPL-3.0-or-later",
           "url": "https://github.com/cryptpad/cryptpad"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-18",
+      "slug": "github-projects-article-improvement-status-board",
+      "useCategory": "業務効率化・予約",
+      "name": "GitHub Projects",
+      "category": "Project Management Tool / Free plan",
+      "officialUrl": "https://docs.github.com/en/issues/planning-and-tracking-with-projects",
+      "summary": "GitHub Projectsで記事改善の依頼を進捗別のボードに整理し、次に着手する作業を見渡せます。",
+      "whyToday": "記事の改善依頼は会話、原稿、コード変更の場所が分かれ、優先順や次の担当が会話にだけ残ると着手点を探し直しがちです。ProjectsはDraft issueから始められ、必要に応じてIssueやPRも一つの進捗表示に加えられます。",
+      "useFor": "例えば、記事の改善要望を3件だけ整理する想定例です。GitHubアカウントでProjectをBoardとして新規作成し、各要望をDraft issueで登録してタイトルと補足を書きます。カードを「未着手・作業中・確認待ち」のStatus列に分けると、次の作業と滞留箇所を一覧できます。最初は公開してよい要望だけを置き、カードの説明から次の一手が分かるか、Statusの意味が担当間で揃うか確認します。後から関連するIssueやPRも加えて、実作業へのリンクを同じボードで追えます。",
+      "recommendedFor": {
+        "employeeId": "MMC-002",
+        "reason": "企画営業部長のショウマには、記事改善の候補を少数の作業カードに分け、優先順と次の一手がひと目で分かる進捗ボードに整理するところから任せたいです。"
+      },
+      "keiComment": "改善案をカードにしたら、タイトルだけでなく「何を直すか」と次の一手も短く書くのがコツです。原稿や素材は元の保管場所に置き、Projectsには進捗と参照先を集める運用なら、カードが情報置き場になりすぎません。",
+      "verifiedAt": "2026-11-18",
+      "status": "published",
+      "pricing": "GitHub Freeは継続して月額0ドルで、公式料金ページにIssues & Projectsが含まれます。この例のDraft issueとBoard整理はFreeプランで始められます。Codespacesなど別料金になりうる追加機能の費用は含めていません。",
+      "conditions": "GitHubアカウントとインターネット接続が必要です。チームで使う場合はProjectの閲覧・編集権限を整え、リンクした非公開リポジトリのIssueやPRは、そのリポジトリを閲覧できる人だけが開けることを確認してください。",
+      "notes": "GitHub ProjectsはIssueやPRなどの作業を見渡すプロジェクト管理機能で、個別のAgent SkillやMCPサーバーではありません。記載した進行例は想定例で、実機検証やMMCでの導入実績を示すものではありません。",
+      "archiveTitle": "GitHub Projectsで記事改善の進捗をボードにできる？",
+      "archiveDescription": "記事改善の要望をDraft issueで整理し、Status別のボードで次の作業を見渡す方法と、無料で始める条件を紹介します。",
+      "forWho": "記事やサイトの改善依頼が会話やメモに散らばり、誰が次に何をするか見失いがちな編集・広報担当者向けです。",
+      "cautions": "公開Projectはインターネット上の誰でも閲覧できます。非公開の企画や個人情報を書き込む前にProjectの公開範囲を確認し、リンク先のIssueやPRにも適切な閲覧権限を設定してください。",
+      "faq": [
+        {
+          "question": "Issueを作る前の企画案もProjectに登録できますか？",
+          "answer": "はい。Draft issueとしてタイトルや本文を追加でき、Project内で後から整理できます。"
+        },
+        {
+          "question": "GitHub FreeでBoardを使えますか？",
+          "answer": "はい。GitHubの料金ページではFreeプラン（月額0ドル）にIssues & Projectsが含まれています。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "GitHub公式ドキュメント：Projectsの概要",
+          "url": "https://docs.github.com/en/issues/planning-and-tracking-with-projects"
+        },
+        {
+          "label": "GitHub公式ドキュメント：Projectの作成",
+          "url": "https://docs.github.com/en/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project"
+        },
+        {
+          "label": "GitHub公式Quickstart：Draft issueとBoardの使い方",
+          "url": "https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects"
+        },
+        {
+          "label": "GitHub公式料金：FreeプランとProjects",
+          "url": "https://github.com/pricing"
+        },
+        {
+          "label": "GitHub公式ドキュメント：Projectの公開範囲と閲覧権限",
+          "url": "https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects"
         }
       ]
     }
