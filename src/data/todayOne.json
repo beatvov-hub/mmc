@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T07:30:00+09:00",
+  "updatedAt": "2026-11-19T07:30:00+09:00",
   "entries": [
     {
       "date": "2026-08-28",
@@ -3806,6 +3806,63 @@
         {
           "label": "GitHub公式ドキュメント：Projectの公開範囲と閲覧権限",
           "url": "https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "slug": "gemini-notebook-compare-official-announcements-cited",
+      "useCategory": "調査・情報収集",
+      "name": "Gemini Notebook",
+      "category": "AI Research Assistant / Freemium",
+      "officialUrl": "https://notebook.google.com/",
+      "summary": "Gemini Notebook（旧NotebookLM）は、資料に質問し、回答の引用から原文箇所を確認できるAI調査ノートです。",
+      "whyToday": "海外製品の告知は、変更点や発表日が別々のページに分かれていて、比べるたびに根拠の位置を探し直すことがあります。Gemini Notebookなら公式ページを同じノートへ取り込み、回答中の引用から該当箇所へ戻って読み比べられます。",
+      "useFor": "例えば、海外AIサービスの公式発表ページを3本だけ比較する想定例です。GoogleアカウントでGemini Notebookを開き、公開URLをソースとして追加します。チャットで「各ページの主な変更点と発表日を、根拠の引用付きで表にして。見当たらない項目は未記載とする」と尋ね、引用をクリックして原文の前後を確認します。でき上がるのは引用リンク付きの比較メモです。最初は3ページで試し、本文が取り込まれたか、各行から該当する根拠へ戻れるかを見ます。",
+      "recommendedFor": {
+        "employeeId": "MMC-004",
+        "reason": "海外調査部のマイケルには、海外AIサービスの公式告知を3件に絞り、変更点・発表日と根拠引用を並べた日本語の比較メモに整理してもらい、一次情報を確認しやすい成果物を受け取りたいです。"
+      },
+      "keiComment": "紹介文や記事へ使う前提で、比較表には「発表日」と「根拠リンク」を残すのがおすすめです。要約だけを転載せず、対象ページの該当箇所まで開いて条件や対象地域を確認できる形にすると、更新時の見直しもしやすくなります。",
+      "verifiedAt": "2026-11-19",
+      "status": "published",
+      "pricing": "Googleアカウント（Gmail）で料金不要のStandard利用を開始できます。Standardでは1ノートブックにつき最大50件のソースを追加でき、今回の3ページ比較はこの範囲で試せます。利用上限は変更されることがあり、追加機能や高い上限は有料プラン等が対象です。",
+      "conditions": "Googleアカウントと対応地域でのブラウザー利用が必要です。Web URLから取り込まれるのはページ本文のテキストで、画像・埋め込み動画・リンク先の別ページは自動では入りません。比較対象の公開ページをソースに追加してから質問します。",
+      "notes": "Googleは2026年7月にNotebookLMをGemini Notebookへ改称しました。ここでは現行名称を使い、旧名も併記しています。Gemini NotebookはAI調査サービスであり、個別のAgent SkillやMCPサーバーではありません。記載した3ページ比較は未実施の想定例です。",
+      "archiveTitle": "Gemini Notebookで公式発表3件を根拠付きで比べられる？",
+      "archiveDescription": "Gemini Notebookへ公式発表ページを取り込み、引用から原文を確かめながら変更点を比べる手順と、無料で試せる範囲を紹介します。",
+      "forWho": "海外製品の発表や複数の公式資料を照合し、引用元を保ったまま要点を日本語で整理したい広報・調査担当者向けです。",
+      "cautions": "引用は確認の手掛かりで、回答の正確さを保証するものではありません。公式原文の該当箇所を開いて日付や条件を確認してください。Web URLの取り込みはページ本文のテキストが対象で、画像や埋め込み動画、別ページは含まれません。",
+      "faq": [
+        {
+          "question": "回答の引用リンクから原文の該当箇所を確認できますか？",
+          "answer": "はい。引用を選ぶとソース内の該当箇所へ移動し、引用の全文を文脈とともに確認できます。"
+        },
+        {
+          "question": "無料利用では1ノートに何件の資料を追加できますか？",
+          "answer": "料金不要のStandardでは、1ノートブックにつき最大50件のソースを追加できます。利用上限は変更される場合があります。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Gemini Notebook公式サイト",
+          "url": "https://notebook.google.com/"
+        },
+        {
+          "label": "Gemini Notebook公式ヘルプ：Web URLを含む資料の追加と制限",
+          "url": "https://support.google.com/gemininotebook/answer/16215270?co=GENIE.Platform%3DDesktop&hl=en"
+        },
+        {
+          "label": "Gemini Notebook公式ヘルプ：引用を開いて回答を確認する方法",
+          "url": "https://support.google.com/gemininotebook/answer/16179559?hl=en"
+        },
+        {
+          "label": "Gemini Notebook公式ヘルプ：Standardの無料利用とソース上限",
+          "url": "https://support.google.com/gemininotebook/answer/16213268?hl=en"
+        },
+        {
+          "label": "Google公式発表：NotebookLMからGemini Notebookへの改称",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/"
         }
       ]
     }
