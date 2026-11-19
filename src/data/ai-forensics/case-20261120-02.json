@@ -1,0 +1,142 @@
+{
+  "id": "case-20261120-02",
+  "publishedAt": "2026-11-20",
+  "title": "Edgeの拡張機能に「すべてのサイト」を読ませたくないときは？ アクセス範囲の確認方法",
+  "shortTitle": "Edge拡張機能のサイトアクセス",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "パソコンのEdgeで拡張機能を使う人",
+    "閲覧サイトへの拡張機能のアクセス範囲が気になる人"
+  ],
+  "summary": "Microsoft Edgeでは拡張機能ごとに、サイトデータを読み取り・変更できる範囲を確認できます。利用できる選択肢を確認し、必要な範囲に設定した後、拡張機能が使えるかも確かめましょう。",
+  "scenario": {
+    "headline": "Edgeの要約用拡張機能がすべてのサイトを読めるか気になる",
+    "description": "Microsoft Edgeでは拡張機能ごとに、サイトデータを読み取り・変更できる範囲を確認できます。利用できる選択肢を確認し、必要な範囲に設定した後、拡張機能が使えるかも確かめましょう。",
+    "whyItMatters": "拡張機能のサイトアクセスを確認し、利用目的に応じて範囲を選ぶことが大切です。"
+  },
+  "question": {
+    "text": "何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "拡張機能のサイトアクセスを確認し、利用目的に応じて範囲を選ぶ",
+        "description": "対象と操作の影響を確認してから判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "すべての拡張機能は常にすべてのサイトを読めると決めつける",
+        "description": "設定や状態を確認してから判断しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "職場の管理端末でルールを確認せず設定を変更する",
+        "description": "操作の影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Microsoft Edgeでは拡張機能ごとに、サイトデータを読み取り・変更できる範囲を確認できます。利用できる選択肢を確認し、必要な範囲に設定した後、拡張機能が使えるかも確かめましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "拡張機能メニュー",
+      "description": "Edgeのアドレスバー付近にある「拡張機能」から対象を確認します。表示されない場合は「設定など」から「拡張機能」を開けます。",
+      "priority": "high"
+    },
+    {
+      "title": "アクセスの選択肢",
+      "description": "Microsoftは「拡張機能をクリックしたとき」「現在のサイト」「すべてのサイト」という選択肢を案内しています。利用できる項目は拡張機能により異なります。",
+      "priority": "high"
+    },
+    {
+      "title": "詳細画面",
+      "description": "「拡張機能の管理」から対象の「詳細」を開き、「サイト アクセス」を確認できます。",
+      "priority": "high"
+    },
+    {
+      "title": "機能への影響",
+      "description": "アクセスを制限すると、そのサイトで拡張機能が期待どおり動かない場合があります。変更後に必要な機能を確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "職場や学校の端末",
+      "description": "組織のポリシーで管理されている場合は、変更前に担当者へ相談します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "拡張機能のサイトアクセスを確認し、利用目的に応じて範囲を選ぶ",
+    "description": "Microsoft Edgeでは拡張機能ごとに、サイトデータを読み取り・変更できる範囲を確認できます。利用できる選択肢を確認し、必要な範囲に設定した後、拡張機能が使えるかも確かめましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Edgeの「拡張機能」から対象のメニューまたは管理画面を開く",
+      "reason": "どの拡張機能の権限を変えるか確認するためです。"
+    },
+    {
+      "action": "サイトデータの読み取りと変更の範囲を確認し、利用できる選択肢から必要な範囲を選ぶ",
+      "reason": "拡張機能ごとのサイトアクセスを見直せます。"
+    },
+    {
+      "action": "変更後に必要な機能が利用できるか試す",
+      "reason": "アクセス制限が機能に影響する場合があるためです。"
+    },
+    {
+      "action": "組織の管理端末で変更できない場合は管理者に相談する",
+      "reason": "ポリシーや業務上の設定があるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "アクセス範囲を確認せず、不要な拡張機能を入れたままにする",
+      "reason": "意図しないサイトへのアクセスを許している可能性があります。"
+    },
+    {
+      "action": "サイトアクセスの変更だけで拡張機能のすべての権限を管理できたと決めつける",
+      "reason": "拡張機能には別の権限や設定がある場合があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "写真や個人情報を入力せず、一般的な確認項目の整理に使えます。実際の操作は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "Edgeの「拡張機能」から対象のメニューまたは管理画面を開く",
+      "サイトデータの読み取りと変更の範囲を確認し、利用できる選択肢から必要な範囲を選ぶ",
+      "変更後に必要な機能が利用できるか試す"
+    ]
+  },
+  "makotoComment": "拡張機能の使い方に合わせて、どのサイトにアクセスできるか見直しましょう。設定後は必要な機能も確認します。",
+  "oneLineLesson": "拡張機能のサイトアクセスを確認し、利用目的に応じて範囲を選ぶ。",
+  "tags": [
+    "Microsoft Edge",
+    "拡張機能",
+    "サイトアクセス",
+    "権限",
+    "プライバシー"
+  ],
+  "sources": [
+    {
+      "title": "Microsoft Edge で拡張機能のサイト アクセス許可を変更する",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/edge/change-site-access-permissions-for-extensions-in-microsoft-edge"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Edgeの要約用拡張機能がすべてのサイトを読めるか気になる場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261031-01",
+    "case-20261027-03"
+  ],
+  "relatedArticlesCurated": true
+}
