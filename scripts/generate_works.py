@@ -224,7 +224,7 @@ def rich_detail_sections(work: dict) -> list[dict]:
             },
         ]
     )
-    if not detail_has_section(work, "今後やりたいこと"):
+    if work.get("nextSteps") and not detail_has_section(work, "今後やりたいこと"):
         sections.append(
             {
                 "id": "next",
