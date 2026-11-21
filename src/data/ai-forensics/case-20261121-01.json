@@ -1,0 +1,149 @@
+{
+  "id": "case-20261121-01",
+  "publishedAt": "2026-11-21",
+  "title": "iPhoneに覚えのないApple Accountのサインイン要求が出たら？「許可しない」の後に確認すること",
+  "shortTitle": "Apple Accountの不審な要求",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "身に覚えのないApple Accountのサインイン通知を受けた人",
+    "iPhoneの確認コードを第三者に求められた人"
+  ],
+  "summary": "Apple Accountへの新しいサインイン要求に心当たりがない場合、Appleは信頼済みデバイスの通知で「許可しない」を選ぶよう案内しています。確認コードを誰にも伝えず、不正利用が疑われる場合は公式の案内に従ってアカウントとデバイスを確認しましょう。",
+  "scenario": {
+    "headline": "iPhoneにApple Accountへのサインイン要求が届いたが自分では操作していない",
+    "description": "Apple Accountへの新しいサインイン要求に心当たりがない場合、Appleは信頼済みデバイスの通知で「許可しない」を選ぶよう案内しています。確認コードを誰にも伝えず、不正利用が疑われる場合は公式の案内に従ってアカウントとデバイスを確認しましょう。",
+    "whyItMatters": "自分の操作でなければ許可しないを選び、確認コードを渡さないことが大切です。"
+  },
+  "question": {
+    "text": "まずどうする？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "自分の操作でなければ許可しないを選び、確認コードを渡さない",
+        "description": "対象と操作の影響を確認してから判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "知らない要求でも通知が消えるように許可する",
+        "description": "画面や設定の意味を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "地図の場所だけで不正ログインが成功したと判断する",
+        "description": "対象や操作の影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Apple Accountへの新しいサインイン要求に心当たりがない場合、Appleは信頼済みデバイスの通知で「許可しない」を選ぶよう案内しています。確認コードを誰にも伝えず、不正利用が疑われる場合は公式の案内に従ってアカウントとデバイスを確認しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "心当たりのない要求",
+      "description": "Appleは不明な新しいデバイスからのサインイン通知には「許可しない」を選ぶよう案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "位置の目安",
+      "description": "通知の地図はIPアドレスやネットワークに基づくおおよその位置です。実際の所在地と一致しない場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "確認コード",
+      "description": "2ファクタ認証の確認コードは信頼済みデバイスや信頼済み電話番号で受け取ります。第三者に伝えません。",
+      "priority": "high"
+    },
+    {
+      "title": "不正利用の疑い",
+      "description": "要求を拒否した後も、不審なデバイスやアカウント情報を確認し、必要ならAppleの公式手順に従ってパスワードを変更します。",
+      "priority": "medium"
+    },
+    {
+      "title": "業務の端末",
+      "description": "職場や学校が管理する端末では、組織の担当者にも連絡して指示を確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "自分の操作でなければ許可しないを選び、確認コードを渡さない",
+    "description": "Apple Accountへの新しいサインイン要求に心当たりがない場合、Appleは信頼済みデバイスの通知で「許可しない」を選ぶよう案内しています。確認コードを誰にも伝えず、不正利用が疑われる場合は公式の案内に従ってアカウントとデバイスを確認しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "自分でサインインしていなければ通知で「許可しない」を選ぶ",
+      "reason": "心当たりのない試行を拒否するためです。"
+    },
+    {
+      "action": "確認コードやパスワードを第三者に伝えない",
+      "reason": "コードを利用した不正なサインインを防ぐためです。"
+    },
+    {
+      "action": "安全な端末の設定からApple Accountのデバイスやセキュリティ情報を確認する",
+      "reason": "不明なデバイスや変更がないか調べます。"
+    },
+    {
+      "action": "不正利用が疑われる場合はAppleの公式案内を確認し、業務端末は管理者に相談する",
+      "reason": "状況に応じたアカウント保護が必要なためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "通知を止めるために知らない要求を許可する",
+      "reason": "第三者のサインインを助けるおそれがあります。"
+    },
+    {
+      "action": "要求が出ただけで不正ログインが必ず成立したと決めつける",
+      "reason": "試行の通知と実際のアクセスの状態は別に確認します。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "パスワードや認証コード、個人情報やメール本文を入力せず、一般的な確認項目の整理に使えます。実際の操作は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "自分でサインインしていなければ通知で「許可しない」を選ぶ",
+      "確認コードやパスワードを第三者に伝えない",
+      "安全な端末の設定からApple Accountのデバイスやセキュリティ情報を確認する"
+    ]
+  },
+  "makotoComment": "自分でサインインしていないなら許可しないを選びます。地図は目安として見て、コードを渡さずにアカウントを確認しましょう。",
+  "oneLineLesson": "自分の操作でなければ許可しないを選び、確認コードを渡さない。",
+  "tags": [
+    "Apple Account",
+    "iPhone",
+    "二段階認証",
+    "確認コード",
+    "不正ログイン"
+  ],
+  "sources": [
+    {
+      "title": "不明なサインインの試行を拒否する",
+      "publisher": "Apple",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/guide/personal-safety/ipsf8e72746b/web"
+    },
+    {
+      "title": "Apple Accountの2ファクタ認証",
+      "publisher": "Apple",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/102660"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "iPhoneにApple Accountへのサインイン要求が届いたが自分では操作していない場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261119-01",
+    "case-20261107-03"
+  ],
+  "relatedArticlesCurated": true
+}

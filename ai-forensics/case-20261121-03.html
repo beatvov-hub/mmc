@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wordを上書き保存してしまったら？ OneDriveのバージョン履歴で以前の内容を確認する｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="OneDriveまたはSharePoint Onlineに保存したWordファイルでは、バージョン履歴から以前の内容を確認・復元できる場合があります。共有文書を戻す前に、版の内容と共同編集者への影響を確認しましょう。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261121-03" />
+<meta property="og:title" content="Wordを上書き保存してしまったら？ OneDriveのバージョン履歴で以前の内容を確認する｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="OneDriveまたはSharePoint Onlineに保存したWordファイルでは、バージョン履歴から以前の内容を確認・復元できる場合があります。共有文書を戻す前に、版の内容と共同編集者への影響を確認しましょう。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261121-03" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Wordを上書き保存してしまったら？ OneDriveのバージョン履歴で以前の内容を確認する", "description": "OneDriveまたはSharePoint Onlineに保存したWordファイルでは、バージョン履歴から以前の内容を確認・復元できる場合があります。共有文書を戻す前に、版の内容と共同編集者への影響を確認しましょう。", "datePublished": "2026-11-21", "mainEntityOfPage": "https://mainichi-miru.com/ai-forensics/case-20261121-03", "inLanguage": "ja"}</script>
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../quiz/">AI学習室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Wordの以前の版を確認</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+              <time datetime="2026-11-21">2026.11.21</time>
+
+            </div>
+            <h1>Wordを上書き保存してしまったら？ OneDriveのバージョン履歴で以前の内容を確認する</h1>
+            <p>OneDriveまたはSharePoint Onlineに保存したWordファイルでは、バージョン履歴から以前の内容を確認・復元できる場合があります。共有文書を戻す前に、版の内容と共同編集者への影響を確認しましょう。</p>
+            <ul class="forensics-target-list"><li>OneDriveやSharePointでWord文書を共同編集する人</li><li>誤って変更した文書の以前の内容を確認したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Word</li><li>OneDrive</li><li>SharePoint</li><li>バージョン履歴</li><li>共同編集</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>共同編集しているWord文書を誤って変更し上書きしてしまった</h3><p>OneDriveまたはSharePoint Onlineに保存したWordファイルでは、バージョン履歴から以前の内容を確認・復元できる場合があります。共有文書を戻す前に、版の内容と共同編集者への影響を確認しましょう。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>保存先とバージョン履歴を確認し、共有相手への影響を確認してから復元することが大切です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="correct">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>最初に何を確認する？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="correct" data-choice-id="correct" />
+                <span>
+                  <strong>保存先とバージョン履歴を確認し、共有相手への影響を確認してから復元する</strong>
+                  <small>対象と操作の影響を確認してから判断します。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="wrong1" data-choice-id="wrong1" />
+                <span>
+                  <strong>文書を上書きしたら以前の内容は必ず失われると決めつける</strong>
+                  <small>画面や設定の意味を確認しましょう。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="wrong2" data-choice-id="wrong2" />
+                <span>
+                  <strong>共有相手の作業を確認せず古い版へ戻す</strong>
+                  <small>対象や操作の影響を確認しましょう。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>保存先とバージョン履歴を確認し、共有相手への影響を確認してから復元する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>OneDriveまたはSharePoint Onlineに保存したWordファイルでは、バージョン履歴から以前の内容を確認・復元できる場合があります。共有文書を戻す前に、版の内容と共同編集者への影響を確認しましょう。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象となる保存先</h3>
+              <p>MicrosoftはOneDriveまたはSharePoint Onlineに保存されたファイルの以前の版を確認・復元する方法を案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>バージョン履歴</h3>
+              <p>Wordで対象のファイルを開き「ファイル」→「情報」→「バージョン履歴」を確認します。表示される項目や利用できる版は環境によって異なります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>復元前に内容を確認</h3>
+              <p>履歴の一覧から版を選び、内容を確認してから「復元」を選択します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>共有文書への影響</h3>
+              <p>復元前に新しい変更や共同編集者への影響を確認し、必要に応じて関係者と相談します。</p>
+            </article>
+            <article class="inspection-card priority-medium">
+              <span>できれば確認</span>
+              <h3>削除したファイルとの違い</h3>
+              <p>ファイル自体を削除した場合は、ごみ箱からの復元も別に確認します。履歴がない場合や業務上の判断に迷う場合は管理者に相談します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>保存先とバージョン履歴を確認し、共有相手への影響を確認してから復元する</strong><p>OneDriveまたはSharePoint Onlineに保存したWordファイルでは、バージョン履歴から以前の内容を確認・復元できる場合があります。共有文書を戻す前に、版の内容と共同編集者への影響を確認しましょう。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>ファイルの保存先がOneDriveまたはSharePoint Onlineか確認する</strong><span>バージョン履歴の利用条件を確認するためです。</span></li>
+            <li><strong>Wordの「ファイル」→「情報」→「バージョン履歴」で以前の版を表示する</strong><span>復元する前に対象の内容を確認できます。</span></li>
+            <li><strong>共有相手や最新の変更への影響を確認してから必要な版を復元する</strong><span>他の人の作業に影響する可能性があるためです。</span></li>
+            <li><strong>履歴が表示されない場合や業務文書で迷う場合は管理者に相談する</strong><span>保存先や組織の設定によって対応が異なるためです。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>保存先や履歴を確認せず、以前の版はないと決めつける</strong><span>条件を満たせばバージョン履歴を確認できる場合があります。</span></li>
+            <li><strong>共同編集者の作業を確かめず古い版を復元する</strong><span>必要な新しい変更に影響するおそれがあります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>AIで確認項目を整理する</h3>
+          <p>パスワードや認証コード、個人情報やメール本文を入力せず、一般的な確認項目の整理に使えます。実際の操作は公式案内や管理者に確認しましょう。</p>
+          <ul class="positive-example-list"><li>ファイルの保存先がOneDriveまたはSharePoint Onlineか確認する</li><li>Wordの「ファイル」→「情報」→「バージョン履歴」で以前の版を表示する</li><li>共有相手や最新の変更への影響を確認してから必要な版を復元する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>削除したファイルを戻す操作と、残っているファイルの以前の版を確認する操作は別です。共有相手にも確認してから戻しましょう。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>保存先とバージョン履歴を確認し、共有相手への影響を確認してから復元する。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/ja-jp/office/collab-files/restore-a-previous-version-of-a-file-without-unwanted-changes" target="_blank" rel="noopener noreferrer">不要な変更を加えずに、以前のバージョンのファイルを復元する<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://support.microsoft.com/ja-jp/office/collab-files/view-previous-versions-of-office-files" target="_blank" rel="noopener noreferrer">以前のバージョンの Office ファイルを表示する<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261118-02" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="OneDriveで削除したファイルを復元するには？ ごみ箱と共有ファイルの確認 OneDriveの誤削除と復元 OneDriveのファイルを誤って削除しても、Web版の「ごみ箱」から復元できる場合があります。正しいアカウントを確認し、共有されたフォルダーが見つからない場合は所有者や管理者に相談しましょう。 仕事・AI活用 はじめて OneDrive ごみ箱 ファイル復元 共有 誤削除 OneDriveでファイルを誤って削除した人 職場や学校で共有ファイルを管理する人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shield</span>
+              <div>
+                <p>OneDriveの誤削除と復元</p>
+                <h3>OneDriveで削除したファイルを復元するには？ ごみ箱と共有ファイルの確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-11-18">2026.11.18</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">OneDriveのファイルを誤って削除しても、Web版の「ごみ箱」から復元できる場合があります。正しいアカウントを確認し、共有されたフォルダーが見つからない場合は所有者や管理者に相談しましょう。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>OneDriveでファイルを誤って削除した人</li><li>職場や学校で共有ファイルを管理する人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>OneDrive</li><li>ごみ箱</li><li>ファイル復元</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261118-03" data-forensics-card data-category="work-use" data-level="3" data-difficulty="beginner" data-search-text="Googleドライブのファイルをまとめて以前の状態に戻せる？ 復元ツールの対象と注意点 Googleドライブの一括復元 Googleドライブには複数ファイルを以前の版に戻す復元ツールがあります。Googleはこの機能をベータ版と案内しています。個々のファイルは選べず、削除したファイルの復元とは別の手順なので、実行前に対象と時点を確認しましょう。 仕事・AI活用 はじめて Googleドライブ ファイル復元 変更履歴 ベータ版 バックアップ Googleドライブの複数ファイルを以前の状態に戻したい人 復元対象と影響範囲を確認したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shield</span>
+              <div>
+                <p>Googleドライブの一括復元</p>
+                <h3>Googleドライブのファイルをまとめて以前の状態に戻せる？ 復元ツールの対象と注意点</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-11-18">2026.11.18</time>
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Googleドライブには複数ファイルを以前の版に戻す復元ツールがあります。Googleはこの機能をベータ版と案内しています。個々のファイルは選べず、削除したファイルの復元とは別の手順なので、実行前に対象と時点を確認しましょう。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Googleドライブの複数ファイルを以前の状態に戻したい人</li><li>復元対象と影響範囲を確認したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Googleドライブ</li><li>ファイル復元</li><li>変更履歴</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261120-01">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261121-02">次の記事</a>
+        </nav>
+      </article>
+      <!-- MMC_ADMAX_START -->
+      <aside class="mmc-admax" aria-label="広告" hidden>
+        <!-- admax -->
+        <script>
+          if (window.matchMedia('(max-width: 1023px)').matches) {
+            document.write('<script src="https://adm.shinobi.jp/s/4d564a9498aa80616483407ec15945ac"><\/script>');
+          } else {
+            document.write('<script src="https://adm.shinobi.jp/s/cb574e2bad513fcb4c33d1569df36493"><\/script>');
+          }
+        </script>
+        <!-- admax -->
+      </aside>
+      <!-- MMC_ADMAX_END -->
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="AI学習室メニュー">
+            <p class="site-footer-nav__title">AI学習室</p>
+            <a href="../quiz/">AI学習室トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/market/">Bean &amp; Bits MARKET</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

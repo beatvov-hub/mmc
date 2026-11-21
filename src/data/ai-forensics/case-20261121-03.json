@@ -1,0 +1,149 @@
+{
+  "id": "case-20261121-03",
+  "publishedAt": "2026-11-21",
+  "title": "Wordを上書き保存してしまったら？ OneDriveのバージョン履歴で以前の内容を確認する",
+  "shortTitle": "Wordの以前の版を確認",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "OneDriveやSharePointでWord文書を共同編集する人",
+    "誤って変更した文書の以前の内容を確認したい人"
+  ],
+  "summary": "OneDriveまたはSharePoint Onlineに保存したWordファイルでは、バージョン履歴から以前の内容を確認・復元できる場合があります。共有文書を戻す前に、版の内容と共同編集者への影響を確認しましょう。",
+  "scenario": {
+    "headline": "共同編集しているWord文書を誤って変更し上書きしてしまった",
+    "description": "OneDriveまたはSharePoint Onlineに保存したWordファイルでは、バージョン履歴から以前の内容を確認・復元できる場合があります。共有文書を戻す前に、版の内容と共同編集者への影響を確認しましょう。",
+    "whyItMatters": "保存先とバージョン履歴を確認し、共有相手への影響を確認してから復元することが大切です。"
+  },
+  "question": {
+    "text": "最初に何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "保存先とバージョン履歴を確認し、共有相手への影響を確認してから復元する",
+        "description": "対象と操作の影響を確認してから判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "文書を上書きしたら以前の内容は必ず失われると決めつける",
+        "description": "画面や設定の意味を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "共有相手の作業を確認せず古い版へ戻す",
+        "description": "対象や操作の影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "OneDriveまたはSharePoint Onlineに保存したWordファイルでは、バージョン履歴から以前の内容を確認・復元できる場合があります。共有文書を戻す前に、版の内容と共同編集者への影響を確認しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "対象となる保存先",
+      "description": "MicrosoftはOneDriveまたはSharePoint Onlineに保存されたファイルの以前の版を確認・復元する方法を案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "バージョン履歴",
+      "description": "Wordで対象のファイルを開き「ファイル」→「情報」→「バージョン履歴」を確認します。表示される項目や利用できる版は環境によって異なります。",
+      "priority": "high"
+    },
+    {
+      "title": "復元前に内容を確認",
+      "description": "履歴の一覧から版を選び、内容を確認してから「復元」を選択します。",
+      "priority": "high"
+    },
+    {
+      "title": "共有文書への影響",
+      "description": "復元前に新しい変更や共同編集者への影響を確認し、必要に応じて関係者と相談します。",
+      "priority": "medium"
+    },
+    {
+      "title": "削除したファイルとの違い",
+      "description": "ファイル自体を削除した場合は、ごみ箱からの復元も別に確認します。履歴がない場合や業務上の判断に迷う場合は管理者に相談します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "保存先とバージョン履歴を確認し、共有相手への影響を確認してから復元する",
+    "description": "OneDriveまたはSharePoint Onlineに保存したWordファイルでは、バージョン履歴から以前の内容を確認・復元できる場合があります。共有文書を戻す前に、版の内容と共同編集者への影響を確認しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "ファイルの保存先がOneDriveまたはSharePoint Onlineか確認する",
+      "reason": "バージョン履歴の利用条件を確認するためです。"
+    },
+    {
+      "action": "Wordの「ファイル」→「情報」→「バージョン履歴」で以前の版を表示する",
+      "reason": "復元する前に対象の内容を確認できます。"
+    },
+    {
+      "action": "共有相手や最新の変更への影響を確認してから必要な版を復元する",
+      "reason": "他の人の作業に影響する可能性があるためです。"
+    },
+    {
+      "action": "履歴が表示されない場合や業務文書で迷う場合は管理者に相談する",
+      "reason": "保存先や組織の設定によって対応が異なるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "保存先や履歴を確認せず、以前の版はないと決めつける",
+      "reason": "条件を満たせばバージョン履歴を確認できる場合があります。"
+    },
+    {
+      "action": "共同編集者の作業を確かめず古い版を復元する",
+      "reason": "必要な新しい変更に影響するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "パスワードや認証コード、個人情報やメール本文を入力せず、一般的な確認項目の整理に使えます。実際の操作は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "ファイルの保存先がOneDriveまたはSharePoint Onlineか確認する",
+      "Wordの「ファイル」→「情報」→「バージョン履歴」で以前の版を表示する",
+      "共有相手や最新の変更への影響を確認してから必要な版を復元する"
+    ]
+  },
+  "makotoComment": "削除したファイルを戻す操作と、残っているファイルの以前の版を確認する操作は別です。共有相手にも確認してから戻しましょう。",
+  "oneLineLesson": "保存先とバージョン履歴を確認し、共有相手への影響を確認してから復元する。",
+  "tags": [
+    "Word",
+    "OneDrive",
+    "SharePoint",
+    "バージョン履歴",
+    "共同編集"
+  ],
+  "sources": [
+    {
+      "title": "不要な変更を加えずに、以前のバージョンのファイルを復元する",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/office/collab-files/restore-a-previous-version-of-a-file-without-unwanted-changes"
+    },
+    {
+      "title": "以前のバージョンの Office ファイルを表示する",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/office/collab-files/view-previous-versions-of-office-files"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "共同編集しているWord文書を誤って変更し上書きしてしまった場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261118-02",
+    "case-20261118-03"
+  ],
+  "relatedArticlesCurated": true
+}
