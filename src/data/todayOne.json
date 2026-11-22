@@ -4032,6 +4032,67 @@
           "url": "https://community.slido.com/slido-fundamentals-205/how-to-join-slido-as-a-participant-472?fid=81&tid=472"
         }
       ]
+    },
+    {
+      "date": "2026-11-23",
+      "slug": "microsoft-clarity-check-event-page-cta-click-scroll-free",
+      "useCategory": "Web運用・アクセス分析",
+      "name": "Microsoft Clarity",
+      "category": "Web Analytics / Free Service",
+      "officialUrl": "https://clarity.microsoft.com/",
+      "summary": "Microsoft Clarityは、サイト上のクリックやスクロールを図にして、ページのどこが見られ操作されたかを確かめる無料の分析ツールです。",
+      "whyToday": "告知ページに申込ボタンを置いても、訪問者がそこまで読んだのか、押したのかはアクセス数だけでは分かりません。Clarityはクリックとスクロールをページ上に重ねて示すため、導線のどこを見直すかを考える材料になります。",
+      "useFor": "例えば、告知ページで申込ボタンが見落とされていないか調べる想定例です。Clarityのアカウントとプロジェクトを用意し、サイト管理者に対象ページの<head>へ固有の計測コードを設置してもらいます。訪問データが集まったらHeatmapsでURLを絞り、クリックマップでボタン周辺の操作、スクロールマップでページ内の到達位置を確認します。PCとスマートフォンを切り替えて結果を1枚の点検メモにまとめ、まず告知ページ1枚で試す想定です。Clarityは集計された操作を示すため、クリックが少ない理由までは断定せず、閲覧数も併記して変更候補を考えます。",
+      "recommendedFor": {
+        "employeeId": "MMC-009",
+        "reason": "ホームページの導線づくりを担うケイに、告知ページ1枚のクリック・スクロールマップを点検してもらい、申込ボタンの見え方と直す候補を1枚のメモで受け取りたいです。"
+      },
+      "keiComment": "クリックとスクロールを同じページで見比べられるので、申込ボタンの位置を具体的に検討できます。導入を決める前に、計測コードを設置する担当と訪問地域ごとのCookie同意・プライバシー表示をそろえ、閲覧数が少ないページは結論を急がない運用を勧めます。",
+      "verifiedAt": "2026-11-23",
+      "status": "published",
+      "pricing": "Clarityは公式料金ページでFree foreverと案内され、サイト数・チームメンバー数・ヒートマップ数に上限がなく、トラフィック上限もない継続無料サービスです。紹介例を試すための利用料はかかりません。",
+      "conditions": "Clarityアカウントと対象サイトのプロジェクトが必要です。サイトごとに固有の計測コードを設置し、手動設置ではサイトの<head>へアクセスできる担当者が必要です。コード設置後に訪問データの収集が始まります。ClarityはCookieを利用するため、導入前に訪問者の地域に応じた同意シグナルとプライバシー表示を確認してください。",
+      "notes": "Clarityはサイト利用状況を分析するサービスで、Agent SkillやMCP自体ではありません。告知ページの確認は想定例で、MMCでの導入・実機検証・効果測定を示しません。",
+      "archiveTitle": "Microsoft Clarityで申込ボタンのクリック・到達位置を確認できる？",
+      "archiveDescription": "Clarityのクリック・スクロールマップで告知ページを確認する手順と、計測コード・Cookie同意・表示内容のマスキングに関する注意点を紹介します。",
+      "forWho": "告知ページへの訪問はあるのに、申込ボタンが見られているか、どこで読まれなくなるかが分からない広報・Web担当者向けです。",
+      "cautions": "Clarityは訪問者の操作を収集しCookieを利用します。訪問地域ごとの同意・プライバシー表示を確認してから導入してください。機微な内容は既定でマスクされますが、対象範囲を事前に確かめてください。マスキング設定の変更は新しい記録に反映され、過去の記録には適用されません。",
+      "faq": [
+        {
+          "question": "アカウントを作れば、すぐ全ページのヒートマップを見られますか？",
+          "answer": "いいえ。サイトごとの計測コードを対象ページに設置した後、そのページで収集した訪問データからヒートマップを見られます。手動設置にはページの<head>へのアクセスが必要です。"
+        },
+        {
+          "question": "Clarityの無料利用にトラフィック上限はありますか？",
+          "answer": "公式料金ページではFree foreverと案内され、トラフィック上限はないと説明されています。サイト数やヒートマップ数にも上限がないとされています。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Microsoft Clarity公式料金：無料条件・トラフィック上限",
+          "url": "https://clarity.microsoft.com/pricing"
+        },
+        {
+          "label": "Microsoft Learn：ヒートマップの仕組みと種類",
+          "url": "https://learn.microsoft.com/en-us/clarity/heatmaps-overview"
+        },
+        {
+          "label": "Microsoft Learn：クリックマップの読み方とURL・端末の絞り込み",
+          "url": "https://learn.microsoft.com/en-us/clarity/heatmaps/click-maps"
+        },
+        {
+          "label": "Microsoft Learn：計測コードの設置と確認方法",
+          "url": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-setup"
+        },
+        {
+          "label": "Microsoft Learn：記録内容のマスキング設定",
+          "url": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-masking"
+        },
+        {
+          "label": "Microsoft Learn：ClarityのCookieと同意",
+          "url": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies"
+        }
+      ]
     }
   ]
 }
