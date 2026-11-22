@@ -1,0 +1,139 @@
+{
+  "id": "case-20261122-02",
+  "publishedAt": "2026-11-22",
+  "title": "Windowsのクリップボード履歴はどこに残る？ 同期・ピン留め・消去の確認方法",
+  "shortTitle": "Windowsのコピー履歴を確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Windowsの共用パソコンを使う人",
+    "コピーした情報の履歴や同期が気になる人"
+  ],
+  "summary": "Windowsではクリップボードの履歴を開いて、コピーした項目やピン留めを確認できます。端末間の同期設定も別に確認しましょう。一括消去ではピン留めされた項目が残るため、必要なら個別に確認します。",
+  "scenario": {
+    "headline": "共用パソコンで情報をコピーした後、履歴が残っていないか気になる",
+    "description": "Windowsではクリップボードの履歴を開いて、コピーした項目やピン留めを確認できます。端末間の同期設定も別に確認しましょう。一括消去ではピン留めされた項目が残るため、必要なら個別に確認します。",
+    "whyItMatters": "履歴と同期設定を確認し、ピン留めされた項目も個別に確認することが大切です。"
+  },
+  "question": {
+    "text": "何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "履歴と同期設定を確認し、ピン留めされた項目も個別に確認する",
+        "description": "対象と操作の影響を確認してから判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "履歴を一括消去すればピン留めされた項目も必ず消えると考える",
+        "description": "設定や状態を確認してから判断しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "コピーした認証コードを確認のため第三者に送る",
+        "description": "操作の影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Windowsではクリップボードの履歴を開いて、コピーした項目やピン留めを確認できます。端末間の同期設定も別に確認しましょう。一括消去ではピン留めされた項目が残るため、必要なら個別に確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "履歴を開く",
+      "description": "WindowsキーとVキーを押してクリップボードの履歴を開きます。履歴が有効でない場合は、画面上で有効化を求められます。",
+      "priority": "high"
+    },
+    {
+      "title": "同期の確認",
+      "description": "「設定」→「システム」→「クリップボード」でデバイス間のクリップボード履歴の設定を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "一括消去とピン留め",
+      "description": "Microsoftは設定画面のクリア操作で、ピン留めされた項目を除く履歴を消去できると案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "ピン留め項目",
+      "description": "ピン留めされた項目が残っていないか履歴で確認し、不要なものは個別に操作します。",
+      "priority": "medium"
+    },
+    {
+      "title": "組織の端末",
+      "description": "会社や学校の端末では、同期や情報の取り扱いについて組織のルールを確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "履歴と同期設定を確認し、ピン留めされた項目も個別に確認する",
+    "description": "Windowsではクリップボードの履歴を開いて、コピーした項目やピン留めを確認できます。端末間の同期設定も別に確認しましょう。一括消去ではピン留めされた項目が残るため、必要なら個別に確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Windowsキー＋Vで履歴が有効か確認する",
+      "reason": "コピーした項目やピン留めを確認するためです。"
+    },
+    {
+      "action": "「設定」→「システム」→「クリップボード」で同期の状態を確認する",
+      "reason": "別の端末との同期が有効か確認できます。"
+    },
+    {
+      "action": "不要な履歴を消去し、ピン留めされた項目も個別に確認する",
+      "reason": "一括消去ではピン留めされた項目が除外されるためです。"
+    },
+    {
+      "action": "業務用端末は管理者のルールを確認する",
+      "reason": "組織によって同期や情報の扱いが管理されている場合があります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "一括消去だけでピン留め項目まで消えたと決めつける",
+      "reason": "ピン留め項目は一括消去の対象外です。"
+    },
+    {
+      "action": "履歴確認のためにパスワードや認証コードを他人に送る",
+      "reason": "認証情報が漏れるおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "認証情報や共有ファイル、会議の内容などを入力せずに一般的な確認項目を整理できます。実際の設定は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "Windowsキー＋Vで履歴が有効か確認する",
+      "「設定」→「システム」→「クリップボード」で同期の状態を確認する",
+      "不要な履歴を消去し、ピン留めされた項目も個別に確認する"
+    ]
+  },
+  "makotoComment": "履歴の消去とピン留めは分けて確認します。共用端末では同期の設定も見ておきましょう。",
+  "oneLineLesson": "履歴と同期設定を確認し、ピン留めされた項目も個別に確認する。",
+  "tags": [
+    "Windows",
+    "クリップボード",
+    "コピー履歴",
+    "同期",
+    "情報管理"
+  ],
+  "sources": [
+    {
+      "title": "クリップボードの使用",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/windows/apps/using-the-clipboard"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "共用パソコンで情報をコピーした後、履歴が残っていないか気になる場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [],
+  "relatedArticlesCurated": true
+}

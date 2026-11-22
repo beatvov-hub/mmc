@@ -1,0 +1,142 @@
+{
+  "id": "case-20261122-01",
+  "publishedAt": "2026-11-22",
+  "title": "OneDriveの共有フォルダーを自分の一覧から外すには？ ショートカット削除と中身の削除の違い",
+  "shortTitle": "OneDriveの共有フォルダー整理",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "OneDriveの共有フォルダーを整理したい人",
+    "仕事の引き継ぎ後にショートカットを外したい人"
+  ],
+  "summary": "OneDriveの共有フォルダーを自分の一覧から外したいときは、対象がショートカットか確認し、Web版の「ショートカットの削除」を使います。ショートカットを外す操作と共有フォルダーの中身を削除する操作は異なります。",
+  "scenario": {
+    "headline": "引き継ぎが終わり、共有フォルダーを自分のOneDriveから整理したい",
+    "description": "OneDriveの共有フォルダーを自分の一覧から外したいときは、対象がショートカットか確認し、Web版の「ショートカットの削除」を使います。ショートカットを外す操作と共有フォルダーの中身を削除する操作は異なります。",
+    "whyItMatters": "共有フォルダーのショートカットか確認し、専用の削除操作を選ぶことが大切です。"
+  },
+  "question": {
+    "text": "一覧から外す前に何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "共有フォルダーのショートカットか確認し、専用の削除操作を選ぶ",
+        "description": "対象と操作の影響を確認してから判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "中のファイルをすべて削除すれば自分の一覧だけから消えると考える",
+        "description": "設定や状態を確認してから判断しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "どの削除操作でも共有相手に影響しないと決めつける",
+        "description": "操作の影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "OneDriveの共有フォルダーを自分の一覧から外したいときは、対象がショートカットか確認し、Web版の「ショートカットの削除」を使います。ショートカットを外す操作と共有フォルダーの中身を削除する操作は異なります。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "対象を確認",
+      "description": "他のユーザーから共有されたフォルダーを自分のOneDriveに追加したショートカットか確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "Web版の専用操作",
+      "description": "OneDrive.comの「マイ ファイル」で対象を選び、「ショートカットの削除」を選びます。画面の表示は利用環境によって異なります。",
+      "priority": "high"
+    },
+    {
+      "title": "ショートカットを外した後",
+      "description": "Microsoftによると、専用操作で自分のOneDriveから外しても、共有リストからアクセスでき、所有者や他の共有相手には影響しません。",
+      "priority": "high"
+    },
+    {
+      "title": "中身を削除した場合",
+      "description": "OneDrive.comで共有フォルダーの中のファイルを削除すると、所有者のごみ箱に移動します。専用操作とは影響が異なります。",
+      "priority": "medium"
+    },
+    {
+      "title": "組織と同期の確認",
+      "description": "職場・学校の設定やパソコンとの同期状況を確認し、対象や影響が分からなければ所有者・管理者に相談します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "共有フォルダーのショートカットか確認し、専用の削除操作を選ぶ",
+    "description": "OneDriveの共有フォルダーを自分の一覧から外したいときは、対象がショートカットか確認し、Web版の「ショートカットの削除」を使います。ショートカットを外す操作と共有フォルダーの中身を削除する操作は異なります。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "OneDriveのWeb版で対象が共有フォルダーのショートカットか確認する",
+      "reason": "元のフォルダーや中身を誤って削除しないためです。"
+    },
+    {
+      "action": "自分の一覧から外したい場合は「ショートカットの削除」を選ぶ",
+      "reason": "共有フォルダー内のファイルを削除せず整理するためです。"
+    },
+    {
+      "action": "表示や操作が分からない場合は所有者や管理者に相談する",
+      "reason": "組織の権限や利用環境によって扱いが異なるためです。"
+    },
+    {
+      "action": "誤って中身を削除した場合は所有者に状況を伝える",
+      "reason": "Microsoftは共有フォルダー内で削除されたアイテムは所有者が復元できると案内しています。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "一覧から外すために共有フォルダー内のファイルを削除する",
+      "reason": "他の利用者が使っているファイルにも影響するおそれがあります。"
+    },
+    {
+      "action": "エクスプローラーで対象や操作を確認せず削除する",
+      "reason": "削除方法によっては共有フォルダーや内容に影響する場合があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "認証情報や共有ファイル、会議の内容などを入力せずに一般的な確認項目を整理できます。実際の設定は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "OneDriveのWeb版で対象が共有フォルダーのショートカットか確認する",
+      "自分の一覧から外したい場合は「ショートカットの削除」を選ぶ",
+      "表示や操作が分からない場合は所有者や管理者に相談する"
+    ]
+  },
+  "makotoComment": "自分の一覧の整理と、共有ファイルそのものの削除は別です。専用の操作を確認し、迷ったら所有者に相談しましょう。",
+  "oneLineLesson": "共有フォルダーのショートカットか確認し、専用の削除操作を選ぶ。",
+  "tags": [
+    "OneDrive",
+    "共有フォルダー",
+    "ショートカット",
+    "誤削除",
+    "ファイル管理"
+  ],
+  "sources": [
+    {
+      "title": "OneDrive の共有フォルダーにショートカットを追加する",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/onedrive/add-shortcuts-to-shared-folders-in-onedrive"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "引き継ぎが終わり、共有フォルダーを自分のOneDriveから整理したい場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261118-02",
+    "case-20261119-02"
+  ],
+  "relatedArticlesCurated": true
+}

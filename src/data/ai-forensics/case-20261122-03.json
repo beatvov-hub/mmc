@@ -1,0 +1,142 @@
+{
+  "id": "case-20261122-03",
+  "publishedAt": "2026-11-22",
+  "title": "Google Meetの録画はどこに保存される？ 共有前に確認したい閲覧権限",
+  "shortTitle": "Meet録画の保存先と共有",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Google Meetで会議を録画した主催者",
+    "録画ファイルの共有範囲を確認したい人"
+  ],
+  "summary": "Google Meetの録画は、主催者のGoogleドライブの「Google Meet」フォルダに保存されます。主催者と録画を開始した人にはリンクのメールが届きます。会議条件や組織設定でアクセス権は異なるため、共有前にDriveの共有画面を確認しましょう。",
+  "scenario": {
+    "headline": "会議を録画した後、ファイルの保存先と閲覧できる人を知りたい",
+    "description": "Google Meetの録画は、主催者のGoogleドライブの「Google Meet」フォルダに保存されます。主催者と録画を開始した人にはリンクのメールが届きます。会議条件や組織設定でアクセス権は異なるため、共有前にDriveの共有画面を確認しましょう。",
+    "whyItMatters": "主催者のDriveの保存先と録画ファイルのアクセス権を確認することが大切です。"
+  },
+  "question": {
+    "text": "録画を共有する前に何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "主催者のDriveの保存先と録画ファイルのアクセス権を確認する",
+        "description": "対象と操作の影響を確認してから判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "参加者は全員必ず同じ権限で録画を見られると決めつける",
+        "description": "設定や状態を確認してから判断しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "録画の共有範囲を見ずに社外へリンクを送る",
+        "description": "操作の影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Google Meetの録画は、主催者のGoogleドライブの「Google Meet」フォルダに保存されます。主催者と録画を開始した人にはリンクのメールが届きます。会議条件や組織設定でアクセス権は異なるため、共有前にDriveの共有画面を確認しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "保存先",
+      "description": "Googleによると、録画は会議主催者のGoogleドライブの「Google Meet」フォルダに保存され、会議ごとのサブフォルダが作成されます。",
+      "priority": "high"
+    },
+    {
+      "title": "リンクを受け取る人",
+      "description": "主催者と録画を開始したユーザーに録画へのリンクが記載されたメールが届きます。会議の作成方法などにより扱いが異なる場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "同じ組織の参加者",
+      "description": "予定された会議時間に録画が開始された場合、録画はカレンダー予定にリンクされ、主催者と同じ組織の参加者にアクセス権が自動付与されるとGoogleは説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "録画と文字起こし",
+      "description": "会議の録画と文字起こしは別の記録です。それぞれの保存先と共有範囲を確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "利用条件と組織のルール",
+      "description": "録画の利用には対応するプランや権限などの条件があります。機密会議や社外共有は組織のルールを確認し、必要に応じて管理者に相談します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "主催者のDriveの保存先と録画ファイルのアクセス権を確認する",
+    "description": "Google Meetの録画は、主催者のGoogleドライブの「Google Meet」フォルダに保存されます。主催者と録画を開始した人にはリンクのメールが届きます。会議条件や組織設定でアクセス権は異なるため、共有前にDriveの共有画面を確認しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "主催者のGoogleドライブで「Google Meet」フォルダと対象会議を確認する",
+      "reason": "録画ファイルの保存先を確認するためです。"
+    },
+    {
+      "action": "ファイルの共有画面で閲覧できるユーザーやリンクの設定を確認する",
+      "reason": "実際に付与された権限を確認するためです。"
+    },
+    {
+      "action": "文字起こしなど他の会議記録も別々に確認する",
+      "reason": "録画と文字記録は異なるファイルや共有設定を持つ場合があります。"
+    },
+    {
+      "action": "社外共有や機密情報を含む場合は組織の管理者に相談する",
+      "reason": "共有範囲や保存期間に組織の規則があるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "参加者が全員、必ず同じ権限で閲覧できると決めつける",
+      "reason": "会議条件や組織の設定によりアクセスが異なります。"
+    },
+    {
+      "action": "会議内容と共有権限を確認せず録画リンクを社外へ送る",
+      "reason": "機密情報を意図しない相手へ共有するおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "認証情報や共有ファイル、会議の内容などを入力せずに一般的な確認項目を整理できます。実際の設定は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "主催者のGoogleドライブで「Google Meet」フォルダと対象会議を確認する",
+      "ファイルの共有画面で閲覧できるユーザーやリンクの設定を確認する",
+      "文字起こしなど他の会議記録も別々に確認する"
+    ]
+  },
+  "makotoComment": "録画の保存先と閲覧できる人は、共有画面で確認します。文字起こしなど別の記録も忘れずに見直しましょう。",
+  "oneLineLesson": "主催者のDriveの保存先と録画ファイルのアクセス権を確認する。",
+  "tags": [
+    "Google Meet",
+    "録画",
+    "Googleドライブ",
+    "共有権限",
+    "会議"
+  ],
+  "sources": [
+    {
+      "title": "ビデオ会議を録画する",
+      "publisher": "Google",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/meet/answer/9308681?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "会議を録画した後、ファイルの保存先と閲覧できる人を知りたい場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20260831-01",
+    "case-20261109-01"
+  ],
+  "relatedArticlesCurated": true
+}
