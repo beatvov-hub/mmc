@@ -314,10 +314,11 @@ def render_quick_look(work: dict) -> str:
 def render_work_card(work: dict, show_key_visual: bool = True, heading_level: int = 3) -> str:
     public_url = work.get("publicUrl")
     public_label = work.get("publicLabel", "公開ページ")
+    category = " / ".join(work["category"].split(" / ")[:2]) if heading_level == 4 else work["category"]
     lines = [
         '          <article class="work-card work-story-card">',
         '            <div class="work-card-top">',
-        f'              <span class="tag">{esc(work["category"])}</span>',
+        f'              <span class="tag">{esc(category)}</span>',
         f'              <span class="work-status-chip">{esc(work["statusLabel"])}</span>',
         "            </div>",
     ]
