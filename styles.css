@@ -9447,7 +9447,8 @@ img { max-width: 100%; }
 .works-shelf-track .work-story-card { display: flex; flex-direction: column; gap: 10px; min-width: 0; padding: 14px; scroll-snap-align: start; }
 .works-shelf-track .work-card-top { gap: 6px; }
 .works-shelf-track .work-card-top .tag, .works-shelf-track .work-status-chip { font-size: .72rem; }
-.works-shelf-track .work-card-visual { aspect-ratio: 1.3; }
+.works-shelf-track .work-card-visual { aspect-ratio: 1; }
+.works-shelf-track .work-card-visual img { object-fit: contain; }
 .works-shelf-track h4 { margin: 0; color: var(--green); font-size: 1.04rem; line-height: 1.4; overflow-wrap: anywhere; }
 .works-shelf-track .work-summary { font-size: .84rem; line-height: 1.65; }
 .works-shelf-track .work-story-summary, .works-shelf-track .work-card-meta { display: none; }
