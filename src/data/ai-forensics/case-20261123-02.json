@@ -1,0 +1,142 @@
+{
+  "id": "case-20261123-02",
+  "publishedAt": "2026-11-23",
+  "title": "Microsoft Authenticatorの機種変更前に確認すること：バックアップで戻るもの・再登録が必要なもの",
+  "shortTitle": "Authenticatorの機種変更",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Microsoft Authenticatorを使っている人",
+    "スマートフォンを機種変更する人"
+  ],
+  "summary": "Microsoft Authenticatorのバックアップは対象のワンタイムパスワードを復元できますが、職場・学校アカウントの資格情報やパスワードなしの資格情報は再登録が必要です。旧端末を初期化する前に、バックアップと新端末でのサインインを確認しましょう。",
+  "scenario": {
+    "headline": "認証アプリを使っているスマートフォンを買い替えたい",
+    "description": "Microsoft Authenticatorのバックアップは対象のワンタイムパスワードを復元できますが、職場・学校アカウントの資格情報やパスワードなしの資格情報は再登録が必要です。旧端末を初期化する前に、バックアップと新端末でのサインインを確認しましょう。",
+    "whyItMatters": "バックアップの対象と新端末でのサインインを確認することが大切です。"
+  },
+  "question": {
+    "text": "旧端末を手放す前に何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "バックアップの対象と新端末でのサインインを確認する",
+        "description": "対象と操作の影響を確認してから判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "バックアップがあれば異なるOS間でもすべて自動で移行できると考える",
+        "description": "公式の案内と利用環境を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "新端末で確認する前に旧端末を初期化する",
+        "description": "操作の影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Microsoft Authenticatorのバックアップは対象のワンタイムパスワードを復元できますが、職場・学校アカウントの資格情報やパスワードなしの資格情報は再登録が必要です。旧端末を初期化する前に、バックアップと新端末でのサインインを確認しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "バックアップの対象",
+      "description": "Microsoftは、対象となるMicrosoft個人用や一部の他社サービスのワンタイムパスワードをバックアップできると案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "異なるOSへの移行",
+      "description": "Microsoftはバックアップと復元を同じ種類のデバイスで行う必要があるとし、iOSでのバックアップはAndroidで復元できないと説明しています。OSをまたぐ場合は各サービスの案内を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "職場・学校のアカウント",
+      "description": "職場・学校アカウントの資格情報はバックアップされず、アカウント名のみが保存されます。新端末での再登録を管理者に確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "パスワードなしの資格情報",
+      "description": "Microsoft個人用アカウントでも、パスワードなしの資格情報はバックアップされず、復元後に再度サインインが必要です。",
+      "priority": "medium"
+    },
+    {
+      "title": "バックアップの確認",
+      "description": "旧端末のAuthenticator設定でクラウドバックアップの状態を確認します。保存方法や必要な設定はOSや時期により異なるため、公式案内を再確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "バックアップの対象と新端末でのサインインを確認する",
+    "description": "Microsoft Authenticatorのバックアップは対象のワンタイムパスワードを復元できますが、職場・学校アカウントの資格情報やパスワードなしの資格情報は再登録が必要です。旧端末を初期化する前に、バックアップと新端末でのサインインを確認しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "旧端末でAuthenticatorのバックアップ状態と登録アカウントを確認する",
+      "reason": "移行できるものと再登録が必要なものを把握するためです。"
+    },
+    {
+      "action": "OSが変わる場合は各サービスの公式手順で新しい認証方法を登録する",
+      "reason": "異なる種類のデバイスではバックアップを復元できないためです。"
+    },
+    {
+      "action": "職場・学校アカウントの新端末登録を管理者に確認する",
+      "reason": "組織の資格情報はバックアップされないためです。"
+    },
+    {
+      "action": "新端末で各サービスにサインインできることを確認してから旧端末を初期化する",
+      "reason": "認証手段を失ってアカウントに入れなくなることを避けます。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "バックアップがあればすべての資格情報が自動で使えると考える",
+      "reason": "アカウントの種類やサインイン方法によって再登録が必要です。"
+    },
+    {
+      "action": "確認のため認証コードや回復コードを第三者へ渡す",
+      "reason": "アカウントへの不正アクセスにつながるおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "パスワードや認証コード、個人情報を入力せずに一般的な確認項目を整理できます。実際の設定は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "旧端末でAuthenticatorのバックアップ状態と登録アカウントを確認する",
+      "OSが変わる場合は各サービスの公式手順で新しい認証方法を登録する",
+      "職場・学校アカウントの新端末登録を管理者に確認する"
+    ]
+  },
+  "makotoComment": "移行できるコードと、再登録が必要な資格情報は別です。旧端末を消す前に、新しい端末で一つずつ試しましょう。",
+  "oneLineLesson": "バックアップの対象と新端末でのサインインを確認する。",
+  "tags": [
+    "Microsoft Authenticator",
+    "機種変更",
+    "二段階認証",
+    "バックアップ",
+    "アカウント回復"
+  ],
+  "sources": [
+    {
+      "title": "Microsoft Authenticator でワンタイム パスワード コードをバックアップする",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/authenticator/back-up-your-accounts-in-microsoft-authenticator"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "認証アプリを使っているスマートフォンを買い替えたい場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261114-02",
+    "case-20261123-01"
+  ],
+  "relatedArticlesCurated": true
+}

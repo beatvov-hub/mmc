@@ -1,0 +1,149 @@
+{
+  "id": "case-20261123-01",
+  "publishedAt": "2026-11-23",
+  "title": "MicrosoftアカウントのSMS認証はどう変わる？ 個人用アカウントで確認したい代替手段",
+  "shortTitle": "MicrosoftのSMS認証変更",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "個人用MicrosoftアカウントでSMSコードを使う人",
+    "サインインや回復手段を確認したい人"
+  ],
+  "summary": "Microsoftは個人用Microsoftアカウントの認証と回復の方法として、SMSの段階的な廃止を開始すると案内しています。サインインできるうちに登録済みの方法を確認し、パスキーや確認済みメールなどの代替手段を公式案内に沿って検討しましょう。",
+  "scenario": {
+    "headline": "MicrosoftアカウントでSMSコードを使っているが今後もサインインできるか心配",
+    "description": "Microsoftは個人用Microsoftアカウントの認証と回復の方法として、SMSの段階的な廃止を開始すると案内しています。サインインできるうちに登録済みの方法を確認し、パスキーや確認済みメールなどの代替手段を公式案内に沿って検討しましょう。",
+    "whyItMatters": "登録済みのサインイン・回復手段を確認し、代替手段を用意することが大切です。"
+  },
+  "question": {
+    "text": "変更に備えて何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "登録済みのサインイン・回復手段を確認し、代替手段を用意する",
+        "description": "対象と操作の影響を確認してから判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "すべての利用者が今日からSMSコードを受け取れないと決めつける",
+        "description": "公式の案内と利用環境を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "新しい方法を試す前に既存の回復手段を一括削除する",
+        "description": "操作の影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Microsoftは個人用Microsoftアカウントの認証と回復の方法として、SMSの段階的な廃止を開始すると案内しています。サインインできるうちに登録済みの方法を確認し、パスキーや確認済みメールなどの代替手段を公式案内に沿って検討しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "対象となるアカウント",
+      "description": "Microsoftの案内は個人用Microsoftアカウントの認証と回復に関するものです。職場・学校アカウントは組織の管理者に確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "段階的な変更",
+      "description": "MicrosoftはSMSの段階的な廃止を開始すると説明しています。確認した案内では、全利用者に共通する終了日は示されていません。",
+      "priority": "high"
+    },
+    {
+      "title": "代替手段",
+      "description": "Microsoftはパスキーや確認済みのメールアドレスを代替手段として案内しています。利用できる方法を自分のアカウントで確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "登録済みの方法",
+      "description": "Microsoftアカウントのセキュリティ画面で「サインイン方法を管理」を開き、現在使える方法と回復手段を確認します。",
+      "priority": "medium"
+    },
+    {
+      "title": "変更時の注意",
+      "description": "新しい方法でサインインできることを確かめ、必要な回復手段を確保する前に既存の方法をまとめて削除しないようにします。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "登録済みのサインイン・回復手段を確認し、代替手段を用意する",
+    "description": "Microsoftは個人用Microsoftアカウントの認証と回復の方法として、SMSの段階的な廃止を開始すると案内しています。サインインできるうちに登録済みの方法を確認し、パスキーや確認済みメールなどの代替手段を公式案内に沿って検討しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Microsoftアカウントの公式サイトからセキュリティ画面を開く",
+      "reason": "通知やメールのリンクだけに頼らず、自分のアカウントを確認するためです。"
+    },
+    {
+      "action": "「サインイン方法を管理」で登録済みの方法を確認する",
+      "reason": "SMS以外に利用できる方法と回復手段を把握します。"
+    },
+    {
+      "action": "公式案内に沿って確認済みメールやパスキーなどの代替手段を検討し、利用できることを確認する",
+      "reason": "変更後もサインインや回復ができるよう備えます。"
+    },
+    {
+      "action": "職場・学校のアカウントは管理者に相談する",
+      "reason": "個人用とは組織の設定や認証方法が異なるためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "すべての個人用アカウントで同じ日にSMSが停止されると決めつける",
+      "reason": "公式案内は段階的な変更を説明しており、共通の終了日は確認できません。"
+    },
+    {
+      "action": "代替手段を使えるか確認する前に既存の回復手段を一括削除する",
+      "reason": "アカウントに入れなくなるおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "パスワードや認証コード、個人情報を入力せずに一般的な確認項目を整理できます。実際の設定は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "Microsoftアカウントの公式サイトからセキュリティ画面を開く",
+      "「サインイン方法を管理」で登録済みの方法を確認する",
+      "公式案内に沿って確認済みメールやパスキーなどの代替手段を検討し、利用できることを確認する"
+    ]
+  },
+  "makotoComment": "SMS以外の方法が使えるか、サインインできるうちに確認しましょう。新しい方法を試す前に、今の回復手段をまとめて消さないことも大切です。",
+  "oneLineLesson": "登録済みのサインイン・回復手段を確認し、代替手段を用意する。",
+  "tags": [
+    "Microsoftアカウント",
+    "SMS",
+    "認証",
+    "パスキー",
+    "アカウント回復"
+  ],
+  "sources": [
+    {
+      "title": "個人アカウントの SMS コードの送信を停止する Microsoft",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/accounts-billing/manage/microsoft-to-stop-sending-sms-codes-for-personal-accounts"
+    },
+    {
+      "title": "Microsoft アカウントで 2 段階認証を使用する方法",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/accounts-billing/security/how-to-use-two-step-verification-with-your-microsoft-account"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "MicrosoftアカウントでSMSコードを使っているが今後もサインインできるか心配場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261117-02",
+    "case-20261114-02"
+  ],
+  "relatedArticlesCurated": true
+}

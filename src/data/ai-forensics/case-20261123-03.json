@@ -1,0 +1,145 @@
+{
+  "id": "case-20261123-03",
+  "publishedAt": "2026-11-23",
+  "title": "Chromeのセーフブラウジングは「標準」と「保護強化」で何が違う？ 設定場所と送信データの確認",
+  "shortTitle": "Chromeの保護レベルを確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "パソコンでChromeを使う人",
+    "保護設定とGoogleに送信される情報を確認したい人"
+  ],
+  "summary": "Chromeのセーフブラウジングには「標準保護」と「保護強化」などの選択肢があります。保護強化では安全性の確認のためURLやページ内容などの一部をGoogleに送信します。設定画面で現在の保護レベルと公式の説明を確認しましょう。",
+  "scenario": {
+    "headline": "Chromeで保護強化を勧められ、標準との違いが気になる",
+    "description": "Chromeのセーフブラウジングには「標準保護」と「保護強化」などの選択肢があります。保護強化では安全性の確認のためURLやページ内容などの一部をGoogleに送信します。設定画面で現在の保護レベルと公式の説明を確認しましょう。",
+    "whyItMatters": "現在の保護レベルと送信される情報を確認することが大切です。"
+  },
+  "question": {
+    "text": "設定を選ぶ前に何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "現在の保護レベルと送信される情報を確認する",
+        "description": "対象と操作の影響を確認してから判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "保護強化をオンにすればすべての危険を必ず防げると考える",
+        "description": "公式の案内と利用環境を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "警告が出たサイトに入るため保護をすぐ無効にする",
+        "description": "操作の影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Chromeのセーフブラウジングには「標準保護」と「保護強化」などの選択肢があります。保護強化では安全性の確認のためURLやページ内容などの一部をGoogleに送信します。設定画面で現在の保護レベルと公式の説明を確認しましょう。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "保護レベル",
+      "description": "Googleは「保護強化」「標準保護」「保護なし」の選択肢を案内しています。「保護なし」は非推奨です。",
+      "priority": "high"
+    },
+    {
+      "title": "保護強化と送信情報",
+      "description": "Googleによると、保護強化ではURL、ページ内容、拡張機能のアクティビティ、システム情報の一部を安全性の確認のためGoogleセーフブラウジングに送信します。",
+      "priority": "high"
+    },
+    {
+      "title": "標準保護",
+      "description": "Googleは標準保護でも危険なサイトやダウンロード、拡張機能について警告し、不審な操作が行われた場合に完全なURLとページ内容の一部を送信すると説明しています。",
+      "priority": "high"
+    },
+    {
+      "title": "確認する場所",
+      "description": "パソコン版Chromeの「設定」→「プライバシーとセキュリティ」→「セキュリティ」で現在の保護レベルを確認できます。",
+      "priority": "medium"
+    },
+    {
+      "title": "警告の限界",
+      "description": "保護機能ですべての危険が検出されるとは限りません。通知を装った偽警告にも注意し、不審なリンクを開かず公式の設定画面から確認します。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "現在の保護レベルと送信される情報を確認する",
+    "description": "Chromeのセーフブラウジングには「標準保護」と「保護強化」などの選択肢があります。保護強化では安全性の確認のためURLやページ内容などの一部をGoogleに送信します。設定画面で現在の保護レベルと公式の説明を確認しましょう。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "Chromeのメニューから「設定」→「プライバシーとセキュリティ」→「セキュリティ」を開く",
+      "reason": "正規の画面で現在の設定を確認するためです。"
+    },
+    {
+      "action": "標準保護と保護強化の説明を読み、送信される情報の違いを確認する",
+      "reason": "安全性と情報の扱いを理解して選ぶためです。"
+    },
+    {
+      "action": "職場や学校のパソコンで変更できない場合は管理者に確認する",
+      "reason": "組織のポリシーが適用されている場合があります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "サイトに入るためだけに警告を無視したり保護を無効化したりする",
+      "reason": "危険なサイトやファイルに接するおそれがあります。"
+    },
+    {
+      "action": "保護機能があればすべての不正サイトを検出できると考える",
+      "reason": "検出には限界があります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "パスワードや認証コード、個人情報を入力せずに一般的な確認項目を整理できます。実際の設定は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "Chromeのメニューから「設定」→「プライバシーとセキュリティ」→「セキュリティ」を開く",
+      "標準保護と保護強化の説明を読み、送信される情報の違いを確認する",
+      "職場や学校のパソコンで変更できない場合は管理者に確認する"
+    ]
+  },
+  "makotoComment": "保護の強さだけでなく、送信される情報も確認して選びます。偽の感染通知とChromeの保護設定は分けて考えましょう。",
+  "oneLineLesson": "現在の保護レベルと送信される情報を確認する。",
+  "tags": [
+    "Chrome",
+    "セーフブラウジング",
+    "保護強化",
+    "標準保護",
+    "プライバシー"
+  ],
+  "sources": [
+    {
+      "title": "Chrome でセーフ ブラウジングの保護レベルを選択する",
+      "publisher": "Google",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/chrome/answer/9890866?co=GENIE.Platform%3DDesktop&hl=ja"
+    },
+    {
+      "title": "Chrome のセーフ ブラウジングで閲覧データのプライバシーを保護する仕組み",
+      "publisher": "Google",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/chrome/answer/13844634?co=GENIE.Platform%3DDesktop&hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Chromeで保護強化を勧められ、標準との違いが気になる場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261116-01",
+    "case-20261104-01"
+  ],
+  "relatedArticlesCurated": true
+}
