@@ -9436,3 +9436,26 @@ img { max-width: 100%; }
   .daily-collection { width: calc(100% - 24px); padding: 22px 14px; border-radius: 20px; }
   .daily-collection > .today-words, .daily-collection > .today-one-teaser, .daily-collection > .today-game, .daily-collection > .daily-quiz-teaser { padding: 24px 20px; }
 }
+
+/* 制作物一覧：ジャンルごとに横にたどれるゲーム棚 */
+.works-shelf { margin-top: 30px; min-width: 0; }
+.works-shelf-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.works-shelf-heading h3 { margin: 0; color: var(--green); font-size: clamp(1.05rem, 1.8vw, 1.3rem); }
+.works-shelf-heading span { color: var(--muted); font-size: .8rem; white-space: nowrap; }
+.works-shelf-track { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 255px); gap: 14px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x proximity; padding: 2px 2px 14px; scrollbar-width: thin; scrollbar-color: #ad977d transparent; }
+.works-shelf-track:focus-visible { outline: 3px solid #99612e; outline-offset: 3px; border-radius: 4px; }
+.works-shelf-track .work-story-card { display: flex; flex-direction: column; gap: 10px; min-width: 0; padding: 14px; scroll-snap-align: start; }
+.works-shelf-track .work-card-top { gap: 6px; }
+.works-shelf-track .work-card-top .tag, .works-shelf-track .work-status-chip { font-size: .72rem; }
+.works-shelf-track .work-card-visual { aspect-ratio: 1.3; }
+.works-shelf-track h4 { margin: 0; color: var(--green); font-size: 1.04rem; line-height: 1.4; overflow-wrap: anywhere; }
+.works-shelf-track .work-summary { font-size: .84rem; line-height: 1.65; }
+.works-shelf-track .work-story-summary, .works-shelf-track .work-card-meta { display: none; }
+.works-shelf-track .work-links { margin-top: auto; }
+.works-shelf-track .mini-button { font-size: .78rem; }
+@media (max-width: 600px) {
+  .works-shelf { margin-top: 24px; }
+  .works-shelf-track { grid-auto-columns: minmax(190px, 72%); gap: 10px; }
+  .works-shelf-heading span { font-size: .72rem; }
+  .works-shelf-track .work-story-card { padding: 12px; }
+}

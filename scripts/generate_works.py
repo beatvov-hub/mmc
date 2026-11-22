@@ -311,7 +311,7 @@ def render_quick_look(work: dict) -> str:
     return "\n".join(lines)
 
 
-def render_work_card(work: dict, show_key_visual: bool = True) -> str:
+def render_work_card(work: dict, show_key_visual: bool = True, heading_level: int = 3) -> str:
     public_url = work.get("publicUrl")
     public_label = work.get("publicLabel", "公開ページ")
     lines = [
@@ -326,7 +326,7 @@ def render_work_card(work: dict, show_key_visual: bool = True) -> str:
         lines.append(card_visual)
     lines.extend(
         [
-        f'            <h3>{esc(work["title"])}</h3>',
+        f'            <h{heading_level}>{esc(work["title"])}</h{heading_level}>',
         f'            <p class="work-summary">{esc(work["summary"])}</p>',
         f'            <p class="work-story-summary">{esc(work["storySummary"])}</p>',
         ]
@@ -357,6 +357,45 @@ def is_published_game(work: dict) -> bool:
     return is_game_work(work) and "公開" in str(work.get("statusLabel", ""))
 
 
+# A game has one primary genre. Unlisted games fall back to "その他のゲーム".
+GAME_GENRES = [
+    ("strategy", "戦略・ボードゲーム", {"route47", "teiji", "chair-hideout", "tile-control", "shirokuro-forest", "kamimura-phase-duel", "hits-and-outs", "mind-bluff", "gift-bluff", "saino-eden", "kaisai-oh"}),
+    ("puzzle", "パズル・ことば", {"sushi-showtime", "word-link-rush", "perfect-madori", "3d-puzzle-archive", "copypasta9"}),
+    ("action", "アクション・シューティング", {"crazzzy-movers", "keep-it-going", "cat-escape-coaster", "rubber-steel-underground", "my-star-cheese", "reiwa-ninja"}),
+    ("simulation", "育成・シミュレーション", {"my-gent-cost", "starline", "shotengai-saisei-game"}),
+    ("adventure", "探偵・アドベンチャー", {"misleading-detective-agency", "re-witness", "illuminastraea"}),
+    ("ai", "AIと遊ぶ", {"personality-test-for-ai"}),
+]
+
+
+def render_game_shelves(section_id: str, works: list[dict], *, show_key_visual: bool = True) -> list[str]:
+    assigned: set[str] = set()
+    groups: list[tuple[str, str, list[dict]]] = []
+    for genre_id, title, slugs in GAME_GENRES:
+        entries = [work for work in works if work["slug"] in slugs and work["slug"] not in assigned]
+        if entries:
+            groups.append((genre_id, title, entries))
+            assigned.update(work["slug"] for work in entries)
+    remaining = [work for work in works if work["slug"] not in assigned]
+    if remaining:
+        groups.append(("other", "その他のゲーム", remaining))
+    lines = []
+    for genre_id, title, entries in groups:
+        shelf_id = f"{section_id}-{genre_id}"
+        lines.extend([
+            f'        <section class="works-shelf" aria-labelledby="{esc(shelf_id)}-title">',
+            '          <div class="works-shelf-heading">',
+            f'            <h3 id="{esc(shelf_id)}-title">{esc(title)}</h3>',
+            f'            <span>{len(entries)}件 <span aria-hidden="true"> · 横にスクロール →</span></span>',
+            '          </div>',
+            f'          <div class="works-shelf-track" tabindex="0" role="region" aria-labelledby="{esc(shelf_id)}-title">',
+        ])
+        for work in entries:
+            lines.append(render_work_card(work, show_key_visual=show_key_visual, heading_level=4))
+        lines.extend(['          </div>', '        </section>'])
+    return lines
+
+
 def render_work_group(
     section_id: str,
     kicker: str,
@@ -365,6 +404,7 @@ def render_work_group(
     works: list[dict],
     *,
     show_key_visual: bool = True,
+    shelves: bool = False,
 ) -> str:
     lines = [
         f'      <section id="{esc(section_id)}" class="card-section works-group-section" aria-labelledby="{esc(section_id)}-title">',
@@ -376,11 +416,15 @@ def render_work_group(
         "          </div>",
         f'          <span class="work-group-count">{len(works)}件</span>',
         "        </div>",
-        '        <div class="works-grid works-story-grid">',
     ]
-    for work in works:
-        lines.append(render_work_card(work, show_key_visual=show_key_visual))
-    lines.extend(["        </div>", "      </section>"])
+    if shelves:
+        lines.extend(render_game_shelves(section_id, works, show_key_visual=show_key_visual))
+    else:
+        lines.append('        <div class="works-grid works-story-grid">')
+        for work in works:
+            lines.append(render_work_card(work, show_key_visual=show_key_visual))
+        lines.append("        </div>")
+    lines.append("      </section>")
     return "\n".join(lines)
 
 
@@ -446,6 +490,7 @@ def render_works_main(works: list[dict]) -> str:
             "公開中のゲーム",
             "現在ブラウザで遊べる、公開中のゲームです。各作品ページから制作背景や遊び方も読めます。",
             published_game_works,
+            shelves=True,
         )
     )
     lines.append(
@@ -456,6 +501,7 @@ def render_works_main(works: list[dict]) -> str:
             "試作、MVP、企画段階のゲームです。遊びの核や制作背景を、制作物として記録しています。",
             planned_game_works,
             show_key_visual=False,
+            shelves=True,
         )
     )
     lines.append(
