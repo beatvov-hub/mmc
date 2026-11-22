@@ -360,10 +360,10 @@ def is_published_game(work: dict) -> bool:
 # A game has one primary genre. Unlisted games fall back to "その他のゲーム".
 GAME_GENRES = [
     ("strategy", "戦略・ボードゲーム", {"route47", "teiji", "chair-hideout", "tile-control", "shirokuro-forest", "kamimura-phase-duel", "hits-and-outs", "mind-bluff", "gift-bluff", "saino-eden", "kaisai-oh"}),
-    ("puzzle", "パズル・ことば", {"sushi-showtime", "word-link-rush", "perfect-madori", "3d-puzzle-archive", "copypasta9"}),
+    ("puzzle", "パズル・ことば", {"sushi-showtime", "word-link-rush", "perfect-madori", "3d-puzzle-archive", "illuminastraea"}),
     ("action", "アクション・シューティング", {"crazzzy-movers", "keep-it-going", "cat-escape-coaster", "rubber-steel-underground", "my-star-cheese", "reiwa-ninja"}),
-    ("simulation", "育成・シミュレーション", {"my-gent-cost", "starline", "shotengai-saisei-game"}),
-    ("adventure", "探偵・アドベンチャー", {"misleading-detective-agency", "re-witness", "illuminastraea"}),
+    ("simulation", "育成・シミュレーション", {"my-gent-cost", "starline", "shotengai-saisei-game", "copypasta9"}),
+    ("adventure", "探偵・アドベンチャー", {"misleading-detective-agency", "re-witness"}),
     ("ai", "AIと遊ぶ", {"personality-test-for-ai"}),
 ]
 
