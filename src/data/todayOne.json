@@ -4093,6 +4093,63 @@
           "url": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies"
         }
       ]
+    },
+    {
+      "date": "2026-11-24",
+      "slug": "cloudflare-turnstile-protect-contact-form-server-validation-free",
+      "useCategory": "Web運用・アクセス分析",
+      "name": "Cloudflare Turnstile",
+      "category": "Bot Protection / Free",
+      "officialUrl": "https://www.cloudflare.com/products/turnstile/",
+      "summary": "Cloudflare Turnstileは、Webフォームに検証ウィジェットを置き、サーバーで送信トークンを確認して自動投稿を抑えるサービスです。",
+      "whyToday": "問い合わせフォームに自動送信が続くと、本当の連絡を見つけにくくなります。Turnstileはページ上のウィジェットだけでなく、サーバーからSiteverifyへ照会して受け付け可否を決めるため、画面表示だけで終わらない送信対策を組めます。",
+      "useFor": "例えば、イベント問い合わせフォームへの自動連投を抑える想定例です。Cloudflareアカウントでウィジェットを作り、公式のテスト用sitekeyをステージングのフォームに埋め込みます。フォーム送信時に届くトークンをサーバーからSiteverifyへ送り、successなら受け付け、failureなら拒否する処理にします。成功・失敗用の公式テストキーを切り替え、フォーム1つで「表示・受け付け・拒否」が分かれる確認メモを作ります。これは未実施の想定例で、secret keyはサーバー側だけに置きます。",
+      "recommendedFor": {
+        "employeeId": "MMC-008",
+        "reason": "開発推進室のアキトには、ステージングのフォーム1つでウィジェットとSiteverifyの成功・失敗分岐を整理してもらい、秘密鍵の保管場所も含む確認メモを受け取りたいです。"
+      },
+      "keiComment": "公式テストキーで成功と拒否の両方を確かめられるので、本番送信を使わずに導入前の分岐を整理できます。判断するときはウィジェットの見た目より、サーバー検証を既存フォームへ組み込めるか、秘密鍵を表に出さず管理できるかを先に確認してください。",
+      "verifiedAt": "2026-11-24",
+      "status": "published",
+      "pricing": "Cloudflare TurnstileにはFreeプランがあり、1アカウントにつきウィジェット20個まで、チャレンジ・検証リクエスト数は無制限です。1ウィジェットに登録できるホスト名は10個までです。フォーム1つの想定例はこの無料枠で試せます。",
+      "conditions": "Cloudflareアカウントと対象サイト、ウィジェットのsitekey・secret key、フォームHTMLとサーバー処理を編集できる環境が必要です。ブラウザーにはsitekeyだけを置き、secret keyはサーバー側で保管します。公式テストキーは開発・ステージングで使い、本番キーと分けてください。",
+      "notes": "Turnstileはフォーム送信を検証するサービスで、Agent SkillやMCP自体ではありません。問い合わせフォームの例は想定例で、MMCでの導入・実機検証・効果測定を示しません。",
+      "archiveTitle": "Cloudflare Turnstileでフォームの自動送信を抑えられる？サーバー検証が必須",
+      "archiveDescription": "Turnstileを問い合わせフォームへ設置し、送信トークンをSiteverifyで検証する手順を紹介。無料枠、テスト用キー、サーバー側検証の必須条件を確認します。",
+      "forWho": "問い合わせ・イベント受付フォームを管理し、自動送信への対策をサーバー処理まで組み込みたいWeb担当者・開発者向けです。",
+      "cautions": "ウィジェットを表示するだけでは保護は完了せず、サーバーからSiteverifyを呼ぶトークン検証が必須です。トークンは発行から5分で期限切れになり、再利用できません。secret keyをブラウザーへ置かず、テスト用と本番用のキーを分けてください。",
+      "faq": [
+        {
+          "question": "フォームにウィジェットを表示すれば自動投稿対策は完了ですか？",
+          "answer": "いいえ。送信されたトークンをサーバーからSiteverify APIへ送り、応答を確かめる処理が必須です。ウィジェットだけではフォームを保護できません。"
+        },
+        {
+          "question": "本番の認証情報を使わずに送信の成功・失敗を確かめられますか？",
+          "answer": "はい。Cloudflare公式のテスト用sitekeyとsecret keyは、成功・失敗など決まった応答を返すため、開発・テスト環境で分岐を確認できます。本番キーはテスト用tokenを受け付けないため、環境ごとに分けてください。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Cloudflare公式：Turnstileの料金・無料枠",
+          "url": "https://developers.cloudflare.com/turnstile/plans/"
+        },
+        {
+          "label": "Cloudflare公式：導入手順とsitekey・secret keyの役割",
+          "url": "https://developers.cloudflare.com/turnstile/get-started/"
+        },
+        {
+          "label": "Cloudflare公式：フォームへのウィジェット埋め込み",
+          "url": "https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/"
+        },
+        {
+          "label": "Cloudflare公式：Siteverifyによる必須のサーバー検証",
+          "url": "https://developers.cloudflare.com/turnstile/get-started/server-side-validation/"
+        },
+        {
+          "label": "Cloudflare公式：テスト用sitekey・secret key",
+          "url": "https://developers.cloudflare.com/turnstile/troubleshooting/testing/"
+        }
+      ]
     }
   ]
 }
