@@ -1,0 +1,142 @@
+{
+  "id": "case-20261124-03",
+  "publishedAt": "2026-11-24",
+  "title": "Windowsのリモート デスクトップがオンか確認するには？ 接続先PCの設定と管理者への相談",
+  "shortTitle": "リモート デスクトップの確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Windows PCの遠隔接続設定を確認したい人",
+    "身に覚えのない設定が気になる人"
+  ],
+  "summary": "Windowsのリモート デスクトップの状態は「設定」→「システム」→「リモート デスクトップ」で確認できます。オン表示だけで不正な接続があったと断定せず、設定の目的を確認しましょう。職場や学校のPCは変更前に管理者に相談します。",
+  "scenario": {
+    "headline": "Windows PCでリモート デスクトップが有効か確認したい",
+    "description": "Windowsのリモート デスクトップの状態は「設定」→「システム」→「リモート デスクトップ」で確認できます。オン表示だけで不正な接続があったと断定せず、設定の目的を確認しましょう。職場や学校のPCは変更前に管理者に相談します。",
+    "whyItMatters": "Windowsのエディションとリモート デスクトップの設定状態を確認することが大切です。"
+  },
+  "question": {
+    "text": "まず何を確認する？",
+    "choices": [
+      {
+        "id": "correct",
+        "label": "Windowsのエディションとリモート デスクトップの設定状態を確認する",
+        "description": "対象と操作の影響を確認してから判断します。"
+      },
+      {
+        "id": "wrong1",
+        "label": "オンなら必ず第三者に侵入されていると決めつける",
+        "description": "公式の案内と利用環境を確認しましょう。"
+      },
+      {
+        "id": "wrong2",
+        "label": "この設定をオフにすればすべての遠隔操作ソフトも止まると考える",
+        "description": "操作の影響を確認しましょう。"
+      }
+    ],
+    "recommendedAnswers": [
+      "correct"
+    ],
+    "explanation": "Windowsのリモート デスクトップの状態は「設定」→「システム」→「リモート デスクトップ」で確認できます。オン表示だけで不正な接続があったと断定せず、設定の目的を確認しましょう。職場や学校のPCは変更前に管理者に相談します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "設定の場所",
+      "description": "Windows 11では「設定」→「システム」→「リモート デスクトップ」で設定状態を確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "接続先のエディション",
+      "description": "MicrosoftのWindows 11向け案内は、接続先PCにWindows Proエディションが必要と説明しています。接続元の端末は条件が異なります。",
+      "priority": "high"
+    },
+    {
+      "title": "オン表示の意味",
+      "description": "リモート デスクトップがオンでも、その表示だけでは誰が接続したかや不正利用の有無は分かりません。設定の目的を利用者や管理者に確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "別の遠隔支援",
+      "description": "クイック アシストや他社製の遠隔操作ソフトは別の機能です。リモート デスクトップの設定だけですべての遠隔操作を確認できるわけではありません。",
+      "priority": "medium"
+    },
+    {
+      "title": "仕事や学校のPC",
+      "description": "業務で必要な設定の場合があります。組織の端末は独断で変更せず、管理者へ相談します。不審な操作が進行している場合も管理者の指示に従います。",
+      "priority": "medium"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式資料を確認",
+  "verificationMessage": "公式資料の記載を確認しています。画面や対応方法は、利用環境や契約によって異なる場合があります。",
+  "verdict": {
+    "label": "Windowsのエディションとリモート デスクトップの設定状態を確認する",
+    "description": "Windowsのリモート デスクトップの状態は「設定」→「システム」→「リモート デスクトップ」で確認できます。オン表示だけで不正な接続があったと断定せず、設定の目的を確認しましょう。職場や学校のPCは変更前に管理者に相談します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "「設定」→「システム」→「バージョン情報」でWindowsのエディションを確認する",
+      "reason": "接続先として利用できる条件を確認するためです。"
+    },
+    {
+      "action": "「設定」→「システム」→「リモート デスクトップ」で設定状態を確認する",
+      "reason": "接続先PCの遠隔接続設定を把握するためです。"
+    },
+    {
+      "action": "設定の目的や不審な状況について、PCの利用者や管理者に確認する",
+      "reason": "オン表示だけで不正接続の有無は判断できないためです。"
+    },
+    {
+      "action": "不審な相手に遠隔操作を許可した場合は、組織端末なら管理者へ速やかに報告する",
+      "reason": "別の遠隔支援ソフトやアカウントへの対応が必要な場合があります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "オン表示だけで必ず侵入されたと断定する",
+      "reason": "設定状態と接続・不正利用の有無は別に確認する必要があります。"
+    },
+    {
+      "action": "リモート デスクトップの設定だけですべての遠隔操作が無効になったと考える",
+      "reason": "クイック アシストや他社製ソフトは別の機能です。"
+    }
+  ],
+  "positiveUse": {
+    "title": "AIで確認項目を整理する",
+    "description": "写真や位置情報、認証情報を入力せずに一般的な確認項目を整理できます。実際の操作は公式案内や管理者に確認しましょう。",
+    "examples": [
+      "「設定」→「システム」→「バージョン情報」でWindowsのエディションを確認する",
+      "「設定」→「システム」→「リモート デスクトップ」で設定状態を確認する",
+      "設定の目的や不審な状況について、PCの利用者や管理者に確認する"
+    ]
+  },
+  "makotoComment": "設定がオンかどうかと、誰かが不正に接続したかどうかは別です。仕事のPCは、変更する前に管理者へ確認しましょう。",
+  "oneLineLesson": "Windowsのエディションとリモート デスクトップの設定状態を確認する。",
+  "tags": [
+    "Windows",
+    "リモート デスクトップ",
+    "遠隔操作",
+    "セキュリティ",
+    "設定"
+  ],
+  "sources": [
+    {
+      "title": "リモート デスクトップの使い方",
+      "publisher": "Microsoft",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/ja-jp/windows/experience/connectivity-networking/how-to-use-remote-desktop"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Windows PCでリモート デスクトップが有効か確認したい場面を抽象的に示す",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261112-01",
+    "case-20261108-01"
+  ],
+  "relatedArticlesCurated": true
+}
