@@ -448,9 +448,17 @@ def render_conversation_history(
     history: dict[str, list[str]],
     lounge_logs: dict[str, dict],
 ) -> str:
-    member_logs = build_index(list(lounge_logs.values())).get(slug, [])
-    member_logs.sort(key=lambda log: (log["date"], log["time"]), reverse=True)
-    log_ids = [log["id"] for log in member_logs[:3]]
+    featured_path = ROOT / "src" / "data" / "memberFeaturedConversations.json"
+    featured = json.loads(featured_path.read_text(encoding="utf-8"))
+    curated = featured.get(slug)
+    if curated is not None:
+        if len(curated) != 3 or len({entry["id"] for entry in curated}) != 3:
+            raise ValueError(f"Featured conversations must contain three unique logs: {slug}")
+        log_ids = [entry["id"] for entry in curated]
+    else:
+        member_logs = build_index(list(lounge_logs.values())).get(slug, [])
+        member_logs.sort(key=lambda log: (log["date"], log["time"]), reverse=True)
+        log_ids = [log["id"] for log in member_logs[:3]]
     entries = []
     for log_id in log_ids:
         log = lounge_logs.get(log_id)
@@ -459,18 +467,23 @@ def render_conversation_history(
         date = str(log.get("date", ""))
         time = str(log.get("time", ""))
         title = str(log.get("title", ""))
-        description = str(log.get("description", ""))
+        chosen = next((entry for entry in curated if entry["id"] == log_id), None) if curated is not None else None
+        description = str(chosen["description"] if chosen else log.get("description", ""))
+        url = str(chosen["url"] if chosen else f"../lounge-archive/{date}#{log_id}")
         entries.append(
             f'''          <li>
-            <a href="../lounge-archive/{esc(date)}#{esc(log_id)}">
+            <a href="{esc(url)}">
               <time datetime="{esc(date)}T{esc(time)}">{esc(date.replace("-", "."))} {esc(time)}</time>
               <strong>{esc(title)}</strong>
               <span>{esc(description)}</span>
             </a>
           </li>'''
         )
+    curated_attr = ' data-history-curated="true"' if curated is not None else ""
+    lead = "この社員らしさが伝わる会話を、ラウンジから3件選びました。" if curated is not None else "参加した過去の会話から、3件をピックアップしています。"
+    history_script = '' if curated is not None else '          <script defer src="../scripts/member-lounge-history.js"></script>\n'
     fallback = chr(10).join(entries) if entries else '          <li>参加した会話はまだありません。</li>'
-    return f'''        <section id="profile-conversation-history" class="profile-panel profile-conversation-history" aria-labelledby="conversation-history-heading" data-member-slug="{esc(slug)}">
+    return f'''        <section id="profile-conversation-history" class="profile-panel profile-conversation-history" aria-labelledby="conversation-history-heading" data-member-slug="{esc(slug)}"{curated_attr}>
           <div class="profile-conversation-history__header">
             <div>
               <p>From Bean &amp; Bits</p>
@@ -478,12 +491,11 @@ def render_conversation_history(
             </div>
             <a href="../lounge.html">ラウンジ一覧へ</a>
           </div>
-          <p class="profile-conversation-history__lead">参加した過去の会話から、3件をピックアップしています。</p>
+          <p class="profile-conversation-history__lead">{esc(lead)}</p>
           <ol aria-live="polite">
 {fallback}
           </ol>
-          <script defer src="../scripts/member-lounge-history.js"></script>
-        </section>'''
+{history_script}        </section>'''
 
 
 def render_main(

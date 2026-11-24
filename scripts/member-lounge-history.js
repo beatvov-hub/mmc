@@ -2,7 +2,7 @@
   "use strict";
   const section = document.querySelector("#profile-conversation-history[data-member-slug]");
   const script = document.currentScript;
-  if (!section || !script) return;
+  if (!section || !script || section.dataset.historyCurated === "true") return;
   const list = section.querySelector("ol");
   if (!list) return;
 
