@@ -4150,6 +4150,59 @@
           "url": "https://developers.cloudflare.com/turnstile/troubleshooting/testing/"
         }
       ]
+    },
+    {
+      "date": "2026-11-25",
+      "slug": "ruff-find-python-code-errors-before-sharing-free-oss",
+      "useCategory": "開発・テスト",
+      "name": "Ruff",
+      "category": "Python Linter / Open Source",
+      "officialUrl": "https://docs.astral.sh/ruff/",
+      "summary": "RuffはPythonのコードを検査し、未使用の読み込みなどのミスや書式の乱れを見つけるツールです。",
+      "whyToday": "小さなPythonスクリプトでも、使っていない読み込みや基本的な書き方の揺れはレビュー時に埋もれがちです。Ruffは既定の検査ルールでファイルを確認し、問題の場所と内容を一覧にできるため、共有前の確認を始めやすくします。",
+      "useFor": "例えば、社内の集計用Pythonスクリプトを共有する前に確認する想定例です。Pythonプロジェクトとuvを用意し、公式手順で開発用依存にRuffを追加したうえで、対象ファイルにuv run ruff check path/to/script.pyを実行します。出力には該当行とルールが示され、未使用のimportなどを確認できます。まず1ファイルだけを対象にし、指摘が意図した問題か見てから、必要なら--fixで自動修正し差分を確認します。この例は未実施です。",
+      "recommendedFor": {
+        "employeeId": "MMC-008",
+        "reason": "アキトにまず小さなPythonスクリプトをRuffで検査してもらい、指摘一覧と自動修正の差分を受け取れば、開発作業に導入する範囲を判断できます。"
+      },
+      "keiComment": "最初は1ファイルの検査だけで、Ruffが拾う指摘とチームで直したい内容が合うか見られます。自動修正を使うときは、変更差分を保存前に確認する運用にしておくと安心です。",
+      "verifiedAt": "2026-11-25",
+      "status": "published",
+      "pricing": "Ruff本体はMITライセンスのオープンソースソフトウェアで、ライセンス上、利用・複製・変更・配布に料金は求められません。紹介例はローカル実行なので、Ruffの利用にアカウントやAPIキーは不要です。",
+      "conditions": "ローカルにPythonプロジェクトとuvが必要です。Ruffを開発用依存として追加して実行する手順を紹介しています。",
+      "notes": "RuffはPython向けのコード検査・整形ツールで、Agent SkillやMCPサーバーではありません。",
+      "archiveTitle": "RuffでPythonの書き間違いを共有前に見つけられる？",
+      "archiveDescription": "PythonファイルをRuffで検査し、指摘行を確認する手順を紹介。無料で使える範囲、初期設定の要否、自動修正時の確認点も解説します。",
+      "forWho": "Pythonの小さなスクリプトを共有・レビューする前に、未使用のimportや基本的な書き方の問題を先に見つけたい開発担当者向けです。",
+      "cautions": "Ruffの既定ルールで見つけられる範囲の指摘であり、プログラムの仕様や処理結果が正しいことを保証するものではありません。`--fix`を付けると修正可能な箇所を変更するため、差分を確認してください。",
+      "faq": [
+        {
+          "question": "設定ファイルを用意しないと使えませんか？",
+          "answer": "いいえ。Ruffの公式チュートリアルでは既定の設定で検査を始めており、標準では一般的なミスなどに関するルールが有効です。必要に応じて後からプロジェクト設定で調整できます。"
+        },
+        {
+          "question": "検査を実行するとファイルは自動で書き換わりますか？",
+          "answer": "通常のruff checkは指摘を表示します。自動修正はruff check --fixを使った場合に行われ、整形は別コマンドのruff formatで実行します。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Ruff公式チュートリアル（導入、検査、既定ルール）",
+          "url": "https://docs.astral.sh/ruff/tutorial/"
+        },
+        {
+          "label": "Ruff公式インストール手順（uvでの追加と実行）",
+          "url": "https://docs.astral.sh/ruff/installation/"
+        },
+        {
+          "label": "Ruff公式Lint説明（検査と--fix）",
+          "url": "https://docs.astral.sh/ruff/linter/"
+        },
+        {
+          "label": "Ruff公式GitHubライセンス（MIT）",
+          "url": "https://raw.githubusercontent.com/astral-sh/ruff/main/LICENSE"
+        }
+      ]
     }
   ]
 }
