@@ -1,18 +1,18 @@
 {
   "id": "case-20260905-02",
   "publishedAt": "2026-09-05",
-  "title": "Gemini Liveで画面共有する前に。Keep Activityをオフにしても会話は最長72時間残る",
-  "shortTitle": "Gemini Liveは画面共有前に、Keep Activityと72時間保存を確認する",
+  "title": "Gemini Liveの履歴をオフにしても会話は残る？ 保存期間と削除方法",
+  "shortTitle": "Gemini Liveの履歴オフと約2か月の保存",
   "category": "security",
   "difficulty": "standard",
   "targetAudience": [
     "Gemini Liveで音声・カメラ・画面共有を使う人",
     "Gemini Appsの履歴と共有データを自分で整理したい人"
   ],
-  "summary": "Googleは、Gemini AppsのKeep Activityがオンの場合、Gemini Liveで共有した音声、ファイル、画像、YouTube動画、カメラ映像、画面共有の動画フレームがGemini Apps Activityに保存されると案内しています。Keep Activityをオフにしても、サービス提供とフィードバック処理のため、会話はアカウントに最長72時間保存され、この活動はGemini Apps Activityには表示されません。また、Gemini Apps ActivityでGemとの会話を削除してもGem自体は削除されず、Liveの活動を削除した場合は関連する音声・文字起こし・動画・画面共有も削除されます。Liveを始める前に、共有する画面、Keep Activity、後で消す対象を一緒に決める記事です。",
+  "summary": "Googleの個人用アカウント向けヘルプでは、Geminiの履歴をオフにしても会話は約2か月アカウントに保存され、履歴には表示されないと案内しています。Liveの履歴を削除すると関連する音声、文字起こし、動画、画面共有も削除されますが、共有チャットの公開リンクは別に削除が必要です。仕事・学校アカウントは管理者設定を確認します。",
   "scenario": {
     "headline": "Gemini Liveで画面を見せながら、資料の操作方法を聞こうとしている",
-    "description": "画面共有をオンにする前にKeep Activityをオフへ切り替えたので、内容はどこにも残らないと思っています。過去に作ったGemもあるため、会話履歴とGemの設定をどう整理すべきか迷っています。",
+    "description": "画面共有を始める前に履歴をオフにすれば、会話が残らないのか確認したい場面です。",
     "whyItMatters": "Liveでは音声だけでなく、共有した画面・カメラ映像・添付などが活動履歴の対象になり得ます。Keep Activityのオフは『一切保存しない』設定ではなく、Gemの削除やLive活動の削除も別の操作です。"
   },
   "question": {
@@ -20,13 +20,13 @@
     "choices": [
       {
         "id": "review-before-live-and-delete-activity",
-        "label": "共有前にKeep Activityを確認し、必要ならLiveの活動を個別に削除する。オフでも最長72時間の保存は別に理解する",
+        "label": "個人アカウントの履歴設定を確認し、オフでも会話は約2か月保存されると理解する",
         "description": "Keep Activity、Live活動の削除、Gem自体の削除は別の仕組みである。"
       },
       {
         "id": "off-means-never-retained",
         "label": "Keep Activityをオフにすれば、会話は一切保存されず、共有内容も完全に残らないと考える",
-        "description": "Googleは、オフでも会話を最長72時間保存すると案内している。"
+        "description": "Googleは、オフでも会話を約2か月保存すると案内している。"
       },
       {
         "id": "delete-chat-deletes-gem",
@@ -34,8 +34,10 @@
         "description": "会話の削除とGemの削除は別の操作である。"
       }
     ],
-    "recommendedAnswers": ["review-before-live-and-delete-activity"],
-    "explanation": "Gemini Liveでの共有内容はKeep ActivityがオンならGemini Apps Activityに保存されます。Keep Activityがオフでも会話は最長72時間保存されます。Liveの活動を削除すると関連する音声・文字起こし・動画・画面共有は削除されますが、Gem自体の削除は別途必要です。"
+    "recommendedAnswers": [
+      "review-before-live-and-delete-activity"
+    ],
+    "explanation": "個人用アカウントでは履歴オフでも会話は約2か月保存され、履歴には表示されません。Liveの履歴を削除すると関連する音声や画面共有も削除されますが、共有チャットの公開リンクは別に削除します。"
   },
   "inspectionPoints": [
     {
@@ -44,48 +46,109 @@
       "priority": "high"
     },
     {
-      "title": "Keep Activityの状態",
-      "description": "Gemini AppsのMenu → Settings & help → ActivityでKeep Activityを確認します。個人アカウントと、管理者設定がある仕事・学校アカウントは扱いが異なります。",
+      "title": "履歴の設定",
+      "description": "パソコンのGeminiで「設定とヘルプ」→「履歴」を開きます。仕事・学校アカウントの保持設定は管理者が管理します。",
       "priority": "high"
     },
     {
-      "title": "オフにした後の最長72時間保存",
-      "description": "Keep Activityをオフにしても、サービス提供とフィードバック処理のため会話は最長72時間保存され、Activityには表示されません。",
+      "title": "オフにした後の約2か月保存",
+      "description": "個人用アカウントでは履歴オフでも会話は約2か月保存され、Geminiの履歴には表示されません。これはGoogleが現在案内する期間で、過去の会話への適用時期は確認できていません。",
       "priority": "high"
     },
     {
       "title": "削除する対象",
-      "description": "Live活動を削除すると関連する音声・文字起こし・動画・画面共有は削除されます。Gemとの会話を削除してもGemそのものは残るため、必要に応じて別途削除します。",
+      "description": "Live履歴の削除は関連する音声・文字起こし・動画・画面共有も対象です。共有チャットの公開リンクは履歴削除だけでは消えず、別に削除します。",
+      "priority": "high"
+    },
+    {
+      "title": "仕事や学校のアカウント",
+      "description": "履歴の設定や保持期間は管理者の管理下にあります。業務情報を誤って共有した場合は、削除だけで終わらせず組織のルールに従って報告します。",
       "priority": "high"
     }
   ],
   "verificationLevel": 2,
-  "verificationLabel": "Gemini Liveの共有前に、Keep Activity・最長72時間保存・削除対象を確認する",
+  "verificationLabel": "個人アカウントの履歴設定・保存期間・削除対象を確認する",
   "verificationMessage": "画面共有を始める前にActivity設定を開き、何を共有するか、いつ削除するかを決めましょう。",
   "verdict": {
     "label": "Gemini Liveのプライバシー設定は、オフにするだけでなく共有範囲と削除を組み合わせる",
-    "description": "Keep Activityは重要な設定ですが、オフでも最長72時間の保存があり、GemやLive活動の削除も別々です。画面共有を使う時は、表示してよい内容を先に選び、終わった後に削除する対象まで決めておくと管理しやすくなります。",
+    "description": "個人用アカウントでは、履歴オフでも会話が約2か月保存されます。共有前に画面と通知を整理し、不要なLive履歴と公開リンクをそれぞれ確認しましょう。仕事・学校では管理者の設定と組織のルールに従います。",
     "confidence": "high"
   },
   "safeActions": [
-    {"action": "Gemini Liveを始める前に、画面共有で通知や機密情報が映らない状態を作る", "reason": "Keep Activityがオンなら、共有した画面・音声・添付などが活動履歴に保存され得ます。"},
-    {"action": "Gemini Apps ActivityでKeep Activityと個別削除の場所を確認する", "reason": "活動は時間・日・個別項目などの単位で削除できます。"},
-    {"action": "Keep Activityをオフにする時は、最長72時間の保存があることを理解して共有範囲を決める", "reason": "オフでもサービス提供とフィードバック処理のため会話は最長72時間保存されます。"},
-    {"action": "不要なLive活動と不要なGemを、それぞれ別に削除する", "reason": "Live活動の削除とGem自体の削除は別の操作です。"}
+    {
+      "action": "Gemini Liveを始める前に、画面共有で通知や機密情報が映らない状態を作る",
+      "reason": "Keep Activityがオンなら、共有した画面・音声・添付などが活動履歴に保存され得ます。"
+    },
+    {
+      "action": "パソコンでGeminiの「設定とヘルプ」→「履歴」を確認する",
+      "reason": "個人アカウントでは履歴のオン・オフと個別削除を管理できます。"
+    },
+    {
+      "action": "個人アカウントで履歴をオフにするときも、会話は約2か月保存されると理解する",
+      "reason": "Googleは履歴に表示されなくてもサービス提供などのため会話を保存すると案内しています。"
+    },
+    {
+      "action": "不要なLive履歴と、作成した公開リンクをそれぞれ確認する",
+      "reason": "履歴を削除しても関連する公開リンクは削除されません。"
+    }
   ],
   "avoidActions": [
-    {"action": "Keep Activityをオフにしたので、画面共有の内容は一切保存されないと考える", "reason": "会話はActivityに表示されなくても最長72時間保存されます。"},
-    {"action": "Liveの活動を削除した後、作成したGemまで消えたと思い込む", "reason": "Gemとの会話を削除してもGem自体は削除されません。"},
-    {"action": "通知や他人の情報が映る画面を、準備なしで共有する", "reason": "共有した画面の動画フレームは、Keep Activityがオンの場合に活動履歴へ保存され得ます。"}
+    {
+      "action": "Keep Activityをオフにしたので、画面共有の内容は一切保存されないと考える",
+      "reason": "会話はActivityに表示されなくても約2か月保存されます。"
+    },
+    {
+      "action": "共有チャットの履歴を削除しただけで公開リンクも消えたと考える",
+      "reason": "公開リンクは別に削除します。"
+    },
+    {
+      "action": "通知や他人の情報が映る画面を、準備なしで共有する",
+      "reason": "共有した画面の動画フレームは、Keep Activityがオンの場合に活動履歴へ保存され得ます。"
+    }
   ],
   "positiveUse": {
     "title": "画面共有を、見せてよい範囲だけの相談に使う",
     "description": "設定画面の案内や公開資料の読み方など、画面を見せると早い相談に対象を絞れば、Gemini Liveを効率的な補助にできます。",
-    "examples": ["公開サイトの操作を見せながら質問する", "共有前に通知をオフにする", "一時的な相談後は関連するLive活動を削除する", "用途別にGemを作り、不要になったGemも見直す"]
+    "examples": [
+      "公開サイトの操作を見せながら質問する",
+      "共有前に通知をオフにする",
+      "一時的な相談後は関連するLive活動を削除する",
+      "用途別にGemを作り、不要になったGemも見直す"
+    ]
   },
   "makotoComment": "Liveで話しながら画面を見せると、ただの会話より『その場限り』に感じます。でも実際には、話した音声だけでなく画面の断片も扱う機能です。私はLiveを始める前に、閉じるべき通知と、終わった後に片付ける履歴を先に考えたいです。そうしておけば、画面共有を便利な相談の道具として使いやすくなります。",
-  "oneLineLesson": "Gemini Liveは、Keep Activityをオフにしても最長72時間保存される前提で共有する。",
-  "tags": ["Gemini", "Gemini Live", "画面共有", "Keep Activity", "音声AI", "プライバシー"],
-  "sources": [{"title": "Manage & delete your activity in Gemini Apps", "publisher": "Gemini Apps Help", "sourceType": "official-product-documentation", "publishedAt": null, "url": "https://support.google.com/gemini/answer/13278892"}],
-  "visualSuggestion": {"mainVisual": "Gemini Liveの開始前チェックを図解。共有する画面、Keep Activityの状態、最長72時間保存、終了後に削除するLive活動とGemを、別々のチェックボックスとして並べる。", "cardIcon": "gemini-live-activity-check", "accentTone": "caution"}
+  "oneLineLesson": "個人アカウントでは、履歴オフでも会話は約2か月保存される前提で共有する。",
+  "tags": [
+    "Gemini",
+    "Gemini Live",
+    "画面共有",
+    "Keep Activity",
+    "音声AI",
+    "プライバシー"
+  ],
+  "sources": [
+    {
+      "title": "Gemini アプリの履歴を管理、削除する",
+      "publisher": "Google Gemini アプリ ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/gemini/answer/13278892?hl=ja"
+    },
+    {
+      "title": "Gemini アプリでのチャットを共有する",
+      "publisher": "Google Gemini アプリ ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/gemini/answer/13743730?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "Gemini Liveの開始前チェックを図解。共有する画面、Keep Activityの状態、約2か月保存、終了後に削除するLive活動とGemを、別々のチェックボックスとして並べる。",
+    "cardIcon": "gemini-live-activity-check",
+    "accentTone": "caution"
+  },
+  "relatedArticleIds": [
+    "case-20261101-02"
+  ],
+  "updatedAt": "2026-11-25"
 }

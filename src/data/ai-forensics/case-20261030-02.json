@@ -9,7 +9,7 @@
     "Googleアカウントでパスキーを使う人",
     "スマートフォンを紛失した人"
   ],
-  "summary": "Googleは公式ヘルプで、パスキーを設定した端末を紛失した際の削除方法を案内しています。Googleアカウント用に作成したパスキーとAndroidで自動作成されたパスキーでは、確認する場所が異なります。",
+  "summary": "Googleは公式ヘルプで、パスキーを設定した端末を紛失した際の削除方法を案内しています。Googleアカウント用に作成したパスキーとAndroidで自動作成されたパスキーでは、確認する場所が異なります。 ログインできても重要な設定の変更時に本人確認を求められることがあります。使えないパスキーしか表示されない場合は、別の方法が選べるか確認し、解決しなければ公式のアカウント復元を試します。",
   "scenario": {
     "headline": "Googleのパスキーを使っていたスマホが見当たらない",
     "description": "別の端末からGoogleアカウントへのアクセスを保護したい場面です。",
@@ -61,9 +61,19 @@
       "priority": "medium"
     },
     {
+      "title": "ログイン後も本人確認を求められる場合",
+      "description": "Googleはパスキーを機密情報の変更時の本人確認にも使うと案内しています。認証画面に別の方法が表示された場合は選択肢を確認し、進めない場合は公式のアカウント復元を試します。選択肢と復元結果は状況によって異なり、成功は保証されません。",
+      "priority": "high"
+    },
+    {
       "title": "対象の範囲",
       "description": "ここで説明するのはGoogleアカウントへのログイン用です。他サービスのパスキーはそれぞれの案内を確認します。",
       "priority": "high"
+    },
+    {
+      "title": "復元できるうちの備え",
+      "description": "アクセスできる間に再設定用の電話番号や復元用連絡先などを確認します。仕事・学校のアカウントは管理者に相談します。",
+      "priority": "medium"
     }
   ],
   "verificationLevel": 3,
@@ -90,6 +100,10 @@
     {
       "action": "他サービスと管理アプリの保存状況を確認する",
       "reason": "Googleアカウントの操作だけでは他サービスの登録は変わりません。"
+    },
+    {
+      "action": "本人確認画面で別の方法が表示されるか確認し、進めなければGoogleの公式復元を試す",
+      "reason": "ログイン済みでも重要な変更に再度の本人確認が必要な場合があります。"
     }
   ],
   "avoidActions": [
@@ -100,6 +114,10 @@
     {
       "action": "端末名だけで無関係なデバイスまでログアウトする",
       "reason": "同じ名前のセッションの対象を確認します。"
+    },
+    {
+      "action": "復元方法が決まる前に、使える端末の初期化や認証手段の削除を繰り返す",
+      "reason": "使える確認手段を失うおそれがあります。"
     }
   ],
   "positiveUse": {
@@ -134,6 +152,20 @@
       "sourceType": "official-product-documentation",
       "publishedAt": null,
       "url": "https://support.google.com/accounts/answer/17299765?hl=ja"
+    },
+    {
+      "title": "Google アカウントにアクセスできなくなるのを防ぐ",
+      "publisher": "Google アカウント ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/7684753?hl=ja"
+    },
+    {
+      "title": "ログインできない場合",
+      "publisher": "Google アカウント ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/troubleshooter/2402620?hl=ja"
     }
   ],
   "visualSuggestion": {
@@ -145,5 +177,6 @@
     "case-20261106-02",
     "case-20261031-02",
     "case-20261027-02"
-  ]
+  ],
+  "updatedAt": "2026-11-25"
 }

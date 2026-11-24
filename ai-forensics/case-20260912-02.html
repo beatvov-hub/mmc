@@ -4,16 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Copilotの「記憶」をオフにしても、保存済みの内容は消えない。削除まで確認する｜AI鑑識室｜毎日見るコワークス</title>
-    <meta name="description" content="Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。" />
+    <meta name="description" content="Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。 チャットを削除しても保存されたメモリは消えず、チャット用のPurview保持ポリシーもCopilotメモリには適用されません。機能はプレビュー段階のため、画面や組織の設定を確認してください。" />
     <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20260912-02" />
 <meta property="og:title" content="Copilotの「記憶」をオフにしても、保存済みの内容は消えない。削除まで確認する｜AI鑑識室｜毎日見るコワークス" />
-    <meta property="og:description" content="Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。" />
+    <meta property="og:description" content="Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。 チャットを削除しても保存されたメモリは消えず、チャット用のPurview保持ポリシーもCopilotメモリには適用されません。機能はプレビュー段階のため、画面や組織の設定を確認してください。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20260912-02" />
 <meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../favicon.ico" />
     <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Copilotの「記憶」をオフにしても、保存済みの内容は消えない。削除まで確認する", "description": "Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。 チャットを削除しても保存されたメモリは消えず、チャット用のPurview保持ポリシーもCopilotメモリには適用されません。機能はプレビュー段階のため、画面や組織の設定を確認してください。", "datePublished": "2026-09-12", "mainEntityOfPage": "https://mainichi-miru.com/ai-forensics/case-20260912-02", "inLanguage": "ja", "dateModified": "2026-11-25"}</script>
     <!-- GOOGLE_TAG_START -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
@@ -29,8 +30,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
       crossorigin="anonymous"></script>
     <!-- ADSENSE_END -->
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Copilotの「記憶」をオフにしても、保存済みの内容は消えない。削除まで確認する", "description": "Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。", "datePublished": "2026-09-12", "mainEntityOfPage": "https://mainichi-miru.com/ai-forensics/case-20260912-02", "inLanguage": "ja"}</script>
-</head>
+  </head>
   <body class="subpage ai-forensics-page forensics-article-page">
     <!-- SITE_HEADER_START -->
     <header class="site-header" aria-label="サイトヘッダー">
@@ -75,9 +75,10 @@
               <span>仕事・AI活用</span>
               <span>標準</span>
               <time datetime="2026-09-12">2026.09.12</time>
+              <span>更新 <time datetime="2026-11-25">2026.11.25</time></span>
             </div>
             <h1>Copilotの「記憶」をオフにしても、保存済みの内容は消えない。削除まで確認する</h1>
-            <p>Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。</p>
+            <p>Microsoftは、Microsoft 365 Copilot ChatのCopilot Memoryについて、会話から役割、よく行う作業、好みなどの重要な情報を記憶として保存し、以後の回答の文脈に使うと案内しています。Saved memoriesは既定でオンですが、オフにしても既に保存された記憶は自動的に削除されません。保存済みの記憶は、Copilot Chatの設定から個別に削除するか、Delete all memoriesでまとめて削除できます。Microsoftは、記憶を削除した後に『What do you know about me?』と尋ねて変更を確認する方法も案内しています。会話履歴を消す操作とは別に、異動や役割変更の時に記憶そのものを見直す記事です。 チャットを削除しても保存されたメモリは消えず、チャット用のPurview保持ポリシーもCopilotメモリには適用されません。機能はプレビュー段階のため、画面や組織の設定を確認してください。</p>
             <ul class="forensics-target-list"><li>Microsoft 365 Copilot Chatで仕事の好みや役割を記憶させる人</li><li>異動・退職・担当変更に合わせてAIの記憶を整理したい人</li></ul>
             <ul class="pill-list forensics-article-tags"><li>Microsoft 365 Copilot</li><li>Copilot Memory</li><li>Saved memories</li><li>個人設定</li><li>会話履歴</li><li>業務利用</li></ul>
           </div>
@@ -141,7 +142,7 @@
             <strong>推奨される行動</strong>
 <ul><li>Saved memoriesをオフにした上で、Manage saved memoriesから不要な記憶を個別または全件削除する</li></ul>
             <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
-            <p>Saved memoriesをオフにしても、過去に保存された記憶は残ります。Copilot ChatのSettings and more → Chat settings → Personalization → Manage saved memoriesから、不要な項目を削除するか、Delete all memoriesを選びます。</p>
+            <p>Saved memoriesをオフにしても、過去に保存された記憶は残ります。Copilot ChatのSettings and more → Chat settings → Personalization → Manage saved memoriesから、不要な項目を削除するか、Delete all memoriesを選びます。 チャットの削除だけでは保存済みメモリは消えません。組織の保持・証拠保全ルールがある場合は先に管理者へ相談してください。</p>
           </div>
         </section>
 
@@ -169,6 +170,11 @@
               <h3>削除結果の確認</h3>
               <p>Microsoftは、削除後に『What do you know about me?』と尋ね、記憶の変更を確かめる方法を案内しています。</p>
             </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>チャット削除と組織の保持設定</h3>
+              <p>Microsoftの管理者向け案内では、チャットを削除しても保存されたメモリは消えず、Copilot Chatのやり取りに設定されたPurview保持ポリシーもメモリには適用されません。メモリ専用の保持ルールを設定する管理者コントロールはないと説明されています。対象機能はプレビュー段階で変更される場合があります。</p>
+            </article>
           </div>
         </section>
 
@@ -187,6 +193,7 @@
             <li><strong>今後記憶させたくない場合は、Saved memoriesをオフにする</strong><span>設定をオフにすると、Copilot Memoryが新しい情報を保存しないようにできます。</span></li>
             <li><strong>既に保存された不要な内容は、個別または全件で削除する</strong><span>オフにしても既存の記憶は自動削除されず、Manage saved memoriesから削除が必要です。</span></li>
             <li><strong>削除後はCopilotに何を記憶しているか尋ねて確認する</strong><span>Microsoftは『What do you know about me?』で変更を確認する方法を案内しています。</span></li>
+            <li><strong>組織の保持・証拠保全の指示がある場合は、削除前に管理者に相談する</strong><span>チャットとメモリは別に管理され、組織で必要な対応が異なるためです。</span></li>
             </ul></div>
             <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
             <li><strong>Saved memoriesをオフにすれば、既に保存された記憶も消えたと考える</strong><span>オフにしても、既存の記憶は自動的に削除されません。</span></li>
@@ -227,11 +234,38 @@
               <span>Microsoft Support</span>
               <span>その他</span>
             </li>
+            <li>
+              <strong><a href="https://learn.microsoft.com/ja-jp/copilot/manage/copilot-personalization-memory" target="_blank" rel="noopener noreferrer">Copilot の個人用設定とメモリを管理する<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Learn</span>
+              <span>その他</span>
+            </li>
           </ul>
         </section>
         <section class="forensics-article-section forensics-related">
           <h2>関連記事</h2>
           <div class="forensics-related-grid">
+          <a class="forensics-card tone-calm" href="case-20261026-02" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Microsoft Copilotのプライバシー設定、新旧アプリで案内が違う　先に版とアカウントを確認 Copilot設定はアプリ版とアカウントを確認 Microsoftは2026年8月18日から、Web・デスクトップ・モバイル向けMicrosoft Copilotアプリの更新版を提供しています。Microsoft Supportの「プライバシー コントロール」やFAQには旧版だけに適用される説明が残り、新版やCopilot on the webでは別の「個人向けCopilot: データ、プライバシー、責任あるAI」案内を参照するよう明記されています。また個人Microsoftアカウント、Microsoft 365の家庭向けアプリ、職場・学校のMicrosoft Entraアカウントでは適用文書が異なります。画面の設定手順を試す前に、アプリ更新状態とサインイン中のアカウント種別を確認し、該当する公式案内を開いてください。旧版の学習・メモリ設定を新版や組織アカウントへそのまま当てはめないことが重要です。 セキュリティ・権限 はじめて Microsoft Copilot プライバシー設定 Copilot更新 アカウント種別 メモリ AIデータ保護 個人用MicrosoftアカウントでCopilotを使う人 Copilotのメモリ・学習・チャット設定を見直したい人 個人用と職場・学校用のCopilotを使い分ける人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-privacy-version-check</span>
+              <div>
+                <p>Copilot設定はアプリ版とアカウントを確認</p>
+                <h3>Microsoft Copilotのプライバシー設定、新旧アプリで案内が違う　先に版とアカウントを確認</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-10-26">2026.10.26</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">Microsoftは2026年8月18日から、Web・デスクトップ・モバイル向けMicrosoft Copilotアプリの更新版を提供しています。Microsoft Supportの「プライバシー コントロール」やFAQには旧版だけに適用される説明が残り、新版やCopilot on the webでは別の「個人向けCopilot: データ、プライバシー、責任あるAI」案内を参照するよう明記されています。また個人Microsoftアカウント、Microsoft 365の家庭向けアプリ、職場・学校のMicrosoft Entraアカウントでは適用文書が異なります。画面の設定手順を試す前に、アプリ更新状態とサインイン中のアカウント種別を確認し、該当する公式案内を開いてください。旧版の学習・メモリ設定を新版や組織アカウントへそのまま当てはめないことが重要です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>Microsoftの適用条件と公式案内を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>個人用MicrosoftアカウントでCopilotを使う人</li><li>Copilotのメモリ・学習・チャット設定を見直したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>プライバシー設定</li><li>Copilot更新</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
           <a class="forensics-card tone-caution" href="case-20260905-03" data-forensics-card data-category="work-use" data-level="2" data-difficulty="standard" data-search-text="Microsoft Copilotの履歴を消しても、保存済みのWord・PowerPoint本文は消えない Copilot履歴の削除と保存済みファイルの削除は別操作 Microsoftは、仕事・学校アカウントでのMicrosoft Copilot activity historyをMy AccountのData and Privacyから削除できると案内しています。ただし、削除はMicrosoftへの削除リクエストであり、完了まで時間がかかる場合があります。開いているアプリでは、閉じて再度開くまで以前の活動履歴が見えることもあります。さらに重要なのは、Copilotが手伝ってWordやPowerPointなどのファイルへ保存した本文・変更は、活動履歴を削除しても消えないことです。履歴の一括削除はExcel、Outlook、Teams、Wordなど複数アプリを対象にし、Wordだけのようなアプリ単位の選択削除はできません。履歴を消す操作と、成果物を残す・削除する判断を分ける記事です。 仕事・AI活用 標準 Microsoft Copilot Microsoft 365 活動履歴 PowerPoint Word データ整理 仕事・学校アカウントでMicrosoft Copilotを使う人 Copilotの利用後に履歴と成果物を整理したい人">
             <div class="forensics-card-head">
               <span class="forensics-card-icon" aria-hidden="true">copilot-history-versus-files</span>
@@ -252,28 +286,6 @@
             </div>
             <ul class="forensics-card-audience"><li>仕事・学校アカウントでMicrosoft Copilotを使う人</li><li>Copilotの利用後に履歴と成果物を整理したい人</li></ul>
             <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Microsoft 365</li><li>活動履歴</li></ul>
-            <span class="mini-button">記事を見る</span>
-          </a>
-          <a class="forensics-card tone-caution" href="case-20260914-04" data-forensics-card data-category="security" data-level="4" data-difficulty="advanced" data-search-text="Copilotのブラウズ代行は、ログイン済みCookieと会話スクリーンショットを分けて片付ける Copilotのブラウズ代行はCookieと会話履歴を作業後に整理する Microsoftは、EdgeのBrowse with Copilotについて、Copilotが現在のブラウザウィンドウで作業し、ページのクリック、入力、タブ移動を行えると案内しています。Copilotは対象ウィンドウのCookieにアクセスできるため、利用者がログイン済みのサイトでは同じログイン状態で作業できます。Microsoftは、Cookieを削除するか新しいブラウザプロファイルから始める方法を案内しています。また、作業したページのスクリーンショットは会話履歴に保存され、会話を削除すると関連スクリーンショットも削除されますが、削除しない場合は最大30日保存されます。ブラウズ代行を始める前のログイン環境と、終了後の会話履歴をセットで扱う記事です。 セキュリティ・権限 発展 Microsoft Copilot Edge AIブラウザ Cookie スクリーンショット 会話履歴 Microsoft EdgeでBrowse with Copilotを使う人 AIにWebサイトの検索・入力・クリックを代行させる前に、ログイン状態を分けたい人">
-            <div class="forensics-card-head">
-              <span class="forensics-card-icon" aria-hidden="true">copilot-browse-cookie-history</span>
-              <div>
-                <p>Copilotのブラウズ代行はCookieと会話履歴を作業後に整理する</p>
-                <h3>Copilotのブラウズ代行は、ログイン済みCookieと会話スクリーンショットを分けて片付ける</h3>
-              </div>
-            </div>
-            <div class="forensics-card-meta">
-              <time datetime="2026-09-14">2026.09.14</time>
-              <span>セキュリティ・権限</span>
-              <span>発展</span>
-            </div>
-            <p class="forensics-card-summary">Microsoftは、EdgeのBrowse with Copilotについて、Copilotが現在のブラウザウィンドウで作業し、ページのクリック、入力、タブ移動を行えると案内しています。Copilotは対象ウィンドウのCookieにアクセスできるため、利用者がログイン済みのサイトでは同じログイン状態で作業できます。Microsoftは、Cookieを削除するか新しいブラウザプロファイルから始める方法を案内しています。また、作業したページのスクリーンショットは会話履歴に保存され、会話を削除すると関連スクリーンショットも削除されますが、削除しない場合は最大30日保存されます。ブラウズ代行を始める前のログイン環境と、終了後の会話履歴をセットで扱う記事です。</p>
-            <div class="forensics-card-level">
-              <strong>確認レベル 4</strong>
-              <span>Copilotのブラウズ代行は、開始前のCookieと終了後の会話履歴を確認する</span>
-            </div>
-            <ul class="forensics-card-audience"><li>Microsoft EdgeでBrowse with Copilotを使う人</li><li>AIにWebサイトの検索・入力・クリックを代行させる前に、ログイン状態を分けたい人</li></ul>
-            <ul class="pill-list forensics-card-tags"><li>Microsoft Copilot</li><li>Edge</li><li>AIブラウザ</li></ul>
             <span class="mini-button">記事を見る</span>
           </a>
           </div>
@@ -322,9 +334,9 @@
             <a href="../contact">お問い合わせ</a>
             <a href="../privacy-policy">プライバシーポリシー</a>
           </nav>
-          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="毎日一問。メニュー">
-            <p class="site-footer-nav__title">毎日一問。</p>
-            <a href="../quiz/">毎日一問。トップ</a>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="AI学習室メニュー">
+            <p class="site-footer-nav__title">AI学習室</p>
+            <a href="../quiz/">AI学習室トップ</a>
             <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
             <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
             <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
