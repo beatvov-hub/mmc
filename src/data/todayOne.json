@@ -4203,6 +4203,59 @@
           "url": "https://raw.githubusercontent.com/astral-sh/ruff/main/LICENSE"
         }
       ]
+    },
+    {
+      "date": "2026-11-26",
+      "slug": "mkdocs-searchable-internal-procedure-guide-local-preview-free-open-source",
+      "useCategory": "文書・データ整理",
+      "name": "MkDocs",
+      "category": "Documentation Site Generator / Open Source",
+      "officialUrl": "https://www.mkdocs.org/",
+      "summary": "MkDocsはMarkdownの手順書を、検索やページ間の移動ができる静的なウェブサイトに変換するツールです。",
+      "whyToday": "手順書を文書ファイルのまま共有すると、ページが増えたときに探しにくくなります。MkDocsならMarkdownからページと検索機能を備えた静的サイトを作り、執筆中もブラウザーで変更を確かめられるため、まず一つの手順書を読みやすく並べ直す作業に向いています。",
+      "useFor": "例えば、社内の申請手順を一つだけウェブで読める形にする想定例です。Pythonとpipが使えるローカル環境にMkDocsを入れ、mkdocs newでひな形を作ります。docs内のMarkdownを手順に合わせて編集し、必要ならmkdocs.ymlでページ名を設定したうえでmkdocs serveを実行します。ブラウザーで見出し、ページ移動、検索結果を確かめ、初稿のサイトを確認できます。この例は未実施で、公開せずローカル確認までを想定しています。",
+      "recommendedFor": {
+        "employeeId": "MMC-011",
+        "reason": "編集担当のコトちゃんに、まず申請手順1件の見出し順と初見で迷う表現を整えてもらい、MkDocsに入れられるMarkdown原稿を受け取る想定です。"
+      },
+      "keiComment": "ページが増える前に検索とナビゲーションを一緒に確認できるのは、手順書の置き場を決める助けになります。社内限定で扱う資料なら、公開前にホスティング先の閲覧制限も別途確認してください。",
+      "verifiedAt": "2026-11-26",
+      "status": "published",
+      "pricing": "MkDocsはBSD-2-Clauseライセンスのオープンソースソフトウェアです。ローカルでの作成・プレビューにホスティング契約は不要です。公開用のホスティングは別サービスとなり、料金や条件は提供元により異なります。",
+      "conditions": "Pythonとpipを使えるローカル環境が必要です。公式手順ではpipでMkDocsを導入し、ターミナルからプロジェクト作成・プレビューを行います。",
+      "notes": "MkDocsはMarkdownから静的サイトを作るツールで、Agent SkillやMCPサーバーではありません。",
+      "archiveTitle": "MkDocsで社内手順書を検索できるサイトにできる？",
+      "archiveDescription": "Markdownの手順書1件から、MkDocsで検索とページ移動ができるサイトをローカル作成。準備条件、プレビュー方法、公開時の注意点を紹介します。",
+      "forWho": "申請や定型作業の手順をMarkdownでまとめ、ページが増えても検索やナビゲーションで探せる形にしたい編集・業務改善担当者向けです。",
+      "cautions": "MkDocsが作るのは静的サイトです。社内資料を公開する場合は、別途選ぶホスティング先でアクセス制限を確認してください。サイトの公開自体はローカルプレビューとは別の作業です。",
+      "faq": [
+        {
+          "question": "1ページだけでも試せますか？",
+          "answer": "はい。公式手順では新しいプロジェクトにdocs/index.mdを作成し、mkdocs serveでブラウザー表示を確認できます。最初は1ページだけでもプレビューできます。"
+        },
+        {
+          "question": "サイト内検索は別のプラグインが必要ですか？",
+          "answer": "公式のGetting Startedでは、ページを追加したサイトで検索画面を使う手順が紹介されています。基本の試用に追加プラグインは必要ありません。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "MkDocs公式Getting Started（作成・プレビュー・検索・ビルド）",
+          "url": "https://www.mkdocs.org/getting-started/"
+        },
+        {
+          "label": "MkDocs公式インストール手順（Pythonとpip）",
+          "url": "https://www.mkdocs.org/user-guide/installation/"
+        },
+        {
+          "label": "MkDocs公式ライティングガイド（Markdownとページ構成）",
+          "url": "https://www.mkdocs.org/user-guide/writing-your-docs/"
+        },
+        {
+          "label": "MkDocs公式GitHubライセンス（BSD）",
+          "url": "https://raw.githubusercontent.com/mkdocs/mkdocs/master/LICENSE"
+        }
+      ]
     }
   ]
 }
