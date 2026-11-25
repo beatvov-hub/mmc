@@ -869,7 +869,7 @@ def render_teaser(entry: dict | None, members: dict[str, dict[str, str]]) -> str
             <p class="today-one-teaser-eyebrow">AGENT SKILLS LIBRARY</p>
             <h3 id="today-one-teaser-title">今日ひとつ。</h3>
           </div>
-          <a class="text-link" href="today-one">アーカイブを見る →</a>
+          <a class="text-link" href="/today-one/archive/">アーカイブを見る →</a>
         </div>
         <article class="today-one-teaser-card">
           <div class="today-one-teaser-heading">

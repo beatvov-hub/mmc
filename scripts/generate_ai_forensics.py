@@ -368,7 +368,8 @@ def render_index_card(article: dict[str, Any], *, featured: bool = False, href_p
             '            <div class="forensics-index-card-meta">',
             latest_label,
             f'              <span>{esc(category_label(article["category"]))}</span>',
-            f'              <time datetime="{esc(article["publishedAt"])}">{esc(article["publishedAt"].replace("-", "."))}</time>',
+            f'              <time datetime="{esc(article["publishedAt"])}">{esc(article["publishedAt"].replace("-", "."))}</time>'
+            + (f'\n              <small>更新 <time datetime="{esc(article["updatedAt"])}">{esc(article["updatedAt"].replace("-", "."))}</time></small>' if article.get("updatedAt") else ""),
             f'              <small>確認 {level}</small>',
             "            </div>",
             f'            <h3>{esc(article["title"])}</h3>',
@@ -411,7 +412,8 @@ def render_card(article: dict[str, Any], *, featured: bool = False, href_prefix:
             "              </div>",
             "            </div>",
             '            <div class="forensics-card-meta">',
-            f'              <time datetime="{esc(article["publishedAt"])}">{esc(article["publishedAt"].replace("-", "."))}</time>',
+            f'              <time datetime="{esc(article["publishedAt"])}">{esc(article["publishedAt"].replace("-", "."))}</time>'
+            + (f'\n              <span>更新 <time datetime="{esc(article["updatedAt"])}">{esc(article["updatedAt"].replace("-", "."))}</time></span>' if article.get("updatedAt") else ""),
             f'              <span>{esc(category_label(article["category"]))}</span>',
             f'              <span>{esc(difficulty_label(article["difficulty"]))}</span>',
             "            </div>",
@@ -923,6 +925,13 @@ def update_sitemap(articles: list[dict[str, Any]]) -> None:
         if insertion == -1:
             insertion = sitemap.rfind("</urlset>")
         sitemap = sitemap[:insertion] + case_urls + sitemap[insertion:]
+    # Beginner articles also need their explicit revision dates reflected in the sitemap.
+    for article in articles:
+        if not re.fullmatch(r"ex\d+", str(article.get("id", ""))) or not article.get("updatedAt"):
+            continue
+        url = re.escape(article_url(article))
+        pattern = re.compile(rf"(<url><loc>{url}</loc><lastmod>)[^<]*(</lastmod></url>)")
+        sitemap = pattern.sub(lambda match: match.group(1) + article["updatedAt"] + match.group(2), sitemap, count=1)
     SITEMAP_PATH.write_text(sitemap, encoding="utf-8")
 
 

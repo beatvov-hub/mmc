@@ -4,7 +4,9 @@ import copy
 import json
 import re
 import sys
+import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 
@@ -99,6 +101,34 @@ class AiForensicsValidatorTest(unittest.TestCase):
         self.assertEqual(json.loads(match.group(1))["dateModified"], "2026-10-31")
         article["updatedAt"] = "2020-01-01"
         self.assertTrue(any("updatedAt" in e for e in validator.validate_article(self.path, article, strict_id=True, expected_date=None)))
+
+    def test_ex2_gemini_answer_and_related_card_are_current(self) -> None:
+        articles = [generator.public_article(a) for a in generator.load_articles()]
+        article = next(a for a in articles if a["id"] == "ex2")
+        live = next(a for a in articles if a["id"] == "case-20260905-02")
+        self.assertEqual(article["question"]["recommendedAnswers"], ["retained-two-months"])
+        self.assertIn("retained-two-months", [c["id"] for c in article["question"]["choices"]])
+        page = generator.render_article_page(article, articles)
+        self.assertIn('data-recommended="retained-two-months"', page)
+        self.assertIn(live["title"], page)
+        self.assertNotIn("72時間", page)
+        self.assertEqual(article["publishedAt"], "2026-08-26")
+        self.assertEqual(article["updatedAt"], "2026-11-25")
+        index = generator.render_index_page(articles)
+        self.assertIn('更新 <time datetime="2026-11-25">2026.11.25</time>', index)
+
+    def test_beginner_article_updated_date_is_written_to_sitemap(self) -> None:
+        article = {"id": "ex2", "publishedAt": "2026-08-26", "updatedAt": "2026-11-25"}
+        sitemap = ("<urlset>\n"
+                   "  <url><loc>https://mainichi-miru.com/ai-forensics/</loc><lastmod>2026-08-26</lastmod></url>\n"
+                   "  <url><loc>https://mainichi-miru.com/ai-forensics/ex2</loc><lastmod>2026-08-26</lastmod></url>\n"
+                   "</urlset>\n")
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "sitemap.xml"
+            path.write_text(sitemap, encoding="utf-8")
+            with patch.object(generator, "SITEMAP_PATH", path):
+                generator.update_sitemap([article])
+            self.assertIn("/ai-forensics/ex2</loc><lastmod>2026-11-25</lastmod>", path.read_text(encoding="utf-8"))
 
     def test_oldest_article_has_no_nonexistent_previous_article(self) -> None:
         articles = [generator.public_article(a) for a in generator.load_articles()]
