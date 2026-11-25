@@ -113,9 +113,12 @@ class AiForensicsValidatorTest(unittest.TestCase):
         self.assertIn(live["title"], page)
         self.assertNotIn("72時間", page)
         self.assertEqual(article["publishedAt"], "2026-08-26")
-        self.assertEqual(article["updatedAt"], "2026-11-25")
+        self.assertGreaterEqual(article["updatedAt"], "2026-11-26")
+        self.assertIn("テキストやアップロード", page)
+        self.assertIn("人によるレビュー", page)
         index = generator.render_index_page(articles)
-        self.assertIn('更新 <time datetime="2026-11-25">2026.11.25</time>', index)
+        updated = article["updatedAt"]
+        self.assertIn(f'更新 <time datetime="{updated}">{updated.replace("-", ".")}</time>', index)
 
     def test_beginner_article_updated_date_is_written_to_sitemap(self) -> None:
         article = {"id": "ex2", "publishedAt": "2026-08-26", "updatedAt": "2026-11-25"}

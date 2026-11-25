@@ -59,6 +59,16 @@
       "title": "フィードバックを送ったか",
       "description": "履歴オフ後にフィードバックを送ると、関連するチャットやコンテンツの取り扱いに例外があるため、通常の場合と分けて考えます。",
       "priority": "medium"
+    },
+    {
+      "title": "履歴を残したまま学習への利用を確認",
+      "description": "個人用アカウントでは「設定とヘルプ」→「履歴」で、テキストやアップロードを含むチャット内容の生成AIモデルへの利用と、音声・Gemini Live動画・画面共有のGoogleサービス改善への利用を別々に確認できます。設定や表示は環境により変わる場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "学習オフとレビュー・保持の違い",
+      "description": "Googleによると、テキスト等の設定をオフにした後のチャットは、フィードバックを送らない限り生成AIモデルの学習に使われません。一方、他の方法でサービス改善に使われたり、人によるレビューが行われたりする場合があります。レビューされたチャットはアカウントから切り離され最長3年保存されます。",
+      "priority": "high"
     }
   ],
   "verificationLevel": 1,
@@ -73,6 +83,10 @@
     {
       "action": "Geminiの［履歴］設定を確認する",
       "reason": "今後のチャットが履歴に表示される設定か把握できます。"
+    },
+    {
+      "action": "履歴を残したい場合も、テキスト等と音声・動画の利用設定を別々に確認する",
+      "reason": "履歴の表示と、それぞれの利用設定は区別して確認できます。"
     },
     {
       "action": "残したくない会話では一時チャットを検討する",
@@ -95,6 +109,10 @@
     {
       "action": "設定が複雑だからプライバシー機能を使わない",
       "reason": "設定には実際の効果があるため、意味を知って利用すれば便利です。"
+    },
+    {
+      "action": "モデル学習をオフにすれば、人によるレビューや他の目的の利用もすべて止まると考える",
+      "reason": "Googleは他の方法による改善やレビューの可能性を説明しています。"
     }
   ],
   "positiveUse": {
@@ -121,8 +139,15 @@
       "title": "Gemini アプリのプライバシー ハブ",
       "publisher": "Google Gemini Apps Help",
       "sourceType": "official",
-      "publishedAt": "2026-07-15",
+      "publishedAt": null,
       "url": "https://support.google.com/gemini/answer/13594961?hl=ja"
+    },
+    {
+      "title": "Gemini アプリの履歴を管理、削除する",
+      "publisher": "Google Gemini アプリ ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/gemini/answer/13278892?hl=ja"
     }
   ],
   "visualSuggestion": {
@@ -130,5 +155,9 @@
     "cardIcon": "privacy-settings",
     "accentTone": "caution"
   },
-  "updatedAt": "2026-11-25"
+  "updatedAt": "2026-11-26",
+  "relatedArticleIds": [
+    "case-20260905-02",
+    "case-20261101-02"
+  ]
 }

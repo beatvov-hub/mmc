@@ -1,0 +1,131 @@
+{
+  "id": "case-20261126-02",
+  "publishedAt": "2026-11-26",
+  "title": "iPhoneでアプリに見せる連絡先を選ぶには？ 制限付きアクセスの確認方法",
+  "shortTitle": "iPhoneの連絡先アクセスを一部に制限",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "iPhoneでアプリの連絡先アクセスを見直したい人",
+    "メッセージアプリへ必要な連絡先だけを渡したい人"
+  ],
+  "summary": "iPhoneでは、アプリがアクセスできる連絡先を選択し、後から変更できます。「設定」から対象アプリの連絡先アクセスを開き、制限付きアクセスで必要な相手を選びましょう。",
+  "scenario": {
+    "headline": "アプリに連絡先へのアクセスを求められた",
+    "description": "友人との連絡に使いたいアプリですが、連絡先全員を見せる必要があるのか迷っています。",
+    "whyItMatters": "連絡先には自分以外の人の電話番号やメールアドレスも含まれます。アプリごとの必要な範囲を確認しましょう。"
+  },
+  "question": {
+    "text": "必要な相手の連絡先だけをアプリに使わせたいときは？",
+    "choices": [
+      {
+        "id": "limited",
+        "label": "設定の「連絡先」でアプリを選び、制限付きアクセスと対象者を確認する",
+        "description": "選択した連絡先は後から編集できます。"
+      },
+      {
+        "id": "all",
+        "label": "アプリは必ず全員の連絡先を必要とすると考える",
+        "description": "アプリごとにアクセスの程度を確認できます。"
+      },
+      {
+        "id": "irreversible",
+        "label": "一度許可した範囲は変更できないと考える",
+        "description": "Appleは後から変更できると案内しています。"
+      }
+    ],
+    "recommendedAnswers": [
+      "limited"
+    ],
+    "explanation": "「設定」→「プライバシーとセキュリティ」→「連絡先」でアプリを選び、「制限付きアクセス」の対象を確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "設定を開く",
+      "description": "「設定」→「プライバシーとセキュリティ」→「連絡先」を開き、確認したいアプリをタップします。",
+      "priority": "high"
+    },
+    {
+      "title": "アクセスの程度",
+      "description": "アプリの「連絡先のアクセス」で許可する程度を選びます。画面の表記はiOSやアプリによって異なる場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "必要な連絡先を選ぶ",
+      "description": "制限付きアクセスの場合は「選択した連絡先を編集」をタップし、必要な相手を選択・解除して「完了」を押します。",
+      "priority": "high"
+    },
+    {
+      "title": "アプリ側の機能を確認",
+      "description": "選択後、使いたい相手がアプリに表示されるか確認します。動かない場合は選択内容とアプリ提供元の案内を確認し、管理端末なら管理者に相談します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 2,
+  "verificationLabel": "アプリごとの連絡先アクセスを確認",
+  "verificationMessage": "必要なアプリと相手を選び、使いたい機能が動くか確認しましょう。",
+  "verdict": {
+    "label": "必要な相手を選び、後から見直せる",
+    "description": "iPhoneの連絡先設定でアプリごとのアクセスを確認し、制限付きアクセスの対象者を変更できます。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "設定の「プライバシーとセキュリティ」から「連絡先」を開く",
+      "reason": "アプリごとの許可状態を確認できます。"
+    },
+    {
+      "action": "必要に応じて制限付きアクセスと対象の連絡先を選ぶ",
+      "reason": "利用目的に合った範囲を選べます。"
+    },
+    {
+      "action": "選択後にアプリの必要な機能を試す",
+      "reason": "アクセス範囲によって表示や機能が変わる場合があります。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "どのアプリにも必要性を確認せず全連絡先を許可する",
+      "reason": "他の人の連絡先も含まれるため、必要な範囲を考えます。"
+    },
+    {
+      "action": "権限を変更すれば過去にアプリへ渡した情報も必ず削除されると考える",
+      "reason": "これまでの取り扱いや削除はアプリ提供元の案内も確認します。"
+    }
+  ],
+  "positiveUse": {
+    "title": "必要な相手だけで便利に使う",
+    "description": "アプリで必要な人を選びながら、連絡の機能を利用できます。",
+    "examples": [
+      "普段連絡する相手を選ぶ",
+      "不要になったアプリのアクセスを見直す",
+      "相手が表示されないとき選択内容を確認する"
+    ]
+  },
+  "makotoComment": "連絡先は、自分の情報と一緒に大切な人の情報も入っています。便利な機能を使う前に、そのアプリに必要な相手を選びたいですね。",
+  "oneLineLesson": "連絡先へのアクセスは、アプリごとに必要な範囲を選んで見直せる。",
+  "tags": [
+    "iPhone",
+    "連絡先",
+    "プライバシー",
+    "アプリ権限"
+  ],
+  "sources": [
+    {
+      "title": "iPhoneで連絡先へのアクセスを制御する",
+      "publisher": "Apple サポート",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.apple.com/ja-jp/guide/iphone/iph9536aa9a5/ios"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "iPhoneの設定からアプリと連絡先を選ぶ流れ",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261124-02",
+    "case-20261112-02"
+  ]
+}
