@@ -4256,6 +4256,59 @@
           "url": "https://raw.githubusercontent.com/mkdocs/mkdocs/master/LICENSE"
         }
       ]
+    },
+    {
+      "date": "2026-11-27",
+      "slug": "okular-add-pdf-review-notes-and-save-annotated-copy-free",
+      "useCategory": "文書・データ整理",
+      "name": "Okular",
+      "category": "PDF Annotation / Open Source",
+      "officialUrl": "https://okular.kde.org/",
+      "summary": "OkularはPDFの文字にハイライトやコメントを付け、校正指示入りのPDFとして保存できる文書ビューアです。",
+      "whyToday": "PDFをメールで回す校正では、修正位置と理由が本文から離れ、確認する人が迷うことがあります。Okularなら該当箇所を直接強調し、その場にメモを残せるため、指示をページ上にまとめたレビュー用コピーを作れます。",
+      "useFor": "例えば、イベント告知チラシのPDF初稿を校正する想定例です。OkularでPDFを開き、ツールの注釈バーから文字をハイライトし、修正理由をインラインノートに書きます。ファイルから別名で保存すると注釈入りPDFを作れます。まず1ページだけ試し、保存したコピーを開き直して指摘位置とコメントが残っているか確認します。この例は未実施です。",
+      "recommendedFor": {
+        "employeeId": "MMC-011",
+        "reason": "編集主任のコトちゃんに、告知チラシのPDF初稿で修正位置と理由を注釈に整理してもらい、制作者へ返せるレビュー用PDFを受け取る想定です。"
+      },
+      "keiComment": "紙面のどこを直すかがPDF上で伝わり、修正の往復を減らしやすい方法です。注釈にはOkular側で設定した作成者名が記録されるので、共有前に表示名を確かめてください。",
+      "verifiedAt": "2026-11-27",
+      "status": "published",
+      "pricing": "OkularはGPL-2.0+のオープンソースソフトウェアです。Microsoft Storeでは無料で入手できます。サブスクリプションやAPI利用を伴う例ではありません。",
+      "conditions": "Windowsでは公式配布案内からMicrosoft Store版を入手できます。注釈の編集・保存はPDFの権限に左右され、DRM付きなど一部のファイルでは制限されることがあります。",
+      "notes": "OkularはPDFなどを読む文書ビューアです。Agent SkillやMCPサーバーではなく、注釈は対応するファイルへ保存します。",
+      "archiveTitle": "OkularでPDFに修正指示を残せる？注釈入りコピーの保存方法",
+      "archiveDescription": "PDF校正でOkularのハイライトとコメントを使い、注釈入りコピーを保存する手順を紹介。無料で使える範囲、共有前の作成者名、DRMの注意も確認します。",
+      "forWho": "イベント告知や広報資料のPDF校正で、直す位置と理由をファイル上で伝えたい編集・広報担当者向けです。",
+      "cautions": "DRMなど文書側の権限によっては注釈の追加・編集・削除ができません。また、注釈にはOkularの設定画面で指定した作成者名が付くため、共有前に名前と保存先を確認してください。",
+      "faq": [
+        {
+          "question": "注釈はPDFファイルに保存できますか？",
+          "answer": "はい。Okularの公式ガイドでは、File → SaveまたはSave Asで注釈をPDFへ保存できると説明されています。ただし、ファイルの権限によって保存できない場合があります。"
+        },
+        {
+          "question": "どのPDFにも注釈できますか？",
+          "answer": "いいえ。DRMで保護されたファイルでは注釈を追加・編集・削除できない場合があり、文書の権限によって機能が無効になることがあります。"
+        }
+      ],
+      "officialSources": [
+        {
+          "label": "Okular公式ガイド（ハイライト・ノート・PDFへの保存・権限制限）",
+          "url": "https://docs.kde.org/stable_kf6/en/okular/okular/annotations.html"
+        },
+        {
+          "label": "Okular公式ダウンロード案内（Windows版とMicrosoft Store）",
+          "url": "https://okular.kde.org/download/"
+        },
+        {
+          "label": "KDE Applications公式Okular情報（GPL-2.0+ライセンス）",
+          "url": "https://apps.kde.org/en-gb/okular/"
+        },
+        {
+          "label": "Microsoft Store公式Okular配布ページ（無料ダウンロード）",
+          "url": "https://apps.microsoft.com/detail/9n41msq1wnm8?gl=US&hl=en-US"
+        }
+      ]
     }
   ]
 }
