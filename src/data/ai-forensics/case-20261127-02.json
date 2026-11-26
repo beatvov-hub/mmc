@@ -1,0 +1,144 @@
+{
+  "id": "case-20261127-02",
+  "publishedAt": "2026-11-27",
+  "title": "Gmailのメールが見つからないときは？ 迷惑メール・ゴミ箱・フィルタの確認順",
+  "shortTitle": "Gmailで見つからないメールを探す",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "Gmailの受信トレイでメールが見つからない人",
+    "削除やフィルタの設定を見直したい人"
+  ],
+  "summary": "Gmailのメールが受信トレイに見つからない場合は、正しいアカウントを確認し、迷惑メールやゴミ箱を含めて検索します。Googleは、受信トレイをスキップするフィルタや転送設定の確認も案内しています。",
+  "scenario": {
+    "headline": "届いたはずのメールが受信トレイに見当たらない",
+    "description": "送信者からメールを送ったと聞きましたが、受信トレイでは見つからず、削除されたのか迷っています。",
+    "whyItMatters": "迷惑メール、ゴミ箱、アーカイブ、フィルタなど、受信トレイに表示されない理由は複数あります。"
+  },
+  "question": {
+    "text": "Gmailのメールが見つからないとき、まず行う確認は？",
+    "choices": [
+      {
+        "id": "search",
+        "label": "正しいアカウントで迷惑メールとゴミ箱を含めて検索する",
+        "description": "見つからなければフィルタや転送設定も調べます。"
+      },
+      {
+        "id": "empty",
+        "label": "ゴミ箱を空にしてから探す",
+        "description": "残っているメールを完全に削除するおそれがあります。"
+      },
+      {
+        "id": "hacked",
+        "label": "見つからないだけで不正アクセスだと決めつける",
+        "description": "フィルタやアーカイブなどほかの理由もあります。"
+      }
+    ],
+    "recommendedAnswers": [
+      "search"
+    ],
+    "explanation": "正しいアカウントで、迷惑メール・ゴミ箱を含む範囲を検索します。見つからなければフィルタや転送・他のメールアプリも確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "ログイン中のアカウント",
+      "description": "複数アカウントを使う場合は、想定した受信先のGmailを開いているか確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "迷惑メールとゴミ箱を含めて検索",
+      "description": "パソコン版Gmailの検索オプションで「すべてのメール（迷惑メール、ゴミ箱のメールを含む）」を選び、差出人や件名を入力します。分からない条件は空欄にします。",
+      "priority": "high"
+    },
+    {
+      "title": "フィルタと転送",
+      "description": "「設定」→「すべての設定を表示」→「フィルタとブロック中のアドレス」で「受信トレイをスキップ」「削除して」を確認します。必要に応じて転送や他のメールアプリの設定も確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "削除と復元の限界",
+      "description": "ゴミ箱または迷惑メール内のメールは30日経過するか手動で空にすると完全に削除されます。復元は保証されません。",
+      "priority": "high"
+    },
+    {
+      "title": "不審な設定があった場合",
+      "description": "知らない転送先などが見つかったら、Googleの公式アカウント保護手順を確認します。仕事・学校用の場合は管理者にも相談します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "検索範囲とフィルタを順番に確認",
+  "verificationMessage": "ゴミ箱を空にする前に、検索範囲と設定を確認しましょう。",
+  "verdict": {
+    "label": "迷惑メール・ゴミ箱を含めて探し、フィルタを確認する",
+    "description": "受信トレイにない理由は複数あります。検索と設定を順番に確認し、不審な転送先があればアカウントの安全も確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "正しいアカウントで迷惑メールとゴミ箱を含めて検索する",
+      "reason": "受信トレイ以外に移動したメールを探せます。"
+    },
+    {
+      "action": "フィルタと転送・メールアプリの設定を確認する",
+      "reason": "自動的に移動・削除されていないか調べます。"
+    },
+    {
+      "action": "不審な転送設定がある場合はGoogleの案内を確認し、業務用は管理者に相談する",
+      "reason": "不正利用の可能性も含めて対処します。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "確認前にゴミ箱や迷惑メールを空にする",
+      "reason": "対象メールを完全に削除するおそれがあります。"
+    },
+    {
+      "action": "見つからないだけで必ず不正アクセスと判断する",
+      "reason": "フィルタやアーカイブなど別の原因もあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "必要なメールを落ち着いて探す",
+    "description": "検索範囲と自動振り分けを確認し、必要なメールを見つける助けにします。",
+    "examples": [
+      "差出人や件名で検索する",
+      "迷惑メールとゴミ箱を含める",
+      "不要なフィルタを確認する"
+    ]
+  },
+  "makotoComment": "受信トレイにないと、すぐ消えてしまったように感じます。まずアカウントと検索範囲を確かめ、ゴミ箱を空にする前に中身を見てみましょう。",
+  "oneLineLesson": "Gmailでは検索範囲とフィルタを確認してから、削除や不正利用を判断する。",
+  "tags": [
+    "Gmail",
+    "メール",
+    "迷惑メール",
+    "ゴミ箱",
+    "フィルタ"
+  ],
+  "sources": [
+    {
+      "title": "Gmail のメールが見つからない",
+      "publisher": "Google Gmail ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/mail/answer/7015314?co=GENIE.Platform%3DDesktop&hl=ja"
+    },
+    {
+      "title": "ハッキングまたは不正使用された Google アカウントを保護する",
+      "publisher": "Google アカウント ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/accounts/answer/6294825?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "アカウント、検索、ゴミ箱、フィルタを順に確認する図",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20261113-03",
+    "case-20261101-01"
+  ]
+}
