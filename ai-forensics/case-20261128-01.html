@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGPTなどの会話をGeminiに移す前に：履歴の取り込み範囲と削除方法｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="Googleは、他のAIサービスの会話履歴やメモリーをGeminiへ取り込む方法を案内しています。移行前に個人情報や他人の情報を確認し、移行先の保存・削除と利用条件を確かめましょう。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261128-01" />
+<meta property="og:title" content="ChatGPTなどの会話をGeminiに移す前に：履歴の取り込み範囲と削除方法｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="Googleは、他のAIサービスの会話履歴やメモリーをGeminiへ取り込む方法を案内しています。移行前に個人情報や他人の情報を確認し、移行先の保存・削除と利用条件を確かめましょう。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261128-01" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "ChatGPTなどの会話をGeminiに移す前に：履歴の取り込み範囲と削除方法", "description": "Googleは、他のAIサービスの会話履歴やメモリーをGeminiへ取り込む方法を案内しています。移行前に個人情報や他人の情報を確認し、移行先の保存・削除と利用条件を確かめましょう。", "datePublished": "2026-11-28", "mainEntityOfPage": "https://mainichi-miru.com/ai-forensics/case-20261128-01", "inLanguage": "ja"}</script>
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../quiz/">AI学習室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Geminiに会話を移す前の確認</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+              <time datetime="2026-11-28">2026.11.28</time>
+
+            </div>
+            <h1>ChatGPTなどの会話をGeminiに移す前に：履歴の取り込み範囲と削除方法</h1>
+            <p>Googleは、他のAIサービスの会話履歴やメモリーをGeminiへ取り込む方法を案内しています。移行前に個人情報や他人の情報を確認し、移行先の保存・削除と利用条件を確かめましょう。</p>
+            <ul class="forensics-target-list"><li>別のAIサービスの会話をGeminiへ移したい個人ユーザー</li><li>移行前に会話の内容や削除範囲を確認したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Gemini</li><li>ChatGPT</li><li>会話履歴</li><li>インポート</li><li>プライバシー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>公式案内と対象の設定を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>対象のアカウントと設定を確認してから、必要な操作を選びましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>別のAIで続けた相談をGeminiにも移したい</h3><p>会話履歴に個人的な相談や勤務先の情報が含まれるかもしれず、まとめて移してよいか迷っています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>履歴の取り込みは別サービスへ過去の情報を渡す操作です。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="check">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>取り込み前に確認したいことは？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="check" data-choice-id="check" />
+                <span>
+                  <strong>移行する履歴の内容とGeminiの利用条件を確認する</strong>
+                  <small>個人情報や勤務先の情報が含まれないか確認します。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="automatic" data-choice-id="automatic" />
+                <span>
+                  <strong>取り込めば元のサービスの会話は自動的に消えると思う</strong>
+                  <small>移行元と移行先の管理は別です。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="all_safe" data-choice-id="all_safe" />
+                <span>
+                  <strong>削除できるので何を移しても問題ないと考える</strong>
+                  <small>移行前の内容確認と利用条件の確認が必要です。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>移行する履歴の内容とGeminiの利用条件を確認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Googleは個人向けの条件を満たす利用者に、会話履歴やメモリーの取り込みを案内しています。履歴の内容と移行先の利用条件、取り込み後の削除範囲を先に確認します。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象のアカウント</h3>
+              <p>Googleの案内では18歳以上の個人アカウントが対象で、仕事用・学校用・管理対象のアカウントでは利用できません。地域や利用画面にも制限があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>移行する内容</h3>
+              <p>Googleは別のAIプラットフォームから会話履歴全体やメモリーを取り込む方法を説明しています。個人情報、他人の情報、勤務先の機密が含まれないか確認します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>移行後の削除</h3>
+              <p>Geminiで取り込んだチャットは個別に削除できます。インポートの項目を削除すると、対応するZIPに含まれる取り込み済みチャットをまとめて削除できます。移行元のデータや端末上のZIPは別に管理します。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>データ利用の確認</h3>
+              <p>Googleは取り込んだチャットをアクティビティに保存しサービス改善に利用すると説明しています。インポートの案内と現在の学習設定の適用関係は確認できていません。学習に必ず使われる、または絶対に使われないとは判断せず、移行前に最新の公式案内と設定を確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>会話を移す前に、履歴の内容と移行先の保存・削除条件を確かめる。</strong><p>Googleは個人向けの条件を満たす利用者に、会話履歴やメモリーの取り込みを案内しています。履歴の内容と移行先の利用条件、取り込み後の削除範囲を先に確認します。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>移行元の履歴とエクスポート範囲を確認する</strong><span>不要な個人情報や他人の情報を移さないためです。</span></li>
+            <li><strong>Geminiのアカウント種別と利用条件を確認する</strong><span>仕事・学校・管理対象アカウントはGoogleの案内する対象外です。</span></li>
+            <li><strong>取り込み後にチャットとインポート項目の削除範囲を確認する</strong><span>個別削除とZIP単位の削除を区別できます。</span></li>
+            <li><strong>勤務先の情報は組織の管理者に相談する</strong><span>個人向けサービスへ無断で移さないためです。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>個人情報を含む可能性のある履歴を内容を見ずにまとめて移す</strong><span>移行先にも情報が保存されます。</span></li>
+            <li><strong>Gemini側で削除すれば移行元やダウンロードしたZIPも消えると考える</strong><span>各サービスや端末のデータは別に確認します。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>確認してから便利に使う</h3>
+          <p>利用範囲と設定を確認すれば、自分に合った方法で機能を活用できます。</p>
+          <ul class="positive-example-list"><li>移行元の履歴とエクスポート範囲を確認する</li><li>Geminiのアカウント種別と利用条件を確認する</li><li>取り込み後にチャットとインポート項目の削除範囲を確認する</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>会話の移行は、便利さと一緒に過去の情報も新しいサービスへ持っていく操作です。私は移す前に、誰の情報が入っているかと、後でどこから消せるかを確認したいです。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>会話を移す前に、履歴の内容と移行先の保存・削除条件を確かめる。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.google.com/gemini/answer/16868299?hl=ja" target="_blank" rel="noopener noreferrer">他の AI プラットフォームから Gemini アプリにインポートする<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Gemini アプリ ヘルプ</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://support.google.com/gemini/answer/13594961?hl=ja" target="_blank" rel="noopener noreferrer">Gemini アプリのプライバシー ハブ<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Google Gemini アプリ ヘルプ</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="ex2" data-forensics-card data-category="security" data-level="1" data-difficulty="beginner" data-search-text="Geminiの履歴オフでも即時削除ではない。約2か月の保持を知っておこう Geminiの履歴オフと約2か月の保持 個人用Googleアカウントでは、Geminiの一時チャットと［履歴］をオフにした後の新しいチャットは、約2か月間アカウントに保持されます。一時チャットはAIモデルの学習に使われず、履歴オフ後の新規チャットもフィードバックを送信した場合を除き生成AIモデルの学習には使われません。履歴への表示、学習への利用、データの保持は分けて確認しましょう。 セキュリティ・権限 はじめて Gemini プライバシー 履歴 一時チャット データ保存 初心者 個人のGoogleアカウントでGeminiを使う人 生成AIへ入力する情報の扱いが気になる人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">privacy-settings</span>
+              <div>
+                <p>Geminiの履歴オフと約2か月の保持</p>
+                <h3>Geminiの履歴オフでも即時削除ではない。約2か月の保持を知っておこう</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-26">2026.08.26</time>
+              <span>更新 <time datetime="2026-11-26">2026.11.26</time></span>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">個人用Googleアカウントでは、Geminiの一時チャットと［履歴］をオフにした後の新しいチャットは、約2か月間アカウントに保持されます。一時チャットはAIモデルの学習に使われず、履歴オフ後の新規チャットもフィードバックを送信した場合を除き生成AIモデルの学習には使われません。履歴への表示、学習への利用、データの保持は分けて確認しましょう。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 1</strong>
+              <span>使う前に履歴設定を1か所確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>個人のGoogleアカウントでGeminiを使う人</li><li>生成AIへ入力する情報の扱いが気になる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>プライバシー</li><li>履歴</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-calm" href="case-20261101-02" data-forensics-card data-category="security" data-level="3" data-difficulty="beginner" data-search-text="Geminiの公開リンクを削除したら？共有した会話が残る範囲 Geminiの公開リンクを削除 GoogleはGeminiアプリの公式ヘルプで、会話の公開リンクの削除方法と削除後の扱いを案内しています。リンクを削除するとそのURLからは開けなくなりますが、元の会話や相手が続けた会話は別に残ります。 セキュリティ・権限 はじめて Gemini 共有リンク 公開リンク 会話履歴 プライバシー Geminiの会話をリンクで共有した人 共有を停止したい人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">shield</span>
+              <div>
+                <p>Geminiの公開リンクを削除</p>
+                <h3>Geminiの公開リンクを削除したら？共有した会話が残る範囲</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-11-01">2026.11.01</time>
+              <span>セキュリティ・権限</span>
+              <span>はじめて</span>
+            </div>
+            <p class="forensics-card-summary">GoogleはGeminiアプリの公式ヘルプで、会話の公開リンクの削除方法と削除後の扱いを案内しています。リンクを削除するとそのURLからは開けなくなりますが、元の会話や相手が続けた会話は別に残ります。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 3</strong>
+              <span>公式資料を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>Geminiの会話をリンクで共有した人</li><li>共有を停止したい人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>Gemini</li><li>共有リンク</li><li>公開リンク</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261128-02">前の記事</a>
+
+        </nav>
+      </article>
+      <!-- MMC_ADMAX_START -->
+      <aside class="mmc-admax" aria-label="広告" hidden>
+        <!-- admax -->
+        <script>
+          if (window.matchMedia('(max-width: 1023px)').matches) {
+            document.write('<script src="https://adm.shinobi.jp/s/4d564a9498aa80616483407ec15945ac"><\/script>');
+          } else {
+            document.write('<script src="https://adm.shinobi.jp/s/cb574e2bad513fcb4c33d1569df36493"><\/script>');
+          }
+        </script>
+        <!-- admax -->
+      </aside>
+      <!-- MMC_ADMAX_END -->
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="AI学習室メニュー">
+            <p class="site-footer-nav__title">AI学習室</p>
+            <a href="../quiz/">AI学習室トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/market/">Bean &amp; Bits MARKET</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>

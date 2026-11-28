@@ -1,0 +1,143 @@
+{
+  "id": "case-20261128-01",
+  "publishedAt": "2026-11-28",
+  "title": "ChatGPTなどの会話をGeminiに移す前に：履歴の取り込み範囲と削除方法",
+  "shortTitle": "Geminiに会話を移す前の確認",
+  "category": "security",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "別のAIサービスの会話をGeminiへ移したい個人ユーザー",
+    "移行前に会話の内容や削除範囲を確認したい人"
+  ],
+  "summary": "Googleは、他のAIサービスの会話履歴やメモリーをGeminiへ取り込む方法を案内しています。移行前に個人情報や他人の情報を確認し、移行先の保存・削除と利用条件を確かめましょう。",
+  "scenario": {
+    "headline": "別のAIで続けた相談をGeminiにも移したい",
+    "description": "会話履歴に個人的な相談や勤務先の情報が含まれるかもしれず、まとめて移してよいか迷っています。",
+    "whyItMatters": "履歴の取り込みは別サービスへ過去の情報を渡す操作です。"
+  },
+  "question": {
+    "text": "取り込み前に確認したいことは？",
+    "choices": [
+      {
+        "id": "check",
+        "label": "移行する履歴の内容とGeminiの利用条件を確認する",
+        "description": "個人情報や勤務先の情報が含まれないか確認します。"
+      },
+      {
+        "id": "automatic",
+        "label": "取り込めば元のサービスの会話は自動的に消えると思う",
+        "description": "移行元と移行先の管理は別です。"
+      },
+      {
+        "id": "all_safe",
+        "label": "削除できるので何を移しても問題ないと考える",
+        "description": "移行前の内容確認と利用条件の確認が必要です。"
+      }
+    ],
+    "recommendedAnswers": [
+      "check"
+    ],
+    "explanation": "Googleは個人向けの条件を満たす利用者に、会話履歴やメモリーの取り込みを案内しています。履歴の内容と移行先の利用条件、取り込み後の削除範囲を先に確認します。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "対象のアカウント",
+      "description": "Googleの案内では18歳以上の個人アカウントが対象で、仕事用・学校用・管理対象のアカウントでは利用できません。地域や利用画面にも制限があります。",
+      "priority": "high"
+    },
+    {
+      "title": "移行する内容",
+      "description": "Googleは別のAIプラットフォームから会話履歴全体やメモリーを取り込む方法を説明しています。個人情報、他人の情報、勤務先の機密が含まれないか確認します。",
+      "priority": "high"
+    },
+    {
+      "title": "移行後の削除",
+      "description": "Geminiで取り込んだチャットは個別に削除できます。インポートの項目を削除すると、対応するZIPに含まれる取り込み済みチャットをまとめて削除できます。移行元のデータや端末上のZIPは別に管理します。",
+      "priority": "high"
+    },
+    {
+      "title": "データ利用の確認",
+      "description": "Googleは取り込んだチャットをアクティビティに保存しサービス改善に利用すると説明しています。インポートの案内と現在の学習設定の適用関係は確認できていません。学習に必ず使われる、または絶対に使われないとは判断せず、移行前に最新の公式案内と設定を確認します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式案内と対象の設定を確認",
+  "verificationMessage": "対象のアカウントと設定を確認してから、必要な操作を選びましょう。",
+  "verdict": {
+    "label": "会話を移す前に、履歴の内容と移行先の保存・削除条件を確かめる。",
+    "description": "Googleは個人向けの条件を満たす利用者に、会話履歴やメモリーの取り込みを案内しています。履歴の内容と移行先の利用条件、取り込み後の削除範囲を先に確認します。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "移行元の履歴とエクスポート範囲を確認する",
+      "reason": "不要な個人情報や他人の情報を移さないためです。"
+    },
+    {
+      "action": "Geminiのアカウント種別と利用条件を確認する",
+      "reason": "仕事・学校・管理対象アカウントはGoogleの案内する対象外です。"
+    },
+    {
+      "action": "取り込み後にチャットとインポート項目の削除範囲を確認する",
+      "reason": "個別削除とZIP単位の削除を区別できます。"
+    },
+    {
+      "action": "勤務先の情報は組織の管理者に相談する",
+      "reason": "個人向けサービスへ無断で移さないためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "個人情報を含む可能性のある履歴を内容を見ずにまとめて移す",
+      "reason": "移行先にも情報が保存されます。"
+    },
+    {
+      "action": "Gemini側で削除すれば移行元やダウンロードしたZIPも消えると考える",
+      "reason": "各サービスや端末のデータは別に確認します。"
+    }
+  ],
+  "positiveUse": {
+    "title": "確認してから便利に使う",
+    "description": "利用範囲と設定を確認すれば、自分に合った方法で機能を活用できます。",
+    "examples": [
+      "移行元の履歴とエクスポート範囲を確認する",
+      "Geminiのアカウント種別と利用条件を確認する",
+      "取り込み後にチャットとインポート項目の削除範囲を確認する"
+    ]
+  },
+  "makotoComment": "会話の移行は、便利さと一緒に過去の情報も新しいサービスへ持っていく操作です。私は移す前に、誰の情報が入っているかと、後でどこから消せるかを確認したいです。",
+  "oneLineLesson": "会話を移す前に、履歴の内容と移行先の保存・削除条件を確かめる。",
+  "tags": [
+    "Gemini",
+    "ChatGPT",
+    "会話履歴",
+    "インポート",
+    "プライバシー"
+  ],
+  "sources": [
+    {
+      "title": "他の AI プラットフォームから Gemini アプリにインポートする",
+      "publisher": "Google Gemini アプリ ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/gemini/answer/16868299?hl=ja"
+    },
+    {
+      "title": "Gemini アプリのプライバシー ハブ",
+      "publisher": "Google Gemini アプリ ヘルプ",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.google.com/gemini/answer/13594961?hl=ja"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "確認する対象と操作を順番に示す図",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "ex2",
+    "case-20261101-02"
+  ]
+}

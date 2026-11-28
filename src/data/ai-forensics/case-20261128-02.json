@@ -1,0 +1,148 @@
+{
+  "id": "case-20261128-02",
+  "publishedAt": "2026-11-28",
+  "title": "Copilot Codeの「常に許可」とは？ ファイル操作とネット接続の承認範囲",
+  "shortTitle": "Copilot Codeの承認範囲を確認",
+  "category": "work-use",
+  "difficulty": "beginner",
+  "targetAudience": [
+    "個人向けCopilot Codeでアプリを作る人",
+    "AIによるファイル変更やネット接続の承認を確認したい人"
+  ],
+  "summary": "個人向けCopilot Codeはプレビュー段階です。Microsoftは「Always allow」をオンにすると保護された操作の確認を省略し、オフにするまで既存・新規のセッションに適用されると案内しています。サンドボックスの制限とは別に確認しましょう。",
+  "scenario": {
+    "headline": "Copilot Codeがファイル操作やネット接続を求めてきた",
+    "description": "確認画面に「Always allow」があり、次からも同じ範囲を許してよいか迷っています。",
+    "whyItMatters": "承認範囲を広げると操作を事前に確認する機会が減ります。"
+  },
+  "question": {
+    "text": "承認画面が表示されたとき、何を確認する？",
+    "choices": [
+      {
+        "id": "review",
+        "label": "コマンド・ファイルの場所・接続先を読み、必要な操作だけ承認する",
+        "description": "不明な場合はキャンセルして内容を確かめます。"
+      },
+      {
+        "id": "all",
+        "label": "常に許可すればサンドボックスの制限も消えると考える",
+        "description": "承認とサンドボックスは別の仕組みです。"
+      },
+      {
+        "id": "forget",
+        "label": "常に許可は作業が終われば必ず自動でオフになると考える",
+        "description": "Microsoftはオフにするまで有効と案内しています。"
+      }
+    ],
+    "recommendedAnswers": [
+      "review"
+    ],
+    "explanation": "Microsoftは、Always allowがオフにするまで有効である一方、承認してもサンドボックスの制限を上書きしないと説明しています。必要な操作を確認し、不明ならキャンセルします。"
+  },
+  "inspectionPoints": [
+    {
+      "title": "対象は個人向けプレビュー",
+      "description": "この記事はMicrosoftの個人向けCopilot Codeプレビューの案内です。GitHub Copilot CLIとは別製品で、提供範囲や画面は変わる場合があります。",
+      "priority": "high"
+    },
+    {
+      "title": "承認する操作",
+      "description": "Microsoftは、プロジェクト外へのアクセス、削除、ネットワーク接続、GitHub接続などの承認で、コマンド・場所・接続先を確認するよう案内しています。",
+      "priority": "high"
+    },
+    {
+      "title": "Always allowの範囲",
+      "description": "オンにすると保護された操作の確認が省略され、オフにするまで既存と新規のセッションに適用されます。意図しないファイル変更や公開などのリスクがあります。",
+      "priority": "high"
+    },
+    {
+      "title": "確認設定とサンドボックス",
+      "description": "承認の省略はサンドボックスの制限を上書きしません。ただしサンドボックスもすべてのリスクをなくすものではなく、自分で起動したアプリは対象外です。",
+      "priority": "high"
+    },
+    {
+      "title": "設定と撤回",
+      "description": "Microsoftの案内では Settings and more → Code → Manage PC Settings → Run tools without asking でオン・オフを変更できます。セッションやプロジェクト単位の許可の撤回には、それぞれの削除が案内されているため、削除前に必要なデータを確認します。",
+      "priority": "high"
+    }
+  ],
+  "verificationLevel": 3,
+  "verificationLabel": "公式案内と対象の設定を確認",
+  "verificationMessage": "対象のアカウントと設定を確認してから、必要な操作を選びましょう。",
+  "verdict": {
+    "label": "Copilot Codeの承認範囲とサンドボックスを分け、不要な常時許可はオフにする。",
+    "description": "Microsoftは、Always allowがオフにするまで有効である一方、承認してもサンドボックスの制限を上書きしないと説明しています。必要な操作を確認し、不明ならキャンセルします。",
+    "confidence": "high"
+  },
+  "safeActions": [
+    {
+      "action": "承認画面のコマンド・パス・接続先を確認する",
+      "reason": "依頼した作業に必要な操作か判断するためです。"
+    },
+    {
+      "action": "不明な操作はキャンセルし、内容を確認する",
+      "reason": "理解しないまま削除や接続を許可しないためです。"
+    },
+    {
+      "action": "不要なAlways allowは設定からオフにする",
+      "reason": "Microsoftはオフにするまで有効と案内しています。"
+    },
+    {
+      "action": "仕事のファイルや共有リポジトリは管理者に相談する",
+      "reason": "組織のルールと対象範囲を確認するためです。"
+    }
+  ],
+  "avoidActions": [
+    {
+      "action": "Always allowとサンドボックスを同じ設定と考える",
+      "reason": "Microsoftは両者を別の仕組みとして説明しています。"
+    },
+    {
+      "action": "保存が必要なセッションやプロジェクトを確認せず削除する",
+      "reason": "撤回操作で必要な情報を失うおそれがあります。"
+    }
+  ],
+  "positiveUse": {
+    "title": "確認してから便利に使う",
+    "description": "利用範囲と設定を確認すれば、自分に合った方法で機能を活用できます。",
+    "examples": [
+      "承認画面のコマンド・パス・接続先を確認する",
+      "不明な操作はキャンセルし、内容を確認する",
+      "不要なAlways allowは設定からオフにする"
+    ]
+  },
+  "makotoComment": "便利な承認設定ほど、どこまで効き、いつ終わるのかを確認したいです。別製品の手順をそのまま流用せず、いま使っている画面の案内に戻りましょう。",
+  "oneLineLesson": "Copilot Codeの承認範囲とサンドボックスを分け、不要な常時許可はオフにする。",
+  "tags": [
+    "Copilot Code",
+    "AIエージェント",
+    "権限",
+    "サンドボックス",
+    "プレビュー"
+  ],
+  "sources": [
+    {
+      "title": "Run projects and review actions in Copilot Code (Preview)",
+      "publisher": "Microsoft Support",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/copilot-code-run-projects-review-actions"
+    },
+    {
+      "title": "Copilot Code security considerations (Preview)",
+      "publisher": "Microsoft Support",
+      "sourceType": "official-product-documentation",
+      "publishedAt": null,
+      "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/copilot-code-security-considerations"
+    }
+  ],
+  "visualSuggestion": {
+    "mainVisual": "確認する対象と操作を順番に示す図",
+    "cardIcon": "shield",
+    "accentTone": "calm"
+  },
+  "relatedArticleIds": [
+    "case-20260913-03",
+    "case-20260808-03"
+  ]
+}

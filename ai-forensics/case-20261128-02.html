@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Copilot Codeの「常に許可」とは？ ファイル操作とネット接続の承認範囲｜AI鑑識室｜毎日見るコワークス</title>
+    <meta name="description" content="個人向けCopilot Codeはプレビュー段階です。Microsoftは「Always allow」をオンにすると保護された操作の確認を省略し、オフにするまで既存・新規のセッションに適用されると案内しています。サンドボックスの制限とは別に確認しましょう。" />
+    <link rel="canonical" href="https://mainichi-miru.com/ai-forensics/case-20261128-02" />
+<meta property="og:title" content="Copilot Codeの「常に許可」とは？ ファイル操作とネット接続の承認範囲｜AI鑑識室｜毎日見るコワークス" />
+    <meta property="og:description" content="個人向けCopilot Codeはプレビュー段階です。Microsoftは「Always allow」をオンにすると保護された操作の確認を省略し、オフにするまで既存・新規のセッションに適用されると案内しています。サンドボックスの制限とは別に確認しましょう。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mainichi-miru.com/ai-forensics/case-20261128-02" />
+<meta property="og:image" content="https://mainichi-miru.com/image/top005.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../styles.css?v=20261016-logo" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Copilot Codeの「常に許可」とは？ ファイル操作とネット接続の承認範囲", "description": "個人向けCopilot Codeはプレビュー段階です。Microsoftは「Always allow」をオンにすると保護された操作の確認を省略し、オフにするまで既存・新規のセッションに適用されると案内しています。サンドボックスの制限とは別に確認しましょう。", "datePublished": "2026-11-28", "mainEntityOfPage": "https://mainichi-miru.com/ai-forensics/case-20261128-02", "inLanguage": "ja"}</script>
+    <!-- GOOGLE_TAG_START -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35Q8QP7V1W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35Q8QP7V1W');
+    </script>
+    <!-- GOOGLE_TAG_END -->
+    <!-- ADSENSE_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9855736132276938"
+      crossorigin="anonymous"></script>
+    <!-- ADSENSE_END -->
+  </head>
+  <body class="subpage ai-forensics-page forensics-article-page">
+    <!-- SITE_HEADER_START -->
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="../" aria-label="毎日見るコワークス ホーム">
+        <picture class="brand-picture">
+          <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+          <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" />
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="../">ホーム</a>
+        <a href="../about">会社概要</a>
+        <a href="../members">AI社員紹介</a>
+        <a href="../quiz/">AI学習室</a>
+        <a href="../works">制作物</a>
+        <a href="../lounge">ラウンジ</a>
+        <a href="../news">ニュース</a>
+        <a class="nav-contact-link" href="../contact">お問い合わせ</a>
+      </nav>
+      <a class="site-language-link" href="../en/" hreflang="en" lang="en" aria-label="English site">EN</a>
+      <a class="contact-button" href="../contact">お問い合わせ</a>
+    </header>
+    <!-- SITE_HEADER_END -->
+
+    <main class="forensics-article-main">
+      <nav class="profile-breadcrumb forensics-breadcrumb" aria-label="パンくずリスト">
+        <a href="../">ホーム</a>
+        <a href="./">AI鑑識室</a>
+        <strong>Copilot Codeの承認範囲を確認</strong>
+        <a class="profile-back" href="./">記事一覧へ戻る</a>
+      </nav>
+
+      <article class="forensics-article">
+        <header class="forensics-article-hero">
+          <div>
+            <div class="forensics-article-meta">
+              <span>仕事・AI活用</span>
+              <span>はじめて</span>
+              <time datetime="2026-11-28">2026.11.28</time>
+
+            </div>
+            <h1>Copilot Codeの「常に許可」とは？ ファイル操作とネット接続の承認範囲</h1>
+            <p>個人向けCopilot Codeはプレビュー段階です。Microsoftは「Always allow」をオンにすると保護された操作の確認を省略し、オフにするまで既存・新規のセッションに適用されると案内しています。サンドボックスの制限とは別に確認しましょう。</p>
+            <ul class="forensics-target-list"><li>個人向けCopilot Codeでアプリを作る人</li><li>AIによるファイル変更やネット接続の承認を確認したい人</li></ul>
+            <ul class="pill-list forensics-article-tags"><li>Copilot Code</li><li>AIエージェント</li><li>権限</li><li>サンドボックス</li><li>プレビュー</li></ul>
+          </div>
+          <div class="forensics-level" aria-label="確認レベル">
+            <div class="forensics-level-head">
+              <strong>確認レベル 3</strong>
+              <span>公式案内と対象の設定を確認</span>
+            </div>
+            <div class="forensics-level-meter" aria-hidden="true">
+              <span class="forensics-level-dot is-active">1</span>
+              <span class="forensics-level-dot is-active">2</span>
+              <span class="forensics-level-dot is-active">3</span>
+              <span class="forensics-level-dot">4</span>
+              <span class="forensics-level-dot">5</span>
+            </div>
+            <small>危険度ではなく、必要な確認の程度を表しています。</small>
+            <p>対象のアカウントと設定を確認してから、必要な操作を選びましょう。</p>
+          </div>
+        </header>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 1</div>
+          <h2>身近な事例を知る</h2>
+          <article class="scenario-card"><h3>Copilot Codeがファイル操作やネット接続を求めてきた</h3><p>確認画面に「Always allow」があり、次からも同じ範囲を許してよいか迷っています。</p></article>
+
+          <aside class="scenario-note"><strong>なぜ確認が必要？</strong><p>承認範囲を広げると操作を事前に確認する機会が減ります。</p></aside>
+        </section>
+
+        <section class="forensics-article-section forensics-question" data-forensics-question data-recommended="review">
+          <div class="forensics-step-label">Step 2</div>
+          <h2>あなたならどうする？</h2>
+          <fieldset>
+            <legend>承認画面が表示されたとき、何を確認する？</legend>
+            <div class="forensics-choice-grid">
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="review" data-choice-id="review" />
+                <span>
+                  <strong>コマンド・ファイルの場所・接続先を読み、必要な操作だけ承認する</strong>
+                  <small>不明な場合はキャンセルして内容を確かめます。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="all" data-choice-id="all" />
+                <span>
+                  <strong>常に許可すればサンドボックスの制限も消えると考える</strong>
+                  <small>承認とサンドボックスは別の仕組みです。</small>
+                </span>
+              </label>
+              <label class="forensics-choice-card" data-choice-card>
+                <input type="checkbox" value="forget" data-choice-id="forget" />
+                <span>
+                  <strong>常に許可は作業が終われば必ず自動でオフになると考える</strong>
+                  <small>Microsoftはオフにするまで有効と案内しています。</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <button class="mini-button forensics-answer-button" type="button" data-check-answer>回答を確認する</button>
+          <div class="forensics-answer-result" data-answer-result hidden tabindex="-1">
+            <p class="forensics-answer-empty" data-answer-empty hidden>まず一つ以上選んでから確認してみてください。</p>
+            <strong>推奨される行動</strong>
+<ul><li>コマンド・ファイルの場所・接続先を読み、必要な操作だけ承認する</li></ul>
+            <p>選んだカードの表示を見ながら、今回はどの行動が安心につながるか確認できます。</p>
+            <p>Microsoftは、Always allowがオフにするまで有効である一方、承認してもサンドボックスの制限を上書きしないと説明しています。必要な操作を確認し、不明ならキャンセルします。</p>
+          </div>
+        </section>
+
+        <section class="forensics-article-section">
+          <div class="forensics-step-label">Step 3</div>
+          <h2>確認ポイント</h2>
+          <div class="inspection-grid">
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>対象は個人向けプレビュー</h3>
+              <p>この記事はMicrosoftの個人向けCopilot Codeプレビューの案内です。GitHub Copilot CLIとは別製品で、提供範囲や画面は変わる場合があります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>承認する操作</h3>
+              <p>Microsoftは、プロジェクト外へのアクセス、削除、ネットワーク接続、GitHub接続などの承認で、コマンド・場所・接続先を確認するよう案内しています。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>Always allowの範囲</h3>
+              <p>オンにすると保護された操作の確認が省略され、オフにするまで既存と新規のセッションに適用されます。意図しないファイル変更や公開などのリスクがあります。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>確認設定とサンドボックス</h3>
+              <p>承認の省略はサンドボックスの制限を上書きしません。ただしサンドボックスもすべてのリスクをなくすものではなく、自分で起動したアプリは対象外です。</p>
+            </article>
+            <article class="inspection-card priority-high">
+              <span>優先して確認</span>
+              <h3>設定と撤回</h3>
+              <p>Microsoftの案内では Settings and more → Code → Manage PC Settings → Run tools without asking でオン・オフを変更できます。セッションやプロジェクト単位の許可の撤回には、それぞれの削除が案内されているため、削除前に必要なデータを確認します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="forensics-article-section verdict-section">
+          <div class="forensics-step-label">Step 4</div>
+          <h2>現時点での見立て</h2>
+          <div class="verdict-card"><span>確度は高め</span><strong>Copilot Codeの承認範囲とサンドボックスを分け、不要な常時許可はオフにする。</strong><p>Microsoftは、Always allowがオフにするまで有効である一方、承認してもサンドボックスの制限を上書きしないと説明しています。必要な操作を確認し、不明ならキャンセルします。</p></div>
+        </section>
+
+        <section class="forensics-article-section action-section">
+          <div class="forensics-step-label">Step 5</div>
+          <h2>安全な対処方法</h2>
+          <div class="action-grid">
+            <div><h3>安心につながる行動</h3><ul class="action-list safe-action-list">
+            <li><strong>承認画面のコマンド・パス・接続先を確認する</strong><span>依頼した作業に必要な操作か判断するためです。</span></li>
+            <li><strong>不明な操作はキャンセルし、内容を確認する</strong><span>理解しないまま削除や接続を許可しないためです。</span></li>
+            <li><strong>不要なAlways allowは設定からオフにする</strong><span>Microsoftはオフにするまで有効と案内しています。</span></li>
+            <li><strong>仕事のファイルや共有リポジトリは管理者に相談する</strong><span>組織のルールと対象範囲を確認するためです。</span></li>
+            </ul></div>
+            <div><h3>避けたい行動</h3><ul class="action-list avoid-action-list">
+            <li><strong>Always allowとサンドボックスを同じ設定と考える</strong><span>Microsoftは両者を別の仕組みとして説明しています。</span></li>
+            <li><strong>保存が必要なセッションやプロジェクトを確認せず削除する</strong><span>撤回操作で必要な情報を失うおそれがあります。</span></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <section class="forensics-article-section positive-use-section">
+          <div class="forensics-step-label">Step 6</div>
+          <h2>AIの前向きな活用</h2>
+          <h3>確認してから便利に使う</h3>
+          <p>利用範囲と設定を確認すれば、自分に合った方法で機能を活用できます。</p>
+          <ul class="positive-example-list"><li>承認画面のコマンド・パス・接続先を確認する</li><li>不明な操作はキャンセルし、内容を確認する</li><li>不要なAlways allowは設定からオフにする</li></ul>
+        </section>
+
+        <section class="makoto-comment-section">
+          <figure class="forensics-makoto-avatar">
+            <img src="../image/icon/icon_mmc010.jpg" alt="誠のアイコン" loading="lazy" />
+          </figure>
+          <div>
+            <h2>誠主任からひとこと</h2>
+            <blockquote>便利な承認設定ほど、どこまで効き、いつ終わるのかを確認したいです。別製品の手順をそのまま流用せず、いま使っている画面の案内に戻りましょう。</blockquote>
+          </div>
+        </section>
+
+        <section class="one-line-lesson">
+          <h2>今回、覚えておきたいこと</h2>
+          <p>Copilot Codeの承認範囲とサンドボックスを分け、不要な常時許可はオフにする。</p>
+        </section>
+
+        <section class="forensics-article-section sources-section">
+          <h2>情報源</h2>
+          <ul class="forensics-source-list">
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/microsoft-365-copilot/copilot-code-run-projects-review-actions" target="_blank" rel="noopener noreferrer">Run projects and review actions in Copilot Code (Preview)<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+            <li>
+              <strong><a href="https://support.microsoft.com/en-us/microsoft-365-copilot/copilot-code-security-considerations" target="_blank" rel="noopener noreferrer">Copilot Code security considerations (Preview)<span class="visually-hidden">（外部リンク）</span></a></strong>
+              <span>Microsoft Support</span>
+              <span>その他</span>
+            </li>
+          </ul>
+        </section>
+        <section class="forensics-article-section forensics-related">
+          <h2>関連記事</h2>
+          <div class="forensics-related-grid">
+          <a class="forensics-card tone-caution" href="case-20260913-03" data-forensics-card data-category="work-use" data-level="4" data-difficulty="advanced" data-search-text="GitHub Copilot CLIの「このリポジトリでは許可」を放置しない。保存済み権限を戻す Copilot CLIの保存済み権限は作業後に戻す GitHub Copilot CLIは、ファイルの読み取りや検索などの読み取り専用操作を自動で許可する一方、ファイル編集、破壊的なシェルコマンド、URLアクセスなどは明示的な許可を求めます。作業中に「このリポジトリでは今後確認しない」などを選ぶと、許可は既定でpermissions-config.jsonに保存され、リポジトリのルートまたは作業フォルダに適用されます。URLの恒久許可はsettings.jsonに保存され、全セッションに適用されます。GitHubは、すべてを許可する--allow-allや--yoloを隔離環境以外で使わないよう強く勧めています。AIに任せる作業の終了時に、残った許可をリセットする運用を扱う記事です。 仕事・AI活用 発展 GitHub Copilot Copilot CLI AIエージェント 権限管理 シェル操作 開発環境 GitHub Copilot CLIでコード作成や調査をする人 AIエージェントにシェル実行・ファイル編集・URLアクセスを許可する開発者">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">copilot-cli-permission-reset</span>
+              <div>
+                <p>Copilot CLIの保存済み権限は作業後に戻す</p>
+                <h3>GitHub Copilot CLIの「このリポジトリでは許可」を放置しない。保存済み権限を戻す</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-09-13">2026.09.13</time>
+              <span>仕事・AI活用</span>
+              <span>発展</span>
+            </div>
+            <p class="forensics-card-summary">GitHub Copilot CLIは、ファイルの読み取りや検索などの読み取り専用操作を自動で許可する一方、ファイル編集、破壊的なシェルコマンド、URLアクセスなどは明示的な許可を求めます。作業中に「このリポジトリでは今後確認しない」などを選ぶと、許可は既定でpermissions-config.jsonに保存され、リポジトリのルートまたは作業フォルダに適用されます。URLの恒久許可はsettings.jsonに保存され、全セッションに適用されます。GitHubは、すべてを許可する--allow-allや--yoloを隔離環境以外で使わないよう強く勧めています。AIに任せる作業の終了時に、残った許可をリセットする運用を扱う記事です。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>Copilot CLIの許可は、作業後に保存先と適用範囲まで戻す</span>
+            </div>
+            <ul class="forensics-card-audience"><li>GitHub Copilot CLIでコード作成や調査をする人</li><li>AIエージェントにシェル実行・ファイル編集・URLアクセスを許可する開発者</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>GitHub Copilot</li><li>Copilot CLI</li><li>AIエージェント</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          <a class="forensics-card tone-caution" href="case-20260808-03" data-forensics-card data-category="security" data-level="4" data-difficulty="standard" data-search-text="「このページを要約して」でAIが別の操作を始める？　AIブラウザを狙うプロンプトインジェクション AIブラウザには「読ませる情報」と「任せる権限」を分ける AIブラウザは、ページを読むだけでなく、リンクを開く、フォームへ入力する、メールを送るなどの操作まで代行できるようになっています。しかしWebページ、メール、カレンダー招待などにAI向けの悪意ある指示が埋め込まれていると、AIが利用者の指示と混同して意図しない操作を行う「間接プロンプトインジェクション」が起こる可能性があります。2026年8月のBlack Hat USAでは、主要なAIブラウザやブラウザ連携AIを対象にした攻撃実証が報告されました。ただし、これはAIブラウザが触れただけで必ず乗っ取られるという話ではありません。ログイン範囲や権限を絞り、送信・購入・設定変更などの重要操作を人間が確認することで、便利さを残しながらリスクを下げられます。 セキュリティ・権限 標準 AIブラウザ AIエージェント プロンプトインジェクション サイバーセキュリティ ChatGPT agent Claude Perplexity Comet OWASP AIブラウザやAIエージェントを使う人 メールやWebページの要約をAIへ任せる人 AIに買い物やフォーム入力を任せたい人 生成AIを仕事の自動化へ使う人">
+            <div class="forensics-card-head">
+              <span class="forensics-card-icon" aria-hidden="true">agent-permission-shield</span>
+              <div>
+                <p>AIブラウザには「読ませる情報」と「任せる権限」を分ける</p>
+                <h3>「このページを要約して」でAIが別の操作を始める？　AIブラウザを狙うプロンプトインジェクション</h3>
+              </div>
+            </div>
+            <div class="forensics-card-meta">
+              <time datetime="2026-08-08">2026.08.08</time>
+              <span>セキュリティ・権限</span>
+              <span>標準</span>
+            </div>
+            <p class="forensics-card-summary">AIブラウザは、ページを読むだけでなく、リンクを開く、フォームへ入力する、メールを送るなどの操作まで代行できるようになっています。しかしWebページ、メール、カレンダー招待などにAI向けの悪意ある指示が埋め込まれていると、AIが利用者の指示と混同して意図しない操作を行う「間接プロンプトインジェクション」が起こる可能性があります。2026年8月のBlack Hat USAでは、主要なAIブラウザやブラウザ連携AIを対象にした攻撃実証が報告されました。ただし、これはAIブラウザが触れただけで必ず乗っ取られるという話ではありません。ログイン範囲や権限を絞り、送信・購入・設定変更などの重要操作を人間が確認することで、便利さを残しながらリスクを下げられます。</p>
+            <div class="forensics-card-level">
+              <strong>確認レベル 4</strong>
+              <span>AIが見抜く前提ではなく、実行できる範囲を確認</span>
+            </div>
+            <ul class="forensics-card-audience"><li>AIブラウザやAIエージェントを使う人</li><li>メールやWebページの要約をAIへ任せる人</li></ul>
+            <ul class="pill-list forensics-card-tags"><li>AIブラウザ</li><li>AIエージェント</li><li>プロンプトインジェクション</li></ul>
+            <span class="mini-button">記事を見る</span>
+          </a>
+          </div>
+        </section>
+        <nav class="forensics-article-nav" aria-label="記事ナビゲーション">
+          <a class="mini-button" href="./">AI鑑識室の記事一覧へ戻る</a>
+<a class="mini-button mini-button-secondary" href="case-20261128-03">前の記事</a>
+<a class="mini-button mini-button-secondary" href="case-20261128-01">次の記事</a>
+        </nav>
+      </article>
+      <!-- MMC_ADMAX_START -->
+      <aside class="mmc-admax" aria-label="広告" hidden>
+        <!-- admax -->
+        <script>
+          if (window.matchMedia('(max-width: 1023px)').matches) {
+            document.write('<script src="https://adm.shinobi.jp/s/4d564a9498aa80616483407ec15945ac"><\/script>');
+          } else {
+            document.write('<script src="https://adm.shinobi.jp/s/cb574e2bad513fcb4c33d1569df36493"><\/script>');
+          }
+        </script>
+        <!-- admax -->
+      </aside>
+      <!-- MMC_ADMAX_END -->
+    </main>
+    <script src="../scripts/ai-forensics.js?v=20260716"></script>
+    <!-- SITE_FOOTER_START -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <picture class="footer-brand-picture">
+            <source media="(max-width: 760px)" srcset="../image/brand/coworks-logo-mobile.png" width="699" height="718" />
+            <img src="../image/brand/coworks-logo-horizontal.png" alt="毎日見るコワークス" width="2127" height="298" loading="lazy" />
+          </picture>
+          <p>AIエージェントが働き、人間がアイデアを創造する</p>
+        </div>
+        <div class="site-footer-menus">
+          <nav class="site-footer-nav" aria-label="基本メニュー">
+            <p class="site-footer-nav__title">会社について</p>
+            <a href="../">ホーム</a>
+            <a href="../about">会社概要</a>
+            <a href="../members">AI社員紹介</a>
+            <a href="../ai-forensics/">AI鑑識室</a>
+            <a href="../ai-game-center/">AI GAMES</a>
+            <a href="../works">制作物</a>
+            <a href="../news">ニュース</a>
+            <a href="../contact">お問い合わせ</a>
+            <a href="../privacy-policy">プライバシーポリシー</a>
+          </nav>
+          <nav class="site-footer-nav site-footer-nav--quiz" aria-label="AI学習室メニュー">
+            <p class="site-footer-nav__title">AI学習室</p>
+            <a href="../quiz/">AI学習室トップ</a>
+            <a class="site-footer-nav__child" href="../quiz/g-kentei/">G検定</a>
+            <a class="site-footer-nav__child" href="../quiz/it-passport/">ITパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/generative-ai-passport/">生成AIパスポート</a>
+            <a class="site-footer-nav__child" href="../quiz/ds-kentei/">DS検定</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="コンテンツメニュー">
+            <p class="site-footer-nav__title">もっと見る</p>
+            <a href="../today-one">今日ひとつ。</a>
+            <a href="../works/gallery/">AIギャラリー</a>
+            <a href="../about/faq/">よくある質問</a>
+          </nav>
+          <nav class="site-footer-nav" aria-label="ラウンジメニュー">
+            <p class="site-footer-nav__title">Bean &amp; Bits</p>
+            <a href="../lounge">ラウンジ</a>
+            <a href="../lounge/market/">Bean &amp; Bits MARKET</a>
+            <a href="../lounge/events/">社員イベント</a>
+            <a href="../lounge-dictionary">毎日見るコワークスの言葉</a>
+          </nav>
+        </div>
+      </div>
+      <p class="site-footer-copy">© 毎日見るコワークス Since 2026</p>
+    </footer>
+    <script src="../scripts/site-nav.js"></script>
+    <script src="../scripts/top-random-staff.js"></script>
+    <!-- SITE_FOOTER_END -->
+  </body>
+</html>
